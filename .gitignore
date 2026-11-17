@@ -1,0 +1,7 @@
+arquivo/
+contexto-de-estudo-*.md
+HANDOFF-formacao-engenharia-llms-para-claude-2026-10-13.md
+__pycache__/
+*.pyc
+*.bak
+.DS_Store

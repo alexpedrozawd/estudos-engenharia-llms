@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protótipo da mecânica de questões</title>
+<style>
+  :root {
+    --papel: #f5f1e8;
+    --texto: #000;
+    --borda: #8a8577;
+    --sucesso-fundo: #d1e7dd;
+    --sucesso-texto: #0a3622;
+    --erro-fundo: #f8d7da;
+    --erro-texto: #58151c;
+    --foco: #1a4fa0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --papel: #f5f1e8;
+      --texto: #000;
+    }
+  }
+  :root[data-theme="dark"] {
+    --papel: #f5f1e8;
+    --texto: #000;
+  }
+  html, body { margin: 0; background: var(--papel); color: var(--texto); }
+  body {
+    font-family: Georgia, "Noto Serif", serif;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 62ch;
+    margin-inline: auto;
+    overflow-wrap: anywhere;
+  }
+  h1 { font-size: 1.3rem; margin: 0 0 0.5em; }
+  p.nota { font-size: 0.95rem; color: #333; }
+  fieldset {
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    margin: 1.5em 0;
+    padding: 12px 14px 14px;
+  }
+  legend { padding: 0 6px; font-weight: bold; }
+  .alternativa {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 6px;
+    cursor: pointer;
+  }
+  .alternativa input { margin-top: 0.35em; flex: none; width: 1.1em; height: 1.1em; }
+  .alternativa:focus-within { outline: 2px solid var(--foco); outline-offset: 2px; }
+  .alternativa.travada { cursor: default; }
+  .retorno {
+    margin-top: 0.8em;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 0.97rem;
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+  .retorno.visivel { opacity: 1; }
+  .retorno.sucesso { background: var(--sucesso-fundo); color: var(--sucesso-texto); }
+  .retorno.erro { background: var(--erro-fundo); color: var(--erro-texto); }
+  .retorno strong { display: block; margin-bottom: 0.3em; }
+  .retorno[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .retorno { transition: none; }
+  }
+</style>
+</head>
+<body>
+<h1>Protótipo da mecânica de questões</h1>
+<p class="nota">Perguntas de teste, fictícias, só para validar a mecânica (seleção, correção local, retorno, gabarito). Não são questões do capítulo. Uma resposta por questão; a primeira resposta trava.</p>
+
+<main id="questoes"></main>
+
+<script>
+const PERGUNTAS = [
+  {
+    enunciado: "Um sistema de cadastro envia cada pedido a um modelo de linguagem para decidir se o cliente tem direito a desconto. Qual componente deve calcular o valor do desconto?",
+    alternativas: [
+      "O modelo de linguagem, porque ele entende a regra comercial.",
+      "O código determinístico do sistema, aplicando a regra comercial registrada.",
+      "Uma pessoa, em todos os pedidos, sem apoio de sistema.",
+      "O prompt, desde que a regra esteja escrita nele."
+    ],
+    correta: 1,
+    explicacoes: [
+      "Incorreta. Modelo de linguagem gera texto com base em probabilidades; regra de desconto é cálculo que não deve depender de interpretação probabilística.",
+      "Correta. Cálculos e regras de negócio com resultado único ficam em código, que é verificável e repetível.",
+      "Incorreta. Exigir ação manual em todos os pedidos não é a proposta; o sistema pode aplicar a regra e a pessoa revisar exceções.",
+      "Incorreta. Escrever a regra no prompt orienta o modelo, mas não garante o cálculo nem substitui a aplicação pelo sistema."
+    ]
+  },
+  {
+    enunciado: "Uma resposta do modelo parou no meio de uma frase. Qual é a leitura mais segura do fato?",
+    alternativas: [
+      "O modelo decidiu encerrar porque já tinha dito o suficiente.",
+      "A resposta pode ter atingido o limite de saída configurado; isso deve ser verificado no código ou na resposta da API.",
+      "O modelo está com defeito e deve ser substituído.",
+      "A temperatura estava baixa, o que sempre produz respostas completas."
+    ],
+    correta: 1,
+    explicacoes: [
+      "Incorreta. Atribuir intenção ao modelo é antropomorfismo; o motivo técnico mais provável é um limite, e isso precisa ser verificado.",
+      "Correta. Limite de saída é um motivo técnico comum e verificável; a conclusão depende de checar o motivo de parada reportado.",
+      "Incorreta. Um corte isolado não prova defeito; antes de trocar o modelo, é preciso diagnosticar o motivo da parada.",
+      "Incorreta. Temperatura não garante resposta completa; ela afeta a variação da escolha dos tokens, não o limite de saída."
+    ]
+  },
+  {
+    enunciado: "Uma equipe quer que a resposta do modelo seja sempre idêntica entre execuções. Qual afirmação é correta?",
+    alternativas: [
+      "Basta escrever no prompt que a resposta deve ser sempre igual.",
+      "Baixa variação não garante resposta correta; a repetibilidade exige controle no código e nos parâmetros do provedor.",
+      "A repetibilidade é garantida automaticamente por qualquer modelo local.",
+      "Variação entre execuções é sempre um defeito que deve ser eliminado."
+    ],
+    correta: 1,
+    explicacoes: [
+      "Incorreta. Instrução no prompt orienta o modelo, mas não é controle de repetibilidade.",
+      "Correta. Repetibilidade e correção são propriedades diferentes; o controle depende de código e de parâmetros, verificados na documentação do provedor.",
+      "Incorreta. Modelos locais também podem variar conforme runtime, parâmetros e ambiente; não há garantia automática.",
+      "Incorreta. Variação pode ser aceitável, como em redação de rascunhos; o que importa é exigir controle onde a repetibilidade for requisito."
+    ]
+  }
+];
+
+function testarGabaritos() {
+  const erros = [];
+  PERGUNTAS.forEach((p, i) => {
+    if (!Array.isArray(p.alternativas) || p.alternativas.length !== 4) erros.push(`P${i + 1}: deve ter 4 alternativas`);
+    if (!Number.isInteger(p.correta) || p.correta < 0 || p.correta >= p.alternativas.length) erros.push(`P${i + 1}: gabarito fora do intervalo`);
+    if (!Array.isArray(p.explicacoes) || p.explicacoes.length !== p.alternativas.length) erros.push(`P${i + 1}: uma explicação por alternativa`);
+    if (p.explicacoes && p.explicacoes[p.correta] && !p.explicacoes[p.correta].startsWith("Correta.")) erros.push(`P${i + 1}: explicação da correta deve começar por "Correta."`);
+  });
+  return erros;
+}
+
+function montarQuestoes() {
+  const raiz = document.getElementById("questoes");
+  PERGUNTAS.forEach((p, i) => {
+    const fs = document.createElement("fieldset");
+    const leg = document.createElement("legend");
+    leg.textContent = `Questão ${i + 1}`;
+    fs.appendChild(leg);
+
+    const enun = document.createElement("p");
+    enun.textContent = p.enunciado;
+    fs.appendChild(enun);
+
+    const nome = `q${i + 1}`;
+    const retorno = document.createElement("div");
+    retorno.className = "retorno";
+    retorno.hidden = true;
+    retorno.setAttribute("role", "status");
+    retorno.setAttribute("aria-live", "polite");
+
+    const rotulos = p.alternativas.map((texto, j) => {
+      const lab = document.createElement("label");
+      lab.className = "alternativa";
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = nome;
+      radio.value = String(j);
+      lab.appendChild(radio);
+      lab.appendChild(document.createTextNode(texto));
+      fs.appendChild(lab);
+      radio.addEventListener("change", () => responder(i, j, rotulos, retorno));
+      return { lab, radio };
+    });
+
+    fs.appendChild(retorno);
+    raiz.appendChild(fs);
+  });
+}
+
+function responder(i, escolhida, rotulos, retorno) {
+  const p = PERGUNTAS[i];
+  rotulos.forEach(({ lab, radio }) => {
+    radio.disabled = true;
+    lab.classList.add("travada");
+  });
+  const acertou = escolhida === p.correta;
+  retorno.className = `retorno ${acertou ? "sucesso" : "erro"}`;
+  retorno.hidden = false;
+  retorno.textContent = "";
+  const titulo = document.createElement("strong");
+  titulo.textContent = acertou ? "Correto." : "Incorreto.";
+  retorno.appendChild(titulo);
+  retorno.appendChild(document.createTextNode(p.explicacoes[escolhida]));
+  if (!acertou) {
+    const extra = document.createElement("p");
+    extra.textContent = `Resposta correta: ${p.alternativas[p.correta]} ${p.explicacoes[p.correta]}`;
+    retorno.appendChild(extra);
+  }
+  requestAnimationFrame(() => retorno.classList.add("visivel"));
+}
+
+if (typeof document !== "undefined" && document.getElementById("questoes")) {
+  montarQuestoes();
+}
+</script>
+</body>
+</html>
