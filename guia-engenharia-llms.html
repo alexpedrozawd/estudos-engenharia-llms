@@ -200,11 +200,11 @@
         line-height: 1.6;
       }
       /* Só as divisões maiores começam em página nova; as partes seguem o fluxo. */
-      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12, #capitulo-13,
-      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #questoes-capitulo-12, #questoes-capitulo-13, #glossario, #referencias { break-before: page; }
+      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12, #capitulo-13, #capitulo-14,
+      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #questoes-capitulo-12, #questoes-capitulo-13, #questoes-capitulo-14, #glossario, #referencias { break-before: page; }
       .page > h2 { margin-block-start: 2.2em; }
-      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #capitulo-13 > h2, #glossario > h2, #referencias > h2,
-      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2, #questoes-capitulo-13 > h2 { margin-block-start: 0; }
+      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #capitulo-13 > h2, #capitulo-14 > h2, #glossario > h2, #referencias > h2,
+      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2, #questoes-capitulo-13 > h2, #questoes-capitulo-14 > h2 { margin-block-start: 0; }
       /* Nenhum bloco termina dividido entre duas páginas. */
       h1, h2, h3, h4, legend, figcaption, caption, .rotulo-unidade { break-after: avoid; break-inside: avoid; }
       p, li, dt, dd { orphans: 3; widows: 3; }
@@ -404,7 +404,17 @@
             <li><a href="#questoes-capitulo-13">Questões do capítulo 13</a></li>
           </ul>
         </li>
-        <li><span class="chapter-name">14. Seleção e roteamento</span><span class="chapter-topics">Caracterizar tarefas; comparar modelos; escolher destino; regras simples; escalonamento; contingência e reavaliação; troca de modelo ou esforço só em conversa nova.</span></li>
+        <li><span class="chapter-name"><a href="#capitulo-14">14. Seleção e roteamento</a></span><span class="chapter-topics">Caracterizar tarefas; comparar modelos; escolher destino; regras simples; escalonamento; contingência e reavaliação; troca de modelo ou esforço só em conversa nova.</span>
+          <ul class="units">
+            <li><a href="#unidade-14-1a">14.1 Caracterizar tarefas</a></li>
+            <li><a href="#unidade-14-2a">14.2 Comparar modelos</a></li>
+            <li><a href="#unidade-14-3a">14.3 Escolher destino</a></li>
+            <li><a href="#unidade-14-4a">14.4 Regras simples e roteamento</a></li>
+            <li><a href="#unidade-14-5a">14.5 Escalonamento e contingência</a></li>
+            <li><a href="#unidade-14-6a">14.6 Troca de modelo ou esforço só em conversa nova</a></li>
+            <li><a href="#questoes-capitulo-14">Questões do capítulo 14</a></li>
+          </ul>
+        </li>
         <li><span class="chapter-name">15. Integração empresarial e LLMOps</span><span class="chapter-topics">Sistema existente; integração por APIs; dados e ações; observabilidade; versionamento; lançamento e recuperação.</span></li>
         <li><span class="chapter-name">16. Eficiência e economia</span><span class="chapter-topics">Medição; gargalos; eliminar redundância; melhorar ferramentas e contexto; cache e esforço; ponto ótimo de sessão; ajustes; compromissos e manutenção.</span></li>
       </ol>
@@ -15653,6 +15663,1124 @@ Desvio (regra fixa):
       <nav class="page-nav" aria-label="Navegação das questões do capítulo 13">
         <a href="#unidade-13-6c">Parte 13.6c</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 275">275</span><a href="#sumario">Sumário</a></span>
+        <a href="#capitulo-14">Capítulo 14</a>
+      </nav>
+    </section>
+
+    <section class="page" id="capitulo-14" aria-labelledby="titulo-do-capitulo-14">
+      <h2 id="titulo-do-capitulo-14">Capítulo 14 — Seleção e roteamento</h2>
+      <p>Um sistema maduro não usa um modelo para tudo. Ele encaminha cada pedido ao destino adequado: tarefa simples ao modelo rápido, revisão delicada ao modelo de fronteira, e cada rota com a supervisão que o risco exige. Este capítulo ensina a escolher esse destino com evidência, e não por preferência.</p>
+      <p>Você vai caracterizar tarefas e definir critérios de aceite antes de comparar modelos, ler benchmarks públicos sabendo o que eles medem, decidir entre começar pela eficiência ou pela capacidade, usar o esforço como alavanca, escrever regras de roteamento em código, configurar contingência e reavaliar quando a rota envelhece.</p>
+      <p>Como em todo o guia, você não precisa programar: as regras aparecem em tabelas e descrições, não em código. Nomes de modelo e preços mudam em semanas; o capítulo trabalha com faixas — rápido, intermediário, fronteira — e registra a data da consulta.</p>
+
+      <h3>O que você vai estudar</h3>
+      <p>Seis unidades em 18 partes curtas, com resumo em três linhas, analogia, texto direto, pergunta de verificação e ponto de retomada, fechando com seis questões.</p>
+      <ul class="units">
+        <li><a href="#unidade-14-1a">14.1 Caracterizar tarefas</a></li>
+        <li><a href="#unidade-14-2a">14.2 Comparar modelos</a></li>
+        <li><a href="#unidade-14-3a">14.3 Escolher destino</a></li>
+        <li><a href="#unidade-14-4a">14.4 Regras simples e roteamento</a></li>
+        <li><a href="#unidade-14-5a">14.5 Escalonamento e contingência</a></li>
+        <li><a href="#unidade-14-6a">14.6 Troca de modelo ou esforço só em conversa nova</a></li>
+        <li><a href="#questoes-capitulo-14">Questões do capítulo 14</a></li>
+      </ul>
+
+      <h3>Para quem é este capítulo</h3>
+      <p>Para quem leu os capítulos 1 a 13. Retomamos avaliação e conjuntos de teste (Cap. 5), contexto, cache de prefixo e esforço (Cap. 9), contratos de ferramentas (Cap. 10) e workflows com código ao redor do modelo (Cap. 12). A escolha de modelo não substitui a avaliação: ela é o resultado dela.</p>
+
+      <h3>Como ler os exemplos</h3>
+      <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (guias de seleção de Anthropic, OpenAI e Google, documentação do LiteLLM e do OpenRouter, páginas do SWE-bench e do LiveCodeBench, consultadas em 17/11/2026), <span class="qual">registrado na pesquisa técnica do fornecedor</span> (Anthropic, <em>Building effective agents</em>), <span class="qual">registrado no artigo</span> (IFEval, LiveCodeBench, SWE-bench, SWE-bench Pro, RouteLLM e FrugalGPT) e <span class="qual">proposta didática</span> (matriz por finalidade, níveis de supervisão, quadros e casos da Aurora Educação).</p>
+
+      <h3>Sobre as fontes</h3>
+      <p>O pacote do capítulo reúne 17 fontes públicas com 59 trechos literais conferidos em 17/11/2026 (<code>SR-01</code>–<code>SR-59</code>). Uma lacuna fica declarada na parte 14.6c: nenhum trecho lido afirma que trocar de modelo invalida o cache de prefixo na Anthropic ou no Google.</p>
+      <nav class="page-nav" aria-label="Navegação do capítulo 14">
+        <a href="#questoes-capitulo-13">Questões do capítulo 13</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 276">276</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-1a">Parte 14.1a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-1a" aria-labelledby="titulo-da-unidade-14-1a">
+      <h2 id="titulo-da-unidade-14-1a">14.1a A tarefa vem antes do modelo</h2>
+      <p class="rotulo-unidade">Unidade 14.1 — Caracterizar tarefas (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A escolha começa pela tarefa e pela prioridade, não pelo nome do modelo.</li>
+          <li>As ferramentas dos fornecedores sugerem modelos a partir de uma tarefa escolhida, e tratam a sugestão como ponto de partida.</li>
+          <li>Uma matriz por finalidade organiza as rotas antes de qualquer comparação.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="14-1a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um cartógrafo diante de uma mesa com um mapa dividido em quatro regiões, cada uma com uma estrada marcada por uma pedra de sinalização diferente.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Antes de escolher o veículo, você diz para onde vai e o que leva: entrega de bairro, mudança de casa e viagem de férias pedem veículos diferentes.</p></div>
+
+      <h3>O ponto de partida está errado quando é o modelo</h3>
+      <p>É comum a conversa começar assim: "qual é o melhor modelo?". A documentação da OpenAI inverte a ordem. A ferramenta de seleção pede que você <em>escolha uma tarefa e uma prioridade</em> para receber uma sugestão de modelo e de esforço de raciocínio (<span class="qual">registrado na documentação</span>). A sugestão não é um veredito: as notas são estimativas de alto nível montadas com benchmarks, exemplos de tarefas executados de forma independente e retorno de usuários (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Comece, não termine, nessa página</h3>
+      <p>A mesma documentação fecha com um aviso claro: trate a orientação como ponto de partida, e a melhor forma de achar o modelo certo para o seu fluxo é experimentar modelos e ajustes de raciocínio e ver o que funciona (<span class="qual">registrado na documentação</span>). Ou seja, a página economiza tentativas, não substitui a sua avaliação. Como avaliar está no capítulo 5; aqui o assunto é transformar a avaliação em escolha de rota.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: matriz por finalidade da Aurora" tabindex="0">
+      <table class="tabela">
+        <caption>Matriz por finalidade (proposta didática)</caption>
+        <thead><tr><th scope="col">Finalidade</th><th scope="col">Exemplo na Aurora</th><th scope="col">Faixa de modelo</th><th scope="col">Supervisão</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">E-mail e rotina</th><td>Triagem de mensagens, respostas padrão</td><td>Rápido</td><td>Por amostragem</td></tr>
+          <tr><th scope="row">Escrita e materiais</th><td>Resumos de regulamento, comunicados</td><td>Intermediário</td><td>Por amostragem</td></tr>
+          <tr><th scope="row">Revisão</th><td>Conferência de contrato e de nota fiscal</td><td>Intermediário com esforço alto</td><td>Integral no item sensível</td></tr>
+          <tr><th scope="row">Dev multi-arquivo</th><td>Alteração que atravessa serviços</td><td>Fronteira</td><td>Integral no diff</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>A matriz antes da compra</h3>
+      <p>Uma <dfn>matriz por finalidade</dfn> lista as finalidades do produto e, para cada uma, o critério de aceite, a faixa de modelo e o nível de supervisão humana. Ela é uma <span class="qual">proposta didática</span>: as finalidades abaixo foram escolhidas para cobrir rotinas de escritório e de desenvolvimento, e os níveis de supervisão voltam na parte 14.1c.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-1a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-1a">A direção da Aurora pergunta "qual é o melhor modelo do mercado?". Qual resposta segue a documentação dos fornecedores?</p>
+        <label class="alternativa"><input type="radio" name="p14-1a" value="a" data-correta="true" data-explicacao="Correta. A ferramenta de seleção parte da tarefa e da prioridade, e a orientação é ponto de partida."><span><strong>A.</strong> Perguntar antes qual tarefa e qual prioridade (qualidade, custo ou latência), e usar a sugestão só como ponto de partida para experimentar.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1a" value="b" data-correta="false" data-explicacao="Incorreta. Custo e capacidade são dimensões diferentes; a tarefa e a prioridade decidem."><span><strong>B.</strong> Indicar o modelo mais caro, porque é o mais capaz.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1a" value="c" data-correta="false" data-explicacao="Incorreta. Sem critério de aceite, a economia pode quebrar a tarefa."><span><strong>C.</strong> Indicar o modelo mais barato, porque a economia sempre vence.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1a" value="d" data-correta="false" data-explicacao="Incorreta. Ranking de benchmark é estimativa de alto nível, não decisão para o seu fluxo."><span><strong>D.</strong> Pedir um ranking de benchmarks e escolher o primeiro.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A escolha começa pela tarefa e pela prioridade, e a sugestão do fornecedor é ponto de partida. Na parte 14.1b, definimos os critérios de aceite que tornam a comparação possível.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Escolha por tarefa e prioridade:</strong> OpenAI, <em>Model selection</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Estimativas de alto nível:</strong> OpenAI, <em>Model selection</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Orientação como ponto de partida:</strong> OpenAI, <em>Model selection</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Matriz por finalidade:</strong> Quadro e finalidades (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.1a">
+        <a href="#capitulo-14">Capítulo 14</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 277">277</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-1b">Parte 14.1b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-1b" aria-labelledby="titulo-da-unidade-14-1b">
+      <h2 id="titulo-da-unidade-14-1b">14.1b Critérios de aceite antes de comparar</h2>
+      <p class="rotulo-unidade">Unidade 14.1 — Caracterizar tarefas (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Sem critério de aceite, qualquer comparação de modelos vira preferência pessoal.</li>
+          <li>A documentação da OpenAI pede critérios por tipo de tarefa: escrita, código e interfaces, uso de computador.</li>
+          <li>Cada critério aponta uma verificação concreta, e não uma impressão.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Provar um prato sem saber o que se espera dele é opinar sobre sabor; com a receita em mãos, dá para conferir se faltou sal, ponto ou tempo de forno.</p></div>
+
+      <h3>A frase que muda a ordem do trabalho</h3>
+      <p>A documentação da OpenAI é direta: <em>escolha critérios de aceite antes de comparar modelos</em> (<span class="qual">registrado na documentação</span>). O critério de aceite é a condição observável que diz "esta resposta serve". Sem ele, a comparação mede simpatia pelo estilo da resposta, não adequação à tarefa.</p>
+      <h3>Três famílias de critério</h3>
+      <p>Para <strong>escrita</strong>, a orientação é conferir os fatos exigidos, as ressalvas, o público e a voz; e revisar as duas saídas antes de decidir se a mais curta é a mais útil (<span class="qual">registrado na documentação</span>). Para <strong>código e interfaces</strong>, rodar os testes de regressão e, quando houver aplicação interativa, inspecionar o resultado renderizado no desktop e no celular (<span class="qual">registrado na documentação</span>). Para <strong>uso de computador</strong>, reabrir o registro ou a página afetada para ver a alteração salva, confirmar que o fluxo preservou os dados não relacionados e comparar o relatório de conclusão com o resultado real (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: critérios de aceite por tipo de tarefa" tabindex="0">
+      <table class="tabela">
+        <caption>Critério de aceite e verificação correspondente (leitura da documentação da OpenAI)</caption>
+        <thead><tr><th scope="col">Tipo de tarefa</th><th scope="col">Critério</th><th scope="col">Verificação</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Escrita</th><td>Fatos, ressalvas, público e voz</td><td>Conferir item a item nas duas saídas</td></tr>
+          <tr><th scope="row">Código e interfaces</th><td>Testes de regressão passam</td><td>Rodar os testes e ver a tela renderizada</td></tr>
+          <tr><th scope="row">Uso de computador</th><td>Alteração salva e dados preservados</td><td>Reabrir o registro e comparar com o relatório</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Do critério à verificação</h3>
+      <p>Repare no formato: cada critério vira uma ação de conferência. "Preservou os dados não relacionados" é uma checagem; "ficou bom" não é. O capítulo 5 mostra como transformar essas checagens em conjunto de avaliação; a unidade 14.2 mostra o que benchmarks públicos conseguem e não conseguem dizer sobre elas.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-1b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-1b">A Aurora quer trocar o modelo do assistente que preenche formulários internos. Qual critério de aceite é o mais coerente com a documentação?</p>
+        <label class="alternativa"><input type="radio" name="p14-1b" value="a" data-correta="true" data-explicacao="Correta. É exatamente a verificação de uso de computador descrita na documentação."><span><strong>A.</strong> Reabrir o registro alterado, confirmar que os campos não relacionados ficaram intactos e comparar o relatório de conclusão com o que foi salvo.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1b" value="b" data-correta="false" data-explicacao="Incorreta. Naturalidade não é critério observável de tarefa."><span><strong>B.</strong> A resposta parecer mais natural que a do modelo atual.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1b" value="c" data-correta="false" data-explicacao="Incorreta. Novidade não mede adequação."><span><strong>C.</strong> O modelo ser mais novo que o anterior.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1b" value="d" data-correta="false" data-explicacao="Incorreta. Economia de tokens não garante que o formulário foi preenchido certo."><span><strong>D.</strong> O prompt caber em menos tokens.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Critérios de aceite vêm antes da comparação e viram verificações concretas. Na parte 14.1c, vemos as perguntas que orientam a escolha e por que supervisão humana substitui rótulo de cargo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Critérios antes de comparar:</strong> OpenAI, <em>Model selection</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Escrita, código e uso de computador:</strong> OpenAI, <em>Model selection</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro de critérios:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.1b">
+        <a href="#unidade-14-1a">Parte 14.1a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 278">278</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-1c">Parte 14.1c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-1c" aria-labelledby="titulo-da-unidade-14-1c">
+      <h2 id="titulo-da-unidade-14-1c">14.1c Supervisão humana, não rótulo de cargo</h2>
+      <p class="rotulo-unidade">Unidade 14.1 — Caracterizar tarefas (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>As perguntas de escolha são capacidades, velocidade, custo e esforço — não senioridade.</li>
+          <li>O nível de supervisão humana descreve quanto do resultado precisa passar por revisão.</li>
+          <li>Rótulos de cargo escondem a decisão; níveis de supervisão a tornam verificável.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Dizer que uma tarefa "é de estagiário" não diz quem confere o resultado. Dizer "revisão integral antes de publicar" diz exatamente o que acontece.</p></div>
+
+      <h3>As perguntas que os fornecedores fazem</h3>
+      <p>A Anthropic organiza a escolha em torno de fatores explícitos. Capacidades: quais recursos o modelo precisa ter para atender (<span class="qual">registrado na documentação</span>). Velocidade: com que rapidez ele precisa responder na sua aplicação (<span class="qual">registrado na documentação</span>). A OpenAI acrescenta o custo e o esforço de raciocínio, e lembra que há tarefas simples — pequenas edições em arquivos e extração de campos com resultado esperado claro — em que o modelo leve basta (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Por que não usar cargo</h3>
+      <p>Classificar uma tarefa como "de júnior", "de pleno" ou "de sênior" parece economizar tempo, mas não descreve o que o sistema precisa fazer nem quem responde pelo erro. O guia usa <dfn>nível de supervisão humana</dfn>: sem revisão, por amostragem ou integral. É uma <span class="qual">proposta didática</span>, e ela tem uma propriedade útil: pode ser conferida no fluxo de trabalho.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: níveis de supervisão humana" tabindex="0">
+      <table class="tabela">
+        <caption>Níveis de supervisão (proposta didática)</caption>
+        <thead><tr><th scope="col">Nível</th><th scope="col">Quando usar</th><th scope="col">Efeito no custo</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Sem revisão</th><td>Resultado de baixo risco e reversível</td><td>Só o custo do modelo</td></tr>
+          <tr><th scope="row">Por amostragem</th><td>Volume alto, erro corrigível</td><td>Custo do modelo mais revisão parcial</td></tr>
+          <tr><th scope="row">Integral</th><td>Erro caro, irreversível ou regulado</td><td>Custo do modelo mais tempo humano integral</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Como preencher</h3>
+      <p>Para cada finalidade da matriz, responda em ordem: qual capacidade é indispensável, que latência o usuário tolera, qual custo por tarefa concluída é aceitável e quanta revisão humana o risco permite. A última resposta define o nível de supervisão, e ele muda o custo real: revisão integral consome tempo de gente, que entra na conta da unidade 14.2c.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-1c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-1c">Um coordenador propõe classificar as tarefas do assistente como "de estagiário", "de analista" e "de gerente" para decidir o modelo. Qual é o problema dessa classificação?</p>
+        <label class="alternativa"><input type="radio" name="p14-1c" value="a" data-correta="true" data-explicacao="Correta. O guia troca rótulo de cargo por nível de supervisão por esse motivo."><span><strong>A.</strong> Ela não descreve capacidade exigida nem quem revisa o resultado; o nível de supervisão é o que se pode verificar no fluxo.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1c" value="b" data-correta="false" data-explicacao="Incorreta. Mais rótulos não resolvem a falta de critério observável."><span><strong>B.</strong> Ela é correta, mas precisa de mais cargos.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1c" value="c" data-correta="false" data-explicacao="Incorreta. O problema é geral, não restrito a um tipo de tarefa."><span><strong>C.</strong> Ela só funciona para tarefas de escrita.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-1c" value="d" data-correta="false" data-explicacao="Incorreta. Salário não descreve a tarefa nem a revisão."><span><strong>D.</strong> Ela deveria usar o salário como critério.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Capacidade, velocidade, custo e esforço orientam a escolha; a supervisão humana diz quem confere. A unidade 14.2 compara modelos com benchmarks e com a sua própria tarefa.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Fatores de escolha:</strong> Anthropic, <em>Choosing the right model</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Tarefas simples:</strong> OpenAI, <em>Model selection</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Níveis de supervisão:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenAI, <em>Model selection</em> — <a href="https://developers.openai.com/api/docs/guides/model-selection" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/model-selection</a>; Anthropic, <em>Choosing the right model</em> — <a href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/models/choosing-a-model</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.1c">
+        <a href="#unidade-14-1b">Parte 14.1b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 279">279</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-2a">Parte 14.2a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-2a" aria-labelledby="titulo-da-unidade-14-2a">
+      <h2 id="titulo-da-unidade-14-2a">14.2a IFEval e LiveCodeBench: o que medem</h2>
+      <p class="rotulo-unidade">Unidade 14.2 — Comparar modelos (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>IFEval mede obediência a instruções verificáveis por programa, em 541 prompts.</li>
+          <li>LiveCodeBench mede código em problemas novos, coletados de concursos ao longo do tempo.</li>
+          <li>Os dois atacam o mesmo risco: um número bonito que não descreve a sua tarefa.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um teste de direção com percurso novo mostra se o motorista sabe dirigir; decorar o trajeto antigo prova memória, não habilidade.</p></div>
+
+      <h3>Instruções conferíveis por programa</h3>
+      <p>O <dfn>IFEval</dfn> avalia o seguimento de instruções com um conjunto de instruções verificáveis, como "escreva com mais de 400 palavras" e "mencione a palavra-chave IA pelo menos 3 vezes" (<span class="qual">registrado no artigo</span>). Ao todo são 541 prompts, cada um com uma ou várias dessas instruções (<span class="qual">registrado no artigo</span>). É uma boa medida de obediência a restrições objetivas — formato, contagem, presença de termo — e uma medida fraca de utilidade do conteúdo.</p>
+      <h3>Código sem contaminação</h3>
+      <p>O <dfn>LiveCodeBench</dfn> foi proposto para avaliar modelos de código de forma ampla e livre de contaminação, coletando problemas novos ao longo do tempo em três plataformas de concurso: LeetCode, AtCoder e CodeForces (<span class="qual">registrado no artigo</span>). Além da geração, cobre auto-reparo, execução de código e previsão de saída de teste (<span class="qual">registrado no artigo</span>). Cada problema tem data de lançamento, o que permite avaliar o modelo apenas em problemas publicados depois do seu corte de treino (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: o que IFEval e LiveCodeBench medem" tabindex="0">
+      <table class="tabela">
+        <caption>Dois benchmarks públicos e seus limites (leitura dos artigos e da página do projeto)</caption>
+        <thead><tr><th scope="col">Benchmark</th><th scope="col">Objeto</th><th scope="col">Escala</th><th scope="col">Limite de leitura</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">IFEval</th><td>Obediência a instruções verificáveis por programa</td><td>541 prompts</td><td>Não mede utilidade nem fidelidade do conteúdo</td></tr>
+          <tr><th scope="row">LiveCodeBench</th><td>Código e tarefas correlatas</td><td>Problemas novos de três plataformas</td><td>Depende do recorte por data para evitar contaminação</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Por que a data importa</h3>
+      <p>Um modelo pode ter visto o problema durante o treino. Se a pergunta já estava no material de treino, acertar não prova generalização. Por isso o recorte por data é o que dá sentido ao número: a página do projeto explica que, para um modelo com corte D, avaliam-se problemas lançados depois de D (<span class="qual">registrado na documentação</span>).</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-2a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-2a">Uma liderança quer usar a nota do IFEval como prova de que o modelo "segue as regras do nosso atendimento". O que está errado na conclusão?</p>
+        <label class="alternativa"><input type="radio" name="p14-2a" value="a" data-correta="true" data-explicacao="Correta. O benchmark mede obediência a instruções verificáveis, não o seu regulamento."><span><strong>A.</strong> O IFEval confere restrições objetivas em prompts próprios; as regras do atendimento precisam ser verificadas nos seus casos.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2a" value="b" data-correta="false" data-explicacao="Incorreta. As instruções do IFEval são as do conjunto; o regulamento é outro."><span><strong>B.</strong> Nada: o IFEval testa qualquer regra de empresa.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2a" value="c" data-correta="false" data-explicacao="Incorreta. É o LiveCodeBench que trata de código."><span><strong>C.</strong> O IFEval só vale para código.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2a" value="d" data-correta="false" data-explicacao="Incorreta. Aumentar o conjunto não o transforma no seu domínio."><span><strong>D.</strong> O problema é a escala de 541 prompts; com mais prompts valeria.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>IFEval mede restrições objetivas e LiveCodeBench mede código em problemas novos. Na parte 14.2b, vemos o SWE-bench, que aproxima a avaliação do trabalho real de engenharia.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Instruções verificáveis e 541 prompts:</strong> Zhou et al., <em>IFEval</em>, <code>arXiv:2311.07911</code> (<span class="qual">registrado no artigo</span>)</p>
+        <p><strong>LiveCodeBench:</strong> Jain et al., <code>arXiv:2403.07974</code> (<span class="qual">registrado no artigo</span>)</p>
+        <p><strong>Recorte por data:</strong> LiveCodeBench, página do projeto (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.2a">
+        <a href="#unidade-14-1c">Parte 14.1c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 280">280</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-2b">Parte 14.2b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-2b" aria-labelledby="titulo-da-unidade-14-2b">
+      <h2 id="titulo-da-unidade-14-2b">14.2b SWE-bench: issues reais e o filtro humano</h2>
+      <p class="rotulo-unidade">Unidade 14.2 — Comparar modelos (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O SWE-bench usa 2.294 problemas tirados de issues reais em 12 repositórios Python.</li>
+          <li>A tarefa é editar a base de código até resolver a issue, e o teste decide se resolveu.</li>
+          <li>O Verified filtra 500 instâncias revisadas por pessoas; o Pro busca resistir à contaminação.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Em vez de um exercício de livro, o candidato recebe um chamado real de manutenção e precisa mexer no equipamento certo, sem quebrar o resto.</p></div>
+
+      <h3>O que o SWE-bench pede</h3>
+      <p>O SWE-bench é um conjunto de avaliação com 2.294 problemas de engenharia de software tirados de issues reais do GitHub e dos pull requests correspondentes, em 12 repositórios Python populares (<span class="qual">registrado no artigo</span>). O formato é próximo do trabalho de manutenção: dado o repositório e a descrição de uma issue a resolver, o modelo edita a base de código para atender à issue (<span class="qual">registrado no artigo</span>). O teste é objetivo — os testes do projeto dizem se a correção entrou e se o resto continua funcionando.</p>
+      <h3>Por que existe um subconjunto verificado</h3>
+      <p>O <dfn>SWE-bench Verified</dfn> é um subconjunto de 500 instâncias filtradas por pessoas, criado em colaboração com a OpenAI (<span class="qual">registrado na documentação</span>). Os anotadores revisaram cada instância para garantir que a descrição do problema é clara, que o teste da correção está certo e que a tarefa é solucionável com a informação disponível (<span class="qual">registrado na documentação</span>). O filtro reduz o ruído que faria um modelo bom parecer ruim por causa de uma issue mal escrita.</p>
+      <h3>Pro: resistência à contaminação</h3>
+      <p>O <dfn>SWE-bench Pro</dfn> se apresenta como um banco de testes resistente à contaminação, que captura de forma mais fiel a complexidade e a diversidade do desenvolvimento de software real (<span class="qual">registrado no artigo</span>). A pergunta que ele tenta responder é a de 14.2a: o modelo generaliza para problemas que não viu?</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-2b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-2b">Um fornecedor anuncia nota alta no SWE-bench Verified e a equipe quer repetir o número. Qual cuidado a documentação impõe?</p>
+        <label class="alternativa"><input type="radio" name="p14-2b" value="a" data-correta="true" data-explicacao="Correta. A página do Verified descreve o agente mínimo e a não comparabilidade entre séries."><span><strong>A.</strong> Conferir como o número foi obtido: o ranking do Verified usa um agente mínimo em ambiente de bash, e versões diferentes do conjunto não são necessariamente comparáveis.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2b" value="b" data-correta="false" data-explicacao="Incorreta. O número depende do agente, das ferramentas e da série do conjunto."><span><strong>B.</strong> Repetir a nota sem mudar nada, porque o formato é único.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2b" value="c" data-correta="false" data-explicacao="Incorreta. O original tem mais ruído, não é “mais fácil” por definição."><span><strong>C.</strong> Trocar para o SWE-bench original, que é sempre mais fácil.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2b" value="d" data-correta="false" data-explicacao="Incorreta. Um benchmark não substitui o critério de aceite da tarefa."><span><strong>D.</strong> Usar a nota como critério único de compra.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O SWE-bench aproxima a avaliação do trabalho de manutenção real, e o Verified reduz ruído. Na parte 14.2c, comparamos modelos na sua tarefa e na conta completa.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>2.294 problemas e 12 repositórios:</strong> Jimenez et al., <em>SWE-bench</em>, <code>arXiv:2310.06770</code> (<span class="qual">registrado no artigo</span>)</p>
+        <p><strong>Verified: 500 instâncias:</strong> SWE-bench, <em>SWE-bench Verified</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>SWE-bench Pro:</strong> Deng et al., <code>arXiv:2509.16941</code> (<span class="qual">registrado no artigo</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.2b">
+        <a href="#unidade-14-2a">Parte 14.2a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 281">281</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-2c">Parte 14.2c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-2c" aria-labelledby="titulo-da-unidade-14-2c">
+      <h2 id="titulo-da-unidade-14-2c">14.2c Comparar na sua tarefa, com a conta completa</h2>
+      <p class="rotulo-unidade">Unidade 14.2 — Comparar modelos (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Benchmarks comparam modelos entre si; só a sua amostra diz se o modelo serve.</li>
+          <li>A documentação pede custo por tarefa concluída, incluindo repetições, e tempo com revisão.</li>
+          <li>O ranking de um benchmark muda com o agente e com a versão do conjunto.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O carro que ganha a prova de pista pode não ser o melhor para a estrada esburacada da sua cidade. A pista informa; a estrada decide.</p></div>
+
+      <h3>O que o ranking esconde</h3>
+      <p>A página do SWE-bench Verified informa que o ranking reúne sistemas muito diferentes: laços simples de agente, sistemas de recuperação, múltiplas tentativas com revisão (<span class="qual">registrado na documentação</span>). Para facilitar a comparação entre modelos, há uma avaliação com um agente mínimo em ambiente de bash, sem ferramentas nem estrutura especial, apenas um laço ReAct simples (<span class="qual">registrado na documentação</span>). E a mesma página avisa que resultados das séries 1.x e 2.x não são necessariamente comparáveis entre si (<span class="qual">registrado na documentação</span>).</p>
+      <h3>A conta que a documentação manda fazer</h3>
+      <p>Para reduzir custo ou latência, comece pelo ajuste mais leve que atende ao critério de aceite e compare o custo de API <em>por tarefa concluída</em>, incluindo repetições (<span class="qual">registrado na documentação</span>). Repita a comparação em tarefas representativas e meça o tempo de conclusão junto com a qualidade, incluindo o tempo gasto revisando ou consertando o resultado; depois varie o esforço mantendo modelo e entradas fixos (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: o que comparar e como medir" tabindex="0">
+      <table class="tabela">
+        <caption>Comparação na tarefa (leitura da documentação da OpenAI e do SWE-bench)</caption>
+        <thead><tr><th scope="col">Dimensão</th><th scope="col">Como medir</th><th scope="col">Cuidado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Qualidade</th><td>Amostra representativa com critério de aceite</td><td>Amostra pequena engana; inclua casos difíceis</td></tr>
+          <tr><th scope="row">Custo</th><td>Custo de API por tarefa concluída, com repetições</td><td>Ignorar retentativas subestima o custo</td></tr>
+          <tr><th scope="row">Tempo</th><td>Conclusão mais revisão e conserto</td><td>Tempo humano costuma dominar</td></tr>
+          <tr><th scope="row">Esforço</th><td>Variar esforço com modelo e entradas fixos</td><td>Trocar duas variáveis esconde a causa</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Um protocolo curto</h3>
+      <p>Junte uma amostra de casos reais com critério de aceite (14.1b), rode os candidatos no mesmo ambiente, conte acertos, repetições e tempo humano. A decisão é da amostra, não do benchmark. E a comparação precisa registrar a data: modelos e versões mudam, e o número de ontem pode não valer hoje.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-2c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-2c">A Aurora testou dois modelos e o mais barato pareceu melhor. Ao revisar o teste, descobriu que só ele teve as respostas corrigidas por uma pessoa antes de contar como sucesso. Qual conclusão é correta?</p>
+        <label class="alternativa"><input type="radio" name="p14-2c" value="a" data-correta="true" data-explicacao="Correta. A documentação pede custo por tarefa concluída e tempo com revisão, iguais para todos."><span><strong>A.</strong> A comparação está inválida: é preciso medir o custo por tarefa concluída incluindo repetições e o tempo de revisão, com o mesmo protocolo para os dois.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2c" value="b" data-correta="false" data-explicacao="Incorreta. O sucesso dele dependeu de trabalho humano não contabilizado."><span><strong>B.</strong> O modelo barato venceu, porque gastou menos tokens.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2c" value="c" data-correta="false" data-explicacao="Incorreta. Mais casos não corrigem o protocolo desigual."><span><strong>C.</strong> Basta repetir o teste com mais casos.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2c" value="d" data-correta="false" data-explicacao="Incorreta. Não há base para descartá-lo com um teste inválido."><span><strong>D.</strong> O modelo caro deveria ser descartado.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A decisão sai da sua amostra, com custo por tarefa concluída e tempo de revisão. A unidade 14.3 escolhe o destino: eficiência primeiro ou capacidade primeiro.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Ranking heterogêneo e agente mínimo:</strong> SWE-bench, <em>SWE-bench Verified</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Séries não comparáveis:</strong> SWE-bench, <em>SWE-bench Verified</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Custo por tarefa concluída e repetição:</strong> OpenAI, <em>Model selection</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de comparação:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Zhou et al., <em>IFEval</em> — <a href="https://arxiv.org/pdf/2311.07911" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2311.07911</a>; Jain et al., <em>LiveCodeBench</em> — <a href="https://arxiv.org/pdf/2403.07974" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2403.07974</a>; LiveCodeBench, página do projeto — <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">livecodebench.github.io</a>; Jimenez et al., <em>SWE-bench</em> — <a href="https://arxiv.org/pdf/2310.06770" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2310.06770</a>; SWE-bench Verified — <a href="https://www.swebench.com/verified.html" target="_blank" rel="noopener noreferrer">swebench.com/verified.html</a>; Deng et al., <em>SWE-bench Pro</em> — <a href="https://arxiv.org/pdf/2509.16941" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2509.16941</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.2c">
+        <a href="#unidade-14-2b">Parte 14.2b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 282">282</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-3a">Parte 14.3a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-3a" aria-labelledby="titulo-da-unidade-14-3a">
+      <h2 id="titulo-da-unidade-14-3a">14.3a Eficiência primeiro ou capacidade primeiro</h2>
+      <p class="rotulo-unidade">Unidade 14.3 — Escolher destino (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Há duas ordens de trabalho: começar pelo modelo rápido e subir, ou começar pelo mais capaz e otimizar depois.</li>
+          <li>A eficiência primeiro serve a protótipos, latência apertada, custo sensível e volume alto de tarefas simples.</li>
+          <li>A capacidade primeiro serve a tarefas complexas, em que a inteligência decide o resultado.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Quem monta uma linha de produção começa com a peça simples e vê onde trava; quem projeta um foguete começa pela capacidade máxima e depois enxuga peso.</p></div>
+
+      <h3>Duas ordens, um critério</h3>
+      <p>A Anthropic descreve duas ordens de trabalho. Na <dfn>eficiência primeiro</dfn>, você começa com um modelo mais rápido e econômico; para muitas aplicações, essa pode ser a escolha ótima (<span class="qual">registrado na documentação</span>). A documentação indica quando ela costuma vencer: prototipagem e desenvolvimento inicial, aplicações com exigência apertada de latência, implementações sensíveis a custo e tarefas simples de alto volume (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Capacidade primeiro</h3>
+      <p>Na ordem inversa, para tarefas complexas em que inteligência e capacidade avançada são o que importa, você implementa com o ponto de partida mais forte para a tarefa e otimiza para modelos mais eficientes depois (<span class="qual">registrado na documentação</span>). A própria documentação sugere como enxugar: reduzir o esforço ou descer de modelo ao longo do tempo, conforme o fluxo de trabalho amadurece (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: quando usar cada ordem" tabindex="0">
+      <table class="tabela">
+        <caption>Eficiência primeiro e capacidade primeiro (leitura da documentação da Anthropic)</caption>
+        <thead><tr><th scope="col">Ordem</th><th scope="col">Começa com</th><th scope="col">Indicado para</th><th scope="col">Risco</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Eficiência primeiro</th><td>Modelo rápido e econômico</td><td>Protótipo, latência apertada, custo sensível, volume simples</td><td>Teto de qualidade descoberto tarde</td></tr>
+          <tr><th scope="row">Capacidade primeiro</th><td>Modelo mais capaz</td><td>Tarefa complexa em que a inteligência decide</td><td>Custo e latência acima do necessário</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Qual escolher</h3>
+      <p>O critério é o custo do erro. Se a resposta errada é barata e visível, comece leve e suba quando a amostra reprovar. Se a resposta errada é cara, silenciosa ou difícil de detectar — contrato, cálculo regulado, alteração multi-arquivo —, comece forte e desça com evidência. As duas ordens terminam no mesmo lugar: um modelo por finalidade, com critério de aceite definido (14.1b) e comparado na sua amostra (14.2c).</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-3a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-3a">A Aurora vai reescrever um módulo de cobrança que atravessa três serviços e cujo erro só aparece na conciliação mensal. Qual ordem de trabalho é mais defensável?</p>
+        <label class="alternativa"><input type="radio" name="p14-3a" value="a" data-correta="true" data-explicacao="Correta. Erro caro e silencioso justifica começar pelo ponto mais forte."><span><strong>A.</strong> Capacidade primeiro: implementar com o modelo mais forte e depois reduzir esforço ou modelo com evidência da amostra.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3a" value="b" data-correta="false" data-explicacao="Incorreta. O volume não é alto e o custo do erro domina a decisão."><span><strong>B.</strong> Eficiência primeiro, porque o volume é alto.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3a" value="c" data-correta="false" data-explicacao="Incorreta. Economia inicial pode custar caro na conciliação."><span><strong>C.</strong> Eficiência primeiro, porque é sempre mais barato.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3a" value="d" data-correta="false" data-explicacao="Incorreta. A ordem muda o risco de descobrir o teto de qualidade tarde."><span><strong>D.</strong> Não há diferença: as duas ordens chegam ao mesmo modelo.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A ordem segue o custo do erro: eficiência primeiro para erro barato, capacidade primeiro para erro caro. Na parte 14.3b, vemos o esforço como alavanca antes de trocar de modelo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Eficiência primeiro:</strong> Anthropic, <em>Choosing the right model</em>, opção 1 (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Capacidade primeiro e otimização posterior:</strong> Idem, opção 2 (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro das ordens:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.3a">
+        <a href="#unidade-14-2c">Parte 14.2c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 283">283</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-3b">Parte 14.3b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-3b" aria-labelledby="titulo-da-unidade-14-3b">
+      <h2 id="titulo-da-unidade-14-3b">14.3b Esforço: a alavanca antes da troca</h2>
+      <p class="rotulo-unidade">Unidade 14.3 — Escolher destino (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O parâmetro de esforço troca inteligência por latência e custo dentro do mesmo modelo.</li>
+          <li>A documentação da Anthropic diz que ajustar o esforço costuma ser melhor alavanca que trocar de modelo.</li>
+          <li>O efeito varia por tarefa: o nível de esforço precisa ser testado no seu caso.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Antes de trocar de carro, veja se a marcha certa resolve. O mesmo motor rende diferente conforme o ajuste.</p></div>
+
+      <h3>Um botão dentro do modelo</h3>
+      <p>Vários modelos da Anthropic aceitam um parâmetro de <dfn>esforço</dfn>, que troca inteligência por latência e custo dentro de um único modelo (<span class="qual">registrado na documentação</span>). A documentação é explícita: ajustar o esforço costuma ser uma alavanca melhor do que trocar de modelo (<span class="qual">registrado na documentação</span>). A razão é prática: você mantém prompt, ferramentas e comportamento geral, e muda só a profundidade do raciocínio.</p>
+      <h3>Quando baixar</h3>
+      <p>Para tarefas sensíveis a velocidade ou simples, o esforço baixo pode reduzir bastante o tempo de resposta e o custo (<span class="qual">registrado na documentação</span>). Triagem, extração de campos e respostas padronizadas cabem nesse perfil. Para revisão de contrato ou depuração difícil, o esforço baixo tende a cortar justamente o que a tarefa precisa.</p>
+      <h3>Testar, não supor</h3>
+      <p>O impacto do esforço varia por tipo de tarefa, e a documentação pede que se avalie o desempenho nos seus casos antes de colocar em uso (<span class="qual">registrado na documentação</span>). O teste é o mesmo da unidade 14.2: amostra, critério de aceite, custo e tempo. A regra de ouro: mude uma variável por vez — esforço com modelo e entradas fixos (14.2c).</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-3b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-3b">O time quer reduzir custo do assistente de triagem de e-mails, que hoje usa um modelo de fronteira com esforço alto. Qual primeiro passo segue a documentação?</p>
+        <label class="alternativa"><input type="radio" name="p14-3b" value="a" data-correta="true" data-explicacao="Correta. Ajustar esforço é a alavanca recomendada antes de trocar de modelo."><span><strong>A.</strong> Testar o mesmo modelo com esforço mais baixo na amostra de triagem, medindo acerto, latência e custo antes de trocar de modelo.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3b" value="b" data-correta="false" data-explicacao="Incorreta. A documentação recomenda o esforço como primeira alavanca."><span><strong>B.</strong> Trocar direto para o modelo mais barato do catálogo.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3b" value="c" data-correta="false" data-explicacao="Incorreta. Cortar contexto muda a informação disponível e não é a alavanca indicada."><span><strong>C.</strong> Manter o esforço alto e cortar o contexto pela metade.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3b" value="d" data-correta="false" data-explicacao="Incorreta. Mais esforço tende a custar mais, não menos."><span><strong>D.</strong> Aumentar o esforço para reduzir o custo.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O esforço é a alavanca a testar antes de trocar de modelo, com uma variável por vez. Na parte 14.3c, comparamos as faixas que os catálogos oferecem.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Esforço troca inteligência por latência e custo:</strong> Anthropic, <em>Choosing the right model</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Esforço como alavanca:</strong> Anthropic, <em>Choosing the right model</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Esforço baixo e teste por caso:</strong> Anthropic, <em>Effort</em>, boas práticas (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.3b">
+        <a href="#unidade-14-3a">Parte 14.3a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 284">284</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-3c">Parte 14.3c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-3c" aria-labelledby="titulo-da-unidade-14-3c">
+      <h2 id="titulo-da-unidade-14-3c">14.3c As faixas do catálogo</h2>
+      <p class="rotulo-unidade">Unidade 14.3 — Escolher destino (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Os catálogos públicos descrevem três faixas: rápido e barato, equilibrado e de fronteira.</li>
+          <li>A descrição da faixa é o ponto de partida; o número que decide é o da sua amostra.</li>
+          <li>Nomes de modelo mudam em semanas; a faixa e a data da consulta são o que permanece.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um cardápio com três tamanhos não diz qual prato você quer. Ele só evita pedir grande quando a fome é pequena.</p></div>
+
+      <h3>Três descrições públicas</h3>
+      <p>O catálogo do Google descreve um modelo <em>muito rápido e capaz</em>, que equilibra inteligência e latência com orçamentos de raciocínio controláveis (<span class="qual">registrado na documentação</span>). Descreve também o <em>mais econômico</em>, otimizado para baixa latência em tráfego volumoso e sensível a custo (<span class="qual">registrado na documentação</span>). E descreve o modelo de <em>fronteira</em>, que se destaca em trabalho profundo em tarefas complexas do mundo real, incluindo código, finanças, direito, segurança e ciência (<span class="qual">registrado na documentação</span>).</p>
+      <h3>O que a faixa não diz</h3>
+      <p>Nenhuma dessas descrições garante que o modelo passa no seu critério de aceite. Elas informam a intenção do fabricante e reduzem o espaço de teste. A escolha dentro da faixa continua sendo medida (14.2c), e o esforço continua sendo a primeira alavanca (14.3b).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: faixas de modelo e uso típico" tabindex="0">
+      <table class="tabela">
+        <caption>Faixas descritas nos catálogos (leitura da documentação do Google, consultada em 17/11/2026)</caption>
+        <thead><tr><th scope="col">Faixa</th><th scope="col">Descrição do catálogo</th><th scope="col">Uso típico</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Rápido</th><td>Equilíbrio entre inteligência e latência, com raciocínio controlável</td><td>Triagem e interação em tempo real</td></tr>
+          <tr><th scope="row">Econômico</th><td>Otimizado para baixa latência em alto volume</td><td>Tarefas simples e repetitivas</td></tr>
+          <tr><th scope="row">Fronteira</th><td>Trabalho profundo em tarefas complexas</td><td>Revisão, código multi-arquivo, análise</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Registrar a data</h3>
+      <p>Catálogos trocam de nome, de preço e de versão com frequência. Por isso o guia não fixa nomes de modelo no texto corrido: registra a faixa, a descrição e a data da consulta. Quem for escolher hoje deve reler a página do fornecedor. O que não muda é o método: tarefa, critério, amostra e conta completa.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-3c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-3c">Um arquiteto escolheu o modelo de fronteira para todas as finalidades "por segurança". Qual é o efeito provável?</p>
+        <label class="alternativa"><input type="radio" name="p14-3c" value="a" data-correta="true" data-explicacao="Correta. A matriz por finalidade existe para evitar esse uso uniforme."><span><strong>A.</strong> Custo e latência acima do necessário nas finalidades simples, sem ganho de qualidade que justifique; a faixa deveria seguir a finalidade.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3c" value="b" data-correta="false" data-explicacao="Incorreta. Ele é o mais capaz, não o mais adequado a tudo."><span><strong>B.</strong> Nenhum: o modelo de fronteira é sempre a melhor escolha.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3c" value="c" data-correta="false" data-explicacao="Incorreta. Acerto não compensa custo e latência em tarefas simples."><span><strong>C.</strong> Redução de custo, porque responde certo na primeira vez.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-3c" value="d" data-correta="false" data-explicacao="Incorreta. Supervisão é decisão de fluxo, não efeito do modelo."><span><strong>D.</strong> Melhora automática da supervisão humana.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>As faixas orientam o teste, e a data da consulta precisa ser registrada. A unidade 14.4 transforma a escolha em regra executável: roteamento por código.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Faixas do catálogo:</strong> Google Cloud, <em>Google models</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Nomes e preços mudam:</strong> Observação editorial (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Quadro das faixas:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Choosing the right model</em> — <a href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/models/choosing-a-model</a>; Anthropic, <em>Effort</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/effort</a>; Google Cloud, <em>Google models</em> — <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/.../models/google-models</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.3c">
+        <a href="#unidade-14-3b">Parte 14.3b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 285">285</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-4a">Parte 14.4a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-4a" aria-labelledby="titulo-da-unidade-14-4a">
+      <h2 id="titulo-da-unidade-14-4a">14.4a Roteamento é um workflow, não um agente</h2>
+      <p class="rotulo-unidade">Unidade 14.4 — Regras simples e roteamento (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Roteamento encaminha cada pedido a uma rota fixa, escolhida por uma regra de classificação.</li>
+          <li>A Anthropic o coloca entre os workflows: código ao redor do modelo, não autonomia do modelo.</li>
+          <li>Funciona quando as categorias são distintas e a classificação é confiável.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="14-4a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: uma ponte de pedra se divide em três caminhos sinalizados por placas simples; um guarda na entrada apenas lê a placa e aponta, sem conversar com os viajantes.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> A recepção de um prédio não atende o visitante: ela lê o crachá e diz o andar. A classificação é simples e o caminho é fixo.</p></div>
+
+      <h3>O padrão</h3>
+      <p>A Anthropic descreve o <dfn>roteamento</dfn> como um workflow em que uma entrada é classificada e encaminhada a um processo especializado (<span class="qual">registrado na pesquisa técnica do fornecedor</span>). Não é um agente: não há laço de decisão nem ferramentas escolhidas livremente. Um classificador — modelo pequeno ou algoritmo tradicional — olha o pedido e responde com uma etiqueta; o código usa a etiqueta para escolher prompt, modelo e ferramentas.</p>
+      <h3>Quando funciona</h3>
+      <p>A orientação é precisa: rotear vale para tarefas complexas em que existem categorias distintas, que são tratadas melhor separadamente, e em que a classificação pode ser feita com acurácia, seja por um modelo de linguagem, seja por um classificador mais tradicional (<span class="qual">registrado na pesquisa técnica do fornecedor</span>). Se as categorias se confundem, o roteador erra e a rota boa recebe o pedido errado.</p>
+      <h3>Dois exemplos da fonte</h3>
+      <p>Um exemplo é mandar perguntas fáceis e comuns para modelos menores e econômicos e perguntas difíceis ou incomuns para modelos mais capazes (<span class="qual">registrado na pesquisa técnica do fornecedor</span>). Outro é direcionar tipos de consulta de atendimento — dúvida geral, pedido de reembolso, suporte técnico — para processos, prompts e ferramentas diferentes (<span class="qual">registrado na pesquisa técnica do fornecedor</span>).</p>
+      <h3>Código antes do modelo</h3>
+      <p>Se a regra é determinística — idioma, tipo de documento, faixa de valor —, ela deve viver em código, não em um modelo. O modelo entra só onde há ambiguidade real. Usar um LLM para decidir entre dois caminhos óbvios acrescenta latência, custo e falha silenciosa sem benefício.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-4a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-4a">A Aurora quer separar pedidos de "segunda via de boleto" de "contestação de cobrança". A primeira palavra do pedido já resolve 95% dos casos. Qual desenho é o mais coerente?</p>
+        <label class="alternativa"><input type="radio" name="p14-4a" value="a" data-correta="true" data-explicacao="Correta. Roteamento vale com classificação confiável, e regra determinística fica em código."><span><strong>A.</strong> Regra em código para o caso determinístico e classificador para o resto, com registro do que caiu em cada rota.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4a" value="b" data-correta="false" data-explicacao="Incorreta. Roteamento é workflow; autonomia acrescenta custo e falha sem necessidade."><span><strong>B.</strong> Um agente autônomo que decide a rota conversando com o cliente.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4a" value="c" data-correta="false" data-explicacao="Incorreta. Isso ignora a regra determinística e encarece a rota."><span><strong>C.</strong> Enviar tudo ao modelo de fronteira e deixar ele decidir.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4a" value="d" data-correta="false" data-explicacao="Incorreta. Não aproveita a classificação confiável que já existe."><span><strong>D.</strong> Duas filas manuais, sem classificação.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Roteamento é workflow com classificação confiável, e regra determinística fica em código. Na parte 14.4b, vemos roteadores aprendidos e cascatas.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Roteamento como workflow:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Condição de uso:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Exemplos de rotas:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Código antes do modelo:</strong> Leitura didática (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.4a">
+        <a href="#unidade-14-3c">Parte 14.3c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 286">286</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-4b">Parte 14.4b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-4b" aria-labelledby="titulo-da-unidade-14-4b">
+      <h2 id="titulo-da-unidade-14-4b">14.4b Roteadores aprendidos e cascatas</h2>
+      <p class="rotulo-unidade">Unidade 14.4 — Regras simples e roteamento (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>RouteLLM aprende um roteador que escolhe entre um modelo forte e um fraco a cada consulta.</li>
+          <li>FrugalGPT descreve três famílias de economia, entre elas a cascata sequencial de modelos.</li>
+          <li>As duas abordagens trocam custo por complexidade: precisam de dados e de medição.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma triagem de hospital decide, na porta, quem vai para o clínico e quem vai para o especialista. Se a triagem erra, o paciente volta e o custo dobra.</p></div>
+
+      <h3>Roteador aprendido</h3>
+      <p>O <dfn>RouteLLM</dfn> propõe um arcabouço de treino para aprender roteadores eficientes, que escolhem dinamicamente entre um modelo mais forte e um mais fraco durante a inferência (<span class="qual">registrado no artigo</span>). O treino usa dados de preferência humana e aumento de dados para melhorar o desempenho (<span class="qual">registrado no artigo</span>). A ideia é estimar, para cada consulta, se o modelo fraco basta — e mandar ao forte só o que precisa.</p>
+      <h3>Cascata</h3>
+      <p>O <dfn>FrugalGPT</dfn> organiza a economia em três famílias de estratégia: adaptação de prompt, aproximação do modelo e cascata de modelos (<span class="qual">registrado no artigo</span>). Na cascata, a consulta é enviada a uma lista de APIs em sequência (<span class="qual">registrado no artigo</span>): o primeiro modelo responde, e um critério decide se a resposta serve ou se o pedido segue para o próximo, mais caro.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: roteador aprendido e cascata" tabindex="0">
+      <table class="tabela">
+        <caption>Duas abordagens de economia por escolha de modelo (leitura dos artigos)</caption>
+        <thead><tr><th scope="col">Abordagem</th><th scope="col">Como decide</th><th scope="col">Precisa de</th><th scope="col">Risco</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Roteador aprendido</th><td>Modelo treinado estima qual modelo basta</td><td>Dados de preferência e treino</td><td>Erro de classificação</td></tr>
+          <tr><th scope="row">Cascata</th><td>Sequência de modelos com critério de parada</td><td>Critério de confiança calibrado</td><td>Parar cedo ou tarde demais</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que as duas exigem</h3>
+      <p>Roteador aprendido precisa de dados de preferência e de treino; cascata precisa de um critério de parada confiável, senão ou para cedo demais (qualidade) ou tarde demais (custo). Nos dois casos, o ganho só existe se medido na sua amostra. Complexidade sem medição é custo novo, não economia.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-4b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-4b">Uma equipe quer implantar cascata de três modelos para reduzir custo, sem medir a qualidade das respostas intermediárias. Qual é o risco principal?</p>
+        <label class="alternativa"><input type="radio" name="p14-4b" value="a" data-correta="true" data-explicacao="Correta. A cascata depende de um critério de confiança que decida quando seguir adiante."><span><strong>A.</strong> A cascata pode aceitar cedo demais uma resposta fraca e reduzir a qualidade sem que ninguém perceba.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4b" value="b" data-correta="false" data-explicacao="Incorreta. Cascata economiza custo; qualidade depende do critério de parada."><span><strong>B.</strong> Nenhum: cascata sempre melhora qualidade.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4b" value="c" data-correta="false" data-explicacao="Incorreta. Isso é característica do roteador aprendido."><span><strong>C.</strong> A cascata exige dados de preferência humana para treinar.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4b" value="d" data-correta="false" data-explicacao="Incorreta. O texto não afirma isso."><span><strong>D.</strong> A cascata impede o uso de cache.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Roteador aprendido e cascata trocam custo por complexidade e exigem dados e medição. Na parte 14.4c, vemos como gateways executam essas regras em produção.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Roteador aprendido:</strong> Ong et al., <em>RouteLLM</em>, <code>arXiv:2406.18665</code> (<span class="qual">registrado no artigo</span>)</p>
+        <p><strong>Três famílias e cascata:</strong> Chen, Zaharia e Zou, <em>FrugalGPT</em>, <code>arXiv:2305.05176</code> (<span class="qual">registrado no artigo</span>)</p>
+        <p><strong>Quadro comparativo:</strong> Leitura dos artigos (<span class="qual">registrado no artigo</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.4b">
+        <a href="#unidade-14-4a">Parte 14.4a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 287">287</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-4c">Parte 14.4c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-4c" aria-labelledby="titulo-da-unidade-14-4c">
+      <h2 id="titulo-da-unidade-14-4c">14.4c Gateways e estratégias de balanceamento</h2>
+      <p class="rotulo-unidade">Unidade 14.4 — Regras simples e roteamento (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Um gateway concentra credenciais, repetição e balanceamento entre vários destinos.</li>
+          <li>O LiteLLM lista estratégias: sorteio simples, peso, limite de taxa, menos ocupado, latência e custo.</li>
+          <li>A recomendação padrão é a mais simples: sorteio simples em produção.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um despachante central recebe os pedidos e distribui entre os entregadores disponíveis, sem o cliente precisar conhecer cada um.</p></div>
+
+      <h3>O que o gateway faz</h3>
+      <p>Um <dfn>gateway de modelos</dfn> fica entre a aplicação e os fornecedores. A documentação do LiteLLM descreve o balanceamento entre várias implantações de Azure, Bedrock e outros provedores, com repetição em regiões diferentes quando uma chamada falha (<span class="qual">registrado na documentação</span>). A aplicação fala com um endereço; o gateway escolhe para onde ir.</p>
+      <h3>As estratégias</h3>
+      <p>O roteador oferece várias estratégias para distribuir chamadas entre implantações, e a documentação recomenda o sorteio simples, que é o padrão, por dar o melhor desempenho em produção (<span class="qual">registrado na documentação</span>). As alternativas listadas são escolha ponderada, ciente do limite de taxa, menos ocupado, por latência e por custo (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: estratégias de balanceamento do gateway" tabindex="0">
+      <table class="tabela">
+        <caption>Estratégias citadas na documentação do LiteLLM (consultada em 17/11/2026)</caption>
+        <thead><tr><th scope="col">Estratégia</th><th scope="col">Suposição</th><th scope="col">Quando faz sentido</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Sorteio simples (padrão)</th><td>Distribuição uniforme basta</td><td>Primeiro passo e carga homogênea</td></tr>
+          <tr><th scope="row">Escolha ponderada</th><td>Pesos refletem capacidade</td><td>Implantações de tamanhos diferentes</td></tr>
+          <tr><th scope="row">Ciente do limite de taxa</th><td>Limite é o gargalo</td><td>Quando há cotas por provedor</td></tr>
+          <tr><th scope="row">Menos ocupado</th><td>Ocupação prevê espera</td><td>Carga em rajadas</td></tr>
+          <tr><th scope="row">Latência</th><td>Latência passada prevê a futura</td><td>Rede e provedores instáveis</td></tr>
+          <tr><th scope="row">Custo</th><td>Preço deve guiar a escolha</td><td>Otimização de gasto</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Estratégia é hipótese</h3>
+      <p>Cada estratégia embute uma suposição sobre a carga. "Menos ocupado" supõe que ocupação mede espera; "por latência" supõe que a latência passada prevê a futura. A recomendação do fornecedor pelo mais simples é um bom começo: só troque quando a medição mostrar o problema que a estratégia promete resolver. Balancear e repetir sem observar pode esconder falha e multiplicar custo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-4c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-4c">A Aurora acabou de colocar um gateway na frente de dois provedores e quer "otimizar" já com a estratégia por custo. O que a documentação sugere primeiro?</p>
+        <label class="alternativa"><input type="radio" name="p14-4c" value="a" data-correta="true" data-explicacao="Correta. A recomendação do LiteLLM é o sorteio simples por desempenho em produção."><span><strong>A.</strong> Usar o sorteio simples, que é o padrão recomendado para produção, e trocar de estratégia só com medição que justifique.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4c" value="b" data-correta="false" data-explicacao="Incorreta. Sofisticação sem medição pode piorar o desempenho."><span><strong>B.</strong> Escolher a estratégia mais sofisticada disponível.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4c" value="c" data-correta="false" data-explicacao="Incorreta. A repetição protege contra falha de região; economizar às custas da disponibilidade não é a orientação."><span><strong>C.</strong> Desligar a repetição entre regiões para economizar.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-4c" value="d" data-correta="false" data-explicacao="Incorreta. Uma estratégia embute uma suposição; combinar sem medir esconde a causa."><span><strong>D.</strong> Balancear por custo e por latência ao mesmo tempo.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Gateways concentram repetição e balanceamento, e o padrão recomendado é o mais simples. A unidade 14.5 trata do que fazer quando a rota escolhida falha.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Balanceamento e repetição:</strong> LiteLLM, <em>Router — Load Balancing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Estratégias e recomendação:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de suposições:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; Ong et al., <em>RouteLLM</em> — <a href="https://arxiv.org/pdf/2406.18665" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2406.18665</a>; Chen, Zaharia e Zou, <em>FrugalGPT</em> — <a href="https://arxiv.org/pdf/2305.05176" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.05176</a>; LiteLLM, <em>Router</em> — <a href="https://docs.litellm.ai/docs/routing" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/routing</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.4c">
+        <a href="#unidade-14-4b">Parte 14.4b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 288">288</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-5a">Parte 14.5a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-5a" aria-labelledby="titulo-da-unidade-14-5a">
+      <h2 id="titulo-da-unidade-14-5a">14.5a Contingência: a segunda rota</h2>
+      <p class="rotulo-unidade">Unidade 14.5 — Escalonamento e contingência (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Fallback é a lista de rotas alternativas, acionada quando a primeira falha.</li>
+          <li>OpenRouter e LiteLLM executam os destinos em ordem de prioridade.</li>
+          <li>A lista precisa dizer o que conta como falha e quem responde pelo resultado.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="14-5a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um carroceiro experiente conduz uma carroça por uma estrada de pedra; ao fundo, uma ponte interditada sinaliza um desvio já marcado por estacas.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> O plano de viagem já traz o desvio: se a estrada principal alagar, o motorista não improvisa no meio da enchente.</p></div>
+
+      <h3>O que o gateway faz sozinho</h3>
+      <p>A documentação do OpenRouter descreve o parâmetro de modelos como uma forma de tentar outros modelos automaticamente se os provedores do modelo principal estiverem fora, limitados por taxa ou se recusarem a responder por moderação de conteúdo (<span class="qual">registrado na documentação</span>). A ordem é dada por um arranjo de identificadores em prioridade: se o primeiro devolver erro, o serviço tenta o seguinte (<span class="qual">registrado na documentação</span>).</p>
+      <h3>No LiteLLM</h3>
+      <p>No LiteLLM, quando uma chamada falha depois do número de repetições, o sistema cai para outro grupo de modelos, de modo que o modelo ou provedor com problema dá lugar a um substituto saudável (<span class="qual">registrado na documentação</span>). E os fallbacks são feitos em ordem (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: tipos de falha e resposta" tabindex="0">
+      <table class="tabela">
+        <caption>Falhas e respostas de contingência (leitura da documentação de OpenRouter e LiteLLM)</caption>
+        <thead><tr><th scope="col">Falha</th><th scope="col">Resposta documentada</th><th scope="col">Cuidado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Provedor fora do ar</th><td>Próximo modelo da lista</td><td>Substituto precisa ser aceito pela tarefa</td></tr>
+          <tr><th scope="row">Limite de taxa</th><td>Repetição e depois fallback</td><td>Repetição sem limite multiplica custo</td></tr>
+          <tr><th scope="row">Recusa por moderação</th><td>Tentar outro modelo (OpenRouter)</td><td>A recusa pode ser correta; revisar antes</td></tr>
+          <tr><th scope="row">Contexto excedido</th><td>Fallback dedicado a janela de contexto</td><td>Muda o modelo, não o tamanho do pedido</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O contrato da contingência</h3>
+      <p>Uma lista de substitutos é fácil de configurar e fácil de esquecer. Três decisões precisam estar escritas: o que conta como falha (erro de rede, limite de taxa, recusa de moderação, contexto excedido), qual substituto serve a cada tipo de pedido — outro modelo do mesmo fornecedor ou de outro — e quem é avisado. Sem isso, a segunda rota pode responder por um modelo que não passou no seu critério de aceite, sem que ninguém saiba.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-5a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-5a">O assistente da Aurora tem três modelos em fallback, e o terceiro nunca foi avaliado no critério de aceite. O que pode acontecer?</p>
+        <label class="alternativa"><input type="radio" name="p14-5a" value="a" data-correta="true" data-explicacao="Correta. A contingência não dispensa o critério de aceite dos substitutos."><span><strong>A.</strong> Quando os dois primeiros falharem, o terceiro responde sem ter passado pela avaliação, e a qualidade cai sem sinal claro.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5a" value="b" data-correta="false" data-explicacao="Incorreta. A lista cobre também limite de taxa e recusa de moderação."><span><strong>B.</strong> Nada: fallback só é acionado em erro de rede.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5a" value="c" data-correta="false" data-explicacao="Incorreta. A documentação não descreve esse bloqueio."><span><strong>C.</strong> O gateway bloqueia modelos não avaliados automaticamente.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5a" value="d" data-correta="false" data-explicacao="Incorreta. Substitutos podem ter comportamento diferente."><span><strong>D.</strong> O fallback garante a mesma qualidade do principal.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Fallback segue uma lista em ordem, e cada substituto precisa ser aceito pela tarefa. Na parte 14.5b, vemos o que a troca de rota não resolve.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Fallback no OpenRouter:</strong> OpenRouter, <em>Model Fallbacks</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Ordem de prioridade:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Fallback e ordem no LiteLLM:</strong> LiteLLM, <em>Reliability</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Contrato da contingência:</strong> Proposta de registro (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.5a">
+        <a href="#unidade-14-4c">Parte 14.4c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 289">289</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-5b">Parte 14.5b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-5b" aria-labelledby="titulo-da-unidade-14-5b">
+      <h2 id="titulo-da-unidade-14-5b">14.5b O que a troca de rota não resolve</h2>
+      <p class="rotulo-unidade">Unidade 14.5 — Escalonamento e contingência (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Trocar de provedor ou de chave no meio da conversa pode impedir a leitura do raciocínio anterior.</li>
+          <li>Há uma falha específica para contexto excedido, que é diferente de indisponibilidade.</li>
+          <li>Contingência cobre indisponibilidade; continuidade da conversa é outra decisão.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Passar o caso para outro escritório resolve o atendimento, mas o novo escritório talvez não consiga ler as anotações criptografadas do anterior.</p></div>
+
+      <h3>O raciocínio que não viaja</h3>
+      <p>A documentação do LiteLLM registra um limite importante: um fallback para uma implantação em outro provedor, ou com outra chave de API, não consegue decifrar o raciocínio criptografado que a implantação que falhou produziu nos turnos anteriores (<span class="qual">registrado na documentação</span>). Em conversas longas com raciocínio preservado, o substituto pode receber um histórico que não entende por completo.</p>
+      <h3>Contexto excedido é outra falha</h3>
+      <p>O LiteLLM separa uma categoria própria para erros de janela de contexto excedida, mapeando as mensagens de erro entre provedores (<span class="qual">registrado na documentação</span>). É uma falha diferente de indisponibilidade: o substituto com janela maior resolve; repetir no mesmo modelo, não.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: contingência e continuidade" tabindex="0">
+      <table class="tabela">
+        <caption>Falhas que o fallback cobre e falhas que ele não cobre</caption>
+        <thead><tr><th scope="col">Situação</th><th scope="col">Fallback resolve?</th><th scope="col">Ação indicada</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Provedor indisponível</th><td>Sim</td><td>Próxima rota da lista</td></tr>
+          <tr><th scope="row">Limite de taxa</th><td>Parcialmente</td><td>Repetir com espera, depois trocar</td></tr>
+          <tr><th scope="row">Contexto excedido</th><td>Com rota de janela maior</td><td>Fallback dedicado ou novo pedido menor</td></tr>
+          <tr><th scope="row">Raciocínio criptografado de outro provedor</th><td>Não</td><td>Abrir sessão nova com resumo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Duas decisões diferentes</h3>
+      <p><strong>Contingência</strong> responde "quem atende quando a rota falha". <strong>Continuidade</strong> responde "a conversa pode seguir em outra rota". A primeira é configuração de gateway; a segunda é regra de produto. Quando a conversa importa, a resposta saudável costuma ser abrir uma sessão nova na rota substituta, com resumo do estado — e registrar a troca. É o que a unidade 14.6 detalha.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-5b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-5b">Uma conversa longa com raciocínio preservado falha porque o provedor principal caiu, e o gateway troca para outro provedor. Qual é a consequência documentada?</p>
+        <label class="alternativa"><input type="radio" name="p14-5b" value="a" data-correta="true" data-explicacao="Correta. É o limite explicitado na documentação do LiteLLM."><span><strong>A.</strong> O substituto não consegue decifrar o raciocínio criptografado produzido antes pela implantação que falhou.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5b" value="b" data-correta="false" data-explicacao="Incorreta. A documentação diz o contrário para o raciocínio criptografado."><span><strong>B.</strong> O histórico é traduzido automaticamente entre provedores.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5b" value="c" data-correta="false" data-explicacao="Incorreta. Não há garantia de continuidade entre provedores."><span><strong>C.</strong> A conversa continua idêntica, sem perda.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5b" value="d" data-correta="false" data-explicacao="Incorreta. A documentação descreve o limite, não uma recusa automática."><span><strong>D.</strong> O gateway recusa o fallback nesse caso.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A troca de provedor não garante continuidade do raciocínio anterior. Na parte 14.5c, vemos quando reavaliar a rota e como registrar a decisão.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Raciocínio criptografado e fallback:</strong> LiteLLM, <em>Reliability</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Contexto excedido:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Contingência e continuidade:</strong> Distinção (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.5b">
+        <a href="#unidade-14-5a">Parte 14.5a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 290">290</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-5c">Parte 14.5c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-5c" aria-labelledby="titulo-da-unidade-14-5c">
+      <h2 id="titulo-da-unidade-14-5c">14.5c Reavaliar: quando a rota envelhece</h2>
+      <p class="rotulo-unidade">Unidade 14.5 — Escalonamento e contingência (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A rota escolhida envelhece quando o modelo muda, o preço muda ou o problema muda.</li>
+          <li>Problemas novos publicados depois do corte de treino medem generalização; os antigos podem estar contaminados.</li>
+          <li>A decisão de troca precisa de data, amostra e motivo registrados.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma bússola calibrada há um ano ainda aponta o norte, mas não avisa que a estrada mudou de lugar.</p></div>
+
+      <h3>Por que reavaliar</h3>
+      <p>A página do LiveCodeBench explica o mecanismo: para um modelo novo, com data de corte de treino D, é possível avaliá-lo em problemas publicados depois de D para medir a generalização em problemas não vistos (<span class="qual">registrado na documentação</span>). A mesma página registra indício de contaminação em problemas anteriores (<span class="qual">registrado na documentação</span>). Traduzindo para a operação: número antigo, em conjunto antigo, diz pouco sobre o modelo novo.</p>
+      <h3>Gatilhos razoáveis</h3>
+      <p>Reavalie quando um modelo ou versão relevante muda, quando o preço ou o limite de taxa muda de forma material, quando a distribuição dos pedidos muda (novo produto, novo público) e quando uma falha de qualidade aparece em produção. A lista é <span class="qual">proposta didática</span>.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: registro de decisão de rota" tabindex="0">
+      <table class="tabela">
+        <caption>Campos do registro de escolha de modelo (proposta didática)</caption>
+        <thead><tr><th scope="col">Campo</th><th scope="col">Exemplo</th><th scope="col">Por que importa</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Data</th><td>17/11/2026</td><td>Modelos e preços mudam</td></tr>
+          <tr><th scope="row">Finalidade</th><td>Triagem de e-mails</td><td>Liga a rota à tarefa</td></tr>
+          <tr><th scope="row">Critério de aceite</th><td>95% de acerto na amostra</td><td>Torna o teste repetível</td></tr>
+          <tr><th scope="row">Amostra</th><td>200 casos reais anonimizados</td><td>Define o alcance da conclusão</td></tr>
+          <tr><th scope="row">Resultado</th><td>Acerto, custo e tempo por candidato</td><td>Sustenta a comparação</td></tr>
+          <tr><th scope="row">Motivo</th><td>Melhor custo com mesmo acerto</td><td>Explica a escolha a quem não participou</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Registrar a decisão</h3>
+      <p>Guardar apenas "usamos o modelo X" envelhece mal. O registro útil tem data, tarefa, critério de aceite, amostra, resultado por candidato e motivo da escolha. Assim, a próxima pessoa consegue repetir o teste em vez de refazer a discussão, e a troca de rota vira decisão auditável.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-5c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-5c">Saiu uma versão nova do modelo usado na triagem, com preço menor. Qual prática é a mais coerente?</p>
+        <label class="alternativa"><input type="radio" name="p14-5c" value="a" data-correta="true" data-explicacao="Correta. Reavaliar com amostra e critério é o que sustenta a troca."><span><strong>A.</strong> Rodar a amostra de aceite da triagem com a versão nova, comparar acerto, custo e tempo, e registrar a decisão com data e motivo.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5c" value="b" data-correta="false" data-explicacao="Incorreta. Novidade e preço não provam que o critério de aceite continua atendido."><span><strong>B.</strong> Trocar imediatamente, porque a versão é mais nova e mais barata.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5c" value="c" data-correta="false" data-explicacao="Incorreta. Não reavaliar também é uma decisão sem evidência."><span><strong>C.</strong> Manter a versão antiga para sempre, para não arriscar.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-5c" value="d" data-correta="false" data-explicacao="Incorreta. Benchmarks não substituem a amostra da tarefa."><span><strong>D.</strong> Comparar apenas pelos benchmarks públicos.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A rota envelhece com modelo, preço e demanda, e a reavaliação precisa de amostra e registro. A unidade 14.6 fecha o capítulo com a regra de trocar modelo ou esforço só em conversa nova.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Recorte por data e contaminação:</strong> LiveCodeBench, página do projeto (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Gatilhos de reavaliação:</strong> Lista (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Campos do registro:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenRouter, <em>Model Fallbacks</em> — <a href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank" rel="noopener noreferrer">openrouter.ai/docs/guides/routing/model-fallbacks</a>; LiteLLM, <em>Reliability</em> — <a href="https://docs.litellm.ai/docs/proxy/reliability" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/reliability</a>; LiveCodeBench, página do projeto — <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">livecodebench.github.io</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.5c">
+        <a href="#unidade-14-5b">Parte 14.5b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 291">291</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-6a">Parte 14.6a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-6a" aria-labelledby="titulo-da-unidade-14-6a">
+      <h2 id="titulo-da-unidade-14-6a">14.6a Cache de prefixo: o que muda e o que não muda</h2>
+      <p class="rotulo-unidade">Unidade 14.6 — Troca de modelo ou esforço só em conversa nova (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O cache depende do prefixo da requisição, não de a requisição ser idêntica à anterior.</li>
+          <li>Trocar de modelo pode mudar pesos e comportamento de cache: não conte com o cache anterior.</li>
+          <li>Mudar de esforço pode alterar instruções do lado do modelo; há caminho que preserva o prefixo.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma fotocopiadora guarda as primeiras páginas já copiadas. Se o começo do documento muda, ela precisa copiar de novo dali em diante.</p></div>
+
+      <h3>A regra do prefixo</h3>
+      <p>A documentação da OpenAI é precisa: mudar uma requisição não descarta necessariamente uma entrada de cache existente. O que importa é se a requisição seguinte tem o mesmo prefixo e encontra um ponto de corte elegível para casar (<span class="qual">registrado na documentação</span>). Ou seja, o cache não é "a conversa anterior"; é o começo do texto que se repete. Isso já apareceu no capítulo 9; aqui interessa o efeito da troca de rota.</p>
+      <h3>Trocar de modelo</h3>
+      <p>Um modelo diferente pode usar pesos e comportamento de cache diferentes (<span class="qual">registrado na documentação</span>). A consequência prática: ao mudar de modelo, não conte com o cache da conversa anterior. O pedido será processado do zero naquele destino.</p>
+      <h3>Mudar de esforço</h3>
+      <p>A mesma documentação observa que alterar o esforço pode mudar instruções de raciocínio do lado do modelo; nos modelos que oferecem esse recurso, a orientação é usar uma atualização de configuração para mudar o esforço preservando o prefixo anterior (<span class="qual">registrado na documentação</span>). Muda o nível de raciocínio, não o texto que já estava no começo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-6a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-6a">Um time trocou o modelo no meio de uma conversa longa, manteve o mesmo prompt e notou que a primeira resposta demorou mais e custou mais. Qual explicação é coerente com a documentação?</p>
+        <label class="alternativa"><input type="radio" name="p14-6a" value="a" data-correta="true" data-explicacao="Correta. A documentação afirma que um modelo diferente pode ter pesos e comportamento de cache diferentes."><span><strong>A.</strong> O cache depende do prefixo e do destino; com outro modelo, os pesos e o comportamento de cache podem ser diferentes, e o prefixo não aproveita o cache anterior.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6a" value="b" data-correta="false" data-explicacao="Incorreta. O que importa é o prefixo, não a igualdade total."><span><strong>B.</strong> O cache é apagado sempre que qualquer palavra muda na conversa.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6a" value="c" data-correta="false" data-explicacao="Incorreta. Latência de primeira chamada não mede qualidade."><span><strong>C.</strong> A demora prova que o modelo novo é pior.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6a" value="d" data-correta="false" data-explicacao="Incorreta. O prompt foi mantido; a explicação está no cache e no destino."><span><strong>D.</strong> O custo maior veio do prompt mais longo.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O cache depende do prefixo que se repete e do destino. Na parte 14.6b, vemos a orientação da Anthropic para o esforço no meio da conversa.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Regra do prefixo:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Modelo diferente, cache diferente:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Esforço e configuração:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.6a">
+        <a href="#unidade-14-5c">Parte 14.5c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 292">292</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-6b">Parte 14.6b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-6b" aria-labelledby="titulo-da-unidade-14-6b">
+      <h2 id="titulo-da-unidade-14-6b">14.6b Esforço no meio da conversa</h2>
+      <p class="rotulo-unidade">Unidade 14.6 — Troca de modelo ou esforço só em conversa nova (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A orientação da Anthropic é manter o esforço de topo constante em conversas com cache.</li>
+          <li>Mudar o esforço entre requisições pode invalidar todo ou parte do cache.</li>
+          <li>Há um caminho que preserva o cache: mudar o esforço por mensagem, nos modelos que suportam.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Se você troca a marcha no meio da subida, o carro perde velocidade antes de retomar. Melhor escolher a marcha certa e manter até o fim do trecho.</p></div>
+
+      <h3>A recomendação</h3>
+      <p>A documentação da Anthropic recomenda manter o esforço de topo constante dentro de conversas que usam cache: mudar o valor entre requisições pode invalidar todo ou parte do cache de prompt, então é melhor variar o esforço entre cargas de trabalho do que dentro de uma conversa que depende de acerto de cache (<span class="qual">registrado na documentação</span>).</p>
+      <h3>A exceção documentada</h3>
+      <p>Nos modelos que suportam, a orientação é usar a mudança de esforço por mensagem, que preserva o cache (<span class="qual">registrado na documentação</span>). É a diferença entre mudar o padrão da casa e ajustar uma peça: a segunda opção não derruba o que já estava guardado.</p>
+      <h3>Sem suporte</h3>
+      <p>Se o modelo não suporta esforço por mensagem e a sessão longa depende de cache, a recomendação é escolher um nível no começo e mantê-lo constante (<span class="qual">registrado na documentação</span>). Na prática: defina o esforço pela finalidade (14.3b) e não o ajuste no meio do atendimento.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-6b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-6b">Uma sessão de análise jurídica longa usa cache e alterna o esforço entre "alto" e "baixo" conforme a pergunta, no nível de topo. Qual é o efeito provável, segundo a documentação?</p>
+        <label class="alternativa"><input type="radio" name="p14-6b" value="a" data-correta="true" data-explicacao="Correta. A documentação avisa que mudar o esforço de topo entre requisições pode invalidar o cache."><span><strong>A.</strong> O cache pode ser invalidado em todo ou em parte a cada mudança, encarecendo e atrasando a sessão.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6b" value="b" data-correta="false" data-explicacao="Incorreta. A orientação trata explicitamente da interação entre esforço e cache."><span><strong>B.</strong> Nenhum: o cache é independente do esforço.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6b" value="c" data-correta="false" data-explicacao="Incorreta. Variação não aumenta o acerto de cache."><span><strong>C.</strong> O cache fica maior, porque há mais variação.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6b" value="d" data-correta="false" data-explicacao="Incorreta. A invalidação tende a custar mais, não menos."><span><strong>D.</strong> A sessão fica mais barata, porque alterna níveis.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O esforço de topo constante protege o cache; a mudança por mensagem é a exceção que o preserva. Na parte 14.6c, fechamos com a regra prática e a lacuna declarada.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Manter esforço constante:</strong> Anthropic, <em>Effort</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Mudança por mensagem:</strong> Anthropic, <em>Effort</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Escolher um nível e manter:</strong> Anthropic, <em>Effort</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.6b">
+        <a href="#unidade-14-6a">Parte 14.6a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 293">293</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-14-6c">Parte 14.6c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-14-6c" aria-labelledby="titulo-da-unidade-14-6c">
+      <h2 id="titulo-da-unidade-14-6c">14.6c A regra: trocar em conversa nova</h2>
+      <p class="rotulo-unidade">Unidade 14.6 — Troca de modelo ou esforço só em conversa nova (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Modelo e esforço escolhidos no começo de uma conversa devem valer até o fim dela.</li>
+          <li>A troca acontece na próxima conversa, ou numa sessão nova com resumo do estado.</li>
+          <li>Trocar de destino no meio é aceitável como contingência, com registro e sem prometer continuidade.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="14-6c">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um viajante desce de uma carroça numa estalagem de pedra, entrega um livro de registro ao estalajadeiro e recebe um novo cavalo selado para a próxima etapa.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Quem troca de trem no meio da viagem leva a mala e o bilhete; não espera que o novo trem saiba de cor o caminho já percorrido.</p></div>
+
+      <h3>A regra em uma frase</h3>
+      <p>Escolha modelo e esforço ao abrir a conversa e mantenha até o fim; a próxima conversa é o lugar de mudar. A razão vem das duas partes anteriores: o cache depende do prefixo e do destino, e o raciocínio de um provedor pode não viajar para outro.</p>
+      <h3>As três exceções</h3>
+      <p><strong>Contingência:</strong> se a rota falha, o gateway pode trocar; nesse caso, registre a troca e abra sessão nova com resumo — o substituto pode não entender o raciocínio anterior (14.5b). <strong>Esforço por mensagem:</strong> onde o modelo suporta, o ajuste pontual preserva o cache (14.6b). <strong>Conversa curta sem cache:</strong> se não há prefixo reaproveitado, a troca custa pouco; ainda assim, compare na amostra.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: quando trocar modelo ou esforço" tabindex="0">
+      <table class="tabela">
+        <caption>Regra de troca e exceções (proposta didática)</caption>
+        <thead><tr><th scope="col">Situação</th><th scope="col">Trocar no meio?</th><th scope="col">O que fazer</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Rotina normal</th><td>Não</td><td>Escolher no início; mudar na próxima conversa</td></tr>
+          <tr><th scope="row">Falha da rota</th><td>Sim, como contingência</td><td>Registrar e abrir sessão nova com resumo</td></tr>
+          <tr><th scope="row">Esforço por mensagem suportado</th><td>Sim</td><td>Ajuste pontual preserva o cache</td></tr>
+          <tr><th scope="row">Conversa curta sem cache</th><td>Com cautela</td><td>Sem prefixo reaproveitado, o custo é baixo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>A lacuna declarada</h3>
+      <p>O pacote do capítulo registra: nenhum trecho lido afirma que trocar de modelo invalida o cache na Anthropic ou no Google. A OpenAI afirma que modelo diferente pode ter pesos e comportamento de cache diferentes. A regra desta parte é <span class="qual">proposta didática</span> apoiada nessa frase e na recomendação da Anthropic sobre o esforço; é prudente, não é lei dos três fornecedores.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p14-6c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p14-6c">O time de produto quer que o assistente "suba de modelo" automaticamente quando a conversa fica difícil. Qual desenho respeita o que o capítulo documenta?</p>
+        <label class="alternativa"><input type="radio" name="p14-6c" value="a" data-correta="true" data-explicacao="Correta. A troca de modelo é segura em conversa nova, e a contingência é a exceção documentada."><span><strong>A.</strong> Encerrar a conversa atual com um resumo do estado e abrir uma nova na rota mais capaz, registrando a troca; no meio, só contingência.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6c" value="b" data-correta="false" data-explicacao="Incorreta. O raciocínio e o cache podem não acompanhar a troca."><span><strong>B.</strong> Trocar o modelo no meio da conversa, mantendo o histórico, sem aviso.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6c" value="c" data-correta="false" data-explicacao="Incorreta. Apagar o histórico perde o estado sem necessidade."><span><strong>C.</strong> Trocar o modelo e apagar o histórico do usuário.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-6c" value="d" data-correta="false" data-explicacao="Incorreta. Mudar o esforço de topo pode invalidar o cache."><span><strong>D.</strong> Aumentar o esforço de topo a cada pergunta.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Modelo e esforço valem até o fim da conversa; a troca é decisão de conversa nova, com as exceções registradas. O capítulo fecha com as questões.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Cache e destino:</strong> OpenAI, <em>Prompt caching</em>; Anthropic, <em>Effort</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Contingência e continuidade:</strong> LiteLLM, <em>Reliability</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Regra e exceções:</strong> Síntese (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Lacuna declarada:</strong> Registro do pacote de fontes (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>; Anthropic, <em>Effort</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/effort</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 14.6c">
+        <a href="#unidade-14-6b">Parte 14.6b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 294">294</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-14">Questões do capítulo 14</a>
+      </nav>
+    </section>
+
+    <section class="page" id="questoes-capitulo-14" aria-labelledby="titulo-das-questoes-14">
+      <h2 id="titulo-das-questoes-14">Questões do capítulo 14</h2>
+
+      <p>Seis questões aplicam o capítulo a situações reais de projeto: duas fáceis, três médias e uma difícil. Escolha uma alternativa por questão. A correção aparece na hora, com a explicação de cada escolha.</p>
+      <noscript><p>Esta página usa JavaScript para corrigir as questões. Sem ele, as alternativas aparecem, mas a correção não.</p></noscript>
+
+      <fieldset class="questao" aria-describedby="enunciado-c14q1">
+        <legend>Questão 1 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c14q1">Por onde começa a escolha de um modelo, segundo a documentação dos fornecedores?</p>
+        <label class="alternativa"><input type="radio" name="c14q1" value="a" data-correta="true" data-explicacao="Correta. A ferramenta de seleção parte da tarefa e da prioridade, e o critério de aceite vem antes."><span><strong>A.</strong> Pela tarefa e pela prioridade (qualidade, custo ou latência), com critério de aceite definido antes de comparar.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q1" value="b" data-correta="false" data-explicacao="Incorreta. Preço não define adequação."><span><strong>B.</strong> Pelo modelo mais caro disponível.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q1" value="c" data-correta="false" data-explicacao="Incorreta. Popularidade do benchmark não decide a tarefa."><span><strong>C.</strong> Pelo benchmark com maior número de downloads.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q1" value="d" data-correta="false" data-explicacao="Incorreta. O prompt é consequência do desenho, não ponto de partida."><span><strong>D.</strong> Pelo tamanho do prompt.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c14q2">
+        <legend>Questão 2 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c14q2">O que o parâmetro de esforço troca, segundo a Anthropic?</p>
+        <label class="alternativa"><input type="radio" name="c14q2" value="a" data-correta="true" data-explicacao="Correta. É a descrição da documentação de esforço."><span><strong>A.</strong> Inteligência por latência e custo dentro do mesmo modelo, sendo muitas vezes melhor alavanca que trocar de modelo.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q2" value="b" data-correta="false" data-explicacao="Incorreta. Esforço é parâmetro dentro do modelo."><span><strong>B.</strong> O modelo por outro fornecedor.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q2" value="c" data-correta="false" data-explicacao="Incorreta. Não é o que o parâmetro faz."><span><strong>C.</strong> A janela de contexto por memória.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q2" value="d" data-correta="false" data-explicacao="Incorreta. Preço não é negociado pelo parâmetro."><span><strong>D.</strong> O preço do token por desconto.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c14q3">
+        <legend>Questão 3 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c14q3">Uma equipe quer usar a nota do SWE-bench Verified para escolher o modelo do assistente de código. Quais cuidados a documentação impõe?</p>
+        <label class="alternativa"><input type="radio" name="c14q3" value="a" data-correta="true" data-explicacao="Correta. O ranking usa agente mínimo em bash, e as séries 1.x e 2.x não são comparáveis."><span><strong>A.</strong> Conferir o agente e o ambiente usados, notar que séries diferentes não são comparáveis e validar na amostra da própria tarefa.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q3" value="b" data-correta="false" data-explicacao="Incorreta. A nota não substitui o critério de aceite da tarefa."><span><strong>B.</strong> Usar a nota como critério único.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q3" value="c" data-correta="false" data-explicacao="Incorreta. Somar notas de objetos diferentes não produz significado."><span><strong>C.</strong> Somar as notas de IFEval e SWE-bench numa média.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q3" value="d" data-correta="false" data-explicacao="Incorreta. O primeiro colocado pode não atender à sua tarefa."><span><strong>D.</strong> Preferir sempre o primeiro colocado.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c14q4">
+        <legend>Questão 4 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c14q4">A Aurora vai rotear pedidos de atendimento entre três filas. Que condição a Anthropic exige para o roteamento funcionar?</p>
+        <label class="alternativa"><input type="radio" name="c14q4" value="a" data-correta="true" data-explicacao="Correta. É a condição registrada em Building effective agents."><span><strong>A.</strong> Categorias distintas, tratadas melhor separadamente, com classificação que possa ser feita com acurácia.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q4" value="b" data-correta="false" data-explicacao="Incorreta. Roteamento é workflow, não agente."><span><strong>B.</strong> Um agente autônomo com memória longa.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q4" value="c" data-correta="false" data-explicacao="Incorreta. O exemplo da fonte manda pedidos simples a modelos menores."><span><strong>C.</strong> Uso obrigatório de modelo de fronteira em todas as rotas.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q4" value="d" data-correta="false" data-explicacao="Incorreta. Rotas diferentes usam prompts e ferramentas diferentes."><span><strong>D.</strong> Que todas as rotas compartilhem o mesmo prompt.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c14q5">
+        <legend>Questão 5 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c14q5">Uma conversa longa com cache e raciocínio preservado cai porque o provedor principal falhou, e o fallback troca de provedor. O que a documentação permite afirmar?</p>
+        <label class="alternativa"><input type="radio" name="c14q5" value="a" data-correta="true" data-explicacao="Correta. É o limite registrado na documentação do LiteLLM."><span><strong>A.</strong> O substituto não decifra o raciocínio criptografado da implantação que falhou, então a continuidade não está garantida.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q5" value="b" data-correta="false" data-explicacao="Incorreta. O raciocínio criptografado não viaja entre provedores."><span><strong>B.</strong> A conversa continua idêntica, com todo o raciocínio preservado.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q5" value="c" data-correta="false" data-explicacao="Incorreta. A documentação descreve a limitação, não uma proibição."><span><strong>C.</strong> O fallback é proibido nesse caso.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q5" value="d" data-correta="false" data-explicacao="Incorreta. O provedor está fora do ar."><span><strong>D.</strong> Basta repetir a chamada no mesmo provedor.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c14q6">
+        <legend>Questão 6 <span class="nivel">(difícil)</span></legend>
+        <p id="enunciado-c14q6">A Aurora quer reduzir custo do assistente sem perder qualidade: triagem de e-mail, revisão de contrato e alteração de código multi-arquivo. O time propõe (1) um único modelo de fronteira para tudo, (2) alternar esforço no meio de cada conversa, (3) trocar de modelo quando a conversa fica difícil, mantendo o histórico, e (4) fallback para um modelo nunca avaliado. Quais quatro correções são as mais defensáveis?</p>
+        <label class="alternativa"><input type="radio" name="c14q6" value="a" data-correta="true" data-explicacao="Correta. Cada correção ataca um erro: uso uniforme, invalidação de cache, continuidade e qualidade do substituto."><span><strong>A.</strong> Roteamento por finalidade em código com classificador confiável; esforço definido no início da conversa; troca de modelo só em conversa nova com resumo; e cada substituto de fallback avaliado no critério de aceite.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q6" value="b" data-correta="false" data-explicacao="Incorreta. Contexto maior não resolve custo nem adequação por finalidade."><span><strong>B.</strong> Manter o modelo único e aumentar o contexto de todas as rotas.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q6" value="c" data-correta="false" data-explicacao="Incorreta. Mudar o esforço de topo pode invalidar o cache."><span><strong>C.</strong> Alternar o esforço a cada pergunta para economizar.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q6" value="d" data-correta="false" data-explicacao="Incorreta. Substituto não avaliado responde sem critério."><span><strong>D.</strong> Deixar o fallback como está, porque falhas são raras.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <nav class="page-nav" aria-label="Navegação das questões do capítulo 14">
+        <a href="#unidade-14-6c">Parte 14.6c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 295">295</span><a href="#sumario">Sumário</a></span>
         <a href="#glossario">Glossário</a>
       </nav>
     </section>
@@ -15709,6 +16837,7 @@ Desvio (regra fixa):
         <dt>Canário (8.3)</dt><dd>Implantação gradual de uma mudança para uma fração mínima do tráfego antes da liberação geral, para limitar danos caso surjam falhas. Em inglês, <em>canary deployment</em>.</dd>
         <dt>Capacidade (2.6)</dt><dd>Quanto o sistema consegue atender. Com um provedor, é a cota; num servidor local, é a do equipamento, que é fixa.</dd>
         <dt>Capacidade (segurança) (7.1)</dt><dd>Metadado associado a cada valor no desenho de segurança para registrar sua origem e impor o que pode ou não ser feito com ele.</dd>
+        <dt>Cascata de modelos (14.4)</dt><dd>Estratégia que envia cada consulta a uma lista de modelos em sequência, avançando quando o critério de qualidade não é atendido.</dd>
         <dt>Caso de borda (5.2)</dt><dd>Caso no limite do uso previsto, como a pergunta que a fonte não cobre.</dd>
         <dt>Caso de falha (3.4)</dt><dd>Situação de entrada ruim, serviço fora do ar ou dado contraditório que o critério de aceite precisa cobrir.</dd>
         <dt>Caso de recusa (3.4, 5.2)</dt><dd>Pedido fora do escopo, que o sistema precisa recusar indicando o canal certo, sem inventar resposta; nos testes, caso que verifica algo que o assistente não pode fazer, como confirmar matrícula.</dd>
@@ -15736,12 +16865,14 @@ Desvio (regra fixa):
         <dt>Conjunto reservado (5.6)</dt><dd>Casos que ninguém viu durante o ajuste do prompt, usados para provar a melhora.</dd>
         <dt>Consolidar operações (10.2)</dt><dd>Reunir vários passos encadeados frequentes em uma única ferramenta de fluxo, reduzindo turnos e tokens intermediários.</dd>
         <dt>Consumo ilimitado (7.3)</dt><dd>Vulnerabilidade em que a aplicação permite inferências excessivas sem cotas nem limites, gerando negação de serviço ou prejuízo financeiro (<em>Denial of Wallet</em>).</dd>
+        <dt>Contaminação (de benchmark) (14.2)</dt><dd>Presença, no treino do modelo, de problemas que fazem parte do conjunto de avaliação, o que infla a nota sem provar generalização.</dd>
         <dt>Context rot (1.3, 8.5, 9.2)</dt><dd>Fenômeno em que, quanto mais tokens há na janela de contexto, pior o modelo recupera ou relaciona informações específicas.</dd>
         <dt>Contexto (9.1)</dt><dd>Conjunto completo de tokens enviado na amostragem do modelo em um turno: sistema, ferramentas, dados recuperados e histórico.</dd>
         <dt>Contrato (3.6)</dt><dd>Combinado entre duas partes de uma fronteira: o que entra, o que sai, o que é garantido e o que pode falhar. Não é documento jurídico.</dd>
         <dt>Controle proporcional (1.6)</dt><dd>Controle que cresce com o risco do erro: fonte, validação, revisão de uma pessoa ou regra do sistema.</dd>
         <dt>Correto (5.1)</dt><dd>Resultado que cumpre tudo o que foi combinado.</dd>
         <dt>Critério de aceite (3.4)</dt><dd>Condição observável, combinada antes do trabalho, que autoriza declarar o resultado aceito.</dd>
+        <dt>Custo por tarefa concluída (14.2)</dt><dd>Custo total de API dividido pelas tarefas que passaram no critério de aceite, incluindo repetições. Dimensão de comparação recomendada pela documentação.</dd>
         <dt>Custo total (8.4)</dt><dd>Soma completa de tokens, número de chamadas, latência, infraestrutura auxiliar, engenharia, avaliação, manutenção e custo dos erros de um sistema.</dd>
         <dt>Dado (4.1)</dt><dd>Material sobre o qual a instrução manda agir, como a mensagem do aluno ou a página oficial. Dado não é ordem.</dd>
         <dt>Dado pessoal (7.6)</dt><dd>Na LGPD, informação relacionada a pessoa natural identificada ou identificável.</dd>
@@ -15768,6 +16899,7 @@ Desvio (regra fixa):
         <dt>Escolha gulosa (1.4)</dt><dd>Escolher sempre o token mais provável. Em teoria, com o mesmo contexto e o mesmo modelo, dá sempre o mesmo texto, mas tende a ser genérico e repetitivo. É comum em tarefas de resposta única. Em inglês, <em>greedy</em>.</dd>
         <dt>Escopo mínimo (7.2)</dt><dd>Estratégia de conceder inicialmente apenas permissões básicas de leitura, elevando privilégios de forma pontual só quando uma operação exigir.</dd>
         <dt>Esforço (4.5, 9.6)</dt><dd>Controle que a Anthropic documenta para definir quantos tokens o modelo gasta ao responder. Em inglês, <em>effort</em>. Não equivale à temperatura.</dd>
+        <dt>Esforço por mensagem (14.6)</dt><dd>Mudança do nível de esforço aplicada a uma mensagem, em modelos que a suportam, preservando o cache de prefixo da conversa.</dd>
         <dt>Espera crescente (2.4)</dt><dd>Aumentar o intervalo entre as tentativas a cada falha. Em inglês, <em>exponential backoff</em>.</dd>
         <dt>Estado (2.5)</dt><dd>Tudo o que o sistema precisa lembrar entre uma chamada e a seguinte. Mora na aplicação, e não no modelo.</dd>
         <dt>Estado limpo (8.2)</dt><dd>Condição em que o agente encerra a etapa deixando arquivos organizados, sem falhas abertas e com histórico registrado para retomada ou reversão.</dd>
@@ -15778,6 +16910,7 @@ Desvio (regra fixa):
         <dt>Excesso de confiança (1.6)</dt><dd>Quando o modelo usa linguagem muito segura mesmo estando errado.</dd>
         <dt>Fadiga de aprovação (7.5)</dt><dd>Desgaste do usuário diante de pedidos repetidos de confirmação, levando a aprovações automáticas sem leitura cuidadosa. Em inglês, <em>approval fatigue</em>.</dd>
         <dt>Falha fechada (12.6)</dt><dd>Postura em que, diante de dúvida ou de entrada que não consegue inspecionar, o sistema exige decisão manual em vez de liberar a ação. Em inglês, <em>fail closed</em>.</dd>
+        <dt>Fallback (contingência de rota) (14.5)</dt><dd>Lista ordenada de destinos alternativos acionada quando a rota principal falha por indisponibilidade, limite de taxa, recusa ou contexto excedido.</dd>
         <dt>Ferramentas de cliente (10.1)</dt><dd>Ferramentas definidas na requisição cuja execução acontece na aplicação do operador, que devolve o resultado em novo turno.</dd>
         <dt>Ferramentas de servidor (10.1)</dt><dd>Ferramentas hospedadas e executadas diretamente na infraestrutura do próprio provedor durante o processamento da chamada.</dd>
         <dt>Fidelidade (11.6)</dt><dd>Métrica de geração em RAG (<em>Faithfulness</em>) que avalia se todas as afirmações da resposta podem ser inferidas das passagens entregues.</dd>
@@ -15796,6 +16929,7 @@ Desvio (regra fixa):
         <dt>Fronteira, modelo de (1.7)</dt><dd>Modelo mais avançado, de uma empresa, acessado por uma conta no provedor. Não confundir com a fronteira entre componentes (capítulo 2).</dd>
         <dt>Fuga de escopo (8.1)</dt><dd>Execução em que o agente ou automação modifica arquivos, ambientes ou registros além do limite autorizado no pedido.</dd>
         <dt>Fusão de ranqueamento (11.4)</dt><dd>Técnica que combina e deduplica resultados vindos de múltiplos buscadores (como BM25 e vetores) numa única lista ordenada.</dd>
+        <dt>Gateway de modelos (14.4)</dt><dd>Componente que fica entre a aplicação e os fornecedores e concentra credenciais, repetição, balanceamento e fallback.</dd>
         <dt>Gatilho de reexecução (5.5)</dt><dd>Mudança que pede nova conferência: prompt, modelo, esforço ou fonte.</dd>
         <dt>Gerativo (modelo) (1.7)</dt><dd>Modelo que escreve texto, token a token, em vez de devolver um valor de uma lista predefinida.</dd>
         <dt>GGUF (13.1)</dt><dd>Formato binário de arquivo para guardar modelos para inferência com o GGML e programas baseados nele, como o llama.cpp.</dd>
@@ -15814,6 +16948,7 @@ Desvio (regra fixa):
         <dt>Host (MCP) (10.6)</dt><dd>Aplicação principal de LLM no protocolo MCP que coordena múltiplos clientes, aplica permissões, exige consentimento e agrega contexto.</dd>
         <dt>Idempotência (2.4)</dt><dd>Propriedade da operação em que várias requisições iguais têm o mesmo efeito de uma só. Repetir só é seguro com ela ou com um identificador do pedido.</dd>
         <dt>Identificador do pedido (2.4)</dt><dd>Valor único que o serviço gera para uma operação e guarda, para reconhecer a repetição e devolver o resultado já obtido. Também chamado de chave de idempotência.</dd>
+        <dt>IFEval (14.2)</dt><dd>Benchmark de seguimento de instruções verificáveis por programa, com 541 prompts.</dd>
         <dt>Impressão digital (2.5)</dt><dd>Resumo do conteúdo de um pedido. Mostra que o mesmo identificador voltou com um pedido diferente.</dd>
         <dt>Inchaço de ferramentas (8.4)</dt><dd>Exposição simultânea de dezenas ou centenas de ferramentas ou servidores MCP ao modelo, consumindo tokens de entrada e degradando a escolha da ferramenta certa.</dd>
         <dt>Índice (11.3)</dt><dd>Estrutura que organiza uma base de documentos para pesquisa rápida lexical ou vetorial.</dd>
@@ -15840,12 +16975,14 @@ Desvio (regra fixa):
         <dt>Limpeza de resultados de ferramenta (9.5)</dt><dd>Remoção seletiva de saídas antigas de ferramentas já processadas para liberar espaço no histórico ativo.</dd>
         <dt>Linha de base (3.2, 5.3)</dt><dd>Valor da medida antes da mudança, medido no processo atual; na avaliação do sistema, medida da versão inicial feita antes de mudar, nos mesmos casos e critérios.</dd>
         <dt>Lista de funcionalidades (12.5)</dt><dd>Arquivo estruturado, em geral em JSON, com descrições de funcionalidades de ponta a ponta e o status de cada uma, lido no início de cada sessão.</dd>
+        <dt>LiveCodeBench (14.2)</dt><dd>Benchmark de código com problemas novos coletados de concursos, recortáveis por data para evitar contaminação.</dd>
         <dt>LLM (1.1)</dt><dd>Do inglês <em>large language model</em>: modelo de linguagem de grande porte.</dd>
         <dt>Local (modelo) (1.7)</dt><dd>Modelo que roda na máquina de quem usa, e não no provedor.</dd>
         <dt>LoRA (1.2)</dt><dd>Técnica de ajuste barato: congela o modelo e treina só peças pequenas acrescentadas a ele.</dd>
         <dt>Má calibração (1.6)</dt><dd>Quando o quanto o modelo acerta de verdade não bate com a confiança que ele demonstra.</dd>
         <dt>Mamba (1.7)</dt><dd>Arquitetura proposta em 2023 sem atenção, com custo linear no tamanho da sequência. Neste livro, só uma menção.</dd>
         <dt>Máquina de estados finita (6.3)</dt><dd>Abstração com conjunto finito de estados explícitos e transições definidas entre eles. Em inglês, <em>finite state machine</em> (FSM).</dd>
+        <dt>Matriz por finalidade (14.1)</dt><dd>Quadro que lista as finalidades do produto com critério de aceite, faixa de modelo e nível de supervisão humana.</dd>
         <dt>MCP (2.1, 10.6)</dt><dd>Sigla de <em>Model Context Protocol</em>: protocolo aberto baseado em JSON-RPC que padroniza como aplicações de LLM se conectam a dados, prompts e ferramentas externas.</dd>
         <dt>Mediação completa (7.2)</dt><dd>Princípio pelo qual toda requisição feita aos sistemas de destino passa por verificação real de autorização contra políticas de segurança, fora do modelo.</dd>
         <dt>Medida principal (3.2)</dt><dd>O número que representa o resultado: vem do problema, muda quando ele muda e não melhora sem melhorar a vida de alguém.</dd>
@@ -15867,6 +17004,7 @@ Desvio (regra fixa):
         <dt>Multimodal (modelo) (1.7)</dt><dd>Modelo que recebe ou produz mais de um tipo de dado, como texto e imagem.</dd>
         <dt>Namespacing (10.2)</dt><dd>Uso de prefixos comuns por serviço ou domínio nos nomes das ferramentas para evitar colisão e confusão de escolha.</dd>
         <dt>Não-objetivo (3.6)</dt><dd>O que fica fora do escopo, com a razão escrita.</dd>
+        <dt>Nível de supervisão humana (14.1)</dt><dd>Grau de revisão aplicada ao resultado: sem revisão, por amostragem ou integral. Substitui rótulos de cargo na matriz por finalidade.</dd>
         <dt>Nó (6.1, 6.3)</dt><dd>Ponto de um grafo; no conhecimento representa uma entidade ou conceito, e no fluxo representa uma etapa que serve como fronteira de retomada e desvio.</dd>
         <dt>Nova tentativa (2.4)</dt><dd>Repetir um pedido que falhou. Só é seguro quando a operação é idempotente ou tem um identificador do pedido.</dd>
         <dt>Operador (papel) (3.1)</dt><dd>Quem mantém o sistema funcionando depois da entrega: acompanha erros, atualiza conteúdo e atende reclamações.</dd>
@@ -15936,6 +17074,8 @@ Desvio (regra fixa):
         <dt>Retomada (2.5)</dt><dd>Continuar depois de uma falha ou de um reinício sem perder nem repetir trabalho.</dd>
         <dt>Ripgrep (11.1)</dt><dd>Ferramenta de busca recursiva orientada a linhas por regex em arquivos que respeita exclusões como <code>.gitignore</code> e pula binários por padrão.</dd>
         <dt>Rollback (8.3)</dt><dd>Reversão rápida de versão, configuração ou lote de alterações para o último estado estável conhecido quando ocorrem falhas em produção.</dd>
+        <dt>Roteador aprendido (14.4)</dt><dd>Modelo treinado para estimar, a cada consulta, se o modelo menor basta ou se o pedido deve ir ao maior.</dd>
+        <dt>Roteamento (14.4)</dt><dd>Workflow que classifica cada pedido e o encaminha a um processo, prompt ou modelo especializado.</dd>
         <dt>Rubrica (5.4)</dt><dd>Critério escrito com respostas possíveis, para o avaliador aplicar do mesmo jeito sempre.</dd>
         <dt>Runtime (13.1)</dt><dd>Programa que carrega os pesos de um modelo e atende aos pedidos de inferência, como llama.cpp, Ollama ou vLLM.</dd>
         <dt>Sabotagem de avaliação (8.1)</dt><dd>Interferência do modelo nos arquivos de teste, monitores ou métricas de avaliação para esconder falhas ou simular sucesso.</dd>
@@ -15961,6 +17101,8 @@ Desvio (regra fixa):
         <dt>Subagente (6.4)</dt><dd>Agente especializado que executa uma tarefa focada em janela de contexto limpa e devolve um resumo condensado ao coordenador.</dd>
         <dt>Subpalavras (1.3)</dt><dd>Corte do texto em pedaços do tamanho de uma palavra ou parte dela, às vezes de uma só letra.</dd>
         <dt>Suposição (3.6)</dt><dd>O que se toma por verdadeiro sem prova; precisa de dono e de data para ser conferida.</dd>
+        <dt>SWE-bench (14.2)</dt><dd>Conjunto de 2.294 problemas de issues reais do GitHub em 12 repositórios Python, resolvidos por edição da base de código.</dd>
+        <dt>SWE-bench Verified (14.2)</dt><dd>Subconjunto de 500 instâncias do SWE-bench revisadas por pessoas, com descrição clara e teste de correção válido.</dd>
         <dt>Tarefa (3.1)</dt><dd>O que a pessoa tenta fazer, e não o que o sistema faz.</dd>
         <dt>Temperatura (1.4)</dt><dd>Botão que ajusta as chances de cada token antes do sorteio.</dd>
         <dt>Template (4.6)</dt><dd>Prompt com partes fixas e partes variáveis marcadas, que o sistema preenche a cada pedido.</dd>
@@ -16001,8 +17143,8 @@ Desvio (regra fixa):
       </dl>
 
       <nav class="page-nav" aria-label="Navegação do glossário">
-        <a href="#questoes-capitulo-13">Questões do capítulo 13</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 276">276</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-14">Questões do capítulo 14</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 296">296</span><a href="#sumario">Sumário</a></span>
         <a href="#referencias">Referências</a>
       </nav>
     </section>
@@ -16010,7 +17152,7 @@ Desvio (regra fixa):
     <section class="page" id="referencias" aria-labelledby="titulo-das-referencias">
       <h2 id="titulo-das-referencias">Referências</h2>
 
-      <p>Fontes dos capítulos 1 a 13, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 77 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
+      <p>Fontes dos capítulos 1 a 14, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 77 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. No capítulo 14, os 59 trechos literais citados das 17 fontes públicas primárias (Anthropic, OpenAI, Google, LiteLLM, OpenRouter, páginas do SWE-bench e do LiveCodeBench e artigos do arXiv) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
       <div class="fontes">
         <h3>Livros e artigos</h3>
         <p>Jurafsky, D.; Martin, J. H. <em>Speech and Language Processing</em>, 3ª ed., rascunho de 19/08/2026. Capítulos 1, 2, 7 e 8. <a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener noreferrer">web.stanford.edu/~jurafsky/slp3</a>. Consultado em 13/10/2026.</p>
@@ -16147,6 +17289,18 @@ Desvio (regra fixa):
       <p>Hu, E. J. et al. <em>LoRA</em>, 2021. arXiv:2106.09685. <a href="https://arxiv.org/pdf/2106.09685" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2106.09685</a>. Dettmers, T. et al. <em>QLoRA: Efficient Finetuning of Quantized LLMs</em>, 2023. arXiv:2305.14314. <a href="https://arxiv.org/pdf/2305.14314" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.14314</a>.</p>
       <p>Jiang, A. Q. et al. <em>Mixtral of Experts</em>, 2024. arXiv:2401.04088. <a href="https://arxiv.org/pdf/2401.04088" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2401.04088</a>. Ainslie, J. et al. <em>GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints</em>, 2023. arXiv:2305.13245. <a href="https://arxiv.org/pdf/2305.13245" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.13245</a>.</p>
       <p>Qwen. Ficha do modelo <em>Qwen3.8-27B</em>. <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener noreferrer">huggingface.co/Qwen/Qwen3.8-27B</a>. Google. Ficha do modelo <em>Gemma 4 31B-it</em> (a mesma ficha descreve a família). <a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank" rel="noopener noreferrer">huggingface.co/google/gemma-4-31B-it</a>.</p>
+      <h3>Fontes do capítulo 14 (consultadas em 17/11/2026)</h3>
+      <p>Anthropic. <em>Choosing the right model</em> e <em>Effort</em>. <a href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/about-claude/models/choosing-a-model</a>; <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/effort</a>.</p>
+      <p>Anthropic. <em>Building effective agents</em> (19/12/2024). <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">www.anthropic.com/research/building-effective-agents</a>.</p>
+      <p>OpenAI. <em>Model selection</em> e <em>Prompt caching</em>. <a href="https://developers.openai.com/api/docs/guides/model-selection" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/model-selection</a>; <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
+      <p>Google Cloud. <em>Google models</em>. <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models</a>.</p>
+      <p>LiteLLM. <em>Router — Load Balancing</em> e <em>Reliability — Retries, Fallbacks</em>. <a href="https://docs.litellm.ai/docs/routing" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/routing</a>; <a href="https://docs.litellm.ai/docs/proxy/reliability" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/reliability</a>.</p>
+      <p>OpenRouter. <em>Model Fallbacks</em>. <a href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank" rel="noopener noreferrer">openrouter.ai/docs/guides/routing/model-fallbacks</a>.</p>
+      <p>Zhou, J. et al. <em>Instruction-Following Evaluation for Large Language Models</em>, 2023. arXiv:2311.07911. <a href="https://arxiv.org/pdf/2311.07911" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2311.07911</a>.</p>
+      <p>Jain, N. et al. <em>LiveCodeBench</em>, 2024. arXiv:2403.07974. <a href="https://arxiv.org/pdf/2403.07974" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2403.07974</a>. LiveCodeBench, página do projeto. <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">livecodebench.github.io</a>.</p>
+      <p>Jimenez, C. E. et al. <em>SWE-bench</em>, 2023. arXiv:2310.06770. <a href="https://arxiv.org/pdf/2310.06770" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2310.06770</a>. SWE-bench, <em>SWE-bench Verified</em>. <a href="https://www.swebench.com/verified.html" target="_blank" rel="noopener noreferrer">www.swebench.com/verified.html</a>. Deng, X. et al. <em>SWE-Bench Pro</em>, 2025. arXiv:2509.16941. <a href="https://arxiv.org/pdf/2509.16941" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2509.16941</a>.</p>
+      <p>Ong, I. et al. <em>RouteLLM: Learning to Route LLMs with Preference Data</em>, 2024. arXiv:2406.18665. <a href="https://arxiv.org/pdf/2406.18665" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2406.18665</a>.</p>
+      <p>Chen, L.; Zaharia, M.; Zou, J. <em>FrugalGPT</em>, 2023. arXiv:2305.05176. <a href="https://arxiv.org/pdf/2305.05176" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.05176</a>.</p>
       <h3>Documentação</h3>
         <p>Anthropic. <em>Demystifying evals for AI agents</em>, 09/01/2026. <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/engineering/demystifying-evals-for-ai-agents</a>. Consultado em 13/11/2026.</p>
         <p>Anthropic. <em>Context windows</em>. <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-windows</a>. Consultado em 13/10/2026.</p>
@@ -16186,7 +17340,7 @@ Desvio (regra fixa):
 
       <nav class="page-nav" aria-label="Navegação das referências">
         <a href="#glossario">Glossário</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 277">277</span><a href="#sumario">Sumário</a></span>
+        <span class="page-mid"><span class="page-number" aria-label="Página 297">297</span><a href="#sumario">Sumário</a></span>
         <a href="#capitulo-1">Capítulo 1</a>
       </nav>
     </section>
