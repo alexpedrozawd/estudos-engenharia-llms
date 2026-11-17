@@ -200,11 +200,11 @@
         line-height: 1.6;
       }
       /* Só as divisões maiores começam em página nova; as partes seguem o fluxo. */
-      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11,
-      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #glossario, #referencias { break-before: page; }
+      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12,
+      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #questoes-capitulo-12, #glossario, #referencias { break-before: page; }
       .page > h2 { margin-block-start: 2.2em; }
-      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #glossario > h2, #referencias > h2,
-      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2 { margin-block-start: 0; }
+      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #glossario > h2, #referencias > h2,
+      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2 { margin-block-start: 0; }
       /* Nenhum bloco termina dividido entre duas páginas. */
       h1, h2, h3, h4, legend, figcaption, caption, .rotulo-unidade { break-after: avoid; break-inside: avoid; }
       p, li, dt, dd { orphans: 3; widows: 3; }
@@ -382,7 +382,17 @@
 
       <h3>Parte III — Arquitetura, operação e eficiência</h3>
       <ol class="contents" start="12">
-        <li><span class="chapter-name">12. Harnesses, workflows e agentes</span><span class="chapter-topics">Diferenças entre componentes; interação simples; ferramentas; ciclo e estado; limites; interrupção e retomada.</span></li>
+        <li><span class="chapter-name"><a href="#capitulo-12">12. Harnesses, workflows e agentes</a></span><span class="chapter-topics">Componentes e harness; interação simples e workflows; ferramentas no laço; ciclo, desvios e limites; verificação fim a fim e registro estruturado; interrupção e retomada.</span>
+          <ul class="units">
+            <li><a href="#unidade-12-1a">12.1 Componentes e harness</a></li>
+            <li><a href="#unidade-12-2a">12.2 Interação simples e workflows</a></li>
+            <li><a href="#unidade-12-3a">12.3 Ferramentas no laço</a></li>
+            <li><a href="#unidade-12-4a">12.4 Ciclo, desvios e limites</a></li>
+            <li><a href="#unidade-12-5a">12.5 Harness de laço longo: verificação e registro</a></li>
+            <li><a href="#unidade-12-6a">12.6 Interrupção e retomada</a></li>
+            <li><a href="#questoes-capitulo-12">Questões do capítulo 12</a></li>
+          </ul>
+        </li>
         <li><span class="chapter-name">13. Inferência local</span><span class="chapter-topics">Pesos e runtime; RAM/VRAM; execução compatível; contexto; quantização; KV cache; diagnóstico.</span></li>
         <li><span class="chapter-name">14. Seleção e roteamento</span><span class="chapter-topics">Caracterizar tarefas; comparar modelos; escolher destino; regras simples; escalonamento; contingência e reavaliação; troca de modelo ou esforço só em conversa nova.</span></li>
         <li><span class="chapter-name">15. Integração empresarial e LLMOps</span><span class="chapter-topics">Sistema existente; integração por APIs; dados e ações; observabilidade; versionamento; lançamento e recuperação.</span></li>
@@ -13476,6 +13486,1077 @@ Desvio (regra fixa):
       <nav class="page-nav" aria-label="Navegação das questões do capítulo 11">
         <a href="#unidade-11-6c">Parte 11.6c</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 235">235</span><a href="#sumario">Sumário</a></span>
+        <a href="#capitulo-12">Capítulo 12</a>
+      </nav>
+    </section>
+
+    <section class="page" id="capitulo-12" aria-labelledby="titulo-do-capitulo-12">
+      <h2 id="titulo-do-capitulo-12">Capítulo 12 — Harnesses, workflows e agentes</h2>
+      <p>Na Parte I, você viu como o modelo gera texto, como especificar e como avaliar; na Parte II, como organizar grafos, segurança, contexto, ferramentas e busca. A Parte III junta essas peças para construir e operar sistemas. Este capítulo começa pelo <strong>laço</strong> que faz o modelo agir, observar o resultado e decidir o passo seguinte.</p>
+      <p>Você vai separar os componentes (modelo, instruções, ferramentas, memória) do <strong>harness</strong>, a estrutura que roda o laço; decidir quando uma interação simples basta e quando um workflow ou um agente se justifica; e projetar limites, verificação, registro, interrupção e retomada.</p>
+      <p>Como em todo o guia, você não precisa programar: trechos de configuração aparecem apenas para leitura.</p>
+
+      <h3>O que você vai estudar</h3>
+      <p>Seis unidades em 18 partes curtas, com resumo em três linhas, analogia, texto direto, pergunta de verificação e ponto de retomada, fechando com seis questões.</p>
+      <ul class="units">
+        <li><a href="#unidade-12-1a">12.1 Componentes e harness</a></li>
+        <li><a href="#unidade-12-2a">12.2 Interação simples e workflows</a></li>
+        <li><a href="#unidade-12-3a">12.3 Ferramentas no laço</a></li>
+        <li><a href="#unidade-12-4a">12.4 Ciclo, desvios e limites</a></li>
+        <li><a href="#unidade-12-5a">12.5 Harness de laço longo: verificação e registro</a></li>
+        <li><a href="#unidade-12-6a">12.6 Interrupção e retomada</a></li>
+        <li><a href="#questoes-capitulo-12">Questões do capítulo 12</a></li>
+      </ul>
+
+      <h3>Para quem é este capítulo</h3>
+      <p>Para quem leu os capítulos 1 a 11. Retomamos workflows, agentes e <em>harness</em> (6.1), grafos de estado e idempotência (6.3), subagentes (6.4), custo 4× e 15× (6.5), atos autodestrutivos e condições de parada (8.1 e 8.3), contexto e sessões (9.6) e ferramentas com aprovação (10.1 e 10.5). Os trechos do Capítulo 6 (<code>EG-15</code>–<code>EG-30</code> e <code>EG-33</code>–<code>EG-43</code>) não se repetem aqui.</p>
+
+      <h3>Como ler os exemplos</h3>
+      <p>As etiquetas de confiança continuam: <span class="qual">registrado na pesquisa técnica do fornecedor</span> (Anthropic, <em>Building effective agents</em> e <em>Effective harnesses for long-running agents</em>), <span class="qual">registrado na documentação</span> (Anthropic, OpenAI e Google, consultadas em 17/11/2026) e <span class="qual">proposta didática</span> (casos da Aurora Educação, quadros comparativos e rotinas sugeridas). Documentação de agentes muda com frequência: os nomes de funções e opções valem como estado de 17/11/2026.</p>
+
+      <h3>Sobre as fontes</h3>
+      <p>O pacote do capítulo reúne 16 fontes públicas com 99 trechos literais conferidos em 17/11/2026 (<code>HW-01</code>–<code>HW-99</code>).</p>
+      <nav class="page-nav" aria-label="Navegação do capítulo 12">
+        <a href="#questoes-capitulo-11">Questões do capítulo 11</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 236">236</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-1a">Parte 12.1a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-1a" aria-labelledby="titulo-da-unidade-12-1a">
+      <h2 id="titulo-da-unidade-12-1a">12.1a O modelo aumentado: o bloco básico</h2>
+      <p class="rotulo-unidade">Unidade 12.1 — Componentes e harness (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O bloco básico de um sistema agêntico é um modelo reforçado com recuperação, ferramentas e memória.</li>
+          <li>Anthropic, OpenAI e Google descrevem o mesmo conjunto com nomes diferentes: instruções, ferramentas e estado.</li>
+          <li>O cuidado maior está na interface: cada recurso precisa de uma descrição clara para o modelo usá-lo bem.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um atendente sozinho só conversa. Com acesso ao sistema de pedidos (ferramenta), ao manual (recuperação) e ao histórico do cliente (memória), ele passa a resolver o caso.</p></div>
+
+      <h3>Um modelo com três reforços</h3>
+      <p>Segundo a Anthropic (<em>Building effective agents</em>), o bloco básico de um sistema agêntico é o <dfn>modelo aumentado</dfn>: um modelo de linguagem reforçado por recuperação, ferramentas e memória. Os modelos atuais usam esses recursos de forma ativa: geram as próprias buscas, escolhem ferramentas e decidem que informação reter.</p>
+      <h3>O mesmo conjunto em três vocabulários</h3>
+      <p>No Agent Development Kit (ADK) do Google, os componentes básicos de um agente são um modelo, instruções da tarefa e, opcionalmente, ferramentas. No SDK de agentes da OpenAI, o agente reúne instruções, ferramentas, <em>guardrails</em>, transferências (<em>handoffs</em>) e um laço embutido que continua até a tarefa terminar; as sessões servem de camada de memória persistente. Os nomes mudam, mas a estrutura é a mesma.</p>
+      <h3>A interface é o ponto de atenção</h3>
+      <p>A Anthropic recomenda dois focos: adaptar esses recursos ao seu caso de uso e garantir que ofereçam ao modelo uma interface fácil e bem documentada. Como desenhar o contrato de cada ferramenta está nas partes 10.2a a 10.2c; aqui interessa o conjunto.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-1a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-1a">A secretaria da Aurora Educação quer um assistente que responda sobre prazos de matrícula. Qual montagem corresponde ao bloco básico descrito pelas fontes?</p>
+        <label class="alternativa"><input type="radio" name="p12-1a" value="a" data-correta="true" data-explicacao="Correta. O bloco básico é o modelo reforçado com recuperação, ferramentas e memória, com interface bem documentada."><span><strong>A.</strong> O modelo com busca nos regulamentos, uma ferramenta de consulta de matrícula e memória do atendimento, cada recurso com descrição clara.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1a" value="b" data-correta="false" data-explicacao="Incorreta. Sem recuperação, ferramentas e memória, o modelo não tem como consultar nem registrar nada fora do prompt."><span><strong>B.</strong> Um prompt gigante com todos os regulamentos colados e nenhuma ferramenta.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1a" value="c" data-correta="false" data-explicacao="Incorreta. Vários agentes são uma complexidade adicional; o bloco básico é um único modelo reforçado."><span><strong>C.</strong> Vários agentes conversando entre si antes de qualquer consulta.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1a" value="d" data-correta="false" data-explicacao="Incorreta. Retreinar não substitui consultar dados atuais, e o bloco básico não passa por isso."><span><strong>D.</strong> Um modelo maior, sem ferramentas, treinado de novo toda semana.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O bloco básico é o modelo reforçado com recuperação, ferramentas e memória, com interface clara. Na parte 12.1b, vemos a estrutura que roda o laço em volta dele.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Bloco básico e interface:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Componentes no ADK:</strong> Google, <em>Agents</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Componentes no SDK da OpenAI:</strong> OpenAI, <em>Agents SDK</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.1a">
+        <a href="#capitulo-12">Capítulo 12</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 237">237</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-1b">Parte 12.1b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-1b" aria-labelledby="titulo-da-unidade-12-1b">
+      <h2 id="titulo-da-unidade-12-1b">12.1b O harness: a estrutura que roda o laço</h2>
+      <p class="rotulo-unidade">Unidade 12.1 — Componentes e harness (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Harness é a estrutura em volta do modelo: laço, ferramentas, permissões e gestão de contexto.</li>
+          <li>Anthropic, OpenAI e Google descrevem o mesmo ciclo: o modelo pede uma ferramenta, o sistema executa e o resultado volta.</li>
+          <li>O modelo escolhe o próximo passo; o harness executa, limita e guarda o que importa.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="12-1b">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um mensageiro de armadura leve sai de uma torre, entrega pergaminhos a artesãos em oficinas ao redor e volta com as respostas, enquanto um escrivão anota cada ida e volta em um livro aberto.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> O modelo é o piloto; o harness é a cabine, com instrumentos, lista de verificação e regras de voo. Sem cabine, mesmo um bom piloto não decola com segurança.</p></div>
+
+      <h3>Um laço, três descrições</h3>
+      <p>A Anthropic chama o Agent SDK de <dfn>harness</dfn> (estrutura que roda o laço do agente em volta do modelo) de uso geral. Na documentação, o <dfn>laço do agente</dfn> (ciclo de pedir, executar e repetir) é: o Claude avalia o pedido, chama ferramentas, recebe os resultados e repete até concluir. O SDK da OpenAI descreve o mesmo: se o modelo produz chamadas de ferramenta, o <em>runner</em> as executa, anexa os resultados e roda o laço de novo.</p>
+      <h3>O que o harness acrescenta ao modelo</h3>
+      <p>O Agent SDK entrega ferramentas embutidas, permissões, sessões e <em>hooks</em> (pontos de interceptação). O ADK, do Google, informa que gerencia o contexto como se fosse código-fonte: sessões, memória, saídas de ferramentas e artefatos entram numa visão estruturada. Gestão de contexto, portanto, é função do harness, não do modelo.</p>
+      <h3>Quem decide o quê</h3>
+      <p>Como regra de leitura (<span class="qual">proposta didática</span>): o modelo decide o próximo passo; o harness decide o que realmente executa, quando para e o que fica registrado. Essa separação é a mesma de workflows e agentes vista em 6.1b; aqui ela vira desenho de componentes.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-1b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-1b">Na prática, quem executa a ferramenta pedida pelo modelo dentro de um agente?</p>
+        <label class="alternativa"><input type="radio" name="p12-1b" value="a" data-correta="false" data-explicacao="Incorreta. O modelo só emite o pedido; ele não executa nada, como visto em 10.1a."><span><strong>A.</strong> O próprio modelo, ao gerar o texto da resposta.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1b" value="b" data-correta="true" data-explicacao="Correta. Nas três documentações, o sistema ao redor executa a chamada e anexa o resultado ao laço."><span><strong>B.</strong> O harness, que roda a ferramenta e devolve o resultado ao modelo para a próxima decisão.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1b" value="c" data-correta="false" data-explicacao="Incorreta. Aprovação humana é opcional e pontual; a execução normal é do harness."><span><strong>C.</strong> O usuário final, sempre manualmente.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1b" value="d" data-correta="false" data-explicacao="Incorreta. Embeddings servem à busca e não executam ferramentas."><span><strong>D.</strong> O provedor de embeddings, em segundo plano.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Harness é o que roda o laço, executa ferramentas e gere contexto. Na parte 12.1c, decidimos quem deve rodá-lo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Harness e laço:</strong> Anthropic, <em>Effective harnesses for long-running agents</em> (<span class="qual">registrado na pesquisa técnica do fornecedor</span>) e <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>); OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>); Google, <em>ADK</em> (<span class="qual">registrado na documentação</span>), consultadas em 17/11/2026.</p>
+        <p><strong>Divisão de papéis:</strong> Leitura ligada a 6.1b (<span class="qual">proposta didática</span>).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.1b">
+        <a href="#unidade-12-1a">Parte 12.1a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 238">238</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-1c">Parte 12.1c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-1c" aria-labelledby="titulo-da-unidade-12-1c">
+      <h2 id="titulo-da-unidade-12-1c">12.1c Quem roda o laço: própria API, SDK ou serviço hospedado</h2>
+      <p class="rotulo-unidade">Unidade 12.1 — Componentes e harness (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Há três arranjos: escrever o laço, usar um SDK que o roda no seu processo ou usar um serviço em que o fornecedor o roda.</li>
+          <li>A escolha define quem guarda o estado, quem aprova ações e quem opera a infraestrutura.</li>
+          <li>Frameworks podem esconder camadas: entender o que está por baixo continua sendo de quem os usa.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> É como a cozinha de um restaurante: cozinhar em casa dá controle total e trabalho; contratar o serviço de bufê entrega pronto, com menos controle sobre o que acontece na cozinha.</p></div>
+
+      <h3>Três arranjos documentados</h3>
+      <p>O quadro resume o que as documentações descrevem, em tradução livre.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: quem roda o laço do agente" tabindex="0">
+      <table class="tabela">
+        <caption>Arranjos para rodar o laço (resumo da documentação, tradução livre)</caption>
+        <thead><tr><th scope="col">Arranjo</th><th scope="col">Quem roda o laço</th><th scope="col">Exemplo documentado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Laço próprio sobre a API</th><td>Seu código</td><td>Anthropic: você escreve o laço de ferramentas ou usa o executor beta do SDK cliente</td></tr>
+          <tr><th scope="row">SDK no seu ambiente</th><td>Biblioteca na sua aplicação; você controla implantação, armazenamento e aprovações</td><td>OpenAI Agents SDK; Google ADK em infraestrutura própria ou implantação nativa no Google Cloud</td></tr>
+          <tr><th scope="row">Serviço hospedado</th><td>O fornecedor roda o agente e guarda o progresso</td><td>Anthropic Managed Agents (ambiente isolado na nuvem do fornecedor ou seu); OpenAI Agents API (tarefas longas)</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Frameworks e transparência</h3>
+      <p>A Anthropic sugere começar usando as APIs diretamente, pois muitos padrões cabem em poucas linhas, e, se um framework for usado, entender o código por baixo. O custo oculto de camadas extras já foi tratado em 8.4b; aqui o ponto é de arquitetura: quem roda o laço também decide como depurar.</p>
+      <h3>Critério de escolha</h3>
+      <p>Pergunte (<span class="qual">proposta didática</span>): onde precisam ficar o estado e as aprovações, quem opera a infraestrutura e para onde vão os dados (Cap. 7). Exigência de controle e de auditoria aponta para o laço próprio ou o SDK no seu ambiente; tarefas longas sem equipe de operação apontam para o serviço hospedado.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-1c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-1c">A Aurora precisa guardar as aprovações de reembolso no próprio banco de dados, com trilha de auditoria sob seu controle. Qual arranjo combina mais com isso?</p>
+        <label class="alternativa"><input type="radio" name="p12-1c" value="a" data-correta="true" data-explicacao="Correta. A OpenAI descreve o SDK como o arranjo em que a aplicação controla implantação, armazenamento e aprovações."><span><strong>A.</strong> Um SDK ou laço próprio rodando no ambiente da empresa, que controla armazenamento e aprovações.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1c" value="b" data-correta="false" data-explicacao="Incorreta. Nada na documentação diz isso; no hospedado, o fornecedor guarda o progresso do agente."><span><strong>B.</strong> Qualquer serviço hospedado, porque o fornecedor sempre guarda tudo no banco do cliente.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1c" value="c" data-correta="false" data-explicacao="Incorreta. Quem roda o laço define onde estado e aprovações ficam."><span><strong>C.</strong> Nenhum: aprovações não dependem de onde o laço roda.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1c" value="d" data-correta="false" data-explicacao="Incorreta. A Anthropic alerta que presumir o que há por baixo é fonte comum de erro."><span><strong>D.</strong> Um framework visual qualquer, sem ler o que ele faz por baixo.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Escolha quem roda o laço pelo controle necessário sobre estado, aprovação e dados. A unidade 12.2 volta ao que vem antes do agente: interações simples e workflows.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Arranjos:</strong> Anthropic, <em>Agent SDK overview</em> (<span class="qual">registrado na documentação</span>); OpenAI, <em>Agents</em> (<span class="qual">registrado na documentação</span>); Google, <em>ADK</em> (<span class="qual">registrado na documentação</span>), consultadas em 17/11/2026.</p>
+        <p><strong>Frameworks:</strong> Anthropic, <em>Building effective agents</em> (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Critério:</strong> Quadro e critério de escolha: <span class="qual">proposta didática</span>.</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; Anthropic, <em>Agent SDK overview</em> — <a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/overview</a>; OpenAI, <em>Agents</em> — <a href="https://developers.openai.com/api/docs/guides/agents" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/agents</a>; Google, <em>ADK</em> — <a href="https://adk.dev/" target="_blank" rel="noopener noreferrer">adk.dev</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.1c">
+        <a href="#unidade-12-1b">Parte 12.1b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 239">239</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-2a">Parte 12.2a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-2a" aria-labelledby="titulo-da-unidade-12-2a">
+      <h2 id="titulo-da-unidade-12-2a">12.2a Quando uma única chamada basta</h2>
+      <p class="rotulo-unidade">Unidade 12.2 — Interação simples e workflows (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Muitas aplicações se resolvem com uma chamada bem feita, com busca e exemplos no prompt.</li>
+          <li>Sistemas agênticos costumam trocar latência e custo por desempenho; a troca precisa valer a pena.</li>
+          <li>Dividir em passos ou agentes faz sentido quando uma instrução longa deixa de ser seguida com confiança ou o contexto não cabe.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Antes de montar uma equipe para organizar um almoço para oito pessoas, veja se uma lista de compras e uma pessoa resolvem.</p></div>
+
+      <h3>Comece pelo mais simples</h3>
+      <p>A Anthropic resume o caminho: começar com prompts simples, otimizá-los com avaliação abrangente e só acrescentar sistemas agênticos de vários passos quando soluções mais simples ficarem aquém. Para muitas aplicações, otimizar uma única chamada, com busca e exemplos no prompt, costuma bastar. A decisão de usar ou não IA está em 3.5; os excessos de arquitetura, em 8.4.</p>
+      <h3>O preço do passo extra</h3>
+      <p>Sistemas agênticos costumam trocar latência e custo por melhor desempenho na tarefa, e a troca precisa fazer sentido. Se uma única chamada já atinge o critério de aceite (3.4), um passo extra só acrescenta custo e pontos de falha.</p>
+      <h3>Sinais para dividir</h3>
+      <p>O ADK, do Google, lista motivos para sair de um agente único: a partir de certo tamanho ou complexidade de instruções em vários passos, o agente pode deixar de cumpri-las todas com confiabilidade; e a quantidade de dados da tarefa pode passar do limite da janela do modelo. Cada sinal pede <em>medição</em> (Cap. 5) antes da mudança (<span class="qual">proposta didática</span>).</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-2a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-2a">A Aurora quer responder dúvidas sobre o calendário acadêmico, um documento curto e estável. Qual é a primeira medida mais coerente com as fontes?</p>
+        <label class="alternativa"><input type="radio" name="p12-2a" value="a" data-correta="true" data-explicacao="Correta. As fontes recomendam a solução mais simples e só subir a complexidade quando medições mostrarem a necessidade."><span><strong>A.</strong> Tentar uma única chamada com o calendário no prompt e medir se atinge o critério de aceite.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2a" value="b" data-correta="false" data-explicacao="Incorreta. Sem evidência de que uma chamada falha, vários agentes só somam custo e latência."><span><strong>B.</strong> Montar logo um sistema de vários agentes especializados.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2a" value="c" data-correta="false" data-explicacao="Incorreta. Para um documento curto e estável, treinar é desproporcional."><span><strong>C.</strong> Treinar um modelo próprio com o calendário.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2a" value="d" data-correta="false" data-explicacao="Incorreta. Etapas extras sem sinal de necessidade aumentam custo e pontos de falha."><span><strong>D.</strong> Dividir o calendário em 40 etapas encadeadas por precaução.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Uma única chamada bem feita é o ponto de partida; divida quando uma medição mostrar que ela não basta. Na parte 12.2b, vemos o primeiro workflow: cadeia com portão.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Começar simples e custo:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Sinais para dividir:</strong> Google, <em>Agents</em> (ADK) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Ligação com a medição:</strong> <span class="qual">proposta didática</span></p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.2a">
+        <a href="#unidade-12-1c">Parte 12.1c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 240">240</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-2b">Parte 12.2b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-2b" aria-labelledby="titulo-da-unidade-12-2b">
+      <h2 id="titulo-da-unidade-12-2b">12.2b Cadeia com portão e roteamento</h2>
+      <p class="rotulo-unidade">Unidade 12.2 — Interação simples e workflows (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Encadeamento divide a tarefa em etapas fixas, e cada chamada processa a saída da anterior.</li>
+          <li>Um portão (verificação programática) entre etapas confere se o processo continua no rumo.</li>
+          <li>Roteamento classifica a entrada e a envia a um tratamento especializado; a escolha do destino é tema do Capítulo 14.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma linha de montagem com inspeção entre as estações: ninguém pinta uma peça que saiu torta da solda.</p></div>
+
+      <h3>Cadeia de etapas</h3>
+      <p>Segundo a Anthropic, o encadeamento (<em>prompt chaining</em>) decompõe a tarefa em uma sequência de passos, e cada chamada processa a saída da anterior. O objetivo principal é trocar latência por precisão, tornando cada chamada uma tarefa mais fácil.</p>
+      <h3>Portão entre etapas</h3>
+      <p>Entre passos intermediários, é possível acrescentar verificações programáticas, chamadas de <dfn>portão</dfn> (<em>gate</em>), para garantir que o processo segue no rumo. Em geral, um portão é código determinístico (10.3): confere formato, campos obrigatórios ou limites, sem gastar outra chamada de modelo (<span class="qual">proposta didática</span>).</p>
+      <h3>Roteamento</h3>
+      <p>O roteamento classifica a entrada e a direciona a uma tarefa especializada. Sem ele, otimizar o tratamento de um tipo de entrada pode prejudicar o desempenho em outros. Como escolher o destino, inclusive entre modelos de custos diferentes, é assunto do Capítulo 14.</p>
+      <h3>Código decide o fluxo</h3>
+      <p>O ADK descreve a mistura de tarefas determinísticas e não determinísticas: intercalar a funcionalidade não determinística dos modelos com código determinístico, em vez de deixar o modelo conduzir tudo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-2b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-2b">A Aurora gera o resumo de um edital e depois o traduz. Onde faz mais sentido um portão?</p>
+        <label class="alternativa"><input type="radio" name="p12-2b" value="a" data-correta="true" data-explicacao="Correta. Um portão programático entre etapas evita propagar um erro da primeira para a segunda."><span><strong>A.</strong> Entre as duas etapas, conferindo por código se o resumo tem as seções obrigatórias antes de traduzir.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2b" value="b" data-correta="false" data-explicacao="Incorreta. Verificar só no fim deixa o erro percorrer a cadeia e desperdiça a segunda etapa."><span><strong>B.</strong> Depois da tradução, apenas, esperando que o erro apareça.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2b" value="c" data-correta="false" data-explicacao="Incorreta. A fonte recomenda verificações nos passos intermediários."><span><strong>C.</strong> Em lugar nenhum: cadeias nunca precisam de verificação.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2b" value="d" data-correta="false" data-explicacao="Incorreta. Isso troca previsibilidade por autonomia sem necessidade demonstrada."><span><strong>D.</strong> Substituindo as duas etapas por um agente autônomo sem limites.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Cadeia com portão dá previsibilidade; roteamento separa tipos de entrada. Na parte 12.2c, vemos paralelização e orquestração.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Encadeamento, portão e roteamento:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Fluxo com código determinístico:</strong> Google, <em>Agents</em> (ADK) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.2b">
+        <a href="#unidade-12-2a">Parte 12.2a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 241">241</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-2c">Parte 12.2c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-2c" aria-labelledby="titulo-da-unidade-12-2c">
+      <h2 id="titulo-da-unidade-12-2c">12.2c Paralelização e orquestrador-trabalhadores</h2>
+      <p class="rotulo-unidade">Unidade 12.2 — Interação simples e workflows (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Paralelizar é rodar subtarefas independentes juntas (seccionar) ou a mesma tarefa várias vezes (votar).</li>
+          <li>No orquestrador-trabalhadores, quem divide é o modelo, em tempo de execução; na paralelização, a divisão é fixa.</li>
+          <li>A OpenAI distingue agente como ferramenta (subtarefa limitada) de transferência (o especialista assume a conversa).</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Seccionar é repartir capítulos de um relatório entre colegas; votar é pedir a três revisores que leiam o mesmo capítulo; orquestrar é a coordenadora decidir, ao ler o pedido, quantos colegas chamar.</p></div>
+
+      <h3>Duas formas de paralelizar</h3>
+      <p>A Anthropic descreve duas variações: o <em>seccionamento</em> (dividir a tarefa em subtarefas independentes que rodam em paralelo) e a <em>votação</em> (rodar a mesma tarefa várias vezes para obter saídas diversas).</p>
+      <h3>Quando o modelo divide</h3>
+      <p>No orquestrador-trabalhadores, as subtarefas não são predefinidas, mas determinadas pelo orquestrador a partir da entrada. É isso que o diferencia da paralelização, cuja topologia é parecida.</p>
+      <h3>Agente como ferramenta ou transferência</h3>
+      <p>A OpenAI separa dois padrões: usar agentes como ferramentas quando o especialista ajuda em uma subtarefa limitada sem assumir a conversa; e usar transferências quando o roteamento faz parte do fluxo e o especialista deve ficar com o restante do turno.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: padrões de paralelização e delegação" tabindex="0">
+      <table class="tabela">
+        <caption>Quem divide a tarefa em cada padrão (síntese didática das fontes)</caption>
+        <thead><tr><th scope="col">Padrão</th><th scope="col">Quem divide</th><th scope="col">Uso típico</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Seccionamento</th><td>O código, de antemão</td><td>Subtarefas independentes conhecidas</td></tr>
+          <tr><th scope="row">Votação</th><td>O código repete a tarefa</td><td>Mais confiança no resultado</td></tr>
+          <tr><th scope="row">Orquestrador-trabalhadores</th><td>O modelo, na hora</td><td>Subtarefas imprevisíveis</td></tr>
+          <tr><th scope="row">Agente como ferramenta</th><td>Um agente gerente chama o especialista</td><td>Subtarefa limitada, gerente fica com a conversa</td></tr>
+          <tr><th scope="row">Transferência (<em>handoff</em>)</th><td>O roteamento passa o turno</td><td>Especialista assume o restante do turno</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Custo</h3>
+      <p>Mais agentes significam mais tokens e mais pontos de falha; o orçamento de 4× e 15× está em 6.5a e os limites do multiagente em 6.4c.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-2c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-2c">Um agente gerente deve consultar um especialista em tributos só para calcular um valor, mantendo a resposta final com o gerente. Qual padrão da OpenAI se encaixa?</p>
+        <label class="alternativa"><input type="radio" name="p12-2c" value="a" data-correta="true" data-explicacao="Correta. É exatamente o caso de uma subtarefa limitada em que o gerente mantém a resposta."><span><strong>A.</strong> Agente como ferramenta: o especialista resolve uma subtarefa limitada sem assumir a conversa.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2c" value="b" data-correta="false" data-explicacao="Incorreta. A transferência é para quando o especialista deve ficar com o restante do turno."><span><strong>B.</strong> Transferência, porque o especialista deve assumir toda a conversa.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2c" value="c" data-correta="false" data-explicacao="Incorreta. Votar serve para confiança, não para delegar a um especialista."><span><strong>C.</strong> Votação, repetindo a mesma tarefa três vezes.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-2c" value="d" data-correta="false" data-explicacao="Incorreta. Os dois padrões da OpenAI cobrem o caso sem estrutura adicional."><span><strong>D.</strong> Nenhum padrão: é preciso um grafo de eventos.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Paralelização tem divisão fixa; o orquestrador divide na hora. A unidade 12.3 volta ao centro do laço: as ferramentas.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Paralelização e orquestrador:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Agente como ferramenta e transferência:</strong> OpenAI, <em>Agent orchestration</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Quadro:</strong> Síntese didática (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; OpenAI, <em>Agent orchestration</em> — <a href="https://openai.github.io/openai-agents-python/multi_agent/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/multi_agent</a>; Google, <em>Agents</em> (ADK) — <a href="https://adk.dev/agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.2c">
+        <a href="#unidade-12-2b">Parte 12.2b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 242">242</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-3a">Parte 12.3a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-3a" aria-labelledby="titulo-da-unidade-12-3a">
+      <h2 id="titulo-da-unidade-12-3a">12.3a O resultado da ferramenta é o chão firme</h2>
+      <p class="rotulo-unidade">Unidade 12.3 — Ferramentas no laço (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O agente precisa de retorno concreto do ambiente (<em>ground truth</em>) a cada passo para avaliar seu progresso.</li>
+          <li>No laço, cada conjunto de resultados volta ao modelo para a próxima decisão.</li>
+          <li>Se o modelo pede uma ferramenta inexistente, o resultado pode virar um erro visível a ele, em vez de derrubar a execução.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="12-3a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um cartógrafo caminha por uma trilha com uma bússola de latão e, a cada encruzilhada, compara o mapa com a paisagem real à sua frente, corrigindo o traçado a lápis.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> O motorista que confia só no mapa antigo bate; o que olha a rua a cada esquina corrige o caminho.</p></div>
+
+      <h3>Retorno concreto do ambiente</h3>
+      <p>A Anthropic afirma que, durante a execução, é crucial que o agente obtenha “verdade de terreno” (<em>ground truth</em>) do ambiente a cada passo, como resultados de ferramentas ou execução de código, para avaliar o progresso. Sem isso, o agente só repete a própria hipótese.</p>
+      <h3>O ciclo de execução</h3>
+      <p>Na documentação do Agent SDK, o passo de execução é direto: o SDK roda cada ferramenta pedida e coleta os resultados, e cada conjunto de resultados volta ao Claude para a próxima decisão. O significado de “pedir uma ferramenta” está em 10.1a; aqui importa o que o resultado faz com o laço.</p>
+      <h3>Ferramenta que não existe</h3>
+      <p>No SDK da OpenAI, o comportamento padrão diante de uma chamada de ferramenta cujo nome não corresponde a nenhuma disponível é levantar o erro <code>ModelBehaviorError</code>; é possível optar por devolver ao modelo um resultado de erro visível, para ele corrigir o pedido. Erros que o modelo consegue entender e corrigir (10.5a) mantêm o laço vivo; erros de protocolo o interrompem.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-3a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-3a">Um agente da Aurora pede a ferramenta “consultar_bolsa” e o nome não existe. Qual desenho mantém o laço vivo e ajuda o modelo a corrigir?</p>
+        <label class="alternativa"><input type="radio" name="p12-3a" value="a" data-correta="true" data-explicacao="Correta. A documentação da OpenAI permite devolver um erro visível ao modelo em vez de interromper a execução."><span><strong>A.</strong> Devolver ao modelo um resultado de erro claro (visível a ele), para que corrija o pedido.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3a" value="b" data-correta="false" data-explicacao="Incorreta. Isso inventa um resultado que não existe e quebra o retorno concreto do ambiente."><span><strong>B.</strong> Ignorar o erro e seguir como se a ferramenta tivesse respondido.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3a" value="c" data-correta="false" data-explicacao="Incorreta. Esse é o comportamento padrão apenas até optar por outro; ele não é obrigatório."><span><strong>C.</strong> Encerrar o sistema inteiro a cada nome errado, sempre.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3a" value="d" data-correta="false" data-explicacao="Incorreta. Adivinhar elimina o retorno concreto que o laço precisa."><span><strong>D.</strong> Pedir ao modelo para adivinhar a resposta da ferramenta.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O resultado da ferramenta é a base da próxima decisão; erros úteis mantêm o laço vivo. Na parte 12.3b, vemos permissão e proteção em volta das ferramentas.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Retorno concreto do ambiente:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Ciclo de execução:</strong> Anthropic, <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Ferramenta inexistente:</strong> OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.3a">
+        <a href="#unidade-12-2c">Parte 12.2c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 243">243</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-3b">Parte 12.3b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-3b" aria-labelledby="titulo-da-unidade-12-3b">
+      <h2 id="titulo-da-unidade-12-3b">12.3b Permissão, negação e proteção em volta da ferramenta</h2>
+      <p class="rotulo-unidade">Unidade 12.3 — Ferramentas no laço (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O harness pode bloquear ferramentas; a negação volta ao modelo como resultado, e ele costuma tentar outro caminho.</li>
+          <li>Proteções (guardrails) de ferramenta rodam antes e depois de cada chamada protegida; as de agente cobrem entrada e saída final.</li>
+          <li>Em paralelo, a proteção poupa tempo, mas o agente pode já ter gasto tokens e agido; em modo bloqueante, a verificação roda antes.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um porteiro que barra a entrada de um cômodo avisa o visitante; o visitante procura outra porta. Um porteiro que avisa só depois de o visitante entrar chega tarde.</p></div>
+
+      <h3>Negar sem derrubar o laço</h3>
+      <p>No Agent SDK, a lista de ferramentas bloqueadas (<code>disallowed_tools</code>) vale independentemente das outras configurações. Quando uma ferramenta é negada, o Claude recebe uma mensagem de recusa como resultado da ferramenta e costuma tentar outra abordagem ou informar que não pôde prosseguir. A negação é, portanto, parte do laço, não um erro fatal. As regras de permissão estão em 7.2.</p>
+      <h3>Onde cada proteção roda</h3>
+      <p>Na documentação da OpenAI, as proteções (<em>guardrails</em>, 7.3) de ferramenta rodam a cada chamada protegida, com verificações de entrada antes da execução e de saída depois. Proteções de agente não cobrem cada chamada em fluxos com gerentes e transferências; para checar antes e depois de cada ferramenta nesses fluxos, use as de ferramenta.</p>
+      <h3>Em paralelo ou bloqueando</h3>
+      <p>Por padrão, a proteção de entrada roda em paralelo ao agente: ótimo para latência, mas, se ela disparar, o agente pode já ter consumido tokens e executado ferramentas antes de ser cancelado. No modo bloqueante, a proteção termina antes de o agente começar; se disparar, o agente nem executa, evitando consumo e efeitos colaterais.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-3b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-3b">O agente da Aurora pode emitir reembolsos, um efeito financeiro. Qual configuração de proteção é mais prudente?</p>
+        <label class="alternativa"><input type="radio" name="p12-3b" value="a" data-correta="true" data-explicacao="Correta. No modo bloqueante, se a proteção disparar o agente nem executa, evitando efeitos colaterais."><span><strong>A.</strong> Verificação bloqueante, que termina antes de a ação rodar, mais aprovação antes de efeitos externos (10.5c).</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3b" value="b" data-correta="false" data-explicacao="Incorreta. Em paralelo, o agente pode já ter executado ferramentas quando a proteção dispara."><span><strong>B.</strong> Proteção em paralelo, porque ganha latência e o reembolso já saiu de qualquer forma.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3b" value="c" data-correta="false" data-explicacao="Incorreta. Treinamento não substitui controle sobre efeitos externos."><span><strong>C.</strong> Nenhuma proteção: o modelo é treinado para não errar.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3b" value="d" data-correta="false" data-explicacao="Incorreta. A saída final vem depois da ação; tarde demais para evitar o efeito."><span><strong>D.</strong> Só proteção de saída final, depois do reembolso.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Negação e proteção fazem parte do laço; para efeitos externos, prefira verificação antes da ação. Na parte 12.3c, vemos paralelismo de ferramentas e o peso das saídas na janela.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Negação de ferramenta:</strong> Anthropic, <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Proteções e modos de execução:</strong> OpenAI, <em>Guardrails</em> (Agents SDK) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.3b">
+        <a href="#unidade-12-3a">Parte 12.3a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 244">244</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-3c">Parte 12.3c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-3c" aria-labelledby="titulo-da-unidade-12-3c">
+      <h2 id="titulo-da-unidade-12-3c">12.3c Ferramentas em paralelo e o peso na janela</h2>
+      <p class="rotulo-unidade">Unidade 12.3 — Ferramentas no laço (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O Agent SDK roda em paralelo as ferramentas só de leitura e em sequência as que alteram estado.</li>
+          <li>Saídas grandes de ferramenta consomem muito contexto, e o contexto acumula ao longo do laço.</li>
+          <li>Subagentes devolvem só a resposta final: o contexto do agente principal cresce por um resumo, não pela transcrição.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Vários colegas podem ler o mesmo livro ao mesmo tempo, mas só um deve editar o mesmo documento de cada vez.</p></div>
+
+      <h3>Leitura em paralelo, escrita em sequência</h3>
+      <p>Quando o Claude pede várias ferramentas num mesmo turno, o Agent SDK pode executá-las de forma concorrente ou sequencial, conforme a ferramenta: as de leitura podem rodar juntas, e as que modificam estado rodam em sequência para evitar conflitos. Ferramentas personalizadas são sequenciais por padrão; para permitir paralelismo, é preciso marcá-las como somente leitura em suas anotações.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: execução paralela ou sequencial de ferramentas" tabindex="0">
+      <table class="tabela">
+        <caption>Execução de ferramentas no Agent SDK (resumo da documentação, tradução livre)</caption>
+        <thead><tr><th scope="col">Tipo de ferramenta</th><th scope="col">Execução</th><th scope="col">Motivo documentado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Somente leitura (leitura de arquivos, busca, ferramentas MCP de leitura)</th><td>Pode rodar em paralelo</td><td>Não alteram estado</td></tr>
+          <tr><th scope="row">Altera estado (edição, escrita, comandos)</th><td>Em sequência</td><td>Evita conflitos</td></tr>
+          <tr><th scope="row">Personalizada</th><td>Sequencial por padrão</td><td>Paralelismo exige marcá-la como somente leitura</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O custo na janela</h3>
+      <p>A documentação avisa que saídas grandes de ferramenta consomem muito contexto: ler um arquivo grande ou rodar um comando verboso pode usar milhares de tokens num único turno. Filtros, paginação e retorno de alto sinal (10.4) são a defesa; o orçamento de contexto está em 9.2.</p>
+      <h3>Delegar para não acumular</h3>
+      <p>Uma estratégia citada é usar subagentes para subtarefas: o subagente devolve apenas sua resposta final, e o contexto do agente principal cresce por um resumo, não pela transcrição da subtarefa. Os cuidados com subagentes (janelas limpas, falhas de coordenação) estão em 6.4.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-3c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-3c">O agente da Aurora lê dez relatórios longos num turno e o contexto estoura. Qual medida é coerente com as fontes?</p>
+        <label class="alternativa"><input type="radio" name="p12-3c" value="a" data-correta="true" data-explicacao="Correta. Subagentes devolvem apenas a resposta final, e filtros reduzem o consumo da janela."><span><strong>A.</strong> Delegar a leitura a subagentes que devolvam só um resumo e filtrar ou paginar as saídas das ferramentas.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3c" value="b" data-correta="false" data-explicacao="Incorreta. Velocidade de leitura não muda o consumo de tokens do contexto."><span><strong>B.</strong> Pedir ao modelo que leia mais rápido.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3c" value="c" data-correta="false" data-explicacao="Incorreta. Ferramentas que alteram estado rodam em sequência justamente para evitar conflitos."><span><strong>C.</strong> Rodar as ferramentas de escrita em paralelo para economizar tempo.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-3c" value="d" data-correta="false" data-explicacao="Incorreta. Mais definições ocupam mais contexto, não menos."><span><strong>D.</strong> Aumentar o número de ferramentas oferecidas em cada chamada.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Leitura pode ser paralela; escrita, em sequência; saídas grandes custam janela. A unidade 12.4 trata do ciclo em si: voltas, limites e desvios.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Paralelismo e peso na janela:</strong> Anthropic, <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Quadro:</strong> Resumo da documentação, tradução livre (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>How the agent loop works</em> — <a href="https://code.claude.com/docs/en/agent-sdk/agent-loop" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/agent-loop</a>; OpenAI, <em>Guardrails</em> (Agents SDK) — <a href="https://openai.github.io/openai-agents-python/guardrails/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/guardrails</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.3c">
+        <a href="#unidade-12-3b">Parte 12.3b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 245">245</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-4a">Parte 12.4a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-4a" aria-labelledby="titulo-da-unidade-12-4a">
+      <h2 id="titulo-da-unidade-12-4a">12.4a Anatomia de uma volta</h2>
+      <p class="rotulo-unidade">Unidade 12.4 — Ciclo, desvios e limites (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Uma volta (<em>turn</em>) é uma passagem pelo laço: o modelo produz saída e, se houver pedidos de ferramenta, o sistema os executa e devolve os resultados.</li>
+          <li>O laço termina quando o modelo responde sem pedir ferramenta; a OpenAI chama isso de saída final.</li>
+          <li>No exemplo da Anthropic, corrigir testes que falham levou quatro voltas: três com ferramentas e uma de resposta final.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Cada volta é uma ida ao balcão: você pede, recebe, olha e decide se precisa voltar. A última ida é só para dizer “pronto”.</p></div>
+
+      <h3>O que é uma volta</h3>
+      <p>Na documentação do Agent SDK, uma <dfn>volta</dfn> é uma passagem pelo laço: o Claude produz saída e, se ela inclui chamadas de ferramenta, o SDK as executa e os resultados voltam ao Claude automaticamente, sem devolver o controle ao seu código. Não confunda com o laço de geração token a token (1.4a): aqui a unidade é a decisão do agente.</p>
+      <h3>Quando o laço termina</h3>
+      <p>No SDK da OpenAI, a regra para considerar a saída do modelo como final é produzir texto do tipo desejado e não haver chamadas de ferramenta. No Agent SDK, o laço também termina quando a resposta vem sem pedido de ferramenta, seguida de uma mensagem de resultado com texto final, uso de tokens, custo e identificador da sessão.</p>
+      <h3>Um exemplo contado</h3>
+      <p>A Anthropic conta o caso de corrigir testes que falham: o Claude roda os testes, lê os arquivos, edita e roda de novo, e então responde em texto. Foram quatro voltas, três com ferramentas e uma final só de texto. Contar voltas é uma medida simples de esforço (<span class="qual">proposta didática</span>) e dá base aos limites da parte 12.4b.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: o que encerra o laço em cada documentação" tabindex="0">
+      <table class="tabela">
+        <caption>Encerramento normal do laço (resumo da documentação, tradução livre)</caption>
+        <thead><tr><th scope="col">Fonte</th><th scope="col">O laço termina quando…</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Anthropic, Agent SDK</th><td>O Claude responde sem pedir ferramenta</td></tr>
+          <tr><th scope="row">OpenAI, Agents SDK</th><td>Há texto no tipo esperado e nenhuma chamada de ferramenta</td></tr>
+          <tr><th scope="row">Google, ADK (agente em laço)</th><td>Atinge o limite de iterações ou um subagente sinaliza escalonamento</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-4a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-4a">Um agente da Aurora pediu uma ferramenta, recebeu o resultado e respondeu em texto, sem novos pedidos. O que aconteceu com o laço?</p>
+        <label class="alternativa"><input type="radio" name="p12-4a" value="a" data-correta="true" data-explicacao="Correta. Nas documentações da Anthropic e da OpenAI, resposta sem pedido de ferramenta encerra o laço."><span><strong>A.</strong> Terminou: uma resposta sem chamadas de ferramenta é a condição normal de encerramento.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4a" value="b" data-correta="false" data-explicacao="Incorreta. O encerramento normal é a resposta sem pedido de ferramenta; limites são proteção extra."><span><strong>B.</strong> Continua para sempre, porque laços só terminam por limite de gasto.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4a" value="c" data-correta="false" data-explicacao="Incorreta. O laço apenas termina; nada recomeça sozinho."><span><strong>C.</strong> Recomeça do zero com um novo prompt.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4a" value="d" data-correta="false" data-explicacao="Incorreta. Transferências só ocorrem se o modelo pedir uma e ela existir."><span><strong>D.</strong> Passa o controle a outro agente automaticamente.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Uma volta é uma ida e volta com as ferramentas; o laço termina na resposta sem pedido de ferramenta. Na parte 12.4b, veremos os limites que protegem o laço de não terminar.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Volta e término:</strong> Anthropic, <em>How the agent loop works</em>; OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>); Google, <em>Loop agents</em> (ADK) (<span class="qual">registrado na documentação</span>), consultadas em 17/11/2026.</p>
+        <p><strong>Quadro:</strong> Resumo da documentação, tradução livre (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.4a">
+        <a href="#unidade-12-3c">Parte 12.3c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 246">246</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-4b">Parte 12.4b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-4b" aria-labelledby="titulo-da-unidade-12-4b">
+      <h2 id="titulo-da-unidade-12-4b">12.4b Limites de voltas, gasto e terminação</h2>
+      <p class="rotulo-unidade">Unidade 12.4 — Ciclo, desvios e limites (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Sem limites, o laço só termina quando o modelo conclui, o que pode demorar em tarefas abertas.</li>
+          <li>Os SDKs oferecem teto de voltas e, no caso da Anthropic, teto de gasto; no ADK, o laço precisa de uma condição de término explícita.</li>
+          <li>Um teto de gasto é conferido depois das respostas e pode ser ultrapassado por até o custo de uma resposta.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="12-4b">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: uma vigia numa torre de pedra puxa a corda de um sino de bronze quando um relógio de areia grande se esvazia, enquanto abaixo uma caravana para de andar.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma caravana sem limite de dias e sem dinheiro contado só para quando acaba a água. O sino da vigia avisa antes.</p></div>
+
+      <h3>Por que limitar</h3>
+      <p>A documentação do Agent SDK explica que, sem limites, o laço roda até o Claude terminar por conta própria: bom para tarefas bem delimitadas, mas pode se estender em pedidos abertos. Configurar um orçamento é um bom padrão para agentes em produção. O <dfn>teto de voltas</dfn> (número máximo de voltas permitido ao laço) é o limite mais simples. Os princípios de parada e de orçamento estão em 8.3b; aqui vemos como cada ferramenta os implementa.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: limites do laço em cada documentação" tabindex="0">
+      <table class="tabela">
+        <caption>Limites do laço (resumo da documentação, tradução livre)</caption>
+        <thead><tr><th scope="col">Fonte</th><th scope="col">Limite</th><th scope="col">Ao atingir</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Anthropic, Agent SDK</th><td>Voltas e gasto máximos</td><td>Mensagem de resultado com subtipo de erro</td></tr>
+          <tr><th scope="row">OpenAI, Agents SDK</th><td>Voltas máximas (pode ser desativado)</td><td>Exceção de voltas excedidas</td></tr>
+          <tr><th scope="row">Google, ADK (agente em laço)</th><td>Iterações máximas ou escalonamento</td><td>Padrão em Python: só para por escalonamento</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que acontece no limite</h3>
+      <p>Na Anthropic, ao atingir o limite de voltas ou de gasto, o SDK devolve uma mensagem de resultado com subtipo de erro específico. Na OpenAI, passar de <code>max_turns</code> levanta a exceção <code>MaxTurnsExceeded</code>, e é possível desativar o limite. No ADK, o agente em laço não decide sozinho quando parar: é preciso implementar um mecanismo de término, e em Python o padrão de <code>max_iterations</code> é <code>None</code>, de modo que o laço só para por escalonamento.</p>
+      <h3>Folga no teto de gasto</h3>
+      <p>A Anthropic informa que o gasto é comparado ao teto depois de cada resposta, porque o custo vem do uso de tokens devolvido pela API. Assim, o gasto pode passar do teto em até o custo daquela resposta, mais o que subagentes ainda ativos gastarem antes de parar. Deixe folga ao definir o valor.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-4b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-4b">A Aurora configura um agente em laço no ADK, em Python, sem definir iterações máximas nem sinal de escalonamento. O que a documentação indica?</p>
+        <label class="alternativa"><input type="radio" name="p12-4b" value="a" data-correta="true" data-explicacao="Correta. A documentação diz que o agente em laço não decide parar sozinho e que o padrão só para por escalonamento."><span><strong>A.</strong> O laço pode não terminar, pois o padrão é só parar por escalonamento; é preciso definir um término.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4b" value="b" data-correta="false" data-explicacao="Incorreta. Não há esse padrão; ele só para por limite configurado ou escalonamento."><span><strong>B.</strong> O laço termina sozinho após três voltas.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4b" value="c" data-correta="false" data-explicacao="Incorreta. Nada na página indica um teto de gasto embutido."><span><strong>C.</strong> O ADK cobra um limite fixo de gasto automaticamente.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4b" value="d" data-correta="false" data-explicacao="Incorreta. Modelos não se cansam; o término precisa ser desenhado."><span><strong>D.</strong> O laço termina quando o modelo se cansa.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Todo laço precisa de condição de término e de teto de voltas, e de teto de gasto quando a ferramenta o oferece. Na parte 12.4c, vemos desvios: transferência, escalonamento e pausa para uma pessoa.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Limites e folga:</strong> Anthropic, <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>); OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>); Google, <em>Loop agents</em> (ADK) (<span class="qual">registrado na documentação</span>), consultadas em 17/11/2026.</p>
+        <p><strong>Quadro:</strong> Resumo da documentação, tradução livre (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.4b">
+        <a href="#unidade-12-4a">Parte 12.4a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 247">247</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-4c">Parte 12.4c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-4c" aria-labelledby="titulo-da-unidade-12-4c">
+      <h2 id="titulo-da-unidade-12-4c">12.4c Desvios: transferência, escalonamento e pausa</h2>
+      <p class="rotulo-unidade">Unidade 12.4 — Ciclo, desvios e limites (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>No laço, o caminho pode mudar: uma transferência troca o agente ativo, e um escalonamento encerra o laço.</li>
+          <li>O agente pode pausar para pedir informação ou julgamento a uma pessoa, em pontos de controle ou diante de bloqueios.</li>
+          <li>Desvios e limites são parte do desenho do laço, não um acréscimo posterior.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Num percurso de trem, o desvio para outra linha, o sinal vermelho e a parada na estação são todos previstos no mapa. O descarrilamento não.</p></div>
+
+      <h3>Transferir o turno</h3>
+      <p>No SDK da OpenAI, se o modelo pede uma transferência, o <em>runner</em> atualiza o agente atual e a entrada e roda o laço de novo. O caminho do fluxo muda, mas o laço continua sob o mesmo controle.</p>
+      <h3>Escalonar para sair do laço</h3>
+      <p>No ADK, um subagente pode avaliar uma condição, como “o documento já está bom?”, e, se ela for atendida, sinalizar o término (<dfn>escalonamento no laço</dfn>) emitindo um evento cujas ações marcam o escalonamento como verdadeiro. É a saída de um laço de refinamento por critério, e não só por limite de iterações. No exemplo da documentação, o crítico recebe uma ferramenta de saída (<code>exit_loop</code>) que chama quando o documento atinge a qualidade satisfatória, evitando novas iterações.</p>
+      <h3>Pausar para uma pessoa</h3>
+      <p>A Anthropic descreve que o agente pode voltar ao usuário para obter mais informação ou julgamento e pausar para feedback humano em pontos de controle ou diante de bloqueios. A parte 12.6b detalha a pausa para aprovação e a retomada.</p>
+      <h3>Autonomia e limites</h3>
+      <p>Mais autonomia pede mais limites: o custo e o risco de erros acumulados estão em 6.5 e 8.3, e as topologias com grafo de estado, em 6.3b. Os limites vistos em 12.4b valem para todos os desvios.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-4c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-4c">Num laço de revisão de texto da Aurora, um agente crítico deve encerrar o laço assim que o texto atingir a qualidade combinada, mesmo antes do limite de iterações. Que mecanismo do ADK se encaixa?</p>
+        <label class="alternativa"><input type="radio" name="p12-4c" value="a" data-correta="true" data-explicacao="Correta. A documentação do ADK descreve o escalonamento por sub-agente como saída por critério, além do limite."><span><strong>A.</strong> Escalonamento: o crítico sinaliza término ao atingir a condição, e o limite de iterações fica como proteção.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4c" value="b" data-correta="false" data-explicacao="Incorreta. Isso não encerra o laço por critério e aumenta o custo."><span><strong>B.</strong> Aumentar indefinidamente o limite de iterações.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4c" value="c" data-correta="false" data-explicacao="Incorreta. Sem critério de término, o laço só para por acaso ou por limite."><span><strong>C.</strong> Remover o crítico e repetir a revisão até o prazo acabar.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4c" value="d" data-correta="false" data-explicacao="Incorreta. Transferência troca de agente; não encerra o laço de refinamento."><span><strong>D.</strong> Transferir o turno ao agente de matrícula.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Desvios são previstos no desenho: transferência, escalonamento e pausa. A unidade 12.5 trata de laços longos, em que a verificação e o registro seguram a continuidade.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Transferência:</strong> OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Escalonamento:</strong> Google, <em>Loop agents</em> (ADK) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Pausa para uma pessoa:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenAI, <em>Running agents</em> — <a href="https://openai.github.io/openai-agents-python/running_agents/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/running_agents</a>; Google, <em>Loop agents</em> (ADK) — <a href="https://adk.dev/agents/workflow-agents/loop-agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents/workflow-agents/loop-agents</a>; Anthropic, <em>How the agent loop works</em> — <a href="https://code.claude.com/docs/en/agent-sdk/agent-loop" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/agent-loop</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.4c">
+        <a href="#unidade-12-4b">Parte 12.4b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 248">248</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-5a">Parte 12.5a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-5a" aria-labelledby="titulo-da-unidade-12-5a">
+      <h2 id="titulo-da-unidade-12-5a">12.5a Dois fracassos típicos de laços longos</h2>
+      <p class="rotulo-unidade">Unidade 12.5 — Harness de laço longo: verificação e registro (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Compactar o contexto não basta: um agente que retoma sem registro pode declarar a obra pronta antes da hora.</li>
+          <li>Outro fracasso é testar só por partes e não notar que a funcionalidade não funciona de ponta a ponta.</li>
+          <li>A resposta do harness é tornar o estado do trabalho legível para a próxima sessão.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Num turno de enfermagem, quem chega, vê o quarto arrumado e assina o plantão sem ler o prontuário pode deixar passar o que ainda falta.</p></div>
+
+      <h3>Compactar não basta</h3>
+      <p>Em seu estudo sobre agentes de longa duração, a Anthropic observa que a compactação não é suficiente. Mesmo com ela, um agente em laço por várias janelas de contexto, recebendo só um pedido de alto nível, não entrega uma aplicação de qualidade de produção. O problema de começar sem memória em cada sessão está em 9.6a.</p>
+      <h3>Declarar vitória cedo</h3>
+      <p>Um dos padrões de falha: com algumas funcionalidades já prontas, uma instância posterior olha em volta, vê que houve progresso e declara o trabalho concluído. Falta uma lista do que “pronto” significa. O vício oposto, tentar fazer tudo de uma vez, e a pressa de marcar como pronto estão em 8.1b.</p>
+      <h3>Testar sem ver o resultado de ponta a ponta</h3>
+      <p>O mesmo estudo relata que o Claude fazia mudanças e até testes unitários ou chamadas contra um servidor de desenvolvimento, mas não reconhecia que a funcionalidade não funcionava de ponta a ponta. Passar nos testes de parte não é o mesmo que atender ao critério de aceite (3.4).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: falhas de laço longo e respostas do harness" tabindex="0">
+      <table class="tabela">
+        <caption>Falhas de laço longo e respostas possíveis (síntese didática do artigo)</caption>
+        <thead><tr><th scope="col">Falha</th><th scope="col">Resposta do harness</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Vitória declarada cedo</th><td>Lista estruturada de funcionalidades, lida no início de cada sessão</td></tr>
+          <tr><th scope="row">Ambiente quebrado ou sem registro</th><td>Registro de progresso e controle de versão no fim de cada sessão</td></tr>
+          <tr><th scope="row">Item marcado como pronto sem teste de ponta a ponta</th><td>Verificação fim a fim antes de mudar o status</td></tr>
+          <tr><th scope="row">Tempo perdido para subir o ambiente</th><td>Roteiro de inicialização escrito uma vez</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-5a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-5a">Numa tarefa longa, um agente da Aurora entra numa nova sessão, vê vários módulos prontos e declara o projeto concluído, sem consultar nenhuma lista. Qual falha típica é essa?</p>
+        <label class="alternativa"><input type="radio" name="p12-5a" value="a" data-correta="true" data-explicacao="Correta. É o padrão descrito: uma instância posterior vê progresso e declara o trabalho concluído."><span><strong>A.</strong> Declarar vitória cedo, por falta de uma lista estruturada do que significa estar pronto.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5a" value="b" data-correta="false" data-explicacao="Incorreta. A compactação e o tamanho da janela não bastam; falta registro estruturado."><span><strong>B.</strong> Falta de memória do modelo por causa do tamanho da janela, que um modelo maior resolve.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5a" value="c" data-correta="false" data-explicacao="Incorreta. O problema aqui é falta de registro do que falta fazer, não excesso de ferramentas."><span><strong>C.</strong> Excesso de ferramentas oferecidas ao agente.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5a" value="d" data-correta="false" data-explicacao="Incorreta. Latência não leva a declarar o trabalho pronto cedo demais."><span><strong>D.</strong> Latência alta do provedor.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Laços longos falham por vitória declarada cedo e por verificação incompleta; a resposta é registro e checagem. Na parte 12.5b, vemos a verificação fim a fim.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Falhas de laço longo:</strong> Anthropic, <em>Effective harnesses for long-running agents</em>, 26/11/2025 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Quadro:</strong> Síntese didática da tabela de falhas do artigo (<span class="qual">proposta didática</span>).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.5a">
+        <a href="#unidade-12-4c">Parte 12.4c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 249">249</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-5b">Parte 12.5b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-5b" aria-labelledby="titulo-da-unidade-12-5b">
+      <h2 id="titulo-da-unidade-12-5b">12.5b Verificação fim a fim e avaliador</h2>
+      <p class="rotulo-unidade">Unidade 12.5 — Harness de laço longo: verificação e registro (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A verificação fim a fim exige que o agente teste como uma pessoa usuária, com ferramentas capazes de operar o produto.</li>
+          <li>Dar ferramentas de teste melhorou muito o desempenho no estudo, mas elas têm limites que o desenho deve reconhecer.</li>
+          <li>Um avaliador em laço só funciona com critérios claros; a revisão humana continua necessária.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="12-5b">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: uma ferreira testa uma espada recém-forjada cortando um tronco, depois dobrando-a sobre a bigorna, enquanto uma inspetora com lupa confere a lâmina ao lado de uma lista de critérios pendurada na parede.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Para saber se a porta fecha, não basta conferir a dobradiça na bancada: alguém precisa entrar e sair pela porta.</p></div>
+
+      <h3>Testar como a pessoa usuária</h3>
+      <p>A <dfn>verificação fim a fim</dfn> confere o produto inteiro, como uma pessoa usuária o usaria. Segundo a Anthropic, o Claude verificava bem funcionalidades de ponta a ponta quando era instruído a usar ferramentas de automação de navegador e a fazer todos os testes como uma pessoa usuária. Fornecer essas ferramentas melhorou muito o desempenho, pois o agente encontrava e corrigia defeitos que não eram óbvios só pelo código.</p>
+      <h3>Limites da verificação</h3>
+      <p>O mesmo artigo reconhece problemas que persistem: limitações da visão do modelo e das ferramentas de automação tornam difícil identificar todo tipo de defeito. Verificação é parte do desenho, mas não prova ausência de erro; ela precisa de critérios escritos (3.4) e de avaliações próprias (Cap. 5).</p>
+      <h3>Avaliador em laço e revisão humana</h3>
+      <p>O padrão avaliador-otimizador, também da Anthropic, funciona particularmente bem quando há critérios claros de avaliação e quando o refinamento iterativo traz valor mensurável. Mesmo com testes automáticos, a revisão humana continua crucial para garantir que as soluções atendam aos requisitos mais amplos do sistema. Os cuidados com revisão por modelo (autopreferência) estão em 6.4b.</p>
+      <h3>Teto de tentativas (<span class="qual">proposta didática</span>)</h3>
+      <p>Defina quantas vezes um item pode falhar antes de ir a uma pessoa: o teto de tentativas (8.3b) evita que o laço insista num erro sem aprender.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-5b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-5b">O assistente da Aurora passa nos testes unitários da consulta de bolsas, mas ninguém abriu o assistente como aluna para conferir o fluxo completo. O que a fonte recomenda?</p>
+        <label class="alternativa"><input type="radio" name="p12-5b" value="a" data-correta="true" data-explicacao="Correta. A verificação fim a fim com ferramentas adequadas revelou defeitos que o código não mostrava."><span><strong>A.</strong> Verificar de ponta a ponta, usando ferramentas que operam o produto como uma pessoa usuária, antes de marcar como pronto.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5b" value="b" data-correta="false" data-explicacao="Incorreta. Testes por partes podem não revelar que o fluxo falha de ponta a ponta."><span><strong>B.</strong> Marcar como pronto: se os testes unitários passam, o fluxo funciona.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5b" value="c" data-correta="false" data-explicacao="Incorreta. A fonte afirma que a revisão humana continua crucial."><span><strong>C.</strong> Dispensar a revisão humana, já que há testes automáticos.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5b" value="d" data-correta="false" data-explicacao="Incorreta. Declaração sem verificação é exatamente a falha descrita."><span><strong>D.</strong> Pedir que o próprio modelo escreva que testou.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Verificação fim a fim, critérios escritos e revisão humana andam juntos; todo item tem teto de tentativas. Na parte 12.5c, vemos o registro estruturado que sustenta tudo isso.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Verificação fim a fim e limites:</strong> Anthropic, <em>Effective harnesses for long-running agents</em>, 26/11/2025 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Avaliador-otimizador e revisão humana:</strong> Anthropic, <em>Building effective agents</em>, 19/12/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Teto de tentativas:</strong> Aplicação didática de 8.3b (<span class="qual">proposta didática</span>).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.5b">
+        <a href="#unidade-12-5a">Parte 12.5a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 250">250</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-5c">Parte 12.5c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-5c" aria-labelledby="titulo-da-unidade-12-5c">
+      <h2 id="titulo-da-unidade-12-5c">12.5c Registro estruturado e rotina de retomada</h2>
+      <p class="rotulo-unidade">Unidade 12.5 — Harness de laço longo: verificação e registro (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Uma lista de funcionalidades em JSON, com status, mostra a cada sessão o que falta; o agente avança um item por vez.</li>
+          <li>A rotina de início (ler registros, ler a lista, escolher o próximo item) substitui adivinhar o que aconteceu.</li>
+          <li>Rastros do laço (traços, custo, identificador de sessão) servem para depurar e para auditar.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um caderno de bordo bem mantido permite que o próximo turno assuma o leme em minutos, sem refazer a rota.</p></div>
+
+      <h3>Lista de funcionalidades com status</h3>
+      <p>Para evitar que o agente tente tudo de uma vez ou declare vitória cedo, a Anthropic faz o agente inicial escrever um arquivo JSON estruturado com a <dfn>lista de funcionalidades</dfn> (descrições de funcionalidades de ponta a ponta, cada uma com seu status). Por que JSON e não texto livre está em 6.3c. O bloco abaixo é uma adaptação para a Aurora.</p>
+      <figure class="bloco-codigo">
+        <figcaption>Registro de funcionalidade da Aurora Educação (proposta didática) (ilustrativo, não executado).</figcaption>
+        <pre class="codigo" id="cod-12-5c" role="region" tabindex="0" aria-label="Registro ilustrativo de uma funcionalidade a verificar" data-executavel="false"><code class="language-json">{
+  "id": "matricula-03",
+  "descricao": "A aluna consulta o prazo de rematrícula e recebe a data do edital vigente.",
+  "passos_de_verificacao": [
+    "Abrir o assistente como aluna",
+    "Perguntar pelo prazo de rematrícula",
+    "Conferir se a data citada é a do edital de 2026"
+  ],
+  "passou": false,
+  "tentativas": 0
+}</code></pre>
+      </figure>
+      <h3>Rotina de início de sessão</h3>
+      <p>Cada sessão começa lendo os registros de git e de progresso, lendo a lista e escolhendo a funcionalidade de maior prioridade ainda pendente. O agente é então orientado a trabalhar em uma funcionalidade por vez. O formato dos registros externos está em 9.4a.</p>
+      <h3>Rastros do laço</h3>
+      <p>A OpenAI inclui rastreamento (<em>tracing</em>), que reúne um registro abrangente dos eventos de uma execução (gerações do modelo, chamadas de ferramenta, transferências e proteções); cada registro assim é um <dfn>traço</dfn> (<em>trace</em>). No Agent SDK, a mensagem de resultado traz texto final, uso de tokens, custo e identificador de sessão. Esses rastros servem para depurar e auditar (7.6) e alimentam a observabilidade do Capítulo 15.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-5c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-5c">No registro ilustrativo da Aurora, o campo “passou” só deve virar verdadeiro em que situação?</p>
+        <label class="alternativa"><input type="radio" name="p12-5c" value="a" data-correta="true" data-explicacao="Correta. A lista existe para registrar o que foi realmente verificado; o status só muda depois dos passos."><span><strong>A.</strong> Depois da verificação de ponta a ponta com os passos descritos, não só depois de o código ser escrito.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5c" value="b" data-correta="false" data-explicacao="Incorreta. Isso repete a falha de marcar como pronto sem teste de ponta a ponta."><span><strong>B.</strong> Logo que o agente escreve o código da funcionalidade.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5c" value="c" data-correta="false" data-explicacao="Incorreta. O tamanho da janela não tem relação com o status de verificação."><span><strong>C.</strong> Quando a janela de contexto enche.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-5c" value="d" data-correta="false" data-explicacao="Incorreta. Encerrar a sessão não equivale a verificar a funcionalidade."><span><strong>D.</strong> Quando a sessão termina, qualquer que seja o resultado.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Lista estruturada, uma funcionalidade por vez, rotina de início e rastros do laço dão continuidade verificável. A unidade 12.6 trata das interrupções e das retomadas.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Lista, uma funcionalidade por vez e rotina de início:</strong> Anthropic, <em>Effective harnesses for long-running agents</em>, 26/11/2025 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
+        <p><strong>Rastros do laço:</strong> OpenAI, <em>Tracing</em>; Anthropic, <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>, consultadas em 17/11/2026).</p>
+        <p><strong>Registro da Aurora:</strong> O bloco e o campo de tentativas são adaptação didática (<span class="qual">proposta didática</span>).</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Effective harnesses for long-running agents</em> — <a href="https://www.anthropic.com/research/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/effective-harnesses-for-long-running-agents</a>; Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; OpenAI, <em>Tracing</em> — <a href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/tracing</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.5c">
+        <a href="#unidade-12-5b">Parte 12.5b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 251">251</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-6a">Parte 12.6a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-6a" aria-labelledby="titulo-da-unidade-12-6a">
+      <h2 id="titulo-da-unidade-12-6a">12.6a Por que laços são interrompidos e o que se perde</h2>
+      <p class="rotulo-unidade">Unidade 12.6 — Interrupção e retomada (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Execuções são interrompidas por falhas de rede, de energia ou de um sistema externo.</li>
+          <li>A sessão guarda a conversa, não o sistema de arquivos; é preciso decidir o que mais precisa sobreviver.</li>
+          <li>Estados distintos pedem mecanismos distintos: conversa, arquivos, posição no fluxo e aprovações pendentes.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Se a luz cai durante a escrita de um livro, o texto salvo volta; a mesa bagunçada e a página que estava na máquina de escrever, não.</p></div>
+
+      <h3>Causas comuns</h3>
+      <p>O ADK registra que a execução de um agente pode ser interrompida por vários fatores, como queda de conexão, falta de energia ou um sistema externo necessário ficar fora do ar. A pergunta de projeto é o que se perde e o que se recupera. Os princípios de estado e persistência estão em 2.5.</p>
+      <h3>O que a sessão guarda</h3>
+      <p>Para a Anthropic, a <dfn>sessão</dfn> é o histórico de conversa que o SDK acumula enquanto o agente trabalha. Ela persiste a conversa, não o sistema de arquivos; para registrar e reverter mudanças nos arquivos, é preciso usar os pontos de verificação de arquivos (<em>file checkpointing</em>). Conversa e arquivos são estados distintos.</p>
+      <h3>Esperas longas e reinícios</h3>
+      <p>A documentação do SDK da OpenAI separa a pausa para aprovação, tratada em 12.6b, da orquestração durável, voltada a execuções que podem atravessar longas esperas, novas tentativas ou reinícios do processo. Grafos de estado e <em>checkpointers</em> estão em 6.3.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: o que precisa sobreviver a uma interrupção" tabindex="0">
+      <table class="tabela">
+        <caption>Estados a recuperar (síntese didática das fontes)</caption>
+        <thead><tr><th scope="col">Estado</th><th scope="col">O que registra</th><th scope="col">Mecanismo citado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Conversa</th><td>Histórico de mensagens e resultados</td><td>Sessão (Anthropic)</td></tr>
+          <tr><th scope="row">Arquivos do ambiente</th><td>Mudanças feitas pelo agente</td><td>Pontos de verificação de arquivos (Anthropic)</td></tr>
+          <tr><th scope="row">Posição no fluxo</th><td>Quais agentes já terminaram</td><td>Registro de eventos concluídos (ADK)</td></tr>
+          <tr><th scope="row">Aprovação pendente</th><td>Pedido que aguarda uma pessoa</td><td>Estado serializável da execução (OpenAI)</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-6a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-6a">Um agente da Aurora editou arquivos e a máquina reiniciou. A sessão foi salva. O que a documentação diz sobre os arquivos?</p>
+        <label class="alternativa"><input type="radio" name="p12-6a" value="a" data-correta="true" data-explicacao="Correta. A sessão persiste a conversa, não o sistema de arquivos."><span><strong>A.</strong> A sessão guarda a conversa, não os arquivos; para reverter ou recuperar mudanças em arquivos é preciso um mecanismo próprio.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6a" value="b" data-correta="false" data-explicacao="Incorreta. A documentação afirma o contrário: a sessão não guarda o sistema de arquivos."><span><strong>B.</strong> A sessão restaura automaticamente todos os arquivos.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6a" value="c" data-correta="false" data-explicacao="Incorreta. Reinícios podem interromper uma edição em andamento."><span><strong>C.</strong> Arquivos nunca são afetados por reinícios.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6a" value="d" data-correta="false" data-explicacao="Incorreta. O modelo não guarda arquivos; o ambiente é que os guarda."><span><strong>D.</strong> Basta reiniciar o modelo para recuperar arquivos.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Defina o que precisa sobreviver: conversa, arquivos, posição no fluxo e aprovações. Na parte 12.6b, vemos a pausa e a retomada para aprovação humana.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Causas de interrupção:</strong> Google, <em>Resume stopped agents</em> (ADK) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Sessão e arquivos:</strong> Anthropic, <em>Work with sessions</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Esperas longas:</strong> OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Quadro:</strong> Síntese didática (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.6a">
+        <a href="#unidade-12-5c">Parte 12.5c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 252">252</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-6b">Parte 12.6b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-6b" aria-labelledby="titulo-da-unidade-12-6b">
+      <h2 id="titulo-da-unidade-12-6b">12.6b Pausar para aprovação e retomar com o estado salvo</h2>
+      <p class="rotulo-unidade">Unidade 12.6 — Interrupção e retomada (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O fluxo de aprovação humana pausa a execução até uma pessoa aprovar ou rejeitar chamadas sensíveis.</li>
+          <li>A execução pausada pode ser serializada, guardada e retomada depois da decisão.</li>
+          <li>Regras de aprovação que não conseguem inspecionar os argumentos falham fechadas: exigem aprovação manual.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="12-6b">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um escrivão fecha um pergaminho com um selo de cera e o deposita numa arca de madeira marcada com um cadeado; ao lado, um juiz idoso lê o documento antes de autorizar a abertura da arca.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma obra com ponto de parada: o engenheiro não concreta a laje até o fiscal assinar; o diário de obra permite retomar no mesmo ponto no dia seguinte.</p></div>
+
+      <h3>O fluxo de aprovação</h3>
+      <p>Na documentação do SDK da OpenAI, o fluxo de humano no circuito (<em>human in the loop</em>) pausa a execução até que uma pessoa aprove ou rejeite chamadas de ferramenta sensíveis. As ferramentas declaram quando precisam de aprovação, os resultados trazem as aprovações pendentes como interrupções, e o estado da execução (<em>RunState</em>) permite serializar uma execução pausada e retomá-la depois das decisões.</p>
+      <h3>Falhar fechado</h3>
+      <p>As regras de aprovação por função adotam a <dfn>falha fechada</dfn> (<em>fail closed</em>): quando o SDK não consegue inspecionar os argumentos com segurança, a aprovação manual é exigida. É a postura de segurança por padrão: na dúvida, pare e pergunte. O cuidado contra a fadiga de aprovação está em 7.5; as aprovações antes de efeitos externos, em 10.5c.</p>
+      <h3>Retomar do ponto em que parou</h3>
+      <p>A execução retomada continua de onde parou e voltará a entrar no fluxo se surgirem novas aprovações. Uma pausa de aprovação, portanto, não perde o trabalho já feito: o estado salvo guarda o ponto exato.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-6b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-6b">Um agente da Aurora tenta cancelar uma bolsa e a ferramenta exige aprovação. A pessoa responsável só responde horas depois. O que o fluxo documentado permite?</p>
+        <label class="alternativa"><input type="radio" name="p12-6b" value="a" data-correta="true" data-explicacao="Correta. A execução pausada pode ser serializada e retomada depois das decisões."><span><strong>A.</strong> Pausar, guardar o estado da execução e retomá-la do mesmo ponto quando a decisão chegar.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6b" value="b" data-correta="false" data-explicacao="Incorreta. A pausa existe justamente para barrar a ação até a decisão."><span><strong>B.</strong> Cancelar a bolsa mesmo sem aprovação, para não esperar.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6b" value="c" data-correta="false" data-explicacao="Incorreta. O estado salvo permite continuar de onde parou."><span><strong>C.</strong> Recomeçar a tarefa inteira do zero quando a decisão chegar.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6b" value="d" data-correta="false" data-explicacao="Incorreta. Isso viola o propósito da aprovação; na dúvida, a regra falha fechada."><span><strong>D.</strong> Aprovar automaticamente depois de um tempo.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Pausa para aprovação, estado salvo e falha fechada formam o ciclo seguro. Na parte 12.6c, vemos como retomar, continuar e bifurcar sessões e fluxos.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Fluxo, falha fechada e retomada:</strong> OpenAI, <em>Human-in-the-loop</em> (Agents SDK) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.6b">
+        <a href="#unidade-12-6a">Parte 12.6a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 253">253</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-12-6c">Parte 12.6c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-12-6c" aria-labelledby="titulo-da-unidade-12-6c">
+      <h2 id="titulo-da-unidade-12-6c">12.6c Continuar, retomar e bifurcar sessões e fluxos</h2>
+      <p class="rotulo-unidade">Unidade 12.6 — Interrupção e retomada (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A Anthropic distingue continuar (a sessão mais recente), retomar (um identificador específico) e bifurcar (uma cópia do histórico).</li>
+          <li>O ADK permite retomar um fluxo interrompido pelo identificador da invocação, mas não por padrão em agentes personalizados.</li>
+          <li>Retomar um fluxo recompõe o que já terminou e recomeça do estado parcialmente concluído.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Continuar é abrir o último caderno usado; retomar é pegar o caderno com o número que você anotou; bifurcar é tirar uma cópia para testar outra ideia sem rasurar o original.</p></div>
+
+      <h3>Três verbos para sessões</h3>
+      <p>Na documentação do Agent SDK, continuar encontra a sessão mais recente do diretório atual; retomar usa um identificador específico; e bifurcar (<dfn>bifurcação de sessão</dfn>) cria uma nova sessão que começa com uma cópia do histórico, deixando a original inalterada. Retomar exige guardar o identificador quando há várias sessões, por exemplo, uma por pessoa usuária. As regras de ciclo de vida de sessão estão em 9.6a.</p>
+      <h3>Retomar um fluxo</h3>
+      <p>O ADK registra as tarefas concluídas do fluxo para poder retomá-lo. Ao retomar, o sistema restaura o estado de cada agente: se um agente não terminou, reinstala os eventos já concluídos dele e reinicia o fluxo do estado parcialmente concluído. A retomada se faz por um comando com o identificador da invocação. Agentes personalizados não a oferecem por padrão: é preciso atualizar o código deles.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: mecanismos de retomada em cada documentação" tabindex="0">
+      <table class="tabela">
+        <caption>Retomar o trabalho (resumo da documentação, tradução livre)</caption>
+        <thead><tr><th scope="col">Fonte</th><th scope="col">Mecanismo</th><th scope="col">Cuidado documentado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Anthropic, Agent SDK</th><td>Continuar, retomar por identificador, bifurcar</td><td>Guardar identificadores se houver várias sessões</td></tr>
+          <tr><th scope="row">OpenAI, Agents SDK</th><td>Estado serializável da execução pausada</td><td>Retomar a partir do agente de origem</td></tr>
+          <tr><th scope="row">Google, ADK</th><td>Retomada por identificador da invocação</td><td>Agentes personalizados exigem atualização do código</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Decisão integrada (<span class="qual">proposta didática</span>)</h3>
+      <p>Na Aurora, o processamento mensal de bolsas roda por horas. Combine: lista de verificação em arquivo (12.5c), limite de voltas e de gasto (12.4b), aprovação para pagamentos (12.6b) e retomada pelo identificador (12.6c). Cada peça cobre uma falha diferente.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p12-6c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p12-6c">A Aurora quer testar outra abordagem de uma análise sem perder a original. Qual recurso do Agent SDK se encaixa?</p>
+        <label class="alternativa"><input type="radio" name="p12-6c" value="a" data-correta="true" data-explicacao="Correta. Bifurcar serve exatamente para tentar outra direção mantendo a original."><span><strong>A.</strong> Bifurcar a sessão: cria uma nova com cópia do histórico, e a original fica inalterada.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6c" value="b" data-correta="false" data-explicacao="Incorreta. Continuar acrescenta à sessão existente; não preserva a original."><span><strong>B.</strong> Continuar a sessão mais recente, que altera a original.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6c" value="c" data-correta="false" data-explicacao="Incorreta. Retomar acrescenta à mesma sessão; não cria um ramo separado."><span><strong>C.</strong> Retomar a mesma sessão com outro prompt.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-6c" value="d" data-correta="false" data-explicacao="Incorreta. Isso perde o histórico que se queria preservar."><span><strong>D.</strong> Apagar a sessão e recomeçar.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Continuar, retomar e bifurcar cobrem usos diferentes; fluxos pedem registro e identificador. O capítulo fecha com as seis questões, e o Capítulo 13 abre a inferência local.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Continuar, retomar e bifurcar:</strong> Anthropic, <em>Work with sessions</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Retomada de fluxos:</strong> Google, <em>Resume stopped agents</em> (ADK) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Decisão integrada e quadro:</strong> Síntese didática (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Work with sessions</em> — <a href="https://code.claude.com/docs/en/agent-sdk/sessions" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/sessions</a>; OpenAI, <em>Human-in-the-loop</em> — <a href="https://openai.github.io/openai-agents-python/human_in_the_loop/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/human_in_the_loop</a>; Google, <em>Resume stopped agents</em> — <a href="https://adk.dev/runtime/resume/" target="_blank" rel="noopener noreferrer">adk.dev/runtime/resume</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 12.6c">
+        <a href="#unidade-12-6b">Parte 12.6b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 254">254</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-12">Questões do capítulo 12</a>
+      </nav>
+    </section>
+
+    <section class="page" id="questoes-capitulo-12" aria-labelledby="titulo-das-questoes-12">
+      <h2 id="titulo-das-questoes-12">Questões do capítulo 12</h2>
+
+      <p>Seis questões aplicam o capítulo a situações reais de projeto: duas fáceis, três médias e uma difícil. Escolha uma alternativa por questão. A correção aparece na hora, com a explicação de cada escolha.</p>
+      <noscript><p>Esta página usa JavaScript para corrigir as questões. Sem ele, as alternativas aparecem, mas a correção não.</p></noscript>
+
+      <fieldset class="questao" aria-describedby="enunciado-c12q1">
+        <legend>Questão 1 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c12q1">Qual é a diferença entre workflow e agente, segundo a Anthropic?</p>
+        <label class="alternativa"><input type="radio" name="c12q1" value="a" data-correta="true" data-explicacao="Correta. Essa é a distinção arquitetural descrita na pesquisa técnica da Anthropic."><span><strong>A.</strong> Em workflows, modelos e ferramentas seguem caminhos de código predefinidos; em agentes, o modelo dirige dinamicamente seus processos e o uso de ferramentas.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q1" value="b" data-correta="false" data-explicacao="Incorreta. A distinção não é de tamanho do modelo, mas de quem controla o fluxo."><span><strong>B.</strong> Workflows usam modelos pequenos e agentes usam modelos grandes.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q1" value="c" data-correta="false" data-explicacao="Incorreta. Ambos podem ter etapas paralelas ou sequenciais; a diferença é o controle do fluxo."><span><strong>C.</strong> Agentes sempre rodam em paralelo e workflows, em sequência.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q1" value="d" data-correta="false" data-explicacao="Incorreta. Workflows também orquestram ferramentas, por caminhos predefinidos."><span><strong>D.</strong> Workflows não usam ferramentas.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c12q2">
+        <legend>Questão 2 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c12q2">Qual é a condição normal de encerramento do laço de um agente nas documentações da Anthropic e da OpenAI?</p>
+        <label class="alternativa"><input type="radio" name="c12q2" value="a" data-correta="true" data-explicacao="Correta. Resposta sem chamadas de ferramenta encerra o laço normalmente."><span><strong>A.</strong> O modelo responde sem pedir nenhuma ferramenta.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q2" value="b" data-correta="false" data-explicacao="Incorreta. Pedidos de ferramenta continuam o laço; não o encerram."><span><strong>B.</strong> O modelo pede a mesma ferramenta três vezes seguidas.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q2" value="c" data-correta="false" data-explicacao="Incorreta. Uso de contexto pode disparar compactação, não o encerramento."><span><strong>C.</strong> A janela de contexto chega a 50% de uso.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q2" value="d" data-correta="false" data-explicacao="Incorreta. Isso interrompe a execução; não é um encerramento normal do laço."><span><strong>D.</strong> O usuário fecha o navegador.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c12q3">
+        <legend>Questão 3 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c12q3">O agente de conciliação da Aurora roda sem teto de voltas, sem teto de gasto e sem condição de término. Qual ajuste está mais alinhado às fontes?</p>
+        <label class="alternativa"><input type="radio" name="c12q3" value="a" data-correta="true" data-explicacao="Correta. Sem limites, o laço só para quando o modelo conclui; o teto de gasto é conferido após cada resposta e pode ser ultrapassado."><span><strong>A.</strong> Definir teto de voltas e de gasto (com folga, pois o gasto pode passar do teto em até o custo de uma resposta) e uma condição de término explícita.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q3" value="b" data-correta="false" data-explicacao="Incorreta. Janela maior não impede um laço de rodar sem fim."><span><strong>B.</strong> Aumentar a janela de contexto para o laço caber.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q3" value="c" data-correta="false" data-explicacao="Incorreta. A documentação adverte que laços abertos podem se estender."><span><strong>C.</strong> Confiar que o modelo sempre termina cedo.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q3" value="d" data-correta="false" data-explicacao="Incorreta. Instrução em prompt não substitui um limite aplicado pelo sistema."><span><strong>D.</strong> Pedir ao modelo, no prompt, que não gaste muito.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c12q4">
+        <legend>Questão 4 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c12q4">Uma regra de aprovação por função recebe argumentos que não consegue interpretar (JSON malformado). Qual comportamento a documentação da OpenAI descreve?</p>
+        <label class="alternativa"><input type="radio" name="c12q4" value="a" data-correta="true" data-explicacao="Correta. É o comportamento descrito para argumentos que o SDK não consegue inspecionar com segurança."><span><strong>A.</strong> Falhar fechado: a regra não é invocada e a chamada exige aprovação manual.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q4" value="b" data-correta="false" data-explicacao="Incorreta. Isso seria falhar aberto, o oposto do descrito."><span><strong>B.</strong> Aprovar automaticamente para não travar o laço.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q4" value="c" data-correta="false" data-explicacao="Incorreta. Não há rejeição permanente; a chamada pede decisão manual."><span><strong>C.</strong> Rejeitar para sempre a ferramenta.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q4" value="d" data-correta="false" data-explicacao="Incorreta. A chamada não é ignorada: espera uma decisão humana."><span><strong>D.</strong> Ignorar a chamada e seguir como se ela não existisse.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c12q5">
+        <legend>Questão 5 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c12q5">Um agente longo da Aurora declara o projeto concluído ao ver vários módulos prontos. Quais duas medidas do harness atacam essa falha?</p>
+        <label class="alternativa"><input type="radio" name="c12q5" value="a" data-correta="true" data-explicacao="Correta. A lista mostra o que falta e a verificação fim a fim impede marcar como pronto sem teste do fluxo completo."><span><strong>A.</strong> Uma lista estruturada de funcionalidades com status e verificação fim a fim antes de marcar um item como passando.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q5" value="b" data-correta="false" data-explicacao="Incorreta. Contexto e ferramentas não resolvem a falta de registro do que significa estar pronto."><span><strong>B.</strong> Uma janela de contexto maior e mais ferramentas.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q5" value="c" data-correta="false" data-explicacao="Incorreta. Trocar de modelo não cria registro nem verificação."><span><strong>C.</strong> Trocar de modelo a cada sessão.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q5" value="d" data-correta="false" data-explicacao="Incorreta. Convicção não é verificação."><span><strong>D.</strong> Pedir que o modelo escreva “concluído” com mais convicção.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c12q6">
+        <legend>Questão 6 <span class="nivel">(difícil)</span></legend>
+        <p id="enunciado-c12q6">O processamento mensal de bolsas da Aurora roda por horas num laço sem teto, aprova pagamentos sem pausa humana, guarda o estado só na memória do processo e marca itens como prontos após testes unitários. Quais quatro correções são indispensáveis?</p>
+        <label class="alternativa"><input type="radio" name="c12q6" value="a" data-correta="false" data-explicacao="Incorreta. Nenhuma dessas medidas cobre limite, aprovação, estado ou verificação."><span><strong>A.</strong> Aumentar a janela, trocar de modelo, ligar o streaming e aceitar o risco de reinício.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q6" value="b" data-correta="true" data-explicacao="Correta. Cada correção cobre uma falha distinta: laço sem fim, efeito financeiro sem aprovação, estado perdido e verificação incompleta."><span><strong>B.</strong> Teto de voltas e de gasto com folga; pausa para aprovação antes de pagamentos, com estado salvo; registro externo da lista e da posição para retomar após reinício; verificação fim a fim antes de marcar como pronto.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q6" value="c" data-correta="false" data-explicacao="Incorreta. Mais testes por partes não resolvem limite, aprovação nem retomada."><span><strong>C.</strong> Só testes unitários mais numerosos e um prompt mais longo.</span></label>
+        <label class="alternativa"><input type="radio" name="c12q6" value="d" data-correta="false" data-explicacao="Incorreta. Hospedar muda quem roda o laço; não elimina a necessidade de limites e aprovações."><span><strong>D.</strong> Transferir tudo a um serviço hospedado e dispensar limites e aprovações.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <nav class="page-nav" aria-label="Navegação das questões do capítulo 12">
+        <a href="#unidade-12-6c">Parte 12.6c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 255">255</span><a href="#sumario">Sumário</a></span>
         <a href="#glossario">Glossário</a>
       </nav>
     </section>
@@ -13513,6 +14594,7 @@ Desvio (regra fixa):
         <dt>Avaliador (5.4)</dt><dd>Quem aplica o critério ao resultado e diz se passa ou reprova: regra, modelo ou pessoa.</dd>
         <dt>Avaliador por regra (5.4)</dt><dd>Verificação mecânica, como contar frases ou procurar uma expressão. É rápida e repetível, mas só vê o que foi previsto.</dd>
         <dt>Banco de dados (2.5)</dt><dd>Programa que guarda dados organizados em disco e permite consultá-los. Neste livro, só a ideia importa.</dd>
+        <dt>Bifurcação de sessão (12.6)</dt><dd>Criação de uma nova sessão que começa com uma cópia do histórico de outra, deixando a original inalterada. Em inglês, <em>fork</em>.</dd>
         <dt>Bloco de conteúdo (4.3)</dt><dd>Parte de uma mensagem com tipo próprio: texto, imagem, PDF, definição ou resultado de ferramenta.</dd>
         <dt>BM25 (11.1)</dt><dd>Função clássica de ranqueamento por correspondência lexical exata que ajusta pela extensão do documento e satura repetições de termos.</dd>
         <dt>BPE (1.3)</dt><dd>Sigla de <em>byte-pair encoding</em>: um método de cortar texto em tokens, que junta os pedaços que mais aparecem juntos.</dd>
@@ -13583,6 +14665,7 @@ Desvio (regra fixa):
         <dt>EOS (1.4)</dt><dd>Token de fim da sequência (<em>end-of-sequence</em>): avisa que a escrita terminou.</dd>
         <dt>Erro-padrão (5.6)</dt><dd>Medida de quanto a média de uma avaliação pode variar por acaso.</dd>
         <dt>Escalonamento humano (8.3)</dt><dd>Transferência automática da decisão ou atendimento para uma pessoa quando há bloqueios repetidos, incerteza alta ou elevado custo de erro.</dd>
+        <dt>Escalonamento no laço (12.4)</dt><dd>Sinal emitido por um agente do laço para encerrá-lo quando uma condição é atendida, em vez de esperar o limite de iterações.</dd>
         <dt>Escolha gulosa (1.4)</dt><dd>Escolher sempre o token mais provável. Em teoria, com o mesmo contexto e o mesmo modelo, dá sempre o mesmo texto, mas tende a ser genérico e repetitivo. É comum em tarefas de resposta única. Em inglês, <em>greedy</em>.</dd>
         <dt>Escopo mínimo (7.2)</dt><dd>Estratégia de conceder inicialmente apenas permissões básicas de leitura, elevando privilégios de forma pontual só quando uma operação exigir.</dd>
         <dt>Esforço (4.5, 9.6)</dt><dd>Controle que a Anthropic documenta para definir quantos tokens o modelo gasta ao responder. Em inglês, <em>effort</em>. Não equivale à temperatura.</dd>
@@ -13595,6 +14678,7 @@ Desvio (regra fixa):
         <dt>Excesso de blindagem (8.4)</dt><dd>Acúmulo de bloqueios rígidos, filtros ou aprovações manuais em casos com variação legítima, gerando falsos positivos e fadiga sem ganho proporcional de segurança. Em inglês, <em>over-guardrailing</em>.</dd>
         <dt>Excesso de confiança (1.6)</dt><dd>Quando o modelo usa linguagem muito segura mesmo estando errado.</dd>
         <dt>Fadiga de aprovação (7.5)</dt><dd>Desgaste do usuário diante de pedidos repetidos de confirmação, levando a aprovações automáticas sem leitura cuidadosa. Em inglês, <em>approval fatigue</em>.</dd>
+        <dt>Falha fechada (12.6)</dt><dd>Postura em que, diante de dúvida ou de entrada que não consegue inspecionar, o sistema exige decisão manual em vez de liberar a ação. Em inglês, <em>fail closed</em>.</dd>
         <dt>Ferramentas de cliente (10.1)</dt><dd>Ferramentas definidas na requisição cuja execução acontece na aplicação do operador, que devolve o resultado em novo turno.</dd>
         <dt>Ferramentas de servidor (10.1)</dt><dd>Ferramentas hospedadas e executadas diretamente na infraestrutura do próprio provedor durante o processamento da chamada.</dd>
         <dt>Fidelidade (11.6)</dt><dd>Métrica de geração em RAG (<em>Faithfulness</em>) que avalia se todas as afirmações da resposta podem ser inferidas das passagens entregues.</dd>
@@ -13647,11 +14731,13 @@ Desvio (regra fixa):
         <dt>Juiz-LLM (5.4)</dt><dd>Modelo que aplica um critério a uma resposta. Rápido, mas com vieses de posição, tamanho e autopreferência.</dd>
         <dt>Just-in-time (9.3)</dt><dd>Abordagem de manter apenas identificadores leves (caminhos, links, consultas) e buscar conteúdo completo sob demanda em execução.</dd>
         <dt>KV cache (1.5)</dt><dd>Técnica que guarda em memória contas já feitas para não refazê-las. Assunto do módulo 12.</dd>
+        <dt>Laço do agente (12.1)</dt><dd>Ciclo em que o modelo avalia o estado, pede ferramentas, recebe os resultados e repete até responder sem pedir ferramenta.</dd>
         <dt>Latência (2.3)</dt><dd>Tempo entre fazer o pedido e receber a resposta.</dd>
         <dt>Limite de simultaneidade (2.6)</dt><dd>Máximo de pedidos em andamento ao mesmo tempo; o excedente espera ou é recusado.</dd>
         <dt>Limite de taxa (2.4)</dt><dd>Teto de uso por período, medido em pedidos, em tokens ou nos dois. Passar dele gera um erro 429.</dd>
         <dt>Limpeza de resultados de ferramenta (9.5)</dt><dd>Remoção seletiva de saídas antigas de ferramentas já processadas para liberar espaço no histórico ativo.</dd>
         <dt>Linha de base (3.2, 5.3)</dt><dd>Valor da medida antes da mudança, medido no processo atual; na avaliação do sistema, medida da versão inicial feita antes de mudar, nos mesmos casos e critérios.</dd>
+        <dt>Lista de funcionalidades (12.5)</dt><dd>Arquivo estruturado, em geral em JSON, com descrições de funcionalidades de ponta a ponta e o status de cada uma, lido no início de cada sessão.</dd>
         <dt>LLM (1.1)</dt><dd>Do inglês <em>large language model</em>: modelo de linguagem de grande porte.</dd>
         <dt>Local (modelo) (1.7)</dt><dd>Modelo que roda na máquina de quem usa, e não no provedor.</dd>
         <dt>LoRA (1.2)</dt><dd>Técnica de ajuste barato: congela o modelo e treina só peças pequenas acrescentadas a ele.</dd>
@@ -13668,6 +14754,7 @@ Desvio (regra fixa):
         <dt>Mensagem (4.3)</dt><dd>Trecho de texto de uma conversa, com um papel: quem o disse.</dd>
         <dt>Meta inicial (3.2)</dt><dd>Valor que se quer atingir, com prazo e com razão declarada. Sem linha de base, não é meta.</dd>
         <dt>Mistura de especialistas (1.2)</dt><dd>Modelo com vários blocos, os “especialistas”, em que só alguns trabalham em cada token. O número total de parâmetros é maior que o número dos que trabalham de cada vez. Em inglês, <em>mixture of experts</em>.</dd>
+        <dt>Modelo aumentado (12.1)</dt><dd>Modelo de linguagem reforçado com recuperação, ferramentas e memória; é o bloco básico de sistemas agênticos.</dd>
         <dt>Modelo de linguagem (1.1)</dt><dd>Programa que, dado o começo de um texto, calcula a chance de cada continuação possível.</dd>
         <dt>Modelo de mundo (1.7)</dt><dd>Modelo que gera ou simula ambientes interativos a partir de uma descrição. Genie 3 é um exemplo.</dd>
         <dt>Modo de chamada (10.1)</dt><dd>Parâmetro (como <code>tool_choice</code> ou <code>function_calling_config</code>) que define se o modelo escolhe livremente, é forçado a chamar ou fica proibido de chamar ferramentas.</dd>
@@ -13698,6 +14785,7 @@ Desvio (regra fixa):
         <dt>Pesos abertos (modelo de) (1.7)</dt><dd>Modelo cujos pesos quem criou divulga; quem tem o equipamento pode rodá-lo no próprio computador, nos termos da licença. A definição formal de “aberto” é mais exigente que só divulgar pesos.</dd>
         <dt>Pessoa afetada (3.1)</dt><dd>Quem sofre o efeito do sistema sem usá-lo, como o aluno que recebe uma resposta errada.</dd>
         <dt>Poka-yoke (10.2)</dt><dd>Desenho de argumentos e contratos à prova de erro, tornando difícil para o modelo passar valores ambíguos ou inválidos.</dd>
+        <dt>Portão (12.2)</dt><dd>Verificação programática entre duas etapas de uma cadeia, para confirmar que o processo segue no rumo. Em inglês, <em>gate</em>.</dd>
         <dt>Pós-treinamento (1.2)</dt><dd>As etapas depois do pré-treinamento: ajuste por instruções, alinhamento por preferências e aprendizado por reforço para raciocínio.</dd>
         <dt>Pré-treinamento (1.2)</dt><dd>Etapa em que o modelo treina a prever a próxima palavra em coleções enormes de texto. O resultado é o modelo base.</dd>
         <dt>Preferência (3.3)</dt><dd>O que se gostaria de ter, sem consequência se faltar. Não se confunde com restrição.</dd>
@@ -13752,6 +14840,7 @@ Desvio (regra fixa):
         <dt>Servidor (2.1)</dt><dd>Quem atende o pedido numa conversa pela rede.</dd>
         <dt>Servidor (MCP) (10.6)</dt><dd>Serviço focado e isolado que expõe recursos, prompts ou ferramentas por meio do protocolo MCP.</dd>
         <dt>Servidor local (2.1)</dt><dd>Programa que carrega o modelo na máquina do próprio operador e responde aos pedidos pela rede.</dd>
+        <dt>Sessão (12.6)</dt><dd>Histórico de conversa que o SDK acumula enquanto o agente trabalha; guarda a conversa, não o sistema de arquivos.</dd>
         <dt>Similaridade de cosseno (11.3)</dt><dd>Medida de proximidade angular entre vetores numéricos usada para comparar o sentido de perguntas e fragmentos.</dd>
         <dt>Simultaneidade (2.6)</dt><dd>Ter vários pedidos em andamento ao mesmo tempo.</dd>
         <dt>Sintoma (3.1)</dt><dd>O que se vê do problema: reclamação, fila, telefone tocando.</dd>
@@ -13772,12 +14861,14 @@ Desvio (regra fixa):
         <dt>Tentativa (5.6)</dt><dd>Cada execução de um caso. Em inglês, <em>trial</em>. O mesmo caso pode variar entre tentativas.</dd>
         <dt>Teto de gasto (8.3)</dt><dd>Limite financeiro máximo configurado para interromper chamadas na API após o consumo atingir o valor definido no projeto ou organização. Em inglês, <em>spend limit</em>.</dd>
         <dt>Teto de tokens (4.5)</dt><dd>Limite de tamanho da resposta, em tokens (<code>max_tokens</code>). Ao atingi-lo, a resposta é cortada.</dd>
+        <dt>Teto de voltas (12.4)</dt><dd>Número máximo de voltas permitido ao laço do agente; ao ultrapassá-lo, a execução termina com erro ou exceção.</dd>
         <dt>Token (1.1, 1.3)</dt><dd>Pedaço de texto com que o modelo trabalha: pode ser uma palavra, parte dela ou uma letra.</dd>
         <dt>Tokenização (1.3)</dt><dd>Processo de cortar o texto de entrada em tokens.</dd>
         <dt>Tokenizador (1.3)</dt><dd>Programa que faz a tokenização; a contagem exata de tokens depende dele.</dd>
         <dt>Tokens de alto sinal (9.1)</dt><dd>Conjunto mínimo de tokens diretamente relevantes à decisão do turno, maximizando a chance de sucesso sem ruído.</dd>
         <dt>Top-k (4.5)</dt><dd>Controle que limita a escolha do próximo token aos k mais prováveis.</dd>
         <dt>Top-p (4.5)</dt><dd>Controle que limita a escolha ao menor conjunto de tokens cuja chance somada chega a p.</dd>
+        <dt>Traço (12.5)</dt><dd>Registro dos eventos de uma execução de agente (gerações, chamadas de ferramenta, transferências e proteções), usado para depurar e monitorar. Em inglês, <em>trace</em>.</dd>
         <dt>Transformer (1.5)</dt><dd>Arquitetura padrão para construir LLMs.</dd>
         <dt>Tratamento inadequado de saída (7.3)</dt><dd>Vulnerabilidade em que respostas geradas pelo modelo são enviadas a navegadores, bancos ou sistemas sem validação, higienização ou codificação adequada. Em inglês, <em>improper output handling</em>.</dd>
         <dt>Trava (2.6)</dt><dd>Controle que deixa um pedido por vez usar um recurso compartilhado, para dar ordem e evitar a condição de corrida.</dd>
@@ -13789,19 +14880,21 @@ Desvio (regra fixa):
         <dt>Usuário direto (3.1)</dt><dd>Quem usa o sistema para fazer o próprio trabalho.</dd>
         <dt>Variação aleatória (2.4)</dt><dd>Atraso aleatório somado à espera para espalhar as tentativas no tempo. Em inglês, <em>jitter</em>.</dd>
         <dt>Vazamento do prompt de sistema (7.1)</dt><dd>Exposição de instruções internas ou segredos colocados por engano no prompt de sistema. Em inglês, <em>system prompt leakage</em>.</dd>
+        <dt>Verificação fim a fim (12.5)</dt><dd>Teste que confere o produto inteiro, como uma pessoa usuária o usaria, e não apenas partes isoladas.</dd>
         <dt>Versão do prompt (4.6)</dt><dd>Identificador do texto do template, registrado com cada chamada para saber qual texto gerou qual resposta.</dd>
         <dt>Vetor denso (11.3)</dt><dd>Representação numérica contínua aprendida por rede neural para capturar o significado semântico de um texto.</dd>
         <dt>Vetor esparso (11.3)</dt><dd>Representação vetorial ligada diretamente a palavras ou termos individuais presentes no texto.</dd>
         <dt>VLA (1.7)</dt><dd>Sigla de visão-linguagem-ação: modelo que converte imagem e linguagem em controle de movimento de um robô.</dd>
         <dt>VLM (1.7)</dt><dd>Sigla de <em>vision-language model</em>: modelo que lê imagem e texto.</dd>
         <dt>Vocabulário (1.3)</dt><dd>Conjunto de tokens que um tokenizador reconhece.</dd>
+        <dt>Volta (12.4)</dt><dd>Uma passagem pelo laço do agente: o modelo produz saída e, se houver pedidos de ferramenta, o sistema os executa e devolve os resultados. Em inglês, <em>turn</em>.</dd>
         <dt>Workflow (6.1)</dt><dd>Sistema em que modelos de linguagem e ferramentas são orquestrados por caminhos de código pré-definidos.</dd>
         <dt>Zero Data Retention (ZDR) (7.6)</dt><dd>Arranjo contratual ou de configuração em que o provedor não grava prompts nem respostas em disco após devolver a resposta da API.</dd>
       </dl>
 
       <nav class="page-nav" aria-label="Navegação do glossário">
-        <a href="#questoes-capitulo-11">Questões do capítulo 11</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 236">236</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-12">Questões do capítulo 12</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 256">256</span><a href="#sumario">Sumário</a></span>
         <a href="#referencias">Referências</a>
       </nav>
     </section>
@@ -13809,7 +14902,7 @@ Desvio (regra fixa):
     <section class="page" id="referencias" aria-labelledby="titulo-das-referencias">
       <h2 id="titulo-das-referencias">Referências</h2>
 
-      <p>Fontes dos capítulos 1 a 11, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
+      <p>Fontes dos capítulos 1 a 12, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
       <div class="fontes">
         <h3>Livros e artigos</h3>
         <p>Jurafsky, D.; Martin, J. H. <em>Speech and Language Processing</em>, 3ª ed., rascunho de 19/08/2026. Capítulos 1, 2, 7 e 8. <a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener noreferrer">web.stanford.edu/~jurafsky/slp3</a>. Consultado em 13/10/2026.</p>
@@ -13930,6 +15023,12 @@ Desvio (regra fixa):
       <p>OpenAI. <em>Embeddings</em>, <em>Retrieval</em> e <em>File search</em>. <a href="https://developers.openai.com/api/docs/guides/embeddings" target="_blank" rel="noopener noreferrer">developers.openai.com/.../embeddings</a>; <a href="https://developers.openai.com/api/docs/guides/retrieval" target="_blank" rel="noopener noreferrer">retrieval</a>; <a href="https://developers.openai.com/api/docs/guides/tools-file-search" target="_blank" rel="noopener noreferrer">tools-file-search</a>.</p>
       <p>Google Cloud. <em>Get text embeddings</em>, <em>RAG Engine overview</em> e <em>Grounding overview</em>. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings" target="_blank" rel="noopener noreferrer">cloud.google.com/.../get-text-embeddings</a>; <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview" target="_blank" rel="noopener noreferrer">rag-overview</a>; <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview" target="_blank" rel="noopener noreferrer">grounding/overview</a>.</p>
       <p>BurntSushi. <em>ripgrep (rg)</em>; Tree-sitter. <em>Introduction</em>. <a href="https://raw.githubusercontent.com/BurntSushi/ripgrep/master/README.md" target="_blank" rel="noopener noreferrer">github.com/BurntSushi/ripgrep</a>; <a href="https://tree-sitter.github.io/tree-sitter/" target="_blank" rel="noopener noreferrer">tree-sitter.github.io/tree-sitter</a>.</p>
+      <h3>Fontes do capítulo 12 (consultadas em 17/11/2026)</h3>
+      <p>Anthropic. <em>Building effective agents</em>, 19/12/2024, e <em>Effective harnesses for long-running agents</em>, 26/11/2025. <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">www.anthropic.com/research/building-effective-agents</a>; <a href="https://www.anthropic.com/research/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener noreferrer">www.anthropic.com/research/effective-harnesses-for-long-running-agents</a>.</p>
+      <p>Anthropic. <em>Agent SDK overview</em>, <em>How the agent loop works</em> e <em>Work with sessions</em>. <a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/overview</a>; <a href="https://code.claude.com/docs/en/agent-sdk/agent-loop" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/agent-loop</a>; <a href="https://code.claude.com/docs/en/agent-sdk/sessions" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/sessions</a>.</p>
+      <p>OpenAI. <em>Agents</em> (API Guides). <a href="https://developers.openai.com/api/docs/guides/agents" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/agents</a>.</p>
+      <p>OpenAI. <em>Agents SDK</em>: página inicial, <em>Running agents</em>, <em>Agent orchestration</em>, <em>Guardrails</em>, <em>Human-in-the-loop</em> e <em>Tracing</em>. <a href="https://openai.github.io/openai-agents-python/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python</a>; <a href="https://openai.github.io/openai-agents-python/running_agents/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/running_agents</a>; <a href="https://openai.github.io/openai-agents-python/multi_agent/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/multi_agent</a>; <a href="https://openai.github.io/openai-agents-python/guardrails/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/guardrails</a>; <a href="https://openai.github.io/openai-agents-python/human_in_the_loop/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/human_in_the_loop</a>; <a href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/tracing</a>.</p>
+      <p>Google. <em>Agent Development Kit (ADK)</em>: página inicial, <em>Agents</em>, <em>Loop agents</em> e <em>Resume stopped agents</em>. <a href="https://adk.dev/" target="_blank" rel="noopener noreferrer">adk.dev</a>; <a href="https://adk.dev/agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents</a>; <a href="https://adk.dev/agents/workflow-agents/loop-agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents/workflow-agents/loop-agents</a>; <a href="https://adk.dev/runtime/resume/" target="_blank" rel="noopener noreferrer">adk.dev/runtime/resume</a>.</p>
       <h3>Documentação</h3>
         <p>Anthropic. <em>Demystifying evals for AI agents</em>, 09/01/2026. <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/engineering/demystifying-evals-for-ai-agents</a>. Consultado em 13/11/2026.</p>
         <p>Anthropic. <em>Context windows</em>. <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-windows</a>. Consultado em 13/10/2026.</p>
@@ -13969,7 +15068,7 @@ Desvio (regra fixa):
 
       <nav class="page-nav" aria-label="Navegação das referências">
         <a href="#glossario">Glossário</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 237">237</span><a href="#sumario">Sumário</a></span>
+        <span class="page-mid"><span class="page-number" aria-label="Página 257">257</span><a href="#sumario">Sumário</a></span>
         <a href="#capitulo-1">Capítulo 1</a>
       </nav>
     </section>
