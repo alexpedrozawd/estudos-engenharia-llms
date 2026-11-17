@@ -200,11 +200,11 @@
         line-height: 1.6;
       }
       /* Só as divisões maiores começam em página nova; as partes seguem o fluxo. */
-      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12, #capitulo-13, #capitulo-14, #capitulo-15,
-      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #questoes-capitulo-12, #questoes-capitulo-13, #questoes-capitulo-14, #questoes-capitulo-15, #glossario, #referencias { break-before: page; }
+      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12, #capitulo-13, #capitulo-14, #capitulo-15, #capitulo-16,
+      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #questoes-capitulo-12, #questoes-capitulo-13, #questoes-capitulo-14, #questoes-capitulo-15, #questoes-capitulo-16, #glossario, #referencias { break-before: page; }
       .page > h2 { margin-block-start: 2.2em; }
-      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #capitulo-13 > h2, #capitulo-14 > h2, #capitulo-15 > h2, #glossario > h2, #referencias > h2,
-      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2, #questoes-capitulo-13 > h2, #questoes-capitulo-14 > h2, #questoes-capitulo-15 > h2 { margin-block-start: 0; }
+      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #capitulo-13 > h2, #capitulo-14 > h2, #capitulo-15 > h2, #capitulo-16 > h2, #glossario > h2, #referencias > h2,
+      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2, #questoes-capitulo-13 > h2, #questoes-capitulo-14 > h2, #questoes-capitulo-15 > h2, #questoes-capitulo-16 > h2 { margin-block-start: 0; }
       /* Nenhum bloco termina dividido entre duas páginas. */
       h1, h2, h3, h4, legend, figcaption, caption, .rotulo-unidade { break-after: avoid; break-inside: avoid; }
       p, li, dt, dd { orphans: 3; widows: 3; }
@@ -426,7 +426,17 @@
             <li><a href="#questoes-capitulo-15">Questões do capítulo 15</a></li>
           </ul>
         </li>
-        <li><span class="chapter-name">16. Eficiência e economia</span><span class="chapter-topics">Medição; gargalos; eliminar redundância; melhorar ferramentas e contexto; cache e esforço; ponto ótimo de sessão; ajustes; compromissos e manutenção.</span></li>
+        <li><span class="chapter-name"><a href="#capitulo-16">16. Eficiência e economia</a></span><span class="chapter-topics">Medição de tokens e custo; gargalos; eliminar redundância (lote e junção de etapas); melhorar ferramentas e contexto para o cache; cache de prompt (validade, multiplicadores e equilíbrio) e esforço; ponto ótimo de sessão e manutenção.</span>
+          <ul class="units">
+            <li><a href="#unidade-16-1a">16.1 Medição</a></li>
+            <li><a href="#unidade-16-2a">16.2 Gargalos</a></li>
+            <li><a href="#unidade-16-3a">16.3 Eliminar redundância</a></li>
+            <li><a href="#unidade-16-4a">16.4 Melhorar ferramentas e contexto</a></li>
+            <li><a href="#unidade-16-5a">16.5 Cache e esforço</a></li>
+            <li><a href="#unidade-16-6a">16.6 Ponto ótimo de sessão e manutenção</a></li>
+            <li><a href="#questoes-capitulo-16">Questões do capítulo 16</a></li>
+          </ul>
+        </li>
       </ol>
       <p class="endmatter">Ao final: <a href="#glossario">glossário</a> e <a href="#referencias">referências</a>.</p>
       <nav class="page-nav" aria-label="Navegação do sumário">
@@ -17846,6 +17856,1138 @@ Desvio (regra fixa):
       <nav class="page-nav" aria-label="Navegação das questões do capítulo 15">
         <a href="#unidade-15-6c">Parte 15.6c</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 315">315</span><a href="#sumario">Sumário</a></span>
+        <a href="#capitulo-16">Capítulo 16</a>
+      </nav>
+    </section>
+
+    <section class="page" id="capitulo-16" aria-labelledby="titulo-do-capitulo-16">
+      <h2 id="titulo-do-capitulo-16">Capítulo 16 — Eficiência e economia</h2>
+      <p>Custo de LLM não é um número que se descobre na fatura: é o resultado de decisões de desenho. Quantos pedidos, quantos tokens, qual modelo, qual validade de cache e qual tamanho de sessão. Este capítulo ensina a medir e a decidir com método, sem depender de memorizar preço.</p>
+      <p>Você vai medir tokens e custo por chamada, localizar gargalos, eliminar redundância com lote e junção de etapas, organizar contexto e ferramentas para o cache acertar, escolher validade de cache e esforço pela conta do fluxo e revisar o custo ao longo do tempo.</p>
+      <p>Como em todo o guia, você não precisa programar: as contas aparecem em fórmulas simples e tabelas. Contexto e compactação estão no Capítulo 9, escolha de modelo e esforço no Capítulo 14, ferramentas no Capítulo 10 e operação no Capítulo 15. O capítulo não repete preços: trabalha com multiplicadores e pontos de equilíbrio, que envelhecem mais devagar.</p>
+
+      <h3>O que você vai estudar</h3>
+      <p>Seis unidades em 18 partes curtas, com resumo em três linhas, analogia, texto direto, pergunta de verificação e ponto de retomada, fechando com seis questões.</p>
+      <ul class="units">
+        <li><a href="#unidade-16-1a">16.1 Medição</a></li>
+        <li><a href="#unidade-16-2a">16.2 Gargalos</a></li>
+        <li><a href="#unidade-16-3a">16.3 Eliminar redundância</a></li>
+        <li><a href="#unidade-16-4a">16.4 Melhorar ferramentas e contexto</a></li>
+        <li><a href="#unidade-16-5a">16.5 Cache e esforço</a></li>
+        <li><a href="#unidade-16-6a">16.6 Ponto ótimo de sessão e manutenção</a></li>
+        <li><a href="#questoes-capitulo-16">Questões do capítulo 16</a></li>
+      </ul>
+
+      <h3>Para quem é este capítulo</h3>
+      <p>Para quem leu os capítulos 1 a 15. Retomamos orçamento de contexto e compactação (Cap. 9), cache de prefixo (2.3 e 9.6), escolha de modelo e esforço (14.3), contratos de ferramenta (Cap. 10) e operação e observabilidade (Cap. 15).</p>
+
+      <h3>Como ler os exemplos</h3>
+      <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (Anthropic, OpenAI, Google Cloud e LiteLLM, consultados em 17/11/2026) e <span class="qual">proposta didática</span> (contas, quadros e casos da Aurora Educação). Valores de preço não aparecem no texto corrido; os multiplicadores aparecem com a data da consulta.</p>
+
+      <h3>Sobre as fontes</h3>
+      <p>O pacote do capítulo reúne 9 fontes públicas com 43 trechos literais conferidos em 17/11/2026 (<code>AT-01</code>–<code>AT-03</code>, <code>LC-01</code>–<code>LC-05</code>, <code>OC-01</code>–<code>OC-05</code>, <code>OK-01</code>–<code>OK-06</code>, <code>AC-01</code>–<code>AC-07</code>, <code>AP-01</code>–<code>AP-06</code>, <code>OB-01</code>–<code>OB-02</code>, <code>AB-01</code>–<code>AB-04</code> e <code>GC-01</code>–<code>GC-05</code>). O "ponto ótimo de sessão" é método de estimativa, não resultado medido.</p>
+      <nav class="page-nav" aria-label="Navegação do capítulo 16">
+        <a href="#questoes-capitulo-15">Questões do capítulo 15</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 316">316</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-1a">Parte 16.1a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-1a" aria-labelledby="titulo-da-unidade-16-1a">
+      <h2 id="titulo-da-unidade-16-1a">16.1a Medir antes de cortar</h2>
+      <p class="rotulo-unidade">Unidade 16.1 — Medição (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Contagem de tokens é estimativa, não valor exato.</li>
+          <li>Conte o prompt antes de enviar, com o mesmo modelo que vai processá-lo.</li>
+          <li>Cortar custo sem medir troca um gasto por um risco maior.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="16-1a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um mercador diante de uma balança de dois pratos, pesando sacos de grãos antes de decidir o que levar na carroça; ao fundo, um caderno de contas aberto.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Quem corta a ração do cavalo sem pesar o serviço do dia acaba com o cavalo exausto e a carroça parada no meio do caminho.</p></div>
+
+      <h3>O número é estimativa</h3>
+      <p>A documentação da Anthropic avisa: a contagem de tokens é uma estimativa e, em alguns casos, o número real de tokens de entrada pode diferir por uma pequena margem (<span class="qual">registrado na documentação</span>). Para orçar, a estimativa basta; para comparar experimentos com precisão de centavos, não.</p>
+      <h3>Contar antes de enviar</h3>
+      <p>A orientação é contar os tokens antes de enviar o pedido (<span class="qual">registrado na documentação</span>). Com o número em mãos, dá para decidir se o prompt cabe, quanto vai custar e se vale a pena encurtar. A contagem não usa lógica de cache (<span class="qual">registrado na documentação</span>); ela mede o texto, não o que seria reaproveitado.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: números para medir custo" tabindex="0">
+      <table class="tabela">
+        <caption>O que medir antes de otimizar (proposta didática)</caption>
+        <thead><tr><th scope="col">Número</th><th scope="col">De onde vem</th><th scope="col">Alavanca</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Tokens de entrada</th><td>Contagem antes do envio</td><td>Encurtar contexto e instruções</td></tr>
+          <tr><th scope="row">Tokens de saída</th><td>Uso reportado na resposta</td><td>Limitar tamanho e formato</td></tr>
+          <tr><th scope="row">Número de pedidos</th><td>Registro de chamadas</td><td>Juntar etapas e usar lote</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Medir o que importa</h3>
+      <p>Três números organizam a conversa sobre economia: tokens de entrada, tokens de saída e número de pedidos. Cada um tem uma alavanca diferente — encurtar contexto, limitar a resposta e reduzir idas e voltas. Sem medir os três, o corte escolhe o alavanca errada.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-1a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-1a">Uma equipe quer provar que o novo prompt é 15% mais barato, comparando a contagem estimada de antes com o uso reportado de depois. Qual é o problema?</p>
+        <label class="alternativa"><input type="radio" name="p16-1a" value="a" data-correta="true" data-explicacao="Correta. Estimativa e uso reportado são medidas diferentes."><span><strong>A.</strong> Compara uma estimativa com um valor real; o correto é comparar a mesma medida dos dois lados.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1a" value="b" data-correta="false" data-explicacao="Incorreta. A própria documentação diz que é estimativa."><span><strong>B.</strong> Nenhum: a contagem é exata.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1a" value="c" data-correta="false" data-explicacao="Incorreta. A contagem não usa lógica de cache, mas o problema aqui é a medida."><span><strong>C.</strong> O problema é o cache, que não existe.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1a" value="d" data-correta="false" data-explicacao="Incorreta. Arredondar não iguala medidas diferentes."><span><strong>D.</strong> Basta arredondar os dois números.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Meça tokens de entrada, de saída e número de pedidos, com a mesma medida dos dois lados. Na parte 16.1b, vemos de onde vêm os números de custo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Estimativa de tokens:</strong> Anthropic, <em>Token counting</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Contar antes de enviar:</strong> Anthropic, <em>Token counting</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Contagem sem cache:</strong> Anthropic, <em>Token counting</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro de medidas:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.1a">
+        <a href="#capitulo-16">Capítulo 16</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 317">317</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-1b">Parte 16.1b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-1b" aria-labelledby="titulo-da-unidade-16-1b">
+      <h2 id="titulo-da-unidade-16-1b">16.1b De onde vêm os números de custo</h2>
+      <p class="rotulo-unidade">Unidade 16.1 — Medição (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Um gateway pode rastrear o gasto de cada chamada automaticamente.</li>
+          <li>O custo calculado aparece no cabeçalho da resposta e no registro.</li>
+          <li>A tabela de preços precisa estar atualizada, senão o número mente.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O caixa registra cada venda no mesmo instante; o balanço do mês sai desse registro, não de uma lembrança.</p></div>
+
+      <h3>Rastreio automático</h3>
+      <p>A documentação do LiteLLM informa que o sistema rastreia o gasto de todos os modelos conhecidos automaticamente (<span class="qual">registrado na documentação</span>). O custo calculado aparece no cabeçalho da resposta (<span class="qual">registrado na documentação</span>), o que permite associar cada chamada ao seu valor sem planilha paralela.</p>
+      <h3>A tabela de preços</h3>
+      <p>O cálculo depende da tabela de preços do modelo. A documentação recomenda sincronizar os dados de preço para manter o rastreio preciso (<span class="qual">registrado na documentação</span>). Fornecedores mudam preço; uma tabela velha produz um número confiável na forma e errado no conteúdo.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: fontes do número de custo" tabindex="0">
+      <table class="tabela">
+        <caption>De onde vem cada número (proposta didática)</caption>
+        <thead><tr><th scope="col">Camada</th><th scope="col">Fonte</th><th scope="col">Limite</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Chamada</th><td>Cabeçalho com custo calculado</td><td>Depende da tabela de preços</td></tr>
+          <tr><th scope="row">Serviço</th><td>Agregação por chave ou área</td><td>Precisa de identificação no pedido</td></tr>
+          <tr><th scope="row">Conta</th><td>Fatura do fornecedor</td><td>Chega depois e pode incluir descontos</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Quem consome</h3>
+      <p>O mesmo rastreio responde "quanto esta área gasta?" e "quanto este cliente custa?". Para isso, cada chamada precisa carregar a identificação da área ou do cliente — o mesmo princípio dos campos de rastreio da unidade 15.3.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-1b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-1b">O painel de custo mostra um valor estável há meses, enquanto a fatura subiu. O que a documentação sugere verificar primeiro?</p>
+        <label class="alternativa"><input type="radio" name="p16-1b" value="a" data-correta="true" data-explicacao="Correta. O rastreio depende da tabela e da categorização de tokens."><span><strong>A.</strong> A sincronização da tabela de preços e a categorização dos tokens, porque o cálculo depende delas.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1b" value="b" data-correta="false" data-explicacao="Incorreta. A fatura é a referência de cobrança."><span><strong>B.</strong> Nada: a fatura está errada.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1b" value="c" data-correta="false" data-explicacao="Incorreta. Usuários não explicam divergência de cálculo."><span><strong>C.</strong> O número de usuários.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1b" value="d" data-correta="false" data-explicacao="Incorreta. Não tem relação com custo de API."><span><strong>D.</strong> O tamanho do disco.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O custo por chamada vem do cabeçalho, mas depende de tabela atualizada e de identificação. Na parte 16.1c, vemos o que fazer quando o número não bate.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Rastreio automático:</strong> LiteLLM, <em>Cost Tracking</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Custo no cabeçalho:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Sincronizar preços:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de camadas:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.1b">
+        <a href="#unidade-16-1a">Parte 16.1a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 318">318</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-1c">Parte 16.1c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-1c" aria-labelledby="titulo-da-unidade-16-1c">
+      <h2 id="titulo-da-unidade-16-1c">16.1c Quando o número não bate</h2>
+      <p class="rotulo-unidade">Unidade 16.1 — Medição (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Divergência de custo tem causa nomeada: preço ausente, categoria trocada ou fórmula.</li>
+          <li>O gateway avisa quando falta preço para um modelo.</li>
+          <li>A rotina é alinhar período, comparar categorias e só então olhar a fórmula.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Quando a soma do caixa não fecha, o primeiro passo é conferir se as notas estão na gaveta certa, não refazer a conta três vezes.</p></div>
+
+      <h3>Um alerta em vez de um mistério</h3>
+      <p>A documentação do LiteLLM descreve que, quando falta preço para um modelo, o registro traz uma linha de aviso nomeando o grupo, a entrada de preço e a chave que falta (<span class="qual">registrado na documentação</span>). Há também contador de pedidos com custo zero, para alertar sobre o problema. Um sistema assim não esconde a falha de medição: ela aparece como evento.</p>
+      <h3>O roteiro</h3>
+      <p>A mesma documentação propõe um roteiro passo a passo para investigar divergência: alinhar os períodos, comparar as categorias de token, incluindo cache, e então decidir se a diferença está na ingestão, na fórmula ou no preço do modelo (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: diagnóstico de divergência de custo" tabindex="0">
+      <table class="tabela">
+        <caption>Ordem de verificação (leitura da documentação do LiteLLM)</caption>
+        <thead><tr><th scope="col">Passo</th><th scope="col">O que conferir</th><th scope="col">Sinal</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td>Período e fuso das duas fontes</td><td>Totais de dias diferentes</td></tr>
+          <tr><th scope="row">2</th><td>Categorias de token, incluindo cache</td><td>Entrada, saída e leitura de cache misturadas</td></tr>
+          <tr><th scope="row">3</th><td>Preço do modelo na tabela</td><td>Preço ausente ou desatualizado</td></tr>
+          <tr><th scope="row">4</th><td>Fórmula do cálculo</td><td>Diferença que sobra depois dos anteriores</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Ordem importa</h3>
+      <p>Olhar a fórmula primeiro é o erro comum. Períodos desalinhados e categorias trocadas explicam a maior parte das diferenças, e são as verificações mais baratas. Só depois vale questionar o cálculo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-1c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-1c">O custo do painel está 20% abaixo da fatura. Qual primeira verificação é a mais coerente com o roteiro?</p>
+        <label class="alternativa"><input type="radio" name="p16-1c" value="a" data-correta="true" data-explicacao="Correta. O roteiro começa por período e categorias."><span><strong>A.</strong> Alinhar o período e comparar as categorias de token, incluindo cache, antes de suspeitar da fórmula.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1c" value="b" data-correta="false" data-explicacao="Incorreta. A fórmula é o último suspeito."><span><strong>B.</strong> Reescrever a fórmula de cálculo.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1c" value="c" data-correta="false" data-explicacao="Incorreta. O cache é uma categoria a comparar, não a causa presumida."><span><strong>C.</strong> Desligar o cache.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1c" value="d" data-correta="false" data-explicacao="Incorreta. A fatura é a referência de cobrança."><span><strong>D.</strong> Ignorar a fatura.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Divergência se investiga em ordem: período, categorias, preço e fórmula. A unidade 16.2 trata de onde estão os gargalos.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Aviso de preço ausente:</strong> LiteLLM, <em>Cost Tracking</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Roteiro de diagnóstico:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de passos:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Token counting</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/token-counting</a>; LiteLLM, <em>Cost Tracking</em> — <a href="https://docs.litellm.ai/docs/proxy/cost_tracking" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/cost_tracking</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.1c">
+        <a href="#unidade-16-1b">Parte 16.1b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 319">319</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-2a">Parte 16.2a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-2a" aria-labelledby="titulo-da-unidade-16-2a">
+      <h2 id="titulo-da-unidade-16-2a">16.2a Três cortes que sempre existem</h2>
+      <p class="rotulo-unidade">Unidade 16.2 — Gargalos (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A documentação reduz custo a três alavancas: menos pedidos, menos tokens e modelo menor.</li>
+          <li>Cada alavanca ataca um componente diferente da conta.</li>
+          <li>Cortar sem medir costuma trocar gasto por retrabalho.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Para emagrecer a conta do mercado, você compra menos itens, itens menores ou marcas mais baratas. As três funcionam, mas mudam o prato.</p></div>
+
+      <h3>A lista curta</h3>
+      <p>A documentação da OpenAI abre com uma frase que resume o capítulo: reduzir tokens e pedidos pode baixar o custo e encurtar o tempo de resposta (<span class="qual">registrado na documentação</span>). Em seguida, lista três estratégias: limitar o número de pedidos necessários para concluir a tarefa (<span class="qual">registrado na documentação</span>), diminuir os tokens de entrada e encurtar a saída (<span class="qual">registrado na documentação</span>) e escolher um modelo menor que equilibre custo e latência com a precisão mantida (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: alavancas de custo" tabindex="0">
+      <table class="tabela">
+        <caption>Três alavancas e o efeito colateral de cada uma (leitura da documentação da OpenAI)</caption>
+        <thead><tr><th scope="col">Alavanca</th><th scope="col">O que muda</th><th scope="col">Efeito colateral</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Menos pedidos</th><td>Juntar etapas em uma chamada</td><td>Pedido maior e mais difícil</td></tr>
+          <tr><th scope="row">Menos tokens</th><td>Contexto e saída enxutos</td><td>Menos informação disponível</td></tr>
+          <tr><th scope="row">Modelo menor</th><td>Faixa mais barata</td><td>Qualidade a validar na amostra</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que cada corte custa</h3>
+      <p>Menos pedidos exige juntar etapas — e juntar demais aumenta o tamanho de cada pedido. Menos tokens exige contexto enxuto — e cortar o contexto errado derruba a qualidade. Modelo menor exige avaliação — e a amostra é a única prova (14.2c). Nenhum corte é gratuito.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-2a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-2a">O time quer cortar 40% do custo em uma semana. Qual resposta é a mais defensável?</p>
+        <label class="alternativa"><input type="radio" name="p16-2a" value="a" data-correta="true" data-explicacao="Correta. Cada alavanca ataca um componente e precisa de medição e validação."><span><strong>A.</strong> Medir onde está o gasto e aplicar a alavanca correspondente, validando na amostra; cortes simultâneos escondem a causa.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2a" value="b" data-correta="false" data-explicacao="Incorreta. Dois cortes juntos escondem qual causou o quê."><span><strong>B.</strong> Cortar contexto e modelo ao mesmo tempo, para garantir.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2a" value="c" data-correta="false" data-explicacao="Incorreta. Menos avaliação significa menos evidência."><span><strong>C.</strong> Reduzir a amostra de avaliação.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2a" value="d" data-correta="false" data-explicacao="Incorreta. Sem log não há medição."><span><strong>D.</strong> Desligar o log de uso.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>As três alavancas têm custo próprio; medir antes e validar depois é o que sustenta o corte. Na parte 16.2b, vemos onde o gasto se esconde.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Menos tokens e pedidos:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Três estratégias:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro de efeitos:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.2a">
+        <a href="#unidade-16-1c">Parte 16.1c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 320">320</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-2b">Parte 16.2b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-2b" aria-labelledby="titulo-da-unidade-16-2b">
+      <h2 id="titulo-da-unidade-16-2b">16.2b Onde o gasto se esconde</h2>
+      <p class="rotulo-unidade">Unidade 16.2 — Gargalos (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Trabalho que pode esperar custa menos: lote, janelas e processamento flexível.</li>
+          <li>O gasto escondido costuma estar em repetição, contexto grande e pedido desnecessário.</li>
+          <li>Economia que degrada a experiência não é economia.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> A lavanderia cobra menos pela roupa que pode ficar para o dia seguinte. Quem precisa da camisa agora paga o preço da pressa.</p></div>
+
+      <h3>Trabalho que pode esperar</h3>
+      <p>A documentação da OpenAI descreve o processamento flexível: custo bem menor em troca de respostas mais lentas e indisponibilidade ocasional, indicado para tarefas que não são de produção ou têm prioridade baixa, como avaliações, enriquecimento de dados e cargas assíncronas (<span class="qual">registrado na documentação</span>). É a versão explícita do princípio: urgência custa caro.</p>
+      <h3>Os três esconderijos</h3>
+      <p>A maior parte do gasto evitável aparece em três lugares: pedidos repetidos que poderiam ser um, contexto que cresce sem necessidade e chamadas que nenhum usuário pediu. Os dois primeiros têm capítulo próprio (9 e 10); o terceiro é decisão de produto.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: esconderijos de gasto" tabindex="0">
+      <table class="tabela">
+        <caption>Onde o gasto costuma se esconder (proposta didática)</caption>
+        <thead><tr><th scope="col">Esconderijo</th><th scope="col">Sinal</th><th scope="col">Ação</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Pedido repetido</th><td>Mesmo contexto enviado várias vezes</td><td>Juntar ou cachear</td></tr>
+          <tr><th scope="row">Contexto inflado</th><td>Prompt grande com trechos não usados</td><td>Recuperar só o pertinente</td></tr>
+          <tr><th scope="row">Chamada desnecessária</th><td>Etapa que não muda a decisão</td><td>Remover do fluxo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O limite</h3>
+      <p>Economizar em cima da experiência não é economia: um assistente 30% mais barato que gera retrabalho custa mais. A conta precisa incluir o tempo humano, como na unidade 14.2.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-2b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-2b">Um relatório noturno pode rodar em até 8 horas. Qual escolha reduz custo com o menor risco?</p>
+        <label class="alternativa"><input type="radio" name="p16-2b" value="a" data-correta="true" data-explicacao="Correta. Trabalho que pode esperar tem custo menor."><span><strong>A.</strong> Usar processamento em lote ou flexível, porque o resultado não precisa ser imediato.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2b" value="b" data-correta="false" data-explicacao="Incorreta. A urgência é baixa; o modelo caro não se justifica."><span><strong>B.</strong> Usar o modelo mais caro, porque é noturno.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2b" value="c" data-correta="false" data-explicacao="Incorreta. Mais contexto custa mais."><span><strong>C.</strong> Aumentar o contexto do relatório.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2b" value="d" data-correta="false" data-explicacao="Incorreta. Dobra o custo sem necessidade comprovada."><span><strong>D.</strong> Rodar duas vezes para conferir.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Trabalho que pode esperar custa menos; o gasto escondido está em repetição e excesso. Na parte 16.2c, medimos o acerto de cache.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Processamento flexível:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Esconderijos:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Custo total com retrabalho:</strong> Remissão a 14.2c (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.2b">
+        <a href="#unidade-16-2a">Parte 16.2a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 321">321</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-2c">Parte 16.2c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-2c" aria-labelledby="titulo-da-unidade-16-2c">
+      <h2 id="titulo-da-unidade-16-2c">16.2c Medir o acerto de cache</h2>
+      <p class="rotulo-unidade">Unidade 16.2 — Gargalos (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A taxa de acerto é tokens cacheados divididos pelos tokens de entrada.</li>
+          <li>A documentação pede medir, e não supor, o desempenho do cache.</li>
+          <li>Acerto alto indica prefixo bem escolhido; acerto baixo indica conteúdo instável no começo.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um armazém com 90% das prateleiras paradas não economiza nada; o valor está na mercadoria que sai.</p></div>
+
+      <h3>A conta</h3>
+      <p>A documentação da OpenAI pede medir o desempenho real do cache (<span class="qual">registrado na documentação</span>) e mostra como: dividir o total de tokens cacheados pelo total de tokens de entrada, agregando por usuário, espaço de trabalho, dia ou outro agrupamento útil (<span class="qual">registrado na documentação</span>). É a <dfn>taxa de acerto</dfn>.</p>
+      <h3>O que a taxa diz</h3>
+      <p>Taxa alta significa que o começo do prompt se repete e o cache está fazendo o trabalho. Taxa baixa significa que o prefixo muda a cada pedido — em geral, porque informação variável foi colocada antes do conteúdo estável. A correção está na unidade 16.4.</p>
+      <h3>Um dado de referência</h3>
+      <p>A mesma página relata que uma implantação de exemplo, seguindo esses princípios, chegou a taxa acima de 90% (<span class="qual">registrado na documentação</span>). O número ilustra um resultado possível, não uma meta universal: o teto depende do contexto e do uso.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-2c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-2c">O cache está ligado, mas a taxa de acerto é 5%. Qual é a causa mais provável?</p>
+        <label class="alternativa"><input type="radio" name="p16-2c" value="a" data-correta="true" data-explicacao="Correta. Acerto baixo indica prefixo instável."><span><strong>A.</strong> O prefixo muda a cada pedido: conteúdo variável está antes do trecho estável, anulando o cache.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2c" value="b" data-correta="false" data-explicacao="Incorreta. O texto diz que está ligado."><span><strong>B.</strong> O cache está desligado no provedor.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2c" value="c" data-correta="false" data-explicacao="Incorreta. É a medida central do desempenho do cache."><span><strong>C.</strong> A taxa de acerto é irrelevante.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-2c" value="d" data-correta="false" data-explicacao="Incorreta. Tamanho de modelo não explica acerto de cache."><span><strong>D.</strong> O modelo é pequeno demais.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A taxa de acerto mede o cache de verdade; acerto baixo aponta prefixo instável. A unidade 16.3 trata de eliminar redundância com lote.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Medir o cache:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Cálculo da taxa:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Exemplo acima de 90%:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenAI, <em>Cost optimization</em> — <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>; OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.2c">
+        <a href="#unidade-16-2b">Parte 16.2b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 322">322</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-3a">Parte 16.3a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-3a" aria-labelledby="titulo-da-unidade-16-3a">
+      <h2 id="titulo-da-unidade-16-3a">16.3a Lote: metade do preço por esperar</h2>
+      <p class="rotulo-unidade">Unidade 16.3 — Eliminar redundância (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A API de lote processa pedidos em conjunto, de forma assíncrona, com desconto.</li>
+          <li>OpenAI e Anthropic descrevem 50% de desconto para trabalho que pode esperar.</li>
+          <li>O lote não serve para o que precisa de resposta imediata.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="16-3a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um carroceiro entrega um saco de cartas lacrado no balcão de uma estalagem e recebe uma senha de retirada, com uma fila de sacos iguais ao fundo esperando o carteiro.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> A gráfica cobra menos para imprimir no lote do fim do dia. Quem precisa do cartão agora paga a impressão avulsa.</p></div>
+
+      <h3>A oferta</h3>
+      <p>A documentação da OpenAI descreve a API de lote: enviar grupos de pedidos de forma assíncrona, com custo 50% menor, um limite de tokens enfileirados separado dos limites por minuto e prazo claro de 24 horas (<span class="qual">registrado na documentação</span>). O benefício aparece listado como desconto de 50% em relação às APIs síncronas (<span class="qual">registrado na documentação</span>), e a documentação da Anthropic traz o mesmo número, com a maioria dos lotes terminando em menos de uma hora e o desconto de 50% aplicado a entrada e saída (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Como funciona</h3>
+      <p>O processamento é assíncrono e cada pedido é tratado de forma independente (<span class="qual">registrado na documentação</span>). O sistema processa o lote o mais rápido possível (<span class="qual">registrado na documentação</span>), mas não promete ordem nem prazo curto.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: lote nos dois fornecedores" tabindex="0">
+      <table class="tabela">
+        <caption>API de lote (leitura das documentações)</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">OpenAI</th><th scope="col">Anthropic</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Desconto</th><td>50% sobre a API síncrona</td><td>50% em entrada e saída</td></tr>
+          <tr><th scope="row">Prazo</th><td>Janela de 24 horas</td><td>Maioria em menos de 1 hora</td></tr>
+          <tr><th scope="row">Modo</th><td>Assíncrono, por arquivo</td><td>Assíncrono, por lote</td></tr>
+          <tr><th scope="row">Limite</th><td>Tokens enfileirados, separado do por minuto</td><td>Limites próprios do lote</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que isso muda</h3>
+      <p>O lote muda a arquitetura: em vez de responder na hora, o sistema enfileira, acompanha o status e busca o resultado. A boa notícia é que o componente de fila já existe em muitos sistemas (2.6); a decisão é de produto, não de modelo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-3a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-3a">O time quer mandar para o lote o chat em tempo real do site. O que a documentação permite concluir?</p>
+        <label class="alternativa"><input type="radio" name="p16-3a" value="a" data-correta="true" data-explicacao="Correta. O lote é para trabalho assíncrono e com prazo de horas."><span><strong>A.</strong> É inadequado: o lote serve a tarefas que não exigem resposta imediata.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3a" value="b" data-correta="false" data-explicacao="Incorreta. O desconto não compensa a espera no chat."><span><strong>B.</strong> É recomendado, porque economiza 50%.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3a" value="c" data-correta="false" data-explicacao="Incorreta. A espera muda a experiência."><span><strong>C.</strong> É indiferente para a experiência.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3a" value="d" data-correta="false" data-explicacao="Incorreta. A restrição é de fluxo, não de tamanho."><span><strong>D.</strong> Só funciona para modelos pequenos.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O lote troca espera por 50% de desconto, e não serve ao tempo real. Na parte 16.3b, vemos prazos e limites do lote.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>API de lote da OpenAI:</strong> OpenAI, <em>Batch API</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Lote da Anthropic e desconto:</strong> Anthropic, <em>Batch processing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Desconto em entrada e saída:</strong> Anthropic, <em>Pricing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro comparativo:</strong> Leitura das documentações (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.3a">
+        <a href="#unidade-16-2c">Parte 16.2c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 323">323</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-3b">Parte 16.3b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-3b" aria-labelledby="titulo-da-unidade-16-3b">
+      <h2 id="titulo-da-unidade-16-3b">16.3b Prazos e limites do lote</h2>
+      <p class="rotulo-unidade">Unidade 16.3 — Eliminar redundância (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Lote tem prazo: expira se não terminar a tempo.</li>
+          <li>Os resultados ficam disponíveis por tempo limitado e depois somem.</li>
+          <li>O lote pode passar do teto de gasto configurado.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O trem de carga parte no horário; quem chega depois perde a viagem e precisa esperar o próximo.</p></div>
+
+      <h3>O prazo</h3>
+      <p>A documentação da Anthropic informa que os lotes expiram se o processamento não terminar em 24 horas (<span class="qual">registrado na documentação</span>). Isso muda o desenho: um lote que expira não entrega resultado, e o trabalho precisa ser reenviado ou refeito.</p>
+      <h3>A janela dos resultados</h3>
+      <p>Os resultados ficam disponíveis por 29 dias depois da criação (<span class="qual">registrado na documentação</span>). Depois disso, o lote continua visível, mas os resultados não podem mais ser baixados. Quem depende do lote para alimentar outro sistema precisa buscar o resultado na janela.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: prazos e limites do lote" tabindex="0">
+      <table class="tabela">
+        <caption>Prazos e limites documentados (Anthropic, consultada em 17/11/2026)</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">Regra</th><th scope="col">Consequência</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Expiração</th><td>24 horas para concluir</td><td>Reenviar se expirar</td></tr>
+          <tr><th scope="row">Resultados</th><td>Disponíveis por 29 dias</td><td>Buscar dentro da janela</td></tr>
+          <tr><th scope="row">Teto de gasto</th><td>Pode ultrapassar um pouco</td><td>Monitorar e alertar</td></tr>
+          <tr><th scope="row">Limites de taxa</th><td>Valem para chamadas e pedidos enfileirados</td><td>Dimensionar a fila</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Limites que surpreendem</h3>
+      <p>Como o processamento é concorrente e de alto volume, os lotes podem ultrapassar um pouco o teto de gasto configurado no console. E os limites de taxa valem tanto para as chamadas da API de lote quanto para os pedidos enfileirados dentro do lote.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-3b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-3b">Um lote é criado na sexta e os resultados são buscados três semanas depois. O que a documentação indica?</p>
+        <label class="alternativa"><input type="radio" name="p16-3b" value="a" data-correta="true" data-explicacao="Correta. Os resultados ficam disponíveis por 29 dias."><span><strong>A.</strong> Ainda está na janela de 29 dias, mas perto do limite; o resultado precisa ser buscado e guardado.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3b" value="b" data-correta="false" data-explicacao="Incorreta. A janela é de 29 dias."><span><strong>B.</strong> Os resultados já foram apagados.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3b" value="c" data-correta="false" data-explicacao="Incorreta. Não há indício disso."><span><strong>C.</strong> O lote nunca terminou.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3b" value="d" data-correta="false" data-explicacao="Incorreta. A documentação não descreve renovação."><span><strong>D.</strong> O lote se renova automaticamente.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Lote tem prazo de execução e janela de resultados, e pode furar o teto de gasto. Na parte 16.3c, vemos o que nunca deve ir ao lote.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Expiração em 24 horas:</strong> Anthropic, <em>Batch processing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Resultados por 29 dias:</strong> Anthropic, <em>Batch processing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Teto de gasto e limites:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de prazos:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.3b">
+        <a href="#unidade-16-3a">Parte 16.3a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 324">324</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-3c">Parte 16.3c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-3c" aria-labelledby="titulo-da-unidade-16-3c">
+      <h2 id="titulo-da-unidade-16-3c">16.3c O que nunca vai ao lote</h2>
+      <p class="rotulo-unidade">Unidade 16.3 — Eliminar redundância (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Interação em tempo real, decisão com prazo e ação irreversível não entram no lote.</li>
+          <li>O lote é para trabalho em massa, não para o caminho crítico do usuário.</li>
+          <li>Antes de enfileirar, pergunte o que acontece se o resultado chegar 24 horas depois.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Ninguém manda a receita do jantar pelo correio comum. O lote serve ao que pode esperar o carteiro.</p></div>
+
+      <h3>Três exclusões</h3>
+      <p><strong>Tempo real:</strong> qualquer resposta que o usuário espera na tela. <strong>Prazo curto:</strong> decisões que precisam acontecer antes da janela do lote. <strong>Ação irreversível:</strong> operações que alteram sistemas e dependem de confirmação imediata (15.3c).</p>
+      <h3>A pergunta de teste</h3>
+      <p>Se o resultado chegar no pior prazo documentado, a operação continua correta? Se a resposta for não, o trabalho não é de lote. Se for sim, o lote é candidato — desde que o custo da espera não supere os 50% de desconto.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: o que vai e o que não vai ao lote" tabindex="0">
+      <table class="tabela">
+        <caption>Critério de elegibilidade para lote (proposta didática)</caption>
+        <thead><tr><th scope="col">Fluxo</th><th scope="col">Vai ao lote?</th><th scope="col">Motivo</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Chat do site</th><td>Não</td><td>Usuário espera na tela</td></tr>
+          <tr><th scope="row">Relatório noturno</th><td>Sim</td><td>Resultado pode esperar</td></tr>
+          <tr><th scope="row">Reindexação de documentos</th><td>Sim</td><td>Volume alto e assíncrono</td></tr>
+          <tr><th scope="row">Cancelamento de matrícula</th><td>Não</td><td>Ação irreversível com confirmação</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O meio-termo</h3>
+      <p>Muitos fluxos têm uma parte interativa e uma parte em massa: o atendimento responde na hora e o relatório do dia seguinte vai ao lote. Separar as duas rotas é mais barato que escolher uma só para tudo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-3c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-3c">Um fluxo de aprovação de crédito precisa responder em até 2 minutos. O time propõe colocá-lo no lote para economizar. Qual é a avaliação correta?</p>
+        <label class="alternativa"><input type="radio" name="p16-3c" value="a" data-correta="true" data-explicacao="Correta. O lote não atende prazo curto."><span><strong>A.</strong> Não é elegível: a janela do lote (até 24 horas) é incompatível com o prazo de 2 minutos.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3c" value="b" data-correta="false" data-explicacao="Incorreta. A economia não supera o descumprimento do prazo."><span><strong>B.</strong> É elegível, porque economiza 50%.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3c" value="c" data-correta="false" data-explicacao="Incorreta. Tamanho não muda a janela documentada."><span><strong>C.</strong> É elegível se o lote for pequeno.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-3c" value="d" data-correta="false" data-explicacao="Incorreta. O prazo do fluxo é requisito, não preferência."><span><strong>D.</strong> É elegível se o cliente concordar.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Lote é para massa, não para o caminho crítico. A unidade 16.4 trata de melhorar ferramentas e contexto.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Elegibilidade:</strong> Critério (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Ações irreversíveis:</strong> Remissão a 15.3c (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Quadro de fluxos:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenAI, <em>Batch API</em> — <a href="https://developers.openai.com/api/docs/guides/batch" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/batch</a>; Anthropic, <em>Batch processing</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/batch-processing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/batch-processing</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.3c">
+        <a href="#unidade-16-3b">Parte 16.3b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 325">325</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-4a">Parte 16.4a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-4a" aria-labelledby="titulo-da-unidade-16-4a">
+      <h2 id="titulo-da-unidade-16-4a">16.4a Contexto estável no começo</h2>
+      <p class="rotulo-unidade">Unidade 16.4 — Melhorar ferramentas e contexto (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O cache funciona por prefixo: o que se repete precisa ficar no começo.</li>
+          <li>Conteúdo grande e comum deve vir antes do que muda a cada pedido.</li>
+          <li>Pedidos com o mesmo prefixo devem chegar em intervalo curto.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Quem separa os ingredientes fixos da receita antes de abrir a geladeira ganha tempo em cada prato. A ordem da bancada é o que economiza.</p></div>
+
+      <h3>Duas dicas do Google</h3>
+      <p>A documentação do Google Cloud dá duas recomendações diretas para aumentar o acerto do cache: colocar conteúdos grandes e comuns no começo do prompt (<span class="qual">registrado na documentação</span>) e enviar pedidos com prefixo semelhante em um intervalo curto (<span class="qual">registrado na documentação</span>). A segunda lembra que cache expira; o primeiro lembra que cache casa por prefixo.</p>
+      <h3>Por que isso economiza</h3>
+      <p>O cache de prompt reaproveita partes já processadas do pedido entre chamadas (<span class="qual">registrado na documentação</span>), cobrando menos por esses tokens. Se a parte que muda vem primeiro, nada é reaproveitado — e o sistema paga o preço cheio com a ilusão de ter cache.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: ordem do prompt e cache" tabindex="0">
+      <table class="tabela">
+        <caption>Ordem do prompt e efeito no cache (leitura da documentação do Google Cloud)</caption>
+        <thead><tr><th scope="col">Posição</th><th scope="col">Conteúdo</th><th scope="col">Efeito</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Começo</th><td>Instruções e documentos fixos</td><td>Alta chance de acerto</td></tr>
+          <tr><th scope="row">Meio</th><td>Histórico que cresce</td><td>Acerto parcial</td></tr>
+          <tr><th scope="row">Fim</th><td>Pergunta do momento</td><td>Sem acerto, por definição</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>A reorganização</h3>
+      <p>Ordem recomendada: instruções do sistema, documentos e exemplos fixos, depois o histórico que cresce e, por último, a pergunta do momento. É a mesma lógica do capítulo 9 para orçamento de contexto, vista pelo ângulo do custo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-4a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-4a">Um assistente coloca a pergunta do usuário no começo e o manual de 40 páginas depois. O cache quase nunca acerta. Qual correção é a mais direta?</p>
+        <label class="alternativa"><input type="radio" name="p16-4a" value="a" data-correta="true" data-explicacao="Correta. O cache casa por prefixo; o conteúdo estável precisa vir antes."><span><strong>A.</strong> Inverter a ordem: manual e instruções fixas primeiro, pergunta do usuário no fim.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4a" value="b" data-correta="false" data-explicacao="Incorreta. Mais conteúdo instável no começo piora."><span><strong>B.</strong> Aumentar o manual.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4a" value="c" data-correta="false" data-explicacao="Incorreta. O problema é a ordem, não o cache."><span><strong>C.</strong> Desligar o cache.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4a" value="d" data-correta="false" data-explicacao="Incorreta. A pergunta é curta e variável; encurtá-la não resolve o prefixo."><span><strong>D.</strong> Encurtar a pergunta.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Prefixos estáveis no começo e pedidos próximos no tempo elevam o acerto. Na parte 16.4b, vemos como marcar o que é estável.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Conteúdo comum no começo:</strong> Google Cloud, <em>Context caching overview</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Pedidos próximos no tempo:</strong> Google Cloud, <em>Context caching overview</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Reaproveitamento de prefixo:</strong> Anthropic, <em>Pricing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro de ordem:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.4a">
+        <a href="#unidade-16-3c">Parte 16.3c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 326">326</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-4b">Parte 16.4b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-4b" aria-labelledby="titulo-da-unidade-16-4b">
+      <h2 id="titulo-da-unidade-16-4b">16.4b Marcar o que é estável</h2>
+      <p class="rotulo-unidade">Unidade 16.4 — Melhorar ferramentas e contexto (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Marcar o fim do conteúdo estável é o que define onde o cache é gravado.</li>
+          <li>Modo explícito evita gravar cache para trechos que mudam sempre.</li>
+          <li>Marcar demais gasta slots; marcar de menos desperdiça acerto.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Colocar etiqueta em cada caixa do depósito ajuda; etiquetar tudo, inclusive o que muda de lugar todo dia, atrapalha o expediente.</p></div>
+
+      <h3>Onde marcar</h3>
+      <p>A documentação da OpenAI recomenda escolher os pontos de marcação com critério e colocar marcadores explícitos no fim do conteúdo estável (<span class="qual">registrado na documentação</span>). A marcação diz ao sistema onde termina o trecho que vale a pena guardar.</p>
+      <h3>Modo explícito</h3>
+      <p>O modo somente explícito permite evitar gravações de cache desnecessárias para sufixos que mudam (<span class="qual">registrado na documentação</span>). Sem isso, o sistema pode gravar cache de um trecho que nunca se repetirá — pagando a gravação sem nunca usar a leitura.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: onde marcar o cache" tabindex="0">
+      <table class="tabela">
+        <caption>Marcação de cache e efeito (leitura da documentação da OpenAI)</caption>
+        <thead><tr><th scope="col">Marcação</th><th scope="col">Quando usar</th><th scope="col">Risco</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Fim do sistema</th><td>Instruções fixas</td><td>Nenhum, se o texto é estável</td></tr>
+          <tr><th scope="row">Fim dos documentos</th><td>Base comum a muitos pedidos</td><td>Documento que muda sempre</td></tr>
+          <tr><th scope="row">Nenhuma</th><td>Conteúdo todo variável</td><td>Gravação inútil se ligada</td></tr>
+          <tr><th scope="row">Muitas</th><td>Blocos com ritmos diferentes</td><td>Consome slots e complica</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O equilíbrio</h3>
+      <p>Há limite de marcações por pedido, e cada uma consome estrutura. A regra prática: marque o fim do que sempre se repete e o fim dos blocos que se repetem com frequência diferente. O resto fica de fora.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-4b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-4b">Um serviço marca cache no fim de cada mensagem da conversa, inclusive na última. O que tende a acontecer?</p>
+        <label class="alternativa"><input type="radio" name="p16-4b" value="a" data-correta="true" data-explicacao="Correta. Marcar o que muda sempre gera gravação sem acerto."><span><strong>A.</strong> Gravar cache de trechos que não se repetirão, pagando a gravação sem ganho de leitura.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4b" value="b" data-correta="false" data-explicacao="Incorreta. A marcação define onde o cache é gravado."><span><strong>B.</strong> Nenhum efeito: o cache ignora marcações.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4b" value="c" data-correta="false" data-explicacao="Incorreta. A gravação tem custo."><span><strong>C.</strong> O cache fica mais barato.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4b" value="d" data-correta="false" data-explicacao="Incorreta. Não é o efeito do excesso de marcação."><span><strong>D.</strong> O modelo responde mais rápido sempre.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Marque o fim do conteúdo estável e evite gravar o que nunca se repete. Na parte 16.4c, vemos ferramentas mais baratas.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Onde marcar:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Modo somente explícito:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro de marcação:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.4b">
+        <a href="#unidade-16-4a">Parte 16.4a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 327">327</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-4c">Parte 16.4c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-4c" aria-labelledby="titulo-da-unidade-16-4c">
+      <h2 id="titulo-da-unidade-16-4c">16.4c Ferramentas mais baratas</h2>
+      <p class="rotulo-unidade">Unidade 16.4 — Melhorar ferramentas e contexto (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Cada ida e volta de ferramenta custa tokens e tempo.</li>
+          <li>Contratos enxutos e respostas resumidas reduzem o custo por tarefa.</li>
+          <li>Ferramenta cara demais pode indicar desenho errado, não modelo errado.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um balcão que devolve a papelada inteira para cada pergunta cansa o atendente. Devolver só o trecho útil acelera a fila.</p></div>
+
+      <h3>O custo invisível da ferramenta</h3>
+      <p>Quando o modelo chama uma ferramenta, o resultado volta para o contexto e vira tokens de entrada nas chamadas seguintes. Uma resposta de ferramenta com 5 mil tokens desnecessários é paga em todas as voltas seguintes. O capítulo 10 trata do contrato; aqui, da conta.</p>
+      <h3>Três ajustes</h3>
+      <p>Primeiro, retornar só os campos que a decisão usa. Segundo, paginar em vez de despejar tudo. Terceiro, resumir resultados longos com referência ao original. Os três diminuem tokens sem retirar capacidade, desde que a informação necessária continue acessível.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: ajustes em ferramentas" tabindex="0">
+      <table class="tabela">
+        <caption>Ajustes que reduzem custo de ferramenta (proposta didática)</caption>
+        <thead><tr><th scope="col">Ajuste</th><th scope="col">Ganho</th><th scope="col">Cuidado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Campos úteis</th><td>Menos tokens por volta</td><td>Pode exigir nova chamada se faltar dado</td></tr>
+          <tr><th scope="row">Paginação</th><td>Evita despejo de tudo</td><td>Aumenta o número de voltas</td></tr>
+          <tr><th scope="row">Resumo com referência</th><td>Contexto curto e recuperável</td><td>Exige acesso ao original</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Quando o problema é o desenho</h3>
+      <p>Se o fluxo precisa de dez ferramentas para uma pergunta simples, o problema pode ser a decomposição, não o preço do modelo. Redesenhar o fluxo costuma economizar mais que trocar de faixa de modelo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-4c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-4c">Uma ferramenta devolve o cadastro inteiro do aluno, com 80 campos, para responder sobre a data de matrícula. Qual ajuste é o mais direto?</p>
+        <label class="alternativa"><input type="radio" name="p16-4c" value="a" data-correta="true" data-explicacao="Correta. Menos campos significam menos tokens em todas as voltas seguintes."><span><strong>A.</strong> Devolver apenas os campos que a decisão usa, com o restante acessível sob demanda.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4c" value="b" data-correta="false" data-explicacao="Incorreta. O problema é volume de dados, não capacidade do modelo."><span><strong>B.</strong> Trocar para o modelo mais caro.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4c" value="c" data-correta="false" data-explicacao="Incorreta. Mais contexto não reduz o desperdício."><span><strong>C.</strong> Aumentar o contexto.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-4c" value="d" data-correta="false" data-explicacao="Incorreta. Dobra o custo e o problema."><span><strong>D.</strong> Chamar a ferramenta duas vezes.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Ferramentas enxutas cortam tokens em cada volta; fluxo mal desenhado custa mais que modelo caro. A unidade 16.5 trata de cache e esforço.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Contrato de ferramenta:</strong> Remissão ao Capítulo 10 (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Ajustes:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Redesenho do fluxo:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Google Cloud, <em>Context caching overview</em> — <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview</a>; OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.4c">
+        <a href="#unidade-16-4b">Parte 16.4b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 328">328</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-5a">Parte 16.5a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-5a" aria-labelledby="titulo-da-unidade-16-5a">
+      <h2 id="titulo-da-unidade-16-5a">16.5a Como o cache cobra</h2>
+      <p class="rotulo-unidade">Unidade 16.5 — Cache e esforço (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Gravar no cache custa mais que o token comum; ler custa bem menos.</li>
+          <li>A gravação de 5 minutos custa 1,25 vez o preço base; a de 1 hora, 2 vezes.</li>
+          <li>A leitura custa 0,1 vez o preço base, com exceções por modelo.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="16-5a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um cofre de pedra com três portas de tamanhos diferentes: uma estreita e rápida, uma média e uma larga, cada uma com uma etiqueta de prazo gravada.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Empacotar a marmita dá trabalho extra; comer a marmita pronta é barato. O ganho vem de reaproveitar várias vezes o mesmo pacote.</p></div>
+
+      <h3>Os três preços</h3>
+      <p>A documentação da Anthropic informa os multiplicadores: a gravação de cache com validade de 5 minutos custa 1,25 vez o preço dos tokens de entrada (<span class="qual">registrado na documentação</span>); a de 1 hora custa 2 vezes (<span class="qual">registrado na documentação</span>); a leitura custa 0,1 vez (<span class="qual">registrado na documentação</span>), com exceções por modelo indicadas na tabela de preços. A gravação é cobrada quando o conteúdo é armazenado; a leitura, quando um pedido seguinte recupera o conteúdo (<span class="qual">registrado na documentação</span>).</p>
+      <h3>O que acontece se ninguém ler</h3>
+      <p>O cache padrão dura 5 minutos e é renovado sem custo adicional cada vez que o conteúdo é usado (<span class="qual">registrado na documentação</span>). Se ninguém usa, ele expira — e o valor da gravação se perde. Cache é economia de repetição, não de armazenamento.</p>
+      <h3>Quando 5 minutos não bastam</h3>
+      <p>Para sessões mais espaçadas, é possível usar a validade de 1 hora, com custo adicional (<span class="qual">registrado na documentação</span>). A escolha é de fluxo: sessões curtas e frequentes preferem 5 minutos; sessões longas e intercaladas podem justificar 1 hora.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-5a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-5a">Um time ativa cache de 1 hora para um fluxo que faz uma única chamada por dia, sempre com o mesmo prompt. O que vai acontecer?</p>
+        <label class="alternativa"><input type="radio" name="p16-5a" value="a" data-correta="true" data-explicacao="Correta. Sem leitura dentro da validade, a gravação é desperdício."><span><strong>A.</strong> O cache expira antes da próxima chamada; a gravação é paga e nunca é lida, o que piora a conta.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5a" value="b" data-correta="false" data-explicacao="Incorreta. Não há leitura para gerar economia."><span><strong>B.</strong> O custo cai pela metade.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5a" value="c" data-correta="false" data-explicacao="Incorreta. Ele só é renovado quando o conteúdo é usado."><span><strong>C.</strong> O cache se renova automaticamente todo dia.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5a" value="d" data-correta="false" data-explicacao="Incorreta. Ela custa 2 vezes o preço base na gravação."><span><strong>D.</strong> A validade de 1 hora é gratuita.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Gravar custa mais, ler custa menos, e o cache só vale se houver leitura dentro da validade. Na parte 16.5b, comparamos fornecedores.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Multiplicadores de gravação e leitura:</strong> Anthropic, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Renovação e validade:</strong> Anthropic, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Validade de 1 hora com custo adicional:</strong> Anthropic, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Cobrança de gravação e leitura:</strong> Anthropic, <em>Pricing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.5a">
+        <a href="#unidade-16-4c">Parte 16.4c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 329">329</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-5b">Parte 16.5b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-5b" aria-labelledby="titulo-da-unidade-16-5b">
+      <h2 id="titulo-da-unidade-16-5b">16.5b Comparar fornecedores sem decorar preço</h2>
+      <p class="rotulo-unidade">Unidade 16.5 — Cache e esforço (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Os multiplicadores mudam por fornecedor, mas a lógica é a mesma: gravar caro, ler barato.</li>
+          <li>A OpenAI descreve desconto de até 95% nos tokens reaproveitados.</li>
+          <li>O Google tem cache implícito ligado por padrão, com 90% de desconto nos tokens cacheados.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Três transportadoras cobram tabelas diferentes, mas todas cobram mais para despachar do que para reutilizar a mesma caixa.</p></div>
+
+      <h3>A OpenAI</h3>
+      <p>A documentação da OpenAI resume o benefício: pagar a tarifa reduzida de entrada por tokens reaproveitados, com desconto de até 95% (<span class="qual">registrado na documentação</span>). A gravação tem custo e validade próprios; a leitura, preço menor.</p>
+      <h3>O Google</h3>
+      <p>O Google Cloud oferece cache implícito, automático e ligado por padrão, com 90% de desconto nos tokens cacheados em relação aos tokens de entrada padrão (<span class="qual">registrado na documentação</span>). O prefixo cacheado expira em até 24 horas, e a maioria das entradas sai antes (<span class="qual">registrado na documentação</span>). O cache explícito tem custo de armazenamento pelo tempo em que o conteúdo fica guardado (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: cache nos três fornecedores" tabindex="0">
+      <table class="tabela">
+        <caption>Modelos de cobrança de cache (leitura das documentações, 17/11/2026)</caption>
+        <thead><tr><th scope="col">Fornecedor</th><th scope="col">Como liga</th><th scope="col">Desconto descrito</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Anthropic</th><td>Marcação explícita ou automática</td><td>Leitura a 0,1 do preço base</td></tr>
+          <tr><th scope="row">OpenAI</th><td>Marcação de pontos</td><td>Até 95% nos tokens reaproveitados</td></tr>
+          <tr><th scope="row">Google</th><td>Implícito por padrão ou explícito</td><td>90% nos tokens cacheados</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que comparar</h3>
+      <p>Não compare o desconto isolado. Compare a conta do seu fluxo: quantas leituras por gravação, qual validade, qual custo de armazenamento. O número que importa é o custo por tarefa concluída (14.2c).</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-5b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-5b">Um arquiteto quer escolher fornecedor pelo maior desconto de cache. Qual análise é a mais correta?</p>
+        <label class="alternativa"><input type="radio" name="p16-5b" value="a" data-correta="true" data-explicacao="Correta. O desconto isolado não decide; a conta completa decide."><span><strong>A.</strong> Comparar o custo por tarefa concluída no próprio fluxo, considerando leituras por gravação, validade e armazenamento.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5b" value="b" data-correta="false" data-explicacao="Incorreta. O percentual depende da estrutura do uso."><span><strong>B.</strong> Escolher quem anuncia o maior percentual.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5b" value="c" data-correta="false" data-explicacao="Incorreta. A gravação é cobrada e pode dominar."><span><strong>C.</strong> Ignorar o custo de gravação.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5b" value="d" data-correta="false" data-explicacao="Incorreta. As tabelas e regras são diferentes."><span><strong>D.</strong> Assumir que os três cobram igual.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Compare a conta do fluxo, não o percentual do anúncio. Na parte 16.5c, vemos o esforço e o ponto de equilíbrio.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Desconto de até 95%:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Cache implícito com 90%:</strong> Google Cloud, <em>Context caching overview</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Expiração em até 24 horas:</strong> Google Cloud, <em>Context caching overview</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Custo do cache explícito:</strong> Google Cloud, <em>Context caching overview</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro comparativo:</strong> Leitura das documentações (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.5b">
+        <a href="#unidade-16-5a">Parte 16.5a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 330">330</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-5c">Parte 16.5c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-5c" aria-labelledby="titulo-da-unidade-16-5c">
+      <h2 id="titulo-da-unidade-16-5c">16.5c Esforço e o ponto de equilíbrio</h2>
+      <p class="rotulo-unidade">Unidade 16.5 — Cache e esforço (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O cache de 5 minutos se paga depois de uma leitura; o de 1 hora, depois de duas.</li>
+          <li>Esforço é alavanca antes da troca de modelo, com efeito no custo por tarefa.</li>
+          <li>O ponto de equilíbrio é conta de fluxo, não regra universal.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Comprar o pacote grande só compensa se você consumir tudo antes de estragar. A conta é do consumo, não do rótulo.</p></div>
+
+      <h3>A conta do equilíbrio</h3>
+      <p>A página de preços da Anthropic traz a conta pronta: a validade de 5 minutos, com gravação de 1,25 vez, se paga depois de uma leitura de cache (<span class="qual">registrado na documentação</span>); a de 1 hora, com gravação de 2 vezes, se paga depois de duas leituras (<span class="qual">registrado na documentação</span>). Abaixo desse número de leituras, o cache custa mais do que economiza.</p>
+      <h3>Onde o esforço entra</h3>
+      <p>O esforço troca raciocínio por custo e latência dentro do mesmo modelo (14.3b). Combinado com o cache, ele muda a conta: menos esforço pode significar menos tokens de saída e de raciocínio, sem mexer no prefixo cacheado.</p>
+      <h3>Multiplicadores que se somam</h3>
+      <p>Os multiplicadores se acumulam com outros modificadores, como o desconto do lote, o preço de contexto longo e a residência de dados (<span class="qual">registrado na documentação</span>). Duas economias podem coexistir; é preciso calcular o efeito combinado, não somar percentuais.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-5c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-5c">Um fluxo grava o cache de 1 hora e faz exatamente uma leitura por dia. O que a conta de equilíbrio indica?</p>
+        <label class="alternativa"><input type="radio" name="p16-5c" value="a" data-correta="true" data-explicacao="Correta. A validade de 1 hora se paga depois de duas leituras."><span><strong>A.</strong> O cache de 1 hora não se paga: o ponto de equilíbrio é de duas leituras antes de expirar.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5c" value="b" data-correta="false" data-explicacao="Incorreta. Esse é o caso da validade de 5 minutos."><span><strong>B.</strong> O cache se paga na primeira leitura.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5c" value="c" data-correta="false" data-explicacao="Incorreta. A conta depende do número de leituras."><span><strong>C.</strong> O cache sempre se paga.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-5c" value="d" data-correta="false" data-explicacao="Incorreta. A validade muda o multiplicador de gravação."><span><strong>D.</strong> A conta não muda com a validade.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O equilíbrio do cache é conta de leituras por gravação; o esforço se combina a ela. A unidade 16.6 trata do ponto ótimo de sessão e da manutenção.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Pontos de equilíbrio:</strong> Anthropic, <em>Pricing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Esforço como alavanca:</strong> Remissão a 14.3b (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Multiplicadores acumulados:</strong> Anthropic, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Prompt caching</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/prompt-caching</a>; Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>; Google Cloud, <em>Context caching overview</em> — <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.5c">
+        <a href="#unidade-16-5b">Parte 16.5b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 331">331</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-6a">Parte 16.6a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-6a" aria-labelledby="titulo-da-unidade-16-6a">
+      <h2 id="titulo-da-unidade-16-6a">16.6a Duração da sessão e o ponto ótimo</h2>
+      <p class="rotulo-unidade">Unidade 16.6 — Ponto ótimo de sessão e manutenção (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Sessão longa acumula contexto e custo; sessão curta perde continuidade.</li>
+          <li>Descontos de cache e de lote valem ao longo de toda a janela de contexto.</li>
+          <li>O ponto ótimo é onde o custo marginal do próximo turno supera o ganho.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma fogueira que já esquentou a casa não precisa de mais lenha para continuar aquecendo; atiçar sem necessidade só gasta o estoque.</p></div>
+
+      <h3>Custo cresce com a sessão</h3>
+      <p>Cada turno reenvia o contexto acumulado. Com cache, o prefixo repetido é cobrado com desconto; sem cache, é cobrado inteiro. A documentação confirma que os descontos de cache e de lote valem ao longo de toda a janela (<span class="qual">registrado na documentação</span>), e que o comprimento do prompt conta todos os tokens de entrada, incluindo leituras e gravações de cache (<span class="qual">registrado na documentação</span>).</p>
+      <h3>O que o ponto ótimo mede</h3>
+      <p>O <dfn>ponto ótimo de sessão</dfn> é o tamanho em que o próximo turno acrescenta mais custo que valor. Depois dele, compensa compactar (9.5), abrir conversa nova com resumo (14.6c) ou dividir a tarefa.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: custo por turno e decisão" tabindex="0">
+      <table class="tabela">
+        <caption>Custo marginal do turno e decisão (proposta didática)</caption>
+        <thead><tr><th scope="col">Situação</th><th scope="col">Custo do turno</th><th scope="col">Decisão</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Pergunta nova no início</th><td>Baixo</td><td>Seguir na sessão</td></tr>
+          <tr><th scope="row">Retomada após 10 turnos</th><td>Médio, com cache</td><td>Compactar se não houver ganho</td></tr>
+          <tr><th scope="row">Contexto no limite</th><td>Alto e arriscado</td><td>Abrir conversa nova com resumo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Como estimar</h3>
+      <p>A conta é <span class="qual">proposta didática</span>: custo do turno ≈ (tokens acumulados × preço do token de entrada, com o desconto de cache aplicado) + (tokens de saída × preço de saída). Compare com o valor do turno — se a pergunta já foi respondida há dez turnos, o custo marginal não se justifica.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-6a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-6a">Uma sessão de 60 turnos discute o mesmo assunto, e os últimos 10 turnos repetem conclusões. Qual decisão é a mais coerente?</p>
+        <label class="alternativa"><input type="radio" name="p16-6a" value="a" data-correta="true" data-explicacao="Correta. O ponto ótimo é onde o próximo turno custa mais que entrega."><span><strong>A.</strong> Compactar ou abrir conversa nova com resumo, porque o custo marginal dos turnos repetidos não se justifica.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6a" value="b" data-correta="false" data-explicacao="Incorreta. O limite técnico não é o limite econômico."><span><strong>B.</strong> Continuar até o limite da janela.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6a" value="c" data-correta="false" data-explicacao="Incorreta. O cache reduz o custo do contexto acumulado."><span><strong>C.</strong> Desligar o cache.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6a" value="d" data-correta="false" data-explicacao="Incorreta. Isso tende a aumentar custo e não encerra a repetição."><span><strong>D.</strong> Aumentar o esforço para encerrar antes.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O ponto ótimo é econômico, não técnico: onde o turno custa mais que entrega. Na parte 16.6b, vemos a manutenção do custo ao longo do tempo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Descontos ao longo da janela:</strong> Anthropic, <em>Pricing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Comprimento do prompt:</strong> Anthropic, <em>Pricing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Conta do turno:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.6a">
+        <a href="#unidade-16-5c">Parte 16.5c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 332">332</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-6b">Parte 16.6b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-6b" aria-labelledby="titulo-da-unidade-16-6b">
+      <h2 id="titulo-da-unidade-16-6b">16.6b Manutenção: o custo envelhece</h2>
+      <p class="rotulo-unidade">Unidade 16.6 — Ponto ótimo de sessão e manutenção (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Preço, modelo e uso mudam; a conta de hoje não é a de três meses atrás.</li>
+          <li>Revisar custo é rotina, com alerta e comparação de categorias.</li>
+          <li>A manutenção segue o mesmo roteiro do diagnóstico de divergência.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> A caldeira revisada uma vez por ano não explode; a que ninguém olha desde a instalação surpreende no inverno.</p></div>
+
+      <h3>O que muda por baixo</h3>
+      <p>Preços mudam, modelos entram e saem (15.5b), e o uso cresce com o produto. Uma otimização feita em janeiro pode estar obsoleta em junho — não por ter sido errada, mas porque o cenário mudou. A documentação do LiteLLM recomenda sincronizar a tabela de preços (<span class="qual">registrado na documentação</span>) e oferece um roteiro para investigar divergência quando o número não bate (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Além do preço</h3>
+      <p>A documentação da OpenAI lembra que tarefas de baixa prioridade podem usar processamento flexível, mais barato e mais lento (<span class="qual">registrado na documentação</span>). A cada trimestre, vale perguntar quais fluxos migraram de prioridade: o que era urgente pode ter deixado de ser.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: rotina de revisão de custo" tabindex="0">
+      <table class="tabela">
+        <caption>Revisão periódica de custo (proposta didática)</caption>
+        <thead><tr><th scope="col">Pergunta</th><th scope="col">Sinal</th><th scope="col">Ação</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Custo por tarefa subiu?</th><td>Comparação com o mês anterior</td><td>Revisar contexto, modelo e cache</td></tr>
+          <tr><th scope="row">Acerto de cache caiu?</th><td>Mudança no prompt ou no uso</td><td>Reordenar conteúdo estável</td></tr>
+          <tr><th scope="row">Fluxo pode esperar?</th><td>Mudança de prioridade</td><td>Migrar para lote ou flexível</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Rotina mínima</h3>
+      <p>Uma revisão mensal com três perguntas: o custo por tarefa concluída subiu? A taxa de acerto de cache caiu? Algum fluxo passou a poder esperar? As respostas apontam o ajuste — e o registro do que mudou evita repetir a análise.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-6b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-6b">O custo por tarefa concluída subiu 30% em um mês, sem mudança de volume. Qual primeira ação é a mais coerente?</p>
+        <label class="alternativa"><input type="radio" name="p16-6b" value="a" data-correta="true" data-explicacao="Correta. Categorias e acerto de cache são as primeiras verificações."><span><strong>A.</strong> Comparar as categorias de token e a taxa de acerto de cache para achar o que mudou.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6b" value="b" data-correta="false" data-explicacao="Incorreta. Trocar sem diagnosticar repete o problema."><span><strong>B.</strong> Trocar de fornecedor.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6b" value="c" data-correta="false" data-explicacao="Incorreta. Isso acomoda o problema em vez de resolvê-lo."><span><strong>C.</strong> Aumentar o teto de gasto.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6b" value="d" data-correta="false" data-explicacao="Incorreta. Sem medição não há diagnóstico."><span><strong>D.</strong> Desligar o monitoramento.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Custo envelhece com preço, modelo e uso; a revisão periódica mantém a conta honesta. Na parte 16.6c, fechamos o capítulo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Sincronizar preços e diagnosticar:</strong> LiteLLM, <em>Cost Tracking</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Processamento flexível:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Rotina de revisão:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.6b">
+        <a href="#unidade-16-6a">Parte 16.6a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 333">333</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-16-6c">Parte 16.6c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-16-6c" aria-labelledby="titulo-da-unidade-16-6c">
+      <h2 id="titulo-da-unidade-16-6c">16.6c Fechar a conta: método, não truque</h2>
+      <p class="rotulo-unidade">Unidade 16.6 — Ponto ótimo de sessão e manutenção (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Economia sustentável nasce de medição, alavanca certa e validação.</li>
+          <li>Cada economia tem um custo escondido: qualidade, latência ou retrabalho.</li>
+          <li>O método do capítulo cabe numa página e serve a qualquer fornecedor.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O cozinheiro econômico não compra o ingrediente mais barato: compra o certo, na quantidade certa, e aproveita as sobras.</p></div>
+
+      <h3>O método em cinco passos</h3>
+      <p>Meça tokens de entrada, saída e pedidos (16.1). Localize o gasto nas três alavancas (16.2). Elimine redundância com lote e junção de etapas (16.3). Organize contexto e ferramentas para o cache acertar (16.4). Escolha a validade de cache e o esforço pela conta do fluxo (16.5). Reavalie periodicamente (16.6b).</p>
+      <h3>O que não fazer</h3>
+      <p>Cortar contexto que a tarefa precisa, trocar de modelo sem amostra, desligar log para "reduzir overhead" e otimizar o percentual em vez da conta por tarefa. Cada um desses troca economia visível por custo invisível.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: economia e o que se troca" tabindex="0">
+      <table class="tabela">
+        <caption>Trocas explícitas de cada economia (proposta didática)</caption>
+        <thead><tr><th scope="col">Economia</th><th scope="col">O que se troca</th><th scope="col">Como validar</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Lote</th><td>Espera até a janela</td><td>Prazo do fluxo</td></tr>
+          <tr><th scope="row">Modelo menor</th><td>Capacidade</td><td>Amostra de aceite</td></tr>
+          <tr><th scope="row">Cache</th><td>Complexidade e gravação</td><td>Taxa de acerto e equilíbrio</td></tr>
+          <tr><th scope="row">Contexto enxuto</th><td>Informação disponível</td><td>Amostra com casos difíceis</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O compromisso declarado</h3>
+      <p>Toda economia é um compromisso: lote troca espera por desconto; modelo menor troca capacidade por preço; cache troca complexidade por repetição. O guia não promete economia sem custo — promete que o custo fica explícito.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p16-6c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p16-6c">A diretoria pede "economia de 50% sem perder qualidade". Qual resposta é a mais honesta?</p>
+        <label class="alternativa"><input type="radio" name="p16-6c" value="a" data-correta="true" data-explicacao="Correta. Cada economia troca algo; o método mede o resultado."><span><strong>A.</strong> É possível em fluxos que podem esperar e têm prefixo estável; no restante, a economia vem com troca declarada, medida por tarefa concluída.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6c" value="b" data-correta="false" data-explicacao="Incorreta. Isso troca qualidade sem medir."><span><strong>B.</strong> Sim, basta usar o modelo mais barato em tudo.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6c" value="c" data-correta="false" data-explicacao="Incorreta. Lote e cache mostram economia real."><span><strong>C.</strong> Não é possível economizar nunca.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-6c" value="d" data-correta="false" data-explicacao="Incorreta. Sem avaliação não há como provar qualidade."><span><strong>D.</strong> Sim, desligando a avaliação.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O método é medir, localizar, eliminar, organizar, escolher e reavaliar. O capítulo fecha com as questões.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Método:</strong> Síntese das seis unidades (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Trocas:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Preço e fornecedor:</strong> Remissão aos Capítulos 14 e 15 (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>; LiteLLM, <em>Cost Tracking</em> — <a href="https://docs.litellm.ai/docs/proxy/cost_tracking" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/cost_tracking</a>; OpenAI, <em>Cost optimization</em> — <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 16.6c">
+        <a href="#unidade-16-6b">Parte 16.6b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 334">334</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-16">Questões do capítulo 16</a>
+      </nav>
+    </section>
+
+    <section class="page" id="questoes-capitulo-16" aria-labelledby="titulo-das-questoes-16">
+      <h2 id="titulo-das-questoes-16">Questões do capítulo 16</h2>
+
+      <p>Seis questões aplicam o capítulo a situações reais de projeto: duas fáceis, três médias e uma difícil. Escolha uma alternativa por questão. A correção aparece na hora, com a explicação de cada escolha.</p>
+      <noscript><p>Esta página usa JavaScript para corrigir as questões. Sem ele, as alternativas aparecem, mas a correção não.</p></noscript>
+
+      <fieldset class="questao" aria-describedby="enunciado-c16q1">
+        <legend>Questão 1 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c16q1">Por que a contagem de tokens não deve ser tratada como valor exato?</p>
+        <label class="alternativa"><input type="radio" name="c16q1" value="a" data-correta="true" data-explicacao="Correta. A documentação diz que a contagem é estimativa."><span><strong>A.</strong> Porque é uma estimativa: o número real de tokens de entrada pode diferir por uma pequena margem.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q1" value="b" data-correta="false" data-explicacao="Incorreta. A cobrança é por token."><span><strong>B.</strong> Porque o provedor cobra em palavras.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q1" value="c" data-correta="false" data-explicacao="Incorreta. A contagem não usa lógica de cache."><span><strong>C.</strong> Porque o cache altera a contagem.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q1" value="d" data-correta="false" data-explicacao="Incorreta. Não é o motivo."><span><strong>D.</strong> Porque o modelo arredonda a resposta.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c16q2">
+        <legend>Questão 2 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c16q2">Qual é o ponto de equilíbrio do cache de 1 hora, segundo a página de preços?</p>
+        <label class="alternativa"><input type="radio" name="c16q2" value="a" data-correta="true" data-explicacao="Correta. O equilíbrio do cache de 1 hora é de duas leituras."><span><strong>A.</strong> Depois de duas leituras, porque a gravação custa 2 vezes o preço base.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q2" value="b" data-correta="false" data-explicacao="Incorreta. Esse é o caso das 5 minutos."><span><strong>B.</strong> Depois de uma leitura.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q2" value="c" data-correta="false" data-explicacao="Incorreta. Ele se paga com leituras suficientes."><span><strong>C.</strong> Nunca se paga.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q2" value="d" data-correta="false" data-explicacao="Incorreta. A conta documentada é de duas."><span><strong>D.</strong> Depois de dez leituras.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c16q3">
+        <legend>Questão 3 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c16q3">Um relatório de baixa prioridade roda 4 vezes por dia com o mesmo prompt. Qual combinação é a mais coerente?</p>
+        <label class="alternativa"><input type="radio" name="c16q3" value="a" data-correta="true" data-explicacao="Correta. Cache para o prefixo e trabalho que pode esperar para o lote."><span><strong>A.</strong> Cache no prefixo estável e, se o prazo permitir, lote ou processamento flexível, medindo o custo por tarefa.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q3" value="b" data-correta="false" data-explicacao="Incorreta. Contradiz a baixa prioridade."><span><strong>B.</strong> Modelo de fronteira com esforço alto em tempo real.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q3" value="c" data-correta="false" data-explicacao="Incorreta. O prefixo é estável e repetido."><span><strong>C.</strong> Desligar o cache para simplificar.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q3" value="d" data-correta="false" data-explicacao="Incorreta. Mais contexto custa mais."><span><strong>D.</strong> Aumentar o contexto a cada rodada.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c16q4">
+        <legend>Questão 4 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c16q4">A taxa de acerto de cache de um assistente caiu de 80% para 10% depois de uma mudança. Qual causa é a mais provável?</p>
+        <label class="alternativa"><input type="radio" name="c16q4" value="a" data-correta="true" data-explicacao="Correta. O cache casa por prefixo; a ordem errada zera o acerto."><span><strong>A.</strong> Conteúdo variável foi colocado antes do trecho estável, quebrando o prefixo.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q4" value="b" data-correta="false" data-explicacao="Incorreta. Tamanho não explica acerto de cache."><span><strong>B.</strong> O modelo ficou menor.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q4" value="c" data-correta="false" data-explicacao="Incorreta. Lote não interfere na taxa de acerto."><span><strong>C.</strong> O lote foi desligado.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q4" value="d" data-correta="false" data-explicacao="Incorreta. Não muda o que é cacheado."><span><strong>D.</strong> A contagem de tokens passou a ser estimada.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c16q5">
+        <legend>Questão 5 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c16q5">Um lote de reindexação é enviado e o resultado é buscado no 30º dia. O que a documentação indica?</p>
+        <label class="alternativa"><input type="radio" name="c16q5" value="a" data-correta="true" data-explicacao="Correta. A janela documentada é de 29 dias."><span><strong>A.</strong> Os resultados ficaram disponíveis por 29 dias e podem não estar mais acessíveis; era preciso buscar dentro da janela.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q5" value="b" data-correta="false" data-explicacao="Incorreta. A janela é limitada."><span><strong>B.</strong> Os resultados ficam para sempre.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q5" value="c" data-correta="false" data-explicacao="Incorreta. Expiração é da execução; resultados têm janela própria."><span><strong>C.</strong> O lote expira em 24 horas, então nunca terminou.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q5" value="d" data-correta="false" data-explicacao="Incorreta. Não é o que a documentação diz."><span><strong>D.</strong> É preciso reenviar todo dia.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c16q6">
+        <legend>Questão 6 <span class="nivel">(difícil)</span></legend>
+        <p id="enunciado-c16q6">A Aurora tem um assistente de atendimento com custo crescendo: (1) o prompt coloca a pergunta do usuário antes do manual; (2) o fluxo manda um lote de pedidos interativos para a API de lote; (3) as sessões duram 80 turnos; (4) as ferramentas devolvem o cadastro completo com 80 campos. Quais quatro correções são as mais defensáveis?</p>
+        <label class="alternativa"><input type="radio" name="c16q6" value="a" data-correta="true" data-explicacao="Correta. Cada correção ataca uma causa: prefixo, elegibilidade, sessão e ferramenta."><span><strong>A.</strong> Reordenar o prompt com o manual antes da pergunta; tirar o interativo do lote; compactar ou abrir conversa nova no ponto ótimo; devolver só os campos úteis das ferramentas.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q6" value="b" data-correta="false" data-explicacao="Incorreta. Agrava o custo sem resolver as causas."><span><strong>B.</strong> Aumentar o modelo e manter o restante.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q6" value="c" data-correta="false" data-explicacao="Incorreta. O lote não atende prazo curto."><span><strong>C.</strong> Manter o lote no interativo e aumentar o tempo de espera do usuário.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q6" value="d" data-correta="false" data-explicacao="Incorreta. Aumenta o custo em todas as voltas."><span><strong>D.</strong> Guardar todo o cadastro no contexto para “evitar novas chamadas”.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <nav class="page-nav" aria-label="Navegação das questões do capítulo 16">
+        <a href="#unidade-16-6c">Parte 16.6c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 335">335</span><a href="#sumario">Sumário</a></span>
         <a href="#glossario">Glossário</a>
       </nav>
     </section>
@@ -17869,6 +19011,7 @@ Desvio (regra fixa):
         <dt>Amostragem por temperatura (1.4)</dt><dd>Sorteio em que as chances são ajustadas antes: com temperatura baixa, os tokens prováveis ganham ainda mais peso; com temperatura alta, as chances ficam mais parecidas.</dd>
         <dt>Anotação estruturada (9.4)</dt><dd>Técnica de memória agêntica em que o agente grava marcos e decisões fora da janela de contexto para ler de volta após limpezas ou reinícios.</dd>
         <dt>Anotações de ferramenta (10.6)</dt><dd>Metadados opcionais em uma definição de ferramenta (como somente leitura ou destrutiva) que devem ser tratados como não confiáveis se vierem de servidor não confiável.</dd>
+        <dt>API de lote (16.3)</dt><dd>Modo assíncrono que processa grupos de pedidos com desconto e prazo próprio, em geral de até 24 horas.</dd>
         <dt>Aprendizado de máquina (1.1)</dt><dd>Quando ninguém escreve cada regra do programa e, em vez disso, ele é ajustado com muitos exemplos.</dd>
         <dt>Aprendizado no contexto (4.1)</dt><dd>Quando o modelo ajusta a resposta pelas instruções e exemplos lidos no próprio prompt, sem ser treinado de novo. Em inglês, <em>in-context learning</em>.</dd>
         <dt>Aprendizado por reforço para raciocínio (1.2)</dt><dd>Etapa em que o modelo treina em tarefas de vários passos, com uma resposta correta clara, e aprende a raciocinar melhor.</dd>
@@ -17897,6 +19040,7 @@ Desvio (regra fixa):
         <dt>Busca por símbolos (11.1)</dt><dd>Busca estrutural baseada em análise sintática (como <em>Tree-sitter</em>) para distinguir definições formais de simples menções em texto ou comentários.</dd>
         <dt>Cabeça de modelagem de linguagem (1.5)</dt><dd>Parte no topo do Transformer que calcula as chances do próximo token.</dd>
         <dt>Cache de prefixo (2.3, 9.6)</dt><dd>Recurso em que o provedor reaproveita o trabalho já feito no começo de um pedido que se repete, para reduzir espera e custo. Em inglês, <em>prompt caching</em>.</dd>
+        <dt>Cache implícito (16.5)</dt><dd>Cache ligado automaticamente pelo provedor, que aproveita prefixos repetidos sem marcação explícita.</dd>
         <dt>Calibração (5.4)</dt><dd>Comparar o veredito de um juiz-LLM com o de pessoas nos mesmos casos, para saber quanto confiar nele.</dd>
         <dt>Camadas (1.5)</dt><dd>Blocos de Transformer empilhados, por onde cada token passa.</dd>
         <dt>Canário (8.3)</dt><dd>Implantação gradual de uma mudança para uma fração mínima do tráfego antes da liberação geral, para limitar danos caso surjam falhas. Em inglês, <em>canary deployment</em>.</dd>
@@ -18073,6 +19217,7 @@ Desvio (regra fixa):
         <dt>MTEB (11.3)</dt><dd>Sigla de <em>Massive Text Embedding Benchmark</em>: conjunto amplo de avaliação de embeddings que mostrou não haver um método único dominante em todas as tarefas.</dd>
         <dt>Multi-salto (6.2)</dt><dd>Percurso que atravessa várias ligações seguidas num grafo (de um nó a seus vizinhos e aos vizinhos deles) para juntar informações espalhadas.</dd>
         <dt>Multimodal (modelo) (1.7)</dt><dd>Modelo que recebe ou produz mais de um tipo de dado, como texto e imagem.</dd>
+        <dt>Multiplicador de cache (16.5)</dt><dd>Fator aplicado ao preço base dos tokens para gravação e leitura de cache.</dd>
         <dt>Namespacing (10.2)</dt><dd>Uso de prefixos comuns por serviço ou domínio nos nomes das ferramentas para evitar colisão e confusão de escolha.</dd>
         <dt>Não-objetivo (3.6)</dt><dd>O que fica fora do escopo, com a razão escrita.</dd>
         <dt>Nível de supervisão humana (14.1)</dt><dd>Grau de revisão aplicada ao resultado: sem revisão, por amostragem ou integral. Substitui rótulos de cargo na matriz por finalidade.</dd>
@@ -18098,6 +19243,8 @@ Desvio (regra fixa):
         <dt>Pesos abertos (modelo de) (1.7)</dt><dd>Modelo cujos pesos quem criou divulga; quem tem o equipamento pode rodá-lo no próprio computador, nos termos da licença. A definição formal de “aberto” é mais exigente que só divulgar pesos.</dd>
         <dt>Pessoa afetada (3.1)</dt><dd>Quem sofre o efeito do sistema sem usá-lo, como o aluno que recebe uma resposta errada.</dd>
         <dt>Poka-yoke (10.2)</dt><dd>Desenho de argumentos e contratos à prova de erro, tornando difícil para o modelo passar valores ambíguos ou inválidos.</dd>
+        <dt>Ponto de equilíbrio do cache (16.5)</dt><dd>Número de leituras a partir do qual a economia de cache supera o custo da gravação.</dd>
+        <dt>Ponto ótimo de sessão (16.6)</dt><dd>Tamanho de conversa em que o custo do próximo turno passa a superar o valor que ele entrega.</dd>
         <dt>Portão (12.2)</dt><dd>Verificação programática entre duas etapas de uma cadeia, para confirmar que o processo segue no rumo. Em inglês, <em>gate</em>.</dd>
         <dt>Pós-treinamento (1.2)</dt><dd>As etapas depois do pré-treinamento: ajuste por instruções, alinhamento por preferências e aprendizado por reforço para raciocínio.</dd>
         <dt>Postmortem (15.6)</dt><dd>Registro escrito de um incidente, com impacto, linha do tempo, causas contribuintes e ações de prevenção.</dd>
@@ -18107,6 +19254,7 @@ Desvio (regra fixa):
         <dt>Problema (3.1)</dt><dd>A dificuldade que existe hoje, com quem, onde, com que frequência e com que custo.</dd>
         <dt>Processamento em lote (2.6)</dt><dd>Enviar muitos pedidos de uma vez, sem pressa pela resposta, para o provedor processá-los depois, em geral com desconto. Em inglês, <em>batch</em>.</dd>
         <dt>Processamento em segundo plano (2.6)</dt><dd>Modo em que o serviço aceita o pedido, responde logo com um identificador e entrega o resultado depois, para a pessoa consultar o andamento.</dd>
+        <dt>Processamento flexível (16.2)</dt><dd>Modo de custo menor em troca de respostas mais lentas e indisponibilidade ocasional, para tarefas de baixa prioridade.</dd>
         <dt>Prompt (1.1)</dt><dd>Texto que damos ao modelo para ele continuar.</dd>
         <dt>Prompt de sistema (4.3, 7.1)</dt><dd>Instrução definida pelo sistema, e não pelo usuário: tom, escopo, formato e limites. Não deve guardar segredos nem servir como controle de autorização.</dd>
         <dt>Prompt engineering (4.2)</dt><dd>Processo de escrever instruções eficazes, para que o modelo gere, de forma consistente, o que se precisa.</dd>
@@ -18178,6 +19326,7 @@ Desvio (regra fixa):
         <dt>SWE-bench (14.2)</dt><dd>Conjunto de 2.294 problemas de issues reais do GitHub em 12 repositórios Python, resolvidos por edição da base de código.</dd>
         <dt>SWE-bench Verified (14.2)</dt><dd>Subconjunto de 500 instâncias do SWE-bench revisadas por pessoas, com descrição clara e teste de correção válido.</dd>
         <dt>Tarefa (3.1)</dt><dd>O que a pessoa tenta fazer, e não o que o sistema faz.</dd>
+        <dt>Taxa de acerto de cache (16.2)</dt><dd>Razão entre tokens cacheados e tokens de entrada totais em um conjunto de chamadas.</dd>
         <dt>Temperatura (1.4)</dt><dd>Botão que ajusta as chances de cada token antes do sorteio.</dd>
         <dt>Template (4.6)</dt><dd>Prompt com partes fixas e partes variáveis marcadas, que o sistema preenche a cada pedido.</dd>
         <dt>Tempo até o primeiro token (2.3)</dt><dd>Tempo de espera até chegar o primeiro pedaço de texto da resposta. Em inglês, <em>time to first token</em> (TTFT).</dd>
@@ -18219,8 +19368,8 @@ Desvio (regra fixa):
       </dl>
 
       <nav class="page-nav" aria-label="Navegação do glossário">
-        <a href="#questoes-capitulo-15">Questões do capítulo 15</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 316">316</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-16">Questões do capítulo 16</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 336">336</span><a href="#sumario">Sumário</a></span>
         <a href="#referencias">Referências</a>
       </nav>
     </section>
@@ -18228,7 +19377,7 @@ Desvio (regra fixa):
     <section class="page" id="referencias" aria-labelledby="titulo-das-referencias">
       <h2 id="titulo-das-referencias">Referências</h2>
 
-      <p>Fontes dos capítulos 1 a 15, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 77 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. No capítulo 14, os 59 trechos literais citados das 17 fontes públicas primárias (Anthropic, OpenAI, Google, LiteLLM, OpenRouter, páginas do SWE-bench e do LiveCodeBench e artigos do arXiv) foram conferidos em 17/11/2026. No capítulo 15, os 69 trechos literais citados das 18 fontes públicas primárias (OpenAI, Anthropic, AWS, Microsoft, o SRE da Google, SemVer, Langfuse, MLflow e OpenTelemetry) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
+      <p>Fontes dos capítulos 1 a 16, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 77 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. No capítulo 14, os 59 trechos literais citados das 17 fontes públicas primárias (Anthropic, OpenAI, Google, LiteLLM, OpenRouter, páginas do SWE-bench e do LiveCodeBench e artigos do arXiv) foram conferidos em 17/11/2026. No capítulo 15, os 69 trechos literais citados das 18 fontes públicas primárias (OpenAI, Anthropic, AWS, Microsoft, o SRE da Google, SemVer, Langfuse, MLflow e OpenTelemetry) foram conferidos em 17/11/2026. No capítulo 16, os 43 trechos literais citados das 9 fontes públicas primárias (Anthropic, OpenAI, Google Cloud e LiteLLM) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
       <div class="fontes">
         <h3>Livros e artigos</h3>
         <p>Jurafsky, D.; Martin, J. H. <em>Speech and Language Processing</em>, 3ª ed., rascunho de 19/08/2026. Capítulos 1, 2, 7 e 8. <a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener noreferrer">web.stanford.edu/~jurafsky/slp3</a>. Consultado em 13/10/2026.</p>
@@ -18387,6 +19536,11 @@ Desvio (regra fixa):
       <p>Langfuse. <em>LLM Observability and Application Tracing</em> e <em>Prompt Management</em>. <a href="https://langfuse.com/docs/observability/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/observability/overview</a>; <a href="https://langfuse.com/docs/prompt-management/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/prompt-management/overview</a>.</p>
       <p>MLflow. <em>Prompt Registry</em>. <a href="https://mlflow.org/docs/latest/genai/prompt-registry/" target="_blank" rel="noopener noreferrer">mlflow.org/docs/latest/genai/prompt-registry</a>.</p>
       <p>OpenTelemetry. <em>GenAI semantic conventions</em>: spans, métricas e client inference. <a href="https://github.com/open-telemetry/semantic-conventions-genai" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai</a>.</p>
+      <h3>Fontes do capítulo 16 (consultadas em 17/11/2026)</h3>
+      <p>Anthropic. <em>Prompt caching</em>, <em>Pricing</em>, <em>Batch processing</em> e <em>Token counting</em>. <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/prompt-caching</a>; <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/about-claude/pricing</a>; <a href="https://platform.claude.com/docs/en/build-with-claude/batch-processing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/batch-processing</a>; <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/token-counting</a>.</p>
+      <p>OpenAI. <em>Cost optimization</em>, <em>Batch API</em> e <em>Prompt caching</em>. <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>; <a href="https://developers.openai.com/api/docs/guides/batch" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/batch</a>; <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
+      <p>Google Cloud. <em>Context caching overview</em>. <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview</a>.</p>
+      <p>LiteLLM. <em>Cost Tracking</em>. <a href="https://docs.litellm.ai/docs/proxy/cost_tracking" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/cost_tracking</a>.</p>
       <h3>Documentação</h3>
         <p>Anthropic. <em>Demystifying evals for AI agents</em>, 09/01/2026. <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/engineering/demystifying-evals-for-ai-agents</a>. Consultado em 13/11/2026.</p>
         <p>Anthropic. <em>Context windows</em>. <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-windows</a>. Consultado em 13/10/2026.</p>
@@ -18426,7 +19580,7 @@ Desvio (regra fixa):
 
       <nav class="page-nav" aria-label="Navegação das referências">
         <a href="#glossario">Glossário</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 317">317</span><a href="#sumario">Sumário</a></span>
+        <span class="page-mid"><span class="page-number" aria-label="Página 337">337</span><a href="#sumario">Sumário</a></span>
         <a href="#capitulo-1">Capítulo 1</a>
       </nav>
     </section>
