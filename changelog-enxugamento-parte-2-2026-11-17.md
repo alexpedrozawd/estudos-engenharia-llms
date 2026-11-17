@@ -64,13 +64,31 @@ com quatro alternativas, ponto de retomada e notas de fonte. As partes fundidas 
    **963 páginas A4**; páginas 378, 379, 416 e 564 conferidas em PNG (início e continuação de 6.3a,
    bloco de código de 7.1b e início de 10.1a).
 5. Neutralidade: nenhuma ocorrência de nome interno; fontes de mais de um fornecedor preservadas.
+6. `conferir-trechos.py` nos seis pacotes da Parte II: **327 trechos, 327 aprovados, 0 reprovados**.
+   A pendência registrada na primeira versão deste changelog partia de um diagnóstico errado: os
+   textos extraídos das sessões anteriores continuavam em `/tmp` (`grafos-textos`,
+   `seguranca-textos`, `cap8-textos`, `cap9-textos`, `cap10-textos`, `cap11-textos`), com os mesmos
+   nomes de chave dos pacotes. Contagem por capítulo:
+
+   | Capítulo | Pacote | Pasta de textos | Trechos |
+   | --- | --- | --- | --- |
+   | 6 | `pacote-de-fontes-engenharia-de-grafos-2026-11-17.md` | `/tmp/grafos-textos` | 43 |
+   | 7 | `pacote-de-fontes-capitulo-7-seguranca-e-governanca-2026-11-17.md` | `/tmp/seguranca-textos` | 52 |
+   | 8 | `pacote-de-fontes-capitulo-8-autodestrutivos-e-proporcionalidade-2026-11-17.md` | `/tmp/cap8-textos` | 60 |
+   | 9 | `pacote-de-fontes-capitulo-9-contexto-e-memoria-2026-11-17.md` | `/tmp/cap9-textos` | 77 |
+   | 10 | `pacote-de-fontes-capitulo-10-ferramentas-e-integracoes-2026-11-17.md` | `/tmp/cap10-textos` | 53 |
+   | 11 | `pacote-de-fontes-capitulo-11-busca-indexacao-e-rag-2026-11-17.md` | `/tmp/cap11-textos` | 42 |
+
+   Comando, igual para cada linha (troque pacote e pasta):
+   `python -I ferramentas/conferir-trechos.py --pacote <pacote>.md --textos /tmp/<pasta> --projeto .`
+   Os pacotes não foram tocados nesta rodada (último commit deles: `fbdb6f8`), então os textos
+   conferidos são os mesmos de quando cada capítulo foi escrito.
 
 ## Pendências
 
-- `conferir-trechos.py` não foi executado nos pacotes dos capítulos 6 a 11: os textos-fonte extraídos
-  nessas sessões não estão mais em `/tmp`. Os trechos literais não foram alterados nesta rodada
-  (só a moldura das partes), então a conferência original continua valendo; para repeti-la, é preciso
-  reextrair as fontes com `extrair-texto-web.py`.
+- Nenhuma no enxugamento. `/tmp` é apagado no desligamento: para reconferir depois, os pacotes
+  trazem, na seção 1, a URL de cada fonte e o hash bruto de 16 caracteres; basta baixar de novo e
+  reextrair com `extrair-texto-web.py`.
 - Geração das imagens segue fora de escopo, a pedido do operador.
 
 ## Arquivos
