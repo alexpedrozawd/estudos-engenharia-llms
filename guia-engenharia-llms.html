@@ -200,11 +200,11 @@
         line-height: 1.6;
       }
       /* Só as divisões maiores começam em página nova; as partes seguem o fluxo. */
-      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12, #capitulo-13, #capitulo-14,
-      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #questoes-capitulo-12, #questoes-capitulo-13, #questoes-capitulo-14, #glossario, #referencias { break-before: page; }
+      #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12, #capitulo-13, #capitulo-14, #capitulo-15,
+      #questoes-capitulo-1, #questoes-capitulo-2, #questoes-capitulo-3, #questoes-capitulo-4, #questoes-capitulo-6, #questoes-capitulo-7, #questoes-capitulo-8, #questoes-capitulo-9, #questoes-capitulo-10, #questoes-capitulo-11, #questoes-capitulo-12, #questoes-capitulo-13, #questoes-capitulo-14, #questoes-capitulo-15, #glossario, #referencias { break-before: page; }
       .page > h2 { margin-block-start: 2.2em; }
-      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #capitulo-13 > h2, #capitulo-14 > h2, #glossario > h2, #referencias > h2,
-      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2, #questoes-capitulo-13 > h2, #questoes-capitulo-14 > h2 { margin-block-start: 0; }
+      #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #capitulo-13 > h2, #capitulo-14 > h2, #capitulo-15 > h2, #glossario > h2, #referencias > h2,
+      #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2, #questoes-capitulo-13 > h2, #questoes-capitulo-14 > h2, #questoes-capitulo-15 > h2 { margin-block-start: 0; }
       /* Nenhum bloco termina dividido entre duas páginas. */
       h1, h2, h3, h4, legend, figcaption, caption, .rotulo-unidade { break-after: avoid; break-inside: avoid; }
       p, li, dt, dd { orphans: 3; widows: 3; }
@@ -415,7 +415,17 @@
             <li><a href="#questoes-capitulo-14">Questões do capítulo 14</a></li>
           </ul>
         </li>
-        <li><span class="chapter-name">15. Integração empresarial e LLMOps</span><span class="chapter-topics">Sistema existente; integração por APIs; dados e ações; observabilidade; versionamento; lançamento e recuperação.</span></li>
+        <li><span class="chapter-name"><a href="#capitulo-15">15. Integração empresarial e LLMOps</a></span><span class="chapter-topics">Sistema existente; integração por APIs; credenciais e limites; erros e repetição; dados e ações; observabilidade (traces e métricas); versionamento de API, modelo e prompt; canário, reversão e postmortem.</span>
+          <ul class="units">
+            <li><a href="#unidade-15-1a">15.1 Integrar ao sistema existente</a></li>
+            <li><a href="#unidade-15-2a">15.2 Integração por APIs</a></li>
+            <li><a href="#unidade-15-3a">15.3 Dados e ações</a></li>
+            <li><a href="#unidade-15-4a">15.4 Observabilidade</a></li>
+            <li><a href="#unidade-15-5a">15.5 Versionamento</a></li>
+            <li><a href="#unidade-15-6a">15.6 Lançamento e recuperação</a></li>
+            <li><a href="#questoes-capitulo-15">Questões do capítulo 15</a></li>
+          </ul>
+        </li>
         <li><span class="chapter-name">16. Eficiência e economia</span><span class="chapter-topics">Medição; gargalos; eliminar redundância; melhorar ferramentas e contexto; cache e esforço; ponto ótimo de sessão; ajustes; compromissos e manutenção.</span></li>
       </ol>
       <p class="endmatter">Ao final: <a href="#glossario">glossário</a> e <a href="#referencias">referências</a>.</p>
@@ -16781,6 +16791,1061 @@ Desvio (regra fixa):
       <nav class="page-nav" aria-label="Navegação das questões do capítulo 14">
         <a href="#unidade-14-6c">Parte 14.6c</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 295">295</span><a href="#sumario">Sumário</a></span>
+        <a href="#capitulo-15">Capítulo 15</a>
+      </nav>
+    </section>
+
+    <section class="page" id="capitulo-15" aria-labelledby="titulo-do-capitulo-15">
+      <h2 id="titulo-do-capitulo-15">Capítulo 15 — Integração empresarial e LLMOps</h2>
+      <p>Um protótipo que funciona na sua máquina não é um sistema em operação. Entre os dois há credenciais, limites de taxa, erros que precisam de tratamento próprio, registros que permitem investigar, versões que mudam por baixo e um caminho de volta quando a mudança dá errado. Este capítulo cobre essa distância.</p>
+      <p>Você vai integrar o modelo a um sistema que já existe, tratar limites e erros sem ampliar o incidente, decidir o que registrar e o que não registrar, montar observabilidade com traces e métricas, versionar API, modelo e prompt, e lançar com canário, reversão e postmortem.</p>
+      <p>Como em todo o guia, você não precisa programar: as práticas aparecem em tabelas, listas e descrições. O capítulo não repete segurança e retenção (Cap. 7), arquitetura e idempotência (Cap. 2), contratos de ferramenta (Cap. 10) nem contexto e memória (Cap. 9); remete a eles quando o assunto encosta.</p>
+
+      <h3>O que você vai estudar</h3>
+      <p>Seis unidades em 18 partes curtas, com resumo em três linhas, analogia, texto direto, pergunta de verificação e ponto de retomada, fechando com seis questões.</p>
+      <ul class="units">
+        <li><a href="#unidade-15-1a">15.1 Integrar ao sistema existente</a></li>
+        <li><a href="#unidade-15-2a">15.2 Integração por APIs</a></li>
+        <li><a href="#unidade-15-3a">15.3 Dados e ações</a></li>
+        <li><a href="#unidade-15-4a">15.4 Observabilidade</a></li>
+        <li><a href="#unidade-15-5a">15.5 Versionamento</a></li>
+        <li><a href="#unidade-15-6a">15.6 Lançamento e recuperação</a></li>
+        <li><a href="#questoes-capitulo-15">Questões do capítulo 15</a></li>
+      </ul>
+
+      <h3>Para quem é este capítulo</h3>
+      <p>Para quem leu os capítulos 1 a 14. Retomamos segurança e retenção (Cap. 7), idempotência e retomada (Cap. 2), contexto e cache (Cap. 9), contratos de ferramenta (Cap. 10), harness e laço (Cap. 12) e seleção e contingência de rota (Cap. 14).</p>
+
+      <h3>Como ler os exemplos</h3>
+      <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (OpenAI, Anthropic, AWS, Microsoft e Langfuse, consultados em 17/11/2026), <span class="qual">registrado no livro</span> (capítulos do SRE da Google), <span class="qual">registrado na especificação</span> (SemVer 2.0.0), <span class="qual">registrado no repositório oficial</span> (convenções GenAI do OpenTelemetry) e <span class="qual">proposta didática</span> (quadros operacionais, critérios e casos da Aurora Educação).</p>
+
+      <h3>Sobre as fontes</h3>
+      <p>O pacote do capítulo reúne 18 fontes públicas com 69 trechos literais conferidos em 17/11/2026 (<code>OP-01</code>, <code>AE-01</code>, <code>OT-01</code>, <code>BL-01</code>, <code>AV-01</code>, <code>AD-01</code>, <code>SC-01</code>, <code>SP-01</code>, <code>SV-01</code>, <code>AT-01</code>, <code>LO-01</code>, <code>LP-01</code> e <code>MP-01</code>, entre outros). As convenções do OpenTelemetry estão em estado <em>Development</em>: nomes de atributos podem mudar.</p>
+      <nav class="page-nav" aria-label="Navegação do capítulo 15">
+        <a href="#questoes-capitulo-14">Questões do capítulo 14</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 296">296</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-1a">Parte 15.1a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-1a" aria-labelledby="titulo-da-unidade-15-1a">
+      <h2 id="titulo-da-unidade-15-1a">15.1a O modelo entra num sistema que já existe</h2>
+      <p class="rotulo-unidade">Unidade 15.1 — Integrar ao sistema existente (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O modelo não é o sistema: ele é um componente novo dentro de um sistema que já tem regras.</li>
+          <li>Separar o ambiente de teste do de produção evita que um experimento derrube o serviço real.</li>
+          <li>O ponto de integração precisa de dono, contrato e critério de falha.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="15-1a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um muro antigo de pedra com um portão novo de ferro encaixado no vão original; ao lado, dois caminhos demarcados levam a uma horta de testes e a uma feira movimentada.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> Trocar o telhado de uma casa habitada exige andaimes e um cômodo provisório. Ninguém derruba o telhado todo numa terça-feira de chuva.</p></div>
+
+      <h3>O que já existia</h3>
+      <p>Antes do modelo, o sistema já tinha autenticação, banco, filas, telas e pessoas treinadas. A integração não cria um sistema novo: acrescenta um componente a um sistema em operação. Por isso a pergunta inicial não é "qual modelo?", e sim "onde este modelo encosta no que já funciona?".</p>
+      <h3>Ambientes separados</h3>
+      <p>A documentação de produção da OpenAI recomenda, à medida que o serviço cresce, criar projetos separados para os ambientes de <dfn>staging</dfn> (teste) e de <dfn>produção</dfn> (<span class="qual">registrado na documentação</span>). O objetivo é isolar o trabalho de desenvolvimento e teste para não interromper a aplicação em uso (<span class="qual">registrado na documentação</span>). Também é possível limitar o acesso de pessoas ao projeto de produção e definir limites de taxa e de gasto por projeto (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: pontos de integração e responsáveis" tabindex="0">
+      <table class="tabela">
+        <caption>Pontos de integração de um assistente interno (proposta didática)</caption>
+        <thead><tr><th scope="col">Ponto</th><th scope="col">Contrato</th><th scope="col">Dono</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Tela de atendimento</th><td>Mensagem do usuário e resposta em texto</td><td>Equipe de produto</td></tr>
+          <tr><th scope="row">Base de regulamentos</th><td>Recuperação de trechos com fonte</td><td>Equipe de conteúdo</td></tr>
+          <tr><th scope="row">Sistema de matrícula</th><td>Consulta e atualização com confirmação</td><td>Equipe de sistemas</td></tr>
+          <tr><th scope="row">Fila de revisão</th><td>Encaminhamento com motivo</td><td>Operação</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O ponto de integração</h3>
+      <p>Cada encosto precisa de três definições: quem é o dono (a equipe que responde quando falha), qual é o contrato (o que entra e o que sai, com formato e erro) e o que conta como falha. Sem essas três, o componente novo vira uma caixa preta que ninguém sabe desligar.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-1a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-1a">A Aurora quer testar um assistente dentro do portal de matrículas, que está em uso no período de inscrições. Qual desenho é o mais defensável?</p>
+        <label class="alternativa"><input type="radio" name="p15-1a" value="a" data-correta="true" data-explicacao="Correta. A documentação recomenda separar staging e produção e limitar acesso e limites por projeto."><span><strong>A.</strong> Colocar o assistente primeiro num projeto separado de teste, com acesso restrito e limites próprios, e só depois expor ao portal em produção.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1a" value="b" data-correta="false" data-explicacao="Incorreta. Testar em produção no período crítico expõe o serviço em uso a falhas evitáveis."><span><strong>B.</strong> Ligar direto em produção, porque o teste precisa de usuários reais.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1a" value="c" data-correta="false" data-explicacao="Incorreta. Desligar o serviço existente não é necessário nem aceitável."><span><strong>C.</strong> Desligar o portal durante os testes.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1a" value="d" data-correta="false" data-explicacao="Incorreta. O problema é separação de ambiente, não de empresa."><span><strong>D.</strong> Criar outra empresa para hospedar o teste.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O modelo é um componente novo num sistema em operação, com ambientes e donos separados. Na parte 15.1b, vemos credenciais e identidade do sistema.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Staging e produção:</strong> OpenAI, <em>Production best practices</em>, <em>Staging projects</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Acesso e limites por projeto:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Pontos de integração:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.1a">
+        <a href="#capitulo-15">Capítulo 15</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 297">297</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-1b">Parte 15.1b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-1b" aria-labelledby="titulo-da-unidade-15-1b">
+      <h2 id="titulo-da-unidade-15-1b">15.1b Credenciais: a identidade do sistema</h2>
+      <p class="rotulo-unidade">Unidade 15.1 — Integrar ao sistema existente (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>A aplicação deve ter identidade própria, e não a chave de uma pessoa.</li>
+          <li>Chaves com prazo e rotação regular reduzem o dano de um vazamento.</li>
+          <li>Segredo em variável de ambiente ou cofre, nunca no código ou no repositório.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O crachá do porteiro vale para o prédio, não para o funcionário que o carrega no bolso. Quando ele sai, o crachá é devolvido.</p></div>
+
+      <h3>Identidade de serviço</h3>
+      <p>A documentação da OpenAI recomenda usar uma conta de serviço do projeto como identidade da aplicação, em vez de depender da chave de um desenvolvedor (<span class="qual">registrado na documentação</span>). A diferença aparece no dia em que a pessoa muda de equipe ou sai: com identidade de serviço, nada para; com chave pessoal, o serviço cai junto com o acesso.</p>
+      <h3>Prazo e rotação</h3>
+      <p>A mesma página recomenda fortemente definir data de expiração ao criar a chave de projeto e estabelecer um processo regular de rotação (<span class="qual">registrado na documentação</span>). O procedimento sugerido é criar a substituta, atualizar as aplicações, verificar que funciona e só então revogar a antiga.</p>
+      <h3>Onde guardar</h3>
+      <p>Segredo não vai para o código nem para repositório público. Vai para variável de ambiente ou serviço de gestão de segredos. O capítulo 7 trata de permissões e vazamento sob a ótica de segurança; aqui o foco é operação: quem troca, quando troca e como sabe que a troca funcionou.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-1b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-1b">O assistente da Aurora usa a chave pessoal de um analista que está de férias. O que a documentação recomenda?</p>
+        <label class="alternativa"><input type="radio" name="p15-1b" value="a" data-correta="true" data-explicacao="Correta. A recomendação é identidade de serviço, expiração e rotação regular."><span><strong>A.</strong> Criar uma conta de serviço para a aplicação, com chave com prazo e rotação planejada, e migrar a aplicação para ela.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1b" value="b" data-correta="false" data-explicacao="Incorreta. Isso aumenta o risco e não resolve a dependência de pessoa."><span><strong>B.</strong> Pedir a senha do analista para outra pessoa.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1b" value="c" data-correta="false" data-explicacao="Incorreta. Duplicar amplia a exposição sem criar identidade de serviço."><span><strong>C.</strong> Duplicar a chave pessoal em outro computador.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1b" value="d" data-correta="false" data-explicacao="Incorreta. A rotação existe justamente para evitar surpresa; o procedimento prevê substituição antes da revogação."><span><strong>D.</strong> Desligar a rotação para não interromper o serviço.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A aplicação tem identidade própria, chave com prazo e rotação com substituição antes da revogação. Na parte 15.1c, tratamos de ambientes e escala.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Conta de serviço:</strong> OpenAI, <em>Production best practices</em>, <em>API keys</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Expiração e rotação:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Segredo fora do código:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.1b">
+        <a href="#unidade-15-1a">Parte 15.1a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 298">298</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-1c">Parte 15.1c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-1c" aria-labelledby="titulo-da-unidade-15-1c">
+      <h2 id="titulo-da-unidade-15-1c">15.1c Ambientes e escala</h2>
+      <p class="rotulo-unidade">Unidade 15.1 — Integrar ao sistema existente (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Escalar pode ser horizontal (mais instâncias) ou vertical (máquina maior).</li>
+          <li>Cache e balanceamento reduzem chamadas repetidas e distribuem a carga.</li>
+          <li>Automatizar a implantação reduz a diferença entre o que foi testado e o que roda.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma padaria pequena contrata um segundo padeiro; uma grande compra forno maior. As duas resolvem, mas exigem arranjos diferentes no balcão.</p></div>
+
+      <h3>Duas direções de escala</h3>
+      <p>A documentação descreve a <dfn>escala horizontal</dfn>: distribuir os pedidos entre mais servidores ou contêineres, com mecanismo de balanceamento (<span class="qual">registrado na documentação</span>). E a <dfn>escala vertical</dfn>: aumentar os recursos de um único nó, desde que a aplicação saiba aproveitá-los (<span class="qual">registrado na documentação</span>). A escolha depende de onde está o gargalo — e o gargalo de um sistema com modelo costuma ser diferente do de um site comum.</p>
+      <h3>Cache e balanceamento</h3>
+      <p>Guardar dados acessados com frequência melhora o tempo de resposta sem repetir chamadas à API, desde que o cache seja invalidado quando a informação muda (<span class="qual">registrado na documentação</span>). O balanceamento distribui os pedidos de forma uniforme entre os servidores disponíveis (<span class="qual">registrado na documentação</span>). No capítulo 9, o cache é de contexto; aqui, é de resultado.</p>
+      <h3>Implantação automatizada</h3>
+      <p>Entre as áreas de uma estratégia de operação, a documentação inclui a implantação automatizada do modelo e dos artefatos relacionados em produção (<span class="qual">registrado na documentação</span>). Implantar à mão é onde nasce a diferença entre "funcionava no teste" e "está no ar".</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-1c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-1c">A Aurora tem uma API com modelo que responde em 8 segundos sob carga, e o servidor fica com CPU em 20%. Qual leitura é a mais coerente?</p>
+        <label class="alternativa"><input type="radio" name="p15-1c" value="a" data-correta="true" data-explicacao="Correta. Escalar sem localizar o gargalo pode não resolver o tempo de resposta."><span><strong>A.</strong> O gargalo provavelmente não é CPU da máquina: vale examinar tempo de geração, fila e chamadas ao provedor antes de decidir entre escalar horizontal ou verticalmente.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1c" value="b" data-correta="false" data-explicacao="Incorreta. CPU em 20% sugere que o limite não é recursos da máquina."><span><strong>B.</strong> Comprar uma máquina maior resolve com certeza.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1c" value="c" data-correta="false" data-explicacao="Incorreta. Mais instâncias não resolvem gargalo no provedor ou na geração."><span><strong>C.</strong> Duplicar servidores sem medir resolve com certeza.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-1c" value="d" data-correta="false" data-explicacao="Incorreta. O cache costuma reduzir chamadas; desligá-lo tende a piorar."><span><strong>D.</strong> Desligar o cache para liberar recursos.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Escala segue o gargalo medido, com cache e balanceamento conscientes e implantação automatizada. A unidade 15.2 trata da integração por APIs: limites, erros e streaming.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Escala horizontal e vertical:</strong> OpenAI, <em>Production best practices</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Cache e balanceamento:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Implantação:</strong> Idem, <em>MLOps strategy</em> (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenAI, <em>Production best practices</em> — <a href="https://platform.openai.com/docs/guides/production-best-practices" target="_blank" rel="noopener noreferrer">platform.openai.com/docs/guides/production-best-practices</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.1c">
+        <a href="#unidade-15-1b">Parte 15.1b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 299">299</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-2a">Parte 15.2a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-2a" aria-labelledby="titulo-da-unidade-15-2a">
+      <h2 id="titulo-da-unidade-15-2a">15.2a Limites de taxa: o que estoura primeiro</h2>
+      <p class="rotulo-unidade">Unidade 15.2 — Integração por APIs (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Limite de taxa é medido em pedidos e em tokens por minuto e por dia, entre outras métricas.</li>
+          <li>O limite que estoura primeiro decide a resposta; não há um só teto.</li>
+          <li>O cabeçalho da resposta diz quanto resta e quando o limite volta.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma portaria conta quantas pessoas entram por minuto e quantas malas trazem. Se o elevador enche, não adianta ter só pessoas contadas.</p></div>
+
+      <h3>Várias réguas ao mesmo tempo</h3>
+      <p>A documentação da OpenAI enumera as métricas de limite: pedidos por minuto (RPM), pedidos por dia (RPD), tokens por minuto (TPM), tokens por dia (TPD), imagens por minuto (IPM) e minutos de áudio por minuto em alguns modelos de áudio (<span class="qual">registrado na documentação</span>). E fecha o ponto: o limite pode estourar em qualquer dessas opções, conforme o que ocorrer primeiro (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Por que isso muda o desenho</h3>
+      <p>Uma chamada com prompt gigante pode gastar o limite de tokens sem estourar o de pedidos. Um lote de perguntas curtas faz o contrário. Por isso o controle de vazão precisa olhar as duas dimensões: quantos pedidos e quantos tokens por minuto.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: métricas de limite de taxa" tabindex="0">
+      <table class="tabela">
+        <caption>Métricas de limite e o que cada uma controla (leitura da documentação da OpenAI)</caption>
+        <thead><tr><th scope="col">Métrica</th><th scope="col">Mede</th><th scope="col">Exemplo de estouro</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">RPM / RPD</th><td>Pedidos por minuto e por dia</td><td>Muitas perguntas curtas</td></tr>
+          <tr><th scope="row">TPM / TPD</th><td>Tokens por minuto e por dia</td><td>Poucos pedidos com prompt longo</td></tr>
+          <tr><th scope="row">IPM</th><td>Imagens por minuto</td><td>Geração de imagens em lote</td></tr>
+          <tr><th scope="row">Áudio por minuto</th><td>Minutos de áudio processados</td><td>Transcrição contínua</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O cabeçalho como bússola</h3>
+      <p>A resposta traz, nos cabeçalhos, quanto resta de pedidos e de tokens e quando o limite se reinicia; quando aplicável, também um tempo mínimo de espera. Quem lê esses valores decide esperar, reduzir a vazão ou trocar de rota — em vez de repetir às cegas. A resposta a estouro é o código 429, tratado na próxima parte.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-2a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-2a">A Aurora manda 30 pedidos por minuto, cada um com 40 mil tokens de contexto, e recebe erros 429 mesmo com o teto de pedidos folgado. Qual é a explicação mais provável?</p>
+        <label class="alternativa"><input type="radio" name="p15-2a" value="a" data-correta="true" data-explicacao="Correta. O limite pode estourar em qualquer métrica, conforme o que ocorrer primeiro."><span><strong>A.</strong> O limite de tokens por minuto estourou: o teto que conta primeiro é o de tokens, não o de pedidos.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2a" value="b" data-correta="false" data-explicacao="Incorreta. 429 é estouro de limite; credencial gera 401."><span><strong>B.</strong> O código 429 só aparece por erro de credencial.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2a" value="c" data-correta="false" data-explicacao="Incorreta. Não há imagens no fluxo descrito."><span><strong>C.</strong> O limite de imagens por minuto foi atingido.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2a" value="d" data-correta="false" data-explicacao="Incorreta. Fora do ar costuma gerar 5xx, não 429."><span><strong>D.</strong> O provedor está sempre fora do ar.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Limites valem por pedidos e por tokens, e o que estoura primeiro decide. Na parte 15.2b, vemos como repetir sem piorar a situação.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Métricas de limite:</strong> OpenAI, <em>Rate limits</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>O primeiro que ocorrer:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Cabeçalhos e reinício:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.2a">
+        <a href="#unidade-15-1c">Parte 15.1c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 300">300</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-2b">Parte 15.2b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-2b" aria-labelledby="titulo-da-unidade-15-2b">
+      <h2 id="titulo-da-unidade-15-2b">15.2b Repetir sem piorar</h2>
+      <p class="rotulo-unidade">Unidade 15.2 — Integração por APIs (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Repetição serve para falha transitória, não para erro que exige ação.</li>
+          <li>Respeite o tempo mínimo de espera e acrescente variação aleatória para os clientes não repetirem juntos.</li>
+          <li>Limite tentativas e tempo total; pedido que falha também consome limite.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Bater na porta de novo a cada segundo não apressa quem está atendendo; esperar e voltar numa fila organizada, sim.</p></div>
+
+      <h3>O que merece repetição</h3>
+      <p>Quando o pedido excede um limite temporário, a API devolve 429 (<span class="qual">registrado na documentação</span>). A resposta pode trazer o cabeçalho com o tempo de espera, e a documentação pede tratá-lo como mínimo: espere ao menos esse tempo e acrescente um pequeno atraso aleatório, para que vários clientes não repitam no mesmo instante (<span class="qual">registrado na documentação</span>).</p>
+      <h3>O que não merece</h3>
+      <p>Erro de cota, de cobrança ou outro que exige ação humana não deve ser repetido (<span class="qual">registrado na documentação</span>). Repetir um 402 ou um cap de gasto só gasta tempo. E há um detalhe contraintuitivo: pedidos malsucedidos também contam no limite por minuto, então reenviar sem parar não funciona (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Limites da própria repetição</h3>
+      <p>A orientação é limitar tanto o número de tentativas quanto o tempo total gasto repetindo (<span class="qual">registrado na documentação</span>). Uma repetição infinita transforma um incidente de minutos num incidente de horas, e ainda consome o orçamento.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-2b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-2b">Um serviço recebe 429 e repete imediatamente, sem esperar, em laço até funcionar. O que a documentação diz sobre essa estratégia?</p>
+        <label class="alternativa"><input type="radio" name="p15-2b" value="a" data-correta="true" data-explicacao="Correta. A documentação trata o tempo de espera como mínimo e alerta que pedidos falhos contam."><span><strong>A.</strong> Ela tende a falhar: o tempo de espera deve ser respeitado, as tentativas e o tempo total precisam de limite, e pedidos malsucedidos também contam no limite.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2b" value="b" data-correta="false" data-explicacao="Incorreta. Insistir sem espera piora o estouro."><span><strong>B.</strong> É a recomendada, porque insiste até passar.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2b" value="c" data-correta="false" data-explicacao="Incorreta. Erros de cobrança não devem ser repetidos."><span><strong>C.</strong> Só é permitida para erros de cobrança.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2b" value="d" data-correta="false" data-explicacao="Incorreta. O problema de vazão e de limite continua."><span><strong>D.</strong> Funciona se o cliente for único.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Repetição é para falha transitória, com espera mínima, variação aleatória e teto de tentativas e de tempo. Na parte 15.2c, vemos os erros do provedor e as falhas no meio do stream.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>429 e tempo mínimo:</strong> OpenAI, <em>Rate limits</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Erros que não se repetem:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Pedidos falhos contam:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Teto de tentativas e de tempo:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.2b">
+        <a href="#unidade-15-2a">Parte 15.2a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 301">301</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-2c">Parte 15.2c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-2c" aria-labelledby="titulo-da-unidade-15-2c">
+      <h2 id="titulo-da-unidade-15-2c">15.2c Erros do provedor e falhas no meio do stream</h2>
+      <p class="rotulo-unidade">Unidade 15.2 — Integração por APIs (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>500 e 529 pedem repetição com espera crescente; 409 pede resolver o conflito.</li>
+          <li>Há 429 que não melhora sozinho: é o teto de gasto, que só volta quando o acesso é restabelecido.</li>
+          <li>Erro depois do início do stream não segue o caminho normal e não deve ser reenviado depois de consumida a saída.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Se a torneira falha antes de abrir, você tenta de novo. Se a água já está na panela e para no meio, jogar tudo fora e recomeçar pode ser pior do que completar à mão.</p></div>
+
+      <h3>Erros do servidor</h3>
+      <p>A documentação da Anthropic descreve o 500 como erro inesperado interno, que deve ser repetido com espera crescente e, se persistir, escalado ao suporte com o identificador do pedido (<span class="qual">registrado na documentação</span>). O 529 indica sobrecarga temporária (<span class="qual">registrado na documentação</span>). O 409, por sua vez, é conflito com o estado atual de um recurso: a ação é resolver o conflito e repetir, não simplesmente esperar (<span class="qual">registrado na documentação</span>).</p>
+      <h3>O 429 que não passa</h3>
+      <p>Nem todo 429 é temporário. Um 429 de teto de gasto não traz tempo de espera e continua falhando até o acesso ser restabelecido (<span class="qual">registrado na documentação</span>). Tratar esse caso como "só mais uma tentativa" mantém o serviço parado sem aviso útil.</p>
+      <h3>SDK e stream</h3>
+      <p>O SDK oficial repete falhas transitórias — conexão, limite de taxa e erros 5xx — com espera crescente, duas vezes por padrão, respeitando o cabeçalho de espera quando presente (<span class="qual">registrado na documentação</span>). A OpenAI recomenda tratar 429 e 503 nos tratadores de erro (<span class="qual">registrado na documentação</span>). Em resposta por stream, o erro pode chegar depois de um 200 já recebido (<span class="qual">registrado na documentação</span>), e a orientação é não reenviar automaticamente depois de consumir saída.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-2c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-2c">Um serviço recebe 429 sem cabeçalho de espera e repete em laço durante duas horas. O painel de gastos mostra o teto mensal atingido. Qual leitura é a correta?</p>
+        <label class="alternativa"><input type="radio" name="p15-2c" value="a" data-correta="true" data-explicacao="Correta. O 429 de teto não traz tempo de espera e falha até o acesso voltar."><span><strong>A.</strong> Era um 429 de teto de gasto, que não se resolve repetindo: é preciso restabelecer o acesso e avisar, não insistir.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2c" value="b" data-correta="false" data-explicacao="Incorreta. Fora do ar costuma gerar 5xx; o teto é outro caso."><span><strong>B.</strong> O provedor estava fora do ar e voltaria sozinho.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2c" value="c" data-correta="false" data-explicacao="Incorreta. Nenhum tempo de espera resolve teto de gasto."><span><strong>C.</strong> Faltava aumentar o tempo de espera entre tentativas.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-2c" value="d" data-correta="false" data-explicacao="Incorreta. Credencial gera 401."><span><strong>D.</strong> O erro era de credencial.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Cada erro pede uma ação diferente, e o stream tem regra própria depois do início. A unidade 15.3 trata de dados e ações: o que guardar, rastrear e registrar.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>500 e 529:</strong> Anthropic, <em>Errors</em> (<span class="qual">registrado na documentação</span>, consultadas em 17/11/2026)</p>
+        <p><strong>409:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>429 de teto de gasto:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Repetição no SDK e stream:</strong> Idem; OpenAI, <em>Rate limits</em> (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenAI, <em>Rate limits</em> — <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank" rel="noopener noreferrer">platform.openai.com/docs/guides/rate-limits</a>; Anthropic, <em>Errors</em> — <a href="https://docs.claude.com/en/api/errors" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/errors</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.2c">
+        <a href="#unidade-15-2b">Parte 15.2b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 302">302</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-3a">Parte 15.3a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-3a" aria-labelledby="titulo-da-unidade-15-3a">
+      <h2 id="titulo-da-unidade-15-3a">15.3a O que entra nos registros</h2>
+      <p class="rotulo-unidade">Unidade 15.3 — Dados e ações (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Log de invocação pode guardar pedido, resposta e metadados completos.</li>
+          <li>Ele vem desligado por padrão e fica ligado até a configuração ser apagada.</li>
+          <li>Guardar conteúdo é decisão explícita, porque conteúdo contém dado pessoal.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma câmera na loja registra tudo e ajuda a investigar; deixá-la ligada sem regra transforma a loja num arquivo de imagens de clientes.</p></div>
+
+      <h3>O que o log completo contém</h3>
+      <p>A documentação do Bedrock descreve o log de invocação: com ele, é possível coletar os dados completos do pedido, os dados da resposta e os metadados associados às chamadas feitas na conta, em uma região (<span class="qual">registrado na documentação</span>). É o material que permite reconstruir o que aconteceu, o que é ouro em um incidente — e o que exige cuidado.</p>
+      <h3>Desligado por padrão</h3>
+      <p>O log vem desabilitado por padrão e, depois de habilitado, os registros ficam guardados até a configuração de log ser apagada (<span class="qual">registrado na documentação</span>). As duas frases juntas desenham a política: ligar é decisão consciente, e desligar não apaga o passado.</p>
+      <h3>Conteúdo é opção</h3>
+      <p>As convenções do OpenTelemetry tratam a captura de instruções, entradas e saídas como uma escolha separada, com formas próprias de registro (<span class="qual">registrado no repositório oficial</span>). O capítulo 7 trata de dado pessoal e retenção; a regra operacional aqui é simples: registre identificadores e metadados por padrão, e conteúdo só com necessidade, prazo e acesso definidos.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-3a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-3a">A Aurora quer ligar o log completo de invocações para investigar um incidente, mas os pedidos contêm dados de alunos. Qual decisão é a mais defensável?</p>
+        <label class="alternativa"><input type="radio" name="p15-3a" value="a" data-correta="true" data-explicacao="Correta. O log completo guarda pedido e resposta; a decisão precisa tratar acesso, prazo e retenção."><span><strong>A.</strong> Ligar o log com escopo, prazo e acesso definidos, sabendo que conteúdo é dado pessoal e que desligar não apaga o que já foi gravado.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3a" value="b" data-correta="false" data-explicacao="Incorreta. Conteúdo contém dado pessoal e a retenção continua após desligar."><span><strong>B.</strong> Ligar o log para sempre, porque logar nunca faz mal.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3a" value="c" data-correta="false" data-explicacao="Incorreta. Sem identificador não há como investigar o incidente."><span><strong>C.</strong> Não registrar nada, nem identificadores.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3a" value="d" data-correta="false" data-explicacao="Incorreta. Exporia dado pessoal."><span><strong>D.</strong> Guardar os logs num repositório público para auditar.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Log completo é poderoso e opcional, com prazo e acesso definidos. Na parte 15.3b, vemos como rastrear um pedido até a origem.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Conteúdo do log:</strong> AWS, <em>Model invocation logging</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Desligado por padrão e retenção:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Captura de conteúdo opcional:</strong> OpenTelemetry, GenAI spans (<span class="qual">registrado no repositório oficial</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.3a">
+        <a href="#unidade-15-2c">Parte 15.2c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 303">303</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-3b">Parte 15.3b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-3b" aria-labelledby="titulo-da-unidade-15-3b">
+      <h2 id="titulo-da-unidade-15-3b">15.3b Rastrear até a origem</h2>
+      <p class="rotulo-unidade">Unidade 15.3 — Dados e ações (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Cada erro traz um identificador de pedido; é ele que liga o relato ao registro.</li>
+          <li>A auditoria de uso mostra consumo por chave e por modelo.</li>
+          <li>Sem identificador, o suporte e a investigação começam do zero.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O número do protocolo no balcão não resolve o problema, mas é o que permite encontrar o processo certo no arquivo.</p></div>
+
+      <h3>O identificador do pedido</h3>
+      <p>A documentação da Anthropic informa que a resposta de erro inclui um campo de identificação do pedido, para facilitar o rastreamento e a depuração (<span class="qual">registrado na documentação</span>). O mesmo identificador aparece no cabeçalho da resposta. Quem reporta uma falha deve levá-lo; quem recebe consegue achar o registro exato.</p>
+      <h3>Auditoria de uso</h3>
+      <p>Para achar uso de modelos antigos, a documentação da Anthropic descreve exportar o uso no console e revisar o arquivo por chave de API e por modelo (<span class="qual">registrado na documentação</span>). A auditoria serve a mais de um propósito: localizar dependências esquecidas, entender quem consome o quê e estimar o custo por área (<span class="qual">registrado na documentação</span>).</p>
+      <div class="rolagem" role="region" aria-label="Tabela: campos mínimos de rastreio" tabindex="0">
+      <table class="tabela">
+        <caption>Campos de rastreio por chamada (proposta didática, alinhada aos identificadores documentados)</caption>
+        <thead><tr><th scope="col">Campo</th><th scope="col">Para que serve</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Identificador do pedido</th><td>Ligar relato, log e suporte</td></tr>
+          <tr><th scope="row">Chave ou conta</th><td>Saber quem chamou e quanto gastou</td></tr>
+          <tr><th scope="row">Modelo e versão</th><td>Reproduzir o comportamento</td></tr>
+          <tr><th scope="row">Horário e duração</th><td>Reconstruir a linha do tempo</td></tr>
+          <tr><th scope="row">Resultado (sucesso ou erro)</th><td>Medir falha por rota</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O mínimo para rastrear</h3>
+      <p>Um sistema rastreável guarda, para cada chamada: identificador do pedido, chave ou conta que chamou, modelo e versão, horário, resultado e duração. O conteúdo é opcional (15.3a). Com esses campos, uma reclamação vira uma consulta; sem eles, vira arqueologia.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-3b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-3b">Um usuário relata resposta errada numa tela. O time não tem o identificador do pedido nem registro da chamada. Qual é a consequência prática?</p>
+        <label class="alternativa"><input type="radio" name="p15-3b" value="a" data-correta="true" data-explicacao="Correta. Sem identificador e registro, o rastro se perde."><span><strong>A.</strong> Não há como reconstruir o que foi enviado e recebido; a investigação depende de reproduzir o caso do zero.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3b" value="b" data-correta="false" data-explicacao="Incorreta. O modelo não guarda a chamada para consulta posterior."><span><strong>B.</strong> Nada: o modelo pode ser consultado sobre o que respondeu.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3b" value="c" data-correta="false" data-explicacao="Incorreta. Reiniciar não recupera o histórico."><span><strong>C.</strong> Basta reiniciar o serviço.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3b" value="d" data-correta="false" data-explicacao="Incorreta. Sem evidência, não se conclui nada sobre a origem."><span><strong>D.</strong> O erro é necessariamente do usuário.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O identificador do pedido e a auditoria de uso são o rastro mínimo. Na parte 15.3c, tratamos dos dados sob gestão e das ações com efeito.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Identificador do pedido:</strong> Anthropic, <em>Errors</em>, <em>Error shapes</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Auditoria de uso:</strong> Anthropic, <em>Model deprecations</em>, <em>Auditing model usage</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Campos de rastreio:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.3b">
+        <a href="#unidade-15-3a">Parte 15.3a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 304">304</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-3c">Parte 15.3c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-3c" aria-labelledby="titulo-da-unidade-15-3c">
+      <h2 id="titulo-da-unidade-15-3c">15.3c Dados sob gestão e ações com efeito</h2>
+      <p class="rotulo-unidade">Unidade 15.3 — Dados e ações (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Os dados que alimentam o modelo precisam de dono, versão e histórico de mudanças.</li>
+          <li>Ações que alteram sistemas exigem confirmação, registro e possibilidade de desfazer.</li>
+          <li>Ler e escrever são operações diferentes: a segunda precisa de mais controle.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Consultar o estoque é inofensivo; dar baixa numa peça muda o inventário. A mesma pessoa pode fazer as duas coisas, mas só a segunda precisa de assinatura.</p></div>
+
+      <h3>Dados com dono</h3>
+      <p>A documentação de operação inclui, entre as áreas de gestão, administrar os dados usados para treinar ou ajustar o modelo e acompanhar versões e mudanças (<span class="qual">registrado na documentação</span>). Na prática, cada conjunto que alimenta o sistema precisa de dono, data e registro do que mudou — o mesmo cuidado que o capítulo 3 pede para requisitos.</p>
+      <h3>Ações de escrita</h3>
+      <p>Quando o assistente pode alterar um registro, três controles entram: confirmação antes do efeito, registro do que foi feito e caminho de desfazer. Os contratos de ferramenta e a validação de argumentos estão no capítulo 10; a idempotência e a retomada, no capítulo 2.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: controles de ações com efeito" tabindex="0">
+      <table class="tabela">
+        <caption>Controles mínimos para ações que alteram dados (proposta didática)</caption>
+        <thead><tr><th scope="col">Controle</th><th scope="col">Pergunta</th><th scope="col">Exemplo</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Idempotência</th><td>Rodar duas vezes muda o resultado?</td><td>Confirmar matrícula já confirmada</td></tr>
+          <tr><th scope="row">Confirmação</th><td>Quem aprova o efeito?</td><td>Operador revisa antes de salvar</td></tr>
+          <tr><th scope="row">Registro</th><td>O que fica gravado?</td><td>Quem pediu, o quê, quando</td></tr>
+          <tr><th scope="row">Desfazer</th><td>Como reverter?</td><td>Estorno ou restauração do registro anterior</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Quatro perguntas antes de liberar uma ação</h3>
+      <p>O que acontece se a ação rodar duas vezes? Quem confirma? O que fica registrado? Como desfazer? Se qualquer resposta for "não sei", a ação ainda não está pronta para produção. O capítulo 8 trata da proporcionalidade desses controles: nem todo efeito precisa do mesmo peso.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-3c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-3c">O assistente vai poder cancelar matrículas a pedido do aluno. Qual conjunto de controles é o mais coerente?</p>
+        <label class="alternativa"><input type="radio" name="p15-3c" value="a" data-correta="true" data-explicacao="Correta. Ação com efeito pede confirmação, registro, reversão e idempotência."><span><strong>A.</strong> Confirmação do aluno, registro da operação e caminho de reversão, com a ação idempotente para não cancelar duas vezes.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3c" value="b" data-correta="false" data-explicacao="Incorreta. Pedido do usuário não substitui confirmação e registro em ação irreversível."><span><strong>B.</strong> Liberar direto, porque o aluno pediu.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3c" value="c" data-correta="false" data-explicacao="Incorreta. Registro posterior não evita o efeito errado."><span><strong>C.</strong> Só registrar depois do cancelamento.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-3c" value="d" data-correta="false" data-explicacao="Incorreta. Histórico é o que permite auditar e desfazer."><span><strong>D.</strong> Desativar o histórico para simplificar.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Dados têm dono e versão; ações com efeito pedem confirmação, registro, reversão e idempotência. A unidade 15.4 trata de observabilidade.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Gestão de dados e versões:</strong> OpenAI, <em>Production best practices</em>, <em>MLOps strategy</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Controles de ação:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+        <p><strong>Contratos e idempotência:</strong> Remissão aos Capítulos 2 e 10 (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> AWS, <em>Model invocation logging</em> — <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html" target="_blank" rel="noopener noreferrer">docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</a>; Anthropic, <em>Errors</em> — <a href="https://docs.claude.com/en/api/errors" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/errors</a>; Anthropic, <em>Model deprecations</em> — <a href="https://docs.claude.com/en/docs/about-claude/model-deprecations" target="_blank" rel="noopener noreferrer">docs.claude.com/docs/about-claude/model-deprecations</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.3c">
+        <a href="#unidade-15-3b">Parte 15.3b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 305">305</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-4a">Parte 15.4a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-4a" aria-labelledby="titulo-da-unidade-15-4a">
+      <h2 id="titulo-da-unidade-15-4a">15.4a Traces e spans: a linha do tempo da chamada</h2>
+      <p class="rotulo-unidade">Unidade 15.4 — Observabilidade (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Um trace é o registro completo de uma operação; cada etapa é um span.</li>
+          <li>O span da operação inclui as repetições automáticas, e não só a tentativa que deu certo.</li>
+          <li>Os nomes de atributos do padrão ainda estão em desenvolvimento e podem mudar.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="15-4a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um escrivão em uma torre alta anota, com pena e tinta, cada etapa de uma caravana: a partida, a parada no posto, o desvio pela ponte quebrada e a chegada, tudo na mesma folha.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> O diário de bordo do navio registra a viagem inteira, com escalas e tempestades, e não apenas o porto de chegada.</p></div>
+
+      <h3>Operação, não tentativa</h3>
+      <p>As convenções do OpenTelemetry definem os spans de GenAI como operações lógicas vistas por quem chama (<span class="qual">registrado no repositório oficial</span>). E resolvem a dúvida mais comum: se houve falha transitória e o pedido foi repetido automaticamente, o span deve cobrir a duração da operação lógica com todas as repetições (<span class="qual">registrado no repositório oficial</span>). O tempo que o usuário sentiu inclui as tentativas.</p>
+      <h3>Para que serve</h3>
+      <p>A documentação da Microsoft resume o uso: traces servem para diagnosticar chamadas de ferramenta erradas, prompts enganosos, gargalos de latência e notas baixas de avaliação (<span class="qual">registrado na documentação</span>). E descreve a implementação: os traces ficam armazenados no Application Insights usando OpenTelemetry (<span class="qual">registrado na documentação</span>). O padrão é o mesmo em outros fornecedores; muda o destino.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: partes de um trace de chamada" tabindex="0">
+      <table class="tabela">
+        <caption>Trace, span e atributos (leitura das convenções do OpenTelemetry)</caption>
+        <thead><tr><th scope="col">Elemento</th><th scope="col">O que registra</th><th scope="col">Cuidado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Trace</th><td>A operação completa, do pedido à resposta</td><td>Inclui repetições automáticas</td></tr>
+          <tr><th scope="row">Span</th><td>Uma etapa: inferência, ferramenta, recuperação</td><td>Não confundir com tentativa individual</td></tr>
+          <tr><th scope="row">Atributos</th><td>Modelo, operação, prompt, tokens</td><td>Padrão em desenvolvimento</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que o padrão ainda não garante</h3>
+      <p>As convenções estão marcadas como <em>Development</em>: nomes de atributos e métricas podem mudar. Adotar o padrão é melhor que inventar nomes próprios, mas o time precisa acompanhar a evolução e não tratar cada atributo como contrato eterno.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-4a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-4a">Uma chamada falhou duas vezes e deu certo na terceira, com 9 segundos no total. O que o span da operação deve mostrar?</p>
+        <label class="alternativa"><input type="radio" name="p15-4a" value="a" data-correta="true" data-explicacao="Correta. A convenção manda cobrir a operação inteira, incluindo repetições."><span><strong>A.</strong> A duração das três tentativas somadas, porque o span cobre a operação lógica com as repetições.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4a" value="b" data-correta="false" data-explicacao="Incorreta. Isso esconde o tempo real percebido."><span><strong>B.</strong> Apenas a terceira tentativa, que deu certo.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4a" value="c" data-correta="false" data-explicacao="Incorreta. Erro no meio faz parte do que se quer registrar."><span><strong>C.</strong> Nada, porque houve erro no meio.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4a" value="d" data-correta="false" data-explicacao="Incorreta. O span cobre o tempo de execução, não só a espera."><span><strong>D.</strong> Só o tempo de espera entre tentativas.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O trace cobre a operação inteira, com as repetições. Na parte 15.4b, vemos as métricas que resumem saúde ao longo do tempo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Span como operação lógica:</strong> OpenTelemetry, GenAI spans (<span class="qual">registrado no repositório oficial</span>)</p>
+        <p><strong>Repetições dentro do span:</strong> Idem (<span class="qual">registrado no repositório oficial</span>)</p>
+        <p><strong>Uso e armazenamento:</strong> Microsoft, <em>View trace results</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Status do padrão:</strong> OpenTelemetry, GenAI spans (<span class="qual">registrado no repositório oficial</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.4a">
+        <a href="#unidade-15-3c">Parte 15.3c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 306">306</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-4b">Parte 15.4b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-4b" aria-labelledby="titulo-da-unidade-15-4b">
+      <h2 id="titulo-da-unidade-15-4b">15.4b Métricas: duração e tempo até o primeiro token</h2>
+      <p class="rotulo-unidade">Unidade 15.4 — Observabilidade (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Métricas resumem muitas chamadas em números comparáveis ao longo do tempo.</li>
+          <li>As convenções trazem duração da operação, tempo até o primeiro token e tempo por token de saída.</li>
+          <li>Sistema generativo é não determinístico; a métrica precisa de distribuição, não de um caso.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O diário do mercador conta cada viagem; a contabilidade do ano mostra tendência. As duas coisas são necessárias, para fins diferentes.</p></div>
+
+      <h3>Três números que descrevem a experiência</h3>
+      <p>As convenções de métricas do OpenTelemetry definem, entre outras, a duração da operação do cliente (<span class="qual">registrado no repositório oficial</span>), o tempo até o primeiro token (<span class="qual">registrado no repositório oficial</span>) e o tempo por token de saída (<span class="qual">registrado no repositório oficial</span>) do lado do servidor. Juntos, respondem a perguntas diferentes: quanto demora a resposta inteira, quanto demora para começar a aparecer e qual é o ritmo de geração.</p>
+      <h3>Por que distribuição</h3>
+      <p>Sistemas generativos são inerentemente não determinísticos (<span class="qual">registrado na documentação</span>). Duas chamadas iguais podem ter tempos diferentes e respostas diferentes. Uma média sozinha esconde a cauda; por isso se acompanham percentis e se olha o pior caso que o usuário aceita.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: métricas e decisão" tabindex="0">
+      <table class="tabela">
+        <caption>Métricas de inferência e a decisão que cada uma apoia</caption>
+        <thead><tr><th scope="col">Métrica</th><th scope="col">Pergunta que responde</th><th scope="col">Decisão típica</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Tempo até o primeiro token</th><td>Quanto o usuário espera para ver algo</td><td>Ligar streaming, encurtar prompt</td></tr>
+          <tr><th scope="row">Tempo por token</th><td>Qual o ritmo de geração</td><td>Trocar modelo ou esforço</td></tr>
+          <tr><th scope="row">Duração da operação</th><td>Quanto custa esperar a resposta inteira</td><td>Limitar tamanho e ajustar rota</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que cada número decide</h3>
+      <p>Tempo até o primeiro token é o que o usuário sente ao esperar a resposta começar; tempo por token, o ritmo de leitura. Duração total decide o custo de espera. Otimizar um sem olhar os outros pode piorar a percepção: streaming reduz o primeiro e não muda o total.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-4b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-4b">A Aurora mede apenas a duração média das chamadas e vê tudo estável, enquanto usuários reclamam de espera. O que falta?</p>
+        <label class="alternativa"><input type="radio" name="p15-4b" value="a" data-correta="true" data-explicacao="Correta. A média esconde a cauda; o primeiro token é o que o usuário percebe."><span><strong>A.</strong> Olhar a distribuição, especialmente o tempo até o primeiro token e a cauda, porque a média esconde casos ruins.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4b" value="b" data-correta="false" data-explicacao="Incorreta. Média estável pode esconder cauda longa."><span><strong>B.</strong> Nada: média estável significa experiência estável.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4b" value="c" data-correta="false" data-explicacao="Incorreta. Não é o ponto da experiência."><span><strong>C.</strong> Medir o número de tokens do treino.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4b" value="d" data-correta="false" data-explicacao="Incorreta. Custo não mede espera."><span><strong>D.</strong> Medir apenas o custo.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Métricas descrevem a experiência em distribuição, não em média. Na parte 15.4c, vemos logs e o que registrar neles.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Métricas de inferência:</strong> OpenTelemetry, GenAI metrics (<span class="qual">registrado no repositório oficial</span>)</p>
+        <p><strong>Não determinismo:</strong> Langfuse, <em>LLM Observability</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Quadro de decisões:</strong> Leitura das convenções (<span class="qual">registrado no repositório oficial</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.4b">
+        <a href="#unidade-15-4a">Parte 15.4a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 307">307</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-4c">Parte 15.4c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-4c" aria-labelledby="titulo-da-unidade-15-4c">
+      <h2 id="titulo-da-unidade-15-4c">15.4c Logs: conteúdo, versão e o que fica registrado</h2>
+      <p class="rotulo-unidade">Unidade 15.4 — Observabilidade (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O trace estruturado guarda prompt enviado, resposta, tokens, latência e passos intermediários.</li>
+          <li>Nome e versão do prompt podem viajar como atributos, o que liga o comportamento à versão usada.</li>
+          <li>Monitorar desempenho ao longo do tempo fecha o ciclo entre registro e decisão.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> A receita anotada no caderno da cozinha com a data e a versão explica por que o bolo de hoje saiu diferente do de ontem.</p></div>
+
+      <h3>O que um trace rico contém</h3>
+      <p>A documentação do Langfuse descreve o núcleo da observabilidade como o rastreamento da aplicação: registros estruturados de cada pedido que capturam o prompt exato enviado, a resposta do modelo, o uso de tokens, a latência e quaisquer ferramentas ou etapas de recuperação no meio (<span class="qual">registrado na documentação</span>). É o que permite responder "por que esta resposta saiu assim?".</p>
+      <h3>Nome e versão do prompt</h3>
+      <p>As convenções do OpenTelemetry preveem atributos para o nome do prompt, que o identifica de forma única (<span class="qual">registrado no repositório oficial</span>), e para a versão do modelo de prompt usado (<span class="qual">registrado no repositório oficial</span>). Com isso, o registro aponta para a versão exata — e a comparação entre versões deixa de depender de memória.</p>
+      <h3>Monitorar ao longo do tempo</h3>
+      <p>Entre as áreas de operação, a documentação inclui acompanhar o desempenho do modelo ao longo do tempo e detectar problemas ou degradação (<span class="qual">registrado na documentação</span>). Registro sozinho não resolve: é preciso olhar o agregado e agir. Conteúdo é opcional (15.3a); identificadores e metadados já permitem ver tendência.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-4c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-4c">O time percebe que as respostas pioraram nesta semana, mas não sabe qual mudança causou. Qual registro teria respondido?</p>
+        <label class="alternativa"><input type="radio" name="p15-4c" value="a" data-correta="true" data-explicacao="Correta. Registro estruturado com versão liga o comportamento à mudança."><span><strong>A.</strong> O trace com o prompt exato, a versão do prompt e o modelo, comparado com a semana anterior.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4c" value="b" data-correta="false" data-explicacao="Incorreta. Duração não explica mudança de qualidade."><span><strong>B.</strong> A média de duração das chamadas.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4c" value="c" data-correta="false" data-explicacao="Incorreta. Volume não aponta a causa."><span><strong>C.</strong> O número de usuários ativos.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-4c" value="d" data-correta="false" data-explicacao="Incorreta. A degradação ocorreu com respostas de sucesso."><span><strong>D.</strong> O log de erros do servidor web.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Logs ricos com versão do prompt ligam comportamento a mudança; o agregado mostra tendência. A unidade 15.5 trata de versionamento.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Conteúdo do trace:</strong> Langfuse, <em>LLM Observability</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Nome e versão do prompt:</strong> OpenTelemetry, client inference (<span class="qual">registrado no repositório oficial</span>)</p>
+        <p><strong>Monitoramento ao longo do tempo:</strong> OpenAI, <em>Production best practices</em> (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> OpenTelemetry, <em>GenAI semantic conventions</em> — <a href="https://github.com/open-telemetry/semantic-conventions-genai" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai</a>; Microsoft, <em>View trace results</em> — <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application" target="_blank" rel="noopener noreferrer">learn.microsoft.com/azure/ai-foundry/how-to/develop/trace-application</a>; Langfuse, <em>LLM Observability</em> — <a href="https://langfuse.com/docs/observability/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/observability/overview</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.4c">
+        <a href="#unidade-15-4b">Parte 15.4b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 308">308</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-5a">Parte 15.5a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-5a" aria-labelledby="titulo-da-unidade-15-5a">
+      <h2 id="titulo-da-unidade-15-5a">15.5a Versão da API: o que é preservado</h2>
+      <p class="rotulo-unidade">Unidade 15.5 — Versionamento (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Cada versão da API preserva parâmetros de entrada e de saída existentes.</li>
+          <li>A mesma versão pode ganhar campos opcionais e valores novos na saída.</li>
+          <li>Por isso o código precisa tolerar o que não conhece, em vez de assumir lista fechada.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O contrato de aluguel mantém as cláusulas assinadas, mas o proprietário pode acrescentar um anexo opcional. Quem lê só a primeira página pode se surpreender.</p></div>
+
+      <h3>O compromisso</h3>
+      <p>A documentação da Anthropic descreve o que preserva em qualquer versão da API: os parâmetros de entrada existentes e os parâmetros de saída existentes (<span class="qual">registrado na documentação</span>). É a base do contrato: o que você já usa continua funcionando.</p>
+      <h3>O que pode mudar</h3>
+      <p>A mesma página lista o que pode acontecer sem trocar a versão: acrescentar entradas opcionais (<span class="qual">registrado na documentação</span>), acrescentar valores à saída (<span class="qual">registrado na documentação</span>) e mudar condições de tipos específicos de erro. Por isso um código que trata a saída como lista fechada de valores quebra no dia em que o fornecedor acrescenta um. A recomendação geral é que, usando a API como documentada, o uso não é quebrado (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Qual versão usar</h3>
+      <p>A orientação é usar a versão mais recente sempre que possível (<span class="qual">registrado na documentação</span>). Adiar a atualização parece seguro e cobra juros: quanto mais tempo passa, maior a distância entre o que o código assume e o que a API oferece.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-5a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-5a">Um serviço valida que o campo de tipo da resposta é sempre um dos três valores conhecidos e falha se aparecer outro. O fornecedor acrescenta um quarto valor. O que a documentação permite prever?</p>
+        <label class="alternativa"><input type="radio" name="p15-5a" value="a" data-correta="true" data-explicacao="Correta. Acrescentar valores à saída é permitido sem troca de versão."><span><strong>A.</strong> Isso é uma mudança permitida dentro da mesma versão; o código deveria tolerar valores novos em vez de falhar.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5a" value="b" data-correta="false" data-explicacao="Incorreta. Acrescentar valores de saída está previsto."><span><strong>B.</strong> É uma quebra de contrato e o fornecedor deve ser notificado.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5a" value="c" data-correta="false" data-explicacao="Incorreta. O que é preservado são os parâmetros existentes, não a lista de valores."><span><strong>C.</strong> Nunca vai acontecer, porque a saída é preservada.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5a" value="d" data-correta="false" data-explicacao="Incorreta. Adiar a atualização acumula distância do contrato."><span><strong>D.</strong> A solução é fixar uma versão antiga para sempre.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>A versão preserva o que existe, mas pode acrescentar; o código tolera o desconhecido. Na parte 15.5b, vemos o ciclo de vida do modelo.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>O que é preservado:</strong> Anthropic, <em>API versions</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>O que pode ser acrescentado:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Usar a versão mais recente:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.5a">
+        <a href="#unidade-15-4c">Parte 15.4c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 309">309</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-5b">Parte 15.5b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-5b" aria-labelledby="titulo-da-unidade-15-5b">
+      <h2 id="titulo-da-unidade-15-5b">15.5b Versão do modelo: ativo, legado, obsoleto, aposentado</h2>
+      <p class="rotulo-unidade">Unidade 15.5 — Versionamento (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O ciclo de vida tem quatro estados: ativo, legado, obsoleto e aposentado.</li>
+          <li>Modelo obsoleto continua funcionando até a data de aposentadoria; depois, os pedidos falham.</li>
+          <li>Aviso prévio e auditoria de uso dão tempo para migrar.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Uma linha de ônibus pode ser desativada: primeiro sai do mapa, depois reduz horários e por fim deixa de circular. Quem não migrou fica na parada.</p></div>
+
+      <h3>Quatro estados</h3>
+      <p>A documentação da Anthropic define os estados do ciclo de vida. <dfn>Ativo</dfn>: o modelo é plenamente suportado e recomendado (<span class="qual">registrado na documentação</span>). <dfn>Obsoleto</dfn>: ainda funciona, mas não é mais recomendado; o fornecedor indica a substituição e atribui uma data de aposentadoria (<span class="qual">registrado na documentação</span>). <dfn>Aposentado</dfn>: não está mais disponível, e os pedidos falham (<span class="qual">registrado na documentação</span>). O estado <dfn>legado</dfn> fica entre ativo e obsoleto, sem novas atualizações.</p>
+      <h3>O que fazer a tempo</h3>
+      <p>Uma vez obsoleto, todo o uso deve migrar para um substituto adequado antes da data de aposentadoria (<span class="qual">registrado na documentação</span>). O fornecedor avisa com pelo menos 60 dias de antecedência para modelos públicos e oferece auditoria de uso, para achar o que ainda depende do modelo antigo (<span class="qual">registrado na documentação</span>).</p>
+      <h3>O detalhe das plataformas</h3>
+      <p>Plataformas operadas por parceiros definem seus próprios prazos, e o mesmo modelo pode ter estado e datas diferentes conforme onde roda. Quem usa mais de uma plataforma precisa conferir as duas tabelas, não só a do fornecedor principal.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-5b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-5b">O modelo usado pelo assistente entra em estado obsoleto, com aposentadoria em 90 dias. Qual plano é o mais defensável?</p>
+        <label class="alternativa"><input type="radio" name="p15-5b" value="a" data-correta="true" data-explicacao="Correta. A orientação é migrar antes da aposentadoria e testar o substituto a tempo."><span><strong>A.</strong> Auditar o uso por chave e modelo, testar o substituto na amostra de aceite e migrar antes da data, sem esperar o prazo apertar.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5b" value="b" data-correta="false" data-explicacao="Incorreta. Depois da data os pedidos falham."><span><strong>B.</strong> Esperar o dia da aposentadoria para ver o que acontece.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5b" value="c" data-correta="false" data-explicacao="Incorreta. Migrar sem medir arrisca a qualidade."><span><strong>C.</strong> Trocar direto no dia do aviso, sem testar.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5b" value="d" data-correta="false" data-explicacao="Incorreta. Funcionar hoje não garante funcionar depois da data."><span><strong>D.</strong> Continuar no modelo antigo, porque ainda funciona.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O ciclo do modelo tem prazos e aviso; migrar exige auditoria e teste. Na parte 15.5c, vemos o versionamento do prompt.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Estados do ciclo:</strong> Anthropic, <em>Model deprecations</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Migrar e avisar:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Prazos por plataforma:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.5b">
+        <a href="#unidade-15-5a">Parte 15.5a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 310">310</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-5c">Parte 15.5c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-5c" aria-labelledby="titulo-da-unidade-15-5c">
+      <h2 id="titulo-da-unidade-15-5c">15.5c Versão do prompt e versionamento semântico</h2>
+      <p class="rotulo-unidade">Unidade 15.5 — Versionamento (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>O prompt também tem versão, e ela precisa estar fora do código para mudar sem implantar.</li>
+          <li>Versões imutáveis garantem que um resultado possa ser reproduzido depois.</li>
+          <li>SemVer orienta o número: mudança incompatível sobe a maior, recurso novo a menor, correção a última.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Duas receitas idênticas com o mesmo número de edição não podem ter ingredientes diferentes; senão o caderno perde a serventia.</p></div>
+
+      <h3>Prompt como artefato</h3>
+      <p>A documentação do Langfuse define o gerenciamento de prompt como a abordagem sistemática de armazenar, versionar e recuperar prompts, em vez de mantê-los fixos no código (<span class="qual">registrado na documentação</span>). O ganho principal está no título de uma seção: separar a atualização do prompt da implantação do código (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Versões imutáveis</h3>
+      <p>No MLflow, as versões de prompt são imutáveis, o que dá garantias fortes de reprodutibilidade (<span class="qual">registrado na documentação</span>); o histórico é comparável lado a lado, no estilo de commits (<span class="qual">registrado na documentação</span>), e as versões podem ser isoladas do código da aplicação para testes A/B e reversão (<span class="qual">registrado na documentação</span>).</p>
+      <h3>Que número usar</h3>
+      <p>O versionamento semântico define MAJOR.MINOR.PATCH: a maior sobe em mudança incompatível, a menor em recurso compatível, a última em correção compatível (<span class="qual">registrado na especificação</span>). E exige declarar qual é a API pública (<span class="qual">registrado na especificação</span>) — no prompt, é o contrato de entrada e saída esperado pelo sistema. Sem essa declaração, o número não comunica nada.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-5c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-5c">Um time muda o prompt de triagem para devolver uma categoria nova, mantendo o formato antigo. Que número de versão combina com a regra semântica?</p>
+        <label class="alternativa"><input type="radio" name="p15-5c" value="a" data-correta="true" data-explicacao="Correta. MINOR sobe quando se adiciona funcionalidade compatível."><span><strong>A.</strong> A versão menor, porque é acréscimo compatível com o formato existente.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5c" value="b" data-correta="false" data-explicacao="Incorreta. MAJOR é para mudança incompatível."><span><strong>B.</strong> A versão maior, porque mudou o texto do prompt.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5c" value="c" data-correta="false" data-explicacao="Incorreta. PATCH é para correção compatível, não para recurso novo."><span><strong>C.</strong> A versão de correção, porque é só um ajuste.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-5c" value="d" data-correta="false" data-explicacao="Incorreta. O capítulo e as ferramentas tratam prompt como artefato versionado."><span><strong>D.</strong> Nenhuma: prompt não tem versão.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>O prompt é artefato versionado, com versões imutáveis e número que comunica o tipo de mudança. A unidade 15.6 trata de lançamento e recuperação.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Prompt como artefato:</strong> Langfuse, <em>Prompt Management</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
+        <p><strong>Imutabilidade e histórico:</strong> MLflow, <em>Prompt Registry</em> (<span class="qual">registrado na documentação</span>, consultado em 17/11/2026)</p>
+        <p><strong>SemVer:</strong> Preston-Werner, <em>Semantic Versioning 2.0.0</em> (<span class="qual">registrado na especificação</span>, consultada em 17/11/2026)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Anthropic, <em>API versions</em> — <a href="https://docs.claude.com/en/api/versioning" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/versioning</a>; Anthropic, <em>Model deprecations</em> — <a href="https://docs.claude.com/en/docs/about-claude/model-deprecations" target="_blank" rel="noopener noreferrer">docs.claude.com/docs/about-claude/model-deprecations</a>; Langfuse, <em>Prompt Management</em> — <a href="https://langfuse.com/docs/prompt-management/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/prompt-management/overview</a>; MLflow, <em>Prompt Registry</em> — <a href="https://mlflow.org/docs/latest/genai/prompt-registry/" target="_blank" rel="noopener noreferrer">mlflow.org/docs/latest/genai/prompt-registry</a>; SemVer — <a href="https://semver.org/" target="_blank" rel="noopener noreferrer">semver.org</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.5c">
+        <a href="#unidade-15-5b">Parte 15.5b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 311">311</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-6a">Parte 15.6a</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-6a" aria-labelledby="titulo-da-unidade-15-6a">
+      <h2 id="titulo-da-unidade-15-6a">15.6a Canário: soltar para poucos primeiro</h2>
+      <p class="rotulo-unidade">Unidade 15.6 — Lançamento e recuperação (parte 1 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Canário é uma liberação parcial e com prazo, comparada a um grupo de controle.</li>
+          <li>O tráfego real revela problemas que teste e carga não revelam.</li>
+          <li>O canário precisa de critério de avaliação; liberar para poucos sem medir não protege ninguém.</li>
+        </ul>
+      </div>
+      <figure class="imagem" data-imagem="15-6a">
+        <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um batedor solitário atravessa primeiro uma ponte de corda sobre um desfiladeiro, enquanto a caravana espera na margem, com uma corda de retorno esticada.">
+          <span class="moldura-texto">Ilustração prevista nesta parte.</span>
+        </div>
+      </figure>
+      <div class="analogia"><p><strong>Pense assim.</strong> O batedor atravessa a ponte antes da caravana. Se a corda aguenta o peso dele, os demais passam; se não, ninguém se machuca.</p></div>
+
+      <h3>A definição</h3>
+      <p>O capítulo de canário do livro de SRE define a prática como uma liberação parcial e por tempo limitado de uma mudança, seguida de avaliação (<span class="qual">registrado no livro</span>). A parte que recebe a mudança é o <dfn>canário</dfn>, e o restante é o <dfn>controle</dfn> (<span class="qual">registrado no livro</span>). A comparação entre os dois é o que dá sentido ao processo.</p>
+      <h3>Por que tráfego real</h3>
+      <p>Expor a mudança ao tráfego de produção permite identificar problemas que não aparecem em teste unitário ou de carga, que costumam ser mais artificiais (<span class="qual">registrado no livro</span>). No caso de um sistema com modelo, isso vale dobrado: a distribuição real de pedidos é diferente da amostra de teste.</p>
+      <h3>O que avaliar</h3>
+      <p>O canário precisa de sinais comparáveis entre canário e controle: taxa de erro, latência, custo por pedido e nota na amostra de aceite. Sem critério definido antes, o canário vira só uma liberação menor — e o defeito chega a todos do mesmo jeito.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-6a">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-6a">A Aurora vai trocar o prompt de um assistente com 10 mil usuários por dia. O que caracteriza um canário bem desenhado?</p>
+        <label class="alternativa"><input type="radio" name="p15-6a" value="a" data-correta="true" data-explicacao="Correta. Canário é liberação parcial, limitada e avaliada contra controle."><span><strong>A.</strong> Liberar para uma parte pequena e por tempo limitado, comparando canário e controle com critérios definidos antes.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6a" value="b" data-correta="false" data-explicacao="Incorreta. Isso é liberação total, não canário."><span><strong>B.</strong> Liberar para todos e observar por uma semana.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6a" value="c" data-correta="false" data-explicacao="Incorreta. Time interno não representa a distribuição real."><span><strong>C.</strong> Liberar para o time interno e considerar aprovado.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6a" value="d" data-correta="false" data-explicacao="Incorreta. Sem critério, o canário não avalia nada."><span><strong>D.</strong> Liberar sem critério e decidir pelo “feeling”.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Canário é liberação parcial, limitada e comparada ao controle. Na parte 15.6b, vemos quando e como reverter.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Definição de canário:</strong> Beyer et al., <em>The Site Reliability Workbook</em>, cap. 16 (<span class="qual">registrado no livro</span>, consultado em 17/11/2026)</p>
+        <p><strong>Canário e controle:</strong> Idem (<span class="qual">registrado no livro</span>)</p>
+        <p><strong>Tráfego real:</strong> Idem (<span class="qual">registrado no livro</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.6a">
+        <a href="#unidade-15-5c">Parte 15.5c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 312">312</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-6b">Parte 15.6b</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-6b" aria-labelledby="titulo-da-unidade-15-6b">
+      <h2 id="titulo-da-unidade-15-6b">15.6b Reversão: o caminho de volta</h2>
+      <p class="rotulo-unidade">Unidade 15.6 — Lançamento e recuperação (parte 2 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Reverter é parte do lançamento, não uma emergência improvisada.</li>
+          <li>O valor do canário depende de detectar defeito com confiança e aprovar o bom sem falso positivo.</li>
+          <li>Reversão de prompt, de modelo e de código têm velocidades diferentes.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Quem desce uma escada íngreme de costas mantém o pé no degrau de baixo. O caminho de volta se prepara antes de subir.</p></div>
+
+      <h3>O que o canário precisa entregar</h3>
+      <p>O livro de SRE é direto sobre o valor do processo: ele se demonstra quando os canários detectam candidatos ruins com alta confiança e identificam as boas liberações sem falsos positivos (<span class="qual">registrado no livro</span>). Traduzindo para a operação: o critério precisa separar defeito de variação normal.</p>
+      <h3>Detectar cedo, impactar pouco</h3>
+      <p>O canário permite que o processo de liberação detecte defeitos o quanto antes e com o menor impacto possível ao serviço (<span class="qual">registrado no livro</span>). A reversão, então, não é um ato heroico às pressas: é uma etapa prevista, disparada por um sinal que já existia antes do lançamento.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: tipos de reversão" tabindex="0">
+      <table class="tabela">
+        <caption>Reversão por artefato (proposta didática)</caption>
+        <thead><tr><th scope="col">Artefato</th><th scope="col">Como reverter</th><th scope="col">Cuidado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Prompt</th><td>Apontar para a versão anterior</td><td>Versão anterior precisa existir e ter sido testada</td></tr>
+          <tr><th scope="row">Modelo</th><td>Voltar a configuração anterior</td><td>Pode exigir reavaliação e conversa nova</td></tr>
+          <tr><th scope="row">Código</th><td>Reimplantar versão anterior</td><td>Depende da esteira e de migração de dados</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Três velocidades</h3>
+      <p>Reverter um prompt costuma ser imediato, se a versão anterior existe (15.5c). Reverter um modelo pode exigir nova avaliação e mudança de configuração. Reverter código depende da esteira de implantação. O plano de lançamento precisa dizer qual das três é o caminho de volta e quem decide acioná-lo.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-6b">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-6b">O canário de um novo prompt mostra erro acima do controle em duas horas. O que fazer?</p>
+        <label class="alternativa"><input type="radio" name="p15-6b" value="a" data-correta="true" data-explicacao="Correta. A reversão é prevista e deve ser acionada pelo critério definido."><span><strong>A.</strong> Reconduzir o tráfego para a versão anterior, registrar o incidente e analisar a causa antes de tentar de novo.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6b" value="b" data-correta="false" data-explicacao="Incorreta. O critério já indicou defeito; esperar amplia o impacto."><span><strong>B.</strong> Esperar mais um dia para ver se estabiliza.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6b" value="c" data-correta="false" data-explicacao="Incorreta. Isso amplia exatamente o problema."><span><strong>C.</strong> Manter o canário e liberar para todos.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6b" value="d" data-correta="false" data-explicacao="Incorreta. Sem sinal, a decisão fica às cegas."><span><strong>D.</strong> Desligar o monitoramento para não gerar alarme.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Reversão é etapa prevista, com critério e caminho definidos por artefato. Na parte 15.6c, fechamos com o registro do incidente.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Valor do canário:</strong> Beyer et al., <em>The Site Reliability Workbook</em>, cap. 16 (<span class="qual">registrado no livro</span>)</p>
+        <p><strong>Detecção com pouco impacto:</strong> Idem (<span class="qual">registrado no livro</span>)</p>
+        <p><strong>Reversão por artefato:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.6b">
+        <a href="#unidade-15-6a">Parte 15.6a</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 313">313</span><a href="#sumario">Sumário</a></span>
+        <a href="#unidade-15-6c">Parte 15.6c</a>
+      </nav>
+    </section>
+
+    <section class="page" id="unidade-15-6c" aria-labelledby="titulo-da-unidade-15-6c">
+      <h2 id="titulo-da-unidade-15-6c">15.6c Postmortem sem culpa</h2>
+      <p class="rotulo-unidade">Unidade 15.6 — Lançamento e recuperação (parte 3 de 3).</p>
+      <div class="resumo" role="note">
+        <strong>Em 3 linhas</strong>
+        <ul>
+          <li>Postmortem é o registro escrito do incidente, com impacto, ações, causa e prevenção.</li>
+          <li>Os critérios de quando escrever devem existir antes do incidente.</li>
+          <li>Postmortem sem culpa investiga o sistema, não pune pessoas.</li>
+        </ul>
+      </div>
+      <div class="analogia"><p><strong>Pense assim.</strong> O relatório de um naufrágio não serve para culpar o vigia, e sim para redesenhar a rota e o farol.</p></div>
+
+      <h3>O que é</h3>
+      <p>Um postmortem é o registro escrito de um incidente, com o impacto, as ações tomadas para mitigar ou resolver, as causas e as ações de acompanhamento para evitar recorrência (<span class="qual">registrado no livro</span>). É o documento que transforma um susto em aprendizado durável.</p>
+      <h3>Critério antes</h3>
+      <p>É importante definir os critérios de quando um postmortem é necessário antes de o incidente acontecer (<span class="qual">registrado no livro</span>). Definir depois, no calor da falha, abre espaço para a decisão conveniente.</p>
+      <h3>Sem culpa</h3>
+      <p>Postmortems sem culpa são um princípio da cultura de SRE (<span class="qual">registrado no livro</span>). E o livro é explícito: escrever um postmortem não é punição, é oportunidade de aprendizado para a empresa inteira (<span class="qual">registrado no livro</span>). Se apontar dedos vira hábito, as pessoas param de relatar problemas — e o risco cresce.</p>
+      <div class="rolagem" role="region" aria-label="Tabela: seções de um postmortem" tabindex="0">
+      <table class="tabela">
+        <caption>Estrutura mínima do postmortem (leitura do capítulo do SRE, adaptada)</caption>
+        <thead><tr><th scope="col">Seção</th><th scope="col">Conteúdo</th><th scope="col">Pergunta que responde</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Impacto</th><td>Quem e o que foi afetado</td><td>Qual foi o tamanho do dano</td></tr>
+          <tr><th scope="row">Linha do tempo</th><td>Detecção, mitigação e resolução</td><td>O que aconteceu e quando</td></tr>
+          <tr><th scope="row">Causas</th><td>Fatores contribuintes</td><td>Por que aconteceu</td></tr>
+          <tr><th scope="row">Ações</th><td>Prevenção com dono e prazo</td><td>O que evita repetir</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>O que um sistema com modelo acrescenta</h3>
+      <p>No caso de LLM, o relatório precisa incluir versão do modelo e do prompt, amostra de casos afetados e, quando possível, o identificador dos pedidos (15.3b). Sem isso, "a resposta piorou" não vira causa nem prevenção.</p>
+
+      <h3>Pergunta</h3>
+      <fieldset class="questao" aria-describedby="enunciado-p15-6c">
+        <legend>Escolha uma alternativa</legend>
+        <p id="enunciado-p15-6c">Num incidente em que um analista publicou o prompt errado, qual postmortem segue a cultura descrita?</p>
+        <label class="alternativa"><input type="radio" name="p15-6c" value="a" data-correta="true" data-explicacao="Correta. O postmortem sem culpa investiga o sistema e as condições que permitiram o erro."><span><strong>A.</strong> Registrar impacto, linha do tempo e causas contribuintes, incluindo por que a esteira permitia publicar sem revisão, e propor correções no sistema.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6c" value="b" data-correta="false" data-explicacao="Incorreta. Isso aponta culpa e não previne recorrência."><span><strong>B.</strong> Registrar que o analista errou e encerrar.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6c" value="c" data-correta="false" data-explicacao="Incorreta. Não registrar perde o aprendizado e mantém a falha do sistema."><span><strong>C.</strong> Não registrar, para não constranger o analista.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6c" value="d" data-correta="false" data-explicacao="Incorreta. Sin conteúdo não há prevenção."><span><strong>D.</strong> Registrar apenas a data do incidente.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+      <h3>Ponto de retomada</h3>
+      <p>Postmortem é registro estruturado, com critério definido antes e foco no sistema. O capítulo fecha com as questões.</p>
+      <h3>Notas de fonte</h3>
+      <div class="fontes">
+        <p><strong>Definição:</strong> Beyer et al., <em>Site Reliability Engineering</em>, cap. 15 (<span class="qual">registrado no livro</span>, consultado em 17/11/2026)</p>
+        <p><strong>Critério definido antes:</strong> Idem (<span class="qual">registrado no livro</span>)</p>
+        <p><strong>Sem culpa:</strong> Idem (<span class="qual">registrado no livro</span>)</p>
+        <p><strong>Estrutura adaptada:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
+      </div>
+      <h3>Fontes da unidade</h3>
+      <div class="fontes">
+        <p><strong>Ler:</strong> Beyer et al., <em>The Site Reliability Workbook</em>, cap. 16 — <a href="https://sre.google/workbook/canarying-releases/" target="_blank" rel="noopener noreferrer">sre.google/workbook/canarying-releases</a>; Beyer et al., <em>Site Reliability Engineering</em>, cap. 15 — <a href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener noreferrer">sre.google/sre-book/postmortem-culture</a>.</p>
+      </div>
+      <nav class="page-nav" aria-label="Navegação da parte 15.6c">
+        <a href="#unidade-15-6b">Parte 15.6b</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 314">314</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-15">Questões do capítulo 15</a>
+      </nav>
+    </section>
+
+    <section class="page" id="questoes-capitulo-15" aria-labelledby="titulo-das-questoes-15">
+      <h2 id="titulo-das-questoes-15">Questões do capítulo 15</h2>
+
+      <p>Seis questões aplicam o capítulo a situações reais de projeto: duas fáceis, três médias e uma difícil. Escolha uma alternativa por questão. A correção aparece na hora, com a explicação de cada escolha.</p>
+      <noscript><p>Esta página usa JavaScript para corrigir as questões. Sem ele, as alternativas aparecem, mas a correção não.</p></noscript>
+
+      <fieldset class="questao" aria-describedby="enunciado-c15q1">
+        <legend>Questão 1 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c15q1">Por que a documentação de produção recomenda separar os ambientes de teste e de produção?</p>
+        <label class="alternativa"><input type="radio" name="c15q1" value="a" data-correta="true" data-explicacao="Correta. A separação protege o serviço real durante testes."><span><strong>A.</strong> Para isolar o desenvolvimento e evitar que um experimento interrompa a aplicação em uso.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q1" value="b" data-correta="false" data-explicacao="Incorreta. O objetivo é isolamento, não custo."><span><strong>B.</strong> Para gastar mais com infraestrutura.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q1" value="c" data-correta="false" data-explicacao="Incorreta. É recomendação operacional, não exigência."><span><strong>C.</strong> Porque a API exige dois projetos.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q1" value="d" data-correta="false" data-explicacao="Incorreta. Limites são definidos por projeto, não dobrados pela separação."><span><strong>D.</strong> Para dobrar o limite de taxa.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c15q2">
+        <legend>Questão 2 <span class="nivel">(fácil)</span></legend>
+        <p id="enunciado-c15q2">O que a documentação orienta fazer quando um pedido recebe 429 com tempo de espera no cabeçalho?</p>
+        <label class="alternativa"><input type="radio" name="c15q2" value="a" data-correta="true" data-explicacao="Correta. O tempo é mínimo, com jitter e teto de tentativas."><span><strong>A.</strong> Esperar ao menos o tempo indicado, acrescentar variação aleatória e limitar tentativas e tempo total.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q2" value="b" data-correta="false" data-explicacao="Incorreta. Repetir sem espera piora o estouro."><span><strong>B.</strong> Repetir imediatamente até passar.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q2" value="c" data-correta="false" data-explicacao="Incorreta. A orientação é esperar e reduzir a vazão."><span><strong>C.</strong> Trocar de modelo na hora.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q2" value="d" data-correta="false" data-explicacao="Incorreta. Isso piora o consumo de tokens."><span><strong>D.</strong> Aumentar o tamanho do prompt.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c15q3">
+        <legend>Questão 3 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c15q3">Um trace mostra uma chamada de 9 segundos, mas cada tentativa levou 3. Qual é a leitura correta?</p>
+        <label class="alternativa"><input type="radio" name="c15q3" value="a" data-correta="true" data-explicacao="Correta. A convenção inclui as repetições dentro do span."><span><strong>A.</strong> O span cobre a operação lógica com as três tentativas; o usuário esperou 9 segundos, e é isso que o registro deve mostrar.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q3" value="b" data-correta="false" data-explicacao="Incorreta. A operação percebida é a soma com repetições."><span><strong>B.</strong> O trace está errado; deveria mostrar 3 segundos.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q3" value="c" data-correta="false" data-explicacao="Incorreta. Registrar a operação inteira é o objetivo."><span><strong>C.</strong> As tentativas não deveriam ser registradas.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q3" value="d" data-correta="false" data-explicacao="Incorreta. A média não representa o tempo percebido."><span><strong>D.</strong> Deveria mostrar a média entre tentativas.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c15q4">
+        <legend>Questão 4 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c15q4">A mesma versão da API pode acrescentar um valor novo à saída. Qual prática evita que o serviço quebre?</p>
+        <label class="alternativa"><input type="radio" name="c15q4" value="a" data-correta="true" data-explicacao="Correta. Acrescentar valores à saída é permitido na mesma versão."><span><strong>A.</strong> Tratar os valores desconhecidos de forma tolerante e registrar o caso, em vez de falhar ao encontrar algo novo.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q4" value="b" data-correta="false" data-explicacao="Incorreta. É exatamente o que quebra com a adição permitida."><span><strong>B.</strong> Fixar a lista de valores e falhar se aparecer outro.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q4" value="c" data-correta="false" data-explicacao="Incorreta. Adiar a atualização acumula distância."><span><strong>C.</strong> Usar sempre a versão mais antiga da API.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q4" value="d" data-correta="false" data-explicacao="Incorreta. Isso esconde o problema."><span><strong>D.</strong> Desligar o tratamento de erros.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c15q5">
+        <legend>Questão 5 <span class="nivel">(média)</span></legend>
+        <p id="enunciado-c15q5">Um modelo entra em estado obsoleto com aposentadoria em 60 dias. Qual sequência é a mais defensável?</p>
+        <label class="alternativa"><input type="radio" name="c15q5" value="a" data-correta="true" data-explicacao="Correta. Auditoria, teste e migração antes da aposentadoria."><span><strong>A.</strong> Auditar o uso atual por chave e modelo, testar o substituto na amostra de aceite e migrar antes da data.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q5" value="b" data-correta="false" data-explicacao="Incorreta. Depois da data os pedidos falham."><span><strong>B.</strong> Esperar a data e trocar no dia.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q5" value="c" data-correta="false" data-explicacao="Incorreta. Sem auditoria, parte do uso pode ficar para trás."><span><strong>C.</strong> Trocar no mesmo dia do aviso, sem auditoria.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q5" value="d" data-correta="false" data-explicacao="Incorreta. Ele deixa de estar disponível."><span><strong>D.</strong> Manter o modelo antigo indefinidamente.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <fieldset class="questao" aria-describedby="enunciado-c15q6">
+        <legend>Questão 6 <span class="nivel">(difícil)</span></legend>
+        <p id="enunciado-c15q6">A Aurora vai trocar o modelo do assistente que consulta e atualiza matrículas, com dados de alunos, em época de inscrições. O plano proposto é: (1) publicar direto em produção; (2) guardar prompt e resposta completos em log público; (3) usar a chave pessoal de um analista; (4) repetir em laço qualquer 429 até passar. Quais quatro correções são as mais defensáveis?</p>
+        <label class="alternativa"><input type="radio" name="c15q6" value="a" data-correta="true" data-explicacao="Correta. Cada correção ataca um risco: lançamento, dado pessoal, credencial e vazão."><span><strong>A.</strong> Canário com controle e critério definidos; log com conteúdo opcional, acesso e prazo; conta de serviço com chave rotacionada; e repetição com espera, jitter e teto, sem repetir teto de gasto.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q6" value="b" data-correta="false" data-explicacao="Incorreta. O restante concentra exatamente os riscos listados."><span><strong>B.</strong> Publicar em produção e medir depois, mantendo o resto.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q6" value="c" data-correta="false" data-explicacao="Incorreta. Agrava o risco de dado pessoal."><span><strong>C.</strong> Guardar todo o conteúdo para sempre, sem controle de acesso.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q6" value="d" data-correta="false" data-explicacao="Incorreta. Cria dependência de pessoa e amplia a exposição."><span><strong>D.</strong> Manter a chave pessoal porque é mais rápida de usar.</span></label>
+        <div class="retorno" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <nav class="page-nav" aria-label="Navegação das questões do capítulo 15">
+        <a href="#unidade-15-6c">Parte 15.6c</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 315">315</span><a href="#sumario">Sumário</a></span>
         <a href="#glossario">Glossário</a>
       </nav>
     </section>
@@ -16869,6 +17934,7 @@ Desvio (regra fixa):
         <dt>Context rot (1.3, 8.5, 9.2)</dt><dd>Fenômeno em que, quanto mais tokens há na janela de contexto, pior o modelo recupera ou relaciona informações específicas.</dd>
         <dt>Contexto (9.1)</dt><dd>Conjunto completo de tokens enviado na amostragem do modelo em um turno: sistema, ferramentas, dados recuperados e histórico.</dd>
         <dt>Contrato (3.6)</dt><dd>Combinado entre duas partes de uma fronteira: o que entra, o que sai, o que é garantido e o que pode falhar. Não é documento jurídico.</dd>
+        <dt>Controle (de canário) (15.6)</dt><dd>Parte do serviço que não recebe a mudança e serve de referência na comparação.</dd>
         <dt>Controle proporcional (1.6)</dt><dd>Controle que cresce com o risco do erro: fonte, validação, revisão de uma pessoa ou regra do sistema.</dd>
         <dt>Correto (5.1)</dt><dd>Resultado que cumpre tudo o que foi combinado.</dd>
         <dt>Critério de aceite (3.4)</dt><dd>Condição observável, combinada antes do trabalho, que autoriza declarar o resultado aceito.</dd>
@@ -16893,7 +17959,10 @@ Desvio (regra fixa):
         <dt>Entupimento de contexto (8.5)</dt><dd>Antipadrão de enviar arquivos inteiros, logs brutos ou históricos completos apenas porque cabem na janela, elevando custo, latência e perda de precisão.</dd>
         <dt>Envenenamento de dados (7.4)</dt><dd>Manipulação de dados de treino, ajuste ou bases de busca (RAG) para plantar instruções ocultas ou corromper as respostas do modelo.</dd>
         <dt>EOS (1.4)</dt><dd>Token de fim da sequência (<em>end-of-sequence</em>): avisa que a escrita terminou.</dd>
+        <dt>Erro transitório (15.2)</dt><dd>Falha temporária, como conexão interrompida, limite de taxa ou sobrecarga, que pode ser repetida com espera.</dd>
         <dt>Erro-padrão (5.6)</dt><dd>Medida de quanto a média de uma avaliação pode variar por acaso.</dd>
+        <dt>Escala horizontal (15.1)</dt><dd>Aumento da capacidade distribuindo pedidos entre mais servidores ou contêineres.</dd>
+        <dt>Escala vertical (15.1)</dt><dd>Aumento da capacidade elevando os recursos de um único nó.</dd>
         <dt>Escalonamento humano (8.3)</dt><dd>Transferência automática da decisão ou atendimento para uma pessoa quando há bloqueios repetidos, incerteza alta ou elevado custo de erro.</dd>
         <dt>Escalonamento no laço (12.4)</dt><dd>Sinal emitido por um agente do laço para encerrá-lo quando uma condição é atendida, em vez de esperar o limite de iterações.</dd>
         <dt>Escolha gulosa (1.4)</dt><dd>Escolher sempre o token mais provável. Em teoria, com o mesmo contexto e o mesmo modelo, dá sempre o mesmo texto, mas tende a ser genérico e repetitivo. É comum em tarefas de resposta única. Em inglês, <em>greedy</em>.</dd>
@@ -16932,6 +18001,7 @@ Desvio (regra fixa):
         <dt>Gateway de modelos (14.4)</dt><dd>Componente que fica entre a aplicação e os fornecedores e concentra credenciais, repetição, balanceamento e fallback.</dd>
         <dt>Gatilho de reexecução (5.5)</dt><dd>Mudança que pede nova conferência: prompt, modelo, esforço ou fonte.</dd>
         <dt>Gerativo (modelo) (1.7)</dt><dd>Modelo que escreve texto, token a token, em vez de devolver um valor de uma lista predefinida.</dd>
+        <dt>Gerenciamento de prompt (15.5)</dt><dd>Armazenamento, versionamento e recuperação de prompts fora do código da aplicação.</dd>
         <dt>GGUF (13.1)</dt><dd>Formato binário de arquivo para guardar modelos para inferência com o GGML e programas baseados nele, como o llama.cpp.</dd>
         <dt>Grafo (6.1)</dt><dd>Rede formada por pontos (nós) ligados por conexões (arestas), usada tanto para conhecimento quanto para fluxo de controle.</dd>
         <dt>Grafo de conhecimento (6.1, 6.2)</dt><dd>Grafo em que os nós representam entidades e conceitos ligados por relações.</dd>
@@ -16978,6 +18048,7 @@ Desvio (regra fixa):
         <dt>LiveCodeBench (14.2)</dt><dd>Benchmark de código com problemas novos coletados de concursos, recortáveis por data para evitar contaminação.</dd>
         <dt>LLM (1.1)</dt><dd>Do inglês <em>large language model</em>: modelo de linguagem de grande porte.</dd>
         <dt>Local (modelo) (1.7)</dt><dd>Modelo que roda na máquina de quem usa, e não no provedor.</dd>
+        <dt>Log de invocação (15.3)</dt><dd>Registro de pedido, resposta e metadados de cada chamada ao modelo, em geral desligado por padrão.</dd>
         <dt>LoRA (1.2)</dt><dd>Técnica de ajuste barato: congela o modelo e treina só peças pequenas acrescentadas a ele.</dd>
         <dt>Má calibração (1.6)</dt><dd>Quando o quanto o modelo acerta de verdade não bate com a confiança que ele demonstra.</dd>
         <dt>Mamba (1.7)</dt><dd>Arquitetura proposta em 2023 sem atenção, com custo linear no tamanho da sequência. Neste livro, só uma menção.</dd>
@@ -17029,6 +18100,7 @@ Desvio (regra fixa):
         <dt>Poka-yoke (10.2)</dt><dd>Desenho de argumentos e contratos à prova de erro, tornando difícil para o modelo passar valores ambíguos ou inválidos.</dd>
         <dt>Portão (12.2)</dt><dd>Verificação programática entre duas etapas de uma cadeia, para confirmar que o processo segue no rumo. Em inglês, <em>gate</em>.</dd>
         <dt>Pós-treinamento (1.2)</dt><dd>As etapas depois do pré-treinamento: ajuste por instruções, alinhamento por preferências e aprendizado por reforço para raciocínio.</dd>
+        <dt>Postmortem (15.6)</dt><dd>Registro escrito de um incidente, com impacto, linha do tempo, causas contribuintes e ações de prevenção.</dd>
         <dt>Pré-treinamento (1.2)</dt><dd>Etapa em que o modelo treina a prever a próxima palavra em coleções enormes de texto. O resultado é o modelo base.</dd>
         <dt>Preferência (3.3)</dt><dd>O que se gostaria de ter, sem consequência se faltar. Não se confunde com restrição.</dd>
         <dt>Preservação (8.2)</dt><dd>Prática de conservar estado válido, trabalho prévio, logs, autoria e requisitos críticos antes de alterar sistemas ou compactar conversas.</dd>
@@ -17095,7 +18167,9 @@ Desvio (regra fixa):
         <dt>SLM (1.7)</dt><dd>Sigla de <em>small language model</em>: modelo de linguagem pequeno, suficiente para muitas chamadas em sistemas com agentes.</dd>
         <dt>Sobrecarga (2.6)</dt><dd>Situação em que chegam mais pedidos do que a capacidade atende. Pode crescer por realimentação, como nas tentativas em bloco.</dd>
         <dt>Sobreposição (chunk overlap) (11.2)</dt><dd>Repetição intencional de uma faixa de tokens entre o fim de um fragmento e o começo do próximo para não quebrar contexto na fronteira.</dd>
+        <dt>Span (15.4)</dt><dd>Etapa de uma operação registrada em trace, como uma inferência, uma ferramenta ou uma recuperação.</dd>
         <dt>Specification gaming (8.1)</dt><dd>Exploração de brechas em uma meta ou avaliação mal especificada para obter recompensa alta sem cumprir a intenção real do pedido.</dd>
+        <dt>Staging (15.1)</dt><dd>Ambiente de teste separado do de produção, para validar mudanças sem afetar o serviço em uso.</dd>
         <dt>Store (6.3)</dt><dd>Armazenamento de dados fora do estado de uma execução única, usado para memória longa entre sessões e conversas diferentes.</dd>
         <dt>Streaming (2.3)</dt><dd>Entregar a resposta em partes, enquanto ela está sendo escrita. Não acelera a escrita; muda quando o texto começa a aparecer.</dd>
         <dt>Subagente (6.4)</dt><dd>Agente especializado que executa uma tarefa focada em janela de contexto limpa e devolve um resumo condensado ao coordenador.</dd>
@@ -17118,6 +18192,7 @@ Desvio (regra fixa):
         <dt>Tokens de alto sinal (9.1)</dt><dd>Conjunto mínimo de tokens diretamente relevantes à decisão do turno, maximizando a chance de sucesso sem ruído.</dd>
         <dt>Top-k (4.5)</dt><dd>Controle que limita a escolha do próximo token aos k mais prováveis.</dd>
         <dt>Top-p (4.5)</dt><dd>Controle que limita a escolha ao menor conjunto de tokens cuja chance somada chega a p.</dd>
+        <dt>Trace (15.4)</dt><dd>Registro estruturado de uma operação completa, composto por spans encadeados.</dd>
         <dt>Traço (12.5)</dt><dd>Registro dos eventos de uma execução de agente (gerações, chamadas de ferramenta, transferências e proteções), usado para depurar e monitorar. Em inglês, <em>trace</em>.</dd>
         <dt>Transformer (1.5)</dt><dd>Arquitetura padrão para construir LLMs.</dd>
         <dt>Tratamento inadequado de saída (7.3)</dt><dd>Vulnerabilidade em que respostas geradas pelo modelo são enviadas a navegadores, bancos ou sistemas sem validação, higienização ou codificação adequada. Em inglês, <em>improper output handling</em>.</dd>
@@ -17132,6 +18207,7 @@ Desvio (regra fixa):
         <dt>Vazamento do prompt de sistema (7.1)</dt><dd>Exposição de instruções internas ou segredos colocados por engano no prompt de sistema. Em inglês, <em>system prompt leakage</em>.</dd>
         <dt>Verificação fim a fim (12.5)</dt><dd>Teste que confere o produto inteiro, como uma pessoa usuária o usaria, e não apenas partes isoladas.</dd>
         <dt>Versão do prompt (4.6)</dt><dd>Identificador do texto do template, registrado com cada chamada para saber qual texto gerou qual resposta.</dd>
+        <dt>Versionamento semântico (15.5)</dt><dd>Convenção MAJOR.MINOR.PATCH para comunicar mudança incompatível, recurso novo e correção compatível.</dd>
         <dt>Vetor denso (11.3)</dt><dd>Representação numérica contínua aprendida por rede neural para capturar o significado semântico de um texto.</dd>
         <dt>Vetor esparso (11.3)</dt><dd>Representação vetorial ligada diretamente a palavras ou termos individuais presentes no texto.</dd>
         <dt>VLA (1.7)</dt><dd>Sigla de visão-linguagem-ação: modelo que converte imagem e linguagem em controle de movimento de um robô.</dd>
@@ -17143,8 +18219,8 @@ Desvio (regra fixa):
       </dl>
 
       <nav class="page-nav" aria-label="Navegação do glossário">
-        <a href="#questoes-capitulo-14">Questões do capítulo 14</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 296">296</span><a href="#sumario">Sumário</a></span>
+        <a href="#questoes-capitulo-15">Questões do capítulo 15</a>
+        <span class="page-mid"><span class="page-number" aria-label="Página 316">316</span><a href="#sumario">Sumário</a></span>
         <a href="#referencias">Referências</a>
       </nav>
     </section>
@@ -17152,7 +18228,7 @@ Desvio (regra fixa):
     <section class="page" id="referencias" aria-labelledby="titulo-das-referencias">
       <h2 id="titulo-das-referencias">Referências</h2>
 
-      <p>Fontes dos capítulos 1 a 14, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 77 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. No capítulo 14, os 59 trechos literais citados das 17 fontes públicas primárias (Anthropic, OpenAI, Google, LiteLLM, OpenRouter, páginas do SWE-bench e do LiveCodeBench e artigos do arXiv) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
+      <p>Fontes dos capítulos 1 a 15, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 77 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. No capítulo 14, os 59 trechos literais citados das 17 fontes públicas primárias (Anthropic, OpenAI, Google, LiteLLM, OpenRouter, páginas do SWE-bench e do LiveCodeBench e artigos do arXiv) foram conferidos em 17/11/2026. No capítulo 15, os 69 trechos literais citados das 18 fontes públicas primárias (OpenAI, Anthropic, AWS, Microsoft, o SRE da Google, SemVer, Langfuse, MLflow e OpenTelemetry) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
       <div class="fontes">
         <h3>Livros e artigos</h3>
         <p>Jurafsky, D.; Martin, J. H. <em>Speech and Language Processing</em>, 3ª ed., rascunho de 19/08/2026. Capítulos 1, 2, 7 e 8. <a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener noreferrer">web.stanford.edu/~jurafsky/slp3</a>. Consultado em 13/10/2026.</p>
@@ -17301,6 +18377,16 @@ Desvio (regra fixa):
       <p>Jimenez, C. E. et al. <em>SWE-bench</em>, 2023. arXiv:2310.06770. <a href="https://arxiv.org/pdf/2310.06770" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2310.06770</a>. SWE-bench, <em>SWE-bench Verified</em>. <a href="https://www.swebench.com/verified.html" target="_blank" rel="noopener noreferrer">www.swebench.com/verified.html</a>. Deng, X. et al. <em>SWE-Bench Pro</em>, 2025. arXiv:2509.16941. <a href="https://arxiv.org/pdf/2509.16941" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2509.16941</a>.</p>
       <p>Ong, I. et al. <em>RouteLLM: Learning to Route LLMs with Preference Data</em>, 2024. arXiv:2406.18665. <a href="https://arxiv.org/pdf/2406.18665" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2406.18665</a>.</p>
       <p>Chen, L.; Zaharia, M.; Zou, J. <em>FrugalGPT</em>, 2023. arXiv:2305.05176. <a href="https://arxiv.org/pdf/2305.05176" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.05176</a>.</p>
+      <h3>Fontes do capítulo 15 (consultadas em 17/11/2026)</h3>
+      <p>OpenAI. <em>Production best practices</em>, <em>Rate limits</em> e <em>Latency optimization</em>. <a href="https://platform.openai.com/docs/guides/production-best-practices" target="_blank" rel="noopener noreferrer">platform.openai.com/docs/guides/production-best-practices</a>; <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank" rel="noopener noreferrer">platform.openai.com/docs/guides/rate-limits</a>; <a href="https://platform.openai.com/docs/guides/latency-optimization" target="_blank" rel="noopener noreferrer">platform.openai.com/docs/guides/latency-optimization</a>.</p>
+      <p>Anthropic. <em>API versions</em>, <em>Errors</em> e <em>Model deprecations</em>. <a href="https://docs.claude.com/en/api/versioning" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/versioning</a>; <a href="https://docs.claude.com/en/api/errors" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/errors</a>; <a href="https://docs.claude.com/en/docs/about-claude/model-deprecations" target="_blank" rel="noopener noreferrer">docs.claude.com/en/docs/about-claude/model-deprecations</a>.</p>
+      <p>Beyer, B. et al. (orgs.). <em>The Site Reliability Workbook</em>, cap. 16, Canarying Releases. <a href="https://sre.google/workbook/canarying-releases/" target="_blank" rel="noopener noreferrer">sre.google/workbook/canarying-releases</a>. <em>Site Reliability Engineering</em>, cap. 15, Postmortem Culture. <a href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener noreferrer">sre.google/sre-book/postmortem-culture</a>.</p>
+      <p>Preston-Werner, T. <em>Semantic Versioning 2.0.0</em>. <a href="https://semver.org/" target="_blank" rel="noopener noreferrer">semver.org</a>.</p>
+      <p>AWS. <em>Monitor model invocation using CloudWatch Logs and Amazon S3</em>. <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html" target="_blank" rel="noopener noreferrer">docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</a>.</p>
+      <p>Microsoft. <em>View trace results for AI applications using OpenAI SDK</em>. <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application" target="_blank" rel="noopener noreferrer">learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application</a>.</p>
+      <p>Langfuse. <em>LLM Observability and Application Tracing</em> e <em>Prompt Management</em>. <a href="https://langfuse.com/docs/observability/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/observability/overview</a>; <a href="https://langfuse.com/docs/prompt-management/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/prompt-management/overview</a>.</p>
+      <p>MLflow. <em>Prompt Registry</em>. <a href="https://mlflow.org/docs/latest/genai/prompt-registry/" target="_blank" rel="noopener noreferrer">mlflow.org/docs/latest/genai/prompt-registry</a>.</p>
+      <p>OpenTelemetry. <em>GenAI semantic conventions</em>: spans, métricas e client inference. <a href="https://github.com/open-telemetry/semantic-conventions-genai" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai</a>.</p>
       <h3>Documentação</h3>
         <p>Anthropic. <em>Demystifying evals for AI agents</em>, 09/01/2026. <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/engineering/demystifying-evals-for-ai-agents</a>. Consultado em 13/11/2026.</p>
         <p>Anthropic. <em>Context windows</em>. <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-windows</a>. Consultado em 13/10/2026.</p>
@@ -17340,7 +18426,7 @@ Desvio (regra fixa):
 
       <nav class="page-nav" aria-label="Navegação das referências">
         <a href="#glossario">Glossário</a>
-        <span class="page-mid"><span class="page-number" aria-label="Página 297">297</span><a href="#sumario">Sumário</a></span>
+        <span class="page-mid"><span class="page-number" aria-label="Página 317">317</span><a href="#sumario">Sumário</a></span>
         <a href="#capitulo-1">Capítulo 1</a>
       </nav>
     </section>
