@@ -6915,7 +6915,7 @@ Próximo passo: corrigir o caso 07 e repetir.</code></pre>
       <div class="analogia"><p><strong>Pense assim.</strong> Fazer um índice remissivo detalhado de mil apostilas custa semanas de trabalho. Se 95% das perguntas dos alunos pedem apenas o calendário de provas, vale montar o índice rápido de títulos e só fichar conexões profundas na parte que realmente precisa disso.</p></div>
 
       <h3>O preço de montar o grafo</h3>
-      <p>Gerar embeddings custa pouco; já extrair entidades e resumir comunidades com LLMs consome muitos recursos antes da primeira pergunta.</p>
+      <p>Extrair entidades e resumir comunidades com LLMs consome muitos recursos antes da primeira pergunta (aviso do guia do Microsoft GraphRAG, abaixo).</p>
       <p>O guia do Microsoft GraphRAG alerta para começar pelo conjunto de tutorial com modelos rápidos e baratos antes de indexar grandes volumes. Edge et al. também registram o compromisso do tamanho dos pedaços (<em>chunks</em>): pedaços maiores reduzem chamadas ao LLM, porém extraem poucas entidades.</p>
 
       <h3>Escolhendo o nível certo</h3>
@@ -7190,7 +7190,7 @@ Desvio (regra fixa):
 
       <h3>Os números observados</h3>
       <p>Nos dados publicados pela Anthropic (13/06/2025), o gasto em tokens multiplica rápido: agentes simples consomem cerca de <strong>4×</strong> mais tokens que um chat comum, e sistemas multiagente chegam a cerca de <strong>15×</strong>.</p>
-      <p>Cada ciclo reenvia o histórico acumulado; cada subagente lê instruções e fontes; e o coordenador ainda sintetiza os resumos devolvidos.</p>
+      <p>A fonte relata o multiplicador, mas não detalha as causas. Uma leitura didática: cada ciclo reenvia o histórico acumulado, cada subagente lê instruções e fontes, e o coordenador ainda sintetiza os resumos devolvidos.</p>
 
       <h3>Onde o investimento se paga</h3>
       <p>Segundo a mesma fonte, multiagentes compensam em tarefas valiosas com paralelismo intenso, informação que excede uma única janela e uso de muitas ferramentas complexas. Em tarefa barata que cabe num chat único (10 unidades em chat viram ~40 em 4× e ~150 em 15×, ilustração didática), o retorno não fecha.</p>
@@ -7797,7 +7797,7 @@ Desvio (regra fixa):
       <p>Na mesma linha, a especificação de segurança do MCP recomenda <dfn>escopo mínimo</dfn>: começar apenas com permissões básicas de leitura e pedir elevação pontual quando uma operação privilegiada for realmente necessária. Pedir todas as permissões de uma vez aumenta o raio de estrago se um token vazar, gera ruído nas auditorias e faz o usuário recusar telas enormes de consentimento.</p>
 
       <h3>Aprovação humana no circuito</h3>
-      <p>Para ações que alteram dados, movimentam dinheiro ou enviam mensagens externas, tanto a OWASP quanto a documentação de segurança da OpenAI recomendam <dfn>aprovação humana no circuito</dfn> (em inglês, <em>human-in-the-loop</em>): pausar o fluxo para revisão de uma pessoa com acesso às fontes originais antes de efetivar a ação.</p>
+      <p>Para ações de alto impacto, como alterar dados, movimentar dinheiro ou enviar mensagens externas, a OWASP recomenda <dfn>aprovação humana no circuito</dfn> (em inglês, <em>human-in-the-loop</em>): pausar o fluxo para uma pessoa aprovar a ação antes de efetivá-la. A documentação de segurança da OpenAI vai na mesma direção: recomenda, sempre que possível, que uma pessoa revise as saídas antes do uso prático, com acesso às informações necessárias para verificá-las, sobretudo em domínios de alto risco e na geração de código.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p7-2b">
@@ -7836,7 +7836,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Se um porteiro recebe um crachá emitido para a garagem e o aceita para abrir o cofre — ou usa o próprio crachá de diretor para qualquer visitante que peça — a regra de segurança quebrou na porta, não importa o que estava escrito no crachá.</p></div>
 
       <h3>Mediação completa nos sistemas de destino</h3>
-      <p>A OWASP <code>LLM06</code> exige <dfn>mediação completa</dfn>: toda chamada enviada por uma extensão a um banco ou API deve ser autorizada pelo sistema de destino com a identidade e os privilégios do usuário daquela sessão — nunca por uma conta genérica de administrador e nunca confiando na decisão do LLM.</p>
+      <p>A OWASP <code>LLM06</code> orienta aplicar <dfn>mediação completa</dfn>: toda chamada enviada por uma extensão a um banco ou API deve ser autorizada pelo sistema de destino com a identidade e os privilégios do usuário daquela sessão — nunca por uma conta genérica de administrador e nunca confiando na decisão do LLM.</p>
 
       <h3>Deputado confuso e repasse cego de token</h3>
       <p>Na especificação de segurança do MCP, dois erros críticos ilustram essa quebra de fronteira:</p>
@@ -8091,7 +8091,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Pela natureza probabilística dos LLMs, não existe método infalível isolado contra injeção de prompt.</li>
+          <li>Pela natureza probabilística dos LLMs, não se conhece método infalível isolado contra injeção de prompt.</li>
           <li>A proteção prática empilha camadas: segregar dados, triar saídas de ferramentas, limitar privilégios e validar ações fora do modelo.</li>
           <li>Testes adversariais (red-teaming) verificam antes e depois do lançamento se os bloqueios realmente funcionam.</li>
         </ul>
@@ -8099,7 +8099,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Nenhuma fechadura sozinha segura um prédio valioso. Você combina grade na janela, cofre interno, alarme de movimento e exercícios periódicos tentando forçar a entrada para achar pontos fracos antes de alguém de fora.</p></div>
 
       <h3>Por que empilhar defesas</h3>
-      <p>A OWASP <code>LLM01</code> é clara: dada a natureza estocástica dos modelos de linguagem, ainda não há método à prova de falhas contra injeção de prompt. Também observa que técnicas como RAG e <em>fine-tuning</em> melhoram relevância, mas não eliminam essa vulnerabilidade.</p>
+      <p>A OWASP <code>LLM01</code> afirma que, dada a influência estocástica no funcionamento dos modelos, não está claro que exista método à prova de falhas contra injeção de prompt. Também observa que técnicas como RAG e <em>fine-tuning</em> tornam as saídas mais relevantes e precisas, mas, segundo pesquisas, não mitigam totalmente essa vulnerabilidade.</p>
       <p>Por isso, combinam-se camadas independentes. Na triagem de ferramentas, por exemplo, a documentação da Anthropic sugere passar a saída bruta de cada ferramenta por um classificador leve antes de devolvê-la ao agente principal: se houver suspeita de injeção, entrega-se um erro ou resumo limpo. Serviços como o <em>Model Armor</em> do Google Cloud também atuam inspecionando entradas e saídas em busca de injeções e vazamentos.</p>
 
       <h3>Red-teaming antes de ir ao ar</h3>
@@ -8808,11 +8808,11 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Bote salva-vidas preso com cadeado enferrujado não salva ninguém quando o navio aderna: é preciso testar a descida do bote em dia calmo e garantir que uma única pessoa coordene a manobra.</p></div>
 
       <h3>Rollback testado e implantação canário</h3>
-      <p><dfn>Rollback</dfn> é o procedimento de reverter rapidamente uma versão, configuração ou lote de alterações para o último estado estável conhecido quando surgem falhas. Para reduzir o raio de dano, o <em>Google SRE Book</em> (cap. 8) combina entregas em <dfn>canário</dfn> (liberar primeiro para uma fração mínima do tráfego ou dos usuários) com reversão automatizada de recursos problemáticos.</p>
+      <p><dfn>Rollback</dfn> é o procedimento de reverter rapidamente uma versão, configuração ou lote de alterações para o último estado estável conhecido quando surgem falhas. Para reduzir o raio de dano, o <em>Google SRE Book</em> (cap. 8) combina entregas em <dfn>canário</dfn> (liberar primeiro para uma fração mínima do tráfego ou dos usuários) com a reversão (<em>rollback</em>) de funcionalidades que apresentam problemas.</p>
       <p>Mas não basta escrever o plano no papel. No capítulo 13 do mesmo livro, um teste de falha gerou indisponibilidade prolongada porque a equipe nunca havia testado o procedimento de <em>rollback</em> em homologação, e o próprio roteiro de reversão tinha defeitos — levando à regra de testar o <em>rollback</em> antes de mudanças de risco.</p>
 
       <h3>Recuperação segura versus improviso descoordenado</h3>
-      <p>Tentar “consertar às cegas” em produção cria um segundo acidente. No capítulo 14 do <em>Google SRE Book</em>, o risco chamado de <em>freelancing</em> ocorre quando alguém aplica mudanças paralelas por conta própria, sem avisar quem coordena a resposta, derrubando os servidores restantes. Em sistemas com LLMs, isso equivale a disparar scripts corretivos ou novos agentes sobre dados já corrompidos sem pausar o fluxo anterior.</p>
+      <p>Tentar “consertar às cegas” em produção cria um segundo acidente. No capítulo 14 do <em>Google SRE Book</em>, o risco chamado de <em>freelancing</em> ocorre quando alguém aplica mudanças paralelas por conta própria, sem avisar quem coordena a resposta, piorando muito uma situação que já era ruim. Em sistemas com LLMs, isso equivale a disparar scripts corretivos ou novos agentes sobre dados já corrompidos sem pausar o fluxo anterior.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p8-3a">
@@ -9004,11 +9004,11 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Colocar cinco porteiros revistando cada envelope interno e espalhar trezentas chaves diferentes na mesa de um atendente não deixa o escritório mais ágil nem mais seguro — só trava o atendimento e aumenta os erros de escolha.</p></div>
 
       <h3>Excesso de blindagem (<em>over-guardrailing</em>)</h3>
-      <p>O <dfn>excesso de blindagem</dfn> (em inglês, <em>over-guardrailing</em>) ocorre quando acumulamos travas rígidas, filtros paranoicos ou pedidos manuais em situações que admitem variação legítima. O resultado são falsos positivos e fadiga operacional. A documentação do Claude Code exemplifica esse equilíbrio: ganchos de bloqueio valem para regras sem exceção (como proteger pasta de migrações), mas não devem ser exagerados em preferências de estilo cheias de exceções; da mesma forma, aprovação manual para cada edição comum leva o usuário a aprovar sem ler.</p>
+      <p>O <dfn>excesso de blindagem</dfn> (em inglês, <em>over-guardrailing</em>) ocorre quando acumulamos travas rígidas, filtros paranoicos ou pedidos manuais em situações que admitem variação legítima. O resultado são falsos positivos e fadiga operacional. A documentação do Claude Code exemplifica esse equilíbrio: ganchos e regras de negação valem para o que não admite exceção (como não mexer na pasta de migrações), enquanto o <code>CLAUDE.md</code> fica com orientações que o modelo pode julgar inaplicáveis; da mesma forma, aprovação manual para cada edição comum leva o usuário a aprovar sem ler.</p>
       <p>No <em>Google SRE Book</em> (cap. 22), mecanismos complexos demais de defesa contra sobrecarga também têm efeito colateral: podem disparar modos degradados sem necessidade ou entrar em ciclos indesejados. Atenção ao limite: cortar excesso nunca autoriza remover controles de segurança necessários.</p>
 
       <h3>Inchaço de ferramentas</h3>
-      <p>O <dfn>inchaço de ferramentas</dfn> acontece quando conectamos dezenas de extensões ou servidores MCP simultaneamente sem filtrar o que cada etapa precisa. Em <em>Writing effective tools</em> (11/09/2025) e <em>Code execution with MCP</em> (04/11/2025), a Anthropic mostra dois custos diretos: ferramentas demais ou com funções sobrepostas distraem o agente na escolha, e carregar centenas de definições na entrada pode exigir processar centenas de milhares de tokens antes de ler o pedido e atrasa toda resposta — sugerindo expor apenas o conjunto mínimo necessário ou descobri-las sob demanda.</p>
+      <p>O <dfn>inchaço de ferramentas</dfn> acontece quando conectamos dezenas de extensões ou servidores MCP simultaneamente sem filtrar o que cada etapa precisa. Em <em>Writing effective tools</em> (11/09/2025) e <em>Code execution with MCP</em> (04/11/2025), a Anthropic mostra dois custos diretos: ferramentas demais ou com funções sobrepostas distraem o agente na escolha, e com milhares de ferramentas conectadas, carregar todas as definições na entrada pode exigir processar centenas de milhares de tokens antes de ler o pedido e atrasa toda resposta — sugerindo expor apenas o conjunto mínimo necessário ou descobri-las sob demanda.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p8-4b">
@@ -10201,7 +10201,7 @@ Desvio (regra fixa):
         <caption>Regras de cache de prefixo em três provedores (documentação consultada em 17/11/2026)</caption>
         <thead><tr><th scope="col">Provedor</th><th scope="col">Requisito de acerto</th><th scope="col">Validade e isolamento</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Anthropic</th><td>Prefixo exato <code>tools → system → messages</code></td><td>5 min (1,25× escrita) ou 1 h (2× escrita); leitura 0,1×</td></tr>
+          <tr><th scope="row">Anthropic</th><td>Prefixo exato <code>tools → system → messages</code></td><td>5 min (1,25× escrita) ou 1 h (2× escrita); leitura 0,1× (0,05× ou 0,025× em alguns modelos)</td></tr>
           <tr><th scope="row">OpenAI</th><td>Todo o prefixo renderizado idêntico</td><td>Retenção varia por modelo; sessão não garante acerto</td></tr>
           <tr><th scope="row">Google Cloud</th><td>Conteúdo grande e comum no início em curto prazo</td><td>Implícito: 90% desconto, até 24 h; explícito: padrão 60 min (extensível); isolar por usuário</td></tr>
         </tbody>
@@ -11540,7 +11540,7 @@ Desvio (regra fixa):
       <p>O exemplo do estudo ilustra perfeitamente o problema: diante da pergunta “Qual foi o crescimento de receita da ACME Corp no 2º trimestre de 2023?”, o trecho exato no relatório pode conter apenas a frase “A receita da empresa cresceu 3% sobre o trimestre anterior”. Sozinho, esse <dfn>fragmento órfão</dfn> não traz o nome “ACME Corp” nem “2º trimestre de 2023” — falhando tanto na busca semântica quanto na busca exata por palavras-chave.</p>
 
       <h3>Por que só aumentar o chunk não resolve</h3>
-      <p>Se tentarmos evitar o problema fazendo fragmentos gigantes de milhares de tokens, trazemos ruído de outras seções junto e voltamos a sofrer com perda de atenção no meio da janela.</p>
+      <p>Se tentarmos evitar o problema fazendo fragmentos gigantes de milhares de tokens, trazemos ruído de outras seções junto e voltamos a sofrer com a queda de desempenho quando a informação relevante fica no meio de contextos longos (Liu et al., 2023, capítulo 8).</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p11-2b">
@@ -11875,7 +11875,7 @@ Desvio (regra fixa):
       <p>No mesmo sentido, o guia <em>File search</em> da OpenAI registra que limitar o número de resultados retornados ao modelo (<code>max_num_results</code>) reduz gasto de tokens e latência, mas pode reduzir a qualidade da resposta se deixar evidências relevantes de fora.</p>
 
       <h3>Quantos trechos passar ao gerador?</h3>
-      <p>Nos testes da Anthropic em bases grandes, passar os 20 melhores trechos foi mais eficaz do que passar apenas 5 ou 10. Ainda assim, em catálogos enxutos e perguntas simples, 5 trechos bem ranqueados podem bastar — o critério decisivo é medir em casos reservados (capítulo 5).</p>
+      <p>Nos testes da Anthropic, em vários tipos de conjuntos de dados, passar os 20 melhores trechos foi mais eficaz do que passar apenas 5 ou 10. Ainda assim, em catálogos enxutos e perguntas simples, 5 trechos bem ranqueados podem bastar — o critério decisivo é medir em casos reservados (capítulo 5).</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p11-4b">
@@ -12008,7 +12008,7 @@ Desvio (regra fixa):
       <p>Na documentação do Google Cloud (<em>Grounding overview</em>), <dfn>grounding</dfn> (ancoragem) é a capacidade de conectar a saída do modelo a fontes verificáveis de informação. Prender o modelo a fontes específicas reduz alucinações e entrega <dfn>auditabilidade</dfn> por meio de suporte explícito (links e referências aos documentos usados).</p>
 
       <h3>Separar fonte recuperada de afirmação sem lastro</h3>
-      <p>Na etapa de geração (<em>synthesizing responses</em> da OpenAI), os trechos recuperados entram estruturados com nome e identificador de arquivo junto à instrução de responder de forma concisa usando apenas as fontes fornecidas. Se nenhuma passagem cobrir a dúvida, o comportamento esperado é declarar a lacuna e indicar o canal oficial — nunca preencher o vazio com memória de treinamento.</p>
+      <p>Na etapa de geração (<em>synthesizing responses</em> da OpenAI), os trechos recuperados entram estruturados com nome e identificador de arquivo junto à instrução de produzir uma resposta concisa com base nas fontes fornecidas. A página não trata do caso em que nenhuma passagem cobre a dúvida; a conduta de declarar a lacuna e indicar o canal oficial, em vez de preencher o vazio com memória de treinamento, é recomendação deste guia (<span class="qual">proposta didática</span>).</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p11-5b">
@@ -13398,7 +13398,7 @@ Desvio (regra fixa):
         <strong>Em 3 linhas</strong>
         <ul>
           <li>Rodar um modelo localmente exige dois elementos: o arquivo de pesos e um programa (runtime) que o carrega e o executa.</li>
-          <li>O formato GGUF guarda o modelo para o llama.cpp; vLLM e Ollama usam seus próprios caminhos de carga.</li>
+          <li>O formato GGUF guarda o modelo para o llama.cpp; vLLM e Ollama têm documentação e configuração próprias (13.1c).</li>
           <li>Os pesos precisam caber na memória da máquina: carregar o arquivo é o primeiro limite.</li>
         </ul>
       </div>
@@ -13444,7 +13444,7 @@ Desvio (regra fixa):
         <ul>
           <li>Em um modelo denso, todos os pesos participam de cada token; na mistura de especialistas (MoE), só alguns especialistas participam.</li>
           <li>O Gemma 4 tem versões densas e uma MoE de 25,2 bilhões de parâmetros totais e 3,8 bilhões ativos.</li>
-          <li>Para a memória, conta o total de pesos; para a velocidade por token, contam os pesos ativos.</li>
+          <li>Para a memória, conta o total de pesos; o cálculo por token usa os pesos ativos, o que influencia a velocidade sem determiná-la sozinho.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Uma biblioteca grande precisa de espaço para todos os livros, mesmo que cada consulta abra só dois ou três.</p></div>
@@ -14270,7 +14270,7 @@ Desvio (regra fixa):
         <ul>
           <li>O QLoRA ajusta modelos quantizados em 4 bits, com adaptadores LoRA, usando muito menos memória.</li>
           <li>Os autores relatam o ajuste de um modelo de 65 bilhões de parâmetros em uma única GPU de 48 GB, preservando o desempenho do ajuste em 16 bits.</li>
-          <li>Treinar e servir são contas diferentes: o treino soma gradientes e estados de otimização, além dos pesos.</li>
+          <li>Treinar e servir são contas diferentes: o treino exige memória além dos pesos, como gradientes e estados do otimizador (<span class="qual">proposta didática</span>).</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Reformar um prédio exige guindaste, andaime e material, além do prédio em si: a conta é maior do que a de morar nele.</p></div>
@@ -15940,7 +15940,7 @@ Desvio (regra fixa):
       <h3>O 429 que não passa</h3>
       <p>Nem todo 429 é temporário. Um 429 de teto de gasto não traz tempo de espera e continua falhando até o acesso ser restabelecido (<span class="qual">registrado na documentação</span>). Tratar esse caso como "só mais uma tentativa" mantém o serviço parado sem aviso útil.</p>
       <h3>SDK e stream</h3>
-      <p>O kit de desenvolvimento (<em>SDK</em>) oficial repete falhas transitórias — conexão, limite de taxa e erros 5xx — com espera crescente, duas vezes por padrão, respeitando o cabeçalho de espera quando presente (<span class="qual">registrado na documentação</span>). A OpenAI recomenda tratar 429 e 503 nos tratadores de erro (<span class="qual">registrado na documentação</span>). Em resposta por stream, o erro pode chegar depois de um 200 já recebido (<span class="qual">registrado na documentação</span>), e a orientação prática é não reenviar automaticamente depois de consumir saída.</p>
+      <p>O kit de desenvolvimento (<em>SDK</em>) oficial repete falhas transitórias — conexão, limite de taxa e erros 5xx — com espera crescente, duas vezes por padrão, respeitando o cabeçalho de espera quando presente (<span class="qual">registrado na documentação</span>). A OpenAI informa que o cabeçalho <code>Retry-After</code> pode vir em respostas 429 por limite temporário e 503 por sobrecarga temporária (<span class="qual">registrado na documentação</span>). Em resposta por stream, o erro pode chegar depois de um 200 já recebido e não segue os mecanismos padrão (<span class="qual">registrado na documentação</span>); a conduta prudente de não reenviar automaticamente depois de consumir saída é <span class="qual">proposta didática</span>.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p15-2c">
@@ -16325,7 +16325,7 @@ Desvio (regra fixa):
       <h3>O compromisso</h3>
       <p>A documentação da Anthropic descreve o que preserva em qualquer versão da API: os parâmetros de entrada existentes e os parâmetros de saída existentes (<span class="qual">registrado na documentação</span>). É a base do contrato: o que você já usa continua funcionando.</p>
       <h3>O que pode mudar</h3>
-      <p>A mesma página lista o que pode acontecer sem trocar a versão: acrescentar entradas opcionais (<span class="qual">registrado na documentação</span>) e acrescentar valores à saída (<span class="qual">registrado na documentação</span>). Por isso um código que trata a saída como lista fechada de valores quebra no dia em que o fornecedor acrescenta um. A recomendação geral é que, usando a API como documentada, o uso não é quebrado (<span class="qual">registrado na documentação</span>).</p>
+      <p>A mesma página lista o que pode acontecer sem trocar a versão: acrescentar entradas opcionais, acrescentar valores à saída e mudar as condições de tipos específicos de erro (<span class="qual">registrado na documentação</span>). Por isso um código que trata a saída como lista fechada de valores quebra no dia em que o fornecedor acrescenta um. A recomendação geral é que, usando a API como documentada, o uso não é quebrado (<span class="qual">registrado na documentação</span>).</p>
       <h3>Qual versão usar</h3>
       <p>A orientação é usar a versão mais recente sempre que possível (<span class="qual">registrado na documentação</span>). Adiar a atualização parece seguro e cobra juros: quanto mais tempo passa, maior a distância entre o que o código assume e o que a API oferece.</p>
 
@@ -16923,7 +16923,7 @@ Desvio (regra fixa):
       </table>
       </div>
       <h3>Ordem importa</h3>
-      <p>Olhar a fórmula primeiro é o erro comum. Períodos desalinhados e categorias trocadas explicam a maior parte das diferenças, e são as verificações mais baratas. Só depois vale questionar o cálculo.</p>
+      <p>A documentação lista o período e as categorias antes de decidir sobre ingestão, fórmula e preço. Como leitura didática (a fonte não quantifica), períodos desalinhados e categorias trocadas são verificações baratas e costumam explicar boa parte das diferenças; por isso vêm antes de questionar o cálculo.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p16-1c">
@@ -17551,7 +17551,7 @@ Desvio (regra fixa):
         <caption>Modelos de cobrança de cache (leitura das documentações, 17/11/2026; valores sujeitos à data de vigência na página)</caption>
         <thead><tr><th scope="col">Fornecedor</th><th scope="col">Como liga</th><th scope="col">Desconto descrito</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Anthropic</th><td>Marcação explícita (até 4 pontos)</td><td>Leitura a 0,1 do preço base</td></tr>
+          <tr><th scope="row">Anthropic</th><td>Marcação explícita (até 4 pontos)</td><td>Leitura a 0,1 do preço base na maioria dos modelos (0,05 ou 0,025 em alguns)</td></tr>
           <tr><th scope="row">OpenAI</th><td>Prefixo automático ou marcação explícita</td><td>Até 95% nos tokens reaproveitados</td></tr>
           <tr><th scope="row">Google</th><td>Implícito por padrão ou explícito</td><td>90% nos tokens em cache</td></tr>
         </tbody>
