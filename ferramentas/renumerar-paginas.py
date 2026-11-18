@@ -5,7 +5,7 @@ Uso (Python com -I, só biblioteca padrão):
     python -I renumerar-paginas.py --guia <caminho>/guia-engenharia-llms.html --aplicar # grava
 
 Percorre as seções `<section class="page">` na ordem do documento e reescreve cada
-`<span class="page-number" aria-label="Página N">N</span>` com a sequência 1..N.
+`<span class="page-number" role="img" aria-label="Página N">N</span>` com a sequência 1..N.
 Não mexe em nenhum outro número: as referências textuais do guia são a partes («parte 9.2c»)
 e a páginas de fontes («p. 13»), não a páginas lógicas.
 
@@ -18,7 +18,7 @@ import sys
 
 SECAO_TXT = '<section class="page"'
 SECAO = re.compile(SECAO_TXT)
-NUMERO = re.compile(r'(<span class="page-number" aria-label="Página )(\d+)(">)(\d+)(</span>)')
+NUMERO = re.compile(r'(<span class="page-number" role="img" aria-label="Página )(\d+)(">)(\d+)(</span>)')
 
 
 def analisar(texto):
