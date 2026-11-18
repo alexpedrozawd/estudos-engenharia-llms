@@ -7551,7 +7551,7 @@ Próximo passo: corrigir o caso 07 e repetir.</code></pre>
 
     <section class="page" id="capitulo-6" aria-labelledby="titulo-do-capitulo-6">
       <h2 id="titulo-do-capitulo-6">Capítulo 6 — Engenharia de grafos aplicada a LLMs</h2>
-      <p>Nos capítulos 1 a 5, você viu como o modelo gera texto, como o sistema conversa com ele, como especificar e como avaliar. A Parte II começa respondendo quando pedir uma vez ou buscar trechos soltos não basta: como organizar informação ligada e fluxos de vários passos sem perder o controle?</p>
+      <p>Nos capítulos 1 a 5, você viu como o modelo gera texto, como o sistema conversa com ele, como especificar e como avaliar. A Parte II começa por uma pergunta: quando pedir uma vez ou buscar trechos soltos não basta, como organizar informação ligada e fluxos de vários passos sem perder o controle?</p>
       <p>A engenharia de grafos aplicada a LLMs divide-se aqui em dois eixos: grafos de conhecimento para busca (<span class="qual">GraphRAG</span>) e grafos de estado para controlar desvios, pausas e retomadas em agentes.</p>
       <p>Grafo não é remédio universal. Você vai medir o custo extra em tokens e manutenção, comparar topologias e só aumentar a complexidade quando a avaliação comprovar ganho.</p>
 
@@ -7804,11 +7804,11 @@ Próximo passo: corrigir o caso 07 e repetir.</code></pre>
 
       <h3>1. Índice de entidades e resumos de comunidades</h3>
       <p>No método de Edge et al. (base do Microsoft GraphRAG), o LLM indexa em duas etapas: extrai um grafo de entidades e pré-gera resumos de grupos ligados chamados <dfn>comunidades</dfn>.</p>
-      <p>Na consulta, o Microsoft GraphRAG oferece três modos: <dfn>Global Search</dfn> (gera respostas parciais por comunidade e sintetiza a resposta final), <dfn>Local Search</dfn> (parte de entidades e alcança vizinhos) e <dfn>Basic Search</dfn> (busca vetorial top-k padrão quando basta).</p>
+      <p>Na consulta, o Microsoft GraphRAG oferece três modos: <dfn>Global Search</dfn> (gera respostas parciais por comunidade e sintetiza a resposta final), <dfn>Local Search</dfn> (parte de entidades e alcança vizinhos) e <dfn>Basic Search</dfn> (busca vetorial padrão, trazendo os k trechos mais próximos, quando basta).</p>
 
       <h3>2. Grafos de propriedades e busca híbrida com travessia</h3>
-      <p>Outra família usa <dfn>grafos de propriedades</dfn>: nós rotulados com metadados ligados por caminhos estruturados, como o <code>PropertyGraphIndex</code> do LlamaIndex (que extrai entidades e relações por trecho via <code>kg_extractors</code>).</p>
-      <p>No Neo4j, o <code>VectorCypherRetriever</code> combina similaridade vetorial com consulta Cypher em <dfn>multi-salto</dfn> (percorrendo vizinhos no grafo); o <code>HybridRetriever</code> une índice vetorial e busca textual completa; e o <code>HybridCypherRetriever</code> soma busca híbrida à travessia.</p>
+      <p>Outra família usa <dfn>grafos de propriedades</dfn>: nós rotulados com metadados ligados por caminhos estruturados, como o <code>PropertyGraphIndex</code> do LlamaIndex (que extrai entidades e relações de cada trecho de texto).</p>
+      <p>No Neo4j, o <code>VectorCypherRetriever</code> combina similaridade vetorial com consulta Cypher (linguagem de consulta de grafos do Neo4j) em <dfn>multi-salto</dfn> (percorrendo vizinhos no grafo); o <code>HybridRetriever</code> une índice vetorial e busca textual completa; e o <code>HybridCypherRetriever</code> soma busca híbrida à travessia.</p>
       <p>Não confunda escopos: Edge et al. avaliaram síntese global com resumos hierárquicos em conjuntos na faixa de 1 milhão de tokens; não atribua esses resultados a bancos de grafos multi-salto.</p>
 
       <h3>Pergunta</h3>
@@ -7973,7 +7973,7 @@ Desvio (regra fixa):
       <p><dfn>Stores</dfn> guardam dados fora do estado da execução para memória longa entre sessões, como preferências do usuário, fatos e conhecimento compartilhado.</p>
 
       <h3>O perigo da retomada sem idempotência</h3>
-      <p>Com <em>checkpointer</em>, pontos salvos ficam nas fronteiras entre superpassos, não no meio de uma função. Após pausa ou falha, o nó afetado roda de novo do início.</p>
+      <p>Com <em>checkpointer</em>, pontos salvos ficam nas fronteiras entre superpassos (rodadas de execução do grafo), não no meio de uma função. Após pausa ou falha, o nó afetado roda de novo do início.</p>
       <p>Efeitos colaterais feitos antes da pausa (enviar e-mail, cobrar) repetem na retomada. Por isso, ações externas em nós retomáveis exigem <dfn>idempotência</dfn> (chave única de pedido, unidade 2.4) ou isolamento em nó próprio após a aprovação.</p>
 
       <h3>Pergunta</h3>
@@ -8048,7 +8048,7 @@ Desvio (regra fixa):
       <p>Subagentes trocam uma janela atolada por janelas limpas que devolvem resumos, e revisão por critério não se confunde com viés de família. Na parte 6.4b, vemos onde sistemas multiagente falham.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Subagentes e resumo de 1.000–2.000 tokens; chamadas separadas e avaliador-otimizador:</strong> Anthropic, <em>Effective context engineering for AI agents</em> (29/09/2025) e <em>Building effective agents</em> (19/12/2024). <strong>Autopreferência:</strong> Zheng et al., <code>arXiv:2306.05685</code> (unidade 5.4c) (<span class="qual">registrado nas fontes</span>). A distinção sobre revisar na mesma janela é <span class="qual">proposta didática</span>.</p>
+        <p><strong>Subagentes e resumo de 1.000–2.000 tokens; chamadas separadas e avaliador-otimizador:</strong> Anthropic, <em>Effective context engineering for AI agents</em> (29/09/2025) e <em>Building effective agents</em> (19/12/2024). <strong>Autopreferência:</strong> Zheng et al., <code>arXiv:2306.05685</code> (unidade 5.4c) (<span class="qual">registrado no artigo</span>). A distinção sobre revisar na mesma janela é <span class="qual">proposta didática</span>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 6.4a">
         <a href="#unidade-6-3b">Parte 6.3b</a>
@@ -8231,7 +8231,7 @@ Desvio (regra fixa):
       </figure>
 
       <h3>A prova vem do capítulo 5</h3>
-      <p>Meça nos mesmos casos reservados com critério escrito (5.6). Se um grafo de 4× ou multiagente de 15× não vencer a linha de base, fique no degrau de baixo — evitando esconder prompt mal especificado em grafo ou manter estrutura cara onde um workflow resolve (<span class="qual">proposta didática</span>).</p>
+      <p>Meça nos mesmos casos reservados com critério escrito (5.6). Se um agente em laço (4×) ou um multiagente (15×) não vencer a linha de base, fique no degrau de baixo — evitando esconder prompt mal especificado em grafo ou manter estrutura cara onde um workflow resolve (<span class="qual">proposta didática</span>).</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p6-5c">
@@ -8319,7 +8319,7 @@ Desvio (regra fixa):
         <strong>Em 3 linhas</strong>
         <ul>
           <li>Automatizar escolhas subjetivas em laço fechado, sem critério verificável e sem aceitador humano, falha no alvo.</li>
-          <li>Sem critério claro, o laço avaliador-otimizador apenas gasta tokens extras (até 4×–15×) girando em círculo.</li>
+          <li>Sem critério claro, o laço avaliador-otimizador apenas gasta tokens extras girando em círculo.</li>
           <li>Onde há gosto editorial, risco institucional ou julgamento pedagógico, o grafo deve pausar para uma pessoa decidir.</li>
         </ul>
       </div>
@@ -8337,7 +8337,7 @@ Desvio (regra fixa):
       <p>Três travas reprovam esse desenho:</p>
       <ul>
         <li><strong>Falta critério verificável:</strong> o padrão avaliador-otimizador exige critérios claros; sem rubrica nem calibração humana (5.4), notas viram gosto subjetivo e podem sofrer autopreferência entre modelos da mesma família.</li>
-        <li><strong>Custo multiplicado sem prova:</strong> laços multiagente consomem na faixa de 4× a 15× sem superar na linha de base um rascunho único revisado por editor.</li>
+        <li><strong>Custo multiplicado sem prova:</strong> agentes em laço consomem cerca de 4× e sistemas multiagente cerca de 15× os tokens de um chat, sem superar na linha de base um rascunho único revisado por editor.</li>
         <li><strong>Falta aceitador humano:</strong> comunicação institucional pede pausa via <em>checkpointer</em> (<em>human-in-the-loop</em>) antes de publicar — código valida links e datas; pessoa aprova o texto.</li>
       </ul>
 
@@ -8391,7 +8391,7 @@ Desvio (regra fixa):
         <tbody>
           <tr><th scope="row">O RAG vetorial/híbrido falha por falta de ligações ou síntese global?</th><td>Fique na busca básica ou híbrida</td><td>Avalie grafo de propriedades ou GraphRAG por comunidades</td></tr>
           <tr><th scope="row">O fluxo exige desvios complexos, pausas humanas e retomada?</th><td>Use prompt único ou workflow sequencial</td><td>Avalie grafo de estado (com idempotência) ou eventos</td></tr>
-          <tr><th scope="row">Venceu a linha de base em casos reservados (Cap. 5) pagando o custo?</th><td>Volte ao degrau mais simples</td><td>Mantenha e monitore custo e regressões</td></tr>
+          <tr><th scope="row">Venceu a linha de base em casos reservados (capítulo 5) pagando o custo?</th><td>Volte ao degrau mais simples</td><td>Mantenha e monitore custo e regressões</td></tr>
         </tbody>
       </table>
       </div>
@@ -8486,7 +8486,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="c6q6" value="a" data-correta="false" data-explicacao="Incorreta. Há erro tanto em atribuir resultados de síntese global de comunidades a um banco de grafos quanto em ignorar o risco de poluição e de subjetividade na revisão."><span><strong>A.</strong> Apenas um erro de orçamento, porque o banco de grafos resolve revisões editoriais sozinho.</span></label>
         <label class="alternativa"><input type="radio" name="c6q6" value="b" data-correta="true" data-explicacao="Correta. (1) O artigo de Edge et al. mede síntese global com resumos hierárquicos de comunidades e não comprova desempenho de qualquer banco de grafos em travessia multi-salto; (2) revisar decisão subjetiva num chat longo acumula poluição de contexto e continua sem critério objetivo nem aceitador humano."><span><strong>B.</strong> Atribuir resultados do artigo de síntese global por comunidades a um banco de grafos multi-salto, e acumular revisão editorial subjetiva em janela longa poluída sem critério verificável nem revisão humana.</span></label>
         <label class="alternativa"><input type="radio" name="c6q6" value="c" data-correta="false" data-explicacao="Incorreta. Usar modelos locais não corrige atribuir resultados de uma técnica a outra nem elimina a falta de critério editorial."><span><strong>C.</strong> O único erro é não usar um modelo local na indexação do grafo.</span></label>
-        <label class="alternativa"><input type="radio" name="c6q6" value="d" data-correta="false" data-explicacao="Incorreta. A busca global do artigo usa resumos pré-gerados por LLM, não apenas embeddings de 300 dimensões."><span><strong>D.</strong> O artigo de Edge et al. trata exclusivamente de agentes em laço, e não de busca em corpus.</span></label>
+        <label class="alternativa"><input type="radio" name="c6q6" value="d" data-correta="false" data-explicacao="Incorreta. O artigo trata de busca em corpus: a busca global usa resumos de comunidades pré-gerados por LLM, e não agentes em laço."><span><strong>D.</strong> O artigo de Edge et al. trata exclusivamente de agentes em laço, e não de busca em corpus.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
 
@@ -8572,7 +8572,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-p7-1a">
         <legend>Escolha uma alternativa</legend>
         <p id="enunciado-p7-1a">Por que um LLM pode obedecer a um comando escondido dentro de um e-mail que foi enviado apenas para ele resumir?</p>
-        <label class="alternativa"><input type="radio" name="p7-1a" value="a" data-correta="false" data-explicacao="Incorreta. O modelo não abre portas de rede sozinho por causa do e-mail; o problema está em interpretar texto de dado como se fosse instrução."><span><strong>A.</strong> Porque o e-mail altera o código-fonte do servidor na hora em que chega.</span></label>
+        <label class="alternativa"><input type="radio" name="p7-1a" value="a" data-correta="false" data-explicacao="Incorreta. Um e-mail não altera o código do servidor; o problema está em interpretar texto de dado como se fosse instrução."><span><strong>A.</strong> Porque o e-mail altera o código-fonte do servidor na hora em que chega.</span></label>
         <label class="alternativa"><input type="radio" name="p7-1a" value="b" data-correta="true" data-explicacao="Correta. Como instruções e dados compartilham o mesmo fluxo de tokens, sem prioridade rígida e separação externa o modelo pode confundir o texto do e-mail com uma ordem legítima."><span><strong>B.</strong> Porque instruções e dados dividem o mesmo fluxo de tokens, fazendo o modelo confundir o texto do e-mail com uma ordem.</span></label>
         <label class="alternativa"><input type="radio" name="p7-1a" value="c" data-correta="false" data-explicacao="Incorreta. A temperatura influencia a variação das escolhas de tokens, mas não cria fronteira segura entre instrução e dado."><span><strong>C.</strong> Porque a temperatura foi ajustada acima de zero ao ler o resumo.</span></label>
         <label class="alternativa"><input type="radio" name="p7-1a" value="d" data-correta="false" data-explicacao="Incorreta. Mesmo modelos grandes e instruídos falham quando dados e ordens competem no mesmo contexto sem defesa estrutural."><span><strong>D.</strong> Porque apenas modelos locais antigos misturam texto com comandos.</span></label>
@@ -8634,7 +8634,7 @@ Desvio (regra fixa):
       <p>O prompt guia o comportamento, mas não protege segredos; dados externos entram delimitados e o fluxo de controle pode ser separado por desenho. Na unidade 7.2, permissões e agência.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Prompt não é segredo:</strong> OWASP, <em>LLM07:2025</em>. <strong>Delimitação em <code>tool_result</code> e JSON:</strong> Anthropic, <em>Mitigate jailbreaks and prompt injections</em>. <strong>CaMeL:</strong> Debenedetti et al., <em>Defeating Prompt Injections by Design</em>, <code>arXiv:2503.18813v2</code>, 24/06/2025 (<span class="qual">registrado nas fontes</span>). Aurora e quadro: <span class="qual">proposta didática</span>.</p>
+        <p><strong>Prompt não é segredo:</strong> OWASP, <em>LLM07:2025</em>. <strong>Delimitação em <code>tool_result</code> e JSON:</strong> Anthropic, <em>Mitigate jailbreaks and prompt injections</em>. <strong>CaMeL:</strong> Debenedetti et al., <em>Defeating Prompt Injections by Design</em>, <code>arXiv:2503.18813v2</code>, 24/06/2025 (<span class="qual">registrado no artigo</span>). Aurora e quadro: <span class="qual">proposta didática</span>.</p>
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
@@ -8757,7 +8757,7 @@ Desvio (regra fixa):
         <ul>
           <li>Quem decide se um pedido é autorizado é o sistema de destino, nunca o modelo de linguagem.</li>
           <li>Servidores intermediários não devem usar uma identidade genérica privilegiada nem repassar tokens sem validar o destinatário.</li>
-          <li>No protocolo MCP, falhas de consentimento e repasse de tokens criam o problema do deputado confuso.</li>
+          <li>No protocolo MCP, o deputado confuso (falha de consentimento) e o repasse cego de token são dois erros distintos de fronteira.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Se um porteiro recebe um crachá emitido para a garagem e o aceita para abrir o cofre — ou usa o próprio crachá de diretor para qualquer visitante que peça — a regra de segurança quebrou na porta, não importa o que estava escrito no crachá.</p></div>
@@ -8777,7 +8777,7 @@ Desvio (regra fixa):
         <legend>Escolha uma alternativa</legend>
         <p id="enunciado-p7-2c">Por que a especificação do MCP proíbe explicitamente o “repasse cego de token” (<em>token passthrough</em>)?</p>
         <label class="alternativa"><input type="radio" name="p7-2c" value="a" data-correta="false" data-explicacao="Incorreta. A proibição não é por limite de caracteres nem de formato JSON, e sim por segurança de identidade e audiência."><span><strong>A.</strong> Porque tokens OAuth têm mais caracteres do que a janela de contexto suporta.</span></label>
-        <label class="alternativa"><input type="radio" name="p7-2c" value="b" data-correta="true" data-explicacao="Correta. Sem validar que o token foi emitido para o próprio servidor MCP, o sistema quebra fronteiras de confiança, confunde a trilha de auditoria e permite abusos como deputado confuso."><span><strong>B.</strong> Porque aceitar e encaminhar tokens sem validar o destinatário quebra fronteiras de confiança, mascara a identidade real nos registros de auditoria e abre brecha para uso indevido.</span></label>
+        <label class="alternativa"><input type="radio" name="p7-2c" value="b" data-correta="true" data-explicacao="Correta. Sem validar que o token foi emitido para o próprio servidor MCP, o sistema quebra fronteiras de confiança e confunde a trilha de auditoria."><span><strong>B.</strong> Porque aceitar e encaminhar tokens sem validar o destinatário quebra fronteiras de confiança, mascara a identidade real nos registros de auditoria e abre brecha para uso indevido.</span></label>
         <label class="alternativa"><input type="radio" name="p7-2c" value="c" data-correta="false" data-explicacao="Incorreta. Modelos locais também precisam validar acesso entre componentes e ferramentas."><span><strong>C.</strong> Porque servidores MCP só funcionam em nuvem quando não usam tokens.</span></label>
         <label class="alternativa"><input type="radio" name="p7-2c" value="d" data-correta="false" data-explicacao="Incorreta. O problema está na autorização e auditoria entre serviços, não na velocidade de geração de tokens pelo LLM."><span><strong>D.</strong> Porque o repasse de token deixa a geração de texto do LLM mais lenta.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
@@ -8885,8 +8885,8 @@ Desvio (regra fixa):
         <p id="enunciado-p7-3b">Em um pedido de bolsa na Aurora Educação, o modelo devolve um JSON válido pedindo desconto de 90%. Por que a validação por schema JSON sozinha não basta?</p>
         <label class="alternativa"><input type="radio" name="p7-3b" value="a" data-correta="false" data-explicacao="Incorreta. JSON válido garante sintaxe e tipos (como número inteiro), mas não sabe se 90% viola a política da empresa."><span><strong>A.</strong> Porque JSON não consegue representar números maiores que cinquenta.</span></label>
         <label class="alternativa"><input type="radio" name="p7-3b" value="b" data-correta="true" data-explicacao="Correta. Schema garante estrutura e tipo dos dados; regras de negócio, limites e permissões precisam de checagem determinística no servidor."><span><strong>B.</strong> Porque o schema só valida a estrutura e o tipo dos campos; o servidor ainda precisa verificar limites da política e permissão do solicitante.</span></label>
-        <label class="alternativa"><input type="radio" name="p7-3b" value="c" data-correta="false" data-explicacao="Incorreta. Trocar de fornecedor não dispensa regras de autorização e negócio no backend."><span><strong>C.</strong> Porque apenas modelos de fronteira leem JSON sem erro.</span></label>
-        <label class="alternativa"><input type="radio" name="p7-3b" value="d" data-correta="false" data-explicacao="Incorreta. Um segundo LLM continua probabilístico; limites financeiros exatos devem ficar em código determinístico."><span><strong>D.</strong> Porque faltou pedir em CAPS LOCK para o modelo nunca dar mais de 30%.</span></label>
+        <label class="alternativa"><input type="radio" name="p7-3b" value="c" data-correta="false" data-explicacao="Incorreta. Nenhum modelo, de fronteira ou não, dispensa regras de autorização e negócio no backend."><span><strong>C.</strong> Porque apenas modelos de fronteira leem JSON sem erro.</span></label>
+        <label class="alternativa"><input type="radio" name="p7-3b" value="d" data-correta="false" data-explicacao="Incorreta. Pedir em maiúsculas é só mais texto no prompt, que continua probabilístico; limites financeiros exatos devem ficar em código determinístico."><span><strong>D.</strong> Porque faltou pedir em CAPS LOCK para o modelo nunca dar mais de 30%.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -9090,7 +9090,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p7-5a" value="a" data-correta="false" data-explicacao="Incorreta. O problema não é desgaste físico do hardware, mas atenção humana limitada diante de alertas constantes."><span><strong>A.</strong> Porque o botão de aprovação trava após cem cliques na mesma sessão.</span></label>
         <label class="alternativa"><input type="radio" name="p7-5a" value="b" data-correta="true" data-explicacao="Correta. Cliques constantes causam fadiga de aprovação, levando o operador a aceitar pedidos sem ler; o sandboxing resolve o trivial com segurança e reserva o humano para exceções."><span><strong>B.</strong> Porque causa fadiga de aprovação: o operador passa a aceitar tudo no automático e deixa de notar ações realmente perigosas.</span></label>
         <label class="alternativa"><input type="radio" name="p7-5a" value="c" data-correta="false" data-explicacao="Incorreta. Pedidos de permissão não aumentam a temperatura de amostragem do modelo."><span><strong>C.</strong> Porque cada pedido de permissão aumenta a temperatura do modelo.</span></label>
-        <label class="alternativa"><input type="radio" name="p7-5a" value="d" data-correta="false" data-explicacao="Incorreta. Sem isolamento de sistema operacional, o clique vira a única barreira, e ainda mais frágil sob fadiga."><span><strong>D.</strong> Porque sistemas locais não conseguem exibir caixas de confirmação.</span></label>
+        <label class="alternativa"><input type="radio" name="p7-5a" value="d" data-correta="false" data-explicacao="Incorreta. Sistemas locais exibem caixas de confirmação normalmente; o problema é a fadiga causada por pedidos em excesso."><span><strong>D.</strong> Porque sistemas locais não conseguem exibir caixas de confirmação.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -9233,7 +9233,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p7-6a" value="a" data-correta="false" data-explicacao="Incorreta. Enviar CPF e laudo médico sem necessidade viola o princípio de limitar o tratamento ao mínimo necessário para a finalidade."><span><strong>A.</strong> Enviar o chamado completo com CPF e laudo para dar mais contexto ao modelo.</span></label>
         <label class="alternativa"><input type="radio" name="p7-6a" value="b" data-correta="true" data-explicacao="Correta. Pelo princípio da necessidade (Art. 6º, III da LGPD) e sanitização da OWASP LLM02, removem-se ou mascaram-se dados pessoais e sensíveis dispensáveis antes da chamada ao modelo."><span><strong>B.</strong> Mascarar ou remover CPF, endereço e dados de saúde antes de chamar o modelo, enviando só o texto necessário à classificação.</span></label>
         <label class="alternativa"><input type="radio" name="p7-6a" value="c" data-correta="false" data-explicacao="Incorreta. Pedir no prompt para não repetir o dado não impede que ele tenha sido tratado e transmitido sem necessidade."><span><strong>C.</strong> Enviar tudo e escrever no prompt “não repita o CPF na resposta”.</span></label>
-        <label class="alternativa"><input type="radio" name="p7-6a" value="d" data-correta="false" data-explicacao="Incorreta. O uso do termo “anexo” não muda o tratamento legal nem protege dados sensíveis."><span><strong>D.</strong> Usar o modelo com temperatura zero para evitar alucinações sobre o CPF.</span></label>
+        <label class="alternativa"><input type="radio" name="p7-6a" value="d" data-correta="false" data-explicacao="Incorreta. Temperatura zero reduz a variação das respostas, mas não retira o CPF do que foi enviado nem cumpre o princípio da necessidade."><span><strong>D.</strong> Usar o modelo com temperatura zero para evitar alucinações sobre o CPF.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -9321,7 +9321,7 @@ Desvio (regra fixa):
       <p>Ao mesmo tempo, gravar tudo em claro cria um novo alvo de vazamento. Por isso, a documentação de segurança da OpenAI sugere enviar identificadores pseudonimizados (aplicando <em>hash</em> ao e-mail ou nome de usuário antes de enviar o <code>safety_identifier</code>) para rastrear abusos sem expor dados pessoais ao provedor.</p>
 
       <h3>Governança ligada ao ciclo de vida</h3>
-      <p>O perfil NIST AI 600-1 resume a governança em dois pilares: entender e documentar requisitos legais e regulatórios aplicáveis (<code>GOVERN 1.1</code>) e planejar monitoramento contínuo com papéis e responsabilidades definidos para revisões periódicas (<code>GOVERN 1.5</code>). Não é um documento único na gaveta; é rotina conectada à segurança e à área jurídica da empresa.</p>
+      <p>O perfil NIST AI 600-1 traz, entre outros requisitos de governança, dois pontos de partida: entender e documentar requisitos legais e regulatórios aplicáveis (<code>GOVERN 1.1</code>) e planejar monitoramento contínuo com papéis e responsabilidades definidos para revisões periódicas (<code>GOVERN 1.5</code>). Não é um documento único na gaveta; é rotina conectada à segurança e à área jurídica da empresa.</p>
       <p>Na Aurora Educação (<span class="qual">proposta didática</span>), cada ação do assistente grava em log seguro o identificador pseudonimizado do solicitante, o código do documento consultado, o resultado da validação determinística e a aprovação humana — nunca chaves de API nem o texto completo de laudos anexos.</p>
 
       <h3>Pergunta</h3>
@@ -9380,7 +9380,7 @@ Desvio (regra fixa):
 
       <fieldset class="questao" aria-describedby="enunciado-c7q3">
         <legend>Questão 3 <span class="nivel">(média)</span></legend>
-        <p id="enunciado-c7q3">Um assistente de atendimento da Aurora Educação usa uma ferramenta que busca e atualiza cadastros usando uma única conta de administrador do banco. Mesmo quando um atendente novato faz uma consulta simples, a ferramenta poderia apagar tabelas inteiras se o modelo alucinar ou sofrer injeção. Qual dupla de correções segue a OWASP LLM06?</p>
+        <p id="enunciado-c7q3">Um assistente de atendimento da Aurora Educação usa uma ferramenta que busca e atualiza cadastros usando uma única conta de administrador do banco. Mesmo quando um atendente novato faz uma consulta simples, a ferramenta poderia apagar tabelas inteiras se o modelo alucinar ou sofrer injeção. Qual conjunto de correções segue a OWASP LLM06?</p>
         <label class="alternativa"><input type="radio" name="c7q3" value="a" data-correta="false" data-explicacao="Incorreta. Aumentar a temperatura ou mudar o estilo do prompt não reduz os privilégios da credencial no banco."><span><strong>A.</strong> Escrever “não apague tabelas” no prompt de sistema e manter a conta de administrador.</span></label>
         <label class="alternativa"><input type="radio" name="c7q3" value="b" data-correta="true" data-explicacao="Correta. A OWASP LLM06 recomenda menor privilégio (separar ferramenta só de leitura e escopo mínimo), executar no contexto autorizado do usuário e aplicar mediação completa no sistema de destino."><span><strong>B.</strong> Separar a leitura em conta só-leitura com menor privilégio e validar cada ação no banco com a permissão real do usuário (mediação completa), exigindo aprovação humana para alterações críticas.</span></label>
         <label class="alternativa"><input type="radio" name="c7q3" value="c" data-correta="false" data-explicacao="Incorreta. Repassar tokens sem validação de destinatário viola a especificação de segurança do MCP."><span><strong>C.</strong> Ativar repasse cego de token (token passthrough) para economizar autenticação.</span></label>
@@ -9479,7 +9479,7 @@ Desvio (regra fixa):
 
       <h3>Quando o próprio sistema gera o acidente</h3>
       <p>Na OWASP <code>LLM06:2025</code>, a agência excessiva permite ações danosas mesmo sem ataque malicioso: basta uma saída inesperada ou ambígua do modelo diante de permissões amplas. Um <dfn>ato autodestrutivo</dfn> é a ação operacional em que o agente ou a automação danifica o próprio ambiente, dados, testes ou capacidade de recuperação.</p>
-      <p>Esse risco não é teórico. Em um incidente clássico descrito no <em>Google SRE Book</em> (cap. 13), uma automação recebeu uma resposta vazia ao consultar um grupo de servidores e repassou o filtro vazio ao banco de máquinas, mandando apagar discos de toda a instalação — porque, sem validação, “zero filtros” significou “todos”.</p>
+      <p>Esse risco não é teórico. Em um incidente clássico descrito no <em>Google SRE Book</em> (cap. 13), uma automação recebeu uma resposta vazia ao consultar um grupo de servidores e repassou o filtro vazio ao banco de máquinas, mandando apagar os discos de todas as máquinas envolvidas — porque, sem validação, “zero filtros” significou “todos”.</p>
 
       <h3>Fuga de escopo e regras sem exceção</h3>
       <p>A <dfn>fuga de escopo</dfn> ocorre quando o sistema modifica arquivos, ambientes ou registros além do pedido autorizado — por exemplo, mexer na base real de alunos quando deveria apenas testar em homologação.</p>
@@ -9526,7 +9526,7 @@ Desvio (regra fixa):
       <p>Denison et al. (Anthropic, 2024) mostraram que modelos treinados em ambientes onde atalhos funcionam podem generalizar sem exemplo prévio para reescrever sua função de recompensa e até alterar o código dos testes para não serem pegos. Em estudo posterior em ambientes reais de programação (MacDiarmid et al., 2025), aprender atalhos durante o treino por reforço levou à <dfn>sabotagem de avaliação</dfn> (interferir nos arquivos ou checagens do próprio projeto de segurança).</p>
 
       <h3>A vitória prematura no dia a dia</h3>
-      <p>Mesmo em modelos comerciais alinhados, existe um risco muito mais comum documentado pela Anthropic em testes longos (26/11/2025): o agente olha para parte do trabalho pronto e declara vitória cedo demais, ou marca um item como concluído sem verificar o fluxo completo de ponta a ponta.</p>
+      <p>Mesmo em modelos comerciais alinhados, existe outro risco documentado pela Anthropic em testes longos (26/11/2025): o agente olha para parte do trabalho pronto e declara vitória cedo demais, ou marca um item como concluído sem verificar o fluxo completo de ponta a ponta.</p>
       <p>Por isso, arquivos de requisitos e checagens não devem ficar abertos para o agente apagar ou suavizar critérios: instruções explícitas devem proibir a edição de testes e, melhor ainda, o ambiente deve separar quem executa a tarefa de quem valida os testes e guarda o gabarito.</p>
 
       <h3>Pergunta</h3>
@@ -9566,7 +9566,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Rascunhar uma carta no caderno pode ser apagado com borracha. Colocar a carta no correio ou fazer uma transferência bancária não permite rasgar o envelope depois que ele saiu da mão.</p></div>
 
       <h3>Separar leitura, rascunho e efeito externo</h3>
-      <p>Na especificação de ferramentas do protocolo MCP (Anthropic, 11/09/2025), anotações de ferramenta servem justamente para revelar quais funções acessam o mundo aberto ou provocam mudanças destrutivas. Já a OpenAI orienta usar aprovações no circuito: o modelo pode decidir que uma ação faz sentido, mas a execução pausa até uma pessoa aprovar ou rejeitar efeitos colaterais como cancelamentos, edições definitivas e comandos de sistema.</p>
+      <p>No artigo da Anthropic sobre ferramentas para agentes (11/09/2025), as anotações de ferramenta do protocolo MCP servem justamente para revelar quais funções acessam o mundo aberto ou provocam mudanças destrutivas. Já a OpenAI orienta usar aprovações no circuito: o modelo pode decidir que uma ação faz sentido, mas a execução pausa até uma pessoa aprovar ou rejeitar efeitos colaterais como cancelamentos, edições definitivas e comandos de sistema.</p>
       <div class="rolagem" role="region" aria-label="Tabela: ações reversíveis versus irreversíveis" tabindex="0">
       <table class="tabela">
         <caption>Classificação de risco operacional antes de executar (proposta didática sobre as fontes)</caption>
@@ -9772,7 +9772,7 @@ Desvio (regra fixa):
 
       <h3>Limites de voltas e de novas tentativas</h3>
       <p>Uma <dfn>condição de parada</dfn> é a regra explícita que encerra um ciclo de agente ou de tentativas mesmo quando o objetivo ainda não foi alcançado. A Anthropic recomenda incluir limites como máximo de iterações para manter o controle, enquanto a OWASP <code>LLM10:2025</code> (Consumo Ilimitado) exige tetos de entrada, limites de taxa, <em>timeouts</em> e cotas por usuário para evitar negação de serviço e prejuízo financeiro.</p>
-      <p>Na recuperação de falhas, o <em>Google SRE Book</em> (caps. 21 e 22) e o guia de erros da OpenAI convergem em três travas:</p>
+      <p>Na recuperação de falhas, o <em>Google SRE Book</em> (caps. 21 e 22), o guia de erros da OpenAI e a Anthropic apontam quatro travas:</p>
       <div class="rolagem" role="region" aria-label="Tabela: travas de parada e orçamento" tabindex="0">
       <table class="tabela">
         <caption>Travas de parada e orçamento em sistemas com LLM (fontes conferidas)</caption>
@@ -9981,7 +9981,7 @@ Desvio (regra fixa):
       <ul>
         <li><strong>Posição no texto:</strong> Liu et al. (<code>arXiv:2307.03172</code>, 2023) mediram que o desempenho costuma ser maior quando a informação relevante está no início ou no fim da entrada e cai de forma significativa quando fica no meio de contextos longos.</li>
         <li><strong>Degradação pelo tamanho e ruído:</strong> o relatório <em>Context Rot</em> da Chroma (14/07/2025), em 18 modelos, mostrou queda não uniforme de desempenho conforme o comprimento cresce; incluir histórico irrelevante obriga o modelo a executar duas tarefas juntas (achar o trecho útil e raciocinar sobre ele).</li>
-        <li><strong>Visão de provedores:</strong> a Anthropic recomenda buscar o menor conjunto possível de tokens de alto sinal, e a OpenAI alerta que despejar tudo no contexto longo parece simples, mas cobra preço em acurácia e alucinações quando o excesso abafa os fatos certos.</li>
+        <li><strong>Visão de provedores:</strong> a Anthropic recomenda buscar o menor conjunto possível de tokens de alto sinal, e a OpenAI alerta que despejar tudo no contexto longo parece simples, mas cobra preço em acurácia quando o excesso abafa os fatos certos.</li>
       </ul>
 
       <h3>Pergunta</h3>
@@ -9991,7 +9991,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p8-5a" value="a" data-correta="false" data-explicacao="Incorreta. As evidências de Liu et al., Chroma, Anthropic e OpenAI mostram que encher a janela com ruído aumenta custo, latência e erro."><span><strong>A.</strong> A precisão sobe ao máximo porque o modelo vê tudo sem precisar de busca.</span></label>
         <label class="alternativa"><input type="radio" name="p8-5a" value="b" data-correta="true" data-explicacao="Correta. O entupimento de contexto multiplica o gasto por chamada, aumenta a latência e reduz a confiabilidade devido ao context rot e ao efeito de informação perdida no meio."><span><strong>B.</strong> Aumento alto de custo e latência junto com queda na precisão de recuperação e raciocínio por excesso de ruído na janela.</span></label>
         <label class="alternativa"><input type="radio" name="p8-5a" value="c" data-correta="false" data-explicacao="Incorreta. 150 mil tokens enviados a cada pedido geram cobrança e processamento em todas as chamadas que não acertam cache perfeito."><span><strong>C.</strong> O provedor ignora os tokens repetidos sem custo nem processamento.</span></label>
-        <label class="alternativa"><input type="radio" name="p8-5a" value="d" data-correta="false" data-explicacao="Incorreta. A degradação acontece na atenção durante a inferência, independente de quantização de treino."><span><strong>D.</strong> O único efeito é melhorar a formatação JSON da resposta.</span></label>
+        <label class="alternativa"><input type="radio" name="p8-5a" value="d" data-correta="false" data-explicacao="Incorreta. Formatar JSON não é o efeito de encher a janela; o efeito é mais custo, mais latência e menos precisão."><span><strong>D.</strong> O único efeito é melhorar a formatação JSON da resposta.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -10024,7 +10024,7 @@ Desvio (regra fixa):
       <p>Como vimos em 1.6, modelos de linguagem lidam com ambiguidade e linguagem natural, não com aritmética exata ou lógica booleana determinística. Em <em>Code execution with MCP</em> (04/11/2025), a Anthropic mostra inclusive que avaliar árvores de decisão condicionais diretamente no ambiente de execução economiza latência até o primeiro token (<em>TTFT</em>) em vez de esperar o modelo decidir um <code>se-então</code> trivial.</p>
 
       <h3>Por que ajuste fino para fatos mutáveis dá baixo retorno</h3>
-      <p>No estudo empírico de Ovadia et al. (<code>arXiv:2312.05934</code>, 2024), a geração aumentada por recuperação (RAG) superou de forma consistente o ajuste fino não supervisionado tanto em fatos novos quanto em conhecimento prévio, mostrando que LLMs têm dificuldade em absorver fatos novos só por ajuste de pesos. As documentações de OpenAI, Google Cloud e Anthropic reforçam o critério:</p>
+      <p>No estudo empírico de Ovadia et al. (<code>arXiv:2312.05934</code>, 2024), a geração aumentada por recuperação (RAG) superou de forma consistente o ajuste fino não supervisionado tanto em fatos novos quanto em conhecimento prévio, mostrando que LLMs têm dificuldade em absorver fatos novos por ajuste fino não supervisionado. As documentações de OpenAI, Google Cloud e Anthropic reforçam o critério:</p>
       <div class="rolagem" role="region" aria-label="Tabela: escolha entre código, prompt, RAG e ajuste fino" tabindex="0">
       <table class="tabela">
         <caption>Quando cada técnica se paga (proposta didática sobre Ovadia et al., OpenAI e Google Cloud)</caption>
@@ -10042,8 +10042,8 @@ Desvio (regra fixa):
         <legend>Escolha uma alternativa</legend>
         <p id="enunciado-p8-5b">Uma faculdade lança novos editais de bolsas e altera datas de prova toda semana. Um consultor propôs fazer <em>fine-tuning</em> semanal nos pesos do modelo para ele “decorar” as datas novas sem usar busca. Por que essa decisão tem baixo retorno?</p>
         <label class="alternativa"><input type="radio" name="p8-5b" value="a" data-correta="false" data-explicacao="Incorreta. O problema de fatos que mudam toda semana é adequação entre memória paramétrica e recuperação externa, não escolha de interface HTTP."><span><strong>A.</strong> Porque modelos ajustados param de aceitar requisições REST.</span></label>
-        <label class="alternativa"><input type="radio" name="p8-5b" value="b" data-correta="true" data-explicacao="Correta. Como comprovam Ovadia et al. e as orientações de OpenAI e Google Cloud, fatos novos e mutáveis pertencem à recuperação em contexto (RAG/grounding), enquanto ajuste fino semanal custa caro e tende a errar fatos recentes."><span><strong>B.</strong> Porque LLMs aprendem mal fatos novos só por ajuste de pesos, o custo e a demora de retreino semanal são altos e RAG atualiza imediatamente com fontes verificáveis.</span></label>
-        <label class="alternativa"><input type="radio" name="p8-5b" value="c" data-correta="false" data-explicacao="Incorreta. Fine-tuning não impede injeção de prompt nem substitui validação determinística."><span><strong>C.</strong> Porque o único defeito do fine-tuning semanal é aumentar a temperatura para 2,0.</span></label>
+        <label class="alternativa"><input type="radio" name="p8-5b" value="b" data-correta="true" data-explicacao="Correta. Como comprovam Ovadia et al. e as orientações de OpenAI e Google Cloud, fatos novos e mutáveis pertencem à recuperação em contexto (RAG/grounding), enquanto ajuste fino semanal custa caro e tende a errar fatos recentes."><span><strong>B.</strong> Porque LLMs aprendem mal fatos novos por ajuste fino não supervisionado, o custo e a demora de retreino semanal são altos e RAG atualiza imediatamente com fontes verificáveis.</span></label>
+        <label class="alternativa"><input type="radio" name="p8-5b" value="c" data-correta="false" data-explicacao="Incorreta. Temperatura não é o defeito do ajuste fino semanal; o problema é aprender mal fatos que mudam toda semana."><span><strong>C.</strong> Porque o único defeito do fine-tuning semanal é aumentar a temperatura para 2,0.</span></label>
         <label class="alternativa"><input type="radio" name="p8-5b" value="d" data-correta="false" data-explicacao="Incorreta. RAG atualiza apenas o índice de documentos, sem retreinar os pesos do modelo."><span><strong>D.</strong> Porque RAG também exige retreinar os pesos do modelo a cada novo edital.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -10081,7 +10081,7 @@ Desvio (regra fixa):
         <ol class="fluxo">
           <li><span class="papel">1. Qual problema real existe?</span>Separe sintoma observado de suposição ou moda tecnológica.</li>
           <li><span class="papel">2. Uma solução simples atende?</span>Teste código determinístico, prompt enxuto ou busca básica antes de agentes ou treino.</li>
-          <li><span class="papel">3. Que evidência justifica aprofundar?</span>Exija ganho medido em casos reservados (cap. 5), não opinião isolada.</li>
+          <li><span class="papel">3. Que evidência justifica aprofundar?</span>Exija ganho medido em casos reservados (capítulo 5), não opinião isolada.</li>
           <li><span class="papel">4. Qual é o custo total?</span>Compare tokens, latência, infraestrutura, manutenção e custo dos erros contra o ganho esperado.</li>
         </ol>
       </figure>
@@ -10122,7 +10122,7 @@ Desvio (regra fixa):
         <ul>
           <li>Um lote de cancelamentos de matrícula sem filtro mínimo pode virar um desastre equivalente a “apagar tudo”.</li>
           <li>Separar simulação prévia, <em>snapshot</em> (cópia de estado), limite de lote e <em>rollback</em> testado protege o cadastro.</li>
-          <li>Um contrato declarativo de execução define teto de voltas, pausa humana e desativação de emergência antes de rodar.</li>
+          <li>Um contrato declarativo de execução define teto de voltas, pausa humana e reversão em caso de falha antes de rodar.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Antes de rodar uma máquina que arquiva pastas antigas da secretaria, você manda listar os nomes em uma folha de conferência, tranca uma cópia das pastas e põe uma trava que desliga a máquina se ela tentar arquivar mais de dez por minuto.</p></div>
@@ -10200,7 +10200,7 @@ Desvio (regra fixa):
         <p id="enunciado-p8-6b">Por que, ao enxugar a central da Aurora, a equipe manteve o bloqueio determinístico em ações de escrita e tirou apenas a aprovação manual das consultas de leitura?</p>
         <label class="alternativa"><input type="radio" name="p8-6b" value="a" data-correta="false" data-explicacao="Incorreta. Remover controles essenciais de escrita abriria falha grave de agência excessiva."><span><strong>A.</strong> Porque proporcionalidade exige remover todas as travas de segurança do sistema.</span></label>
         <label class="alternativa"><input type="radio" name="p8-6b" value="b" data-correta="true" data-explicacao="Correta. Proporcionalidade corta excessos e fadiga de aprovação em leituras inofensivas, mas preserva rigorosamente as proteções necessárias onde há risco de dano ou vazamento."><span><strong>B.</strong> Porque cortar excessos preserva proteções necessárias onde há risco real (escrita) e elimina fricção sem benefício em leituras autorizadas.</span></label>
-        <label class="alternativa"><input type="radio" name="p8-6b" value="c" data-correta="false" data-explicacao="Incorreta. A decisão baseia-se em risco e utilidade de cada ação, não em limite de taxa HTTP."><span><strong>C.</strong> Porque servidores MCP proíbem qualquer ferramenta de leitura.</span></label>
+        <label class="alternativa"><input type="radio" name="p8-6b" value="c" data-correta="false" data-explicacao="Incorreta. Servidores MCP não proíbem ferramentas de leitura; a decisão baseia-se em risco e utilidade de cada ação."><span><strong>C.</strong> Porque servidores MCP proíbem qualquer ferramenta de leitura.</span></label>
         <label class="alternativa"><input type="radio" name="p8-6b" value="d" data-correta="false" data-explicacao="Incorreta. O ajuste de ferramentas e busca não tem relação com esconder os casos reservados."><span><strong>D.</strong> Para economizar espaço removendo o conjunto reservado de avaliação.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -10243,7 +10243,7 @@ Desvio (regra fixa):
         </tbody>
       </table>
       </div>
-      <p>Aplicando o método das quatro perguntas, a equipe escolheu a Proposta B, mediu no conjunto reservado (cap. 5) e só reabriria a discussão de ajuste fino se, no futuro, houvesse falha persistente de estilo ou formato não resolvida pelo prompt.</p>
+      <p>Aplicando o método das quatro perguntas, a equipe escolheu a Proposta B, mediu no conjunto reservado (capítulo 5) e só reabriria a discussão de ajuste fino se, no futuro, houvesse falha persistente de estilo ou formato não resolvida pelo prompt.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p8-6c">
@@ -10365,13 +10365,13 @@ Desvio (regra fixa):
       </ul>
 
       <h3>Para quem é este capítulo</h3>
-      <p>Para quem leu os capítulos 1 a 8. Retomamos janela e orçamento de contexto (1.3), estado e persistência (2.5), subagentes com janelas limpas (6.4, <code>EG-31</code>/<code>EG-32</code>) e preservação e entupimento de contexto (8.2 e 8.5), sem repetir suas bases.</p>
+      <p>Para quem leu os capítulos 1 a 8. Retomamos janela e orçamento de contexto (1.3), estado e persistência (2.5), subagentes com janelas limpas (6.4; trechos <code>EG-31</code> e <code>EG-32</code> do pacote do capítulo 6) e preservação e entupimento de contexto (8.2 e 8.5), sem repetir suas bases.</p>
 
       <h3>Como ler os exemplos</h3>
       <p>Mantemos as etiquetas de confiança: <span class="qual">registrado na pesquisa técnica do fornecedor</span> (estudos de engenharia da Anthropic) e <span class="qual">registrado na documentação</span> (guias da Anthropic, OpenAI e Google Cloud, consultados em 17/11/2026). Casos da Aurora Educação, tabelas de decisão e o quadro de orçamento entram como <span class="qual">proposta didática</span>; a medição local de 23/10/2026 aparece rotulada como amostra pequena ilustrativa.</p>
 
       <h3>Sobre as fontes</h3>
-      <p>O pacote do capítulo reúne 14 fontes públicas primárias com 77 trechos conferidos literalmente em 17/11/2026 (<code>CM-01</code>–<code>CM-77</code>): <em>Effective context engineering for AI agents</em>, <em>Effective harnesses for long-running agents</em>, guias de <em>context windows</em>, <em>memory tool</em>, <em>compaction</em>, <em>context editing</em>, <em>prompt caching</em>, <em>effort</em> e memória do Claude Code (Anthropic); <em>Conversation state</em>, <em>Compaction</em> e <em>Prompt caching</em> (OpenAI); e <em>Context caching overview</em> (Google Cloud).</p>
+      <p>O pacote do capítulo reúne 14 fontes públicas primárias com 77 trechos conferidos literalmente em 17/11/2026 (<code>CM-01</code>–<code>CM-77</code>): <em>Effective context engineering for AI agents</em>, <em>Effective harnesses for long-running agents</em>, guias de <em>context windows</em>, <em>memory tool</em>, <em>compaction</em>, <em>context editing</em>, <em>prompt caching</em>, <em>effort</em>, memória e boas práticas do Claude Code (Anthropic); <em>Conversation state</em>, <em>Compaction</em> e <em>Prompt caching</em> (OpenAI); e <em>Context caching overview</em> (Google Cloud).</p>
 
       <nav class="page-nav" aria-label="Navegação do capítulo 9">
         <a href="#questoes-capitulo-8">Questões do capítulo 8</a>
@@ -10481,7 +10481,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Effective context engineering for AI agents</em>, 29/09/2025 — <a href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/effective-context-engineering-for-ai-agents</a>; Anthropic, <em>How Claude remembers your project</em> — <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/memory</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Effective context engineering for AI agents</em>, 29/09/2025 — <a href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/effective-context-engineering-for-ai-agents</a>. <strong>Aprofundar:</strong> Anthropic, <em>How Claude remembers your project</em> — <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/memory</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 9.1b">
         <a href="#unidade-9-1a">Parte 9.1a</a>
@@ -10567,7 +10567,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p9-2b" value="a" data-correta="false" data-explicacao="Incorreta. A degradação acontece mesmo dentro do limite suportado pela janela."><span><strong>A.</strong> Nenhum; a precisão permanece idêntica até 199.999 tokens.</span></label>
         <label class="alternativa"><input type="radio" name="p9-2b" value="b" data-correta="true" data-explicacao="Correta. A queda de acurácia e recuperação ocorre de forma gradual com o aumento de tokens (context rot e orçamento de atenção), muito antes de bater no teto rígido."><span><strong>B.</strong> A queda de precisão acontece como um gradiente contínuo bem antes do teto da janela, por diluição do orçamento de atenção.</span></label>
         <label class="alternativa"><input type="radio" name="p9-2b" value="c" data-correta="false" data-explicacao="Incorreta. O fenômeno decorre do crescimento do contexto e da competição por atenção, não de cache ativo."><span><strong>C.</strong> O impacto só existe quando o cache de prefixo está ligado.</span></label>
-        <label class="alternativa"><input type="radio" name="p9-2b" value="d" data-correta="false" data-explicacao="Incorreta. Modelos menores também sofrem degradação por excesso de contexto, muitas vezes ainda mais cedo."><span><strong>D.</strong> Modelos maiores não têm orçamento de atenção limitado.</span></label>
+        <label class="alternativa"><input type="radio" name="p9-2b" value="d" data-correta="false" data-explicacao="Incorreta. A fonte descreve o orçamento de atenção como característica dos LLMs em geral, sem exceção para modelos maiores."><span><strong>D.</strong> Modelos maiores não têm orçamento de atenção limitado.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -10633,7 +10633,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Context windows</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-windows</a>; OpenAI, <em>Conversation state</em> — <a href="https://developers.openai.com/api/docs/guides/conversation-state" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/conversation-state</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Context windows</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-windows</a>. <strong>Aprofundar:</strong> OpenAI, <em>Conversation state</em> — <a href="https://developers.openai.com/api/docs/guides/conversation-state" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/conversation-state</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 9.2c">
         <a href="#unidade-9-2b">Parte 9.2b</a>
@@ -10745,8 +10745,8 @@ Desvio (regra fixa):
       <p>A busca sob demanda não é gratuita. A Anthropic (29/09/2025) aponta dois limites práticos: primeiro, explorar em tempo de execução é mais lento do que recuperar dados já preparados de antemão; segundo, sem boa orientação, o agente desperdiça contexto usando ferramentas do jeito errado, perseguindo becos sem saída ou deixando de achar a informação-chave.</p>
 
       <h3>A estratégia híbrida na prática</h3>
-      <p>Por isso, em vários cenários os agentes mais eficazes adotam uma <dfn>estratégia híbrida</dfn>: recuperam logo de saída um núcleo de dados para ganhar velocidade e seguem com exploração autônoma quando o caso exige aprofundar.</p>
-      <p>A própria fonte nota que esse modelo híbrido costuma funcionar melhor em conteúdos menos dinâmicos, como trabalho jurídico ou financeiro. Na Aurora Educação (<span class="qual">proposta didática</span>), um assistente de bolsas pode receber na entrada a tabela vigente do semestre e consultar sob demanda apenas aditivos ou processos individuais.</p>
+      <p>Por isso, em certos cenários os agentes mais eficazes podem adotar uma <dfn>estratégia híbrida</dfn>: recuperam logo de saída um núcleo de dados para ganhar velocidade e seguem com exploração autônoma quando o caso exige aprofundar.</p>
+      <p>A própria fonte nota que a estratégia híbrida pode ser mais adequada a conteúdos menos dinâmicos, como trabalho jurídico ou financeiro. Na Aurora Educação (<span class="qual">proposta didática</span>), um assistente de bolsas pode receber na entrada a tabela vigente do semestre e consultar sob demanda apenas aditivos ou processos individuais.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p9-3c">
@@ -10766,7 +10766,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Effective context engineering for AI agents</em>, 29/09/2025 — <a href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/effective-context-engineering-for-ai-agents</a>; Anthropic, <em>Best Practices for Claude Code</em> — <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/best-practices</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Effective context engineering for AI agents</em>, 29/09/2025 — <a href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/effective-context-engineering-for-ai-agents</a>. <strong>Aprofundar:</strong> Anthropic, <em>Best Practices for Claude Code</em> — <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/best-practices</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 9.3c">
         <a href="#unidade-9-3b">Parte 9.3b</a>
@@ -10798,7 +10798,7 @@ Desvio (regra fixa):
 
       <h3>A ferramenta de memória entre conversas</h3>
       <p>A documentação da plataforma Claude (<em>Memory tool</em>) materializa esse padrão: o modelo pode criar, ler, atualizar e apagar arquivos em um diretório de memória que persiste entre sessões, construindo conhecimento ao longo do tempo sem manter tudo dentro da janela ativa.</p>
-      <p>Como vimos no Capítulo 6 com <em>stores</em> em grafos de estado (unidade 6.3), a ideia geral não depende de um único provedor: guardar marcos estruturados fora da janela libera espaço para o trabalho imediato.</p>
+      <p>Como vimos no capítulo 6 com <em>stores</em> em grafos de estado (unidade 6.3), a ideia geral não depende de um único provedor: guardar marcos estruturados fora da janela libera espaço para o trabalho imediato.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p9-4a">
@@ -10920,7 +10920,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Memory tool</em> — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool</a>; OpenAI, <em>Conversation state</em> — <a href="https://developers.openai.com/api/docs/guides/conversation-state" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/conversation-state</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Memory tool</em> — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool</a>. <strong>Aprofundar:</strong> OpenAI, <em>Conversation state</em> — <a href="https://developers.openai.com/api/docs/guides/conversation-state" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/conversation-state</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 9.4c">
         <a href="#unidade-9-4b">Parte 9.4b</a>
@@ -10940,7 +10940,7 @@ Desvio (regra fixa):
           <li>Limpar retornos antigos de ferramentas poupa tokens, mas invalida o cache de prefixo e só compensa acima de certo volume.</li>
         </ul>
       </div>
-      <figure class="imagem" data-imagem="9-5b">
+      <figure class="imagem" data-imagem="9-5a">
         <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um bibliotecário recolhe pilhas antigas de recibos já conferidos da mesa e deixa apenas uma ficha-resumo compacta para prosseguir com o inventário.">
           <span class="moldura-texto">Ilustração prevista nesta parte.</span>
         </div>
@@ -10970,7 +10970,7 @@ Desvio (regra fixa):
       <p>Compactação mantém a conversa ativa pequena e a limpeza de retornos antigos poupa espaço, desde que compense a quebra do cache. Na parte 9.5b, decidimos quando compactar, anotar fora, isolar ou recomeçar.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Definição e risco de compactação agressiva:</strong> Anthropic, <em>Effective context engineering for AI agents</em>, 29/09/2025, seção <em>Compaction</em>. <strong>Compactação no servidor e contexto:</strong> Anthropic, <em>Compaction overview</em> e <em>Context editing</em> (beta) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026). <strong>Compactação opaca em streaming:</strong> OpenAI, <em>Compaction</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Definição e risco de compactação agressiva:</strong> Anthropic, <em>Effective context engineering for AI agents</em>, 29/09/2025, seção <em>Compaction</em> (<span class="qual">registrado na pesquisa técnica do fornecedor</span>). <strong>Compactação no servidor e contexto:</strong> Anthropic, <em>Compaction overview</em> e <em>Context editing</em> (beta) (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026). <strong>Compactação opaca em streaming:</strong> OpenAI, <em>Compaction</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 9.5a">
         <a href="#unidade-9-4c">Parte 9.4c</a>
@@ -10987,14 +10987,14 @@ Desvio (regra fixa):
         <strong>Em 3 linhas</strong>
         <ul>
           <li>Compactação serve para conversas longas com muito vai-e-vem; notas externas brilham em desenvolvimento iterativo com marcos claros.</li>
-          <li>Pesquisas complexas e paralelas pertencem a subagentes com janelas limpas (como vimos no Capítulo 6).</li>
+          <li>Pesquisas complexas e paralelas pertencem a subagentes com janelas limpas (como vimos no capítulo 6).</li>
           <li>Se você corrigiu o mesmo erro duas vezes e ele continua falhando, limpar e recomeçar supera acumular tentativas ruins.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Se uma receita desandou duas vezes na mesma panela cheia de restos queimados, continuar jogando tempero por cima só piora o prato; lavar a panela e começar com os ingredientes certos sai mais rápido.</p></div>
 
       <h3>Cada estratégia no seu problema</h3>
-      <p>A pesquisa técnica da Anthropic (29/09/2025) sintetiza quando usar cada padrão: compactação mantém o fluxo em tarefas com muito vai-e-vem conversacional; notas fora da janela são ideais para trabalho iterativo com marcos bem definidos; e arquiteturas multiagente resolvem análises complexas em paralelo — exatamente o papel dos subagentes com janelas limpas estudados na unidade 6.4 (<code>EG-31</code>/<code>EG-32</code>).</p>
+      <p>A pesquisa técnica da Anthropic (29/09/2025) sintetiza quando usar cada padrão: compactação mantém o fluxo em tarefas com muito vai-e-vem conversacional; notas fora da janela são ideais para trabalho iterativo com marcos bem definidos; e arquiteturas multiagente resolvem análises complexas em paralelo — exatamente o papel dos subagentes com janelas limpas estudados na unidade 6.4 (trechos <code>EG-31</code> e <code>EG-32</code> do pacote do capítulo 6).</p>
       <div class="rolagem" role="region" aria-label="Tabela: matriz de decisão para continuidade de contexto" tabindex="0">
       <table class="tabela">
         <caption>Quando usar cada estratégia de continuidade (proposta didática sobre fontes da Anthropic)</caption>
@@ -11029,7 +11029,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Compaction overview</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/compaction" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/compaction</a>; OpenAI, <em>Compaction</em> — <a href="https://developers.openai.com/api/docs/guides/compaction" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/compaction</a>; Anthropic, <em>Context editing</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/context-editing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-editing</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Compaction overview</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/compaction" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/compaction</a>; OpenAI, <em>Compaction</em> — <a href="https://developers.openai.com/api/docs/guides/compaction" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/compaction</a>. <strong>Aprofundar:</strong> Anthropic, <em>Context editing</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/context-editing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/context-editing</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 9.5b">
         <a href="#unidade-9-5a">Parte 9.5a</a>
@@ -11094,14 +11094,14 @@ Desvio (regra fixa):
         <ul>
           <li>O cache de prefixo reaproveita o processamento do começo da entrada quando chamadas repetem exatamente o mesmo prefixo.</li>
           <li>Na Anthropic, o cache segue a ordem <code>tools → system → messages</code> e expira em 5 minutos (padrão) ou 1 hora, contado do início da requisição.</li>
-          <li>OpenAI e Google Cloud também exigem prefixo idêntico no início, e caches compartilhados exigem isolamento por sessão de usuário.</li>
+          <li>A OpenAI exige o prefixo renderizado idêntico, o Google Cloud recomenda conteúdo grande e comum no início, e caches compartilhados exigem isolamento por sessão de usuário.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Um carimbo só vale para a folha inteira se nada no cabeçalho mudar: se você alterar a primeira linha do contrato, todas as páginas abaixo precisam ser conferidas de novo.</p></div>
 
       <h3>Ordem do prefixo, TTL e preço relativo</h3>
       <p>Na documentação da Anthropic (<em>Prompt caching</em>), o cache cobre o prefixo na ordem exata <code>tools → system → messages</code> até o bloco marcado com <code>cache_control</code>. Mudar qualquer nível invalida aquele nível e todos os seguintes — alterar definições de ferramentas invalida tudo.</p>
-      <p>O <dfn>TTL</dfn> (tempo de vida do cache) padrão é de 5 minutos, renovado sem custo extra a cada uso e medido do início da requisição (não do fim da resposta). A escrita custa <code>1,25×</code> o preço base de entrada no TTL de 5 min e <code>2×</code> no de 1 h, enquanto a leitura custa <code>0,1×</code> (com exceções por modelo). Em assinaturas de interface interativa o prazo chega a cerca de 1 hora, enquanto em chave de API dura 5 minutos por padrão; se você envia o mesmo prefixo antes de 5 minutos vencerem, o cache de 5 min se renova sem pagar o dobro.</p>
+      <p>O <dfn>TTL</dfn> (tempo de vida do cache) padrão é de 5 minutos, renovado sem custo extra a cada uso e medido do início da requisição (não do fim da resposta). A escrita custa <code>1,25×</code> o preço base de entrada no TTL de 5 min e <code>2×</code> no de 1 h, enquanto a leitura custa <code>0,1×</code> (com exceções por modelo). No Claude Code, em plano de assinatura o prazo chega a cerca de 1 hora, enquanto com chave de API, provedor de nuvem ou créditos de uso dura 5 minutos; se você envia o mesmo prefixo antes de 5 minutos vencerem, o cache de 5 min se renova sem pagar o dobro.</p>
       <div class="rolagem" role="region" aria-label="Tabela: cache de prefixo entre Anthropic, OpenAI e Google Cloud" tabindex="0">
       <table class="tabela">
         <caption>Regras de cache de prefixo em três provedores (documentação consultada em 17/11/2026)</caption>
@@ -11178,7 +11178,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Prompt caching</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/prompt-caching</a>; Anthropic, <em>Effort</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/effort</a>; OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>; Google Cloud, <em>Context caching overview</em> — <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/.../context-cache-overview</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Prompt caching</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/prompt-caching</a>; Anthropic, <em>Effort</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/effort</a>; OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>. <strong>Aprofundar:</strong> Google Cloud, <em>Context caching overview</em> — <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/.../context-cache-overview</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 9.6c">
         <a href="#unidade-9-6b">Parte 9.6b</a>
@@ -11302,7 +11302,7 @@ Desvio (regra fixa):
         <ul>
           <li>O modelo não executa nada: devolve um pedido estruturado (<code>tool_use</code>); a aplicação executa e envia o resultado em <code>tool_result</code>.</li>
           <li>Ferramentas de servidor rodam no provedor, mas a fronteira permanece: o modelo propõe, um programa determinístico valida e executa.</li>
-          <li>Modos de chamada (<code>auto</code>, <code>any</code>, <code>none</code>) controlam a liberdade; forçar ferramenta pode pular o raciocínio e invalidar cache.</li>
+          <li>Modos de chamada (<code>auto</code>, <code>any</code>, <code>none</code>) controlam a liberdade; forçar ferramenta pula o raciocínio, e mudar o modo pode invalidar parte do cache.</li>
         </ul>
       </div>
       <figure class="imagem" data-imagem="10-1a">
@@ -11333,7 +11333,7 @@ Desvio (regra fixa):
       </div>
 
       <h3>Chamadas paralelas e efeitos de forçar</h3>
-      <p>O modelo pode propor várias chamadas paralelas no mesmo turno; a aplicação devolve todas as respostas antes de pedir a continuação. Forçar ferramenta na API da Anthropic invalida blocos no cache de prefixo e pula o bloco de raciocínio (<em>thinking</em>) nos modelos compatíveis — para raciocínio explícito, prefira <code>auto</code> com instrução clara.</p>
+      <p>O modelo pode propor várias chamadas paralelas no mesmo turno; a aplicação devolve todas as respostas antes de pedir a continuação. Na API da Anthropic, mudar o parâmetro <code>tool_choice</code> invalida blocos de mensagem em cache, e forçar ferramenta pula o bloco de raciocínio (<em>thinking</em>) nos modelos compatíveis — para raciocínio explícito, prefira <code>auto</code> com instrução clara.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p10-1a">
@@ -11397,7 +11397,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Tool use with Claude</em> — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview" target="_blank" rel="noopener noreferrer">platform.claude.com/.../tool-use/overview</a>; OpenAI, <em>Function calling</em> — <a href="https://developers.openai.com/api/docs/guides/function-calling" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/function-calling</a>; Google Cloud, <em>Function calling</em> — <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling" target="_blank" rel="noopener noreferrer">cloud.google.com/.../function-calling</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Tool use with Claude</em> — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview" target="_blank" rel="noopener noreferrer">platform.claude.com/.../tool-use/overview</a>; OpenAI, <em>Function calling</em> — <a href="https://developers.openai.com/api/docs/guides/function-calling" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/function-calling</a>. <strong>Aprofundar:</strong> Google Cloud, <em>Function calling</em> — <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling" target="_blank" rel="noopener noreferrer">cloud.google.com/.../function-calling</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 10.1b">
         <a href="#unidade-10-1a">Parte 10.1a</a>
@@ -11546,7 +11546,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> JSON Schema — <a href="https://json-schema.org/overview/what-is-jsonschema" target="_blank" rel="noopener noreferrer">json-schema.org/overview/what-is-jsonschema</a>; Anthropic, <em>Writing effective tools for AI agents</em> — <a href="https://www.anthropic.com/research/writing-tools-for-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/writing-tools-for-agents</a>; Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>.</p>
+        <p><strong>Ler:</strong> JSON Schema — <a href="https://json-schema.org/overview/what-is-jsonschema" target="_blank" rel="noopener noreferrer">json-schema.org/overview/what-is-jsonschema</a>; Anthropic, <em>Writing effective tools for AI agents</em> — <a href="https://www.anthropic.com/research/writing-tools-for-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/writing-tools-for-agents</a>. <strong>Aprofundar:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 10.2c">
         <a href="#unidade-10-2b">Parte 10.2b</a>
@@ -11610,14 +11610,14 @@ Desvio (regra fixa):
         <ul>
           <li>A capacidade de escolha cai quando passamos de 30–50 ferramentas carregadas ao mesmo tempo na entrada.</li>
           <li>Ambos os principais provedores oferecem busca sob demanda de ferramentas (<em>tool search</em>) para adiar esquemas pouco usados.</li>
-          <li>Em servidores MCP conectados, também podemos restringir de saída quais ferramentas importar (<code>allowed_tools</code>).</li>
+          <li>Em servidores MCP conectados, também podemos restringir desde o início quais ferramentas importar (<code>allowed_tools</code>).</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Em uma oficina com quinhentas chaves diferentes, o mecânico não coloca todas em cima do motor antes de começar: olha no catálogo da gaveta e traz só as três chaves compatíveis com o parafuso de hoje.</p></div>
 
       <h3>O limite prático de ferramentas carregadas</h3>
       <p>Segundo a documentação do <em>Tool search tool</em> (Anthropic), carregar todas as definições de antemão gera dois problemas: inchaço de contexto (um conjunto típico de cinco servidores pode gastar cerca de 55 mil tokens só em definições) e queda de precisão na escolha da ferramenta correta assim que a lista ultrapassa 30 a 50 ferramentas disponíveis.</p>
-      <p>A OpenAI registra recomendação convergente em <em>Function calling</em>: mantenha pequeno o número de funções disponíveis de saída para preservar precisão e use busca de ferramentas para adiar partes grandes ou pouco usadas.</p>
+      <p>A OpenAI registra recomendação convergente em <em>Function calling</em>: mantenha pequeno o número de funções disponíveis no início para preservar precisão e use busca de ferramentas para adiar partes grandes ou pouco usadas.</p>
 
       <h3>Busca sob demanda e lista permitida</h3>
       <p>Com <dfn>busca de ferramentas</dfn> (<em>tool search</em>) ou descoberta progressiva em arquivos, o agente pesquisa o catálogo e carrega apenas as 3 a 5 definições necessárias para aquele pedido — reduzindo drasticamente o consumo de entrada (em um cenário documentado pela Anthropic em <em>Code execution with MCP</em>, de 150 mil para 2 mil tokens). E quando o servidor MCP traz dezenas de funções mas a tarefa só precisa de duas, o parâmetro <code>allowed_tools</code> importa apenas esse subconjunto.</p>
@@ -11629,7 +11629,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p10-3b" value="a" data-correta="false" data-explicacao="Incorreta. Repetir o pedido no modo ANY não reduz as 180 definições nem melhora a seleção entre ferramentas conflitantes."><span><strong>A.</strong> Mudar para modo <code>ANY</code> mantendo todas as 180 ferramentas carregadas.</span></label>
         <label class="alternativa"><input type="radio" name="p10-3b" value="b" data-correta="true" data-explicacao="Correta. Restringir ferramentas expostas via lista permitida (allowed_tools) e carregar ferramentas raras sob demanda via busca de ferramentas mantém a superfície inicial enxuta e precisa."><span><strong>B.</strong> Restringir o subconjunto necessário com <code>allowed_tools</code> e usar busca sob demanda (<em>tool search</em>) para carregar definições raras apenas quando pedidas.</span></label>
         <label class="alternativa"><input type="radio" name="p10-3b" value="c" data-correta="false" data-explicacao="Incorreta. Temperatura zero não remove os milhares de tokens de definições da janela."><span><strong>C.</strong> Fixar temperatura em zero e manter os seis servidores abertos por inteiro.</span></label>
-        <label class="alternativa"><input type="radio" name="p10-3b" value="d" data-correta="false" data-explicacao="Incorreta. Compactação resume histórico, não elimina definições carregadas de saída no nível tools."><span><strong>D.</strong> Ativar compactação no streaming para apagar definições do campo <code>tools</code>.</span></label>
+        <label class="alternativa"><input type="radio" name="p10-3b" value="d" data-correta="false" data-explicacao="Incorreta. Compactação resume histórico, não elimina definições carregadas desde o início no nível tools."><span><strong>D.</strong> Ativar compactação no streaming para apagar definições do campo <code>tools</code>.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -11659,13 +11659,13 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Se sua equipe precisa de apenas quatro chaves fixas na bancada, não vale montar uma oficina automatizada inteira com robô separador — mas quando a oficina passa de cinquenta ferramentas ou processa relatórios gigantes, a automação se paga.</p></div>
 
       <h3>Comparando as três arquiteturas de integração</h3>
-      <p>Pela regra de proporcionalidade do Capítulo 8, cada camada extra de execução traz custo operacional e superfície de risco (como isolamento de <em>sandbox</em>). O quadro abaixo (<span class="qual">proposta didática</span> sobre as fontes da Anthropic e OpenAI) resume quando escolher cada abordagem.</p>
+      <p>Pela regra de proporcionalidade do capítulo 8, cada camada extra de execução traz custo operacional e superfície de risco (como isolamento de <em>sandbox</em>). O quadro abaixo (<span class="qual">proposta didática</span> sobre as fontes da Anthropic e OpenAI) resume quando escolher cada abordagem.</p>
       <div class="rolagem" role="region" aria-label="Tabela: escolha entre chamadas diretas, tool search e execução em sandbox" tabindex="0">
       <table class="tabela">
         <caption>Quando escolher cada padrão de acesso a ferramentas (proposta didática)</caption>
         <thead><tr><th scope="col">Padrão</th><th scope="col">Quando usar</th><th scope="col">Cuidado principal</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Chamadas diretas enxutas</th><td>Até ~15–20 ferramentas estáveis e retornos já filtrados no servidor</td><td>Não deixar o servidor devolver listas enormes sem paginação</td></tr>
+          <tr><th scope="row">Chamadas diretas enxutas</th><td>Cerca de 5 a 15 ferramentas estáveis e retornos já filtrados no servidor</td><td>Não deixar o servidor devolver listas enormes sem paginação</td></tr>
           <tr><th scope="row">Busca sob demanda (<em>tool search</em>)</th><td>Catálogos acima de 30–50 ferramentas entre vários serviços</td><td>Exige nomes e descrições claros para a busca achar certo</td></tr>
           <tr><th scope="row">Execução em código (<em>sandbox</em>)</th><td>Filtros ad-hoc, cruzamentos pesados ou grandes volumes intermediários</td><td>Exige isolamento rígido de rede, disco e permissões (Cap. 7)</td></tr>
         </tbody>
@@ -11693,7 +11693,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Code execution with MCP</em> — <a href="https://www.anthropic.com/research/code-execution-with-mcp" target="_blank" rel="noopener noreferrer">anthropic.com/research/code-execution-with-mcp</a>; Anthropic, <em>Tool search tool</em> — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool" target="_blank" rel="noopener noreferrer">platform.claude.com/.../tool-search-tool</a>; OpenAI, <em>Connectors and MCP servers</em> — <a href="https://developers.openai.com/api/docs/guides/tools-connectors-mcp" target="_blank" rel="noopener noreferrer">developers.openai.com/.../tools-connectors-mcp</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Code execution with MCP</em> — <a href="https://www.anthropic.com/research/code-execution-with-mcp" target="_blank" rel="noopener noreferrer">anthropic.com/research/code-execution-with-mcp</a>; Anthropic, <em>Tool search tool</em> — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool" target="_blank" rel="noopener noreferrer">platform.claude.com/.../tool-search-tool</a>. <strong>Aprofundar:</strong> OpenAI, <em>Connectors and MCP servers</em> — <a href="https://developers.openai.com/api/docs/guides/tools-connectors-mcp" target="_blank" rel="noopener noreferrer">developers.openai.com/.../tools-connectors-mcp</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 10.3c">
         <a href="#unidade-10-3b">Parte 10.3b</a>
@@ -11757,7 +11757,7 @@ Desvio (regra fixa):
           <li>Recursos orientados pela aplicação (como <em>Resources</em> no MCP) permitem que o sistema controle quando e o quê expor.</li>
         </ul>
       </div>
-      <figure class="imagem" data-imagem="10-4c">
+      <figure class="imagem" data-imagem="10-4b">
         <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: em uma mesa de vidro entre dois arquivos, um selador automático substitui nomes e endereços reais por fichas numeradas antes de o pergaminho atravessar para a mesa de leitura.">
           <span class="moldura-texto">Ilustração prevista nesta parte.</span>
         </div>
@@ -11765,7 +11765,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Ao transportar documentos confidenciais de um prédio para outro usando um mensageiro terceirizado, o malote vai lacrado com etiquetas numéricas: o mensageiro só lê o código de destino, nunca os nomes e CPFs de dentro.</p></div>
 
       <h3>Tokenização de PII antes de chegar ao modelo</h3>
-      <p>Um recurso poderoso descrito em <em>Code execution with MCP</em> (04/11/2025) é manter dados sensíveis fora da janela do modelo: quando um fluxo lê uma planilha de contatos para atualizar um CRM, o cliente MCP pode interceptar os dados e substituir e-mail, telefone e nome por marcadores opacos (como <code>[EMAIL_1]</code>) antes que o modelo os veja, desfazendo a troca apenas ao gravar no destino.</p>
+      <p>Um recurso poderoso descrito em <em>Code execution with MCP</em> (04/11/2025) é manter dados sensíveis fora da janela do modelo: quando um fluxo lê uma planilha de contatos para atualizar um CRM (sistema de relacionamento com clientes), o cliente MCP pode interceptar os dados e substituir e-mail, telefone e nome por marcadores opacos (como <code>[EMAIL_1]</code>) antes que o modelo os veja, desfazendo a troca apenas ao gravar no destino.</p>
       <p>Desse modo, os dados pessoais circulam entre os sistemas autorizados sem jamais passar pelo LLM — permitindo regras determinísticas rígidas sobre de onde e para onde cada dado pode fluir.</p>
 
       <h3>Higienização e escolha guiada pela aplicação</h3>
@@ -11789,7 +11789,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Writing effective tools for AI agents</em> — <a href="https://www.anthropic.com/research/writing-tools-for-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/writing-tools-for-agents</a>; MCP <em>Resources</em> — <a href="https://modelcontextprotocol.io/specification/latest/server/resources" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest/server/resources</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Writing effective tools for AI agents</em> — <a href="https://www.anthropic.com/research/writing-tools-for-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/writing-tools-for-agents</a>. <strong>Aprofundar:</strong> MCP <em>Resources</em> — <a href="https://modelcontextprotocol.io/specification/latest/server/resources" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest/server/resources</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 10.4b">
         <a href="#unidade-10-4a">Parte 10.4a</a>
@@ -11814,7 +11814,7 @@ Desvio (regra fixa):
       <h3>Dois mecanismos de erro no protocolo MCP</h3>
       <p>A especificação de ferramentas do MCP (<code>2026-07-28</code>) separa dois tipos de falha com clareza:</p>
       <ul>
-        <li><strong>Erros de protocolo:</strong> falhas na estrutura do pedido (ferramenta desconhecida, requisição malformada ou erro interno do servidor), devolvidos como erros JSON-RPC padrão; dificilmente o modelo consegue consertar sozinho.</li>
+        <li><strong>Erros de protocolo:</strong> falhas na estrutura do pedido (ferramenta desconhecida, requisição malformada ou erro interno do servidor), devolvidos como erros padrão do JSON-RPC (o formato de mensagens de pedido e resposta que o MCP usa); dificilmente o modelo consegue consertar sozinho.</li>
         <li><strong>Erros de execução de ferramenta:</strong> falhas de API externa, validação de entrada ou regra de negócio, devolvidos no resultado com <code>isError: true</code> e mensagem acionável para o modelo ajustar os parâmetros e tentar novamente.</li>
       </ul>
 
@@ -11855,7 +11855,7 @@ Desvio (regra fixa):
           <li>Como o MCP não mantém sessão implícita no protocolo, operações com continuidade precisam de identificadores explícitos verificados no servidor.</li>
         </ul>
       </div>
-      <div class="analogia"><p><strong>Pense assim.</strong> Se dois atendentes mexeram no mesmo processo e o sistema avisou “versão desatualizada” (conflito), apertar “salvar” de novo sem reler o processo corrige nada; é preciso ler o estado atual primeiro.</p></div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Se dois atendentes mexeram no mesmo processo e o sistema avisou “versão desatualizada” (conflito), apertar “salvar” de novo sem reler o processo não corrige nada; é preciso ler o estado atual primeiro.</p></div>
 
       <h3>Decidir pelo código do erro e respeitar estado</h3>
       <p>Na documentação da OpenAI (<em>Errors and recovery</em>), a aplicação deve rotear tratamento pelo código estruturado (<code>error.code</code>) em vez de caçar palavras na mensagem em texto livre. Quando houver sobrecarga ou limite de taxa (<code>429</code>/<code>503</code>), repita apenas com espera crescente e teto de tentativas; diante de erro inesperado (<code>500</code>) ou conflito de estado (<code>409</code>), leia o estado salvo antes de repetir.</p>
@@ -11924,7 +11924,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenAI, <em>Errors and recovery</em> — <a href="https://developers.openai.com/api/docs/guides/agents-api/errors" target="_blank" rel="noopener noreferrer">developers.openai.com/.../agents-api/errors</a>; MCP <em>Tools</em> — <a href="https://modelcontextprotocol.io/specification/latest/server/tools" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest/server/tools</a>.</p>
+        <p><strong>Ler:</strong> OpenAI, <em>Errors and recovery</em> — <a href="https://developers.openai.com/api/docs/guides/agents-api/errors" target="_blank" rel="noopener noreferrer">developers.openai.com/.../agents-api/errors</a>. <strong>Aprofundar:</strong> MCP <em>Tools</em> — <a href="https://modelcontextprotocol.io/specification/latest/server/tools" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest/server/tools</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 10.5c">
         <a href="#unidade-10-5b">Parte 10.5b</a>
@@ -11952,7 +11952,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Em uma embaixada (o Host), cada tradutor (Cliente) fala exclusivamente com um ministério parceiro (Servidor) por um protocolo padronizado, sem jamais entregar a ata da sala inteira nem ligar um ministério ao outro.</p></div>
 
       <h3>Três papéis e três primitivas</h3>
-      <p>Pela especificação oficial (revisão <code>2026-07-28</code>), o <dfn>MCP</dfn> padroniza a integração de aplicações de LLM com fontes de dados e ferramentas externas usando mensagens JSON-RPC 2.0 sem estado implícito, com negociação de capacidades por requisição. Os servidores podem expor três recursos principais: <strong>Resources</strong> (contexto e dados), <strong>Prompts</strong> (modelos de mensagem para o usuário) e <strong>Tools</strong> (funções para o modelo acionar).</p>
+      <p>Pela especificação oficial (revisão <code>2026-07-28</code>), o <dfn>MCP</dfn> padroniza a integração de aplicações de LLM com fontes de dados e ferramentas externas usando mensagens JSON-RPC 2.0 sem estado implícito, com negociação de capacidades por requisição. Os servidores podem expor três primitivas: <strong>Resources</strong> (contexto e dados), <strong>Prompts</strong> (modelos de mensagem para o usuário) e <strong>Tools</strong> (funções para o modelo acionar).</p>
 
       <h3>Fronteiras entre Host, Cliente e Servidor</h3>
       <p>Na arquitetura <em>client-host-server</em> do protocolo, o <dfn>Host</dfn> é a aplicação de LLM que coordena permissões, consentimento do usuário e agregação de contexto; cada <dfn>Cliente</dfn> criado pelo Host conversa em relação 1:1 com um único <dfn>Servidor</dfn>. Por princípio de desenho, servidores não leem a conversa completa nem enxergam outros servidores — quem aplica as fronteiras de segurança é o processo Host.</p>
@@ -11997,14 +11997,14 @@ Desvio (regra fixa):
       <p>A especificação MCP alerta de forma explícita na seção <em>Tool Safety</em>: descrições de comportamento como <dfn>anotações de ferramenta</dfn> (por exemplo, se uma ferramenta diz ser somente leitura ou não destrutiva) devem ser consideradas não confiáveis, a menos que venham de um servidor confiável. Nunca dispense confirmação humana em ações críticas baseando-se apenas numa etiqueta enviada por um servidor de terceiros.</p>
 
       <h3>Servidores oficiais e fim do registro dinâmico em proxies</h3>
-      <p>Como vimos na unidade 7.2, servidores intermediários mal protegidos sofrem o risco de <em>deputado confuso</em>. A seção de segurança do MCP registra que o registro dinâmico de clientes (<em>Dynamic Client Registration</em>) foi descontinuado na versão <code>2026-07-28</code> justamente por viabilizar ataques com cookies de consentimento em proxies. E o guia da OpenAI reforça: escolha servidores oficiais hospedados pelo próprio dono do serviço (em vez de proxies agregadores sem verificação).</p>
+      <p>Como vimos na unidade 7.2, servidores intermediários mal protegidos sofrem o risco de <em>deputado confuso</em>. A seção de segurança do MCP registra que o registro dinâmico de clientes (<em>Dynamic Client Registration</em>) foi descontinuado na versão <code>2026-07-28</code>, na seção que trata do problema do deputado confuso. E o guia da OpenAI reforça: escolha servidores oficiais hospedados pelo próprio dono do serviço (em vez de proxies agregadores sem verificação).</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p10-6b">
         <legend>Escolha uma alternativa</legend>
         <p id="enunciado-p10-6b">Um servidor MCP de terceiros encontrado na internet declara em suas anotações <code>readOnlyHint: true</code> e <code>destructiveHint: false</code>. A equipe pode liberar suas chamadas automaticamente sem revisão?</p>
         <label class="alternativa"><input type="radio" name="p10-6b" value="a" data-correta="false" data-explicacao="Incorreta. Anotações são autodeclaradas pelo servidor; um servidor malicioso pode mentir nas etiquetas."><span><strong>A.</strong> Sim, porque o protocolo MCP bloqueia fisicamente escritas sempre que <code>readOnlyHint</code> é verdadeiro.</span></label>
-        <label class="alternativa"><input type="radio" name="p10-6b" value="b" data-correta="true" data-explicacao="Correta. A especificação MCP exige considerar anotações não confiáveis se o servidor não for confiável; prefira servidores oficiais/auditados e mantenha aprovações."><span><strong>B.</strong> Não; a especificação MCP determina tratar anotações como não confiáveis se o servidor não for confiável, exigindo revisão, preferência por servidor oficial e aprovações.</span></label>
+        <label class="alternativa"><input type="radio" name="p10-6b" value="b" data-correta="true" data-explicacao="Correta. A especificação MCP orienta considerar anotações não confiáveis se o servidor não for confiável; prefira servidores oficiais/auditados e mantenha aprovações."><span><strong>B.</strong> Não; a especificação MCP orienta tratar anotações como não confiáveis se o servidor não for confiável, exigindo revisão, preferência por servidor oficial e aprovações.</span></label>
         <label class="alternativa"><input type="radio" name="p10-6b" value="c" data-correta="false" data-explicacao="Incorreta. Usar JSON Schema na entrada não impede um servidor terceiro malicioso de exfiltrar dados recebidos."><span><strong>C.</strong> Sim, desde que a entrada use <code>additionalProperties: false</code>.</span></label>
         <label class="alternativa"><input type="radio" name="p10-6b" value="d" data-correta="false" data-explicacao="Incorreta. Registro dinâmico foi descontinuado na versão 2026-07-28 por riscos de deputado confuso."><span><strong>D.</strong> Sim, bastando ativar registro dinâmico de clientes no servidor proxy.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
@@ -12036,7 +12036,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Uma cozinha profissional bem montada tem tomadas padronizadas (protocolo), peneiras antes da mesa (filtros), etiquetas claras nos potes (contratos) e trava no registro principal de gás (aprovação).</p></div>
 
       <h3>Desenho completo do conector acadêmico</h3>
-      <p>Na Aurora Educação (<span class="qual">proposta didática</span>), a equipe quer expor o sistema de secretaria tanto para o chat interno quanto para um assistente de coordenação. Em vez de duplicar integrações proprietárias, expõe um servidor MCP interno próprio dividido por perfil, com seis decisões integradas:</p>
+      <p>Na Aurora Educação (<span class="qual">proposta didática</span>), a equipe quer expor o sistema de secretaria tanto para o chat interno quanto para um assistente de coordenação. Em vez de duplicar integrações proprietárias, expõe um servidor MCP interno próprio dividido por perfil, com decisões integradas em três grupos:</p>
       <ul>
         <li><strong>Contrato e <em>poka-yoke</em>:</strong> prefixos claros (<code>aurora_acad_*</code>), <code>strict: true</code>, <code>additionalProperties: false</code> e datas em <code>AAAA-MM-DD</code>.</li>
         <li><strong>Filtro e paginação:</strong> limite de 10 itens por página, nomes legíveis no lugar de UUIDs crus e nenhum dado pessoal desnecessário no retorno.</li>
@@ -12064,7 +12064,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> MCP <em>Specification</em> (<code>2026-07-28</code>) — <a href="https://modelcontextprotocol.io/specification/latest" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest</a>; MCP <em>Architecture</em> — <a href="https://modelcontextprotocol.io/specification/latest/architecture" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest/architecture</a>; MCP <em>Security Best Practices</em> — <a href="https://modelcontextprotocol.io/specification/latest/basic/security_best_practices" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/.../security_best_practices</a>.</p>
+        <p><strong>Ler:</strong> MCP <em>Specification</em> (<code>2026-07-28</code>) — <a href="https://modelcontextprotocol.io/specification/latest" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest</a>; MCP <em>Architecture</em> — <a href="https://modelcontextprotocol.io/specification/latest/architecture" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/specification/latest/architecture</a>. <strong>Aprofundar:</strong> MCP <em>Security Best Practices</em> — <a href="https://modelcontextprotocol.io/specification/latest/basic/security_best_practices" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io/.../security_best_practices</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 10.6c">
         <a href="#unidade-10-6b">Parte 10.6b</a>
@@ -12091,7 +12091,7 @@ Desvio (regra fixa):
 
       <fieldset class="questao" aria-describedby="enunciado-c10q2">
         <legend>Questão 2 <span class="nivel">(fácil)</span></legend>
-        <p id="enunciado-c10q2">Por que a Anthropic e a OpenAI recomendam limitar o número de ferramentas expostas de saída (evitando passar dezenas ou centenas de definições sem filtro)?</p>
+        <p id="enunciado-c10q2">Por que a Anthropic e a OpenAI recomendam limitar o número de ferramentas expostas desde o início (evitando passar dezenas ou centenas de definições sem filtro)?</p>
         <label class="alternativa"><input type="radio" name="c10q2" value="a" data-correta="false" data-explicacao="Incorreta. O problema é gasto de tokens na entrada e queda de precisão na escolha da ferramenta (especialmente acima de 30–50 ferramentas)."><span><strong>A.</strong> Porque a especificação JSON Schema proíbe mais de cinco propriedades por arquivo.</span></label>
         <label class="alternativa"><input type="radio" name="c10q2" value="b" data-correta="true" data-explicacao="Correta. Expor ferramentas demais consome dezenas de milhares de tokens de entrada e reduz a precisão de escolha do modelo; busca sob demanda e allowed_tools resolvem isso."><span><strong>B.</strong> Porque definições demais consomem grande parte da janela de contexto e reduzem a precisão de escolha da ferramenta certa.</span></label>
         <label class="alternativa"><input type="radio" name="c10q2" value="c" data-correta="false" data-explicacao="Incorreta. Usar poucas ferramentas não impede o uso de modo estrito."><span><strong>C.</strong> Porque <code>strict: true</code> só funciona quando existe exatamente uma ferramenta.</span></label>
@@ -12148,7 +12148,7 @@ Desvio (regra fixa):
 
     <section class="page" id="capitulo-11" aria-labelledby="titulo-do-capitulo-11">
       <h2 id="titulo-do-capitulo-11">Capítulo 11 — Busca, indexação e RAG</h2>
-      <p>Quando o acervo da empresa não cabe inteiro na janela de contexto — ou muda toda semana — o modelo precisa consultar fontes externas antes de responder. Já vimos no Capítulo 6 quando usar grafos de conhecimento (GraphRAG) para perguntas amplas ou ligadas por múltiplos saltos; agora estudamos a base diária da recuperação de texto: <strong>busca textual, busca por símbolos, fragmentação (<em>chunking</em>), índices, <em>embeddings</em>, busca híbrida com <em>reranking</em>, geração ancorada e avaliação separada</strong>.</p>
+      <p>Quando o acervo da empresa não cabe inteiro na janela de contexto — ou muda toda semana — o modelo precisa consultar fontes externas antes de responder. Já vimos no capítulo 6 quando usar grafos de conhecimento (GraphRAG) para perguntas amplas ou ligadas por múltiplos saltos; agora estudamos a base diária da recuperação de texto: <strong>busca textual, busca por símbolos, fragmentação (<em>chunking</em>), índices, <em>embeddings</em>, busca híbrida com <em>reranking</em>, geração ancorada e avaliação separada</strong>.</p>
       <p>Ao final, você saberá decidir quando um simples <code>grep</code> ou um prompt com cache resolve melhor do que um banco vetorial, e como diagnosticar se um erro veio da busca ou da geração da resposta.</p>
       <p>Como em todo o livro, você não precisa programar: trechos de configuração aparecem apenas para leitura arquitetural.</p>
 
@@ -12165,7 +12165,7 @@ Desvio (regra fixa):
       </ul>
 
       <h3>Para quem é este capítulo</h3>
-      <p>Para quem leu os capítulos 1 a 10. Retomamos aqui <em>embeddings</em> e <em>rerankers</em> (1.7), GraphRAG (6.2, <code>EG-01</code>–<code>EG-14</code> e <code>EG-37</code>), envenenamento de bases RAG (7.4), <em>fine-tuning</em> prematuro (8.5) e recuperação sob demanda (9.3).</p>
+      <p>Para quem leu os capítulos 1 a 10. Retomamos aqui <em>embeddings</em> e <em>rerankers</em> (1.7), GraphRAG (6.2; trechos <code>EG-01</code>–<code>EG-14</code> e <code>EG-37</code> do pacote do capítulo 6), envenenamento de bases RAG (7.4), <em>fine-tuning</em> prematuro (8.5) e recuperação sob demanda (9.3).</p>
 
       <h3>Como ler os exemplos</h3>
       <p>Mantemos as etiquetas de confiança: <span class="qual">registrado no artigo</span> (Lewis et al. <code>arXiv:2005.11401</code>, Sentence-BERT <code>arXiv:1908.10084</code>, Nogueira e Cho <code>arXiv:1901.04085</code>, MTEB <code>arXiv:2210.07316</code> e RAGAS <code>arXiv:2309.15217</code>), <span class="qual">registrado na pesquisa técnica do fornecedor</span> (Anthropic <em>Contextual Retrieval</em> e <em>Effective context engineering</em>) e <span class="qual">registrado na documentação</span> (OpenAI, Google Cloud, <code>ripgrep</code> e <code>tree-sitter</code>, consultadas em 17/11/2026). Casos da Aurora Educação e quadros comparativos entram como <span class="qual">proposta didática</span>.</p>
@@ -12181,7 +12181,7 @@ Desvio (regra fixa):
     </section>
 
     <section class="page" id="unidade-11-1a" aria-labelledby="titulo-da-unidade-11-1a">
-      <h2 id="titulo-da-unidade-11-1a">11.1a Quando nem usar RAG e busca lexical (BM25)</h2>
+      <h2 id="titulo-da-unidade-11-1a">11.1a Quando dispensar o RAG e busca lexical (BM25)</h2>
       <p class="rotulo-unidade">Unidade 11.1 — Quando buscar, busca textual e busca por símbolos (parte 1 de 3).</p>
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
@@ -12253,7 +12253,7 @@ Desvio (regra fixa):
         <p id="enunciado-p11-1b">Por que um agente trabalhando em uma pasta de arquivos que muda a cada minuto costuma usar busca textual direta (<code>glob</code> e <code>grep</code>) antes de montar um índice vetorial?</p>
         <label class="alternativa"><input type="radio" name="p11-1b" value="a" data-correta="false" data-explicacao="Incorreta. Busca ao vivo lê o disco em tempo de execução justamente para evitar índices obsoletos, sem exigir GPU."><span><strong>A.</strong> Porque <code>grep</code> altera os pesos do modelo com cada arquivo editado.</span></label>
         <label class="alternativa"><input type="radio" name="p11-1b" value="b" data-correta="true" data-explicacao="Correta. Primitivas como glob e grep leem o estado atual dos arquivos na hora, evitando índices defasados e complexidade desnecessária."><span><strong>B.</strong> Porque busca diretamente nos arquivos atuais, evitando índices pré-computados defasados e infraestrutura complexa de sincronização.</span></label>
-        <label class="alternativa"><input type="radio" name="p11-1b" value="c" data-correta="false" data-explicacao="Incorreta. A busca textual funciona por padrão exato e regex, não por similaridade semântica em espanhol/português sem sinônimos."><span><strong>C.</strong> Porque <code>ripgrep</code> traduz automaticamente sinônimos conceituais sem correspondência de palavras.</span></label>
+        <label class="alternativa"><input type="radio" name="p11-1b" value="c" data-correta="false" data-explicacao="Incorreta. A busca textual funciona por padrão exato e regex, não por similaridade semântica; sinônimos sem a palavra exata ficam de fora."><span><strong>C.</strong> Porque <code>ripgrep</code> traduz automaticamente sinônimos conceituais sem correspondência de palavras.</span></label>
         <label class="alternativa"><input type="radio" name="p11-1b" value="d" data-correta="false" data-explicacao="Incorreta. <code>ripgrep</code> pula binários e arquivos ignorados por padrão justamente para ser rápido e limpo."><span><strong>D.</strong> Porque <code>grep</code> lê todos os arquivos binários e imagens pixel a pixel.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -12318,7 +12318,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Contextual Retrieval</em> — <a href="https://www.anthropic.com/research/contextual-retrieval" target="_blank" rel="noopener noreferrer">anthropic.com/research/contextual-retrieval</a>; <code>ripgrep</code> — <a href="https://raw.githubusercontent.com/BurntSushi/ripgrep/master/README.md" target="_blank" rel="noopener noreferrer">github.com/BurntSushi/ripgrep</a>; Tree-sitter — <a href="https://tree-sitter.github.io/tree-sitter/" target="_blank" rel="noopener noreferrer">tree-sitter.github.io/tree-sitter</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Contextual Retrieval</em> — <a href="https://www.anthropic.com/research/contextual-retrieval" target="_blank" rel="noopener noreferrer">anthropic.com/research/contextual-retrieval</a>; <code>ripgrep</code> — <a href="https://raw.githubusercontent.com/BurntSushi/ripgrep/master/README.md" target="_blank" rel="noopener noreferrer">github.com/BurntSushi/ripgrep</a>. <strong>Aprofundar:</strong> Tree-sitter — <a href="https://tree-sitter.github.io/tree-sitter/" target="_blank" rel="noopener noreferrer">tree-sitter.github.io/tree-sitter</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 11.1c">
         <a href="#unidade-11-1b">Parte 11.1b</a>
@@ -12396,7 +12396,7 @@ Desvio (regra fixa):
         <p id="enunciado-p11-2b">Na base de editais da Aurora Educação, um fragmento diz apenas: “O desconto passa a ser de 20% para inscrições até sexta-feira”, sem mencionar o nome do curso nem o ano do edital. Por que o buscador falha ao responder “Qual o desconto do curso de Dados em 2026?”</p>
         <label class="alternativa"><input type="radio" name="p11-2b" value="a" data-correta="false" data-explicacao="Incorreta. Mesmo o melhor embedding não adivinha o nome do curso e o ano se eles ficaram fora do fragmento indexado."><span><strong>A.</strong> Porque modelos de linguagem não entendem porcentagens.</span></label>
         <label class="alternativa"><input type="radio" name="p11-2b" value="b" data-correta="true" data-explicacao="Correta. A fragmentação tradicional isolou o trecho do título/metadados do documento, removendo as pistas (“curso de Dados”, “2026”) necessárias para encontrá-lo."><span><strong>B.</strong> Porque o corte isolou o fragmento sem o contexto do documento (nome do curso e ano), impedindo o índice lexical e o vetorial de ligá-lo à pergunta.</span></label>
-        <label class="alternativa"><input type="radio" name="p11-2b" value="c" data-correta="false" data-explicacao="Incorreta. Temperatura zero afeta a geração, não resolve um trecho perdido na etapa de recuperação."><span><strong>C.</strong> Porque a temperatura do gerador estava acima de 0,2.</span></label>
+        <label class="alternativa"><input type="radio" name="p11-2b" value="c" data-correta="false" data-explicacao="Incorreta. A temperatura afeta a geração, não resolve um trecho perdido na etapa de recuperação."><span><strong>C.</strong> Porque a temperatura do gerador estava acima de 0,2.</span></label>
         <label class="alternativa"><input type="radio" name="p11-2b" value="d" data-correta="false" data-explicacao="Incorreta. O problema está na falta de contexto no fragmento indexado, não na falta de tokens na janela do usuário."><span><strong>D.</strong> Porque o prompt do usuário foi curto demais.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -12455,7 +12455,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Contextual Retrieval</em> — <a href="https://www.anthropic.com/research/contextual-retrieval" target="_blank" rel="noopener noreferrer">anthropic.com/research/contextual-retrieval</a>; OpenAI, <em>Retrieval</em> — <a href="https://developers.openai.com/api/docs/guides/retrieval" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/retrieval</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Contextual Retrieval</em> — <a href="https://www.anthropic.com/research/contextual-retrieval" target="_blank" rel="noopener noreferrer">anthropic.com/research/contextual-retrieval</a>. <strong>Aprofundar:</strong> OpenAI, <em>Retrieval</em> — <a href="https://developers.openai.com/api/docs/guides/retrieval" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/retrieval</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 11.2c">
         <a href="#unidade-11-2b">Parte 11.2b</a>
@@ -12481,7 +12481,7 @@ Desvio (regra fixa):
       <p>Na documentação do Google Cloud (<em>RAG Engine overview</em>), o <dfn>índice</dfn> estrutura a base de conhecimento (o <em>corpus</em>) para otimizar pesquisas — como um índice detalhado no fim de um grande livro de referência. Na OpenAI (<em>Retrieval</em>), os contêineres chamados <em>vector stores</em> automatizam esse ciclo: ao enviar um arquivo, ele é fragmentado, convertido em vetores e indexado.</p>
 
       <h3>Filtragem por atributos antes da semelhança</h3>
-      <p>Um recurso decisivo em produção é a <dfn>filtragem por atributos</dfn> (metadados): aplicar critérios exatos — como faixa de datas, categoria ou departamento — para restringir os arquivos elegíveis <em>antes</em> de executar a busca por similaridade. Além de melhorar precisão evitando documentos obsoletos, filtros determinísticos ajudam no isolamento por grupo autorizado visto no Capítulo 7.</p>
+      <p>Um recurso decisivo em produção é a <dfn>filtragem por atributos</dfn> (metadados): aplicar critérios exatos — como faixa de datas, categoria ou departamento — para restringir os arquivos elegíveis <em>antes</em> de executar a busca por similaridade. Além de melhorar precisão evitando documentos obsoletos, filtros determinísticos ajudam no isolamento por grupo autorizado visto no capítulo 7.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p11-3a">
@@ -12535,7 +12535,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-p11-3b">
         <legend>Escolha uma alternativa</legend>
         <p id="enunciado-p11-3b">Por que uma busca puramente por <em>embeddings</em> densos encontra “desligamento voluntário do curso” quando o usuário digita “como pedir cancelamento de matrícula”?</p>
-        <label class="alternativa"><input type="radio" name="p11-3b" value="a" data-correta="false" data-explicacao="Incorreta. Não há nenhuma palavra idêntica além da preposição; a ligação vem da proximidade semântica no espaço vetorial."><span><strong>A.</strong> Porque os dois textos têm exatamente os mesmos caracteres letra por letra.</span></label>
+        <label class="alternativa"><input type="radio" name="p11-3b" value="a" data-correta="false" data-explicacao="Incorreta. Não há nenhuma palavra idêntica entre os dois textos; a ligação vem da proximidade semântica no espaço vetorial."><span><strong>A.</strong> Porque os dois textos têm exatamente os mesmos caracteres letra por letra.</span></label>
         <label class="alternativa"><input type="radio" name="p11-3b" value="b" data-correta="true" data-explicacao="Correta. Embeddings densos codificam significado no espaço vetorial, aproximando expressões equivalentes mesmo sem compartilhar palavras-chave."><span><strong>B.</strong> Porque vetores densos mapeiam significados próximos em pontos vizinhos do espaço vetorial, mesmo sem palavras repetidas.</span></label>
         <label class="alternativa"><input type="radio" name="p11-3b" value="c" data-correta="false" data-explicacao="Incorreta. Embeddings são gerados sem alterar a árvore sintática nem executar código."><span><strong>C.</strong> Porque o banco vetorial roda um parser sintático de programação em cada frase.</span></label>
         <label class="alternativa"><input type="radio" name="p11-3b" value="d" data-correta="false" data-explicacao="Incorreta. O ranqueamento pode usar cosseno, produto escalar ou euclidiana com vetores normalizados."><span><strong>D.</strong> Porque distância euclidiana sempre inverte a ordem da similaridade de cosseno em vetores normalizados.</span></label>
@@ -12602,7 +12602,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenAI, <em>Embeddings</em> — <a href="https://developers.openai.com/api/docs/guides/embeddings" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/embeddings</a>; Google Cloud, <em>Get text embeddings</em> — <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings" target="_blank" rel="noopener noreferrer">cloud.google.com/.../get-text-embeddings</a>; Muennighoff et al., <code>arXiv:2210.07316</code> — <a href="https://arxiv.org/pdf/2210.07316" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2210.07316</a>.</p>
+        <p><strong>Ler:</strong> OpenAI, <em>Embeddings</em> — <a href="https://developers.openai.com/api/docs/guides/embeddings" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/embeddings</a>; Google Cloud, <em>Get text embeddings</em> — <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings" target="_blank" rel="noopener noreferrer">cloud.google.com/.../get-text-embeddings</a>. <strong>Aprofundar:</strong> Muennighoff et al., <code>arXiv:2210.07316</code> — <a href="https://arxiv.org/pdf/2210.07316" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2210.07316</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 11.3c">
         <a href="#unidade-11-3b">Parte 11.3b</a>
@@ -12622,7 +12622,7 @@ Desvio (regra fixa):
           <li>Um reranker compara pergunta e trecho em segundo estágio; nos testes da Anthropic, o conjunto reduziu falhas em 67%.</li>
         </ul>
       </div>
-      <figure class="imagem" data-imagem="11-4b">
+      <figure class="imagem" data-imagem="11-4a">
         <div class="moldura" role="img" aria-label="Aquarela de fantasia medieval: um funil de cobre recebe cento e cinquenta pergaminhos trazidos por batedores rápidos e um examinador com lupa lê par por par para deixar passar apenas os vinte mais exatos até a mesa do conselheiro.">
           <span class="moldura-texto">Ilustração prevista nesta parte.</span>
         </div>
@@ -12677,7 +12677,7 @@ Desvio (regra fixa):
       <p>No mesmo sentido, o guia <em>File search</em> da OpenAI registra que limitar o número de resultados retornados ao modelo (<code>max_num_results</code>) reduz gasto de tokens e latência, mas pode reduzir a qualidade da resposta se deixar evidências relevantes de fora.</p>
 
       <h3>Quantos trechos passar ao gerador?</h3>
-      <p>Nos testes da Anthropic em bases grandes, passar os 20 melhores trechos foi mais eficaz do que passar apenas 5 ou 10. Ainda assim, em catálogos enxutos e perguntas simples, 5 trechos bem ranqueados podem bastar — o critério decisivo é medir em casos reservados (Capítulo 5).</p>
+      <p>Nos testes da Anthropic em bases grandes, passar os 20 melhores trechos foi mais eficaz do que passar apenas 5 ou 10. Ainda assim, em catálogos enxutos e perguntas simples, 5 trechos bem ranqueados podem bastar — o critério decisivo é medir em casos reservados (capítulo 5).</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p11-4b">
@@ -12690,14 +12690,14 @@ Desvio (regra fixa):
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
-      <p>Calibre quantos candidatos reordenar e quantos enviar ao gerador medindo precisão contra latência e custo. Na unidade 11.5, conectamos a busca à geração ancorada e aos grafos do Capítulo 6.</p>
+      <p>Calibre quantos candidatos reordenar e quantos enviar ao gerador medindo precisão contra latência e custo. Na unidade 11.5, conectamos a busca à geração ancorada e aos grafos do capítulo 6.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Compromisso de latência/custo no reranker e top-20 vs. top-5/10:</strong> Anthropic, <em>Contextual Retrieval</em>, 19/09/2024 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>). <strong>Corte de <code>max_num_results</code> vs. qualidade:</strong> OpenAI, <em>File search</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Nogueira e Cho, <code>arXiv:1901.04085</code> — <a href="https://arxiv.org/pdf/1901.04085" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/1901.04085</a>; OpenAI, <em>File search</em> — <a href="https://developers.openai.com/api/docs/guides/tools-file-search" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/tools-file-search</a>.</p>
+        <p><strong>Ler:</strong> Nogueira e Cho, <code>arXiv:1901.04085</code> — <a href="https://arxiv.org/pdf/1901.04085" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/1901.04085</a>. <strong>Aprofundar:</strong> OpenAI, <em>File search</em> — <a href="https://developers.openai.com/api/docs/guides/tools-file-search" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/tools-file-search</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 11.4b">
         <a href="#unidade-11-4a">Parte 11.4a</a>
@@ -12779,7 +12779,7 @@ Desvio (regra fixa):
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
-      <p>Ancoragem com links auditáveis e recusa honesta nas lacunas evitam alucinações com cara de autoridade. Na parte 11.5c, conectamos busca textual/híbrida ao GraphRAG do Capítulo 6.</p>
+      <p>Ancoragem com links auditáveis e recusa honesta nas lacunas evitam alucinações com cara de autoridade. Na parte 11.5c, conectamos busca textual/híbrida ao GraphRAG do capítulo 6.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong><em>Grounding</em> e auditabilidade:</strong> Google Cloud, <em>Grounding overview</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026). <strong>Síntese restrita às fontes:</strong> OpenAI, <em>Retrieval</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026).</p>
@@ -12792,23 +12792,23 @@ Desvio (regra fixa):
     </section>
 
     <section class="page" id="unidade-11-5c" aria-labelledby="titulo-da-unidade-11-5c">
-      <h2 id="titulo-da-unidade-11-5c">11.5c Quando conectar RAG textual ao GraphRAG do Cap. 6</h2>
+      <h2 id="titulo-da-unidade-11-5c">11.5c Quando conectar RAG textual ao GraphRAG do capítulo 6</h2>
       <p class="rotulo-unidade">Unidade 11.5 — Geração com fontes e conexão com grafos (parte 3 de 3).</p>
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
           <li>RAG híbrido (BM25 + vetores + reranking) resolve a grande maioria das perguntas localizadas em trechos de documentos.</li>
-          <li>GraphRAG (Capítulo 6) entra apenas quando a pergunta exige visão global do acervo inteiro ou travessia multi-salto entre entidades.</li>
+          <li>GraphRAG (capítulo 6) entra apenas quando a pergunta exige visão global do acervo inteiro ou travessia multi-salto entre entidades.</li>
           <li>Na Aurora Educação, manter o RAG híbrido como padrão e acionar grafos só para essas duas classes evita custo de indexação sem retorno.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Para saber o horário de uma aula específica, o índice de pastas acha o trecho na hora; você só abre um mapa ligando dezenas de disciplinas e pré-requisitos quando precisa enxergar o currículo inteiro conectado.</p></div>
 
-      <h3>Fronteira clara sem duplicar o Capítulo 6</h3>
-      <p>Como estudamos na unidade 6.2 (<code>EG-01</code>–<code>EG-14</code> e <code>EG-37</code>), montar um grafo de conhecimento tem custo alto de extração e manutenção de índice. Por isso, ele não substitui o RAG híbrido — ele o complementa em perguntas que o recorte em fragmentos não consegue juntar sozinho.</p>
+      <h3>Fronteira clara sem duplicar o capítulo 6</h3>
+      <p>Como estudamos na unidade 6.2 (trechos <code>EG-01</code>–<code>EG-14</code> e <code>EG-37</code> do pacote do capítulo 6), montar um grafo de conhecimento tem custo alto de extração e manutenção de índice. Por isso, ele não substitui o RAG híbrido — ele o complementa em perguntas que o recorte em fragmentos não consegue juntar sozinho.</p>
       <div class="rolagem" role="region" aria-label="Tabela: escolha entre RAG híbrido e GraphRAG na Aurora Educação" tabindex="0">
       <table class="tabela">
-        <caption>Escolha entre RAG híbrido e GraphRAG do Cap. 6 (proposta didática)</caption>
+        <caption>Escolha entre RAG híbrido e GraphRAG do capítulo 6 (proposta didática)</caption>
         <thead><tr><th scope="col">Pergunta na Aurora</th><th scope="col">Arquitetura indicada</th><th scope="col">Por quê</th></tr></thead>
         <tbody>
           <tr><th scope="row">“Qual a multa do contrato X ou o código TS-999?”</th><td>RAG híbrido (BM25 + vetor + reranker)</td><td>Fato localizado num trecho específico; custo baixo</td></tr>
@@ -12828,18 +12828,18 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p11-5c" value="a" data-correta="false" data-explicacao="Incorreta. Substituir todo o RAG simples por GraphRAG gera custo alto de indexação sem ganho nas perguntas pontuais."><span><strong>A.</strong> Trocar 100% do sistema por GraphRAG imediatamente para todas as perguntas.</span></label>
         <label class="alternativa"><input type="radio" name="p11-5c" value="b" data-correta="true" data-explicacao="Correta. RAG híbrido (BM25 + vetor + reranking) atende perguntas pontuais com menor custo e complexidade; GraphRAG (Cap. 6) entra apenas se houver demanda comprovada por perguntas globais ou multi-salto."><span><strong>B.</strong> Manter RAG híbrido (com filtros e reranking) para os 95% pontuais e só usar GraphRAG se houver demanda real para síntese global ou multi-salto.</span></label>
         <label class="alternativa"><input type="radio" name="p11-5c" value="c" data-correta="false" data-explicacao="Incorreta. Retirar o BM25 piora a busca por números de cláusula e siglas."><span><strong>C.</strong> Remover o BM25 e usar apenas temperatura zero sem buscador.</span></label>
-        <label class="alternativa"><input type="radio" name="p11-5c" value="d" data-correta="false" data-explicacao="Incorreta. Fine-tuning semanal para datas de prova é antipadrão já descartado no Cap. 8."><span><strong>D.</strong> Trocar o buscador por <em>fine-tuning</em> diário.</span></label>
+        <label class="alternativa"><input type="radio" name="p11-5c" value="d" data-correta="false" data-explicacao="Incorreta. Fine-tuning diário para datas de prova é antipadrão já descartado no capítulo 8."><span><strong>D.</strong> Trocar o buscador por <em>fine-tuning</em> diário.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
       <p>RAG híbrido cobre a base diária; GraphRAG cobre perguntas globais ou relacionais. Na unidade 11.6, fechamos o capítulo avaliando recuperação e resposta de forma independente.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Conexão com GraphRAG do Cap. 6:</strong> ver pacote do Cap. 6 (<code>EG-01</code>–<code>EG-14</code>, <code>EG-37</code>). <strong>Tabela de decisão Aurora:</strong> <span class="qual">proposta didática</span>.</p>
+        <p><strong>Conexão com GraphRAG do capítulo 6:</strong> ver pacote do capítulo 6 (<code>EG-01</code>–<code>EG-14</code>, <code>EG-37</code>). <strong>Tabela de decisão Aurora:</strong> <span class="qual">proposta didática</span>.</p>
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Lewis et al., <code>arXiv:2005.11401</code> — <a href="https://arxiv.org/pdf/2005.11401" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2005.11401</a>; Google Cloud, <em>Grounding overview</em> — <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview" target="_blank" rel="noopener noreferrer">cloud.google.com/.../grounding/overview</a>.</p>
+        <p><strong>Ler:</strong> Lewis et al., <code>arXiv:2005.11401</code> — <a href="https://arxiv.org/pdf/2005.11401" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2005.11401</a>. <strong>Aprofundar:</strong> Google Cloud, <em>Grounding overview</em> — <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview" target="_blank" rel="noopener noreferrer">cloud.google.com/.../grounding/overview</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 11.5c">
         <a href="#unidade-11-5b">Parte 11.5b</a>
@@ -12906,7 +12906,7 @@ Desvio (regra fixa):
         <strong>Em 3 linhas</strong>
         <ul>
           <li>Cada sintoma observado na avaliação aponta uma correção diferente: não mexa no gerador quando o defeito está no índice.</li>
-          <li>Com casos de falha e conjunto reservado do Capítulo 5, cada mudança em chunk, filtro ou reranker é comprovada por números.</li>
+          <li>Com casos de falha e conjunto reservado do capítulo 5, cada mudança em chunk, filtro ou reranker é comprovada por números.</li>
           <li>Com busca, contexto, ferramentas, segurança e grafos, encerramos a Parte II preparados para construir e operar na Parte III.</li>
         </ul>
       </div>
@@ -12928,7 +12928,7 @@ Desvio (regra fixa):
       </div>
 
       <h3>Fechamento da Parte II</h3>
-      <p>Ao longo da Parte II você conectou cinco pilares: grafos (Cap. 6), segurança e governança (Cap. 7), prevenção de danos e proporcionalidade (Cap. 8), contexto e memória (Cap. 9), ferramentas e protocolos (Cap. 10) e busca, indexação e RAG (Cap. 11). Agora seguimos para a Parte III para estudar agentes em laço, inferência local, roteamento, operação e economia.</p>
+      <p>Ao longo da Parte II você conectou seis pilares: grafos (capítulo 6), segurança e governança (capítulo 7), prevenção de danos e proporcionalidade (capítulo 8), contexto e memória (capítulo 9), ferramentas e protocolos (capítulo 10) e busca, indexação e RAG (capítulo 11). Agora seguimos para a Parte III para estudar agentes em laço, inferência local, roteamento, operação e economia.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p11-6b">
@@ -12936,7 +12936,7 @@ Desvio (regra fixa):
         <p id="enunciado-p11-6b">Nos testes do novo buscador da Aurora, <code>recall@20</code> subiu para 97%, mas <em>Context Relevance</em> está baixa (muito trecho irrelevante junto dos certos) e o modelo se confunde no meio da janela. Qual ajuste ataca exatamente essa falha?</p>
         <label class="alternativa"><input type="radio" name="p11-6b" value="a" data-correta="false" data-explicacao="Incorreta. Mandar ainda mais trechos (top-50) piora a poluição de contexto."><span><strong>A.</strong> Aumentar o envio ao gerador de 20 para 50 trechos sem filtro.</span></label>
         <label class="alternativa"><input type="radio" name="p11-6b" value="b" data-correta="true" data-explicacao="Correta. Quando a busca já acha o trecho certo no top-N mas traz muito ruído junto, adicionar reranking e encurtar chunks eleva o foco (Context Relevance)."><span><strong>B.</strong> Adicionar um estágio de <em>reranking</em> para filtrar só os trechos mais relevantes antes do gerador (e revisar tamanho dos fragmentos).</span></label>
-        <label class="alternativa"><input type="radio" name="p11-6b" value="c" data-correta="false" data-explicacao="Incorreta. Trocar de modelo sem resolver a baixa Context Relevance mantém o ruído na entrada."><span><strong>C.</strong> Desligar o BM25 e remover os filtros de ano.</span></label>
+        <label class="alternativa"><input type="radio" name="p11-6b" value="c" data-correta="false" data-explicacao="Incorreta. Desligar o BM25 e os filtros de ano não resolve a baixa Context Relevance e ainda traz de volta normas vencidas e piora a busca por códigos exatos."><span><strong>C.</strong> Desligar o BM25 e remover os filtros de ano.</span></label>
         <label class="alternativa"><input type="radio" name="p11-6b" value="d" data-correta="false" data-explicacao="Incorreta. Fine-tuning não limpa trechos irrelevantes recuperados pelo buscador."><span><strong>D.</strong> Fazer <em>fine-tuning</em> para o modelo decorar o edital inteiro.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -12948,7 +12948,7 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Es et al., <em>RAGAS</em>, <code>arXiv:2309.15217</code> — <a href="https://arxiv.org/pdf/2309.15217" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2309.15217</a>; Anthropic, <em>Contextual Retrieval</em> — <a href="https://www.anthropic.com/research/contextual-retrieval" target="_blank" rel="noopener noreferrer">anthropic.com/research/contextual-retrieval</a>.</p>
+        <p><strong>Ler:</strong> Es et al., <em>RAGAS</em>, <code>arXiv:2309.15217</code> — <a href="https://arxiv.org/pdf/2309.15217" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2309.15217</a>. <strong>Aprofundar:</strong> Anthropic, <em>Contextual Retrieval</em> — <a href="https://www.anthropic.com/research/contextual-retrieval" target="_blank" rel="noopener noreferrer">anthropic.com/research/contextual-retrieval</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 11.6b">
         <a href="#unidade-11-6a">Parte 11.6a</a>
@@ -12978,7 +12978,7 @@ Desvio (regra fixa):
         <p id="enunciado-c11q2">Por que a recuperação híbrida combina busca lexical (BM25) com busca por embeddings vetoriais?</p>
         <label class="alternativa"><input type="radio" name="c11q2" value="a" data-correta="false" data-explicacao="Incorreta. A busca híbrida serve para aumentar precisão e cobertura, não para substituir o modelo gerador."><span><strong>A.</strong> Para eliminar a necessidade de enviar qualquer prompt ao LLM.</span></label>
         <label class="alternativa"><input type="radio" name="c11q2" value="b" data-correta="true" data-explicacao="Correta. Embeddings encontram relações semânticas e sinônimos, enquanto o BM25 garante acertos exatos em siglas, códigos (como TS-999) e termos técnicos."><span><strong>B.</strong> Porque embeddings capturam significado e sinônimos, enquanto o BM25 garante correspondência exata em códigos, siglas e termos específicos.</span></label>
-        <label class="alternativa"><input type="radio" name="c11q2" value="c" data-correta="false" data-explicacao="Incorreta. A busca híbrida roda antes da geração e continua precisando de filtros e avaliação."><span><strong>C.</strong> Porque o BM25 sozinho entende sinônimos em vários idiomas melhor que redes neurais.</span></label>
+        <label class="alternativa"><input type="radio" name="c11q2" value="c" data-correta="false" data-explicacao="Incorreta. O BM25 casa palavras exatas e não entende sinônimos; quem captura sentido são os embeddings."><span><strong>C.</strong> Porque o BM25 sozinho entende sinônimos em vários idiomas melhor que redes neurais.</span></label>
         <label class="alternativa"><input type="radio" name="c11q2" value="d" data-correta="false" data-explicacao="Incorreta. Combinar os dois exige indexar os mesmos chunks nos dois índices e fazer fusão de ranqueamento."><span><strong>D.</strong> Porque dispensa fragmentar documentos grandes antes da indexação.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -13008,7 +13008,7 @@ Desvio (regra fixa):
         <p id="enunciado-c11q5">Em um pipeline de RAG em dois estágios com busca híbrida, 150 candidatos chegam ao <em>reranker</em> e apenas os 15 melhores vão para o LLM. Em uma avaliação com 100 perguntas reais, o sistema acerta <code>recall@15</code> em 96%, mas a métrica de fidelidade (<em>Faithfulness</em>) caiu para 68%. O que isso revela?</p>
         <label class="alternativa"><input type="radio" name="c11q5" value="a" data-correta="false" data-explicacao="Incorreta. Com recall@15 de 96%, o buscador já entrega a evidência certa na quase totalidade dos casos."><span><strong>A.</strong> O buscador falhou em 96% das vezes e precisa trocar o banco vetorial.</span></label>
         <label class="alternativa"><input type="radio" name="c11q5" value="b" data-correta="true" data-explicacao="Correta. Como o recall@15 está alto (96%), a recuperação funciona; a queda de Faithfulness mostra que o gerador está extrapolando ou contradizendo os trechos entregues."><span><strong>B.</strong> A recuperação está funcionando bem (96%), mas o gerador está inventando ou extrapolando além das fontes entregues — o ajuste deve mirar o prompt e regras de ancoragem, não o índice.</span></label>
-        <label class="alternativa"><input type="radio" name="c11q5" value="c" data-correta="false" data-explicacao="Incorreta. Reduzir max_num_results de 15 para 2 sem tratar a extrapolação do gerador pode piorar ainda mais a cobertura."><span><strong>C.</strong> Basta reduzir <code>max_num_results</code> de 15 para 1 e desligar a instrução de ancoragem.</span></label>
+        <label class="alternativa"><input type="radio" name="c11q5" value="c" data-correta="false" data-explicacao="Incorreta. Reduzir max_num_results de 15 para 1 sem tratar a extrapolação do gerador pode piorar ainda mais a cobertura."><span><strong>C.</strong> Basta reduzir <code>max_num_results</code> de 15 para 1 e desligar a instrução de ancoragem.</span></label>
         <label class="alternativa"><input type="radio" name="c11q5" value="d" data-correta="false" data-explicacao="Incorreta. Trocar de embedding não impede o gerador de extrapolar quando o trecho certo já estava no contexto."><span><strong>D.</strong> É obrigatório trocar o modelo de embedding e reindexar tudo antes de olhar o gerador.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
