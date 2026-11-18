@@ -33,7 +33,10 @@
 - `python3 -I ferramentas/validar-guia.py --guia guia-engenharia-llms.html` → **16 OK, 0 FALHA** (`333` páginas sequenciais `1..333`, `393` questões/regiões/fieldsets, `682` links externos).
 - `python3 -I ferramentas/executar-trechos-de-codigo.py --guia guia-engenharia-llms.html` → **0 OK, 0 FALHA, 21 ilustrativos (não executados), 0 blocos `<pre>` sem classe `codigo`/`saida`**.
 - PDF regerado via Chromium headless (`--no-pdf-header-footer --print-to-pdf`): `989` páginas A4 (`594.96 x 841.92 pts`, `14.796.141 bytes`), com inspeção visual por renderização (`pdftoppm`) das amostras de `2.3d` e `4.5d`.
-- **Pendência observada:** `playwright` não está instalado neste ambiente; o teste automatizado de `reflow` em `320 px` e `axe-core` sobre as 8 partes novas permanece pendente para validação em navegador.
+- Playwright + `chromium-1254` + `axe-core`:
+  - `reflow` em `320 px` (`viewport 320×640`): `innerW = 320`, `docClient = 320`, `docScroll = 320`, `bodyScroll = 320`, `overflowCount = 0` no guia inteiro e `scrollWidth = clientWidth = 320` em todas as 8 partes novas (`unidade-2-3d`..`unidade-15-6d`); capturas visuais de `unidade-2-3d` e `unidade-10-6d` inspecionadas.
+  - Teste interativo das 8 questões novas (`p2-3d`..`p15-6d`): `8/8` com `4` alternativas e retorno `aria-live` funcional, `0` erros de página.
+  - Auditoria `axe-core` (`wcag2a`, `wcag2aa`, `wcag21aa`, `best-practice`, `1280×800`): `45 passes`, `0 violations`, `2 incomplete` pré-existentes/de conferência (`aria-prohibited-attr` nos `333` `span[aria-label="Página N"]` e `color-contrast` em `4` blocos `<pre>` anteriores à expansão).
 
 ## Integridade (SHA-256, 16 hex)
 
