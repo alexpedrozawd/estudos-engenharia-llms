@@ -58,6 +58,7 @@ Backup anterior mantido em `arquivo/antes-enxugamento-global-2026-11-18/` (fora 
 - `python3 -I ferramentas/validar-guia.py --guia guia-engenharia-llms.html`: `16 OK, 0 FALHA`.
 - `python3 -I ferramentas/executar-trechos-de-codigo.py --guia guia-engenharia-llms.html`: `0 FALHA`, `21` ilustrativos (não executados).
 - Chrome for Testing `158.0.8127.18` (headless CDP): `reflow 320 px` (`scrollWidth = 305 <= 320`, `0` estouros), `376/376` `.gabarito-impresso` conferidos e `17/17` questões das partes fundidas testadas com retorno `aria-live` (`Correto.` / `Incorreto.`).
+- Playwright `chromium-1254` + `axe-core 4.11.0` (`wcag2a`, `wcag2aa`, `wcag21aa`, `best-practice`, `1280×800` e `320×640`): `45 passes`, `0 violations`, `0` erros de página, `reflow 320 px` com `docScroll = bodyScroll = 320` e `0` estouros, e `2 incomplete` pré-existentes (`aria-prohibited-attr` nos `316` `span[aria-label="Página N"]` e `color-contrast` em `4` blocos `<pre>`).
 - Geração final do PDF via Chrome `158` (`531` páginas A4, `12.502.933` bytes) e inspeção visual via `pdftoppm` em amostras de capa, sumário, tabelas, figuras e questões.
 
 Assinatura: agy - ap
