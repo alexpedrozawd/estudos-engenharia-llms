@@ -60,6 +60,10 @@ Comando: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-c
 | C4-31 | 4.3 Mensagens e papéis | texto | anthropic-token-counting | Entradas aceitas | consultada em 14/11/2026 | registrado na documentação | Send images and PDFs as base64 to count them. |
 | C4-32 | 4.6 Saída estruturada, templates e falhas | texto | anthropic-structured-outputs | Visão geral | consultada em 14/11/2026 | registrado na documentação | Get Claude’s response in a specific JSON format |
 | C4-33 | 4.6 Saída estruturada, templates e falhas | texto | anthropic-structured-outputs | Recusa | consultada em 14/11/2026 | registrado na documentação | The response has stop_reason: "refusal". |
+| C4-34 | 4.2 Técnicas de prompt com fonte primária | texto | 2202.12837 | Seção 2 | Min et al., 2022 | registrado no artigo | We experiment with 12 models in total. |
+| C4-35 | 4.2 Técnicas de prompt com fonte primária | texto | 2202.12837 | Seção 2 | Min et al., 2022 | registrado no artigo | datasets are classification and multi-choice tasks. |
+| C4-36 | 4.3 Mensagens e papéis | texto | anthropic-token-counting | Entradas aceitas | consultada em 17/11/2026 | registrado na documentação | endpoint accepts the same structured list of inputs for creating a message, including support for system prompts, tools, images, and PDFs. |
+| C4-37 | 4.3 Mensagens e papéis | texto | anthropic-token-counting | Entradas rejeitadas | consultada em 17/11/2026 | registrado na documentação | This endpoint returns an invalid_request_error for a few inputs that the Messages API accepts: Server tools such as web search, web fetch, code execution, and tool search (every server tool except the advisor tool) |
 
 ## 3. Resultado da conferência
 

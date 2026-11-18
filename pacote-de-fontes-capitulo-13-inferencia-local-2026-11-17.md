@@ -112,5 +112,9 @@ Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pa
 | IL-69 | 13.6 Ajuste local e diagnóstico | texto | llamacpp-server | Opções de servidor (--flash-attn) | consultada em 17/11/2026 | registrado na documentação | set Flash Attention use ('on', 'off', or 'auto', default: 'auto') |
 | IL-70 | 13.6 Ajuste local e diagnóstico | texto | ollama-faq | How can I enable Flash Attention? | consultada em 17/11/2026 | registrado na documentação | Flash Attention is a feature of most modern models that can significantly reduce memory usage as the context size grows. |
 | IL-77 | 13.6 Ajuste local e diagnóstico | texto | ollama-faq | How can I enable Flash Attention? | consultada em 17/11/2026 | registrado na documentação | Ollama uses Flash Attention automatically when the selected backend and devices support it. |
+| IL-78 | 13.1 Modelos locais | texto | ollama-faq | Where are models stored? | consultada em 17/11/2026 | registrado na documentação | Linux: /usr/share/ollama/.ollama/models |
+| IL-79 | 13.3 Atenção e memória | texto | qwen3-8-27b | Arquitetura | Qwen, consultada em 17/11/2026 | registrado na documentação | Gated DeltaNet |
+| IL-80 | 13.4 Quantização | texto | llamacpp-quantize | Qualidade | llama.cpp, consultada em 17/11/2026 | registrado na documentação | This can be minimized by using a suitable imatrix file. |
+| IL-81 | 13.5 KV cache | texto | llamacpp-server | Flags | llama.cpp, consultada em 17/11/2026 | registrado na documentação | --cache-type-v TYPE |
 
 Pendência declarada: nenhum trecho sustenta a fórmula de memória do KV cache além do exemplo literal do PagedAttention (OPT-13B); a fórmula geral e os números do modelo ilustrativo são *proposta didática*. Não há fonte lida sobre o comportamento exato do KV cache nas camadas de atenção linear do Qwen3.8; o guia não calcula a memória de contexto desse modelo.

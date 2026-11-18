@@ -103,6 +103,11 @@ Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pa
 | AP-58 | 8.5 Entupimento e baixo retorno | texto | anthropic-code-mcp | State persistence and skills | Anthropic, 04/11/2025 | registrado na documentação | The benefits of code execution—reduced token costs, lower latency, and improved tool composition—should be weighed against these implementation costs. |
 | AP-59 | 8.5 Entupimento e baixo retorno | texto | nist-ai-100-1 | Seção 1.2 (Risk Management) | NIST, jan/2023 | registrado na norma | Attempting to eliminate negative risk entirely can be counterproductive in practice because not all incidents and failures can be eliminated. Unrealistic expectations about risk may lead organizations to allocate resources in a manner that makes risk triage inefficient or impractical or wastes scarce resources. |
 | AP-60 | 8.5 Entupimento e baixo retorno | texto | LLM10_UnboundedConsumption | Description | OWASP v2.0 (2025) | registrado na norma | Unbounded Consumption occurs when a Large Language Model (LLM) application allows users to conduct excessive and uncontrolled inferences, leading to risks such as denial of service (DoS), economic losses, model theft, and service degradation. |
+| AP-61 | 8.3 Travas de orçamento | texto | openai-agents-errors | Error table | OpenAI, consultada em 17/11/2026 | registrado na documentação | session_budget_exceeded |
+| AP-62 | 8.5 Entupimento e baixo retorno | texto | context-rot | Resumo | Chroma, 14/07/2025 | registrado na pesquisa | An evaluation across 18 LLMs, including leading closed-source and open-weights models |
+| AP-63 | 8.4 Contexto e ferramentas | texto | anthropic-code-mcp | Tool definitions | Anthropic, 04/11/2025 | registrado na pesquisa técnica do fornecedor | process hundreds of thousands of tokens before reading a request. |
+| AP-64 | 8.3 Recuperação | texto | sre-incidents | Freelancing | Google SRE Book, cap. 14 | registrado na literatura | Freelancing Malcolm was making changes to the system with the best of intentions. However, he didn’t coordinate |
+| AP-65 | 8.6 Custo e valor | texto | openai-accuracy | Failure cost | OpenAI, consultada em 17/11/2026 | registrado na documentação | refunding a customer $1000 rather than $100. |
 
 ## 3. Resultado da conferência
 

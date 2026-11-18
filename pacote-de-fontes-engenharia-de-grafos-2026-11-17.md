@@ -74,6 +74,9 @@ Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pa
 | EG-41 | 2. Fluxo e Harness (sessões discretas) | texto | anthropic-harnesses | The long-running agent problem | Anthropic, 26/11/2025 | registrado na documentação | The core challenge of long-running agents is that they must work in discrete sessions, and each new session begins with no memory of what came before. |
 | EG-42 | 2. Fluxo e Harness (limites da compactação) | texto | anthropic-harnesses | The long-running agent problem | Anthropic, 26/11/2025 | registrado na documentação | First, the agent tended to try to do too much at once—essentially to attempt to one-shot the app. |
 | EG-43 | 2. Fluxo e Harness (estado estruturado) | texto | anthropic-harnesses | Feature list | Anthropic, 26/11/2025 | registrado na documentação | After some experimentation, we landed on using JSON for this, as the model is less likely to inappropriately change or overwrite JSON files compared to Markdown files. |
+| EG-44 | 3. GraphRAG e bancos de grafos | texto | neo4j-rag-guide | Retrievers | consultada em 17/11/2026 | registrado na documentação | HybridCypherRetriever Same as HybridRetriever with a retrieval query similar to VectorCypherRetriever. |
+| EG-45 | 3. GraphRAG e bancos de grafos | texto | 2404.16130 | Resumo | Edge et al., 2024/2025 | registrado no artigo | global sensemaking questions over datasets in the 1 million token range |
+| EG-46 | 2. Fluxo e Harness | texto | anthropic-harnesses | Introdução | Anthropic, 26/11/2025 | registrado na pesquisa técnica do fornecedor | look around, see that progress had been made, and declare the job done. |
 
 ## 3. Resultado da conferência
 

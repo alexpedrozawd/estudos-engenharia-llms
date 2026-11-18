@@ -87,6 +87,11 @@ Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pa
 | SG-50 | 7.6 Privacidade e rastreabilidade | texto | LLM08_VectorAndEmbeddingWeaknesses | Prevention #4 | OWASP v2.0 (2025) | registrado na norma | Maintain detailed immutable logs of retrieval activities to detect and respond promptly to suspicious behavior. |
 | SG-51 | 7.6 Privacidade e rastreabilidade | texto | nist-ai-600-1 | GOVERN 1.1 | NIST, 26/07/2024 | registrado na norma | GOVERN 1.1: Legal and regulatory requirements involving AI are understood, managed, and documented. |
 | SG-52 | 7.6 Privacidade e rastreabilidade | texto | nist-ai-600-1 | GOVERN 1.5 | NIST, 26/07/2024 | registrado na norma | GOVERN 1.5: Ongoing monitoring and periodic review of the risk management process and its outcomes are planned, and organizational roles and responsibilities are clearly deﬁned, including determining the frequency of periodic review. |
+| SG-53 | 7.6 Privacidade e rastreabilidade | texto | claude-zdr | Browser requests | consultada em 17/11/2026 | registrado na documentação | the API rejects their cross-origin (CORS) requests. |
+| SG-54 | 7.6 Privacidade e rastreabilidade | texto | openai-your-data | ZDR | consultada em 17/11/2026 | registrado na documentação | Zero Data Retention changes some endpoint behavior: the `store` parameter for `/v1/responses` and `v1/chat/completions` will always be treated as `false` |
+| SG-55 | 7.2 Menor privilégio e mediação | texto | LLM01_PromptInjection | Prevention #5 | OWASP v2.0 (2025) | registrado na norma | Require human approval for high-risk actions |
+| SG-56 | 7.3 Entradas e saídas | texto | LLM10_UnboundedConsumption | Denial of Wallet | OWASP v2.0 (2025) | registrado na norma | Denial of Wallet (DoW) |
+| SG-57 | 7.5 Isolamento | texto | mcp-security-latest | Local MCP Server Compromise | consultada em 17/11/2026 | registrado na especificação | containers, chroot, application sandboxes, etc. |
 
 ## 3. Resultado da conferência
 

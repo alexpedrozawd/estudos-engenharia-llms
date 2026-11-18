@@ -72,5 +72,9 @@ Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pa
 | BR-40 | 11.6 Avaliação separada de recuperação e resposta | texto | 2309.15217 | Section 3 | arXiv:2309.15217, 2023 | registrado no artigo | Second, Answer Relevance refers to the idea that the generated answer should address the actual question that was provided. |
 | BR-41 | 11.6 Avaliação separada de recuperação e resposta | texto | 2309.15217 | Section 3 | arXiv:2309.15217, 2023 | registrado no artigo | Finally, Context Relevance refers to the idea that the retrieved context should be focused, containing as little irrelevant information as possible. |
 | BR-42 | 11.6 Avaliação separada de recuperação e resposta | texto | anthropic-contextual-retrieval | Appendix | Anthropic, 19/09/2024 | registrado na pesquisa técnica do fornecedor | 1 minus recall @ 20 results across data sets and embedding providers. |
+| BR-43 | 11.4 Recuperação híbrida e reranking | texto | anthropic-contextual-retrieval | Reranking | Anthropic, 19/09/2024 | registrado na pesquisa técnica do fornecedor | we used the top 150 |
+| BR-44 | 11.4 Recuperação híbrida e reranking | texto | anthropic-contextual-retrieval | Performance | Anthropic, 19/09/2024 | registrado na pesquisa técnica do fornecedor | retrieval failure rate by 67% (5.7% → 1.9%). |
+| BR-45 | 11.3 Embeddings | texto | 2210.07316 | Resumo | Muennighoff et al., 2022 | registrado no artigo | a total of 58 datasets and 112 languages. |
+| BR-46 | 11.5 Geração com fontes | texto | openai-retrieval | Synthesizing | OpenAI, consultada em 17/11/2026 | registrado na documentação | Synthesizing responses |
 
 Assinatura: agy - ap, 17/11/2026.

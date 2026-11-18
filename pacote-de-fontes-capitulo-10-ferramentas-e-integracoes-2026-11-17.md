@@ -84,5 +84,12 @@ Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pa
 | FI-51 | 10.6 Interfaces e protocolos (MCP) | texto | mcp-spec-latest | Tool Safety | 2026-07-28 | registrado na especificação | In particular, descriptions of tool behavior such as annotations should be considered untrusted, unless obtained from a trusted server. |
 | FI-52 | 10.6 Interfaces e protocolos (MCP) | texto | openai-connectors-mcp | Risks and safety | consultada em 17/11/2026 | registrado na documentação | Pick official servers hosted by the service providers themselves |
 | FI-53 | 10.6 Interfaces e protocolos (MCP) | texto | mcp-security | Confused Deputy Problem | 2026-07-28 | registrado na especificação | Dynamic Client Registration is deprecated as of protocol version 2026-07-28. |
+| FI-54 | 10.3 Muitas ferramentas | texto | anthropic-tool-search | Context bloat | Anthropic, consultada em 17/11/2026 | registrado na documentação | A typical multiserver setup (GitHub, Slack, Sentry, Grafana, and Splunk) can consume ~55k tokens in definitions before Claude does any work. Tool search typically reduces this by over 85 percent, loading only the 3–5 tools Claude needs for a given request. |
+| FI-55 | 10.4 Respostas grandes | texto | anthropic-writing-tools | Respostas | Anthropic, 11/09/2025 | registrado na pesquisa técnica do fornecedor | we restrict tool responses to 25,000 tokens by default. |
+| FI-56 | 10.6 Interfaces e protocolos (MCP) | texto | mcp-spec-latest | Arquitetura | 2026-07-28 | registrado na especificação | The protocol uses JSON-RPC 2.0 messages to establish communication |
+| FI-57 | 10.6 Interfaces e protocolos (MCP) | texto | mcp-spec-tools | Annotations | 2026-07-28 | registrado na especificação | For trust & safety and security, clients MUST consider tool annotations to be untrusted |
+| FI-58 | 10.4 Respostas grandes e PII | texto | anthropic-code-mcp | Tokenização | Anthropic, 04/11/2025 | registrado na pesquisa técnica do fornecedor | [EMAIL_1] |
+| FI-59 | 10.2 Poka-yoke | texto | anthropic-building-agents | Apêndice 2 | Anthropic, 19/12/2024 | registrado na pesquisa técnica do fornecedor | we changed the tool to always require absolute filepaths |
+| FI-60 | 10.6 Interfaces e protocolos (MCP) | texto | openai-connectors-mcp | Approval | OpenAI, consultada em 17/11/2026 | registrado na documentação | require_approval |
 
 Assinatura: agy - ap, 17/11/2026.

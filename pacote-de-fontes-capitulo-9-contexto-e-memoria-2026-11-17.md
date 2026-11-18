@@ -108,6 +108,8 @@ Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pa
 | CM-75 | 9.6 Ciclo de vida da sessão | texto | google-context-cache | Cache data isolation | atualizada em 17/11/2026 | registrado na documentação | To prevent cross-user data leakage in agentic workloads, scope cached prompt data and outputs to each user session. |
 | CM-76 | 9.5 Continuidade: compactação e limpeza | texto | anthropic-compaction | Overview | consultada em 17/11/2026 | registrado na documentação | Although both it and Compaction at a token threshold are in beta, Compaction on demand covers more common use cases. |
 | CM-77 | 9.5 Continuidade: compactação e limpeza | texto | anthropic-context-editing | Overview | consultada em 17/11/2026 | registrado na documentação | Context editing is in beta with support for tool result clearing and thinking block clearing. |
+| CM-78 | 9.2 Janela e orçamento | texto | anthropic-context-windows | Cache e janela | Anthropic, consultada em 17/11/2026 | registrado na documentação | cache_creation_input_tokens, and all three count toward the window. |
+| CM-79 | 9.5 Continuidade: compactação e limpeza | texto | anthropic-cc-best-practices | Manage context cost | consultada em 17/11/2026 | registrado na documentação | /clear between unrelated tasks. |
 
 ## 3. Ilustração local (fora do `conferir-trechos.py`; só como exemplo rotulado)
 

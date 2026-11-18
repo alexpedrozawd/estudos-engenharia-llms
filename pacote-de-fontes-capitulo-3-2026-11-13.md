@@ -42,6 +42,7 @@ Comando: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-c
 | C3-22 | 3.6 Contratos e decomposição | texto | nasa-se | §4.1, quadro Rationale | idem | registrado na norma | If a requirement was written assuming the completion of a technology development program or a successful technology mission, the assumption should be documented |
 | C3-23 | 3.6 Contratos e decomposição | texto | nist-ai-rmf | MAP 1.1 | idem | registrado na norma | assumptions and related limitations about AI system purposes, uses, and risks |
 | C3-24 | 3.6 Contratos e decomposição | texto | nasa-se | Apêndice C | idem | registrado na norma | Are all external interfaces clearly defined |
+| C3-25 | 3.4 Aceite | texto | anthropic-evals | Conclusão | Anthropic, 09/01/2026 | registrado na documentação | Source realistic tasks from the failures you see. |
 
 ## 3. Resultado da conferência
 
