@@ -131,6 +131,10 @@ Conferência online, em 18/11/2026, dos itens `[Não verificado]` dos Caps. 6 a 
 | CNV-125 | 16.5b | anthropic-prompt-caching | Pricing (tabela e notas) | "Cache hits and refreshes on Claude Opus 5.5 and Claude Sonnet 5.5 are priced at 0.05x the base input price. All other models use the standard 0.1x multiplier. (Fable/Mythos: 0.025x)" | corrigido; leitura a 0,05× (Opus 5.5, Sonnet 5.5) e 0,025× (Fable/Mythos) além de 0,1× |
 | CNV-126 | 16.5b | gcp-caching | Implicit caching | "Implicit caching provides a 90% discount on cached tokens compared to standard input tokens. ... A cached prefix expires no later than 24 hours after it's created, and most entries are evicted earlier." | confirma |
 | CNV-127 | 16.5b | gcp-caching | Caching storage costs | "For explicit caching, there are also storage costs based on how long caches are stored. There are no separate storage costs for implicit caching." | confirma |
+| CNV-128 | 8.1b | 2406.10162 | texto do artigo, resumo | "Strikingly, a small but non-negligible proportion of the time, LLM assistants trained on the full curriculum generalize zero-shot to directly rewriting their own reward function." | confirma; texto passa a dizer zero-shot e taxa |
+| CNV-129 | 8.1b | 2406.10162 | texto do artigo, resultados | "We upload the 7 (of 32,768) samples where the model overwrites its reward and edits the unit tests to our github repository." | confirma; "às vezes" trocado por 7 em 32.768 amostras |
+| CNV-130 | 7.5c | llamacpp-server | Opções do servidor | "`--host HOST` ... (default: 127.0.0.1) ... `--api-key KEY` | API key to u[se for authentication]" | confirma; exposição na rede interna e autenticação marcadas como proposta didática |
+| CNV-131 | 14.6c | anthropic-prompt-caching | What invalidates the cache | "Exact matching: Cache hits require 100 percent identical prompt segments, including all text and images up to and including the block marked with cache control. (tabela de invalidação: ferramentas, web search, citações, velocidade, tool choice, imagens, parâmetros de raciocínio, esforço; modelo não consta)" | lacuna confirmada: nenhuma fonte afirma invalidação por troca de modelo; texto reescrito com o que as páginas dizem |
 
 ## Ajustes sem trecho de fonte (afirmação removida ou qualificada)
 
@@ -142,9 +146,8 @@ Conferência online, em 18/11/2026, dos itens `[Não verificado]` dos Caps. 6 a 
 
 ## Pendências e limites
 
-- Itens já qualificados como proposta didática nos capítulos (quadros, fórmulas, casos da Aurora) não receberam trecho: não são afirmações das fontes.
-- 14.6c: lacuna sobre invalidação de cache ao trocar de modelo (Anthropic e Google) segue declarada no texto; nenhum trecho lido a confirma.
-- Não reconferido: 8.1b, "Denison sem exemplo prévio"; 7.5c, exposição de servidores locais só na rede interna (já marcada como proposta didática).
+- Itens já qualificados como proposta didática nos capítulos (quadros, fórmulas, casos da Aurora, exposição de servidores locais em 7.5c) não são afirmações das fontes e não exigem trecho.
+- 14.6c: nenhuma página lida afirma que trocar de modelo invalida o cache na Anthropic ou no Google. A ausência foi reconferida nas páginas atuais e o texto da lacuna foi reescrito com o que elas dizem. Fechar além disso exigiria teste empírico ou confirmação do fornecedor, fora do alcance de leitura de documentação.
 - Cap. 13: variáveis de ambiente do Ollama e flags do llama.cpp citadas em 13.5a já não aparecem no texto; ver CF-12 e CF-13.
 
 Assinatura: claude - pessoal
