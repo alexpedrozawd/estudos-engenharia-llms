@@ -145,16 +145,16 @@ Decisões do operador em 13/11/2026, por causa do TDAH declarado. Valem para os 
 - **Questões de fechamento:** de cinco a seis por módulo (duas fáceis, as médias e uma difícil). O `validar-guia.py` confere esse intervalo por capítulo.
 - **Adaptação de leitura:** frases curtas, listas curtas e troca de assunto controlada; o resumo de três linhas e a analogia abrem cada parte.
 
-## 9. Impressão e exemplos (13/11/2026)
+## 9. Impressão e exemplos (atualizado em 18/11/2026)
 
-Pedido do operador em 13/11/2026. Aplicado ao guia inteiro (capítulos 1 e 2).
+Pedido do operador em 13/11/2026, com compactação tipográfica e de quebra de questões aprovada em 18/11/2026 para manter legibilidade de livro sem páginas quase vazias:
 
-- **Página:** A4, margens de 20 mm no topo e 22 mm nas laterais e no pé. O texto fica centralizado na coluna, justificado, a 12 pt.
-- **Nenhum bloco dividido:** título, legenda, tabela (linha a linha), figura, fluxo, quadro de resumo, analogia, caixa, questão, bloco de código e navegação de pé de página não começam numa página e terminam na seguinte. Quando não couber, o bloco inteiro vai para a próxima página. Cabeçalho de tabela se repete se a tabela precisar continuar.
-- **Fluxo:** só sumário, introdução, capítulos, questões de fechamento, glossário e referências começam em página nova. As partes curtas seguem o fluxo, para não deixar páginas quase vazias.
+- **Página:** A4, margens de `15 mm` no topo, `17 mm` nas laterais e `17 mm` no pé (reduzidas de `20 mm / 22 mm`). O texto fica centralizado na coluna (`max-width: 100%`), justificado, a `10,5 pt` (`--reading-size: 10.5pt`) e entrelinha `1.42` (CSS de tela preservado intacto em `--reading-size: 1.08rem` / `1.7`).
+- **Blocos inteiros e quebra de questões:** título (sem órfãos), legenda, tabela (linha a linha, repetindo `<thead>`), figura (`width: 92mm`, `height: 155pt`), fluxo, quadro de resumo, analogia, caixa, bloco de código e navegação de pé de página não se partem entre páginas. Em `fieldset.questao`, o enunciado (`> p`) fica preso à primeira alternativa, e cada `.alternativa` bem como o `.gabarito-impresso` permanecem inteiros (`break-inside: avoid`), permitindo quebra apenas entre alternativas para evitar saltos grandes em branco.
+- **Fluxo:** só sumário, introdução, capítulos, questões de fechamento, glossário e referências começam em página nova. As partes curtas seguem o fluxo, com `margin-top: 1.15rem`.
 - **Capa:** ocupa a página inteira, sem margem.
 - **Tabelas e código:** na impressão, a tabela se ajusta à largura da página e o código quebra linha, em vez de rolar ou ser cortado pelo papel.
-- **Sumário:** fonte menor na impressão (0,82 em), para caber em duas páginas.
+- **Sumário:** fonte menor na impressão (`0.82em`), para caber em poucas páginas.
 - **Exemplos:** nenhum nome de sistema ou de empresa real do autor aparece no guia. Os exemplos de plataforma usam descrições genéricas do mercado (plataforma interna de IA, assistente de programação, API de pagamentos). Os exemplos de empresa usam a Aurora Educação, fictícia, e todos os trechos correspondentes são marcados como *proposta didática*.
 
-Assinatura: claude - pessoal (interrompido por cota), deepseek - conta não verificada.
+Assinatura: claude - pessoal (interrompido por cota), deepseek - conta não verificada; §9 atualizado em 18/11/2026 por agy - ap.

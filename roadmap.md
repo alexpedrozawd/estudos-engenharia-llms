@@ -1,6 +1,6 @@
 # Roadmap — Pendências para fechamento final
 
-Estado atual (`18/11/2026`, após revisão geral `9556cda` e expansão do Grupo A `a0fb31c` em `main`): os 16 capítulos (`333` páginas lógicas, `393` questões, `397` entradas `<dt>` no glossário, `682` links externos) e todas as validações automatizadas (`validar-guia.py`, `executar-trechos-de-codigo.py`, `conferir-trechos.py`, `reflow` em `320 px` com `0` estouros, `axe-core` com `45 passes` e `0` violações, e PDF de `989` páginas A4) estão concluídos.
+Estado atual (`18/11/2026`, após revisão geral `9556cda`, expansão do Grupo A `a0fb31c` e enxugamento global + compactação de impressão em `main`): os 16 capítulos (`316` páginas lógicas, `376` questões equilibradas `94/94/94/94`, `397` entradas `<dt>` no glossário, `682` links externos, `67` molduras `data-imagem=`) e as validações automatizadas atuais (`validar-guia.py`, `executar-trechos-de-codigo.py`, Chrome `158` `reflow 320 px` sem estouros e questões fundidas com `aria-live`, e PDF A4 de `531` páginas) estão concluídos (`axe-core` validado em rodada anterior de `18/11/2026`; pacote local `axe-core` não disponível nesta máquina para reexecução).
 
 ## Pendências abertas
 
