@@ -33,7 +33,7 @@ Pedido do operador: terminar a conferência online dos itens `[Não verificado]`
 - `renumerar-paginas.py`: 316 páginas, nada a mudar. `validar-guia.py`: 16 OK, 0 FALHA. `executar-trechos-de-codigo.py`: 0 FALHA, 21 ilustrativos.
 - `auditar-guia-navegador.mjs` (Chrome 1254): reflow 320 px com 0 estouros em 316 seções; 376/376 questões com veredito correto; axe-core 45 passes, 0 violações (1 "incomplete" de color-contrast, limite da ferramenta).
 - Limites de formato: unidades alteradas entre 244 e 457 palavras antes de "Pergunta"; notas de fonte inalteradas. Nenhuma alternativa de questão alterada (gabaritos 94/94/94/94 e viés de tamanho inalterados).
-- PDF regerado: 533 páginas A4; página 483 (quadro da 16.5b) renderizada e conferida.
+- PDF regerado: 534 páginas A4; página 483 (quadro da 16.5b) renderizada e conferida.
 
 ## Hashes (16 caracteres)
 
