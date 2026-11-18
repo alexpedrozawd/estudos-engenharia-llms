@@ -13079,7 +13079,7 @@ Desvio (regra fixa):
       <h3>Um modelo com três reforços</h3>
       <p>Segundo a Anthropic (<em>Building effective agents</em>), o bloco básico de um sistema agêntico é o <dfn>modelo aumentado</dfn>: um modelo de linguagem reforçado por recuperação, ferramentas e memória. Os modelos atuais usam esses recursos de forma ativa: geram as próprias buscas, escolhem ferramentas e decidem que informação reter.</p>
       <h3>O mesmo conjunto em três vocabulários</h3>
-      <p>No Agent Development Kit (ADK) do Google, os componentes básicos de um agente são um modelo, instruções da tarefa e, opcionalmente, ferramentas. No SDK de agentes da OpenAI, o agente reúne instruções, ferramentas, <em>guardrails</em>, transferências (<em>handoffs</em>) e um laço embutido que continua até a tarefa terminar; as sessões servem de camada de memória persistente. Os nomes mudam, mas a estrutura é a mesma.</p>
+      <p>No Kit de Desenvolvimento de Agentes (<em>Agent Development Kit</em>, ADK) do Google, os componentes básicos de um agente são um modelo, instruções da tarefa e, opcionalmente, ferramentas. No kit de desenvolvimento de software (<em>SDK</em>, conjunto de bibliotecas pronto para integrar ao sistema) de agentes da OpenAI, o agente reúne instruções, ferramentas, proteções (<em>guardrails</em>), transferências (<em>handoffs</em>) e um laço embutido que continua até a tarefa terminar; as sessões servem de camada de memória persistente. Os nomes mudam, mas a estrutura é a mesma.</p>
       <h3>A interface é o ponto de atenção</h3>
       <p>A Anthropic recomenda dois focos: adaptar esses recursos ao seu caso de uso e garantir que ofereçam ao modelo uma interface fácil e bem documentada. Como desenhar o contrato de cada ferramenta está nas partes 10.2a a 10.2c; aqui interessa o conjunto.</p>
 
@@ -13127,9 +13127,9 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> O modelo é o piloto; o harness é a cabine, com instrumentos, lista de verificação e regras de voo. Sem cabine, mesmo um bom piloto não decola com segurança.</p></div>
 
       <h3>Um laço, três descrições</h3>
-      <p>A Anthropic chama o Agent SDK de <dfn>harness</dfn> (estrutura que roda o laço do agente em volta do modelo) de uso geral. Na documentação, o <dfn>laço do agente</dfn> (ciclo de pedir, executar e repetir) é: o Claude avalia o pedido, chama ferramentas, recebe os resultados e repete até concluir. O SDK da OpenAI descreve o mesmo: se o modelo produz chamadas de ferramenta, o <em>runner</em> as executa, anexa os resultados e roda o laço de novo.</p>
+      <p>A Anthropic chama o Agent SDK de <dfn>harness</dfn> (estrutura que roda o laço do agente em volta do modelo) de uso geral. Na documentação, o <dfn>laço do agente</dfn> (ciclo de pedir, executar e repetir) é: o Claude avalia o pedido, chama ferramentas, recebe os resultados e repete até concluir. O SDK da OpenAI descreve o mesmo: se o modelo produz chamadas de ferramenta, o executor do laço (<em>runner</em>) as executa, anexa os resultados e roda o laço de novo.</p>
       <h3>O que o harness acrescenta ao modelo</h3>
-      <p>O Agent SDK entrega ferramentas embutidas, permissões, sessões e <em>hooks</em> (pontos de interceptação). O ADK, do Google, informa que gerencia o contexto como se fosse código-fonte: sessões, memória, saídas de ferramentas e artefatos entram numa visão estruturada. Gestão de contexto, portanto, é função do harness, não do modelo.</p>
+      <p>O Agent SDK entrega ferramentas embutidas, permissões, sessões e pontos de interceptação (<em>hooks</em>). O ADK, do Google, informa que gerencia o contexto como se fosse código-fonte: sessões, memória, saídas de ferramentas e artefatos entram numa visão estruturada. Gestão de contexto, portanto, é função do harness, não do modelo.</p>
       <h3>Quem decide o quê</h3>
       <p>Como regra de leitura (<span class="qual">proposta didática</span>): o modelo decide o próximo passo; o harness decide o que realmente executa, quando para e o que fica registrado. Essa separação é a mesma de workflows e agentes vista em 6.1b; aqui ela vira desenho de componentes.</p>
 
@@ -13147,7 +13147,7 @@ Desvio (regra fixa):
       <p>Harness é o que roda o laço, executa ferramentas e gere contexto. Na parte 12.1c, decidimos quem deve rodá-lo.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Harness e laço:</strong> Anthropic, <em>Effective harnesses for long-running agents</em> (<span class="qual">registrado na pesquisa técnica do fornecedor</span>) e <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>); OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>); Google, <em>ADK</em> (<span class="qual">registrado na documentação</span>), consultadas em 17/11/2026.</p>
+        <p><strong>Harness e laço:</strong> Anthropic, <em>Effective harnesses for long-running agents</em> (<span class="qual">registrado na pesquisa técnica do fornecedor</span>), <em>Agent SDK overview</em> e <em>How the agent loop works</em> (<span class="qual">registrado na documentação</span>); OpenAI, <em>Running agents</em> (<span class="qual">registrado na documentação</span>); Google, <em>ADK</em> (<span class="qual">registrado na documentação</span>), consultadas em 17/11/2026.</p>
         <p><strong>Divisão de papéis:</strong> Leitura ligada a 6.1b (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.1b">
@@ -13195,7 +13195,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p12-1c" value="a" data-correta="true" data-explicacao="Correta. A OpenAI descreve o SDK como o arranjo em que a aplicação controla implantação, armazenamento e aprovações."><span><strong>A.</strong> Um SDK ou laço próprio rodando no ambiente da empresa, que controla armazenamento e aprovações.</span></label>
         <label class="alternativa"><input type="radio" name="p12-1c" value="b" data-correta="false" data-explicacao="Incorreta. Nada na documentação diz isso; no hospedado, o fornecedor guarda o progresso do agente."><span><strong>B.</strong> Qualquer serviço hospedado, porque o fornecedor sempre guarda tudo no banco do cliente.</span></label>
         <label class="alternativa"><input type="radio" name="p12-1c" value="c" data-correta="false" data-explicacao="Incorreta. Quem roda o laço define onde estado e aprovações ficam."><span><strong>C.</strong> Nenhum: aprovações não dependem de onde o laço roda.</span></label>
-        <label class="alternativa"><input type="radio" name="p12-1c" value="d" data-correta="false" data-explicacao="Incorreta. A Anthropic alerta que presumir o que há por baixo é fonte comum de erro."><span><strong>D.</strong> Um framework visual qualquer, sem ler o que ele faz por baixo.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-1c" value="d" data-correta="false" data-explicacao="Incorreta. A Anthropic orienta garantir que você entenda o código por baixo caso use um framework."><span><strong>D.</strong> Um framework visual qualquer, sem ler o que ele faz por baixo.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -13208,7 +13208,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; Anthropic, <em>Agent SDK overview</em> — <a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/overview</a>; OpenAI, <em>Agents</em> — <a href="https://developers.openai.com/api/docs/guides/agents" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/agents</a>; Google, <em>ADK</em> — <a href="https://adk.dev/" target="_blank" rel="noopener noreferrer">adk.dev</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; OpenAI, <em>Agents</em> — <a href="https://developers.openai.com/api/docs/guides/agents" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/agents</a>; Google, <em>ADK</em> — <a href="https://adk.dev/" target="_blank" rel="noopener noreferrer">adk.dev</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Agent SDK overview</em> — <a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/overview</a>; OpenAI, <em>Agents SDK</em> — <a href="https://openai.github.io/openai-agents-python/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.1c">
         <a href="#unidade-12-1b">Parte 12.1b</a>
@@ -13363,7 +13364,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; OpenAI, <em>Agent orchestration</em> — <a href="https://openai.github.io/openai-agents-python/multi_agent/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/multi_agent</a>; Google, <em>Agents</em> (ADK) — <a href="https://adk.dev/agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>.</p>
+        <p><strong>Aprofundar:</strong> OpenAI, <em>Agent orchestration</em> — <a href="https://openai.github.io/openai-agents-python/multi_agent/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/multi_agent</a>; Google, <em>Agents</em> (ADK) — <a href="https://adk.dev/agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.2c">
         <a href="#unidade-12-2b">Parte 12.2b</a>
@@ -13516,7 +13518,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>How the agent loop works</em> — <a href="https://code.claude.com/docs/en/agent-sdk/agent-loop" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/agent-loop</a>; OpenAI, <em>Guardrails</em> (Agents SDK) — <a href="https://openai.github.io/openai-agents-python/guardrails/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/guardrails</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>How the agent loop works</em> — <a href="https://code.claude.com/docs/en/agent-sdk/agent-loop" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/agent-loop</a>.</p>
+        <p><strong>Aprofundar:</strong> OpenAI, <em>Guardrails</em> (Agents SDK) — <a href="https://openai.github.io/openai-agents-python/guardrails/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/guardrails</a>; OpenAI, <em>Running agents</em> — <a href="https://openai.github.io/openai-agents-python/running_agents/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/running_agents</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.3c">
         <a href="#unidade-12-3b">Parte 12.3b</a>
@@ -13612,7 +13615,7 @@ Desvio (regra fixa):
       </table>
       </div>
       <h3>O que acontece no limite</h3>
-      <p>Na Anthropic, ao atingir o limite de voltas ou de gasto, o SDK devolve uma mensagem de resultado com subtipo de erro específico. Na OpenAI, passar de <code>max_turns</code> levanta a exceção <code>MaxTurnsExceeded</code>, e é possível desativar o limite. No ADK, o agente em laço não decide sozinho quando parar: é preciso implementar um mecanismo de término, e em Python o padrão de <code>max_iterations</code> é <code>None</code>, de modo que o laço só para por escalonamento.</p>
+      <p>Na Anthropic, ao atingir o limite de voltas ou de gasto, o SDK devolve uma mensagem de resultado com subtipo de erro específico. Na OpenAI, passar de <code>max_turns</code> levanta a exceção <code>MaxTurnsExceeded</code>, e é possível desativar o limite. No ADK, o agente em laço não decide sozinho quando parar: é preciso implementar um mecanismo de término, e em Python o padrão de <code>max_iterations</code> é <code>None</code> (sem limite definido), de modo que o laço só para por escalonamento.</p>
       <h3>Folga no teto de gasto</h3>
       <p>A Anthropic informa que o gasto é comparado ao teto depois de cada resposta, porque o custo vem do uso de tokens devolvido pela API. Assim, o gasto pode passar do teto em até o custo daquela resposta, mais o que subagentes ainda ativos gastarem antes de parar. Deixe folga ao definir o valor.</p>
 
@@ -13654,7 +13657,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Num percurso de trem, o desvio para outra linha, o sinal vermelho e a parada na estação são todos previstos no mapa. O descarrilamento não.</p></div>
 
       <h3>Transferir o turno</h3>
-      <p>No SDK da OpenAI, se o modelo pede uma transferência, o <em>runner</em> atualiza o agente atual e a entrada e roda o laço de novo. O caminho do fluxo muda, mas o laço continua sob o mesmo controle.</p>
+      <p>No SDK da OpenAI, se o modelo pede uma transferência, o executor do laço (<em>runner</em>) atualiza o agente atual e a entrada e roda o laço de novo. O caminho do fluxo muda, mas o laço continua sob o mesmo controle.</p>
       <h3>Escalonar para sair do laço</h3>
       <p>No ADK, um subagente pode avaliar uma condição, como “o documento já está bom?”, e, se ela for atendida, sinalizar o término (<dfn>escalonamento no laço</dfn>) emitindo um evento cujas ações marcam o escalonamento como verdadeiro. É a saída de um laço de refinamento por critério, e não só por limite de iterações. No exemplo da documentação, o crítico recebe uma ferramenta de saída (<code>exit_loop</code>) que chama quando o documento atinge a qualidade satisfatória, evitando novas iterações.</p>
       <h3>Pausar para uma pessoa</h3>
@@ -13666,7 +13669,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-p12-4c">
         <legend>Escolha uma alternativa</legend>
         <p id="enunciado-p12-4c">Num laço de revisão de texto da Aurora, um agente crítico deve encerrar o laço assim que o texto atingir a qualidade combinada, mesmo antes do limite de iterações. Que mecanismo do ADK se encaixa?</p>
-        <label class="alternativa"><input type="radio" name="p12-4c" value="a" data-correta="true" data-explicacao="Correta. A documentação do ADK descreve o escalonamento por sub-agente como saída por critério, além do limite."><span><strong>A.</strong> Escalonamento: o crítico sinaliza término ao atingir a condição, e o limite de iterações fica como proteção.</span></label>
+        <label class="alternativa"><input type="radio" name="p12-4c" value="a" data-correta="true" data-explicacao="Correta. A documentação do ADK descreve o escalonamento por subagente como saída por critério, além do limite."><span><strong>A.</strong> Escalonamento: o crítico sinaliza término ao atingir a condição, e o limite de iterações fica como proteção.</span></label>
         <label class="alternativa"><input type="radio" name="p12-4c" value="b" data-correta="false" data-explicacao="Incorreta. Isso não encerra o laço por critério e aumenta o custo."><span><strong>B.</strong> Aumentar indefinidamente o limite de iterações.</span></label>
         <label class="alternativa"><input type="radio" name="p12-4c" value="c" data-correta="false" data-explicacao="Incorreta. Sem critério de término, o laço só para por acaso ou por limite."><span><strong>C.</strong> Remover o crítico e repetir a revisão até o prazo acabar.</span></label>
         <label class="alternativa"><input type="radio" name="p12-4c" value="d" data-correta="false" data-explicacao="Incorreta. Transferência troca de agente; não encerra o laço de refinamento."><span><strong>D.</strong> Transferir o turno ao agente de matrícula.</span></label>
@@ -13682,7 +13685,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenAI, <em>Running agents</em> — <a href="https://openai.github.io/openai-agents-python/running_agents/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/running_agents</a>; Google, <em>Loop agents</em> (ADK) — <a href="https://adk.dev/agents/workflow-agents/loop-agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents/workflow-agents/loop-agents</a>; Anthropic, <em>How the agent loop works</em> — <a href="https://code.claude.com/docs/en/agent-sdk/agent-loop" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/agent-loop</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>How the agent loop works</em> — <a href="https://code.claude.com/docs/en/agent-sdk/agent-loop" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/agent-loop</a>; OpenAI, <em>Running agents</em> — <a href="https://openai.github.io/openai-agents-python/running_agents/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/running_agents</a>.</p>
+        <p><strong>Aprofundar:</strong> Google, <em>Loop agents</em> (ADK) — <a href="https://adk.dev/agents/workflow-agents/loop-agents/" target="_blank" rel="noopener noreferrer">adk.dev/agents/workflow-agents/loop-agents</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.4c">
         <a href="#unidade-12-4b">Parte 12.4b</a>
@@ -13738,7 +13742,7 @@ Desvio (regra fixa):
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Falhas de laço longo:</strong> Anthropic, <em>Effective harnesses for long-running agents</em>, 26/11/2025 (<span class="qual">registrado na pesquisa técnica do fornecedor</span>)</p>
-        <p><strong>Quadro:</strong> Síntese didática da tabela de falhas do artigo (<span class="qual">proposta didática</span>).</p>
+        <p><strong>Quadro:</strong> Síntese didática a partir das falhas e soluções do artigo (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.5a">
         <a href="#unidade-12-4c">Parte 12.4c</a>
@@ -13813,7 +13817,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Um caderno de bordo bem mantido permite que o próximo turno assuma o leme em minutos, sem refazer a rota.</p></div>
 
       <h3>Lista de funcionalidades com status</h3>
-      <p>Para evitar que o agente tente tudo de uma vez ou declare vitória cedo, a Anthropic faz o agente inicial escrever um arquivo JSON estruturado com a <dfn>lista de funcionalidades</dfn> (descrições de funcionalidades de ponta a ponta, cada uma com seu status). Por que JSON e não texto livre está em 6.3b. O bloco abaixo é uma adaptação para a Aurora.</p>
+      <p>Para evitar que o agente tente tudo de uma vez ou declare vitória cedo, a Anthropic faz o agente inicial escrever um arquivo JSON estruturado com a <dfn>lista de funcionalidades</dfn> (descrições de funcionalidades de ponta a ponta, cada uma com seu status). Por que JSON e não texto livre está em 6.1b. O bloco abaixo é uma adaptação para a Aurora.</p>
       <figure class="bloco-codigo">
         <figcaption>Registro de funcionalidade da Aurora Educação (proposta didática) (ilustrativo, não executado).</figcaption>
         <pre class="codigo" id="cod-12-5c" role="region" tabindex="0" aria-label="Registro ilustrativo de uma funcionalidade a verificar" data-executavel="false"><code class="language-json">{
@@ -13853,7 +13857,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Effective harnesses for long-running agents</em> — <a href="https://www.anthropic.com/research/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/effective-harnesses-for-long-running-agents</a>; Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; OpenAI, <em>Tracing</em> — <a href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/tracing</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Effective harnesses for long-running agents</em> — <a href="https://www.anthropic.com/research/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/effective-harnesses-for-long-running-agents</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; OpenAI, <em>Tracing</em> — <a href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/tracing</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.5c">
         <a href="#unidade-12-5b">Parte 12.5b</a>
@@ -14019,7 +14024,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Work with sessions</em> — <a href="https://code.claude.com/docs/en/agent-sdk/sessions" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/sessions</a>; OpenAI, <em>Human-in-the-loop</em> — <a href="https://openai.github.io/openai-agents-python/human_in_the_loop/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/human_in_the_loop</a>; Google, <em>Resume stopped agents</em> — <a href="https://adk.dev/runtime/resume/" target="_blank" rel="noopener noreferrer">adk.dev/runtime/resume</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Work with sessions</em> — <a href="https://code.claude.com/docs/en/agent-sdk/sessions" target="_blank" rel="noopener noreferrer">code.claude.com/docs/en/agent-sdk/sessions</a>; OpenAI, <em>Human-in-the-loop</em> — <a href="https://openai.github.io/openai-agents-python/human_in_the_loop/" target="_blank" rel="noopener noreferrer">openai.github.io/openai-agents-python/human_in_the_loop</a>.</p>
+        <p><strong>Aprofundar:</strong> Google, <em>Resume stopped agents</em> — <a href="https://adk.dev/runtime/resume/" target="_blank" rel="noopener noreferrer">adk.dev/runtime/resume</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 12.6c">
         <a href="#unidade-12-6b">Parte 12.6b</a>
@@ -14104,7 +14110,7 @@ Desvio (regra fixa):
     <section class="page" id="capitulo-13" aria-labelledby="titulo-do-capitulo-13">
       <h2 id="titulo-do-capitulo-13">Capítulo 13 — Inferência local</h2>
       <p>Até aqui, o modelo foi tratado como algo que se chama por uma API. Neste capítulo, ele passa a rodar em máquinas que você opera. Isso devolve controle sobre dados, custo e configuração, e traz uma conta nova: <strong>memória</strong>. Pesos, contexto e simultaneidade competem pela mesma RAM ou VRAM.</p>
-      <p>Você vai estimar se um modelo cabe numa máquina (pesos + KV cache + folga), entender como o contexto de 8 mil a 256 mil tokens e a atenção agrupada mudam essa conta, comparar quantização de pesos (GGUF e vLLM) e do KV cache, decidir quando um ajuste local (LoRA, QLoRA) se justifica diante de RAG e de prompt, e diagnosticar problemas.</p>
+      <p>Você vai estimar se um modelo cabe numa máquina (pesos + KV cache + folga), entender como o contexto de 8 mil a 256 mil tokens e a atenção agrupada (GQA) mudam essa conta, comparar quantização de pesos (GGUF e vLLM) e do KV cache, decidir quando um ajuste local (LoRA, QLoRA) se justifica diante de RAG e de prompt, e diagnosticar problemas.</p>
       <p>Como em todo o guia, você não precisa programar: opções de linha de comando e variáveis de ambiente aparecem apenas para leitura. Os modelos abertos do capítulo são o Qwen3.8-27B e o Gemma 4, e os runtimes comparados são llama.cpp, Ollama e vLLM.</p>
 
       <h3>O que você vai estudar</h3>
@@ -14150,7 +14156,7 @@ Desvio (regra fixa):
       <h3>Dois elementos</h3>
       <p><dfn>Inferência local</dfn> é executar o modelo em máquinas que você opera, em vez de chamar uma API de fornecedor. Isso separa o <strong>modelo</strong> (os pesos, como o Qwen3.8-27B, com 27 bilhões de parâmetros, ou a família Gemma 4) do <dfn>runtime</dfn> (o programa que carrega os pesos e responde a pedidos). A arquitetura de chamada, a latência e a capacidade de um servidor continuam como em 2.1 a 2.6; aqui muda o que fica sob seu controle: memória, formato e configuração.</p>
       <h3>O formato dos pesos</h3>
-      <p>O <dfn>GGUF</dfn> é um formato de arquivo para guardar modelos para inferência com o GGML e programas baseados nele (como o llama.cpp). É binário, desenhado para carga e gravação rápidas e para ser fácil de ler. Modelos desenvolvidos em outras estruturas costumam ser convertidos para GGUF antes do uso.</p>
+      <p>O <dfn>GGUF</dfn> é um formato de arquivo para guardar modelos para inferência com a biblioteca de tensores GGML e executores baseados nela (como o llama.cpp). É binário, desenhado para carga e gravação rápidas e para ser fácil de ler. Modelos desenvolvidos em outras estruturas costumam ser convertidos para GGUF antes do uso.</p>
       <h3>O primeiro limite: caber na memória</h3>
       <p>A documentação do llama.cpp avisa que os modelos são carregados inteiros na memória: é preciso espaço em disco para guardá-los e RAM suficiente para carregá-los. A partir daí, tudo o que se acrescenta (contexto, pedidos simultâneos) compete pelo que sobrar. Como estimar essa conta está na unidade 13.2.</p>
 
@@ -14253,7 +14259,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Para quem cozinha em casa, uma panela boa basta; para um refeitório, é preciso uma linha de produção. Mesma comida, organização diferente.</p></div>
 
       <h3>O que cada documentação mostra</h3>
-      <p>O llama.cpp traz um servidor HTTP com opções de memória e de contexto por <em>slot</em> (vaga de atendimento), e usa o formato GGUF. O Ollama define o contexto padrão conforme a VRAM disponível. Para o vLLM, o artigo do PagedAttention descreve um sistema de serviço que busca desperdício quase zero na memória do KV cache e compartilhamento flexível dele entre pedidos.</p>
+      <p>O llama.cpp traz um servidor HTTP com opções de memória e de contexto por vaga de atendimento (<em>slot</em>), e usa o formato GGUF. O Ollama define o contexto padrão conforme a VRAM disponível. Para o vLLM, o artigo do PagedAttention descreve um sistema de serviço que busca desperdício quase zero na memória do KV cache e compartilhamento flexível dele entre pedidos.</p>
       <h3>O que dizem as fichas dos modelos</h3>
       <p>A ficha do Qwen3.8-27B informa que os artefatos são compatíveis com Hugging Face Transformers, vLLM, SGLang e TokenSpeed, e recomenda motores dedicados, como SGLang, vLLM ou TokenSpeed, para produção e cenários de alta vazão. Para uso leve, runtimes mais simples bastam (<span class="qual">proposta didática</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: perfis de uso e runtimes" tabindex="0">
@@ -14291,7 +14297,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> ggml, <em>GGUF</em> — <a href="https://raw.githubusercontent.com/ggml-org/ggml/master/docs/gguf.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/ggml/docs/gguf.md</a>; llama.cpp, <em>HTTP server</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/server</a>; Ollama, <em>Context length</em> — <a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener noreferrer">docs.ollama.com/context-length</a>; Kwon et al. — <a href="https://arxiv.org/pdf/2309.06180" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2309.06180</a>; Google, ficha do <em>Gemma 4</em> — <a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank" rel="noopener noreferrer">huggingface.co/google/gemma-4-31B-it</a>.</p>
+        <p><strong>Ler:</strong> llama.cpp, <em>HTTP server</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/server</a>; llama.cpp, <em>Quantize</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/quantize</a>; Ollama, <em>Context length</em> — <a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener noreferrer">docs.ollama.com/context-length</a>; Qwen, ficha do <em>Qwen3.8-27B</em> — <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener noreferrer">huggingface.co/Qwen/Qwen3.8-27B</a>; Google, ficha do <em>Gemma 4</em> — <a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank" rel="noopener noreferrer">huggingface.co/google/gemma-4-31B-it</a>.</p>
+        <p><strong>Aprofundar:</strong> ggml, <em>GGUF</em> — <a href="https://raw.githubusercontent.com/ggml-org/ggml/master/docs/gguf.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/ggml/docs/gguf.md</a>; Kwon et al., <em>PagedAttention</em> — <a href="https://arxiv.org/pdf/2309.06180" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2309.06180</a>; Jiang et al., <em>Mixtral of Experts</em> — <a href="https://arxiv.org/pdf/2401.04088" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2401.04088</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 13.1c">
         <a href="#unidade-13-1b">Parte 13.1b</a>
@@ -14377,7 +14384,7 @@ Desvio (regra fixa):
       <h3>O exemplo registrado</h3>
       <p>O artigo do PagedAttention explica que, para o modelo OPT de 13 bilhões de parâmetros, o KV cache de um único token ocupa 800 KB: 2 (vetores de chave e de valor) × 5120 (tamanho do estado oculto) × 40 (camadas) × 2 (bytes por número de 16 bits). Os autores também descrevem que a memória do KV cache de cada pedido é enorme e cresce e diminui dinamicamente.</p>
       <h3>A fórmula e um modelo ilustrativo (<span class="qual">proposta didática</span>)</h3>
-      <p>Em modelos com atenção agrupada (13.3b), troca-se o tamanho do estado oculto por <em>cabeças KV × dimensão da cabeça</em>. No modelo ilustrativo abaixo (40 camadas, 8 cabeças KV de dimensão 128, 16 bits) cada token ocupa 2 × 40 × 8 × 128 × 2 = 163.840 bytes, ou 160 KiB. A memória cresce em linha reta com o contexto.</p>
+      <p>Em modelos com atenção agrupada (13.3b), troca-se o tamanho do estado oculto por <em>cabeças KV × dimensão da cabeça</em>. No modelo ilustrativo abaixo (40 camadas, 8 cabeças KV de dimensão 128, 16 bits) cada token ocupa 2 × 40 × 8 × 128 × 2 = 163.840 bytes, ou 160 KiB (kibibytes, múltiplos de 1.024 bytes). A memória cresce em linha reta com o contexto.</p>
       <div class="rolagem" role="region" aria-label="Tabela: KV cache do modelo ilustrativo por tamanho de contexto" tabindex="0">
       <table class="tabela">
         <caption>KV cache do modelo ilustrativo (160 KiB por token em 16 bits; valores aproximados, proposta didática)</caption>
@@ -14467,7 +14474,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> llama.cpp, <em>Quantize</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/quantize</a>; Kwon et al. — <a href="https://arxiv.org/pdf/2309.06180" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2309.06180</a>; Ollama, <em>Context length</em> — <a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener noreferrer">docs.ollama.com/context-length</a>; Ollama, <em>FAQ</em> — <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener noreferrer">docs.ollama.com/faq</a>.</p>
+        <p><strong>Ler:</strong> llama.cpp, <em>Quantize</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/quantize</a>; Ollama, <em>Context length</em> — <a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener noreferrer">docs.ollama.com/context-length</a>; Ollama, <em>FAQ</em> — <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener noreferrer">docs.ollama.com/faq</a>.</p>
+        <p><strong>Aprofundar:</strong> Kwon et al., <em>PagedAttention</em> — <a href="https://arxiv.org/pdf/2309.06180" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2309.06180</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 13.2c">
         <a href="#unidade-13-2b">Parte 13.2b</a>
@@ -14596,11 +14604,11 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Num prédio com andares de estantes completas e andares de estantes pequenas, o espaço total depende de quantos andares são de cada tipo.</p></div>
 
       <h3>Arquiteturas híbridas nas fichas</h3>
-      <p>A ficha do Gemma 4 diz que os modelos usam atenção híbrida, que intercala atenção local de janela deslizante com atenção global completa, e que a última camada é sempre global. Para otimizar a memória em contextos longos, as camadas globais usam chaves e valores unificados. Na ficha do Qwen3.8-27B, o layout oculto é 16 × (3 × (Gated DeltaNet → FFN) → 1 × (Gated Attention → FFN)), isto é, camadas de atenção linear alternadas com camadas de atenção completa.</p>
+      <p>A ficha do Gemma 4 diz que os modelos usam atenção híbrida, que intercala atenção local de janela deslizante com atenção global completa, e que a última camada é sempre global. Para otimizar a memória em contextos longos, as camadas globais usam chaves e valores unificados. Na ficha do Qwen3.8-27B, o layout oculto é 16 × (3 × (Gated DeltaNet → FFN) → 1 × (Gated Attention → FFN)), alternando camadas de atenção linear com camadas de atenção completa (onde FFN indica a rede de alimentação direta de cada bloco).</p>
       <h3>O que isso significa para a conta</h3>
       <p>Nem toda camada guarda o mesmo tipo de KV. Por isso, a fórmula simples de 13.2b é um limite de ordem de grandeza, não um valor exato. O guia não calcula a memória de contexto desses dois modelos, porque as fichas não detalham o armazenamento por tipo de camada (pendência declarada no pacote de fontes). Meça no runtime com o contexto alvo.</p>
       <h3>Vários pedidos ao mesmo tempo</h3>
-      <p>O servidor do llama.cpp pode usar um único buffer de KV compartilhado entre todas as sequências (padrão quando o número de vagas é automático) e permite definir o limite de contexto por vaga paralela. Com vários pedidos, o KV é de cada sequência ativa, então a conta de 13.2c passa a ser multiplicada pela simultaneidade. A capacidade em geral está em 2.6.</p>
+      <p>O servidor do llama.cpp pode usar um único buffer de KV compartilhado entre todas as sequências (padrão quando o número de vagas é automático) e oferece opção para dimensionar esse buffer compartilhado multiplicando o número de vagas paralelas pela configuração do contexto quando não há tamanho fixo. Com vários pedidos, o KV é de cada sequência ativa, então a conta de 13.2c passa a ser multiplicada pela simultaneidade. A capacidade em geral está em 2.6.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p13-3c">
@@ -14622,7 +14630,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Ainslie et al., <em>GQA</em> — <a href="https://arxiv.org/pdf/2305.13245" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.13245</a>; Qwen, ficha do <em>Qwen3.8-27B</em> — <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener noreferrer">huggingface.co/Qwen/Qwen3.8-27B</a>; Google, ficha do <em>Gemma 4</em> — <a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank" rel="noopener noreferrer">huggingface.co/google/gemma-4-31B-it</a>.</p>
+        <p><strong>Ler:</strong> Qwen, ficha do <em>Qwen3.8-27B</em> — <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener noreferrer">huggingface.co/Qwen/Qwen3.8-27B</a>; Google, ficha do <em>Gemma 4</em> — <a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank" rel="noopener noreferrer">huggingface.co/google/gemma-4-31B-it</a>; Ollama, <em>Context length</em> — <a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener noreferrer">docs.ollama.com/context-length</a>; llama.cpp, <em>HTTP server</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/server</a>.</p>
+        <p><strong>Aprofundar:</strong> Ainslie et al., <em>GQA</em> — <a href="https://arxiv.org/pdf/2305.13245" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.13245</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 13.3c">
         <a href="#unidade-13-3b">Parte 13.3b</a>
@@ -14652,7 +14661,7 @@ Desvio (regra fixa):
       <h3>Duas fases</h3>
       <p>Segundo a documentação do llama.cpp, a <dfn>quantização</dfn> (reduzir a precisão numérica dos pesos para encolher o modelo) ocorre em duas fases: converter o modelo original para GGUF e quantizar o arquivo convertido. Depois de criar uma versão GGUF de alta qualidade, usa-se a ferramenta <code>llama-quantize</code> com o tipo desejado, como <code>Q4_K_M</code>. Os valores de bits por peso e tamanho desses tipos estão na tabela de 13.2a.</p>
       <h3>O custo em precisão</h3>
-      <p>A página avisa que o processo pode introduzir alguma perda de precisão, em geral medida por <dfn>perplexidade</dfn> (<em>ppl</em>, medida de quão bem o modelo prevê o texto) e por divergência de Kullback–Leibler (<em>kld</em>). Essa perda pode ser reduzida com um arquivo adequado de matriz de importância (<code>imatrix</code>).</p>
+      <p>A página avisa que o processo pode introduzir alguma perda de precisão, em geral medida por <dfn>perplexidade</dfn> (<em>ppl</em>, medida de quão bem o modelo prevê o texto) e por divergência de Kullback–Leibler (<em>kld</em>, medida de quanto as probabilidades da resposta se afastam do modelo original). Essa perda pode ser reduzida com um arquivo adequado de matriz de importância (<code>imatrix</code>, que indica quais pesos mais afetam a saída).</p>
       <h3>Não quantize duas vezes</h3>
       <p>A opção que permite requantizar tensores já quantizados vem com um aviso: pode reduzir severamente a qualidade em comparação com quantizar a partir de 16 ou 32 bits. Regra de uso (<span class="qual">proposta didática</span>): sempre que possível, parta do modelo original e de um fornecedor confiável do arquivo.</p>
 
@@ -14694,7 +14703,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> É como escolher a embalagem: cada tipo guarda menos que o original, e nem todo caminhão (GPU) aceita todo tipo de embalagem.</p></div>
 
       <h3>O que o vLLM documenta</h3>
-      <p>A página do vLLM define a quantização como uma troca de precisão do modelo por menor uso de memória, o que permite rodar modelos grandes em uma gama maior de dispositivos. A de AWQ afirma que a precisão cai de BF16/FP16 para INT4, reduzindo a memória total do modelo, e avisa que a biblioteca AutoAWQ foi descontinuada, com a funcionalidade adotada pelo projeto llm-compressor. A de GPTQ cita a criação de modelos de 4 ou 8 bits com o GPTQModel.</p>
+      <p>A página do vLLM define a quantização como uma troca de precisão do modelo por menor uso de memória, o que permite rodar modelos grandes em uma gama maior de dispositivos. A de AWQ (quantização guiada pelas ativações) afirma que a precisão cai de formatos de 16 bits (BF16/FP16) para inteiros de 4 bits (INT4), reduzindo a memória total do modelo, e avisa que a biblioteca AutoAWQ foi descontinuada, com a funcionalidade adotada pelo projeto llm-compressor. A de GPTQ cita a criação de modelos de 4 ou 8 bits com o GPTQModel.</p>
       <div class="rolagem" role="region" aria-label="Tabela: formatos de quantização do vLLM" tabindex="0">
       <table class="tabela">
         <caption>Formatos de quantização no vLLM (resumo da documentação, consultada em 17/11/2026)</caption>
@@ -14703,12 +14712,12 @@ Desvio (regra fixa):
           <tr><th scope="row">AWQ</th><td>4 (INT4)</td><td>AutoAWQ descontinuada; funcionalidade adotada pelo llm-compressor</td></tr>
           <tr><th scope="row">GPTQ</th><td>4 ou 8</td><td>Criação com o GPTQModel</td></tr>
           <tr><th scope="row">FP8</th><td>8</td><td>W8A8 em Ada, Hopper e Blackwell; W8A16 em Turing e Ampere</td></tr>
-          <tr><th scope="row">INT4 (W4A16)</th><td>4</td><td>Suportado em GPUs Ampere, Ada Lovelace, Hopper e Blackwell</td></tr>
+          <tr><th scope="row">INT4 (W4A16)</th><td>4</td><td>Suportado em GPUs NVIDIA com capacidade de computação &gt; 8.0 (Ampere, Ada Lovelace, Hopper e Blackwell)</td></tr>
         </tbody>
       </table>
       </div>
       <h3>FP8</h3>
-      <p>A página de FP8 informa que a quantização permite reduzir os requisitos de memória em 2 vezes e melhorar a vazão em até 1,6 vez, com impacto mínimo na precisão (alegação da documentação, a confirmar na sua carga). Placas Ada Lovelace, Hopper e Blackwell são suportadas para pesos e ativações de 8 bits (W8A8); Turing e Ampere, só para pesos de 8 bits com ativação em precisão maior (W8A16), via kernels Marlin.</p>
+      <p>A página de FP8 (ponto flutuante de 8 bits) informa que a quantização permite reduzir os requisitos de memória em 2 vezes e melhorar a vazão em até 1,6 vez, com impacto mínimo na precisão (alegação da documentação, a confirmar na sua carga). Placas Ada Lovelace, Hopper e Blackwell são suportadas para pesos e ativações de 8 bits (W8A8); Turing e Ampere, só para pesos de 8 bits com ativação em precisão maior (W8A16), por meio de rotinas otimizadas (<em>kernels</em> Marlin). Na coluna do INT4, W4A16 indica pesos em 4 bits e ativação em 16 bits.</p>
       <h3>Compatibilidade muda</h3>
       <p>A página de visão geral avisa que o quadro de compatibilidade está sujeito a mudanças. Antes de adotar um formato, confira o hardware e a versão do vLLM.</p>
 
@@ -14788,7 +14797,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> llama.cpp, <em>Quantize</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/quantize</a>; vLLM, <em>Quantization</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../quantization</a>; vLLM, <em>FP8</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/fp8/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../llm_compressor/fp8</a>; vLLM, <em>AutoAWQ</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/auto_awq/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../auto_awq</a>.</p>
+        <p><strong>Ler:</strong> llama.cpp, <em>Quantize</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/quantize</a>; vLLM, <em>Quantization</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../quantization</a>.</p>
+        <p><strong>Aprofundar:</strong> vLLM, <em>FP8</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/fp8/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../llm_compressor/fp8</a>; vLLM, <em>AutoAWQ</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/auto_awq/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../auto_awq</a>; vLLM, <em>GPTQModel</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/gptqmodel/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../gptqmodel</a>; vLLM, <em>INT4</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int4/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../llm_compressor/int4</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 13.4c">
         <a href="#unidade-13-4b">Parte 13.4b</a>
@@ -14811,7 +14821,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> É como guardar anotações em resumo: um resumo curto ocupa metade do caderno e costuma bastar; um resumo muito curto ocupa um quarto e pode perder detalhes.</p></div>
 
       <h3>Onde se configura</h3>
-      <p>A <dfn>quantização do KV cache</dfn> guarda chaves e valores com menos bits para reduzir a memória. No servidor do llama.cpp, o tipo do cache de chaves é um parâmetro com valores permitidos como f32, f16, bf16, f8_e4m3, q8_0, q4_0, q4_1, iq4_nl, q5_0 e q5_1, e o padrão é f16; há um parâmetro análogo para os valores. No Ollama, a variável <code>OLLAMA_KV_CACHE_TYPE</code> define o tipo, com padrão f16; é uma opção global, e a quantização do cache exige Flash Attention ativa.</p>
+      <p>A <dfn>quantização do KV cache</dfn> guarda chaves e valores com menos bits para reduzir a memória. No servidor do llama.cpp, o tipo do cache de chaves é um parâmetro com valores permitidos (formatos de ponto flutuante e quantizados de 4, 5 e 8 bits) como f32, f16, bf16, f8_e4m3, q8_0, q4_0, q4_1, iq4_nl, q5_0 e q5_1, e o padrão é f16; há um parâmetro análogo para os valores. No Ollama, a variável <code>OLLAMA_KV_CACHE_TYPE</code> define o tipo, com padrão f16; é uma opção global, e a quantização do cache exige Flash Attention (otimização de memória para o cálculo de atenção) ativa.</p>
       <div class="rolagem" role="region" aria-label="Tabela: tipos de KV cache no Ollama" tabindex="0">
       <table class="tabela">
         <caption>Tipos de KV cache segundo a FAQ do Ollama (consultada em 17/11/2026)</caption>
@@ -14942,7 +14952,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Ollama, <em>FAQ</em> — <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener noreferrer">docs.ollama.com/faq</a>; vLLM, <em>Quantized KV Cache</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../quantized_kvcache</a>; vLLM, <em>Speculative Decoding</em> — <a href="https://docs.vllm.ai/en/latest/features/speculative_decoding/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../speculative_decoding</a>; Leviathan et al. — <a href="https://arxiv.org/pdf/2211.17192" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2211.17192</a>.</p>
+        <p><strong>Ler:</strong> Ollama, <em>FAQ</em> — <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener noreferrer">docs.ollama.com/faq</a>; llama.cpp, <em>HTTP server</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/server</a>; vLLM, <em>Quantized KV Cache</em> — <a href="https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../quantized_kvcache</a>; vLLM, <em>Speculative Decoding</em> — <a href="https://docs.vllm.ai/en/latest/features/speculative_decoding/" target="_blank" rel="noopener noreferrer">docs.vllm.ai/.../speculative_decoding</a>.</p>
+        <p><strong>Aprofundar:</strong> Leviathan et al., <em>Speculative Decoding</em> — <a href="https://arxiv.org/pdf/2211.17192" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2211.17192</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 13.5c">
         <a href="#unidade-13-5b">Parte 13.5b</a>
@@ -15009,7 +15020,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Reformar um prédio exige guindaste, andaime e material, além do prédio em si: a conta é maior do que a de morar nele.</p></div>
 
       <h3>O que o QLoRA acrescenta</h3>
-      <p>O artigo do <dfn>QLoRA</dfn> apresenta uma abordagem de ajuste eficiente que reduz a memória o bastante para ajustar um modelo de 65 bilhões de parâmetros em uma única GPU de 48 GB, preservando o desempenho do ajuste completo em 16 bits. Entre as inovações: o tipo de dados NormalFloat de 4 bits (NF4), a dupla quantização, que quantiza as próprias constantes de quantização, e os otimizadores paginados, que gerenciam picos de memória.</p>
+      <p>O artigo do <dfn>QLoRA</dfn> apresenta uma abordagem de ajuste eficiente que reduz a memória o bastante para ajustar um modelo de 65 bilhões de parâmetros em uma única GPU de 48 GB, preservando o desempenho do ajuste completo em 16 bits. Entre as inovações: o tipo de dados de ponto flutuante normalizado de 4 bits (<em>4-bit NormalFloat</em>, NF4), a dupla quantização, que quantiza as próprias constantes de quantização, e os otimizadores paginados, que gerenciam picos de memória.</p>
       <h3>Treinar não é servir</h3>
       <p>O resultado do artigo vale para o ajuste, em condições dos autores; ele não diz que o modelo atenderá pedidos nessa GPU com o mesmo contexto. Em inferência, a conta é a de 13.2; em treino, entram ainda dados, avaliação e iterações (<span class="qual">proposta didática</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: o que muda de servir para ajustar" tabindex="0">
@@ -15105,7 +15116,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Hu et al., <em>LoRA</em> — <a href="https://arxiv.org/pdf/2106.09685" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2106.09685</a>; Dettmers et al., <em>QLoRA</em> — <a href="https://arxiv.org/pdf/2305.14314" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.14314</a>; Ollama, <em>FAQ</em> — <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener noreferrer">docs.ollama.com/faq</a>; llama.cpp, <em>HTTP server</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/server</a>.</p>
+        <p><strong>Ler:</strong> Ollama, <em>FAQ</em> — <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener noreferrer">docs.ollama.com/faq</a>; Ollama, <em>Context length</em> — <a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener noreferrer">docs.ollama.com/context-length</a>; llama.cpp, <em>HTTP server</em> — <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener noreferrer">github.com/ggml-org/llama.cpp/tools/server</a>.</p>
+        <p><strong>Aprofundar:</strong> Hu et al., <em>LoRA</em> — <a href="https://arxiv.org/pdf/2106.09685" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2106.09685</a>; Dettmers et al., <em>QLoRA</em> — <a href="https://arxiv.org/pdf/2305.14314" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.14314</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 13.6c">
         <a href="#unidade-13-6b">Parte 13.6b</a>
@@ -15172,11 +15184,11 @@ Desvio (regra fixa):
 
       <fieldset class="questao" aria-describedby="enunciado-c13q6">
         <legend>Questão 6 <span class="nivel">(difícil)</span></legend>
-        <p id="enunciado-c13q6">A Aurora tem uma placa de 24 GiB, um modelo ilustrativo de 27 bilhões em Q4_K_M (cerca de 15 GiB) e quer contexto de 128 mil tokens em 16 bits para 20 pessoas, além de ajustar o modelo todo semestre com o regulamento. O assistente está lento e o ps mostra carga dividida entre CPU e GPU. Quais quatro correções são indispensáveis?</p>
+        <p id="enunciado-c13q6">A Aurora tem uma placa de 24 GiB, um modelo ilustrativo de 27 bilhões em Q4_K_M (cerca de 15 GiB) e quer contexto de 128 mil tokens em 16 bits para 20 pessoas, além de ajustar o modelo todo semestre com o regulamento. O assistente está lento e o comando <code>ollama ps</code> mostra carga dividida entre CPU e GPU. Quais quatro correções são indispensáveis?</p>
         <label class="alternativa"><input type="radio" name="c13q6" value="a" data-correta="true" data-explicacao="Correta. Cada correção atende a uma falha: memória estourada, simultaneidade e fatos que mudam."><span><strong>A.</strong> Refazer o orçamento com pesos, KV por sequência e folga; reduzir o contexto efetivo e quantizar o KV em 8 bits com validação; avaliar um motor dedicado à simultaneidade; e trocar o ajuste semestral por RAG para fatos mutáveis.</span></label>
-        <label class="alternativa"><input type="radio" name="c13q6" value="b" data-correta="false" data-explicacao="Incorreta. Isso agrava o orçamento e mantém o ajuste prematuro."><span><strong>B.</strong> Comprar mais contexto e manter o ajuste semestral.</span></label>
+        <label class="alternativa"><input type="radio" name="c13q6" value="b" data-correta="false" data-explicacao="Incorreta. Isso agrava o orçamento e mantém o ajuste prematuro."><span><strong>B.</strong> Aumentar o contexto para 256 mil tokens e manter o ajuste semestral.</span></label>
         <label class="alternativa"><input type="radio" name="c13q6" value="c" data-correta="false" data-explicacao="Incorreta. Sem validação, a perda pode quebrar formato e ferramentas."><span><strong>C.</strong> Quantizar os pesos para 2 bits sem testar.</span></label>
-        <label class="alternativa"><input type="radio" name="c13q6" value="d" data-correta="false" data-explicacao="Incorreta. A divisão CPU/GPU indica falta de VRAM e lentidão."><span><strong>D.</strong> Ignorar o ps: carga dividida é normal.</span></label>
+        <label class="alternativa"><input type="radio" name="c13q6" value="d" data-correta="false" data-explicacao="Incorreta. A divisão CPU/GPU indica falta de VRAM e lentidão."><span><strong>D.</strong> Ignorar o <code>ollama ps</code>: carga dividida é normal.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
 
@@ -15190,7 +15202,7 @@ Desvio (regra fixa):
     <section class="page" id="capitulo-14" aria-labelledby="titulo-do-capitulo-14">
       <h2 id="titulo-do-capitulo-14">Capítulo 14 — Seleção e roteamento</h2>
       <p>Um sistema maduro não usa um modelo para tudo. Ele encaminha cada pedido ao destino adequado: tarefa simples ao modelo rápido, revisão delicada ao modelo de fronteira, e cada rota com a supervisão que o risco exige. Este capítulo ensina a escolher esse destino com evidência, e não por preferência.</p>
-      <p>Você vai caracterizar tarefas e definir critérios de aceite antes de comparar modelos, ler benchmarks públicos sabendo o que eles medem, decidir entre começar pela eficiência ou pela capacidade, usar o esforço como alavanca, escrever regras de roteamento em código, configurar contingência e reavaliar quando a rota envelhece.</p>
+      <p>Você vai caracterizar tarefas e definir critérios de aceite antes de comparar modelos, ler benchmarks públicos sabendo o que eles medem, decidir entre começar pela eficiência ou pela capacidade, usar o esforço como alavanca, definir regras simples de roteamento antes da chamada, configurar contingência e reavaliar quando a rota envelhece.</p>
       <p>Como em todo o guia, você não precisa programar: as regras aparecem em tabelas e descrições, não em código. Nomes de modelo e preços mudam em semanas; o capítulo trabalha com faixas — rápido, intermediário, fronteira — e registra a data da consulta.</p>
 
       <h3>O que você vai estudar</h3>
@@ -15250,7 +15262,7 @@ Desvio (regra fixa):
           <tr><th scope="row">E-mail e rotina</th><td>Triagem de mensagens, respostas padrão</td><td>Rápido</td><td>Por amostragem</td></tr>
           <tr><th scope="row">Escrita e materiais</th><td>Resumos de regulamento, comunicados</td><td>Intermediário</td><td>Por amostragem</td></tr>
           <tr><th scope="row">Revisão</th><td>Conferência de contrato e de nota fiscal</td><td>Intermediário com esforço alto</td><td>Integral no item sensível</td></tr>
-          <tr><th scope="row">Dev multi-arquivo</th><td>Alteração que atravessa serviços</td><td>Fronteira</td><td>Integral no diff</td></tr>
+          <tr><th scope="row">Dev multi-arquivo</th><td>Alteração que atravessa serviços</td><td>Fronteira</td><td>Integral nas alterações (<em>diff</em>)</td></tr>
         </tbody>
       </table>
       </div>
@@ -15299,7 +15311,7 @@ Desvio (regra fixa):
       <h3>A frase que muda a ordem do trabalho</h3>
       <p>A documentação da OpenAI é direta: <em>escolha critérios de aceite antes de comparar modelos</em> (<span class="qual">registrado na documentação</span>). O critério de aceite é a condição observável que diz "esta resposta serve". Sem ele, a comparação mede simpatia pelo estilo da resposta, não adequação à tarefa.</p>
       <h3>Três famílias de critério</h3>
-      <p>Para <strong>escrita</strong>, a orientação é conferir os fatos exigidos, as ressalvas, o público e a voz; e revisar as duas saídas antes de decidir se a mais curta é a mais útil (<span class="qual">registrado na documentação</span>). Para <strong>código e interfaces</strong>, rodar os testes de regressão e, quando houver aplicação interativa, inspecionar o resultado renderizado no desktop e no celular (<span class="qual">registrado na documentação</span>). Para <strong>uso de computador</strong>, reabrir o registro ou a página afetada para ver a alteração salva, confirmar que o fluxo preservou os dados não relacionados e comparar o relatório de conclusão com o resultado real (<span class="qual">registrado na documentação</span>).</p>
+      <p>Para <strong>escrita</strong>, a orientação é conferir os fatos exigidos, as ressalvas, o público e a voz; e revisar as duas saídas antes de decidir se a mais curta é a mais útil (<span class="qual">registrado na documentação</span>). Para <strong>código e interfaces</strong>, rodar os testes de regressão e, quando houver aplicação interativa, inspecionar o resultado renderizado no computador (<em>desktop</em>) e no celular (<span class="qual">registrado na documentação</span>). Para <strong>uso de computador</strong>, reabrir o registro ou a página afetada para ver a alteração salva, confirmar que o fluxo preservou os dados não relacionados e comparar o relatório de conclusão com o resultado real (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: critérios de aceite por tipo de tarefa" tabindex="0">
       <table class="tabela">
         <caption>Critério de aceite e verificação correspondente (leitura da documentação da OpenAI)</caption>
@@ -15368,7 +15380,7 @@ Desvio (regra fixa):
       </table>
       </div>
       <h3>Como preencher</h3>
-      <p>Para cada finalidade da matriz, responda em ordem: qual capacidade é indispensável, que latência o usuário tolera, qual custo por tarefa concluída é aceitável e quanta revisão humana o risco permite. A última resposta define o nível de supervisão, e ele muda o custo real: revisão integral consome tempo de gente, que entra na conta da unidade 14.2c.</p>
+      <p>Para cada finalidade da matriz, responda em ordem: qual capacidade é indispensável, que latência o usuário tolera, qual custo por tarefa concluída é aceitável e quanta revisão humana o risco permite. A última resposta define o nível de supervisão, e ele muda o custo real: revisão integral consome tempo de gente, que entra na conta da parte 14.2c.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p14-1c">
@@ -15390,7 +15402,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenAI, <em>Model selection</em> — <a href="https://developers.openai.com/api/docs/guides/model-selection" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/model-selection</a>; Anthropic, <em>Choosing the right model</em> — <a href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/models/choosing-a-model</a>.</p>
+        <p><strong>Ler:</strong> OpenAI, <em>Model selection</em> — <a href="https://developers.openai.com/api/docs/guides/model-selection" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/model-selection</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Choosing the right model</em> — <a href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/models/choosing-a-model</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 14.1c">
         <a href="#unidade-14-1b">Parte 14.1b</a>
@@ -15413,7 +15426,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Um teste de direção com percurso novo mostra se o motorista sabe dirigir; decorar o trajeto antigo prova memória, não habilidade.</p></div>
 
       <h3>Instruções conferíveis por programa</h3>
-      <p>O <dfn>IFEval</dfn> avalia o seguimento de instruções com um conjunto de instruções verificáveis, como "escreva com mais de 400 palavras" e "mencione a palavra-chave IA pelo menos 3 vezes" (<span class="qual">registrado no artigo</span>). Ao todo são 541 prompts, cada um com uma ou várias dessas instruções (<span class="qual">registrado no artigo</span>). É uma boa medida de obediência a restrições objetivas — formato, contagem, presença de termo — e uma medida fraca de utilidade do conteúdo.</p>
+      <p>O <dfn>IFEval</dfn> (sigla de <em>Instruction-Following Evaluation</em>, avaliação de seguimento de instruções) avalia o seguimento de instruções com um conjunto de instruções verificáveis, como "escreva com mais de 400 palavras" e "mencione a palavra-chave IA pelo menos 3 vezes" (<span class="qual">registrado no artigo</span>). Ao todo são 541 prompts, cada um com uma ou várias dessas instruções (<span class="qual">registrado no artigo</span>). É uma boa medida de obediência a restrições objetivas — formato, contagem, presença de termo — e uma medida fraca de utilidade do conteúdo.</p>
       <h3>Código sem contaminação</h3>
       <p>O <dfn>LiveCodeBench</dfn> foi proposto para avaliar modelos de código de forma ampla e livre de contaminação, coletando problemas novos ao longo do tempo em três plataformas de concurso: LeetCode, AtCoder e CodeForces (<span class="qual">registrado no artigo</span>). Além da geração, cobre auto-reparo, execução de código e previsão de saída de teste (<span class="qual">registrado no artigo</span>). Cada problema tem data de lançamento, o que permite avaliar o modelo apenas em problemas publicados depois do seu corte de treino (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: o que IFEval e LiveCodeBench medem" tabindex="0">
@@ -15468,7 +15481,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Em vez de um exercício de livro, o candidato recebe um chamado real de manutenção e precisa mexer no equipamento certo, sem quebrar o resto.</p></div>
 
       <h3>O que o SWE-bench pede</h3>
-      <p>O SWE-bench é um conjunto de avaliação com 2.294 problemas de engenharia de software tirados de issues reais do GitHub e dos pull requests correspondentes, em 12 repositórios Python populares (<span class="qual">registrado no artigo</span>). O formato é próximo do trabalho de manutenção: dado o repositório e a descrição de uma issue a resolver, o modelo edita a base de código para atender à issue (<span class="qual">registrado no artigo</span>). O teste é objetivo — os testes do projeto dizem se a correção entrou e se o resto continua funcionando.</p>
+      <p>O SWE-bench é um conjunto de avaliação com 2.294 problemas de engenharia de software tirados de chamados reais de código (<em>issues</em>) do GitHub e das propostas de alteração (<em>pull requests</em>) correspondentes, em 12 repositórios Python populares (<span class="qual">registrado no artigo</span>). O formato é próximo do trabalho de manutenção: dado o repositório e a descrição de uma issue a resolver, o modelo edita a base de código para atender à issue (<span class="qual">registrado no artigo</span>). O teste é objetivo — os testes do projeto dizem se a correção entrou e se o resto continua funcionando.</p>
       <h3>Por que existe um subconjunto verificado</h3>
       <p>O <dfn>SWE-bench Verified</dfn> é um subconjunto de 500 instâncias filtradas por pessoas, criado em colaboração com a OpenAI (<span class="qual">registrado na documentação</span>). Os anotadores revisaram cada instância para garantir que a descrição do problema é clara, que o teste da correção está certo e que a tarefa é solucionável com a informação disponível (<span class="qual">registrado na documentação</span>). O filtro reduz o ruído que faria um modelo bom parecer ruim por causa de uma issue mal escrita.</p>
       <h3>Pro: resistência à contaminação</h3>
@@ -15477,9 +15490,9 @@ Desvio (regra fixa):
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p14-2b">
         <legend>Escolha uma alternativa</legend>
-        <p id="enunciado-p14-2b">Um fornecedor anuncia nota alta no SWE-bench Verified e a equipe quer repetir o número. Qual cuidado a documentação impõe?</p>
-        <label class="alternativa"><input type="radio" name="p14-2b" value="a" data-correta="true" data-explicacao="Correta. A página do Verified descreve o agente mínimo e a não comparabilidade entre séries."><span><strong>A.</strong> Conferir como o número foi obtido: o ranking do Verified usa um agente mínimo em ambiente de bash, e versões diferentes do conjunto não são necessariamente comparáveis.</span></label>
-        <label class="alternativa"><input type="radio" name="p14-2b" value="b" data-correta="false" data-explicacao="Incorreta. O número depende do agente, das ferramentas e da série do conjunto."><span><strong>B.</strong> Repetir a nota sem mudar nada, porque o formato é único.</span></label>
+        <p id="enunciado-p14-2b">Um fornecedor anuncia nota alta no SWE-bench Verified como prova de que o modelo serve a qualquer projeto. Qual cuidado esta parte destaca?</p>
+        <label class="alternativa"><input type="radio" name="p14-2b" value="a" data-correta="true" data-explicacao="Correta. O Verified reduz ruído ao filtrar 500 instâncias Python revisadas por pessoas, mas generalização e casos da tarefa pedem outro cuidado."><span><strong>A.</strong> Saber o que foi medido: o Verified filtra 500 instâncias Python revisadas para clareza e testes válidos, mas não elimina contaminação nem substitui o critério de aceite da sua tarefa.</span></label>
+        <label class="alternativa"><input type="radio" name="p14-2b" value="b" data-correta="false" data-explicacao="Incorreta. O número não garante generalização nem cobre o seu projeto."><span><strong>B.</strong> Repetir a nota sem mudar nada, porque o formato é único.</span></label>
         <label class="alternativa"><input type="radio" name="p14-2b" value="c" data-correta="false" data-explicacao="Incorreta. O original tem mais ruído, não é “mais fácil” por definição."><span><strong>C.</strong> Trocar para o SWE-bench original, que é sempre mais fácil.</span></label>
         <label class="alternativa"><input type="radio" name="p14-2b" value="d" data-correta="false" data-explicacao="Incorreta. Um benchmark não substitui o critério de aceite da tarefa."><span><strong>D.</strong> Usar a nota como critério único de compra.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
@@ -15513,7 +15526,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> O carro que ganha a prova de pista pode não ser o melhor para a estrada esburacada da sua cidade. A pista informa; a estrada decide.</p></div>
 
       <h3>O que o ranking esconde</h3>
-      <p>A página do SWE-bench Verified informa que o ranking reúne sistemas muito diferentes: laços simples de agente, sistemas de recuperação, múltiplas tentativas com revisão (<span class="qual">registrado na documentação</span>). Para facilitar a comparação entre modelos, há uma avaliação com um agente mínimo em ambiente de bash, sem ferramentas nem estrutura especial, apenas um laço ReAct simples (<span class="qual">registrado na documentação</span>). E a mesma página avisa que resultados das séries 1.x e 2.x não são necessariamente comparáveis entre si (<span class="qual">registrado na documentação</span>).</p>
+      <p>A página do SWE-bench Verified informa que o ranking reúne sistemas muito diferentes: laços simples de agente, sistemas de recuperação, múltiplas tentativas com revisão (<span class="qual">registrado na documentação</span>). Para facilitar a comparação entre modelos, há uma avaliação com um agente mínimo em ambiente de linha de comando (<em>bash</em>), sem ferramentas nem estrutura especial, apenas um laço simples de raciocínio e ação (<em>ReAct</em>) (<span class="qual">registrado na documentação</span>). E a mesma página avisa que resultados das séries 1.x e 2.x não são necessariamente comparáveis entre si (<span class="qual">registrado na documentação</span>).</p>
       <h3>A conta que a documentação manda fazer</h3>
       <p>Para reduzir custo ou latência, comece pelo ajuste mais leve que atende ao critério de aceite e compare o custo de API <em>por tarefa concluída</em>, incluindo repetições (<span class="qual">registrado na documentação</span>). Repita a comparação em tarefas representativas e meça o tempo de conclusão junto com a qualidade, incluindo o tempo gasto revisando ou consertando o resultado; depois varie o esforço mantendo modelo e entradas fixos (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: o que comparar e como medir" tabindex="0">
@@ -15552,7 +15565,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Zhou et al., <em>IFEval</em> — <a href="https://arxiv.org/pdf/2311.07911" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2311.07911</a>; Jain et al., <em>LiveCodeBench</em> — <a href="https://arxiv.org/pdf/2403.07974" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2403.07974</a>; LiveCodeBench, página do projeto — <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">livecodebench.github.io</a>; Jimenez et al., <em>SWE-bench</em> — <a href="https://arxiv.org/pdf/2310.06770" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2310.06770</a>; SWE-bench Verified — <a href="https://www.swebench.com/verified.html" target="_blank" rel="noopener noreferrer">swebench.com/verified.html</a>; Deng et al., <em>SWE-bench Pro</em> — <a href="https://arxiv.org/pdf/2509.16941" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2509.16941</a>.</p>
+        <p><strong>Ler:</strong> LiveCodeBench, página do projeto — <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">livecodebench.github.io</a>; SWE-bench Verified — <a href="https://www.swebench.com/verified.html" target="_blank" rel="noopener noreferrer">swebench.com/verified.html</a>; OpenAI, <em>Model selection</em> — <a href="https://developers.openai.com/api/docs/guides/model-selection" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/model-selection</a>.</p>
+        <p><strong>Aprofundar:</strong> Zhou et al., <em>IFEval</em> — <a href="https://arxiv.org/pdf/2311.07911" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2311.07911</a>; Jain et al., <em>LiveCodeBench</em> — <a href="https://arxiv.org/pdf/2403.07974" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2403.07974</a>; Jimenez et al., <em>SWE-bench</em> — <a href="https://arxiv.org/pdf/2310.06770" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2310.06770</a>; Deng et al., <em>SWE-bench Pro</em> — <a href="https://arxiv.org/pdf/2509.16941" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2509.16941</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 14.2c">
         <a href="#unidade-14-2b">Parte 14.2b</a>
@@ -15667,7 +15681,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Os catálogos públicos descrevem três faixas: rápido e barato, equilibrado e de fronteira.</li>
+          <li>O catálogo público do Google descreve três faixas: rápido e equilibrado, econômico para alto volume e de fronteira.</li>
           <li>A descrição da faixa é o ponto de partida; o número que decide é o da sua amostra.</li>
           <li>Nomes de modelo mudam em semanas; a faixa e a data da consulta são o que permanece.</li>
         </ul>
@@ -15683,7 +15697,7 @@ Desvio (regra fixa):
         <caption>Faixas descritas nos catálogos (leitura da documentação do Google, consultada em 17/11/2026)</caption>
         <thead><tr><th scope="col">Faixa</th><th scope="col">Descrição do catálogo</th><th scope="col">Uso típico</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Rápido</th><td>Equilíbrio entre inteligência e latência, com raciocínio controlável</td><td>Triagem e interação em tempo real</td></tr>
+          <tr><th scope="row">Rápido e equilibrado</th><td>Equilíbrio entre inteligência e latência, com raciocínio controlável</td><td>Triagem e interação em tempo real</td></tr>
           <tr><th scope="row">Econômico</th><td>Otimizado para baixa latência em alto volume</td><td>Tarefas simples e repetitivas</td></tr>
           <tr><th scope="row">Fronteira</th><td>Trabalho profundo em tarefas complexas</td><td>Revisão, código multi-arquivo, análise</td></tr>
         </tbody>
@@ -15712,7 +15726,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Choosing the right model</em> — <a href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/models/choosing-a-model</a>; Anthropic, <em>Effort</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/effort</a>; Google Cloud, <em>Google models</em> — <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/.../models/google-models</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Choosing the right model</em> — <a href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/models/choosing-a-model</a>; Google Cloud, <em>Google models</em> — <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/.../models/google-models</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Effort</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/effort</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 14.3c">
         <a href="#unidade-14-3b">Parte 14.3b</a>
@@ -15835,7 +15850,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Um gateway concentra credenciais, repetição e balanceamento entre vários destinos.</li>
+          <li>Um intermediário (<em>gateway</em>) concentra credenciais, repetição e balanceamento entre vários destinos.</li>
           <li>O LiteLLM lista estratégias: sorteio simples, peso, limite de taxa, menos ocupado, latência e custo.</li>
           <li>A recomendação padrão é a mais simples: sorteio simples em produção.</li>
         </ul>
@@ -15848,7 +15863,7 @@ Desvio (regra fixa):
       <p>O roteador oferece várias estratégias para distribuir chamadas entre implantações, e a documentação recomenda o sorteio simples, que é o padrão, por dar o melhor desempenho em produção (<span class="qual">registrado na documentação</span>). As alternativas listadas são escolha ponderada, ciente do limite de taxa, menos ocupado, por latência e por custo (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: estratégias de balanceamento do gateway" tabindex="0">
       <table class="tabela">
-        <caption>Estratégias citadas na documentação do LiteLLM (consultada em 17/11/2026)</caption>
+        <caption>Estratégias do LiteLLM (nomes da documentação) e análise de uso (proposta didática)</caption>
         <thead><tr><th scope="col">Estratégia</th><th scope="col">Suposição</th><th scope="col">Quando faz sentido</th></tr></thead>
         <tbody>
           <tr><th scope="row">Sorteio simples (padrão)</th><td>Distribuição uniforme basta</td><td>Primeiro passo e carga homogênea</td></tr>
@@ -15879,11 +15894,12 @@ Desvio (regra fixa):
       <div class="fontes">
         <p><strong>Balanceamento e repetição:</strong> LiteLLM, <em>Router — Load Balancing</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Estratégias e recomendação:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
-        <p><strong>Quadro de suposições:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de suposições:</strong> Nomes das estratégias na documentação; colunas “Suposição” e “Quando faz sentido” (<span class="qual">proposta didática</span>).</p>
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; Ong et al., <em>RouteLLM</em> — <a href="https://arxiv.org/pdf/2406.18665" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2406.18665</a>; Chen, Zaharia e Zou, <em>FrugalGPT</em> — <a href="https://arxiv.org/pdf/2305.05176" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.05176</a>; LiteLLM, <em>Router</em> — <a href="https://docs.litellm.ai/docs/routing" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/routing</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Building effective agents</em> — <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/research/building-effective-agents</a>; LiteLLM, <em>Router</em> — <a href="https://docs.litellm.ai/docs/routing" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/routing</a>.</p>
+        <p><strong>Aprofundar:</strong> Ong et al., <em>RouteLLM</em> — <a href="https://arxiv.org/pdf/2406.18665" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2406.18665</a>; Chen, Zaharia e Zou, <em>FrugalGPT</em> — <a href="https://arxiv.org/pdf/2305.05176" target="_blank" rel="noopener noreferrer">arxiv.org/pdf/2305.05176</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 14.4c">
         <a href="#unidade-14-4b">Parte 14.4b</a>
@@ -15898,7 +15914,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Fallback é a lista de rotas alternativas, acionada quando a primeira falha.</li>
+          <li>Contingência (<em>fallback</em>) é a lista de rotas alternativas, acionada quando a primeira falha.</li>
           <li>OpenRouter e LiteLLM executam os destinos em ordem de prioridade.</li>
           <li>A lista precisa dizer o que conta como falha e quem responde pelo resultado.</li>
         </ul>
@@ -15916,7 +15932,7 @@ Desvio (regra fixa):
       <p>No LiteLLM, quando uma chamada falha depois do número de repetições, o sistema cai para outro grupo de modelos, de modo que o modelo ou provedor com problema dá lugar a um substituto saudável (<span class="qual">registrado na documentação</span>). E os fallbacks são feitos em ordem (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: tipos de falha e resposta" tabindex="0">
       <table class="tabela">
-        <caption>Falhas e respostas de contingência (leitura da documentação de OpenRouter e LiteLLM)</caption>
+        <caption>Falhas e respostas de contingência (OpenRouter e LiteLLM; coluna “Cuidado” como proposta didática)</caption>
         <thead><tr><th scope="col">Falha</th><th scope="col">Resposta documentada</th><th scope="col">Cuidado</th></tr></thead>
         <tbody>
           <tr><th scope="row">Provedor fora do ar</th><td>Próximo modelo da lista</td><td>Substituto precisa ser aceito pela tarefa</td></tr>
@@ -16066,7 +16082,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenRouter, <em>Model Fallbacks</em> — <a href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank" rel="noopener noreferrer">openrouter.ai/docs/guides/routing/model-fallbacks</a>; LiteLLM, <em>Reliability</em> — <a href="https://docs.litellm.ai/docs/proxy/reliability" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/reliability</a>; LiveCodeBench, página do projeto — <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">livecodebench.github.io</a>.</p>
+        <p><strong>Ler:</strong> OpenRouter, <em>Model Fallbacks</em> — <a href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank" rel="noopener noreferrer">openrouter.ai/docs/guides/routing/model-fallbacks</a>; LiteLLM, <em>Reliability</em> — <a href="https://docs.litellm.ai/docs/proxy/reliability" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/reliability</a>.</p>
+        <p><strong>Aprofundar:</strong> LiveCodeBench, página do projeto — <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">livecodebench.github.io</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 14.5c">
         <a href="#unidade-14-5b">Parte 14.5b</a>
@@ -16224,6 +16241,7 @@ Desvio (regra fixa):
       <h3>Fontes da unidade</h3>
       <div class="fontes">
         <p><strong>Ler:</strong> OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>; Anthropic, <em>Effort</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/effort</a>.</p>
+        <p><strong>Aprofundar:</strong> LiteLLM, <em>Reliability</em> — <a href="https://docs.litellm.ai/docs/proxy/reliability" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/reliability</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 14.6c">
         <a href="#unidade-14-6b">Parte 14.6b</a>
@@ -16261,7 +16279,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-c14q3">
         <legend>Questão 3 <span class="nivel">(média)</span></legend>
         <p id="enunciado-c14q3">Uma equipe quer usar a nota do SWE-bench Verified para escolher o modelo do assistente de código. Quais cuidados a documentação impõe?</p>
-        <label class="alternativa"><input type="radio" name="c14q3" value="a" data-correta="true" data-explicacao="Correta. O ranking usa agente mínimo em bash, e as séries 1.x e 2.x não são comparáveis."><span><strong>A.</strong> Conferir o agente e o ambiente usados, notar que séries diferentes não são comparáveis e validar na amostra da própria tarefa.</span></label>
+        <label class="alternativa"><input type="radio" name="c14q3" value="a" data-correta="true" data-explicacao="Correta. Na modalidade apenas com bash, a comparação direta usa agente mínimo (mini-SWE-agent), e as séries 1.x e 2.x não são necessariamente comparáveis."><span><strong>A.</strong> Conferir o agente e o ambiente usados (a modalidade apenas com bash usa agente mínimo), notar que séries 1.x e 2.x não são necessariamente comparáveis e validar na amostra da própria tarefa.</span></label>
         <label class="alternativa"><input type="radio" name="c14q3" value="b" data-correta="false" data-explicacao="Incorreta. A nota não substitui o critério de aceite da tarefa."><span><strong>B.</strong> Usar a nota como critério único.</span></label>
         <label class="alternativa"><input type="radio" name="c14q3" value="c" data-correta="false" data-explicacao="Incorreta. Somar notas de objetos diferentes não produz significado."><span><strong>C.</strong> Somar as notas de IFEval e SWE-bench numa média.</span></label>
         <label class="alternativa"><input type="radio" name="c14q3" value="d" data-correta="false" data-explicacao="Incorreta. O primeiro colocado pode não atender à sua tarefa."><span><strong>D.</strong> Preferir sempre o primeiro colocado.</span></label>
@@ -16307,8 +16325,8 @@ Desvio (regra fixa):
 
     <section class="page" id="capitulo-15" aria-labelledby="titulo-do-capitulo-15">
       <h2 id="titulo-do-capitulo-15">Capítulo 15 — Integração empresarial e LLMOps</h2>
-      <p>Um protótipo que funciona na sua máquina não é um sistema em operação. Entre os dois há credenciais, limites de taxa, erros que precisam de tratamento próprio, registros que permitem investigar, versões que mudam por baixo e um caminho de volta quando a mudança dá errado. Este capítulo cobre essa distância.</p>
-      <p>Você vai integrar o modelo a um sistema que já existe, tratar limites e erros sem ampliar o incidente, decidir o que registrar e o que não registrar, montar observabilidade com traces e métricas, versionar API, modelo e prompt, e lançar com canário, reversão e postmortem.</p>
+      <p>Um protótipo que funciona na sua máquina não é um sistema em operação. Entre os dois há credenciais, limites de taxa, erros que precisam de tratamento próprio, registros que permitem investigar, versões que mudam por baixo e um caminho de volta quando a mudança dá errado. Este capítulo cobre essa distância na operação de sistemas com LLMs (<em>LLMOps</em>).</p>
+      <p>Você vai integrar o modelo a um sistema que já existe, tratar limites e erros sem ampliar o incidente, decidir o que registrar e o que não registrar, montar observabilidade com rastros (<em>traces</em>) e métricas, versionar API, modelo e prompt, e lançar com canário, reversão e relato pós-incidente (<em>postmortem</em>).</p>
       <p>Como em todo o guia, você não precisa programar: as práticas aparecem em tabelas, listas e descrições. O capítulo não repete segurança e retenção (Cap. 7), arquitetura e idempotência (Cap. 2), contratos de ferramenta (Cap. 10) nem contexto e memória (Cap. 9); remete a eles quando o assunto encosta.</p>
 
       <h3>O que você vai estudar</h3>
@@ -16327,10 +16345,10 @@ Desvio (regra fixa):
       <p>Para quem leu os capítulos 1 a 14. Retomamos segurança e retenção (Cap. 7), idempotência e retomada (Cap. 2), contexto e cache (Cap. 9), contratos de ferramenta (Cap. 10), harness e laço (Cap. 12) e seleção e contingência de rota (Cap. 14).</p>
 
       <h3>Como ler os exemplos</h3>
-      <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (OpenAI, Anthropic, AWS, Microsoft e Langfuse, consultados em 17/11/2026), <span class="qual">registrado no livro</span> (capítulos do SRE da Google), <span class="qual">registrado na especificação</span> (SemVer 2.0.0), <span class="qual">registrado no repositório oficial</span> (convenções GenAI do OpenTelemetry) e <span class="qual">proposta didática</span> (quadros operacionais, critérios e casos da Aurora Educação).</p>
+      <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (OpenAI, Anthropic, AWS, Microsoft, Langfuse e MLflow, consultados em 17/11/2026), <span class="qual">registrado no livro</span> (capítulos do SRE da Google), <span class="qual">registrado na especificação</span> (SemVer 2.0.0), <span class="qual">registrado no repositório oficial</span> (convenções GenAI do OpenTelemetry) e <span class="qual">proposta didática</span> (quadros operacionais, critérios e casos da Aurora Educação).</p>
 
       <h3>Sobre as fontes</h3>
-      <p>O pacote do capítulo reúne 18 fontes públicas com 69 trechos literais conferidos em 17/11/2026 (<code>OP-01</code>, <code>AE-01</code>, <code>OT-01</code>, <code>BL-01</code>, <code>AV-01</code>, <code>AD-01</code>, <code>SC-01</code>, <code>SP-01</code>, <code>SV-01</code>, <code>AT-01</code>, <code>LO-01</code>, <code>LP-01</code> e <code>MP-01</code>, entre outros). As convenções do OpenTelemetry estão em estado <em>Development</em>: nomes de atributos podem mudar.</p>
+      <p>O pacote do capítulo lista 18 fontes públicas (com 69 trechos literais conferidos em 17/11/2026: <code>OP-01</code>, <code>AE-01</code>, <code>OT-01</code>, <code>BL-01</code>, <code>AV-01</code>, <code>AD-01</code>, <code>SC-01</code>, <code>SP-01</code>, <code>SV-01</code>, <code>AT-01</code>, <code>LO-01</code>, <code>LP-01</code> e <code>MP-01</code>, entre outros). As convenções do OpenTelemetry estão em estado <em>Development</em>: nomes de atributos podem mudar.</p>
       <nav class="page-nav" aria-label="Navegação do capítulo 15">
         <a href="#questoes-capitulo-14">Questões do capítulo 14</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 284">284</span><a href="#sumario">Sumário</a></span>
@@ -16359,7 +16377,7 @@ Desvio (regra fixa):
       <h3>O que já existia</h3>
       <p>Antes do modelo, o sistema já tinha autenticação, banco, filas, telas e pessoas treinadas. A integração não cria um sistema novo: acrescenta um componente a um sistema em operação. Por isso a pergunta inicial não é "qual modelo?", e sim "onde este modelo encosta no que já funciona?".</p>
       <h3>Ambientes separados</h3>
-      <p>A documentação de produção da OpenAI recomenda, à medida que o serviço cresce, criar projetos separados para os ambientes de <dfn>staging</dfn> (teste) e de <dfn>produção</dfn> (<span class="qual">registrado na documentação</span>). O objetivo é isolar o trabalho de desenvolvimento e teste para não interromper a aplicação em uso (<span class="qual">registrado na documentação</span>). Também é possível limitar o acesso de pessoas ao projeto de produção e definir limites de taxa e de gasto por projeto (<span class="qual">registrado na documentação</span>).</p>
+      <p>A documentação de produção da OpenAI recomenda, à medida que o serviço cresce, criar projetos separados para os ambientes de teste (<dfn>staging</dfn>) e de <dfn>produção</dfn> (<span class="qual">registrado na documentação</span>). O objetivo é isolar o trabalho de desenvolvimento e teste para não interromper a aplicação em uso. Também é possível limitar o acesso de pessoas ao projeto de produção e definir limites de taxa e de gasto por projeto (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: pontos de integração e responsáveis" tabindex="0">
       <table class="tabela">
         <caption>Pontos de integração de um assistente interno (proposta didática)</caption>
@@ -16436,7 +16454,7 @@ Desvio (regra fixa):
       <div class="fontes">
         <p><strong>Conta de serviço:</strong> OpenAI, <em>Production best practices</em>, <em>API keys</em> (<span class="qual">registrado na documentação</span>)</p>
         <p><strong>Expiração e rotação:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
-        <p><strong>Segredo fora do código:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Segredo fora do código:</strong> Boa prática operacional (<span class="qual">proposta didática</span>; ver capítulo 7).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.1b">
         <a href="#unidade-15-1a">Parte 15.1a</a>
@@ -16508,7 +16526,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Uma portaria conta quantas pessoas entram por minuto e quantas malas trazem. Se o elevador enche, não adianta ter só pessoas contadas.</p></div>
 
       <h3>Várias réguas ao mesmo tempo</h3>
-      <p>A documentação da OpenAI enumera as métricas de limite: pedidos por minuto (RPM), pedidos por dia (RPD), tokens por minuto (TPM), tokens por dia (TPD), imagens por minuto (IPM) e minutos de áudio por minuto em alguns modelos de áudio (<span class="qual">registrado na documentação</span>). E fecha o ponto: o limite pode estourar em qualquer dessas opções, conforme o que ocorrer primeiro (<span class="qual">registrado na documentação</span>).</p>
+      <p>A documentação da OpenAI enumera as métricas de limite: pedidos por minuto (RPM), pedidos por dia (RPD), tokens por minuto (TPM), tokens por dia (TPD), imagens por minuto (IPM) e minutos de áudio por minuto em alguns modelos de áudio em transmissão contínua (<em>streaming</em>) (<span class="qual">registrado na documentação</span>). E fecha o ponto: o limite pode estourar em qualquer dessas opções, conforme o que ocorrer primeiro (<span class="qual">registrado na documentação</span>).</p>
       <h3>Por que isso muda o desenho</h3>
       <p>Uma chamada com prompt gigante pode gastar o limite de tokens sem estourar o de pedidos. Um lote de perguntas curtas faz o contrário. Por isso o controle de vazão precisa olhar as duas dimensões: quantos pedidos e quantos tokens por minuto.</p>
       <div class="rolagem" role="region" aria-label="Tabela: métricas de limite de taxa" tabindex="0">
@@ -16542,7 +16560,7 @@ Desvio (regra fixa):
       <div class="fontes">
         <p><strong>Métricas de limite:</strong> OpenAI, <em>Rate limits</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>O primeiro que ocorrer:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
-        <p><strong>Cabeçalhos e reinício:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Cabeçalhos e espera mínima:</strong> Tempo mínimo de espera: idem (<span class="qual">registrado na documentação</span>); referência geral a saldo restante e reinício nos cabeçalhos (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.2a">
         <a href="#unidade-15-1c">Parte 15.1c</a>
@@ -16567,7 +16585,7 @@ Desvio (regra fixa):
       <h3>O que merece repetição</h3>
       <p>Quando o pedido excede um limite temporário, a API devolve 429 (<span class="qual">registrado na documentação</span>). A resposta pode trazer o cabeçalho com o tempo de espera, e a documentação pede tratá-lo como mínimo: espere ao menos esse tempo e acrescente um pequeno atraso aleatório, para que vários clientes não repitam no mesmo instante (<span class="qual">registrado na documentação</span>).</p>
       <h3>O que não merece</h3>
-      <p>Erro de cota, de cobrança ou outro que exige ação humana não deve ser repetido (<span class="qual">registrado na documentação</span>). Repetir um 402 ou um cap de gasto só gasta tempo. E há um detalhe contraintuitivo: pedidos malsucedidos também contam no limite por minuto, então reenviar sem parar não funciona (<span class="qual">registrado na documentação</span>).</p>
+      <p>Erro de cota, de cobrança ou outro que exige ação humana não deve ser repetido (<span class="qual">registrado na documentação</span>). Repetir um erro de cobrança ou um teto de gasto só gasta tempo. E há um detalhe contraintuitivo: pedidos malsucedidos também contam no limite por minuto, então reenviar sem parar não funciona (<span class="qual">registrado na documentação</span>).</p>
       <h3>Limites da própria repetição</h3>
       <p>A orientação é limitar tanto o número de tentativas quanto o tempo total gasto repetindo (<span class="qual">registrado na documentação</span>). Uma repetição infinita transforma um incidente de minutos num incidente de horas, e ainda consome o orçamento.</p>
 
@@ -16582,7 +16600,7 @@ Desvio (regra fixa):
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
-      <p>Repetição é para falha transitória, com espera mínima, variação aleatória e teto de tentativas e de tempo. Na parte 15.2c, vemos os erros do provedor e as falhas no meio do stream.</p>
+      <p>Repetição é para falha transitória, com espera mínima, variação aleatória e teto de tentativas e de tempo. Na parte 15.2c, vemos os erros do provedor e as falhas no meio da transmissão contínua (<em>stream</em>).</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>429 e tempo mínimo:</strong> OpenAI, <em>Rate limits</em> (<span class="qual">registrado na documentação</span>)</p>
@@ -16615,7 +16633,7 @@ Desvio (regra fixa):
       <h3>O 429 que não passa</h3>
       <p>Nem todo 429 é temporário. Um 429 de teto de gasto não traz tempo de espera e continua falhando até o acesso ser restabelecido (<span class="qual">registrado na documentação</span>). Tratar esse caso como "só mais uma tentativa" mantém o serviço parado sem aviso útil.</p>
       <h3>SDK e stream</h3>
-      <p>O SDK oficial repete falhas transitórias — conexão, limite de taxa e erros 5xx — com espera crescente, duas vezes por padrão, respeitando o cabeçalho de espera quando presente (<span class="qual">registrado na documentação</span>). A OpenAI recomenda tratar 429 e 503 nos tratadores de erro (<span class="qual">registrado na documentação</span>). Em resposta por stream, o erro pode chegar depois de um 200 já recebido (<span class="qual">registrado na documentação</span>), e a orientação é não reenviar automaticamente depois de consumir saída.</p>
+      <p>O kit de desenvolvimento (<em>SDK</em>) oficial repete falhas transitórias — conexão, limite de taxa e erros 5xx — com espera crescente, duas vezes por padrão, respeitando o cabeçalho de espera quando presente (<span class="qual">registrado na documentação</span>). A OpenAI recomenda tratar 429 e 503 nos tratadores de erro (<span class="qual">registrado na documentação</span>). Em resposta por stream, o erro pode chegar depois de um 200 já recebido (<span class="qual">registrado na documentação</span>), e a orientação prática é não reenviar automaticamente depois de consumir saída.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p15-2c">
@@ -16638,7 +16656,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenAI, <em>Rate limits</em> — <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank" rel="noopener noreferrer">platform.openai.com/docs/guides/rate-limits</a>; Anthropic, <em>Errors</em> — <a href="https://docs.claude.com/en/api/errors" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/errors</a>.</p>
+        <p><strong>Ler:</strong> OpenAI, <em>Rate limits</em> — <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank" rel="noopener noreferrer">platform.openai.com/docs/guides/rate-limits</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Errors</em> — <a href="https://docs.claude.com/en/api/errors" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/errors</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.2c">
         <a href="#unidade-15-2b">Parte 15.2b</a>
@@ -16708,7 +16727,7 @@ Desvio (regra fixa):
       <h3>O identificador do pedido</h3>
       <p>A documentação da Anthropic informa que a resposta de erro inclui um campo de identificação do pedido, para facilitar o rastreamento e a depuração (<span class="qual">registrado na documentação</span>). O mesmo identificador aparece no cabeçalho da resposta. Quem reporta uma falha deve levá-lo; quem recebe consegue achar o registro exato.</p>
       <h3>Auditoria de uso</h3>
-      <p>Para achar uso de modelos antigos, a documentação da Anthropic descreve exportar o uso no console e revisar o arquivo por chave de API e por modelo (<span class="qual">registrado na documentação</span>). A auditoria serve a mais de um propósito: localizar dependências esquecidas, entender quem consome o quê e estimar o custo por área (<span class="qual">registrado na documentação</span>).</p>
+      <p>Para achar uso de modelos antigos, a documentação da Anthropic descreve acessar uma auditoria de uso e revisar o arquivo CSV baixado por chave de API e por modelo (<span class="qual">registrado na documentação</span>). Essa auditoria ajuda a localizar dependências esquecidas, entender quem consome o quê e estimar o custo por área (<span class="qual">proposta didática</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: campos mínimos de rastreio" tabindex="0">
       <table class="tabela">
         <caption>Campos de rastreio por chamada (proposta didática, alinhada aos identificadores documentados)</caption>
@@ -16802,7 +16821,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> AWS, <em>Model invocation logging</em> — <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html" target="_blank" rel="noopener noreferrer">docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</a>; Anthropic, <em>Errors</em> — <a href="https://docs.claude.com/en/api/errors" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/errors</a>; Anthropic, <em>Model deprecations</em> — <a href="https://docs.claude.com/en/docs/about-claude/model-deprecations" target="_blank" rel="noopener noreferrer">docs.claude.com/docs/about-claude/model-deprecations</a>.</p>
+        <p><strong>Ler:</strong> AWS, <em>Model invocation logging</em> — <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html" target="_blank" rel="noopener noreferrer">docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Errors</em> — <a href="https://docs.claude.com/en/api/errors" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/errors</a>; Anthropic, <em>Model deprecations</em> — <a href="https://docs.claude.com/en/docs/about-claude/model-deprecations" target="_blank" rel="noopener noreferrer">docs.claude.com/docs/about-claude/model-deprecations</a>; OpenTelemetry, <em>Client inference</em> — <a href="https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/client-inference.md" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai/.../client-inference.md</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.3c">
         <a href="#unidade-15-3b">Parte 15.3b</a>
@@ -16817,7 +16837,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Um trace é o registro completo de uma operação; cada etapa é um span.</li>
+          <li>Um rastro (<em>trace</em>) é o registro completo de uma operação; cada etapa é um trecho de execução (<em>span</em>).</li>
           <li>O span da operação inclui as repetições automáticas, e não só a tentativa que deu certo.</li>
           <li>Os nomes de atributos do padrão ainda estão em desenvolvimento e podem mudar.</li>
         </ul>
@@ -16920,7 +16940,7 @@ Desvio (regra fixa):
       <div class="fontes">
         <p><strong>Métricas de inferência:</strong> OpenTelemetry, GenAI metrics (<span class="qual">registrado no repositório oficial</span>)</p>
         <p><strong>Não determinismo:</strong> Langfuse, <em>LLM Observability</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
-        <p><strong>Quadro de decisões:</strong> Leitura das convenções (<span class="qual">registrado no repositório oficial</span>)</p>
+        <p><strong>Quadro de decisões:</strong> Nomes das métricas nas convenções (<span class="qual">registrado no repositório oficial</span>); coluna “Decisão típica” (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.4b">
         <a href="#unidade-15-4a">Parte 15.4a</a>
@@ -16945,7 +16965,7 @@ Desvio (regra fixa):
       <h3>O que um trace rico contém</h3>
       <p>A documentação do Langfuse descreve o núcleo da observabilidade como o rastreamento da aplicação: registros estruturados de cada pedido que capturam o prompt exato enviado, a resposta do modelo, o uso de tokens, a latência e quaisquer ferramentas ou etapas de recuperação no meio (<span class="qual">registrado na documentação</span>). É o que permite responder "por que esta resposta saiu assim?".</p>
       <h3>Nome e versão do prompt</h3>
-      <p>As convenções do OpenTelemetry preveem atributos para o nome do prompt, que o identifica de forma única (<span class="qual">registrado no repositório oficial</span>), e para a versão do modelo de prompt usado (<span class="qual">registrado no repositório oficial</span>). Com isso, o registro aponta para a versão exata — e a comparação entre versões deixa de depender de memória.</p>
+      <p>As convenções do OpenTelemetry preveem atributos para o nome do prompt, que o identifica de forma única (<span class="qual">registrado no repositório oficial</span>), e para a versão do molde (<em>template</em>) de prompt usado (<span class="qual">registrado no repositório oficial</span>). Com isso, o registro aponta para a versão exata — e a comparação entre versões deixa de depender de memória.</p>
       <h3>Monitorar ao longo do tempo</h3>
       <p>Entre as áreas de operação, a documentação inclui acompanhar o desempenho do modelo ao longo do tempo e detectar problemas ou degradação (<span class="qual">registrado na documentação</span>). Registro sozinho não resolve: é preciso olhar o agregado e agir. Conteúdo é opcional (15.3a); identificadores e metadados já permitem ver tendência.</p>
 
@@ -16969,7 +16989,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenTelemetry, <em>GenAI semantic conventions</em> — <a href="https://github.com/open-telemetry/semantic-conventions-genai" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai</a>; Microsoft, <em>View trace results</em> — <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application" target="_blank" rel="noopener noreferrer">learn.microsoft.com/azure/ai-foundry/how-to/develop/trace-application</a>; Langfuse, <em>LLM Observability</em> — <a href="https://langfuse.com/docs/observability/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/observability/overview</a>.</p>
+        <p><strong>Ler:</strong> OpenTelemetry, <em>GenAI semantic conventions</em> — <a href="https://github.com/open-telemetry/semantic-conventions-genai" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai</a>; Langfuse, <em>LLM Observability</em> — <a href="https://langfuse.com/docs/observability/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/observability/overview</a>.</p>
+        <p><strong>Aprofundar:</strong> Microsoft, <em>View trace results</em> — <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application" target="_blank" rel="noopener noreferrer">learn.microsoft.com/azure/ai-foundry/how-to/develop/trace-application</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.4c">
         <a href="#unidade-15-4b">Parte 15.4b</a>
@@ -17059,7 +17080,7 @@ Desvio (regra fixa):
       <div class="fontes">
         <p><strong>Estados do ciclo:</strong> Anthropic, <em>Model deprecations</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Migrar e avisar:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
-        <p><strong>Prazos por plataforma:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Prazos por plataforma:</strong> Nota operacional para uso multiplataforma (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.5b">
         <a href="#unidade-15-5a">Parte 15.5a</a>
@@ -17084,9 +17105,9 @@ Desvio (regra fixa):
       <h3>Prompt como artefato</h3>
       <p>A documentação do Langfuse define o gerenciamento de prompt como a abordagem sistemática de armazenar, versionar e recuperar prompts, em vez de mantê-los fixos no código (<span class="qual">registrado na documentação</span>). O ganho principal está no título de uma seção: separar a atualização do prompt da implantação do código (<span class="qual">registrado na documentação</span>).</p>
       <h3>Versões imutáveis</h3>
-      <p>No MLflow, as versões de prompt são imutáveis, o que dá garantias fortes de reprodutibilidade (<span class="qual">registrado na documentação</span>); o histórico é comparável lado a lado, no estilo de commits (<span class="qual">registrado na documentação</span>), e as versões podem ser isoladas do código da aplicação para testes A/B e reversão (<span class="qual">registrado na documentação</span>).</p>
+      <p>No MLflow, as versões de prompt são imutáveis, o que dá garantias fortes de reprodutibilidade (<span class="qual">registrado na documentação</span>); o histórico é comparável lado a lado, no estilo de registros de alteração (<em>commits</em>) (<span class="qual">registrado na documentação</span>), e as versões podem ser isoladas do código da aplicação para testes A/B e reversão (<span class="qual">registrado na documentação</span>).</p>
       <h3>Que número usar</h3>
-      <p>O versionamento semântico define MAJOR.MINOR.PATCH: a maior sobe em mudança incompatível, a menor em recurso compatível, a última em correção compatível (<span class="qual">registrado na especificação</span>). E exige declarar qual é a API pública (<span class="qual">registrado na especificação</span>) — no prompt, é o contrato de entrada e saída esperado pelo sistema. Sem essa declaração, o número não comunica nada.</p>
+      <p>O <dfn>versionamento semântico</dfn> (<em>SemVer</em>) define três números (<code>MAJOR.MINOR.PATCH</code> — maior, menor e correção): a maior sobe em mudança incompatível, a menor em recurso compatível, a última em correção compatível (<span class="qual">registrado na especificação</span>). E exige declarar qual é a API pública (<span class="qual">registrado na especificação</span>) — no prompt, é o contrato de entrada e saída esperado pelo sistema. Sem essa declaração, o número não comunica nada.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p15-5c">
@@ -17108,7 +17129,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>API versions</em> — <a href="https://docs.claude.com/en/api/versioning" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/versioning</a>; Anthropic, <em>Model deprecations</em> — <a href="https://docs.claude.com/en/docs/about-claude/model-deprecations" target="_blank" rel="noopener noreferrer">docs.claude.com/docs/about-claude/model-deprecations</a>; Langfuse, <em>Prompt Management</em> — <a href="https://langfuse.com/docs/prompt-management/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/prompt-management/overview</a>; MLflow, <em>Prompt Registry</em> — <a href="https://mlflow.org/docs/latest/genai/prompt-registry/" target="_blank" rel="noopener noreferrer">mlflow.org/docs/latest/genai/prompt-registry</a>; SemVer — <a href="https://semver.org/" target="_blank" rel="noopener noreferrer">semver.org</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>API versions</em> — <a href="https://docs.claude.com/en/api/versioning" target="_blank" rel="noopener noreferrer">docs.claude.com/en/api/versioning</a>; Anthropic, <em>Model deprecations</em> — <a href="https://docs.claude.com/en/docs/about-claude/model-deprecations" target="_blank" rel="noopener noreferrer">docs.claude.com/docs/about-claude/model-deprecations</a>; SemVer — <a href="https://semver.org/" target="_blank" rel="noopener noreferrer">semver.org</a>.</p>
+        <p><strong>Aprofundar:</strong> Langfuse, <em>Prompt Management</em> — <a href="https://langfuse.com/docs/prompt-management/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/prompt-management/overview</a>; MLflow, <em>Prompt Registry</em> — <a href="https://mlflow.org/docs/latest/genai/prompt-registry/" target="_blank" rel="noopener noreferrer">mlflow.org/docs/latest/genai/prompt-registry</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.5c">
         <a href="#unidade-15-5b">Parte 15.5b</a>
@@ -17149,7 +17171,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p15-6a" value="a" data-correta="true" data-explicacao="Correta. Canário é liberação parcial, limitada e avaliada contra controle."><span><strong>A.</strong> Liberar para uma parte pequena e por tempo limitado, comparando canário e controle com critérios definidos antes.</span></label>
         <label class="alternativa"><input type="radio" name="p15-6a" value="b" data-correta="false" data-explicacao="Incorreta. Isso é liberação total, não canário."><span><strong>B.</strong> Liberar para todos e observar por uma semana.</span></label>
         <label class="alternativa"><input type="radio" name="p15-6a" value="c" data-correta="false" data-explicacao="Incorreta. Time interno não representa a distribuição real."><span><strong>C.</strong> Liberar para o time interno e considerar aprovado.</span></label>
-        <label class="alternativa"><input type="radio" name="p15-6a" value="d" data-correta="false" data-explicacao="Incorreta. Sem critério, o canário não avalia nada."><span><strong>D.</strong> Liberar sem critério e decidir pelo “feeling”.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6a" value="d" data-correta="false" data-explicacao="Incorreta. Sem critério, o canário não avalia nada."><span><strong>D.</strong> Liberar sem critério e decidir por intuição (“feeling”).</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -17264,7 +17286,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="p15-6c" value="a" data-correta="true" data-explicacao="Correta. O postmortem sem culpa investiga o sistema e as condições que permitiram o erro."><span><strong>A.</strong> Registrar impacto, linha do tempo e causas contribuintes, incluindo por que a esteira permitia publicar sem revisão, e propor correções no sistema.</span></label>
         <label class="alternativa"><input type="radio" name="p15-6c" value="b" data-correta="false" data-explicacao="Incorreta. Isso aponta culpa e não previne recorrência."><span><strong>B.</strong> Registrar que o analista errou e encerrar.</span></label>
         <label class="alternativa"><input type="radio" name="p15-6c" value="c" data-correta="false" data-explicacao="Incorreta. Não registrar perde o aprendizado e mantém a falha do sistema."><span><strong>C.</strong> Não registrar, para não constranger o analista.</span></label>
-        <label class="alternativa"><input type="radio" name="p15-6c" value="d" data-correta="false" data-explicacao="Incorreta. Sin conteúdo não há prevenção."><span><strong>D.</strong> Registrar apenas a data do incidente.</span></label>
+        <label class="alternativa"><input type="radio" name="p15-6c" value="d" data-correta="false" data-explicacao="Incorreta. Sem conteúdo não há prevenção."><span><strong>D.</strong> Registrar apenas a data do incidente.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -17278,7 +17300,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Beyer et al., <em>The Site Reliability Workbook</em>, cap. 16 — <a href="https://sre.google/workbook/canarying-releases/" target="_blank" rel="noopener noreferrer">sre.google/workbook/canarying-releases</a>; Beyer et al., <em>Site Reliability Engineering</em>, cap. 15 — <a href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener noreferrer">sre.google/sre-book/postmortem-culture</a>.</p>
+        <p><strong>Ler:</strong> Beyer et al., <em>The Site Reliability Workbook</em>, cap. 16 — <a href="https://sre.google/workbook/canarying-releases/" target="_blank" rel="noopener noreferrer">sre.google/workbook/canarying-releases</a>.</p>
+        <p><strong>Aprofundar:</strong> Beyer et al., <em>Site Reliability Engineering</em>, cap. 15 — <a href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener noreferrer">sre.google/sre-book/postmortem-culture</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 15.6c">
         <a href="#unidade-15-6b">Parte 15.6b</a>
@@ -17306,7 +17329,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-c15q2">
         <legend>Questão 2 <span class="nivel">(fácil)</span></legend>
         <p id="enunciado-c15q2">O que a documentação orienta fazer quando um pedido recebe 429 com tempo de espera no cabeçalho?</p>
-        <label class="alternativa"><input type="radio" name="c15q2" value="a" data-correta="true" data-explicacao="Correta. O tempo é mínimo, com jitter e teto de tentativas."><span><strong>A.</strong> Esperar ao menos o tempo indicado, acrescentar variação aleatória e limitar tentativas e tempo total.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q2" value="a" data-correta="true" data-explicacao="Correta. O tempo é mínimo, com variação aleatória (jitter) e teto de tentativas."><span><strong>A.</strong> Esperar ao menos o tempo indicado, acrescentar variação aleatória e limitar tentativas e tempo total.</span></label>
         <label class="alternativa"><input type="radio" name="c15q2" value="b" data-correta="false" data-explicacao="Incorreta. Repetir sem espera piora o estouro."><span><strong>B.</strong> Repetir imediatamente até passar.</span></label>
         <label class="alternativa"><input type="radio" name="c15q2" value="c" data-correta="false" data-explicacao="Incorreta. A orientação é esperar e reduzir a vazão."><span><strong>C.</strong> Trocar de modelo na hora.</span></label>
         <label class="alternativa"><input type="radio" name="c15q2" value="d" data-correta="false" data-explicacao="Incorreta. Isso piora o consumo de tokens."><span><strong>D.</strong> Aumentar o tamanho do prompt.</span></label>
@@ -17315,9 +17338,9 @@ Desvio (regra fixa):
 
       <fieldset class="questao" aria-describedby="enunciado-c15q3">
         <legend>Questão 3 <span class="nivel">(média)</span></legend>
-        <p id="enunciado-c15q3">Um trace mostra uma chamada de 9 segundos, mas cada tentativa levou 3. Qual é a leitura correta?</p>
+        <p id="enunciado-c15q3">O span de uma chamada mostra 9 segundos, mas cada uma das três tentativas levou 3. Qual é a leitura correta?</p>
         <label class="alternativa"><input type="radio" name="c15q3" value="a" data-correta="true" data-explicacao="Correta. A convenção inclui as repetições dentro do span."><span><strong>A.</strong> O span cobre a operação lógica com as três tentativas; o usuário esperou 9 segundos, e é isso que o registro deve mostrar.</span></label>
-        <label class="alternativa"><input type="radio" name="c15q3" value="b" data-correta="false" data-explicacao="Incorreta. A operação percebida é a soma com repetições."><span><strong>B.</strong> O trace está errado; deveria mostrar 3 segundos.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q3" value="b" data-correta="false" data-explicacao="Incorreta. A operação percebida é a soma com repetições."><span><strong>B.</strong> O span está errado; deveria mostrar 3 segundos.</span></label>
         <label class="alternativa"><input type="radio" name="c15q3" value="c" data-correta="false" data-explicacao="Incorreta. Registrar a operação inteira é o objetivo."><span><strong>C.</strong> As tentativas não deveriam ser registradas.</span></label>
         <label class="alternativa"><input type="radio" name="c15q3" value="d" data-correta="false" data-explicacao="Incorreta. A média não representa o tempo percebido."><span><strong>D.</strong> Deveria mostrar a média entre tentativas.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
@@ -17346,7 +17369,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-c15q6">
         <legend>Questão 6 <span class="nivel">(difícil)</span></legend>
         <p id="enunciado-c15q6">A Aurora vai trocar o modelo do assistente que consulta e atualiza matrículas, com dados de alunos, em época de inscrições. O plano proposto é: (1) publicar direto em produção; (2) guardar prompt e resposta completos em log público; (3) usar a chave pessoal de um analista; (4) repetir em laço qualquer 429 até passar. Quais quatro correções são as mais defensáveis?</p>
-        <label class="alternativa"><input type="radio" name="c15q6" value="a" data-correta="true" data-explicacao="Correta. Cada correção ataca um risco: lançamento, dado pessoal, credencial e vazão."><span><strong>A.</strong> Canário com controle e critério definidos; log com conteúdo opcional, acesso e prazo; conta de serviço com chave rotacionada; e repetição com espera, jitter e teto, sem repetir teto de gasto.</span></label>
+        <label class="alternativa"><input type="radio" name="c15q6" value="a" data-correta="true" data-explicacao="Correta. Cada correção ataca um risco: lançamento, dado pessoal, credencial e vazão."><span><strong>A.</strong> Canário com controle e critério definidos; log com conteúdo opcional, acesso e prazo; conta de serviço com chave rotacionada; e repetição com espera, variação aleatória (jitter) e teto, sem repetir teto de gasto.</span></label>
         <label class="alternativa"><input type="radio" name="c15q6" value="b" data-correta="false" data-explicacao="Incorreta. O restante concentra exatamente os riscos listados."><span><strong>B.</strong> Publicar em produção e medir depois, mantendo o resto.</span></label>
         <label class="alternativa"><input type="radio" name="c15q6" value="c" data-correta="false" data-explicacao="Incorreta. Agrava o risco de dado pessoal."><span><strong>C.</strong> Guardar todo o conteúdo para sempre, sem controle de acesso.</span></label>
         <label class="alternativa"><input type="radio" name="c15q6" value="d" data-correta="false" data-explicacao="Incorreta. Cria dependência de pessoa e amplia a exposição."><span><strong>D.</strong> Manter a chave pessoal porque é mais rápida de usar.</span></label>
@@ -17427,7 +17450,7 @@ Desvio (regra fixa):
       </table>
       </div>
       <h3>Medir o que importa</h3>
-      <p>Três números organizam a conversa sobre economia: tokens de entrada, tokens de saída e número de pedidos. Cada um tem uma alavanca diferente — encurtar contexto, limitar a resposta e reduzir idas e voltas. Sem medir os três, o corte escolhe o alavanca errada.</p>
+      <p>Três números organizam a conversa sobre economia: tokens de entrada, tokens de saída e número de pedidos. Cada um tem uma alavanca diferente — encurtar contexto, limitar a resposta e reduzir idas e voltas. Sem medir os três, o corte escolhe a alavanca errada.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p16-1a">
@@ -17461,7 +17484,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Um gateway pode rastrear o gasto de cada chamada automaticamente.</li>
+          <li>Um intermediário de modelos (<em>gateway</em>) pode rastrear o gasto de cada chamada automaticamente.</li>
           <li>O custo calculado aparece no cabeçalho da resposta e no registro.</li>
           <li>A tabela de preços precisa estar atualizada, senão o número mente.</li>
         </ul>
@@ -17490,7 +17513,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-p16-1b">
         <legend>Escolha uma alternativa</legend>
         <p id="enunciado-p16-1b">O painel de custo mostra um valor estável há meses, enquanto a fatura subiu. O que a documentação sugere verificar primeiro?</p>
-        <label class="alternativa"><input type="radio" name="p16-1b" value="a" data-correta="true" data-explicacao="Correta. O rastreio depende da tabela e da categorização de tokens."><span><strong>A.</strong> A sincronização da tabela de preços e a categorização dos tokens, porque o cálculo depende delas.</span></label>
+        <label class="alternativa"><input type="radio" name="p16-1b" value="a" data-correta="true" data-explicacao="Correta. O rastreio depende da tabela sincronizada e da identificação das chamadas."><span><strong>A.</strong> A sincronização da tabela de preços e a identificação das chamadas, porque o cálculo depende delas.</span></label>
         <label class="alternativa"><input type="radio" name="p16-1b" value="b" data-correta="false" data-explicacao="Incorreta. A fatura é a referência de cobrança."><span><strong>B.</strong> Nada: a fatura está errada.</span></label>
         <label class="alternativa"><input type="radio" name="p16-1b" value="c" data-correta="false" data-explicacao="Incorreta. Usuários não explicam divergência de cálculo."><span><strong>C.</strong> O número de usuários.</span></label>
         <label class="alternativa"><input type="radio" name="p16-1b" value="d" data-correta="false" data-explicacao="Incorreta. Não tem relação com custo de API."><span><strong>D.</strong> O tamanho do disco.</span></label>
@@ -17531,7 +17554,7 @@ Desvio (regra fixa):
       <p>A mesma documentação propõe um roteiro passo a passo para investigar divergência: alinhar os períodos, comparar as categorias de token, incluindo cache, e então decidir se a diferença está na ingestão, na fórmula ou no preço do modelo (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: diagnóstico de divergência de custo" tabindex="0">
       <table class="tabela">
-        <caption>Ordem de verificação (leitura da documentação do LiteLLM)</caption>
+        <caption>Ordem de verificação (proposta didática a partir do roteiro da documentação do LiteLLM)</caption>
         <thead><tr><th scope="col">Passo</th><th scope="col">O que conferir</th><th scope="col">Sinal</th></tr></thead>
         <tbody>
           <tr><th scope="row">1</th><td>Período e fuso das duas fontes</td><td>Totais de dias diferentes</td></tr>
@@ -17558,13 +17581,14 @@ Desvio (regra fixa):
       <p>Divergência se investiga em ordem: período, categorias, preço e fórmula. A unidade 16.2 trata de onde estão os gargalos.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Aviso de preço ausente:</strong> LiteLLM, <em>Cost Tracking</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Aviso de preço ausente:</strong> LiteLLM, <em>Cost Tracking</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Roteiro de diagnóstico:</strong> Idem (<span class="qual">registrado na documentação</span>)</p>
-        <p><strong>Quadro de passos:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de passos:</strong> Roteiro de verificação (<span class="qual">proposta didática</span>)</p>
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Token counting</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/token-counting</a>; LiteLLM, <em>Cost Tracking</em> — <a href="https://docs.litellm.ai/docs/proxy/cost_tracking" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/cost_tracking</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Token counting</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/token-counting</a>.</p>
+        <p><strong>Aprofundar:</strong> LiteLLM, <em>Cost Tracking</em> — <a href="https://docs.litellm.ai/docs/proxy/cost_tracking" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/cost_tracking</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.1c">
         <a href="#unidade-16-1b">Parte 16.1b</a>
@@ -17590,7 +17614,7 @@ Desvio (regra fixa):
       <p>A documentação da OpenAI abre com uma frase que resume o capítulo: reduzir tokens e pedidos pode baixar o custo e encurtar o tempo de resposta (<span class="qual">registrado na documentação</span>). Em seguida, lista três estratégias: limitar o número de pedidos necessários para concluir a tarefa (<span class="qual">registrado na documentação</span>), diminuir os tokens de entrada e encurtar a saída (<span class="qual">registrado na documentação</span>) e escolher um modelo menor que equilibre custo e latência com a precisão mantida (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: alavancas de custo" tabindex="0">
       <table class="tabela">
-        <caption>Três alavancas e o efeito colateral de cada uma (leitura da documentação da OpenAI)</caption>
+        <caption>Três alavancas (documentação da OpenAI) e efeito colateral (proposta didática)</caption>
         <thead><tr><th scope="col">Alavanca</th><th scope="col">O que muda</th><th scope="col">Efeito colateral</th></tr></thead>
         <tbody>
           <tr><th scope="row">Menos pedidos</th><td>Juntar etapas em uma chamada</td><td>Pedido maior e mais difícil</td></tr>
@@ -17618,7 +17642,7 @@ Desvio (regra fixa):
       <div class="fontes">
         <p><strong>Menos tokens e pedidos:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Três estratégias:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
-        <p><strong>Quadro de efeitos:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de efeitos:</strong> Alavancas (<span class="qual">registrado na documentação</span>); coluna “Efeito colateral” (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.2a">
         <a href="#unidade-16-1c">Parte 16.1c</a>
@@ -17643,7 +17667,7 @@ Desvio (regra fixa):
       <h3>Trabalho que pode esperar</h3>
       <p>A documentação da OpenAI descreve o processamento flexível: custo bem menor em troca de respostas mais lentas e indisponibilidade ocasional, indicado para tarefas que não são de produção ou têm prioridade baixa, como avaliações, enriquecimento de dados e cargas assíncronas (<span class="qual">registrado na documentação</span>). É a versão explícita do princípio: urgência custa caro.</p>
       <h3>Os três esconderijos</h3>
-      <p>A maior parte do gasto evitável aparece em três lugares: pedidos repetidos que poderiam ser um, contexto que cresce sem necessidade e chamadas que nenhum usuário pediu. Os dois primeiros têm capítulo próprio (9 e 10); o terceiro é decisão de produto.</p>
+      <p>A maior parte do gasto evitável aparece em três lugares: contexto que cresce sem necessidade, chamadas de ferramenta repetidas ou infladas e pedidos que poderiam ser agrupados (ou chamadas que nenhum usuário pediu). Os dois primeiros têm capítulo próprio (9 e 10); os agrupamentos entram na unidade 16.3.</p>
       <div class="rolagem" role="region" aria-label="Tabela: esconderijos de gasto" tabindex="0">
       <table class="tabela">
         <caption>Onde o gasto costuma se esconder (proposta didática)</caption>
@@ -17672,7 +17696,7 @@ Desvio (regra fixa):
       <p>Trabalho que pode esperar custa menos; o gasto escondido está em repetição e excesso. Na parte 16.2c, medimos o acerto de cache.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Processamento flexível:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Processamento flexível:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Esconderijos:</strong> Quadro (<span class="qual">proposta didática</span>)</p>
         <p><strong>Custo total com retrabalho:</strong> Remissão a 14.2c (<span class="qual">proposta didática</span>)</p>
       </div>
@@ -17723,7 +17747,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> OpenAI, <em>Cost optimization</em> — <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>; OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
+        <p><strong>Ler:</strong> OpenAI, <em>Cost optimization</em> — <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>.</p>
+        <p><strong>Aprofundar:</strong> OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.2c">
         <a href="#unidade-16-2b">Parte 16.2b</a>
@@ -17906,6 +17931,7 @@ Desvio (regra fixa):
       <h3>Fontes da unidade</h3>
       <div class="fontes">
         <p><strong>Ler:</strong> OpenAI, <em>Batch API</em> — <a href="https://developers.openai.com/api/docs/guides/batch" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/batch</a>; Anthropic, <em>Batch processing</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/batch-processing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/batch-processing</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.3c">
         <a href="#unidade-16-3b">Parte 16.3b</a>
@@ -17979,7 +18005,7 @@ Desvio (regra fixa):
         <ul>
           <li>Marcar o fim do conteúdo estável é o que define onde o cache é gravado.</li>
           <li>Modo explícito evita gravar cache para trechos que mudam sempre.</li>
-          <li>Marcar demais gasta slots; marcar de menos desperdiça acerto.</li>
+          <li>Marcar demais gasta marcações (<em>slots</em>); marcar de menos desperdiça acerto.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Colocar etiqueta em cada caixa do depósito ajuda; etiquetar tudo, inclusive o que muda de lugar todo dia, atrapalha o expediente.</p></div>
@@ -17990,13 +18016,13 @@ Desvio (regra fixa):
       <p>O modo somente explícito permite evitar gravações de cache desnecessárias para sufixos que mudam (<span class="qual">registrado na documentação</span>). Sem isso, o sistema pode gravar cache de um trecho que nunca se repetirá — pagando a gravação sem nunca usar a leitura.</p>
       <div class="rolagem" role="region" aria-label="Tabela: onde marcar o cache" tabindex="0">
       <table class="tabela">
-        <caption>Marcação de cache e efeito (leitura da documentação da OpenAI)</caption>
+        <caption>Marcação de cache e efeito (análise didática da documentação da OpenAI)</caption>
         <thead><tr><th scope="col">Marcação</th><th scope="col">Quando usar</th><th scope="col">Risco</th></tr></thead>
         <tbody>
           <tr><th scope="row">Fim do sistema</th><td>Instruções fixas</td><td>Nenhum, se o texto é estável</td></tr>
           <tr><th scope="row">Fim dos documentos</th><td>Base comum a muitos pedidos</td><td>Documento que muda sempre</td></tr>
           <tr><th scope="row">Nenhuma</th><td>Conteúdo todo variável</td><td>Gravação inútil se ligada</td></tr>
-          <tr><th scope="row">Muitas</th><td>Blocos com ritmos diferentes</td><td>Consome slots e complica</td></tr>
+          <tr><th scope="row">Muitas</th><td>Blocos com ritmos diferentes</td><td>Consome marcações e complica</td></tr>
         </tbody>
       </table>
       </div>
@@ -18006,7 +18032,7 @@ Desvio (regra fixa):
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p16-4b">
         <legend>Escolha uma alternativa</legend>
-        <p id="enunciado-p16-4b">Um serviço marca cache no fim de cada mensagem da conversa, inclusive na última. O que tende a acontecer?</p>
+        <p id="enunciado-p16-4b">Um serviço marca cache no fim de cada sufixo variável de pedidos únicos que não se repetem. O que tende a acontecer?</p>
         <label class="alternativa"><input type="radio" name="p16-4b" value="a" data-correta="true" data-explicacao="Correta. Marcar o que muda sempre gera gravação sem acerto."><span><strong>A.</strong> Gravar cache de trechos que não se repetirão, pagando a gravação sem ganho de leitura.</span></label>
         <label class="alternativa"><input type="radio" name="p16-4b" value="b" data-correta="false" data-explicacao="Incorreta. A marcação define onde o cache é gravado."><span><strong>B.</strong> Nenhum efeito: o cache ignora marcações.</span></label>
         <label class="alternativa"><input type="radio" name="p16-4b" value="c" data-correta="false" data-explicacao="Incorreta. A gravação tem custo."><span><strong>C.</strong> O cache fica mais barato.</span></label>
@@ -18019,7 +18045,7 @@ Desvio (regra fixa):
       <div class="fontes">
         <p><strong>Onde marcar:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Modo somente explícito:</strong> OpenAI, <em>Prompt caching</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
-        <p><strong>Quadro de marcação:</strong> Leitura da documentação (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Quadro de marcação:</strong> Conceito na documentação (<span class="qual">registrado na documentação</span>); cenários e riscos (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.4b">
         <a href="#unidade-16-4a">Parte 16.4a</a>
@@ -18080,6 +18106,7 @@ Desvio (regra fixa):
       <h3>Fontes da unidade</h3>
       <div class="fontes">
         <p><strong>Ler:</strong> Google Cloud, <em>Context caching overview</em> — <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview</a>; OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.4c">
         <a href="#unidade-16-4b">Parte 16.4b</a>
@@ -18145,7 +18172,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Os multiplicadores mudam por fornecedor, mas a lógica é a mesma: gravar caro, ler barato.</li>
+          <li>Os modelos de cobrança mudam por fornecedor, mas todos reduzem o preço dos tokens reaproveitados.</li>
           <li>A OpenAI descreve desconto de até 95% nos tokens reaproveitados.</li>
           <li>O Google tem cache implícito ligado por padrão, com 90% de desconto nos tokens cacheados.</li>
         </ul>
@@ -18153,15 +18180,15 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Três transportadoras cobram tabelas diferentes, mas todas cobram mais para despachar do que para reutilizar a mesma caixa.</p></div>
 
       <h3>A OpenAI</h3>
-      <p>A documentação da OpenAI resume o benefício: pagar a tarifa reduzida de entrada por tokens reaproveitados, com desconto de até 95% (<span class="qual">registrado na documentação</span>). A gravação tem custo e validade próprios; a leitura, preço menor.</p>
+      <p>A documentação da OpenAI resume o benefício: pagar a tarifa reduzida de entrada por tokens reaproveitados, com desconto de até 95% (<span class="qual">registrado na documentação</span>). As regras de marcação e de expiração seguem a documentação do fornecedor (16.4b).</p>
       <h3>O Google</h3>
-      <p>O Google Cloud oferece cache implícito, automático e ligado por padrão, com 90% de desconto nos tokens cacheados em relação aos tokens de entrada padrão (<span class="qual">registrado na documentação</span>). O prefixo cacheado expira em até 24 horas, e a maioria das entradas sai antes (<span class="qual">registrado na documentação</span>). O cache explícito tem custo de armazenamento pelo tempo em que o conteúdo fica guardado (<span class="qual">registrado na documentação</span>).</p>
+      <p>O Google Cloud oferece cache implícito, automático e ligado por padrão, com 90% de desconto nos tokens cacheados em relação aos tokens de entrada padrão (vigente a partir da data indicada na página, consultada em 17/11/2026) (<span class="qual">registrado na documentação</span>). O prefixo cacheado expira em até 24 horas, e a maioria das entradas sai antes (<span class="qual">registrado na documentação</span>). O cache explícito tem custo de armazenamento pelo tempo em que o conteúdo fica guardado (<span class="qual">registrado na documentação</span>).</p>
       <div class="rolagem" role="region" aria-label="Tabela: cache nos três fornecedores" tabindex="0">
       <table class="tabela">
-        <caption>Modelos de cobrança de cache (leitura das documentações, 17/11/2026)</caption>
+        <caption>Modelos de cobrança de cache (leitura das documentações, 17/11/2026; valores sujeitos à data de vigência na página)</caption>
         <thead><tr><th scope="col">Fornecedor</th><th scope="col">Como liga</th><th scope="col">Desconto descrito</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Anthropic</th><td>Marcação explícita ou automática</td><td>Leitura a 0,1 do preço base</td></tr>
+          <tr><th scope="row">Anthropic</th><td>Marcação explícita</td><td>Leitura a 0,1 do preço base</td></tr>
           <tr><th scope="row">OpenAI</th><td>Marcação de pontos</td><td>Até 95% nos tokens reaproveitados</td></tr>
           <tr><th scope="row">Google</th><td>Implícito por padrão ou explícito</td><td>90% nos tokens cacheados</td></tr>
         </tbody>
@@ -18220,7 +18247,7 @@ Desvio (regra fixa):
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p16-5c">
         <legend>Escolha uma alternativa</legend>
-        <p id="enunciado-p16-5c">Um fluxo grava o cache de 1 hora e faz exatamente uma leitura por dia. O que a conta de equilíbrio indica?</p>
+        <p id="enunciado-p16-5c">Um fluxo grava o cache de 1 hora e faz exatamente uma leitura antes de expirar. O que a conta de equilíbrio indica?</p>
         <label class="alternativa"><input type="radio" name="p16-5c" value="a" data-correta="true" data-explicacao="Correta. A validade de 1 hora se paga depois de duas leituras."><span><strong>A.</strong> O cache de 1 hora não se paga: o ponto de equilíbrio é de duas leituras antes de expirar.</span></label>
         <label class="alternativa"><input type="radio" name="p16-5c" value="b" data-correta="false" data-explicacao="Incorreta. Esse é o caso da validade de 5 minutos."><span><strong>B.</strong> O cache se paga na primeira leitura.</span></label>
         <label class="alternativa"><input type="radio" name="p16-5c" value="c" data-correta="false" data-explicacao="Incorreta. A conta depende do número de leituras."><span><strong>C.</strong> O cache sempre se paga.</span></label>
@@ -18237,7 +18264,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Prompt caching</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/prompt-caching</a>; Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>; Google Cloud, <em>Context caching overview</em> — <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview</a>.</p>
+        <p><strong>Ler:</strong> Anthropic, <em>Prompt caching</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/build-with-claude/prompt-caching</a>; OpenAI, <em>Prompt caching</em> — <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>; Google Cloud, <em>Context caching overview</em> — <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview" target="_blank" rel="noopener noreferrer">docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.5c">
         <a href="#unidade-16-5b">Parte 16.5b</a>
@@ -18347,7 +18375,7 @@ Desvio (regra fixa):
       <p>Custo envelhece com preço, modelo e uso; a revisão periódica mantém a conta honesta. Na parte 16.6c, fechamos o capítulo.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Sincronizar preços e diagnosticar:</strong> LiteLLM, <em>Cost Tracking</em> (<span class="qual">registrado na documentação</span>)</p>
+        <p><strong>Sincronizar preços e diagnosticar:</strong> LiteLLM, <em>Cost Tracking</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Processamento flexível:</strong> OpenAI, <em>Cost optimization</em> (<span class="qual">registrado na documentação</span>, consultada em 17/11/2026)</p>
         <p><strong>Rotina de revisão:</strong> Proposta (<span class="qual">proposta didática</span>)</p>
       </div>
@@ -18371,10 +18399,10 @@ Desvio (regra fixa):
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> O cozinheiro econômico não compra o ingrediente mais barato: compra o certo, na quantidade certa, e aproveita as sobras.</p></div>
 
-      <h3>O método em cinco passos</h3>
+      <h3>O método em seis passos</h3>
       <p>Meça tokens de entrada, saída e pedidos (16.1). Localize o gasto nas três alavancas (16.2). Elimine redundância com lote e junção de etapas (16.3). Organize contexto e ferramentas para o cache acertar (16.4). Escolha a validade de cache e o esforço pela conta do fluxo (16.5). Reavalie periodicamente (16.6b).</p>
       <h3>O que não fazer</h3>
-      <p>Cortar contexto que a tarefa precisa, trocar de modelo sem amostra, desligar log para "reduzir overhead" e otimizar o percentual em vez da conta por tarefa. Cada um desses troca economia visível por custo invisível.</p>
+      <p>Cortar contexto que a tarefa precisa, trocar de modelo sem amostra, desligar log para "reduzir sobrecarga (<em>overhead</em>)" e otimizar o percentual em vez da conta por tarefa. Cada um desses troca economia visível por custo invisível.</p>
       <div class="rolagem" role="region" aria-label="Tabela: economia e o que se troca" tabindex="0">
       <table class="tabela">
         <caption>Trocas explícitas de cada economia (proposta didática)</caption>
@@ -18410,7 +18438,8 @@ Desvio (regra fixa):
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
-        <p><strong>Ler:</strong> Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>; LiteLLM, <em>Cost Tracking</em> — <a href="https://docs.litellm.ai/docs/proxy/cost_tracking" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/cost_tracking</a>; OpenAI, <em>Cost optimization</em> — <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>.</p>
+        <p><strong>Ler:</strong> OpenAI, <em>Cost optimization</em> — <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>; LiteLLM, <em>Cost Tracking</em> — <a href="https://docs.litellm.ai/docs/proxy/cost_tracking" target="_blank" rel="noopener noreferrer">docs.litellm.ai/docs/proxy/cost_tracking</a>.</p>
+        <p><strong>Aprofundar:</strong> Anthropic, <em>Pricing</em> — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/about-claude/pricing</a>.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 16.6c">
         <a href="#unidade-16-6b">Parte 16.6b</a>
@@ -18439,7 +18468,7 @@ Desvio (regra fixa):
         <legend>Questão 2 <span class="nivel">(fácil)</span></legend>
         <p id="enunciado-c16q2">Qual é o ponto de equilíbrio do cache de 1 hora, segundo a página de preços?</p>
         <label class="alternativa"><input type="radio" name="c16q2" value="a" data-correta="true" data-explicacao="Correta. O equilíbrio do cache de 1 hora é de duas leituras."><span><strong>A.</strong> Depois de duas leituras, porque a gravação custa 2 vezes o preço base.</span></label>
-        <label class="alternativa"><input type="radio" name="c16q2" value="b" data-correta="false" data-explicacao="Incorreta. Esse é o caso das 5 minutos."><span><strong>B.</strong> Depois de uma leitura.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q2" value="b" data-correta="false" data-explicacao="Incorreta. Esse é o caso dos 5 minutos."><span><strong>B.</strong> Depois de uma leitura.</span></label>
         <label class="alternativa"><input type="radio" name="c16q2" value="c" data-correta="false" data-explicacao="Incorreta. Ele se paga com leituras suficientes."><span><strong>C.</strong> Nunca se paga.</span></label>
         <label class="alternativa"><input type="radio" name="c16q2" value="d" data-correta="false" data-explicacao="Incorreta. A conta documentada é de duas."><span><strong>D.</strong> Depois de dez leituras.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
@@ -18458,7 +18487,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-c16q4">
         <legend>Questão 4 <span class="nivel">(média)</span></legend>
         <p id="enunciado-c16q4">A taxa de acerto de cache de um assistente caiu de 80% para 10% depois de uma mudança. Qual causa é a mais provável?</p>
-        <label class="alternativa"><input type="radio" name="c16q4" value="a" data-correta="true" data-explicacao="Correta. O cache casa por prefixo; a ordem errada zera o acerto."><span><strong>A.</strong> Conteúdo variável foi colocado antes do trecho estável, quebrando o prefixo.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q4" value="a" data-correta="true" data-explicacao="Correta. O cache casa por prefixo; a ordem errada derruba o acerto."><span><strong>A.</strong> Conteúdo variável foi colocado antes do trecho estável, quebrando o prefixo.</span></label>
         <label class="alternativa"><input type="radio" name="c16q4" value="b" data-correta="false" data-explicacao="Incorreta. Tamanho não explica acerto de cache."><span><strong>B.</strong> O modelo ficou menor.</span></label>
         <label class="alternativa"><input type="radio" name="c16q4" value="c" data-correta="false" data-explicacao="Incorreta. Lote não interfere na taxa de acerto."><span><strong>C.</strong> O lote foi desligado.</span></label>
         <label class="alternativa"><input type="radio" name="c16q4" value="d" data-correta="false" data-explicacao="Incorreta. Não muda o que é cacheado."><span><strong>D.</strong> A contagem de tokens passou a ser estimada.</span></label>
@@ -18477,7 +18506,7 @@ Desvio (regra fixa):
 
       <fieldset class="questao" aria-describedby="enunciado-c16q6">
         <legend>Questão 6 <span class="nivel">(difícil)</span></legend>
-        <p id="enunciado-c16q6">A Aurora tem um assistente de atendimento com custo crescendo: (1) o prompt coloca a pergunta do usuário antes do manual; (2) o fluxo manda um lote de pedidos interativos para a API de lote; (3) as sessões duram 80 turnos; (4) as ferramentas devolvem o cadastro completo com 80 campos. Quais quatro correções são as mais defensáveis?</p>
+        <p id="enunciado-c16q6">A Aurora Educação (<em>proposta didática</em>) tem um assistente de atendimento com custo crescendo: (1) o prompt coloca a pergunta do usuário antes do manual; (2) o fluxo manda um lote de pedidos interativos para a API de lote; (3) as sessões duram 80 turnos; (4) as ferramentas devolvem o cadastro completo com 80 campos. Quais quatro correções são as mais defensáveis?</p>
         <label class="alternativa"><input type="radio" name="c16q6" value="a" data-correta="true" data-explicacao="Correta. Cada correção ataca uma causa: prefixo, elegibilidade, sessão e ferramenta."><span><strong>A.</strong> Reordenar o prompt com o manual antes da pergunta; tirar o interativo do lote; compactar ou abrir conversa nova no ponto ótimo; devolver só os campos úteis das ferramentas.</span></label>
         <label class="alternativa"><input type="radio" name="c16q6" value="b" data-correta="false" data-explicacao="Incorreta. Agrava o custo sem resolver as causas."><span><strong>B.</strong> Aumentar o modelo e manter o restante.</span></label>
         <label class="alternativa"><input type="radio" name="c16q6" value="c" data-correta="false" data-explicacao="Incorreta. O lote não atende prazo curto."><span><strong>C.</strong> Manter o lote no interativo e aumentar o tempo de espera do usuário.</span></label>
@@ -18512,6 +18541,7 @@ Desvio (regra fixa):
         <dt>Anotação estruturada (9.4)</dt><dd>Técnica de memória agêntica em que o agente grava marcos e decisões fora da janela de contexto para ler de volta após limpezas ou reinícios.</dd>
         <dt>Anotações de ferramenta (10.6)</dt><dd>Metadados opcionais em uma definição de ferramenta (como somente leitura ou destrutiva) que devem ser tratados como não confiáveis se vierem de servidor não confiável.</dd>
         <dt>API de lote (16.3)</dt><dd>Modo assíncrono que processa grupos de pedidos com desconto e prazo próprio, em geral de até 24 horas.</dd>
+        <dt>Aposentado (modelo) (15.5)</dt><dd>Estado do ciclo de vida em que o modelo deixou de estar disponível e os pedidos para ele falham.</dd>
         <dt>Aprendizado de máquina (1.1)</dt><dd>Quando ninguém escreve cada regra do programa e, em vez disso, ele é ajustado com muitos exemplos.</dd>
         <dt>Aprendizado no contexto (4.1)</dt><dd>Quando o modelo ajusta a resposta pelas instruções e exemplos lidos no próprio prompt, sem ser treinado de novo. Em inglês, <em>in-context learning</em>.</dd>
         <dt>Aprendizado por reforço para raciocínio (1.2)</dt><dd>Etapa em que o modelo treina em tarefas de vários passos, com uma resposta correta clara, e aprende a raciocinar melhor.</dd>
@@ -18520,6 +18550,7 @@ Desvio (regra fixa):
         <dt>Aresta (6.1, 6.3)</dt><dd>Conexão entre dois nós de um grafo; em grafos de conhecimento indica relação entre entidades, e em grafos de estado define sequência, desvio ou retorno.</dd>
         <dt>Atenção (1.5)</dt><dd>Jeito de construir o sentido de um token olhando para os tokens vizinhos e juntando o que eles informam.</dd>
         <dt>Atenção por consulta agrupada (GQA) (13.3)</dt><dd>Variante de atenção em que grupos de cabeças de consulta compartilham o mesmo conjunto de cabeças de chave e valor, reduzindo o KV cache. Em inglês, <em>grouped-query attention</em>.</dd>
+        <dt>Ativo (modelo) (15.5)</dt><dd>Estado do ciclo de vida em que o modelo é plenamente suportado e recomendado para uso.</dd>
         <dt>Ato autodestrutivo (8.1)</dt><dd>Ação operacional em que um sistema ou agente danifica seu próprio ambiente, dados, testes ou capacidade de recuperação por erro, ambiguidade ou falta de travas.</dd>
         <dt>Auditabilidade (11.5)</dt><dd>Capacidade de rastrear afirmações geradas até documentos e trechos de origem por meio de citações ou links de suporte.</dd>
         <dt>Autoatenção (1.5)</dt><dd>Camada de atenção em que os tokens do próprio texto pesam uns aos outros. Em inglês, <em>self-attention</em>.</dd>
@@ -18598,6 +18629,7 @@ Desvio (regra fixa):
         <dt>Descoberta progressiva (9.3)</dt><dd>Navegação gradual por índices, pastas e resumos para carregar detalhes completos apenas quando a trilha confirma relevância.</dd>
         <dt>Difusão (modelo de) (1.7)</dt><dd>Modelo que gera texto prevendo tokens mascarados, em vez de escrever da esquerda para a direita. LLaDA e Mercury são exemplos.</dd>
         <dt>Disjuntor (2.6, 8.3)</dt><dd>Controle que para de chamar um serviço depois de muitas falhas seguidas e testa de novo depois de um tempo. Em inglês, <em>circuit breaker</em>.</dd>
+        <dt>Eficiência primeiro (14.3)</dt><dd>Estratégia de iniciar um sistema com modelo mais rápido e econômico e subir de faixa apenas se a amostra reprovar no critério de aceite.</dd>
         <dt>Embedding (1.7, 11.3)</dt><dd>Representação de um texto em números que podem ser comparados por semelhança. Usado para buscar e agrupar textos.</dd>
         <dt>Engenharia de contexto (9.1)</dt><dd>Conjunto iterativo de estratégias para curar e manter o conjunto ótimo de tokens enviados durante a inferência a cada turno.</dd>
         <dt>Entupimento de contexto (8.5)</dt><dd>Antipadrão de enviar arquivos inteiros, logs brutos ou históricos completos apenas porque cabem na janela, elevando custo, latência e perda de precisão.</dd>
@@ -18640,6 +18672,7 @@ Desvio (regra fixa):
         <dt>Frase de problema (3.1)</dt><dd>Uma frase com quem, o que não consegue, por quê e quanto custa, sem nomear tecnologia.</dd>
         <dt>Fronteira (2.1)</dt><dd>Ponto em que um componente entrega o trabalho a outro. Nela o pedido muda de formato e pode demorar, custar, ser recusado ou falhar.</dd>
         <dt>Fronteira, modelo de (1.7)</dt><dd>Modelo mais avançado, de uma empresa, acessado por uma conta no provedor. Não confundir com a fronteira entre componentes (capítulo 2).</dd>
+        <dt>FrugalGPT (14.4)</dt><dd>Estudo que organiza a redução de custo de inferência em três estratégias: adaptação de prompt, aproximação do modelo e cascata sequencial de modelos.</dd>
         <dt>Fuga de escopo (8.1)</dt><dd>Execução em que o agente ou automação modifica arquivos, ambientes ou registros além do limite autorizado no pedido.</dd>
         <dt>Fusão de ranqueamento (11.4)</dt><dd>Técnica que combina e deduplica resultados vindos de múltiplos buscadores (como BM25 e vetores) numa única lista ordenada.</dd>
         <dt>Gateway de modelos (14.4)</dt><dd>Componente que fica entre a aplicação e os fornecedores e concentra credenciais, repetição, balanceamento e fallback.</dd>
@@ -18684,6 +18717,7 @@ Desvio (regra fixa):
         <dt>KV cache (1.5)</dt><dd>Técnica que guarda em memória contas já feitas para não refazê-las. Assunto do capítulo 13.</dd>
         <dt>Laço do agente (12.1)</dt><dd>Ciclo em que o modelo avalia o estado, pede ferramentas, recebe os resultados e repete até responder sem pedir ferramenta.</dd>
         <dt>Latência (2.3)</dt><dd>Tempo entre fazer o pedido e receber a resposta.</dd>
+        <dt>Legado (modelo) (15.5)</dt><dd>Designação usada no capítulo para modelos entre o estado ativo e o obsoleto, sem novas atualizações.</dd>
         <dt>Limite de simultaneidade (2.6)</dt><dd>Máximo de pedidos em andamento ao mesmo tempo; o excedente espera ou é recusado.</dd>
         <dt>Limite de taxa (2.4)</dt><dd>Teto de uso por período, medido em pedidos, em tokens ou nos dois. Passar dele gera um erro 429.</dd>
         <dt>Limpeza de resultados de ferramenta (9.5)</dt><dd>Remoção seletiva de saídas antigas de ferramentas já processadas para liberar espaço no histórico ativo.</dd>
@@ -18723,6 +18757,7 @@ Desvio (regra fixa):
         <dt>Nível de supervisão humana (14.1)</dt><dd>Grau de revisão aplicada ao resultado: sem revisão, por amostragem ou integral. Substitui rótulos de cargo na matriz por finalidade.</dd>
         <dt>Nó (6.1, 6.3)</dt><dd>Ponto de um grafo; no conhecimento representa uma entidade ou conceito, e no fluxo representa uma etapa que serve como fronteira de retomada e desvio.</dd>
         <dt>Nova tentativa (2.4)</dt><dd>Repetir um pedido que falhou. Só é seguro quando a operação é idempotente ou tem um identificador do pedido.</dd>
+        <dt>Obsoleto (modelo) (15.5)</dt><dd>Estado do ciclo de vida em que o modelo ainda funciona, mas não é mais recomendado, recebendo substituto sugerido e data de aposentadoria.</dd>
         <dt>Operador (papel) (3.1)</dt><dd>Quem mantém o sistema funcionando depois da entrega: acompanha erros, atualiza conteúdo e atende reclamações.</dd>
         <dt>Orçamento de atenção (8.5, 9.2)</dt><dd>Capacidade finita de o modelo distribuir foco entre os tokens da janela de contexto; cada token adicional dilui essa atenção.</dd>
         <dt>Orçamento de contexto (1.3, 9.2)</dt><dd>Divisão do espaço da janela entre tudo o que entra (instruções, histórico, documentos, ferramentas) e a saída.</dd>
@@ -18755,6 +18790,7 @@ Desvio (regra fixa):
         <dt>Processamento em lote (2.6)</dt><dd>Enviar muitos pedidos de uma vez, sem pressa pela resposta, para o provedor processá-los depois, em geral com desconto. Em inglês, <em>batch</em>.</dd>
         <dt>Processamento em segundo plano (2.6)</dt><dd>Modo em que o serviço aceita o pedido, responde logo com um identificador e entrega o resultado depois, para a pessoa consultar o andamento.</dd>
         <dt>Processamento flexível (16.2)</dt><dd>Modo de custo menor em troca de respostas mais lentas e indisponibilidade ocasional, para tarefas de baixa prioridade.</dd>
+        <dt>Produção (15.1)</dt><dd>Ambiente em operação que atende os usuários reais do serviço, separado do ambiente de teste (<em>staging</em>).</dd>
         <dt>Prompt (1.1)</dt><dd>Texto que damos ao modelo para ele continuar.</dd>
         <dt>Prompt de sistema (4.3, 7.1)</dt><dd>Instrução definida pelo sistema, e não pelo usuário: tom, escopo, formato e limites. Não deve guardar segredos nem servir como controle de autorização.</dd>
         <dt>Prompt engineering (4.2)</dt><dd>Processo de escrever instruções eficazes, para que o modelo gere, de forma consistente, o que se precisa.</dd>
@@ -19035,7 +19071,7 @@ Desvio (regra fixa):
       <p>Microsoft. <em>View trace results for AI applications using OpenAI SDK</em>. <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application" target="_blank" rel="noopener noreferrer">learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application</a>.</p>
       <p>Langfuse. <em>LLM Observability and Application Tracing</em> e <em>Prompt Management</em>. <a href="https://langfuse.com/docs/observability/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/observability/overview</a>; <a href="https://langfuse.com/docs/prompt-management/overview" target="_blank" rel="noopener noreferrer">langfuse.com/docs/prompt-management/overview</a>.</p>
       <p>MLflow. <em>Prompt Registry</em>. <a href="https://mlflow.org/docs/latest/genai/prompt-registry/" target="_blank" rel="noopener noreferrer">mlflow.org/docs/latest/genai/prompt-registry</a>.</p>
-      <p>OpenTelemetry. <em>GenAI semantic conventions</em>: spans, métricas e client inference. <a href="https://github.com/open-telemetry/semantic-conventions-genai" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai</a>.</p>
+      <p>OpenTelemetry. <em>GenAI semantic conventions</em>: spans, métricas e client inference. <a href="https://github.com/open-telemetry/semantic-conventions-genai" target="_blank" rel="noopener noreferrer">github.com/open-telemetry/semantic-conventions-genai</a>; <a href="https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/client-inference.md" target="_blank" rel="noopener noreferrer">client-inference.md</a>.</p>
       <h3>Fontes do capítulo 16 (consultadas em 17/11/2026)</h3>
       <p>Anthropic. <em>Prompt caching</em>, <em>Pricing</em>, <em>Batch processing</em> e <em>Token counting</em>. <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/prompt-caching</a>; <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/about-claude/pricing</a>; <a href="https://platform.claude.com/docs/en/build-with-claude/batch-processing" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/batch-processing</a>; <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/token-counting</a>.</p>
       <p>OpenAI. <em>Cost optimization</em>, <em>Batch API</em> e <em>Prompt caching</em>. <a href="https://developers.openai.com/api/docs/guides/cost-optimization" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/cost-optimization</a>; <a href="https://developers.openai.com/api/docs/guides/batch" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/batch</a>; <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener noreferrer">developers.openai.com/api/docs/guides/prompt-caching</a>.</p>
