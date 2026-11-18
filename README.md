@@ -4,12 +4,12 @@ Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`g
 
 ## Estado atual (17/11/2026)
 
-- **Capítulos 1 a 16 concluídos e validados** (`325` páginas lógicas no HTML; o PDF, de `963` páginas A4, foi regerado em 17/11/2026 com os 16 capítulos).
+- **Capítulos 1 a 16 concluídos e validados** (`325` páginas lógicas no HTML; o PDF, de `968` páginas A4, foi regerado em 17/11/2026 após o fechamento técnico completo).
   - **Parte I — Fundamentos e controle:** Cap. 1 (Fundamentos de IA e LLMs), Cap. 2 (Arquitetura de sistemas com LLM), Cap. 3 (Problemas e especificações), Cap. 4 (Prompts, parâmetros e respostas), Cap. 5 (Avaliação e experimentação).
   - **Parte II — Contexto, grafos, segurança e proporcionalidade:** Cap. 6 (Engenharia de grafos aplicada a LLMs), Cap. 7 (Segurança e governança), Cap. 8 (Atos autodestrutivos e proporcionalidade), Cap. 9 (Contexto e memória), Cap. 10 (Ferramentas e integrações), Cap. 11 (Busca, indexação e RAG).
   - **Parte III — Operação, desempenho e economia:** Cap. 12 (Harnesses, workflows e agentes), Cap. 13 (Inferência local), Cap. 14 (Seleção e roteamento), Cap. 15 (Integração empresarial e LLMOps), Cap. 16 (Eficiência e economia).
-- **Parte II enxugada em 17/11/2026:** 120 → 108 páginas lógicas (18 → 16 partes por capítulo, 12 fusões), com texto preservado e PDF regerado; ver `changelog-enxugamento-parte-2-2026-11-17.md`.
-- **Parte III concluída.** Próximos passos: revisão final do conjunto, geração das imagens (aquarelas) e revisão por modelo de fronteira prevista nos planos dos capítulos 4 e 5.
+- **Fechamento técnico concluído em 17/11/2026:** fontes online conferidas e salvas nos `pacote-de-fontes-*.md`, gabaritos das 385 questões equilibrados sem viés de comprimento nos capítulos ajustados, `reflow` em `320 px` (`0` estouros), auditoria `axe-core` (`0` violações) e `Assistir:` padronizado em todas as unidades; ver `changelog-fechamento-tecnico-2026-11-17.md`.
+- **Pendências finais:** ver [roadmap.md](roadmap.md) (geração das 67 imagens em aquarela e validação manual nos três aparelhos reais, leitor de tela e impressão física).
 
 ## Estrutura principal
 
