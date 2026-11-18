@@ -2,14 +2,14 @@
 
 Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`guia-engenharia-llms.pdf`) sobre especificação, arquitetura, integração, avaliação e operação de sistemas com modelos de linguagem (LLMs), locais ou de fronteira, sem exigir programação.
 
-## Estado atual (17/11/2026)
+## Estado atual (18/11/2026)
 
-- **Capítulos 1 a 16 concluídos e validados** (`325` páginas lógicas no HTML; o PDF, de `968` páginas A4, foi regerado em 17/11/2026 após o fechamento técnico completo).
+- **Capítulos 1 a 16 concluídos, revisados e expandidos (Grupo A):** `333` páginas lógicas no HTML, `393` questões, `397` entradas `<dt>` no Glossário e `682` links externos; o PDF, de `989` páginas A4, foi regerado em 18/11/2026.
   - **Parte I — Fundamentos e controle:** Cap. 1 (Fundamentos de IA e LLMs), Cap. 2 (Arquitetura de sistemas com LLM), Cap. 3 (Problemas e especificações), Cap. 4 (Prompts, parâmetros e respostas), Cap. 5 (Avaliação e experimentação).
   - **Parte II — Contexto, grafos, segurança e proporcionalidade:** Cap. 6 (Engenharia de grafos aplicada a LLMs), Cap. 7 (Segurança e governança), Cap. 8 (Atos autodestrutivos e proporcionalidade), Cap. 9 (Contexto e memória), Cap. 10 (Ferramentas e integrações), Cap. 11 (Busca, indexação e RAG).
   - **Parte III — Operação, desempenho e economia:** Cap. 12 (Harnesses, workflows e agentes), Cap. 13 (Inferência local), Cap. 14 (Seleção e roteamento), Cap. 15 (Integração empresarial e LLMOps), Cap. 16 (Eficiência e economia).
-- **Fechamento técnico concluído em 17/11/2026:** fontes online conferidas e salvas nos `pacote-de-fontes-*.md`, gabaritos das 385 questões equilibrados sem viés de comprimento nos capítulos ajustados, `reflow` em `320 px` (`0` estouros), auditoria `axe-core` (`0` violações) e `Assistir:` padronizado em todas as unidades; ver `changelog-fechamento-tecnico-2026-11-17.md`.
-- **Pendências finais:** ver [roadmap.md](roadmap.md) (geração das 67 imagens em aquarela e validação manual nos três aparelhos reais, leitor de tela e impressão física).
+- **Fechamento técnico (17/11/2026), revisão geral e expansão do Grupo A (18/11/2026):** fontes conferidas nos `pacote-de-fontes-*.md`, gabaritos equilibrados nas questões de fechamento e nos 8 novos blocos (`2.3d`, `4.5d`, `5.6e`, `10.6d`, `11.3d`, `11.4c`, `13.6d`, `15.6d`), `Assistir:` padronizado nas unidades, revisão geral técnica aplicada e validação estrutural completa via `validar-guia.py` (`16 OK, 0 FALHA`). Ver `changelog-fechamento-tecnico-2026-11-17.md`, `changelog-revisao-geral-2026-11-18.md` e `changelog-expansao-grupo-a-2026-11-18.md`.
+- **Pendências finais:** ver [roadmap.md](roadmap.md) (revalidação de `reflow` em `320 px` e `axe-core` nas 8 partes novas em navegador real/Playwright, geração das 67 imagens em aquarela e validação manual nos três aparelhos reais, leitor de tela e impressão física).
 
 ## Estrutura principal
 
