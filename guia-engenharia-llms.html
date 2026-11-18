@@ -1969,7 +1969,7 @@
 
       <h3>Além do texto</h3>
       <ul>
-        <li><strong>Texto e imagem juntos.</strong> O Qwen3.8-27B é um modelo nativo de visão e linguagem (entende imagens e vídeos). O Gemma 4 recebe texto e imagem (e áudio em E2B, E4B e 12B). A saída segue em texto; muda a entrada.</li>
+        <li><strong>Texto e imagem juntos.</strong> O Qwen3.8-27B é um modelo nativo de visão e linguagem (processa imagens e vídeos). O Gemma 4 recebe texto e imagem (e áudio em E2B, E4B e 12B). A saída segue em texto; muda a entrada.</li>
         <li><strong>Modelo de mundo.</strong> O Genie 3, da DeepMind (agosto de 2025), gera ambientes interativos a partir de texto, em tempo real, com limites declarados: poucas ações, interação de poucos minutos e sem precisão geográfica perfeita em locais reais.</li>
         <li><strong><dfn>VLA</dfn> (visão-linguagem-ação).</strong> Converte imagem e texto em controle motor de robôs, como o π0 (2024) e o Gemini Robotics 2 (julho de 2026; VLA restrito a parceiros de acesso antecipado, e modelo de raciocínio ER 2 no Google AI Studio). A empresa diz que a destreza com vários dedos “continua desafiadora”.</li>
       </ul>
@@ -2387,7 +2387,7 @@
         </tbody>
       </table>
       </div>
-      <p>Fora do corpo, a resposta traz um identificador único do pedido. A Anthropic inclui o campo <code>request_id</code> para facilitar o rastreio. O uso muda de nome conforme o destino: o Ollama usa <code>prompt_eval_count</code> e <code>eval_count</code>.</p>
+      <p>Fora do corpo, a resposta traz um identificador único no cabeçalho HTTP (como <code>request-id</code> na Anthropic; em respostas de erro, <code>request_id</code> também aparece no corpo JSON) para facilitar o rastreio. O uso muda de nome conforme o destino: o Ollama usa <code>prompt_eval_count</code> e <code>eval_count</code>.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p2-2a">
         <legend>Escolha uma alternativa</legend>
@@ -2747,8 +2747,8 @@
         <thead><tr><th scope="col">Situação</th><th scope="col">Exemplo de código</th><th scope="col">Repetir?</th></tr></thead>
         <tbody>
           <tr><th scope="row">Pedido com problema</th><td>400, 401, 403, 404, 413</td><td>Não do mesmo jeito: corrija o pedido</td></tr>
-          <tr><th scope="row">Limite de taxa</th><td>429 com <code>retry-after</code></td><td>Sim, depois do tempo indicado</td></tr>
-          <tr><th scope="row">Teto de gasto ou de cota</th><td>429 sem <code>retry-after</code></td><td>Não: repetir não devolve o acesso</td></tr>
+          <tr><th scope="row">Limite de taxa</th><td>429 (com ou sem <code>retry-after</code>)</td><td>Sim, após o tempo indicado ou com espera crescente (2.4b)</td></tr>
+          <tr><th scope="row">Teto de gasto ou de cota</th><td>429 com erro de cota/gasto no corpo</td><td>Não: repetir não devolve o acesso</td></tr>
           <tr><th scope="row">Sobrecarga</th><td>503 ou 529</td><td>Sim, com espera crescente e variação</td></tr>
           <tr><th scope="row">Falha do servidor</th><td>500</td><td>Sim, com número máximo de tentativas</td></tr>
         </tbody>
@@ -3439,7 +3439,7 @@ request-id: req_exemplo_0042
         <label class="alternativa"><input type="radio" name="c2q2" value="a" data-correta="false" data-explicacao="Incorreta. Chamadas de inferência não guardam estado nem aprendem a conversa nos pesos; não há treinamento a refazer."><span><strong>A.</strong> A segunda instância não herdou o treinamento da primeira e precisa ser reajustada com a conversa salva.</span></label>
         <label class="alternativa"><input type="radio" name="c2q2" value="b" data-correta="false" data-explicacao="Incorreta. O status 200 confirma apenas o recebimento do pedido, sem garantir que o histórico foi reenviado."><span><strong>B.</strong> A primeira resposta veio com status de sucesso, o que deveria prender a conversa na memória da instância.</span></label>
         <label class="alternativa"><input type="radio" name="c2q2" value="c" data-correta="false" data-explicacao="Incorreta. O limite de saída restringe quantos tokens o modelo escreve na resposta, não o que ele lê na entrada."><span><strong>C.</strong> O limite de saída da segunda instância era curto demais para lembrar o edital citado na pergunta anterior.</span></label>
-        <label class="alternativa"><input type="radio" name="c2q2" value="d" data-correta="true" data-explicacao="Correta. Chamadas a modelos não mantêm estado entre turnos; gravar no banco só funciona se o serviço montar e reenviar o histórico em cada pedido."><span><strong>D.</strong> O adaptador não reenviou os turnos anteriores no novo pedido, e o modelo não guarda memória entre chamadas.</span></label>
+        <label class="alternativa"><input type="radio" name="c2q2" value="d" data-correta="true" data-explicacao="Correta. Chamadas a modelos não mantêm estado entre turnos; gravar no banco só funciona se o serviço montar e reenviar o histórico em cada pedido."><span><strong>D.</strong> O serviço não reenviou os turnos anteriores no novo pedido, e o modelo não guarda memória entre chamadas.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
 
@@ -4414,7 +4414,7 @@ request-id: req_exemplo_0042
 
       <h3>O que o modelo faz bem</h3>
       <ul>
-        <li>Entender pedidos escritos de jeitos diferentes, com erro de digitação e frase incompleta.</li>
+        <li>Interpretar pedidos escritos de jeitos diferentes, com erro de digitação e frase incompleta.</li>
         <li>Resumir e reescrever mantendo o sentido, para públicos diferentes.</li>
         <li>Classificar texto em categorias descritas em linguagem comum.</li>
         <li>Explicar uma informação fixa em linguagem mais simples, sem alterar o conteúdo.</li>
@@ -4437,7 +4437,7 @@ request-id: req_exemplo_0042
         <thead><tr><th scope="col">Tarefa</th><th scope="col">Ferramenta</th><th scope="col">Por quê</th></tr></thead>
         <tbody>
           <tr><th scope="row">Calcular o valor da parcela</th><td>Regra</td><td>Resultado único, conferível</td></tr>
-          <tr><th scope="row">Entender “quanto falta pagar?”</th><td>Modelo</td><td>Linguagem aberta</td></tr>
+          <tr><th scope="row">Interpretar “quanto falta pagar?”</th><td>Modelo</td><td>Linguagem aberta</td></tr>
           <tr><th scope="row">Dizer se o documento é aceito</th><td>Regra</td><td>Lista fechada de documentos</td></tr>
           <tr><th scope="row">Explicar por que falta um documento</th><td>Modelo</td><td>Texto adaptado à dúvida</td></tr>
         </tbody>
@@ -4546,7 +4546,7 @@ request-id: req_exemplo_0042
         <strong>Em 3 linhas</strong>
         <ul>
           <li>O formulário e a busca continuam determinísticos.</li>
-          <li>O modelo entra onde há linguagem aberta: entender a pergunta e explicar a resposta.</li>
+          <li>O modelo entra onde há linguagem aberta: interpretar a pergunta e explicar a resposta.</li>
           <li>Nada que mude matrícula, valor ou prazo fica com o modelo.</li>
         </ul>
       </div>
@@ -4840,7 +4840,7 @@ request-id: req_exemplo_0042
           <tr><th scope="row">Resultado</th><td>Tempo até a resposta útil de 9 h para 1 h em 80% dos casos; repetidas de 300 para menos de 120; no máximo 2% de erro sobre prazo.</td></tr>
           <tr><th scope="row">Restrições</th><td>Antes da matrícula (deve); teto de custo mensal (deve); fonte oficial única (deve); sem dado pessoal ao provedor (deve); sistema acadêmico intocado (deve); espanhol (deveria).</td></tr>
           <tr><th scope="row">Aceite</th><td>30 perguntas reais com lista e prazo; 15 recusas com canal certo; funcionar com o sistema fora do ar; nenhum dado pessoal na inspeção; 95% de respostas úteis em 100 conversas.</td></tr>
-          <tr><th scope="row">Decisão de IA</th><td>Modelo entende a pergunta e escreve a resposta; busca e cálculo são regra; efetivar matrícula fica fora.</td></tr>
+          <tr><th scope="row">Decisão de IA</th><td>Modelo interpreta a pergunta e escreve a resposta; busca e cálculo são regra; efetivar matrícula fica fora.</td></tr>
           <tr><th scope="row">Partes</th><td>Página oficial (secretaria); busca (tecnologia); resposta (tecnologia e secretaria); encaminhamento (secretaria).</td></tr>
           <tr><th scope="row">Suposições</th><td>A página será atualizada até janeiro (dona: secretaria; conferir em 10/01). O sistema acadêmico seguirá expondo a interface atual (dono: tecnologia).</td></tr>
           <tr><th scope="row">Não-objetivos</th><td>Efetivar matrícula, calcular desconto, falar de notas, atender pós-graduação.</td></tr>
@@ -4925,7 +4925,7 @@ request-id: req_exemplo_0042
         <legend>Questão 3 <span class="nivel">(média)</span></legend>
         <p id="enunciado-c3q3">Na especificação da Aurora, a equipe escreveu: “seria bom o assistente funcionar antes da matrícula” e “se possível, evitar enviar dados de alunos ao provedor”. Um colega diz que as duas frases estão bem redigidas, porque são cuidadosas. Qual é a correção necessária?</p>
         <label class="alternativa"><input type="radio" name="c3q3" value="a" data-correta="false" data-explicacao="Incorreta. Cautela na redação não define força. Sem força, a restrição some quando o prazo aperta."><span><strong>A.</strong> Nenhuma: as duas estão cuidadosas e deixam claro que são intenções, não obrigações.</span></label>
-        <label class="alternativa"><input type="radio" name="c3q3" value="b" data-correta="false" data-explicacao="Incorreta. A força não depende do custo: depende do que acontece se a restrição não for cumprida."><span><strong>B.</strong> Trocar a ordem: primeiro o espanhol, que é mais barato, e depois o prazo e a privacidade.</span></label>
+        <label class="alternativa"><input type="radio" name="c3q3" value="b" data-correta="false" data-explicacao="Incorreta. A força não depende do custo de implementação: depende do impacto se a restrição não for cumprida."><span><strong>B.</strong> Trocar a ordem: priorizar só o que custar menos, deixando prazo e privacidade para depois.</span></label>
         <label class="alternativa"><input type="radio" name="c3q3" value="c" data-correta="false" data-explicacao="Incorreta. As duas são obrigatórias. Tratá-las como opcionais elimina justamente o que não pode faltar."><span><strong>C.</strong> Marcar as duas como opcionais, para não travar o cronograma com exigências que podem esperar.</span></label>
         <label class="alternativa"><input type="radio" name="c3q3" value="d" data-correta="true" data-explicacao="Correta. As duas são obrigatórias: sem prazo o projeto não serve, e o envio de dado pessoal é restrição de privacidade. “Seria bom” e “se possível” esvaziam a obrigação."><span><strong>D.</strong> Marcar as duas como obrigatórias: sem prazo o projeto não serve, e o dado pessoal não pode sair da escola.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
@@ -4945,8 +4945,8 @@ request-id: req_exemplo_0042
         <legend>Questão 5 <span class="nivel">(média)</span></legend>
         <p id="enunciado-c3q5">Um fluxo precisa fazer duas coisas: calcular o desconto de irmãos a partir da regra financeira e responder a dúvidas escritas de jeitos diferentes sobre documentos. O time propõe um único modelo que faz as duas. Qual é a divisão mais adequada?</p>
         <label class="alternativa"><input type="radio" name="c3q5" value="a" data-correta="false" data-explicacao="Incorreta. Deixar o cálculo com o modelo troca uma regra de resposta única por uma estimativa que pode errar."><span><strong>A.</strong> Um modelo para as duas tarefas, com instruções separadas para cada uma e revisão por amostra.</span></label>
-        <label class="alternativa"><input type="radio" name="c3q5" value="b" data-correta="true" data-explicacao="Correta. O cálculo é regra determinística; a dúvida escrita é linguagem aberta, onde o modelo ajuda. Cada parte com seu contrato."><span><strong>B.</strong> A regra financeira calcula o desconto; o modelo entende a dúvida e escreve a resposta a partir da fonte oficial.</span></label>
-        <label class="alternativa"><input type="radio" name="c3q5" value="c" data-correta="false" data-explicacao="Incorreta. Regras fixas não entendem texto livre escrito de jeitos diferentes, e a dúvida cai no canal errado."><span><strong>C.</strong> Regras fixas para as duas tarefas, com listas de palavras-chave para identificar o assunto da dúvida.</span></label>
+        <label class="alternativa"><input type="radio" name="c3q5" value="b" data-correta="true" data-explicacao="Correta. O cálculo é regra determinística; a dúvida escrita é linguagem aberta, onde o modelo ajuda. Cada parte com seu contrato."><span><strong>B.</strong> A regra financeira calcula o desconto; o modelo interpreta a dúvida e escreve a resposta a partir da fonte oficial.</span></label>
+        <label class="alternativa"><input type="radio" name="c3q5" value="c" data-correta="false" data-explicacao="Incorreta. Regras fixas não lidam bem com texto livre escrito de jeitos diferentes, e a dúvida cai no canal errado."><span><strong>C.</strong> Regras fixas para as duas tarefas, com listas de palavras-chave para identificar o assunto da dúvida.</span></label>
         <label class="alternativa"><input type="radio" name="c3q5" value="d" data-correta="false" data-explicacao="Incorreta. Dar autonomia ao modelo sobre valor cria ação financeira sem aceite e sem conferência."><span><strong>D.</strong> Um modelo com autonomia para calcular e ajustar o desconto, desde que registre o valor no sistema.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -5285,7 +5285,7 @@ Campos: nome=Davi; idade=não informada; oficina=terça
         <caption>Quando pedir os passos (proposta didática)</caption>
         <thead><tr><th scope="col">Tarefa</th><th scope="col">Passos ajudam?</th><th scope="col">Motivo</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Calcular a mensalidade com desconto proporcional e multa por atraso</th><td>Provavelmente sim</td><td>Várias etapas dependentes; cada passo pode ser conferido</td></tr>
+          <tr><th scope="row">Enquadrar um pedido com três exceções cruzadas do regulamento de bolsas</th><td>Provavelmente sim</td><td>Várias cláusulas dependentes em texto aberto; cada etapa pode ser conferida (cálculo financeiro continua fora, em código)</td></tr>
           <tr><th scope="row">Classificar um e-mail em uma de três etiquetas</th><td>Provavelmente não</td><td>Um passo só; a resposta é curta e o custo extra não traz o que conferir</td></tr>
           <tr><th scope="row">Dizer o horário que está escrito na página oficial</th><td>Não</td><td>O que falta é a fonte, não raciocínio</td></tr>
         </tbody>
@@ -5300,7 +5300,7 @@ Campos: nome=Davi; idade=não informada; oficina=terça
         <label class="alternativa"><input type="radio" name="p4-2b" value="a" data-correta="false" data-explicacao="Incorreta. Aqui falta fonte, não raciocínio; a resposta sai de uma consulta."><span><strong>A.</strong> Dizer o horário de funcionamento que está escrito na página oficial.</span></label>
         <label class="alternativa"><input type="radio" name="p4-2b" value="b" data-correta="false" data-explicacao="Incorreta. Escolha entre poucas opções, em um passo. O custo dos passos não traz o que conferir."><span><strong>B.</strong> Classificar um e-mail em uma de três etiquetas.</span></label>
         <label class="alternativa"><input type="radio" name="p4-2b" value="c" data-correta="false" data-explicacao="Incorreta. Cópia de um campo não tem etapas encadeadas."><span><strong>C.</strong> Copiar o nome do aluno de um formulário.</span></label>
-        <label class="alternativa"><input type="radio" name="p4-2b" value="d" data-correta="true" data-explicacao="Correta. Há etapas dependentes (desconto, multa, soma), e cada passo pode ser conferido. É o tipo de tarefa em que o artigo observou ganho, ainda a confirmar na sua medição."><span><strong>D.</strong> Calcular mensalidade com desconto proporcional e multa por atraso.</span></label>
+        <label class="alternativa"><input type="radio" name="p4-2b" value="d" data-correta="true" data-explicacao="Correta. Há cláusulas em texto que se cruzam (prazo, curso, exceção), e cada passo pode ser conferido. Cálculos numéricos exatos, por outro lado, ficam fora em código determinístico."><span><strong>D.</strong> Enquadrar pedido com três exceções cruzadas do regulamento de bolsas.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
@@ -5486,7 +5486,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-3a">
         <legend>Escolha uma alternativa</legend>
-        <p id="enunciado-p4-3a">A aluna pergunta “E se eu pagar amanhã?”. O que o sistema precisa fazer para o modelo entender o “se”?</p>
+        <p id="enunciado-p4-3a">A aluna pergunta “E se eu pagar amanhã?”. O que o sistema precisa fazer para o modelo processar o “se” no contexto?</p>
         <label class="alternativa"><input type="radio" name="p4-3a" value="a" data-correta="false" data-explicacao="Incorreta. A API não guarda a conversa; sem o histórico, o modelo recebe só a última frase."><span><strong>A.</strong> Nada: o modelo lembra a conversa anterior sozinho.</span></label>
         <label class="alternativa"><input type="radio" name="p4-3a" value="b" data-correta="true" data-explicacao="Correta. A documentação diz que o histórico completo vai em toda chamada. É o sistema que o monta."><span><strong>B.</strong> Reenviar os turnos anteriores junto da pergunta.</span></label>
         <label class="alternativa"><input type="radio" name="p4-3a" value="c" data-correta="false" data-explicacao="Incorreta. O papel não cria memória. Mudar o papel só muda quem a mensagem diz ser."><span><strong>C.</strong> Mudar o papel da mensagem para sistema.</span></label>
@@ -5996,12 +5996,13 @@ usuário: E se eu pagar amanhã?</code></pre>
   "idade": {"type": ["integer", "null"]},
   "oficina": {"enum": ["terça", "quinta", "sábado"]}
  },
- "required": ["nome", "oficina"]
+ "required": ["nome", "idade", "oficina"],
+ "additionalProperties": false
 }</code></pre>
       </figure>
 
       <h3>Duas implementações</h3>
-      <p>A documentação da Anthropic diz que a saída estruturada restringe as respostas a seguir um schema, o que garante saída válida e analisável, e cita o formato JSON em <code>output_config.format</code>. A da OpenAI faz uma distinção útil: na saída estruturada, “only Structured Outputs ensure schema adherence”, ao passo que o modo JSON só garante que o JSON seja válido. Entre os dois provedores mudam os nomes, os campos e os limites do que o schema pode expressar. Leia a documentação do seu.</p>
+      <p>A documentação da Anthropic diz que a saída estruturada restringe as respostas a seguir um schema, o que garante saída válida e analisável, e cita o formato JSON em <code>output_config.format</code>. A da OpenAI faz uma distinção útil: na saída estruturada, “only Structured Outputs ensure schema adherence”, ao passo que o modo JSON só garante que o JSON seja válido — e, no modo estrito da OpenAI (<code>strict: true</code>), todo objeto exige <code>"additionalProperties": false</code> e todas as propriedades de <code>properties</code> listadas em <code>required</code> (usando <code>null</code> para campos opcionais, como em <code>idade</code> acima). Entre os dois provedores mudam os nomes, os campos e os limites do que o schema pode expressar. Leia a documentação do seu.</p>
       <h3>O que o schema não diz</h3>
       <p>A OpenAI avisa que a aplicação ainda precisa tratar recusas, respostas incompletas e erros de API, e validar regras de negócio que o schema não expressa. No exemplo, uma idade de 140 passa no schema (é um inteiro), e a regra “idade entre 5 e 100” é regra de negócio. Forma e verdade são camadas diferentes: o schema cuida da primeira, e o sistema, da segunda.</p>
       <h3>Pergunta</h3>
@@ -6056,7 +6057,7 @@ usuário: E se eu pagar amanhã?</code></pre>
         <thead><tr><th scope="col">Falha</th><th scope="col">Exemplo</th><th scope="col">Quem detecta</th></tr></thead>
         <tbody>
           <tr><th scope="row">JSON inválido</th><td>Chave aberta e não fechada</td><td>O analisador do JSON</td></tr>
-          <tr><th scope="row">Campo ausente</th><td>Resposta sem “oficina”</td><td>O schema (campo obrigatório)</td></tr>
+          <tr><th scope="row">Campo ausente</th><td>Resposta sem “oficina” (em modo JSON simples ou após corte)</td><td>O validador de schema na borda</td></tr>
           <tr><th scope="row">Valor fora da faixa</th><td>Idade 140</td><td>Regra de negócio do sistema</td></tr>
           <tr><th scope="row">Valor inventado</th><td>Data que não está na página oficial</td><td>Conferência com a fonte, e avaliação</td></tr>
           <tr><th scope="row">Resposta cortada</th><td>Motivo de parada <code>max_tokens</code></td><td>O motivo de parada (4.5b)</td></tr>
@@ -6117,6 +6118,7 @@ usuário: E se eu pagar amanhã?</code></pre>
 &lt;historico&gt;{{ultimas_mensagens}}&lt;/historico&gt;
 &lt;pergunta&gt;{{pergunta_do_aluno}}&lt;/pergunta&gt;</code></pre>
       </figure>
+      <p>Na chamada real à API (4.3a), o histórico entra na lista estruturada de mensagens (<code>user</code> e <code>assistant</code>) em vez de texto achatado em uma única tag — o que preserva a separação de papéis e o cache de prefixo —, e qualquer texto do aluno inserido entre tags XML precisa ter tags de fechamento escapadas ou bloqueadas para evitar injeção estrutural.</p>
       <div class="rolagem" role="region" aria-label="Tabela: partes do template" tabindex="0">
       <table class="tabela">
         <caption>Partes do template</caption>
@@ -7078,7 +7080,7 @@ para decidir.</code></pre>
           <tr><th scope="row">2 e 3. Seção citada, até três frases</th><td>Regra</td><td>Não precisa</td></tr>
           <tr><th scope="row">4. Diz o que não encontrou</th><td>Juiz com rubrica</td><td>Valida o juiz</td></tr>
           <tr><th scope="row">5. Tempo e custo</th><td>Regra, por medição</td><td>Não precisa</td></tr>
-          <tr><th scope="row">Reprovação automática</th><td>Regra</td><td>Lê os casos de dúvida</td></tr>
+          <tr><th scope="row">Reprovação automática</th><td>Regra + amostra/juiz em paráfrases</td><td>Lê os casos de dúvida e amostra</td></tr>
         </tbody>
       </table>
       </div>
@@ -8799,7 +8801,7 @@ Desvio (regra fixa):
       <h3>Deputado confuso e repasse cego de token</h3>
       <p>Na especificação de segurança do MCP, dois erros críticos ilustram essa quebra de fronteira:</p>
       <ul>
-        <li><strong><dfn>Deputado confuso</dfn> (<em>confused deputy</em>):</strong> quando um servidor intermediário (<em>proxy</em>) usa uma identidade fixa diante de uma API externa e um atacante aproveita cookies antigos de consentimento para obter autorização sem nova confirmação do usuário.</li>
+        <li><strong><dfn>Deputado confuso</dfn> (<em>confused deputy</em>):</strong> princípio pelo qual um componente privilegiado é induzido por entrada não confiável a abusar da própria autoridade — no caso de proxy MCP, quando um servidor intermediário usa identidade fixa diante de uma API externa e um atacante aproveita cookies antigos de consentimento para obter autorização sem nova confirmação.</li>
         <li><strong><dfn>Repasse cego de token</dfn> (<em>token passthrough</em>):</strong> antipadrão proibido na especificação, em que o servidor MCP aceita um token de acesso sem verificar se ele foi emitido exatamente para aquele servidor e o encaminha adiante, confundindo a auditoria e quebrando limites de confiança.</li>
       </ul>
 
@@ -8817,7 +8819,7 @@ Desvio (regra fixa):
       <p>Autorização pertence ao código e aos servidores de destino, sempre ligada ao usuário real e validando o destinatário de cada token. Na unidade 7.3, vemos como validar as saídas e ações que o modelo devolve.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Execução no contexto do usuário e mediação completa:</strong> OWASP <code>LLM06:2025</code>, Prevenção #5 e #7 (<span class="qual">registrado na norma</span>). <strong>Deputado confuso e <em>token passthrough</em>:</strong> Model Context Protocol, <em>Security Best Practices</em> (<span class="qual">registrado na especificação</span>, consultada em 17/11/2026).</p>
+        <p><strong>Execução no contexto do usuário e mediação completa:</strong> OWASP <code>LLM06:2025</code>, Prevenção #5 e #7 (<span class="qual">registrado na norma</span>). <strong>Repasse cego de token (<em>token passthrough</em>):</strong> Model Context Protocol, <em>Security Best Practices</em> (<span class="qual">registrado na especificação</span>, consultada em 17/11/2026); definição geral de <em>deputado confuso</em> aplicada ao cenário de proxy MCP.</p>
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
@@ -8860,7 +8862,7 @@ Desvio (regra fixa):
         <caption>Exemplos de falha por saída não validada (OWASP LLM05:2025)</caption>
         <thead><tr><th scope="col">Onde a saída entra</th><th scope="col">Risco se não houver validação</th><th scope="col">Proteção esperada</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Navegador web (HTML/Markdown)</th><td>Execução de script malicioso (<em>XSS</em>) na tela do usuário</td><td>Codificar saída para HTML e aplicar política de segurança (CSP)</td></tr>
+          <tr><th scope="row">Navegador web (HTML/Markdown)</th><td>Execução de script (<em>XSS</em>) ou exfiltração por URL de imagem/link</td><td>Codificar HTML, sanitizar Markdown e restringir origens/imagens na CSP</td></tr>
           <tr><th scope="row">Banco de dados (SQL)</th><td>Alteração ou apagamento de tabelas (<em>SQL injection</em>)</td><td>Usar consultas parametrizadas e contas com permissão mínima</td></tr>
           <tr><th scope="row">Terminal ou interpretador</th><td>Execução remota de código no servidor (<em>RCE</em>)</td><td>Evitar passar saída a <code>eval</code>/<code>exec</code> ou shell aberto</td></tr>
         </tbody>
@@ -8952,7 +8954,7 @@ Desvio (regra fixa):
       <p>Já a OWASP 2025 (<code>LLM10</code>) descreve o <dfn>consumo ilimitado</dfn> (<em>unbounded consumption</em>): quando a aplicação permite inferências excessivas sem controle, abrindo margem para negação de serviço, prejuízo financeiro em nuvem (chamado na norma de <em>Denial of Wallet</em>) e degradação do serviço. Validação de tamanho, limites de taxa, cotas por usuário e tempos limite evitam esse estrago.</p>
 
       <h3>Camadas externas de triagem (guardrails)</h3>
-      <p>Para complementar regras em código, arquiteturas de mercado usam <dfn>guardrail</dfn> externo — um filtro ou classificador independente antes e depois do modelo principal. Na documentação pública da Anthropic, usa-se um modelo leve com saída booleana estruturada para barrar entradas suspeitas antes da conversa principal. No Google Cloud, o serviço <em>Model Armor</em> atua filtrando tanto prompts na entrada quanto respostas na saída contra conteúdo malicioso ou sensível.</p>
+      <p>Para complementar regras em código, arquiteturas de mercado usam <dfn>guardrail</dfn> externo — um filtro ou classificador independente antes e depois do modelo principal. Na documentação pública da Anthropic (<em>Mitigate jailbreaks</em>), usa-se um modelo leve com saída estruturada para triar retornos brutos de ferramentas antes de entregá-los ao modelo principal (7.4b). Já no Google Cloud, o serviço <em>Model Armor</em> atua filtrando tanto prompts na entrada quanto respostas na saída contra conteúdo malicioso ou sensível.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p7-3c">
@@ -9017,7 +9019,7 @@ Desvio (regra fixa):
       </div>
 
       <h3>Onde o ataque se esconde</h3>
-      <p>No <dfn>envenenamento de dados</dfn>, um invasor altera um documento que alimentará o RAG — por exemplo, texto branco em fundo branco num currículo para que o modelo recomende o candidato (<code>LLM08</code>). Modelos multimodais sofrem ataques entre modalidades: uma instrução escondida numa imagem acompanha um texto comum e escapa de filtros que só olham texto puro (<code>LLM01</code>). A especificação de segurança do MCP alerta ainda que servidores locais são programas na mesma máquina do cliente: sem isolamento, um pacote malicioso pode executar código arbitrário ou ler chaves SSH.</p>
+      <p>Em ataques ao RAG, um invasor pode esconder instruções em um documento enviado ao acervo — por exemplo, texto branco em fundo branco num currículo para induzir o modelo a recomendar o candidato (<code>LLM01</code> via recuperação <code>LLM08</code>, distinto do <dfn>envenenamento de dados</dfn> ou de pesos em treino, <code>LLM04</code>). Modelos multimodais sofrem ataques entre modalidades: uma instrução escondida numa imagem acompanha um texto comum e escapa de filtros que só olham texto puro (<code>LLM01</code>). A especificação de segurança do MCP alerta ainda que servidores locais são programas na mesma máquina do cliente: sem isolamento, um pacote malicioso pode executar código arbitrário ou ler chaves SSH.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p7-4a">
@@ -9204,7 +9206,7 @@ Desvio (regra fixa):
       <p>Quando vários setores ou clientes compartilham um banco vetorial, a OWASP 2025 (<code>LLM08</code>) alerta para vazamentos entre contextos: uma consulta de um grupo pode recuperar trechos sigilosos de outro. A defesa é implementar <dfn>particionamento lógico</dfn> rigoroso e controles de acesso finos nos vetores e <em>embeddings</em>, filtrando pela permissão do usuário antes mesmo da geração da resposta.</p>
 
       <h3>Servidores locais e ferramentas MCP</h3>
-      <p>Ao rodar ferramentas ou servidores locais na máquina do operador, a especificação de segurança do MCP recomenda executá-los em ambiente isolado (contêiner, <em>chroot</em> ou sandbox da plataforma) com privilégios mínimos, destacando avisos claros se algum comando tentar acessar diretórios do sistema ou chaves privadas. Da mesma forma, servidores de inferência locais só devem ser expostos na rede interna autorizada, nunca abertos sem autenticação na rede pública.</p>
+      <p>Ao rodar ferramentas ou servidores locais na máquina do operador, a especificação de segurança do MCP recomenda executá-los em ambiente isolado (contêiner, <em>chroot</em> ou sandbox da plataforma) com privilégios mínimos, destacando avisos claros se algum comando tentar acessar diretórios do sistema ou chaves privadas — lembrando que <code>chroot</code> restringe apenas a raiz de arquivos (sem isolar rede nem processos) e contêineres comuns compartilham o núcleo (<em>kernel</em>) do hospedeiro, exigindo microVMs ou sandboxes mais fortes para código não confiável. Da mesma forma, servidores de inferência locais só devem ser expostos na rede interna autorizada, nunca abertos sem autenticação na rede pública.</p>
       <p>Na Aurora Educação (<span class="qual">proposta didática</span>), o índice vetorial de dúvidas de matrícula fica separado do índice administrativo da diretoria, e o servidor local de documentos roda com permissão apenas de leitura sobre a pasta pública aprovada.</p>
 
       <h3>Pergunta</h3>
@@ -10030,7 +10032,7 @@ Desvio (regra fixa):
         <p id="enunciado-p8-5a">Uma equipe resolveu enviar sempre os 40 regulamentos completos da escola (150 mil tokens) em toda pergunta de aluno, dizendo que “o modelo aguenta 1 milhão de tokens”. Qual efeito combinado tende a ocorrer?</p>
         <label class="alternativa"><input type="radio" name="p8-5a" value="a" data-correta="false" data-explicacao="Incorreta. Formatar JSON não é o efeito de encher a janela; o efeito é mais custo, mais latência e menos precisão."><span><strong>A.</strong> O único efeito é melhorar a formatação JSON da resposta.</span></label>
         <label class="alternativa"><input type="radio" name="p8-5a" value="b" data-correta="false" data-explicacao="Incorreta. As evidências de Liu et al., Chroma, Anthropic e OpenAI mostram que encher a janela com ruído aumenta custo, latência e erro."><span><strong>B.</strong> A precisão sobe ao máximo porque o modelo vê tudo sem precisar de busca.</span></label>
-        <label class="alternativa"><input type="radio" name="p8-5a" value="c" data-correta="false" data-explicacao="Incorreta. 150 mil tokens enviados a cada pedido geram cobrança e processamento em todas as chamadas que não acertam cache perfeito."><span><strong>C.</strong> O provedor ignora os tokens repetidos sem custo nem processamento.</span></label>
+        <label class="alternativa"><input type="radio" name="p8-5a" value="c" data-correta="false" data-explicacao="Incorreta. Os 150 mil tokens geram cobrança e processamento em toda chamada (mesmo com cache há tarifa reduzida, e o excesso segue degradando a atenção)."><span><strong>C.</strong> O provedor ignora os tokens repetidos sem custo nem processamento.</span></label>
         <label class="alternativa"><input type="radio" name="p8-5a" value="d" data-correta="true" data-explicacao="Correta. O entupimento de contexto multiplica o gasto por chamada, aumenta a latência e reduz a confiabilidade devido ao context rot e ao efeito de informação perdida no meio."><span><strong>D.</strong> Aumento alto de custo e latência junto com queda na precisão de recuperação e raciocínio por excesso de ruído na janela.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -11156,13 +11158,13 @@ Desvio (regra fixa):
         <tbody>
           <tr><th scope="row">Anthropic</th><td>Prefixo exato <code>tools → system → messages</code></td><td>5 min (1,25× escrita) ou 1 h (2× escrita); leitura 0,1×</td></tr>
           <tr><th scope="row">OpenAI</th><td>Todo o prefixo renderizado idêntico</td><td>Retenção varia por modelo; sessão não garante acerto</td></tr>
-          <tr><th scope="row">Google Cloud</th><td>Conteúdo grande e comum no início em curto prazo</td><td>Implícito: 90% desconto, até 24 h; explícito: TTL &gt; 60 min; isolar por usuário</td></tr>
+          <tr><th scope="row">Google Cloud</th><td>Conteúdo grande e comum no início em curto prazo</td><td>Implícito: 90% desconto, até 24 h; explícito: padrão 60 min (extensível); isolar por usuário</td></tr>
         </tbody>
       </table>
       </div>
 
       <h3>OpenAI, Google Cloud e isolamento contra vazamento</h3>
-      <p>Na OpenAI, o reuso exige coincidência de todo o prefixo renderizado e manter uma sessão não garante acerto, pois a expiração depende do modelo. No Google Cloud, o cache implícito oferece 90% de desconto e expira em até 24 horas (muitas entradas saem antes), enquanto o explícito permite ajustar TTL acima de 60 minutos — e o guia alerta para isolar dados e saídas em cache por sessão de usuário, evitando vazamento entre usuários em agentes.</p>
+      <p>Na OpenAI, o reuso exige coincidência de todo o prefixo renderizado e manter uma sessão não garante acerto, pois a expiração depende do modelo. No Google Cloud, o cache implícito oferece 90% de desconto e expira em até 24 horas (muitas entradas saem antes), enquanto o explícito parte de um padrão de 60 minutos que pode ser estendido — e o guia alerta para isolar dados e saídas em cache por sessão de usuário, evitando vazamento entre usuários em agentes.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p9-6b">
@@ -11274,7 +11276,7 @@ Desvio (regra fixa):
       <fieldset class="questao" aria-describedby="enunciado-c9q4">
         <legend>Questão 4 <span class="nivel">(média)</span></legend>
         <p id="enunciado-c9q4">Durante um atendimento longo da Aurora Educação, um agente acumulou 35 mil tokens de retornos antigos de busca de arquivos já processados. A equipe pensa em usar limpeza leve de resultados de ferramenta (<em>tool result clearing</em>), mas teme perder o cache de prefixo. Qual decisão está correta segundo a documentação?</p>
-        <label class="alternativa"><input type="radio" name="c9q4" value="a" data-correta="false" data-explicacao="Incorreta. Se um retorno futuro não pode ser perdido, não se apaga; mas aqui o enunciado trata de retornos já processados, onde o critério é volume vs. quebra de cache."><span><strong>A.</strong> Substituir a limpeza por temperatura zero para que o modelo ignore os 35 mil tokens.</span></label>
+        <label class="alternativa"><input type="radio" name="c9q4" value="a" data-correta="false" data-explicacao="Incorreta. Temperatura zero ajusta apenas o sorteio na geração de saída; os 35 mil tokens continuam ocupando a janela e sendo cobrados."><span><strong>A.</strong> Substituir a limpeza por temperatura zero para que o modelo ignore os 35 mil tokens.</span></label>
         <label class="alternativa"><input type="radio" name="c9q4" value="b" data-correta="false" data-explicacao="Incorreta. Usar <code>previous_response_id</code> ainda cobra todos os tokens anteriores da cadeia e não substitui limpeza quando a janela cresce."><span><strong>B.</strong> Trocar por <code>previous_response_id</code> resolve sem apagar nada, porque turnos antigos deixam de ser cobrados.</span></label>
         <label class="alternativa"><input type="radio" name="c9q4" value="c" data-correta="true" data-explicacao="Correta. Limpar retornos antigos de ferramenta invalida o cache do prefixo alterado, mas compensa quando o volume removido é grande o suficiente frente ao custo da invalidação."><span><strong>C.</strong> Remover volume bastante (os 35 mil tokens já lidos) para compensar a perda do cache.</span></label>
         <label class="alternativa"><input type="radio" name="c9q4" value="d" data-correta="false" data-explicacao="Incorreta. Limpar conteúdo no meio do histórico realmente invalida o prefixo em cache a partir dali, então não é invisível."><span><strong>D.</strong> A limpeza nunca afeta o cache de prefixo; pode rodar a cada 20 tokens removidos.</span></label>
@@ -11374,7 +11376,7 @@ Desvio (regra fixa):
         <thead><tr><th scope="col">Intenção</th><th scope="col">Anthropic / OpenAI</th><th scope="col">Google Cloud</th></tr></thead>
         <tbody>
           <tr><th scope="row">Modelo decide livremente</th><td><code>auto</code></td><td><code>AUTO</code> (ou <code>VALIDATED</code> com esquema rígido)</td></tr>
-          <tr><th scope="row">Obrigar ao menos uma</th><td><code>any</code> / <code>required</code> / específica</td><td><code>ANY</code> (opcionalmente com lista permitida)</td></tr>
+          <tr><th scope="row">Obrigar ao menos uma</th><td><code>any</code> (Anthropic) / <code>required</code> (OpenAI) / específica</td><td><code>ANY</code> (opcionalmente com lista permitida)</td></tr>
           <tr><th scope="row">Proibir chamada no turno</th><td><code>none</code></td><td><code>NONE</code></td></tr>
         </tbody>
       </table>
@@ -11470,7 +11472,7 @@ Desvio (regra fixa):
 
       <h3>Contrato de entrada e de saída</h3>
       <p>Segundo a especificação oficial, <dfn>JSON Schema</dfn> é uma linguagem declarativa para definir estrutura e restrições de dados JSON — mas definir o esquema é só metade do caminho, pois validar um dado contra o esquema exige um validador concreto na fronteira.</p>
-      <p>Nos provedores atuais, o contrato de entrada vai além da boa vontade. A OpenAI recomenda habilitar sempre o <dfn>modo estrito</dfn> (<code>strict: true</code>) para que chamadas sigam o esquema de forma confiável em vez de melhor esforço, exigindo <code>additionalProperties: false</code> em cada objeto. A Anthropic segue a mesma linha com <code>strict: true</code> na definição da ferramenta, e o protocolo MCP adiciona o campo opcional <code>outputSchema</code> para que servidores devolvam — e clientes validem — resultados estruturados conformes ao contrato.</p>
+      <p>Nos provedores atuais, o contrato de entrada vai além da boa vontade. A OpenAI recomenda habilitar sempre o <dfn>modo estrito</dfn> (<code>strict: true</code>) para que chamadas sigam o esquema de forma confiável em vez de melhor esforço, exigindo <code>additionalProperties: false</code> em cada objeto e todas as propriedades declaradas em <code>required</code> (usando <code>null</code> para opcionais, como em 4.6a). A Anthropic segue a mesma linha com <code>strict: true</code> na definição da ferramenta, e o protocolo MCP adiciona o campo opcional <code>outputSchema</code> para que servidores devolvam — e clientes validem — resultados estruturados conformes ao contrato.</p>
       <figure class="bloco-codigo">
         <figcaption>Contrato ilustrativo de ferramenta com entrada fechada e saída descrita (ilustrativo, não executado).</figcaption>
         <pre class="codigo" id="cod-10-2a" role="region" tabindex="0" aria-label="Exemplo ilustrativo de contrato JSON Schema de ferramenta" data-executavel="false"><code class="language-json">{
@@ -12253,7 +12255,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Se você precisa consultar um manual de dez páginas todo dia, deixá-lo aberto sobre a mesa é mais simples que montar um arquivo indexado; mas num prédio de cem mil processos, quem procura o código exato <code>TS-999</code> precisa de busca exata, não só por assunto parecido.</p></div>
 
       <h3>O ponto de partida antes do RAG</h3>
-      <p>No guia da Anthropic (<em>Contextual Retrieval</em>, 19/09/2024), a primeira recomendação é de proporcionalidade: se sua base de conhecimento for menor que cerca de 200 mil tokens (aproximadamente 500 páginas), muitas vezes basta incluir o material no prompt — especialmente usando cache de prefixo — sem precisar montar infraestrutura de RAG.</p>
+      <p>No guia da Anthropic (<em>Contextual Retrieval</em>, 19/09/2024), a primeira recomendação é de proporcionalidade: se sua base de conhecimento for menor que cerca de 200 mil tokens (aproximadamente 500 páginas), muitas vezes basta incluir o material no prompt — especialmente usando cache de prefixo — sem precisar montar infraestrutura de RAG. Vale a ressalva do capítulo 9 (9.2b e 9.2c): acima do orçamento operacional (como 64 mil tokens), mesmo cabendo na janela física, a precisão cai gradualmente por <em>context rot</em> e qualquer perda de cache cobra latência e custo cheios.</p>
 
       <h3>Busca lexical exata com BM25</h3>
       <p>Quando o acervo cresce muito além da janela, entra a recuperação. Mas busca por significado (vetores) pode falhar diante de códigos exatos: o guia cita o caso da consulta <code>Error code TS-999</code>, em que embeddings acham textos gerais sobre códigos de erro, mas erram a sequência exata <code>TS-999</code>.</p>
@@ -12397,7 +12399,7 @@ Desvio (regra fixa):
 
       <h3>Por que fatiar e por que sobrepor</h3>
       <p>Na preparação de uma base RAG, documentos inteiros são quebrados em <dfn>fragmentos</dfn> (<em>chunks</em>) de texto, em geral de poucas centenas de tokens, conforme descreve a Anthropic em <em>Contextual Retrieval</em>. Fragmentos grandes demais misturam assuntos e diluem a busca; pequenos demais quebram ideias no meio.</p>
-      <p>Para reduzir cortes bruscos na fronteira entre um bloco e o seguinte, usa-se <dfn>sobreposição</dfn> (<em>chunk overlap</em>): o fim de um fragmento se repete no início do próximo. Na API de Recuperação da OpenAI (<em>Retrieval</em>), por exemplo, o padrão estático usa <code>max_chunk_size_tokens</code> de <code>800</code> com <code>chunk_overlap_tokens</code> de <code>400</code> — aceitando tamanhos entre <code>100</code> e <code>4096</code> tokens, com sobreposição recomendada até metade do tamanho máximo.</p>
+      <p>Para reduzir cortes bruscos na fronteira entre um bloco e o seguinte, usa-se <dfn>sobreposição</dfn> (<em>chunk overlap</em>): o fim de um fragmento se repete no início do próximo. Na API de Recuperação da OpenAI (<em>Retrieval</em>), por exemplo, o padrão estático usa <code>max_chunk_size_tokens</code> de <code>800</code> com <code>chunk_overlap_tokens</code> de <code>400</code> — aceitando tamanhos entre <code>100</code> e <code>4096</code> tokens e impondo teto máximo de sobreposição de até metade do tamanho máximo (lembrando que sobreposição alta multiplica o índice).</p>
 
       <h3>Escolher o corte pela estrutura do documento</h3>
       <p>Quando o texto tem seções, títulos e tabelas claras, respeitar fronteiras naturais antes de aplicar tamanho fixo reduz ainda mais cortes no meio de uma regra.</p>
@@ -13544,13 +13546,13 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> Vários colegas podem ler o mesmo livro ao mesmo tempo, mas só um deve editar o mesmo documento de cada vez.</p></div>
 
       <h3>Leitura em paralelo, escrita em sequência</h3>
-      <p>Quando o Claude pede várias ferramentas num mesmo turno, o Agent SDK pode executá-las de forma concorrente ou sequencial, conforme a ferramenta: as de leitura podem rodar juntas, e as que modificam estado rodam em sequência para evitar conflitos. Ferramentas personalizadas são sequenciais por padrão; para permitir paralelismo, é preciso marcá-las como somente leitura em suas anotações.</p>
+      <p>Quando o Claude pede várias ferramentas num mesmo turno, o Agent SDK pode executá-las de forma concorrente ou sequencial, conforme a ferramenta: as de leitura podem rodar juntas, e as que modificam estado rodam em sequência para evitar conflitos. Ferramentas personalizadas são sequenciais por padrão; para permitir paralelismo, é preciso marcá-las como somente leitura em suas anotações — mas só confie em anotações (<code>readOnlyHint</code>) de servidores confiáveis e auditados, nunca de servidores MCP terceiros desconhecidos (10.6b).</p>
       <div class="rolagem" role="region" aria-label="Tabela: execução paralela ou sequencial de ferramentas" tabindex="0">
       <table class="tabela">
         <caption>Execução de ferramentas no Agent SDK (resumo da documentação, tradução livre)</caption>
         <thead><tr><th scope="col">Tipo de ferramenta</th><th scope="col">Execução</th><th scope="col">Motivo documentado</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Somente leitura (leitura de arquivos, busca, ferramentas MCP de leitura)</th><td>Pode rodar em paralelo</td><td>Não alteram estado</td></tr>
+          <tr><th scope="row">Somente leitura (arquivos, busca, MCP confiável marcado)</th><td>Pode rodar em paralelo</td><td>Não alteram estado</td></tr>
           <tr><th scope="row">Altera estado (edição, escrita, comandos)</th><td>Em sequência</td><td>Evita conflitos</td></tr>
           <tr><th scope="row">Personalizada</th><td>Sequencial por padrão</td><td>Paralelismo exige marcá-la como somente leitura</td></tr>
         </tbody>
@@ -14198,7 +14200,7 @@ Desvio (regra fixa):
       <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (llama.cpp, vLLM e Ollama, consultadas em 17/11/2026), <span class="qual">registrado no artigo</span> (PagedAttention, decodificação especulativa, LoRA, QLoRA, Mixtral e GQA), <span class="qual">registrado na ficha do fabricante</span> (Qwen3.8-27B e Gemma 4) e <span class="qual">proposta didática</span> (cálculos, quadros e casos da Aurora Educação). Opções e valores padrão de runtimes mudam com frequência: valem como estado de 17/11/2026.</p>
 
       <h3>Sobre as fontes</h3>
-      <p>O pacote do capítulo reúne 20 fontes públicas com 77 trechos literais conferidos em 17/11/2026 (<code>IL-01</code>–<code>IL-77</code>). As duas páginas do Ollama sobre contexto divergem entre si, e o guia registra a divergência na parte 13.2c.</p>
+      <p>O pacote do capítulo reúne 20 fontes públicas com 81 trechos literais conferidos em 17/11/2026 (<code>IL-01</code>–<code>IL-81</code>). As duas páginas do Ollama sobre contexto divergem entre si, e o guia registra a divergência na parte 13.2c.</p>
       <nav class="page-nav" aria-label="Navegação do capítulo 13">
         <a href="#questoes-capitulo-12">Questões do capítulo 12</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 244">244</span><a href="#sumario">Sumário</a></span>
@@ -14380,7 +14382,7 @@ Desvio (regra fixa):
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>O tamanho do arquivo de pesos é, aproximadamente, parâmetros × bits por peso ÷ 8.</li>
+          <li>O tamanho do arquivo de pesos, em bytes, é aproximadamente parâmetros × bits por peso ÷ 8.</li>
           <li>Na tabela do llama.cpp, o modelo de 8 bilhões de parâmetros vai de 14,96 GiB em F16 a 4,58 GiB em Q4_K_M.</li>
           <li>Estimativas para outros modelos usam os mesmos bits por peso, mas são aproximações: confira sempre o arquivo real.</li>
         </ul>
@@ -14402,7 +14404,7 @@ Desvio (regra fixa):
       </table>
       </div>
       <h3>A regra de bolso</h3>
-      <p>Na tabela, o tamanho dividido pelos bits por peso dá quase o mesmo valor em todas as colunas (cerca de 0,935 GiB por bit por peso). Isso mostra que o tamanho acompanha os bits por peso. A regra (<span class="qual">proposta didática</span>): tamanho ≈ parâmetros × bits por peso ÷ 8.</p>
+      <p>Na tabela, o tamanho dividido pelos bits por peso dá quase o mesmo valor em todas as colunas (cerca de 0,935 GiB por bit por peso). Isso mostra que o tamanho acompanha os bits por peso. A regra (<span class="qual">proposta didática</span>): tamanho em bytes ≈ parâmetros × bits por peso ÷ 8 (divida por 1.024³ para converter para GiB).</p>
       <h3>Estimativa para um modelo de 27 bilhões (<span class="qual">proposta didática</span>)</h3>
       <p>Usando os mesmos bits por peso, um modelo denso de 27 bilhões de parâmetros ficaria perto de 15 GiB em Q4_K_M, 21 GiB em Q6_K, 27 GiB em Q8_0 e 50 GiB em 16 bits. É uma estimativa: a distribuição real de camadas e tensores muda o resultado. Cada variante será revista em 13.4.</p>
 
@@ -14885,7 +14887,7 @@ Desvio (regra fixa):
         <ul>
           <li>O llama.cpp deixa escolher o tipo de dado do cache de chaves e de valores (padrão f16); o Ollama o faz por variável de ambiente.</li>
           <li>Segundo o Ollama, q8_0 usa cerca de metade da memória do f16, com perda muito pequena; q4_0 usa cerca de um quarto, com perda pequena a média.</li>
-          <li>O impacto depende do modelo e da tarefa; modelos com muitas cabeças KV agrupadas podem sentir mais.</li>
+          <li>O impacto depende do modelo e da tarefa; modelos com alta razão de agrupamento GQA (muitas cabeças de consulta compartilhando poucas cabeças KV) podem sentir mais.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> É como guardar anotações em resumo: um resumo curto ocupa metade do caderno e costuma bastar; um resumo muito curto ocupa um quarto e pode perder detalhes.</p></div>
@@ -14904,7 +14906,7 @@ Desvio (regra fixa):
       </table>
       </div>
       <h3>O que o Ollama diz do efeito</h3>
-      <p>A FAQ afirma que o impacto sobre a qualidade depende do modelo e da tarefa, e que modelos com contagem alta de GQA, como o Qwen2, podem sentir impacto maior na precisão do que modelos com contagem baixa. Recomenda experimentar tipos diferentes para achar o equilíbrio entre memória e qualidade.</p>
+      <p>A FAQ afirma que o impacto sobre a qualidade depende do modelo e da tarefa, e que modelos com alta razão de agrupamento GQA (muitas cabeças de consulta para poucas cabeças KV), como o Qwen2, podem sentir impacto maior na precisão do que modelos com razão baixa. Recomenda experimentar tipos diferentes para achar o equilíbrio entre memória e qualidade.</p>
       <h3>Regra de uso (<span class="qual">proposta didática</span>)</h3>
       <p>Comece em f16; se faltar memória, tente q8_0 e valide com a sua amostra de casos (13.4c); trate q4_0 como último recurso, sobretudo com contexto longo, e valide formatos e ferramentas.</p>
 
@@ -15226,7 +15228,7 @@ Desvio (regra fixa):
 
       <fieldset class="questao" aria-describedby="enunciado-c13q3">
         <legend>Questão 3 <span class="nivel">(média)</span></legend>
-        <p id="enunciado-c13q3">No modelo ilustrativo (40 camadas, 8 cabeças KV de dimensão 128, 16 bits), qual é o KV cache de um contexto de 64 mil tokens?</p>
+        <p id="enunciado-c13q3">No modelo ilustrativo (40 camadas, 8 cabeças KV de dimensão 128, 16 bits), qual é o KV cache de um contexto de 64K (65.536 tokens)?</p>
         <label class="alternativa"><input type="radio" name="c13q3" value="a" data-correta="false" data-explicacao="Incorreta. O contexto é guardado no KV cache, além dos pesos."><span><strong>A.</strong> Zero, porque os pesos já contêm o contexto.</span></label>
         <label class="alternativa"><input type="radio" name="c13q3" value="b" data-correta="false" data-explicacao="Incorreta. Isso corresponde a poucos milhares de tokens."><span><strong>B.</strong> Cerca de 1 GiB.</span></label>
         <label class="alternativa"><input type="radio" name="c13q3" value="c" data-correta="false" data-explicacao="Incorreta. Esse valor corresponde a 256 mil tokens."><span><strong>C.</strong> Cerca de 40 GiB.</span></label>
@@ -16426,7 +16428,7 @@ Desvio (regra fixa):
       <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (OpenAI, Anthropic, AWS, Microsoft, Langfuse e MLflow, consultados em 17/11/2026), <span class="qual">registrado no livro</span> (capítulos do SRE da Google), <span class="qual">registrado na especificação</span> (SemVer 2.0.0), <span class="qual">registrado no repositório oficial</span> (convenções GenAI do OpenTelemetry) e <span class="qual">proposta didática</span> (quadros operacionais, critérios e casos da Aurora Educação).</p>
 
       <h3>Sobre as fontes</h3>
-      <p>O pacote do capítulo lista 18 fontes públicas (com 69 trechos literais conferidos em 17/11/2026: <code>OP-01</code>, <code>AE-01</code>, <code>OT-01</code>, <code>BL-01</code>, <code>AV-01</code>, <code>AD-01</code>, <code>SC-01</code>, <code>SP-01</code>, <code>SV-01</code>, <code>AT-01</code>, <code>LO-01</code>, <code>LP-01</code> e <code>MP-01</code>, entre outros). As convenções do OpenTelemetry estão em estado <em>Development</em>: nomes de atributos podem mudar.</p>
+      <p>O pacote do capítulo lista 18 fontes públicas (com 73 trechos literais conferidos em 17/11/2026: <code>OP-01</code>–<code>OP-19</code>, <code>AE-01</code>–<code>AE-09</code>, <code>OT-01</code>–<code>OT-08</code>, <code>BL-01</code>–<code>BL-03</code>, <code>AV-01</code>–<code>AV-06</code>, <code>AD-01</code>–<code>AD-08</code>, <code>SC-01</code>–<code>SC-05</code>, <code>SP-01</code>–<code>SP-04</code>, <code>SV-01</code>–<code>SV-02</code>, <code>AT-01</code>–<code>AT-02</code>, <code>LO-01</code>–<code>LO-02</code>, <code>LP-01</code>–<code>LP-02</code> e <code>MP-01</code>–<code>MP-03</code>). As convenções do OpenTelemetry estão em estado <em>Development</em>: nomes de atributos podem mudar.</p>
       <nav class="page-nav" aria-label="Navegação do capítulo 15">
         <a href="#questoes-capitulo-14">Questões do capítulo 14</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 284">284</span><a href="#sumario">Sumário</a></span>
@@ -16996,14 +16998,14 @@ Desvio (regra fixa):
         <caption>Métricas de inferência e a decisão que cada uma apoia</caption>
         <thead><tr><th scope="col">Métrica</th><th scope="col">Pergunta que responde</th><th scope="col">Decisão típica</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Tempo até o primeiro token</th><td>Quanto o usuário espera para ver algo</td><td>Ligar streaming, encurtar prompt</td></tr>
+          <tr><th scope="row">Tempo até o primeiro token</th><td>Quanto o servidor leva no prefill até o 1º token</td><td>Encurtar prompt, usar cache; ligar streaming reduz a espera percebida até ver texto</td></tr>
           <tr><th scope="row">Tempo por token</th><td>Qual o ritmo de geração</td><td>Trocar modelo ou esforço</td></tr>
           <tr><th scope="row">Duração da operação</th><td>Quanto custa esperar a resposta inteira</td><td>Limitar tamanho e ajustar rota</td></tr>
         </tbody>
       </table>
       </div>
       <h3>O que cada número decide</h3>
-      <p>Tempo até o primeiro token é o que o usuário sente ao esperar a resposta começar; tempo por token, o ritmo de leitura. Duração total decide o custo de espera. Otimizar um sem olhar os outros pode piorar a percepção: streaming reduz o primeiro e não muda o total.</p>
+      <p>Tempo até o primeiro token de servidor (<code>time_to_first_token</code>) mede o <em>prefill</em>; o <em>streaming</em> não encurta esse tempo no servidor, mas reduz a espera percebida pelo usuário até ver o texto começar (sem aguardar toda a geração), enquanto tempo por token mede o ritmo de leitura e duração total define o custo completo de espera.</p>
 
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p15-4b">
@@ -17422,7 +17424,7 @@ Desvio (regra fixa):
 
       <fieldset class="questao" aria-describedby="enunciado-c15q3">
         <legend>Questão 3 <span class="nivel">(média)</span></legend>
-        <p id="enunciado-c15q3">O span de uma chamada mostra 9 segundos, mas cada uma das três tentativas levou 3. Qual é a leitura correta?</p>
+        <p id="enunciado-c15q3">O span de uma chamada mostra 9 segundos e cada uma das três tentativas levou 3 segundos (desprezando o intervalo entre elas). Qual é a leitura correta?</p>
         <label class="alternativa"><input type="radio" name="c15q3" value="a" data-correta="false" data-explicacao="Incorreta. A operação percebida é a soma com repetições."><span><strong>A.</strong> O span está errado; deveria mostrar 3 segundos.</span></label>
         <label class="alternativa"><input type="radio" name="c15q3" value="b" data-correta="false" data-explicacao="Incorreta. A média não representa o tempo percebido."><span><strong>B.</strong> Deveria mostrar a média entre tentativas.</span></label>
         <label class="alternativa"><input type="radio" name="c15q3" value="c" data-correta="false" data-explicacao="Incorreta. Registrar a operação inteira é o objetivo."><span><strong>C.</strong> As tentativas não deveriam ser registradas.</span></label>
@@ -17470,7 +17472,7 @@ Desvio (regra fixa):
     <section class="page" id="capitulo-16" aria-labelledby="titulo-do-capitulo-16">
       <h2 id="titulo-do-capitulo-16">Capítulo 16 — Eficiência e economia</h2>
       <p>Custo de LLM não é um número que se descobre na fatura: é o resultado de decisões de desenho. Quantos pedidos, quantos tokens, qual modelo, qual validade de cache e qual tamanho de sessão. Este capítulo ensina a medir e a decidir com método, sem depender de memorizar preço.</p>
-      <p>Você vai medir tokens e custo por chamada, localizar gargalos, eliminar redundância com lote e junção de etapas, organizar contexto e ferramentas para o cache acertar, escolher validade de cache e esforço pela conta do fluxo e revisar o custo ao longo do tempo.</p>
+      <p>Você vai medir tokens e custo por chamada, localizar gargalos, eliminar redundância com lote e redução de chamadas, organizar contexto e ferramentas para o cache acertar, escolher validade de cache e esforço pela conta do fluxo e revisar o custo ao longo do tempo.</p>
       <p>Como em todo o guia, você não precisa programar: as contas aparecem em fórmulas simples e tabelas. Contexto e compactação estão no Capítulo 9, escolha de modelo e esforço no Capítulo 14, ferramentas no Capítulo 10 e operação no Capítulo 15. O capítulo não repete preços: trabalha com multiplicadores e pontos de equilíbrio, que envelhecem mais devagar.</p>
 
       <h3>O que você vai estudar</h3>
@@ -17492,7 +17494,7 @@ Desvio (regra fixa):
       <p>As etiquetas de confiança continuam: <span class="qual">registrado na documentação</span> (Anthropic, OpenAI, Google Cloud e LiteLLM, consultados em 17/11/2026) e <span class="qual">proposta didática</span> (contas, quadros e casos da Aurora Educação). Valores de preço não aparecem no texto corrido; os multiplicadores aparecem com a data da consulta.</p>
 
       <h3>Sobre as fontes</h3>
-      <p>O pacote do capítulo reúne 9 fontes públicas com 43 trechos literais conferidos em 17/11/2026 (<code>AT-01</code>–<code>AT-03</code>, <code>LC-01</code>–<code>LC-05</code>, <code>OC-01</code>–<code>OC-05</code>, <code>OK-01</code>–<code>OK-06</code>, <code>AC-01</code>–<code>AC-07</code>, <code>AP-01</code>–<code>AP-06</code>, <code>OB-01</code>–<code>OB-02</code>, <code>AB-01</code>–<code>AB-04</code> e <code>GC-01</code>–<code>GC-05</code>). O "ponto ótimo de sessão" é método de estimativa, não resultado medido.</p>
+      <p>O pacote do capítulo reúne 9 fontes públicas com 49 trechos literais conferidos em 17/11/2026 (<code>AT-01</code>–<code>AT-04</code>, <code>LC-01</code>–<code>LC-06</code>, <code>OC-01</code>–<code>OC-05</code>, <code>OK-01</code>–<code>OK-06</code>, <code>AC-01</code>–<code>AC-08</code>, <code>AP-01</code>–<code>AP-06</code>, <code>OB-01</code>–<code>OB-02</code>, <code>AB-01</code>–<code>AB-06</code> e <code>GC-01</code>–<code>GC-06</code>). O "ponto ótimo de sessão" é método de estimativa, não resultado medido.</p>
       <nav class="page-nav" aria-label="Navegação do capítulo 16">
         <a href="#questoes-capitulo-15">Questões do capítulo 15</a>
         <span class="page-mid"><span class="page-number" aria-label="Página 304">304</span><a href="#sumario">Sumário</a></span>
@@ -18489,7 +18491,7 @@ Desvio (regra fixa):
       <div class="analogia"><p><strong>Pense assim.</strong> O cozinheiro econômico não compra o ingrediente mais barato: compra o certo, na quantidade certa, e aproveita as sobras.</p></div>
 
       <h3>O método em seis passos</h3>
-      <p>Meça tokens de entrada, saída e pedidos (16.1). Localize o gasto nas três alavancas (16.2). Elimine redundância com lote e junção de etapas (16.3). Organize contexto e ferramentas para o cache acertar (16.4). Escolha a validade de cache e o esforço pela conta do fluxo (16.5). Reavalie periodicamente (16.6b).</p>
+      <p>Meça tokens de entrada, saída e pedidos (16.1). Localize o gasto nas três alavancas (16.2). Elimine redundância com redução de chamadas (16.2) e processamento em lote (16.3). Organize contexto e ferramentas para o cache acertar (16.4). Escolha a validade de cache e o esforço pela conta do fluxo (16.5). Reavalie periodicamente (16.6b).</p>
       <h3>O que não fazer</h3>
       <p>Cortar contexto que a tarefa precisa, trocar de modelo sem amostra, desligar log para "reduzir sobrecarga (<em>overhead</em>)" e otimizar o percentual em vez da conta por tarefa. Cada um desses troca economia visível por custo invisível.</p>
       <div class="rolagem" role="region" aria-label="Tabela: economia e o que se troca" tabindex="0">
@@ -18560,7 +18562,7 @@ Desvio (regra fixa):
         <label class="alternativa"><input type="radio" name="c16q2" value="a" data-correta="false" data-explicacao="Incorreta. Ele se paga com leituras suficientes."><span><strong>A.</strong> Nunca se paga.</span></label>
         <label class="alternativa"><input type="radio" name="c16q2" value="b" data-correta="false" data-explicacao="Incorreta. A conta documentada é de duas."><span><strong>B.</strong> Depois de dez leituras.</span></label>
         <label class="alternativa"><input type="radio" name="c16q2" value="c" data-correta="false" data-explicacao="Incorreta. Esse é o caso dos 5 minutos."><span><strong>C.</strong> Depois de uma leitura.</span></label>
-        <label class="alternativa"><input type="radio" name="c16q2" value="d" data-correta="true" data-explicacao="Correta. O equilíbrio do cache de 1 hora é de duas leituras."><span><strong>D.</strong> Depois de duas leituras, porque a gravação custa 2 vezes o preço base.</span></label>
+        <label class="alternativa"><input type="radio" name="c16q2" value="d" data-correta="true" data-explicacao="Correta. O equilíbrio do cache de 1 hora ocorre após duas leituras (gravação 2× + 2 leituras a 0,1× = 2,2× contra 3× sem cache)."><span><strong>D.</strong> Depois de duas leituras, porque a gravação custa 2× e cada leitura custa 0,1×.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
 
@@ -18784,7 +18786,7 @@ Desvio (regra fixa):
         <dt>Hook de bloqueio (8.1)</dt><dd>Gancho determinístico executado fora do modelo antes da chamada de uma ferramenta para barrar caminhos, pastas ou comandos proibidos.</dd>
         <dt>Host (MCP) (10.6)</dt><dd>Aplicação principal de LLM no protocolo MCP que coordena múltiplos clientes, aplica permissões, exige consentimento e agrega contexto.</dd>
         <dt>Idempotência (2.4)</dt><dd>Propriedade da operação em que várias requisições iguais têm o mesmo efeito de uma só. Repetir só é seguro com ela ou com um identificador do pedido.</dd>
-        <dt>Identificador do pedido (2.4)</dt><dd>Valor único que o serviço gera para uma operação e guarda, para reconhecer a repetição e devolver o resultado já obtido. Também chamado de chave de idempotência.</dd>
+        <dt>Identificador do pedido (2.4)</dt><dd>Valor único que o serviço gera para uma operação e guarda, para reconhecer a repetição e devolver o resultado já obtido (chave de idempotência). Distingue-se do identificador de requisição (<code>request_id</code> / <code>request-id</code>, 2.2 e 15.3), usado para rastrear chamadas individuais em logs.</dd>
         <dt>IFEval (14.2)</dt><dd>Benchmark de seguimento de instruções verificáveis por programa, com 541 prompts.</dd>
         <dt>Impressão digital (2.5)</dt><dd>Resumo do conteúdo de um pedido. Mostra que o mesmo identificador voltou com um pedido diferente.</dd>
         <dt>Inchaço de ferramentas (8.4)</dt><dd>Exposição simultânea de dezenas ou centenas de ferramentas ou servidores MCP ao modelo, consumindo tokens de entrada e degradando a escolha da ferramenta certa.</dd>
@@ -18836,7 +18838,7 @@ Desvio (regra fixa):
         <dt>Modelo de linguagem (1.1)</dt><dd>Programa que, dado o começo de um texto, calcula a chance de cada continuação possível.</dd>
         <dt>Modelo de mundo (1.7)</dt><dd>Modelo que gera ou simula ambientes interativos a partir de uma descrição. Genie 3 é um exemplo.</dd>
         <dt>Modo de chamada (10.1)</dt><dd>Parâmetro (como <code>tool_choice</code> ou <code>function_calling_config</code>) que define se o modelo escolhe livremente, é forçado a chamar ou fica proibido de chamar ferramentas.</dd>
-        <dt>Modo estrito (10.2)</dt><dd>Configuração (<code>strict: true</code>) que garante aderência sintática confiável da chamada de ferramenta ao esquema JSON, exigindo <code>additionalProperties: false</code>.</dd>
+        <dt>Modo estrito (10.2)</dt><dd>Configuração (<code>strict: true</code>) que garante aderência sintática confiável ao esquema JSON, exigindo <code>additionalProperties: false</code> e, na OpenAI, todas as propriedades listadas em <code>required</code>.</dd>
         <dt>Motivo de parada (2.2)</dt><dd>Campo da resposta que diz por que a escrita terminou, por exemplo por ter chegado ao limite de saída. Não é um erro.</dd>
         <dt>MTEB (11.3)</dt><dd>Sigla de <em>Massive Text Embedding Benchmark</em>: conjunto amplo de avaliação de embeddings que mostrou não haver um método único dominante em todas as tarefas.</dd>
         <dt>Multi-salto (6.2)</dt><dd>Percurso que atravessa várias ligações seguidas num grafo (de um nó a seus vizinhos e aos vizinhos deles) para juntar informações espalhadas.</dd>
@@ -18922,6 +18924,7 @@ Desvio (regra fixa):
         <dt>Rollback (8.3)</dt><dd>Reversão rápida de versão, configuração ou lote de alterações para o último estado estável conhecido quando ocorrem falhas em produção.</dd>
         <dt>Roteador aprendido (14.4)</dt><dd>Modelo treinado para estimar, a cada consulta, se o modelo menor basta ou se o pedido deve ir ao maior.</dd>
         <dt>Roteamento (14.4)</dt><dd>Workflow que classifica cada pedido e o encaminha a um processo, prompt ou modelo especializado.</dd>
+        <dt>RouteLLM (14.4)</dt><dd>Arcabouço aberto de roteadores treinados com dados de preferência humana para decidir entre modelo forte e modelo econômico.</dd>
         <dt>Rubrica (5.4)</dt><dd>Critério escrito com respostas possíveis, para o avaliador aplicar do mesmo jeito sempre.</dd>
         <dt>Runtime (13.1)</dt><dd>Programa que carrega os pesos de um modelo e atende aos pedidos de inferência, como llama.cpp, Ollama ou vLLM.</dd>
         <dt>Sabotagem de avaliação (8.1)</dt><dd>Interferência do modelo nos arquivos de teste, monitores ou métricas de avaliação para esconder falhas ou simular sucesso.</dd>
@@ -18950,6 +18953,7 @@ Desvio (regra fixa):
         <dt>Subpalavras (1.3)</dt><dd>Corte do texto em pedaços do tamanho de uma palavra ou parte dela, às vezes de uma só letra.</dd>
         <dt>Suposição (3.6)</dt><dd>O que se toma por verdadeiro sem prova; precisa de dono e de data para ser conferida.</dd>
         <dt>SWE-bench (14.2)</dt><dd>Conjunto de 2.294 problemas de issues reais do GitHub em 12 repositórios Python, resolvidos por edição da base de código.</dd>
+        <dt>SWE-bench Pro (14.2)</dt><dd>Banco de testes de edição de código resistente à contaminação, voltado a capturar com mais fidelidade a complexidade e diversidade do desenvolvimento real.</dd>
         <dt>SWE-bench Verified (14.2)</dt><dd>Subconjunto de 500 instâncias do SWE-bench revisadas por pessoas, com descrição clara e teste de correção válido.</dd>
         <dt>Tarefa (3.1)</dt><dd>O que a pessoa tenta fazer, e não o que o sistema faz.</dd>
         <dt>Taxa de acerto de cache (16.2)</dt><dd>Razão entre tokens cacheados e tokens de entrada totais em um conjunto de chamadas.</dd>
@@ -18967,8 +18971,7 @@ Desvio (regra fixa):
         <dt>Tokens de alto sinal (9.1)</dt><dd>Conjunto mínimo de tokens diretamente relevantes à decisão do turno, maximizando a chance de sucesso sem ruído.</dd>
         <dt>Top-k (4.5)</dt><dd>Controle que limita a escolha do próximo token aos k mais prováveis.</dd>
         <dt>Top-p (4.5)</dt><dd>Controle que limita a escolha ao menor conjunto de tokens cuja chance somada chega a p.</dd>
-        <dt>Trace (15.4)</dt><dd>Registro estruturado de uma operação completa, composto por spans encadeados.</dd>
-        <dt>Traço (12.5)</dt><dd>Registro dos eventos de uma execução de agente (gerações, chamadas de ferramenta, transferências e proteções), usado para depurar e monitorar. Em inglês, <em>trace</em>.</dd>
+        <dt>Trace / Traço (12.5, 15.4)</dt><dd>Registro estruturado de uma operação completa e dos eventos de execução de um agente (gerações, spans encadeados, chamadas de ferramenta, transferências e proteções), usado para depurar e monitorar.</dd>
         <dt>Transformer (1.5)</dt><dd>Arquitetura padrão para construir LLMs.</dd>
         <dt>Tratamento inadequado de saída (7.3)</dt><dd>Vulnerabilidade em que respostas geradas pelo modelo são enviadas a navegadores, bancos ou sistemas sem validação, higienização ou codificação adequada. Em inglês, <em>improper output handling</em>.</dd>
         <dt>Trava (2.6)</dt><dd>Controle que deixa um pedido por vez usar um recurso compartilhado, para dar ordem e evitar a condição de corrida.</dd>
@@ -19003,7 +19006,7 @@ Desvio (regra fixa):
     <section class="page" id="referencias" aria-labelledby="titulo-das-referencias">
       <h2 id="titulo-das-referencias">Referências</h2>
 
-      <p>Fontes dos capítulos 1 a 16, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 77 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. No capítulo 14, os 59 trechos literais citados das 17 fontes públicas primárias (Anthropic, OpenAI, Google, LiteLLM, OpenRouter, páginas do SWE-bench e do LiveCodeBench e artigos do arXiv) foram conferidos em 17/11/2026. No capítulo 15, os 69 trechos literais citados das 18 fontes públicas primárias (OpenAI, Anthropic, AWS, Microsoft, o SRE da Google, SemVer, Langfuse, MLflow e OpenTelemetry) foram conferidos em 17/11/2026. No capítulo 16, os 43 trechos literais citados das 9 fontes públicas primárias (Anthropic, OpenAI, Google Cloud e LiteLLM) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
+      <p>Fontes dos capítulos 1 a 16, com data de consulta. As fontes da unidade 1.7 foram conferidas em 13/11/2026, e a definição da OSI e as fichas de Qwen3.8-27B e Gemma 4 foram conferidas em 16/11/2026. Em 13/11/2026, os trechos literais entre aspas, as datas dos artigos do arXiv e o título e o canal dos vídeos foram reconferidos contra as páginas; a data e a duração dos vídeos não foram reconferidas. Para os vídeos, foram conferidos título, canal, data de publicação e duração e, nos vídeos de Karpathy, os capítulos publicados pelo autor. Fontes marcadas como “não lido” são ponteiros de leitura, sem nenhuma afirmação do livro apoiada nelas. No capítulo 2, as citações e os dados de documentação, normas e artigos foram conferidos em 13/11/2026 por leitura das páginas; as leituras parciais e as afirmações não confirmadas estão indicadas nas notas de fonte de cada parte. No capítulo 3, as normas e páginas foram lidas em 13/11/2026; das normas, só os trechos citados, e o guia não afirma conformidade com nenhuma delas. No capítulo 4, os 33 trechos literais citados foram conferidos contra o texto das páginas e dos artigos, em 13/11/2026 e novamente em 14/11/2026. No capítulo 5, os 47 trechos citados das fontes iniciais foram conferidos em 16/11/2026 contra as páginas e artigos baixados, e novamente na segunda leitura em 16/11/2026 junto aos trechos de OpenAI, Google, Qwen3.8-27B e Gemma 4 incorporados aos capítulos 1, 3, 4 e 5. No capítulo 6, os 43 trechos literais citados das 16 fontes públicas primárias foram conferidos contra as páginas e o artigo baixados em 17/11/2026. No capítulo 7, os 52 trechos literais citados das 20 fontes públicas primárias (incluindo OWASP v2.0/2025, NIST AI 600-1, LGPD e MCP) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 8, os 60 trechos literais citados das 28 fontes públicas primárias (incluindo pesquisas sobre adulteração de recompensa, <em>context rot</em> e RAG vs. ajuste fino, normas NIST e OWASP, Google SRE Book e documentações de Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 9, os 77 trechos literais citados das 14 fontes públicas primárias (Anthropic, OpenAI e Google Cloud) foram conferidos contra os documentos baixados em 17/11/2026. No capítulo 10, os 53 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI, Google Cloud, JSON Schema e especificação MCP 2026-07-28) foram conferidos em 17/11/2026. No capítulo 11, os 42 trechos literais citados das 15 fontes públicas primárias (artigos do arXiv, Anthropic, OpenAI, Google Cloud, ripgrep e Tree-sitter) foram conferidos em 17/11/2026. No capítulo 12, os 99 trechos literais citados das 16 fontes públicas primárias (Anthropic, OpenAI e Google, com Agent SDK, Agents SDK e ADK) foram conferidos em 17/11/2026. No capítulo 13, os 81 trechos literais citados das 20 fontes públicas primárias (llama.cpp, vLLM, Ollama, artigos do arXiv e fichas do Qwen3.8-27B e do Gemma 4) foram conferidos em 17/11/2026. No capítulo 14, os 59 trechos literais citados das 17 fontes públicas primárias (Anthropic, OpenAI, Google, LiteLLM, OpenRouter, páginas do SWE-bench e do LiveCodeBench e artigos do arXiv) foram conferidos em 17/11/2026. No capítulo 15, os 73 trechos literais citados das 18 fontes públicas primárias (OpenAI, Anthropic, AWS, Microsoft, o SRE da Google, SemVer, Langfuse, MLflow e OpenTelemetry) foram conferidos em 17/11/2026. No capítulo 16, os 49 trechos literais citados das 9 fontes públicas primárias (Anthropic, OpenAI, Google Cloud e LiteLLM) foram conferidos em 17/11/2026. Páginas de documentação mudam sem aviso, e o guia não afirma conformidade com nenhum provedor nem com normas ou leis.</p>
       <div class="fontes">
         <h3>Livros e artigos</h3>
         <p>Jurafsky, D.; Martin, J. H. <em>Speech and Language Processing</em>, 3ª ed., rascunho de 19/08/2026. Capítulos 1, 2, 7 e 8. <a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener noreferrer">web.stanford.edu/~jurafsky/slp3</a>. Consultado em 13/10/2026.</p>
