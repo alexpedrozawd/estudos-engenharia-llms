@@ -451,16 +451,16 @@
       <p>Este guia ensina a planejar, montar, testar e acompanhar sistemas que usam modelos de linguagem, as “IAs de conversa”. Você não precisa saber programar. Começamos do zero.</p>
       <p>Às vezes vai aparecer um texto de configuração ou uma linha de comando. Eles servem só para ler e explicar. Você não precisa escrever nem rodar nada.</p>
       <p>Primeiro, vamos ver o que é um modelo de linguagem e como os sistemas que o usam são montados. Depois, você aprende a definir o problema, a dar boas instruções e a conferir se a solução funciona.</p>
-      <p>A segunda parte trata de segurança, de limites do que o sistema pode fazer, de contexto, de ferramentas e de busca de informação. A terceira parte reúne agentes, modelos que rodam no seu computador, escolha de modelos, uso em empresas e operação. Em todo o livro, qualidade, velocidade, custo e manutenção são pesados juntos, sempre em relação ao resultado que você aceita.</p>
+      <p>A segunda parte trata de grafos (como organizar informação ligada), de segurança, de limites do que o sistema pode fazer, de contexto, de ferramentas e de busca de informação. A terceira parte reúne agentes, modelos que rodam no seu computador, escolha de modelos, uso em empresas e operação. Em todo o livro, qualidade, velocidade, custo e manutenção são pesados juntos, sempre em relação ao resultado que você aceita.</p>
 
       <h3>Dois exemplos, e muito além deles</h3>
       <p>O primeiro exemplo é uma plataforma interna de IA, como as que muitas empresas montam para dar chat, busca e assistentes às suas equipes. Com ela, estudamos a escolha de modelos, os modelos que rodam no próprio computador, os modelos de empresas, o contexto e a organização do trabalho. O segundo exemplo é a Aurora Educação, empresa fictícia de educação digital e consultoria: processos, sistemas que já existem e assistentes para cada colaborador. Começamos por um assistente financeiro.</p>
       <p>Esses exemplos tornam as decisões concretas, mas o livro não se limita a eles. Ele usa também fontes e exemplos públicos, inclusive técnicas que ainda não apareceram nesses dois exemplos, para que o que você aprender sirva em outras empresas e áreas. Cada exemplo avisa o que vem de uma fonte citada e o que é uma situação inventada para ensinar.</p>
 
       <h3>Como estudar este livro</h3>
-      <p>Cada capítulo corresponde a um módulo e é dividido em unidades. Nos capítulos 1 a 5, as unidades viram partes curtas, e cada parte abre com um resumo de três linhas e traz uma analogia do dia a dia, a ideia principal com os termos novos explicados, uma pergunta e um ponto de retomada. No fim, vêm as notas de fonte; a última parte de cada unidade traz também a lista de leituras.</p>
+      <p>Cada capítulo corresponde a um módulo e é dividido em unidades. Em todos os capítulos, as unidades viram partes curtas, e cada parte abre com um resumo de três linhas e traz uma analogia do dia a dia, a ideia principal com os termos novos explicados, uma pergunta e um ponto de retomada. No fim, vêm as notas de fonte; a última parte de cada unidade traz também a lista de leituras.</p>
       <p>No fim de cada módulo há cinco ou seis questões de múltipla escolha: duas fáceis, as médias e uma difícil. Elas usam situações de trabalho, corrigem na hora e explicam a resposta. A prática de configurar e operar entra depois, em laboratórios com escopo próprio, quando você pedir.</p>
-      <p>Você pode parar e voltar quando quiser. O livro é construído por etapas: as páginas prontas já podem ser lidas, e os outros capítulos entram aos poucos. O glossário reúne os termos que apareceram, e as referências mostram de onde vem cada informação.</p>
+      <p>Você pode parar e voltar quando quiser. Os 16 capítulos estão prontos: você pode ler na ordem ou voltar a qualquer parte. O glossário reúne os termos que apareceram, e as referências mostram de onde vem cada informação.</p>
 
       <nav class="page-nav" aria-label="Navegação da introdução">
         <a href="#sumario">Sumário</a>
@@ -699,7 +699,7 @@
         <p><strong>Sistema em volta do modelo (<em>harness</em>):</strong> <span class="qual">proposta didática</span>. Em inglês, <em>harness</em> é o termo corrente para o sistema de execução que chama e cerca o modelo.</p>
         <p><strong>Fluxo do pedido:</strong> simplificação montada para esta unidade (<span class="qual">proposta didática</span>).</p>
         <p><strong>Assistente de programação:</strong> situação construída para esta unidade (<span class="qual">proposta didática</span>). Que aplicar e testar a proposta não acontece automaticamente pela chamada ao modelo é consequência do desenho (<span class="qual">proposta didática</span>).</p>
-        <p><strong>Assistente financeiro:</strong> situação inventada (<span class="qual">proposta didática</span>). O princípio de que cobrança, preço, situação e permissão não dependem de interpretação probabilística, quando o sistema já pode aplicá-los com certeza, é o critério “código primeiro, LLM depois” do capítulo 1.6 (<span class="qual">proposta didática</span>).</p>
+        <p><strong>Assistente financeiro:</strong> situação inventada (<span class="qual">proposta didática</span>). O princípio de que cobrança, preço, situação e permissão não dependem de interpretação probabilística, quando o sistema já pode aplicá-los com certeza, é o critério “código primeiro, LLM depois” da unidade 1.6 (<span class="qual">proposta didática</span>).</p>
       </div>
 
       <h3>Fontes da unidade</h3>
@@ -916,7 +916,7 @@
       <h3>O tamanho nem sempre é um número só</h3>
       <p>Em um modelo comum, todos os parâmetros trabalham em cada token. Em uma <dfn>mistura de especialistas</dfn> (<em>mixture of experts</em>), o modelo tem vários blocos, os “especialistas”. Para cada pedaço de texto, ele escolhe só alguns.</p>
       <p>Um exemplo é o Mixtral 8x7B. Ele tem 47 bilhões de parâmetros no total, mas usa 13 bilhões em cada token. Por isso “quantos parâmetros tem” e “quantos trabalham de cada vez” podem ser números diferentes. Um exemplo mais recente, de pesos abertos, é o Gemma 4 26B A4B (parte 1.7c).</p>
-      <p>O módulo 12 mostra por que isso importa para a memória e a velocidade. A parte 1.7c volta a esse tema, entre os tipos de modelo.</p>
+      <p>O capítulo 13 mostra por que isso importa para a memória e a velocidade. A parte 1.7c volta a esse tema, entre os tipos de modelo.</p>
 
       <h3>Ajustar o modelo ficou mais barato</h3>
       <p>Treinar de novo todos os pesos é caro. Uma técnica chamada <dfn>LoRA</dfn> congela o modelo e treina só peças pequenas acrescentadas a ele. Isso reduz muito o que precisa ser treinado.</p>
@@ -940,7 +940,7 @@
 
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>Mistura de especialistas:</strong> Jiang et al., <em>Mixtral of Experts</em>, arXiv:2401.04088 (08/01/2024): “each token has access to 47B parameters, but only uses 13B active parameters during inference” (<span class="qual">registrado em artigo</span>). As vantagens de memória e velocidade ficam para o módulo 12.</p>
+        <p><strong>Mistura de especialistas:</strong> Jiang et al., <em>Mixtral of Experts</em>, arXiv:2401.04088 (08/01/2024): “each token has access to 47B parameters, but only uses 13B active parameters during inference” (<span class="qual">registrado em artigo</span>). As vantagens de memória e velocidade ficam para o capítulo 13.</p>
         <p><strong>LoRA:</strong> Hu et al., <em>LoRA: Low-Rank Adaptation of Large Language Models</em>, arXiv:2106.09685 (17/06/2021): congela os pesos e treina matrizes pequenas, o que reduz muito os parâmetros treináveis (<span class="qual">registrado em artigo</span>).</p>
         <p><strong>Analogia do grupo:</strong> comparação montada para esta parte (<span class="qual">proposta didática</span>).</p>
       </div>
@@ -1113,7 +1113,7 @@
       <p>Os dois têm limites. O primeiro é de 2023 e testou modelos daquela época. O segundo usou tarefas simples e controladas, e os autores dizem que não explicam por que a piora acontece.</p>
       <p>A lição é clara: escolher o que entra vale tanto quanto o espaço. A Anthropic resume o objetivo como o menor conjunto de tokens úteis que torne o resultado provável.</p>
 
-      <p>Modelos de pesos abertos também têm janelas grandes: a ficha do Qwen3.8-27B indica 262.144 tokens nativos (extensível a 1 milhão), e a do Gemma 4 indica 128 mil nos pequenos e 256 mil nos médios. Isso mostra o que cabe, não o que convém enviar; o custo em memória fica para o módulo 12.</p>
+      <p>Modelos de pesos abertos também têm janelas grandes: a ficha do Qwen3.8-27B indica 262.144 tokens nativos (extensível a 1 milhão), e a do Gemma 4 indica 128 mil nos pequenos e 256 mil nos médios. Isso mostra o que cabe, não o que convém enviar; o custo em memória fica para o capítulo 13.</p>
 
       <h3>Um contrato inventado</h3>
       <p>Uma equipe quer que o assistente resuma um contrato. Pela tabela da parte anterior, o documento de 4.000 tokens cabe, com 300 de folga. Mas convém? O contrato traz anexos sem relação com a pergunta. Enviá-los gasta orçamento e não ajuda.</p>
@@ -1127,7 +1127,7 @@
         <li><strong>“Caracteres divididos por quatro é exato.”</strong> É uma estimativa.</li>
         <li><strong>“O contexto é memória permanente.”</strong> Não. É a memória de trabalho de uma chamada.</li>
       </ul>
-      <p>Esta unidade não dá números válidos para um modelo específico. Contagem de tokens é assunto do módulo 4, e gestão de histórico e memória, do módulo 8.</p>
+      <p>Esta unidade não dá números válidos para um modelo específico. Contagem de tokens é assunto do capítulo 4, e gestão de histórico e memória, do capítulo 9.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p1-3c">
         <legend>Escolha uma alternativa</legend>
@@ -1226,7 +1226,7 @@
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Laço de geração e EOS:</strong> Hugging Face, <em>Text generation</em> (<span class="qual">registrado na documentação</span>; descreve a biblioteca <em>Transformers</em>, e não provedores).</p>
-        <p><strong>Modelo autorregressivo e escolha gulosa:</strong> Jurafsky e Martin, <em>Speech and Language Processing</em>, 3ª ed., rascunho de 19/08/2026, cap. 7, §7.6.</p>
+        <p><strong>Modelo autorregressivo e escolha gulosa:</strong> Jurafsky e Martin, <em>Speech and Language Processing</em>, 3ª ed., rascunho de 19/08/2026, cap. 7, introdução (modelo autorregressivo ou causal) e §7.6.1 (escolha gulosa).</p>
         <p><strong>Tabela e analogia da masmorra:</strong> montadas para esta unidade, com números inventados (<span class="qual">proposta didática</span>).</p>
       </div>
 
@@ -1269,7 +1269,7 @@
         <li>Com temperatura alta, as chances ficam mais parecidas entre si. O texto fica mais variado.</li>
       </ul>
       <p>Jeitos que dão mais peso às palavras mais prováveis tendem a gerar textos que as pessoas avaliam como mais precisos, coerentes e factuais, mas também mais monótonos. Jeitos que dão mais chance às palavras de probabilidade média são mais criativos, porém menos factuais e mais sujeitos a incoerências.</p>
-      <p>Existem ainda a amostragem <em>top-k</em> e a <em>top-p</em>, que descartam os tokens muito improváveis antes do sorteio, e a <em>beam search</em>, que acompanha várias sequências ao mesmo tempo. Aqui elas aparecem só como menção. Os parâmetros dos provedores ficam para o módulo 4.</p>
+      <p>Existem ainda a amostragem <em>top-k</em> e a <em>top-p</em>, que descartam os tokens muito improváveis antes do sorteio, e a <em>beam search</em>, que acompanha várias sequências ao mesmo tempo. Aqui elas aparecem só como menção. Os parâmetros dos provedores ficam para o capítulo 4.</p>
 
       <h3>Dois avisos</h3>
       <ul>
@@ -1391,7 +1391,7 @@
         <li><strong>“Variação é defeito.”</strong> Depende da tarefa.</li>
         <li><strong>“Se o modelo raciocinou, a resposta está certa.”</strong> Não.</li>
       </ul>
-      <p>Esta unidade não trata de como declarar o formato da saída. Esquemas e parâmetros dos provedores ficam para o módulo 4.</p>
+      <p>Esta unidade não trata de como declarar o formato da saída. Esquemas e parâmetros dos provedores ficam para o capítulo 4.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p1-4d">
         <legend>Escolha uma alternativa</legend>
@@ -1458,7 +1458,7 @@
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p1-5a">
         <legend>Escolha uma alternativa</legend>
-        <p id="enunciado-p1-5a">Nas frases “a galinha não atravessou a rua porque estava cansada” e “… porque a rua era larga demais”, o “it” aponta para coisas diferentes. O que isso mostra?</p>
+        <p id="enunciado-p1-5a">Nas frases “a galinha não atravessou a rua porque estava cansada” e “… porque a rua era larga demais”, o pronome “it” do original em inglês (“The chicken didn’t cross the road because it was too tired” e “… because it was too wide”) aponta para coisas diferentes. O que isso mostra?</p>
         <label class="alternativa"><input type="radio" name="p1-5a" value="a" data-correta="false" data-explicacao="Incorreta. O livro-base usa o exemplo para mostrar que o sentido de um token depende dos que estão ao redor, e não de uma lista de regras."><span><strong>A.</strong> Que o modelo precisa de uma lista de regras gramaticais escrita à mão para cada pronome possível.</span></label>
         <label class="alternativa"><input type="radio" name="p1-5a" value="b" data-correta="true" data-explicacao="Correta. É a ideia central da atenção: juntar informação dos vizinhos para construir o sentido."><span><strong>B.</strong> Que o sentido de um token depende dos tokens ao redor, e a atenção o constrói olhando para eles.</span></label>
         <label class="alternativa"><input type="radio" name="p1-5a" value="c" data-correta="false" data-explicacao="Incorreta. Nos modelos que escrevem da esquerda para a direita, a atenção é causal: só olha para o que veio até ali."><span><strong>C.</strong> Que o modelo olha também para os tokens que ainda vai escrever, antes de escolher o atual.</span></label>
@@ -1556,7 +1556,7 @@
         <ul>
           <li>No mecanismo padrão, o custo da atenção cresce com o quadrado do contexto.</li>
           <li>Dobrar o contexto multiplica esse trabalho por quatro.</li>
-          <li>Existem otimizações, que ficam para o módulo 12.</li>
+          <li>Existem otimizações, que ficam para o capítulo 13.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Numa festa, cada convidado cumprimenta todos os outros. Com 10 convidados, são 45 apertos de mão. Com 20, são 190. Dobrar os convidados mais que dobra o trabalho. Na atenção, o efeito é parecido.</p></div>
@@ -1566,7 +1566,7 @@
       <p>E, como vimos na unidade 1.3, mais contexto também não é melhor automaticamente para o resultado.</p>
 
       <h3>As otimizações, só como menção</h3>
-      <p>Existem otimizações, que ficam para o módulo 12:</p>
+      <p>Existem otimizações, que ficam para o capítulo 13:</p>
       <ul>
         <li>O <dfn>KV cache</dfn> guarda em memória contas já feitas, para não refazê-las.</li>
         <li>O <dfn>PagedAttention</dfn>, usado no servidor vLLM, organiza a memória do KV cache quase sem desperdício.</li>
@@ -1589,7 +1589,7 @@
       </fieldset>
 
       <h3>Ponto de retomada</h3>
-      <p>O custo da atenção cresce com o quadrado do contexto. Existem otimizações, como KV cache, que ficam para o módulo 12. Na unidade 1.6, juntamos o que vimos para decidir o que cabe ao modelo e o que cabe ao sistema.</p>
+      <p>O custo da atenção cresce com o quadrado do contexto. Existem otimizações, como KV cache, que ficam para o capítulo 13. Na unidade 1.6, juntamos o que vimos para decidir o que cabe ao modelo e o que cabe ao sistema.</p>
 
       <h3>Notas de fonte</h3>
       <div class="fontes">
@@ -1774,7 +1774,7 @@
         <li><strong>“Um modelo maior elimina a alucinação.”</strong> Os autores tratam esses problemas como pesquisa em andamento. Não há base para prometer o contrário.</li>
         <li><strong>“Usar um LLM para lógica simples não faz mal.”</strong> Traz custo, demora e falhas silenciosas evitáveis.</li>
       </ul>
-      <p>Esta unidade dá um critério de decisão, e não um método completo de análise de risco. As pontes seguem para os módulos 3 (especificação), 5 (avaliação), 6 (segurança), 7 (proporcionalidade) e 8 (contexto).</p>
+      <p>Esta unidade dá um critério de decisão, e não um método completo de análise de risco. As pontes seguem para os capítulos 3 (especificação), 5 (avaliação), 7 (segurança), 8 (proporcionalidade) e 9 (contexto).</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p1-6c">
         <legend>Escolha uma alternativa</legend>
@@ -1912,7 +1912,7 @@
       <h3>Dois avisos</h3>
       <ul>
         <li>O benchmark MTEB (2022) avaliou modelos de embeddings em muitas tarefas e concluiu que nenhum método domina todas. Escolher embedding é escolher para uma tarefa.</li>
-        <li>O uso prático de decisão, embeddings e rerankers fica para os capítulos 5, 10 e 13, ainda não escritos.</li>
+        <li>O uso prático de embeddings e rerankers fica para o capítulo 11.</li>
       </ul>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p1-7b">
@@ -2165,7 +2165,7 @@
         </tbody>
       </table>
       </div>
-      <p>O fluxo é uma simplificação. Ele não descreve um sistema real por inteiro.</p>
+      <p>Este desenho é uma simplificação. Ele não descreve um sistema real por inteiro.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p2-1a">
         <legend>Escolha uma alternativa</legend>
@@ -2401,7 +2401,7 @@
       <p>A chamada é um pedido e uma resposta, em geral em JSON. O status de sucesso diz que o pedido foi aceito, e não que o texto terminou. Na parte 2.2b, vemos por que o histórico precisa ir junto a cada chamada.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
-        <p><strong>HTTP, requisição, resposta, código de status e sem estado:</strong> MDN Web Docs, <em>Overview of HTTP</em>: “There are two types of HTTP messages, requests and responses, each with its own format.” (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026). A relação entre classe 2xx e “pedido aceito” é leitura corrente do RFC 9110, não reconferida nesta rodada.</p>
+        <p><strong>HTTP, requisição, resposta, código de status e sem estado:</strong> MDN Web Docs, <em>Overview of HTTP</em>: “There are two types of HTTP messages, requests and responses, each with its own format.” (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026). A relação entre classe 2xx e “pedido aceito” é leitura corrente do RFC 9110, não reconferida.</p>
         <p><strong>Identificador da requisição:</strong> Anthropic, <em>Errors</em>: “The response also includes a <code>request_id</code> field for easier tracking and debugging.” (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026). <strong>Nomes de uso do Ollama:</strong> “<code>prompt_eval_count</code>: number of tokens in the prompt” e “<code>eval_count</code>: number of tokens in the response” (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026).</p>
         <p><strong>Texto do pedido e da resposta:</strong> campos no formato documentado e valores fictícios (<span class="qual">ilustrativo, não executado</span>). Que um pedido “costuma levar” modelo, mensagens e limite de saída é prática comum, e não regra de todos os destinos. <strong>Analogia da loja:</strong> inventada (<span class="qual">proposta didática</span>).</p>
       </div>
@@ -2455,7 +2455,7 @@
       <div class="fontes">
         <p><strong>API sem estado:</strong> Anthropic, <em>Using the Messages API</em>: “The Messages API is stateless, which means that you always send the full conversational history to the API.” A mesma página registra um modo em beta em que a API guarda a conversa (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026).</p>
         <p><strong>OpenAI:</strong> <em>Conversation state</em>: “While each text generation request is independent and stateless”; <code>previous_response_id</code>: “This parameter lets you chain responses and create a threaded conversation.”; “Response objects are saved for 30 days by default.” (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026).</p>
-        <p><strong>Rotas do Ollama, “E a de julho?” e analogia do atendente:</strong> montadas para esta parte (<span class="qual">proposta didática</span>). A documentação do Ollama sobre as duas rotas não foi reaberta nesta rodada.</p>
+        <p><strong>Rotas do Ollama, “E a de julho?” e analogia do atendente:</strong> montadas para esta parte (<span class="qual">proposta didática</span>). A documentação do Ollama sobre as duas rotas não foi reaberta ao escrever esta parte.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 2.2b">
         <a href="#unidade-2-2a">Parte 2.2a</a>
@@ -2701,7 +2701,7 @@
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Erro depois do status 200:</strong> Anthropic, <em>Errors</em>: “an error can occur after the API returns a 200 response.”; <em>Streaming messages</em> mostra o evento <code>event: error</code> com <code>overloaded_error</code> (<span class="qual">registrado na documentação</span>, consultadas em 13/11/2026). <strong>Pedidos acima de dez minutos:</strong> <em>Errors</em>, seção “Long requests”: “Consider using the streaming Messages API or Message Batches API for long-running requests, especially those over 10 minutes.”</p>
-        <p><strong>Como retomar um fluxo interrompido:</strong> não confirmado de forma literal nesta rodada, e por isso o guia não afirma que o provedor permite continuar de onde parou. <strong>Os dois exemplos e a analogia do rádio:</strong> situações inventadas (<span class="qual">proposta didática</span>).</p>
+        <p><strong>Como retomar um fluxo interrompido:</strong> não confirmado de forma literal, e por isso o guia não afirma que o provedor permite continuar de onde parou. <strong>Os dois exemplos e a analogia do rádio:</strong> situações inventadas (<span class="qual">proposta didática</span>).</p>
       </div>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
@@ -2950,7 +2950,7 @@ request-id: req_exemplo_0042
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Estado, três tipos de estado e analogia do hotel:</strong> definições e critérios do guia (<span class="qual">proposta didática</span>).</p>
-        <p><strong>Estado do provedor:</strong> OpenAI, <em>Conversation state</em>: “persist conversation state as a long-running object with its own durable identifier”; “Response objects are saved for 30 days by default.” (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026). Que o serviço fica sem o contexto depois do prazo é consequência (<span class="qual">proposta didática</span>). A afirmação anterior do guia, de que a documentação prevê o caso de identificador “não encontrado”, não foi confirmada de forma literal e foi retirada.</p>
+        <p><strong>Estado do provedor:</strong> OpenAI, <em>Conversation state</em>: “persist conversation state as a long-running object with its own durable identifier”; “Response objects are saved for 30 days by default.” (<span class="qual">registrado na documentação</span>, consultada em 13/11/2026). Que o serviço fica sem o contexto depois do prazo é consequência (<span class="qual">proposta didática</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 2.5a">
         <a href="#unidade-2-4c">Parte 2.4c</a>
@@ -3184,7 +3184,7 @@ request-id: req_exemplo_0042
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p2-6a">
         <legend>Escolha uma alternativa</legend>
-        <p id="enunciado-p2-6a">Dez colaboradores usam um modelo local compartilhado. Cada resposta leva 30 segundos, e o equipamento atende uma por vez. Quanto espera, em média, o décimo pedido para começar a ser atendido?</p>
+        <p id="enunciado-p2-6a">Dez colaboradores usam um modelo local compartilhado. Cada resposta leva 30 segundos, e o equipamento atende uma por vez. Quanto espera o décimo pedido para começar a ser atendido?</p>
         <label class="alternativa"><input type="radio" name="p2-6a" value="a" data-correta="false" data-explicacao="Incorreta. Com uma resposta por vez, o décimo pedido espera as nove que estão à frente."><span><strong>A.</strong> Cerca de 30 segundos, porque cada pedido espera apenas o tempo da sua própria resposta.</span></label>
         <label class="alternativa"><input type="radio" name="p2-6a" value="b" data-correta="true" data-explicacao="Correta. Nove respostas, a 30 segundos cada, somam 270 segundos, ou quatro minutos e meio."><span><strong>B.</strong> Cerca de quatro minutos e meio, porque há nove respostas à frente, de 30 segundos cada uma.</span></label>
         <label class="alternativa"><input type="radio" name="p2-6a" value="c" data-correta="false" data-explicacao="Incorreta. A capacidade do equipamento é fixa. Ela não cresce com a fila."><span><strong>C.</strong> Quase nada, porque o equipamento aumenta a própria capacidade sempre que aparece uma fila.</span></label>
@@ -3509,7 +3509,7 @@ request-id: req_exemplo_0042
       <p>As etiquetas dos capítulos anteriores continuam valendo, e aparecem em “Notas de fonte”, no fim de cada parte. <span class="qual">Registrado na norma</span> quer dizer que o fato está numa norma ou num guia técnico citado. <span class="qual">Registrado na documentação</span> aponta para a documentação de uma empresa. <span class="qual">Proposta didática</span> é uma situação inventada para ensinar. Neste capítulo, a Aurora Educação, empresa fictícia do livro, é a espinha dorsal: o mesmo caso cresce da unidade 3.1 à 3.6, sem pessoas reais, dados de clientes ou nomes de fornecedores.</p>
 
       <h3>Sobre as fontes</h3>
-      <p>O capítulo se apoia em normas e guias públicos: a RFC 2119, sobre a força das palavras de obrigação; o <em>NASA Systems Engineering Handbook</em>; o <em>NIST AI Risk Management Framework</em>; o <em>Scrum Guide</em>; e duas páginas da Anthropic sobre desenho e avaliação de agentes. As normas são citadas por trecho, com seção e data de consulta (13/11/2026). O guia usa as ideias; não afirma que este material, ou qualquer sistema descrito, esteja em conformidade com elas. Cada unidade termina, na última parte, com as linhas <em>Ler</em> e <em>Aprofundar</em>. A linha <em>Assistir</em> só aparece quando há um vídeo conferido, e neste capítulo não há.</p>
+      <p>O capítulo se apoia em normas e guias públicos: a RFC 2119, sobre a força das palavras de obrigação; o <em>NASA Systems Engineering Handbook</em>; o <em>NIST AI Risk Management Framework</em>; o <em>Scrum Guide</em>; o Nielsen Norman Group, sobre personas; a OpenAI, sobre avaliação; e duas páginas da Anthropic sobre desenho e avaliação de agentes. Os trechos são citados com seção e data de consulta (13/11/2026; 16/11/2026 para a OpenAI). O guia usa as ideias; não afirma que este material, ou qualquer sistema descrito, esteja em conformidade com elas. Cada unidade termina, na última parte, com as linhas <em>Ler</em> e <em>Aprofundar</em>. A linha <em>Assistir</em> só aparece quando há um vídeo conferido, e neste capítulo não há.</p>
 
       <nav class="page-nav" aria-label="Navegação do capítulo 3">
         <a href="#questoes-capitulo-2">Questões do capítulo 2</a>
@@ -3863,7 +3863,7 @@ request-id: req_exemplo_0042
       <ul>
         <li><strong>Principal:</strong> tempo até a resposta útil, de 9 horas para 1 hora em 80% dos casos.</li>
         <li><strong>Acompanhamento:</strong> mensagens repetidas por semana, de 300 para menos de 120.</li>
-        <li><strong>Salvaguarda 1:</strong> respostas erradas sobre documento ou prazo não passam de 2% das conversas.</li>
+        <li><strong>Salvaguarda 1:</strong> respostas erradas sobre documento ou prazo não passam de 2% das conversas (limite provisório, até medir a base).</li>
         <li><strong>Salvaguarda 2:</strong> reclamações sobre o canal não aumentam em relação ao período anterior.</li>
       </ul>
 
@@ -3955,7 +3955,7 @@ request-id: req_exemplo_0042
         <li><strong>Privacidade:</strong> que dado pode sair da escola, e para onde.</li>
         <li><strong>Acessibilidade:</strong> quem precisa conseguir usar, inclusive com leitor de tela ou conexão lenta.</li>
       </ul>
-      <p>O NIST AI RMF pede que os propósitos pretendidos, os usos e o contexto em que o sistema será implantado sejam compreendidos e documentados, incluindo o tipo de usuário e suas expectativas. É praticamente a lista desta unidade, escrita como exigência de registro.</p>
+      <p>O NIST AI RMF pede que os propósitos pretendidos, os usos e o contexto em que o sistema será implantado sejam compreendidos e documentados, incluindo o tipo de usuário e suas expectativas. Tem pontos em comum com a lista desta unidade, escrita como exigência de registro.</p>
 
       <h3>Restrição não é desculpa</h3>
       <p>Restrição serve para decidir, não para encerrar a conversa. “Não temos orçamento” é o começo de uma escolha: menos escopo, menos volume ou menos autonomia. Quem escreve a restrição escreve também o que ela exclui, para que a decisão fique visível.</p>
@@ -4054,7 +4054,7 @@ request-id: req_exemplo_0042
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
-          <li>Seis restrições organizam o caso: prazo, orçamento, dado, privacidade, sistema legado e provedor.</li>
+          <li>Seis restrições organizam o caso: prazo, orçamento, dado, privacidade, sistema legado e atendimento em espanhol.</li>
           <li>Cada uma recebe força e consequência, e algumas mudam a solução inteira.</li>
           <li>A restrição de privacidade é a que mais muda o desenho, e volta no módulo de segurança.</li>
         </ul>
@@ -4192,7 +4192,7 @@ request-id: req_exemplo_0042
         <ul>
           <li>Um critério testável tem condição, ação e resultado esperado.</li>
           <li>Caso de falha e caso de recusa fazem parte do aceite, e não são exceção.</li>
-          <li>Palavras como “rápido”, “claro” e “fácil” não se verificam; o guia da NASA lista esses termos como proibidos.</li>
+          <li>Palavras como “rápido”, “claro” e “fácil” não se verificam; o guia da NASA lista esses termos como não verificáveis.</li>
         </ul>
       </div>
       <figure class="imagem" data-imagem="3-4b">
@@ -4203,7 +4203,7 @@ request-id: req_exemplo_0042
       <div class="analogia"><p><strong>Pense assim.</strong> Uma ponte só é aprovada se a carroça passa por ela. Não basta o construtor dizer que a ponte é forte: alguém mede a largura, carrega a carroça e observa.</p></div>
 
       <h3>Condição, ação e resultado</h3>
-      <p>Um critério verificável costuma ter três partes. A <dfn>condição</dfn> diz em que situação o teste acontece; a <dfn>ação</dfn> diz o que se faz; o <dfn>resultado esperado</dfn> diz o que se observa.</p>
+      <p>Um critério verificável costuma ter três partes. A <dfn>condição</dfn> diz em que situação o teste acontece; a <dfn>ação</dfn> diz o que se faz; o <dfn>resultado esperado</dfn> (do teste, e não o da unidade 3.2) diz o que se observa.</p>
       <p>Exemplo na Aurora: <em>dada</em> uma pergunta sobre documentos de matrícula, <em>quando</em> a pessoa usa o assistente fora do horário da secretaria, <em>então</em> a resposta traz a lista oficial de documentos e o prazo, com o link da página da escola.</p>
 
       <h3>Falha e recusa</h3>
@@ -4242,7 +4242,7 @@ request-id: req_exemplo_0042
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Condição, ação, resultado, caso de falha e caso de recusa:</strong> definições de trabalho e exemplos construídos (<span class="qual">proposta didática</span>).</p>
-        <p><strong>Requisito verificável e termos proibidos:</strong> NASA, <em>NASA Systems Engineering Handbook</em>, NASA/SP-2016-6105 Rev2, Apêndice C: “Are the requirements free of unverifiable terms (e.g., flexible, easy, sufficient, safe, ad hoc, adequate, accommodate, user-friendly, usable, when required, if required, appropriate, fast, portable, light-weight, small, large, maximize, minimize, sufficient, robust, quickly, easily, clearly, other ‘ly’ words, other ‘ize’ words)?”; “All requirements should be stated in a fashion and with enough information that it will be possible to verify the requirement after the end product is implemented” (<span class="qual">registrado na norma</span>, consultado em 13/11/2026).</p>
+        <p><strong>Requisito verificável e termos não verificáveis:</strong> NASA, <em>NASA Systems Engineering Handbook</em>, NASA/SP-2016-6105 Rev2, Apêndice C: “Are the requirements free of unverifiable terms (e.g., flexible, easy, sufficient, safe, ad hoc, adequate, accommodate, user-friendly, usable, when required, if required, appropriate, fast, portable, light-weight, small, large, maximize, minimize, sufficient, robust, quickly, easily, clearly, other ‘ly’ words, other ‘ize’ words)?”; “All requirements should be stated in a fashion and with enough information that it will be possible to verify the requirement after the end product is implemented” (<span class="qual">registrado na norma</span>, consultado em 13/11/2026).</p>
         <p><strong>Método de verificação:</strong> o mesmo guia registra o campo “Verification method”, que “captures the method of verification (test, inspection, analysis, demonstration)” (<span class="qual">registrado na norma</span>).</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 3.4b">
@@ -4291,7 +4291,7 @@ request-id: req_exemplo_0042
       <p>O aceite também não deve esconder o custo da verificação. Ler 200 conversas consome tempo de gente que conhece o assunto. Esse custo entra no orçamento do projeto, e não no tempo livre de alguém.</p>
 
       <h3>A ponte para avaliação</h3>
-      <p>O aceite diz o que precisa ser verdade para o sistema entrar. A avaliação contínua, assunto do módulo 5, diz se ele continua verdadeiro depois de cada mudança de modelo, de texto ou de fonte. São coisas diferentes: uma autoriza a entrada, a outra vigia a permanência.</p>
+      <p>O aceite diz o que precisa ser verdade para o sistema entrar. A avaliação contínua, assunto do capítulo 5, diz se ele continua verdadeiro depois de cada mudança de modelo, de texto ou de fonte. São coisas diferentes: uma autoriza a entrada, a outra vigia a permanência.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p3-4c">
         <legend>Escolha uma alternativa</legend>
@@ -4337,9 +4337,9 @@ request-id: req_exemplo_0042
         <thead><tr><th scope="col">Critério</th><th scope="col">Como se verifica</th><th scope="col">Quem aceita</th></tr></thead>
         <tbody>
           <tr><th scope="row">Responde com a lista oficial de documentos e prazos</th><td>Teste com 30 perguntas reais</td><td>Direção de operações</td></tr>
-          <tr><th scope="row">Recusa matrícula, desconto e nota, indicando o canal certo</th><td>Teste com 15 pedidos fora do escopo</td><td>Secretaria</td></tr>
-          <tr><th scope="row">Funciona com o sistema acadêmico fora do ar</th><td>Demonstração com o serviço desligado</td><td>Equipe de tecnologia</td></tr>
-          <tr><th scope="row">Não envia dado pessoal ao provedor</th><td>Inspeção do que sai do serviço</td><td>Equipe de tecnologia</td></tr>
+          <tr><th scope="row">Recusa matrícula, desconto e nota, indicando o canal certo</th><td>Teste com 15 pedidos fora do escopo</td><td>Direção de operações</td></tr>
+          <tr><th scope="row">Funciona com o sistema acadêmico fora do ar</th><td>Demonstração com o serviço desligado</td><td>Direção de operações</td></tr>
+          <tr><th scope="row">Não envia dado pessoal ao provedor</th><td>Inspeção do que sai do serviço</td><td>Direção de operações</td></tr>
           <tr><th scope="row">Resposta útil em pelo menos 95% de 100 conversas</th><td>Amostra lida pela secretaria</td><td>Direção de operações</td></tr>
           <tr><th scope="row">Nenhuma resposta ríspida na amostra</th><td>Amostra lida pela secretaria</td><td>Direção de operações</td></tr>
         </tbody>
@@ -4347,11 +4347,11 @@ request-id: req_exemplo_0042
       </div>
 
       <h3>O que fica para a avaliação</h3>
-      <p>A amostra de 100 conversas autoriza a entrada. Ela não garante que o sistema continue bom quando a página de documentos mudar ou o provedor atualizar o modelo. Isso é assunto de avaliação contínua, com testes que rodam a cada mudança e apontam regressão.</p>
+      <p>A amostra de 100 conversas autoriza a entrada. Ela não garante que o sistema continue bom quando a página de documentos mudar ou o provedor atualizar o modelo. Isso é assunto de avaliação contínua, com testes que rodam a cada mudança e apontam regressão (perda do que antes funcionava).</p>
       <p>O aceite registra essa pendência de propósito: “qualidade de texto verificada por amostra na entrada; acompanhamento contínuo a definir no módulo de avaliação”. Escrever a lacuna é melhor que fingir cobertura.</p>
 
       <h3>O critério que ninguém quer escrever</h3>
-      <p>Todo projeto tem um critério desconfortável, aquele que pode reprovar o trabalho. Na Aurora, é a taxa de respostas erradas sobre prazo. É tentador deixá-lo vago, como “buscar a melhor precisão possível”.</p>
+      <p>Todo projeto tem um critério desconfortável, aquele que pode reprovar o trabalho. Na Aurora, é a taxa de respostas erradas sobre prazo, que a 3.2c limitou a 2%. É tentador deixá-lo vago, como “buscar a melhor precisão possível”.</p>
       <p>Deixar vago transfere o risco para quem usa. A pessoa que confia numa data errada perde o prazo, e a escola perde a matrícula. O critério desconfortável é o que protege o resultado — e é justamente por isso que ele precisa de número.</p>
 
       <h3>Quando o aceite reprova</h3>
@@ -4472,7 +4472,7 @@ request-id: req_exemplo_0042
           <li>Automatizar com conferência: vai sozinho, com limite, registro e revisão por amostra.</li>
         </ul>
       </div>
-      <div class="analogia"><p><strong>Pense assim.</strong> Um estagiário pode rascunhar o e-mail para você revisar, pode deixá-lo pronto para você assinar, ou pode enviar com cópia para você. O grau depende do erro custar quanto.</p></div>
+      <div class="analogia"><p><strong>Pense assim.</strong> Um estagiário pode rascunhar o e-mail para você revisar, pode deixá-lo pronto para você assinar, ou pode enviar com cópia para você. O grau depende de quanto custaria o erro.</p></div>
 
       <h3>Autonomia é uma escolha, não um padrão</h3>
       <p>Autonomia é quanto o sistema faz sem uma pessoa no meio. Ela se decide por tarefa, e não por projeto. O mesmo assistente pode rascunhar uma resposta (grau baixo) e não pode efetivar uma matrícula (fora de escopo).</p>
@@ -4565,7 +4565,7 @@ request-id: req_exemplo_0042
       <p>Buscar na página oficial é encontrar um trecho, e não gerar texto. Feita por busca, a etapa pode ser conferida: o trecho encontrado é o mesmo que a pessoa veria na página. Feita pelo modelo, a busca vira memória, e memória de modelo não é fonte.</p>
 
       <h3>O que não vira IA</h3>
-      <p>Ficam de fora, com razão escrita: efetivar matrícula (ação com efeito jurídico e financeiro), calcular desconto (regra do sistema financeiro), responder sobre notas (dado pessoal de outro sistema) e atender pós-graduação (fora do não-objetivo). Cada exclusão protege o resultado principal.</p>
+      <p>Ficam de fora, com razão escrita: efetivar matrícula (ação com efeito jurídico e financeiro), calcular desconto (regra do sistema financeiro), responder sobre notas (dado pessoal de outro sistema) e atender pós-graduação (já listado nos não-objetivos). Cada exclusão protege o resultado principal.</p>
 
       <h3>Como a decisão é registrada</h3>
       <p>A tabela acima entra na especificação como uma seção. Ela não diz qual modelo usar; diz onde o modelo entra e com quanta autonomia. A escolha do modelo vem depois, e pode mudar sem refazer a especificação — desde que os critérios de aceite continuem valendo.</p>
@@ -4575,7 +4575,7 @@ request-id: req_exemplo_0042
         <p id="enunciado-p3-5c">Uma pessoa pergunta: “meu desconto de irmãos já foi aplicado?”. Onde essa pergunta deve ser respondida?</p>
         <label class="alternativa"><input type="radio" name="p3-5c" value="a" data-correta="false" data-explicacao="Incorreta. O modelo não deve calcular desconto nem afirmar valor. Ele pode, no máximo, explicar em linguagem clara o que a regra devolveu."><span><strong>A.</strong> Pelo modelo, que calcula o desconto a partir da conversa e responde com o valor estimado.</span></label>
         <label class="alternativa"><input type="radio" name="p3-5c" value="b" data-correta="false" data-explicacao="Incorreta. Recusar sem indicar o caminho deixa a pessoa sem resposta, e o caso cai no canal errado."><span><strong>B.</strong> Pelo assistente, que recusa a pergunta e encerra a conversa, por ser assunto do financeiro.</span></label>
-        <label class="alternativa"><input type="radio" name="p3-5c" value="c" data-correta="true" data-explicacao="Correta. A regra do sistema financeiro responde; o assistente explica a resposta em linguagem clara ou encaminha ao canal certo, sem calcular nada."><span><strong>C.</strong> Pela regra do sistema financeiro, com o assistente explicando a resposta ou encaminhando ao canal certo.</span></label>
+        <label class="alternativa"><input type="radio" name="p3-5c" value="c" data-correta="true" data-explicacao="Correta. Desconto é não-objetivo do assistente: a regra do sistema financeiro responde, e o assistente só indica o canal certo, sem calcular nada."><span><strong>C.</strong> Pela regra do sistema financeiro; o assistente não calcula e encaminha a pessoa ao canal certo.</span></label>
         <label class="alternativa"><input type="radio" name="p3-5c" value="d" data-correta="false" data-explicacao="Incorreta. Ampliar o escopo para desconto cria ação financeira sem aceite próprio e sem conferência."><span><strong>D.</strong> Pelo modelo, com autonomia para consultar o sistema financeiro e ajustar o desconto se houver erro.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -4697,7 +4697,7 @@ request-id: req_exemplo_0042
       </div>
 
       <h3>Interface é o combinado entre partes</h3>
-      <p>A interface já apareceu no capítulo 2 como o ponto de passagem. Aqui ela vira uma linha escrita: a busca entrega até cinco trechos com endereço; a resposta recebe esses trechos e o texto da dúvida. Se a busca mudar o formato, a resposta quebra — e o contrato existe para que a mudança seja combinada, não descoberta.</p>
+      <p>A fronteira apareceu no capítulo 2 como o ponto de passagem. Aqui a interface, o combinado nesse ponto, vira uma linha escrita: a busca entrega até cinco trechos com endereço; a resposta recebe esses trechos e o texto da dúvida. Se a busca mudar o formato, a resposta quebra — e o contrato existe para que a mudança seja combinada, não descoberta.</p>
       <p>O guia da NASA registra campos parecidos ao tratar de requisitos: dono, rastreabilidade de um nível para outro, método e responsável pela verificação. A ideia é a mesma: cada parte tem quem responde e como se confere.</p>
 
       <h3>Rastreabilidade</h3>
@@ -4981,7 +4981,7 @@ request-id: req_exemplo_0042
       <p>As etiquetas dos capítulos anteriores continuam valendo. <span class="qual">Registrado na documentação</span> aponta para a documentação de uma empresa, com data de consulta. <span class="qual">Registrado no artigo</span> aponta para um artigo científico. <span class="qual">Proposta didática</span> é uma situação inventada para ensinar. A Aurora Educação continua sendo o caso principal, e aparece no fechamento das unidades. Os prompts são ilustrativos e não foram executados: mostram o que o modelo recebe, não um programa pronto.</p>
 
       <h3>Sobre as fontes</h3>
-      <p>O capítulo se apoia em documentação pública e em três artigos. Da Anthropic, entram o guia de prompt, o uso da Messages API, a contagem de tokens, os motivos de parada, a saída estruturada, o esforço e o guia de migração da versão de 21/10/2026. Da OpenAI, entram a saída estruturada e o guia de prompt. Completam a lista a definição de JSON Schema, Brown et al. (2020), Wei et al. (2022) e Min et al. (2022). Tudo foi consultado em 13 e 14/11/2026. Parâmetro de provedor muda; por isso, toda afirmação sobre parâmetro leva a data e o provedor a que se refere.</p>
+      <p>O capítulo se apoia em documentação pública e em três artigos. Da Anthropic, entram o guia de prompt, o uso da Messages API, a contagem de tokens, os motivos de parada, a saída estruturada, o esforço e o guia de migração da versão de 21/10/2026. Da OpenAI, entram a saída estruturada, o guia de prompt e o guia do GPT-6; do Google, o guia de estratégias de prompt; e, dos modelos abertos, as fichas do Qwen3.8-27B e do Gemma 4. Completam a lista a definição de JSON Schema, Brown et al. (2020), Wei et al. (2022) e Min et al. (2022). Tudo foi consultado entre 13 e 16/11/2026. Parâmetro de provedor muda; por isso, toda afirmação sobre parâmetro leva a data e o provedor a que se refere.</p>
 
       <nav class="page-nav" aria-label="Navegação do capítulo 4">
         <a href="#questoes-capitulo-3">Questões do capítulo 3</a>
@@ -5157,7 +5157,7 @@ Responda em até três frases e cite a seção usada.
       </div>
 
       <h3>O que ainda falta</h3>
-      <p>O prompt v1 parece completo e não é. Ele não diz como as mensagens são organizadas nem o que acontece com o histórico (4.3). Não mede quanto texto entra (4.4). Não escolhe parâmetro nenhum (4.5). Não confere se a resposta voltou no formato pedido, nem o que fazer quando volta cortada ou vazia (4.6). E não prova que melhorou: isso é avaliação, no módulo 5.</p>
+      <p>O prompt v1 parece completo e não é. Ele não diz como as mensagens são organizadas nem o que acontece com o histórico (4.3). Não mede quanto texto entra (4.4). Não escolhe parâmetro nenhum (4.5). Não confere se a resposta voltou no formato pedido, nem o que fazer quando volta cortada ou vazia (4.6). E não prova que melhorou: isso é avaliação, no capítulo 5.</p>
       <p>Também não impede que alguém confirme uma matrícula sem autorização. O texto “não confirme matrícula” orienta o modelo; a permissão que impede a ação fica no sistema em volta. Confundir os dois é o erro que a unidade 4.3 desfaz.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-1c">
@@ -5279,7 +5279,7 @@ Campos: nome=Davi; idade=não informada; oficina=terça
       </table>
       </div>
 
-      <p>A coluna do meio diz “provavelmente” de propósito: o que decide é a medição com casos reais, tema do módulo 5. Até lá, a regra prática é pedir os passos onde há etapas encadeadas, e não pedir onde a resposta sai de uma consulta ou de uma escolha entre poucas opções.</p>
+      <p>A coluna do meio diz “provavelmente” de propósito: o que decide é a medição com casos reais, tema do capítulo 5. Até lá, a regra prática é pedir os passos onde há etapas encadeadas, e não pedir onde a resposta sai de uma consulta ou de uma escolha entre poucas opções.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-2b">
         <legend>Escolha uma alternativa</legend>
@@ -5372,7 +5372,7 @@ Campos: nome=Davi; idade=não informada; oficina=terça
         <ul>
           <li>A v2 aplica sobre a v1 três técnicas: um exemplo de caso sem resposta, passos numerados e blocos marcados.</li>
           <li>A tabela mostra o que mudou, e o que continua sendo do sistema.</li>
-          <li>A v2 não está provada melhor: isso é avaliação, no módulo 5.</li>
+          <li>A v2 não está provada melhor: isso é avaliação, no capítulo 5.</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> Revisar o manual de atendimento depois de ouvir algumas ligações. O manual novo parece melhor, mas só as próximas ligações dizem se ajudou.</p></div>
@@ -5407,7 +5407,7 @@ Resposta: "Não encontrei essa data na página. Fale com a secretaria. (Seção:
       </div>
 
       <h3>O que melhorou e o que continua fora</h3>
-      <p>A v2 deixa mais claro o que fazer quando a fonte não responde, e isso se vê no exemplo. Mas o texto não prova que o assistente erra menos: para isso é preciso rodar as duas versões sobre os mesmos casos, com critério escrito de acerto (módulo 5). E tudo que já ficava fora na 4.1c continua fora: permissão, validação do formato e contagem de tokens.</p>
+      <p>A v2 deixa mais claro o que fazer quando a fonte não responde, e isso se vê no exemplo. Mas o texto não prova que o assistente erra menos: para isso é preciso rodar as duas versões sobre os mesmos casos, com critério escrito de acerto (capítulo 5). E tudo que já ficava fora na 4.1c continua fora: permissão, validação do formato e contagem de tokens.</p>
       <p>Fecha-se assim a unidade: três técnicas com fonte, uma versão de prompt mais testável e a lista do que o prompt não resolve. A unidade 4.3 trata de como as mensagens chegam ao modelo.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-2d">
@@ -5415,7 +5415,7 @@ Resposta: "Não encontrei essa data na página. Fale com a secretaria. (Seção:
         <p id="enunciado-p4-2d">Depois de escrever a v2, a equipe diz que ela é melhor que a v1. Qual evidência falta?</p>
         <label class="alternativa"><input type="radio" name="p4-2d" value="a" data-correta="false" data-explicacao="Incorreta. Comprimento e número de etiquetas não medem acerto."><span><strong>A.</strong> Que o texto da v2 é mais longo e tem mais etiquetas.</span></label>
         <label class="alternativa"><input type="radio" name="p4-2d" value="b" data-correta="false" data-explicacao="Incorreta. Uma resposta boa não representa os casos que a v2 enfrentará; pode ser coincidência."><span><strong>B.</strong> Que o modelo respondeu bem a uma pergunta de teste.</span></label>
-        <label class="alternativa"><input type="radio" name="p4-2d" value="c" data-correta="true" data-explicacao="Correta. Só a comparação sobre os mesmos casos, com critério escrito, mostra se a v2 melhorou. É o assunto do módulo 5."><span><strong>C.</strong> Uma comparação das duas versões sobre os mesmos casos, com critério escrito de acerto.</span></label>
+        <label class="alternativa"><input type="radio" name="p4-2d" value="c" data-correta="true" data-explicacao="Correta. Só a comparação sobre os mesmos casos, com critério escrito, mostra se a v2 melhorou. É o assunto do capítulo 5."><span><strong>C.</strong> Uma comparação das duas versões sobre os mesmos casos, com critério escrito de acerto.</span></label>
         <label class="alternativa"><input type="radio" name="p4-2d" value="d" data-correta="false" data-explicacao="Incorreta. Usar passos numerados e etiquetas descreve o método, não prova o resultado."><span><strong>D.</strong> Que a v2 usa passos numerados e etiquetas, técnicas conhecidas.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
@@ -5468,7 +5468,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       <h3>A chamada não guarda a conversa</h3>
       <p>A pergunta “E se eu pagar amanhã?” só faz sentido com o que veio antes. A documentação diz que a Messages API é <em>stateless</em>, isto é, sem estado: “you always send the full conversational history to the API”, o histórico completo vai em toda chamada (já visto na unidade 2.2). Quem lembra a conversa é o sistema que a monta, e não o modelo. O sistema decide o que entra no histórico, em que ordem e o que sai quando falta espaço.</p>
       <h3>O que é do sistema e o que é do modelo</h3>
-      <p>O sistema escolhe os papéis, a ordem e os cortes. O modelo recebe a lista e escreve a próxima mensagem. Dois equívocos nascem da confusão: achar que o modelo lembra sozinho e achar que o histórico é grátis. Como o histórico é reenviado a cada turno, ele cresce, e cada turno novo custa mais tokens de entrada que o anterior. A unidade 4.4 mede isso, e o módulo 8 trata de como resumir ou cortar o histórico.</p>
+      <p>O sistema escolhe os papéis, a ordem e os cortes. O modelo recebe a lista e escreve a próxima mensagem. Dois equívocos nascem da confusão: achar que o modelo lembra sozinho e achar que o histórico é grátis. Como o histórico é reenviado a cada turno, ele cresce, e cada turno novo custa mais tokens de entrada que o anterior. A unidade 4.4 mede isso, e o capítulo 9 trata de como resumir ou cortar o histórico.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-3a">
         <legend>Escolha uma alternativa</legend>
@@ -5524,7 +5524,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       </table>
       </div>
 
-      <p>O tipo do bloco só diz como o modelo vai lê-lo. Quem decide o que cada bloco pode fazer é o desenho do sistema. As ferramentas em si (como declarar, como o modelo as chama, como o resultado volta) são tema do módulo 9; aqui basta saber que o resultado é mais um bloco, com custo e com a mesma regra de dado.</p>
+      <p>O tipo do bloco só diz como o modelo vai lê-lo. Quem decide o que cada bloco pode fazer é o desenho do sistema. As ferramentas em si (como declarar, como o modelo as chama, como o resultado volta) são tema do capítulo 10; aqui basta saber que o resultado é mais um bloco, com custo e com a mesma regra de dado.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-3b">
         <legend>Escolha uma alternativa</legend>
@@ -5579,7 +5579,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       </div>
 
       <h3>Fechando a unidade</h3>
-      <p>A versão 2 da Aurora tem agora papéis claros: o sistema monta a lista, reenvia o histórico, marca cada bloco como dado e aplica a permissão. O prompt faz o que sabe fazer, orientar. A falha clássica é o contrário: confiar que a frase “não confirme matrícula” protege a matrícula. Injeção de prompt, permissões e isolamento são o tema do módulo 6; o que este capítulo fixa é o princípio: <strong>o desenho do sistema não pode depender de o modelo recusar</strong>.</p>
+      <p>A versão 2 da Aurora tem agora papéis claros: o sistema monta a lista, reenvia o histórico, marca cada bloco como dado e aplica a permissão. O prompt faz o que sabe fazer, orientar. A falha clássica é o contrário: confiar que a frase “não confirme matrícula” protege a matrícula. Injeção de prompt, permissões e isolamento são o tema do capítulo 7; o que este capítulo fixa é o princípio: <strong>o desenho do sistema não pode depender de o modelo recusar</strong>.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-3c">
         <legend>Escolha uma alternativa</legend>
@@ -5600,7 +5600,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
         <p><strong>Ler:</strong> Anthropic, <em>Working with messages</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/working-with-messages" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/working-with-messages</a>.</p>
-        <p>Sem <em>Aprofundar</em> conferido nesta unidade; injeção de prompt e permissões ficam para o módulo 6.</p>
+        <p>Sem <em>Aprofundar</em> conferido nesta unidade; injeção de prompt e permissões ficam para o capítulo 7.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 4.3c">
         <a href="#unidade-4-3b">Parte 4.3b</a>
@@ -5743,7 +5743,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       <h3>O que cortar primeiro, e o que nunca</h3>
       <p>Corte primeiro o histórico antigo e os exemplos acima do necessário, e envie só os trechos da fonte que dizem respeito à pergunta. Nunca corte o que define o limite do assistente (as regras, sobretudo “não confirmar matrícula”), a fonte que sustenta a resposta nem a pergunta. Cortar uma instrução de limite para economizar tokens é abrir mão da proteção sem aviso.</p>
       <h3>Decidir antes de enviar</h3>
-      <p>O corte é uma decisão do sistema, tomada antes do envio com a contagem do provedor (4.4b), e não uma surpresa depois. Se o total ainda não cabe, o sistema registra o fato e reduz o que pode; não manda o pedido torcendo para dar certo. Como resumir o histórico em vez de apenas cortá-lo é assunto do módulo 8, e a relação entre tamanho e custo é do módulo 15.</p>
+      <p>O corte é uma decisão do sistema, tomada antes do envio com a contagem do provedor (4.4b), e não uma surpresa depois. Se o total ainda não cabe, o sistema registra o fato e reduz o que pode; não manda o pedido torcendo para dar certo. Como resumir o histórico em vez de apenas cortá-lo é assunto do capítulo 9, e a relação entre tamanho e custo é do capítulo 16.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-4c">
         <legend>Escolha uma alternativa</legend>
@@ -5764,7 +5764,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       <h3>Fontes da unidade</h3>
       <div class="fontes">
         <p><strong>Ler:</strong> Anthropic, <em>Token counting</em> — <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener noreferrer">platform.claude.com/docs/en/build-with-claude/token-counting</a>.</p>
-        <p>Sem <em>Aprofundar</em> conferido nesta unidade; custo e contexto ficam para os módulos 8 e 15.</p>
+        <p>Sem <em>Aprofundar</em> conferido nesta unidade; custo e contexto ficam para os capítulos 9 e 16.</p>
       </div>
       <nav class="page-nav" aria-label="Navegação da parte 4.4c">
         <a href="#unidade-4-4b">Parte 4.4b</a>
@@ -5921,11 +5921,11 @@ usuário: E se eu pagar amanhã?</code></pre>
       </table>
       </div>
 
-      <p>Os valores exatos não saem de tabela: saem de medição com casos reais (módulo 5).</p>
+      <p>Os valores exatos não saem de tabela: saem de medição com casos reais (capítulo 5).</p>
       <h3>O que “variação baixa” não garante</h3>
       <p>Reduzir a variação da escolha não faz a resposta ficar correta, e o guia não encontrou, nas fontes deste capítulo, uma garantia de resposta idêntica a cada chamada. Cada provedor diz o que garante; leia antes de prometer repetição. Resultado estável e resultado certo são coisas diferentes: um modelo pode repetir o mesmo erro com toda a regularidade.</p>
       <h3>Na Aurora</h3>
-      <p>Na versão 2026-10-21 da API da Anthropic, o assistente não envia temperatura, <code>top_p</code> nem <code>top_k</code>. A configuração fica com o teto de 300 tokens (4.4c) e com o controle de esforço, segundo a página de esforço. A estabilidade que a temperatura daria em outro provedor passa a vir do formato, da validação (4.6) e da avaliação (módulo 5). Cada escolha vai registrada com provedor, versão da API, data da conferência e o motivo.</p>
+      <p>Na versão 2026-10-21 da API da Anthropic, o assistente não envia temperatura, <code>top_p</code> nem <code>top_k</code>. A configuração fica com o teto de 300 tokens (4.4c) e com o controle de esforço, segundo a página de esforço. A estabilidade que a temperatura daria em outro provedor passa a vir do formato, da validação (4.6) e da avaliação (capítulo 5). Cada escolha vai registrada com provedor, versão da API, data da conferência e o motivo.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-5c">
         <legend>Escolha uma alternativa</legend>
@@ -6105,7 +6105,7 @@ usuário: E se eu pagar amanhã?</code></pre>
         <caption>Partes do template</caption>
         <thead><tr><th scope="col">Parte</th><th scope="col">Fixa ou variável</th><th scope="col">Quem muda e como</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Instruções e limites</th><td>Fixa</td><td>Revisão com teste (módulo 5)</td></tr>
+          <tr><th scope="row">Instruções e limites</th><td>Fixa</td><td>Revisão com teste (capítulo 5)</td></tr>
           <tr><th scope="row">Exemplos</th><td>Fixa</td><td>Revisão com teste</td></tr>
           <tr><th scope="row">Fonte</th><td>Variável</td><td>O sistema, a cada pedido</td></tr>
           <tr><th scope="row">Histórico</th><td>Variável</td><td>O sistema, com a regra de corte (4.4c)</td></tr>
@@ -6185,7 +6185,7 @@ usuário: E se eu pagar amanhã?</code></pre>
         <li>Uma decisão escrita para cada falha (4.6).</li>
       </ul>
       <h3>O que o capítulo deixou para depois</h3>
-      <p>Medir se o prompt melhorou é o módulo 5; segurança e injeção de prompt, o módulo 6; custo total e proporcionalidade, o módulo 7; resumo e corte de histórico, o módulo 8. O que o capítulo fecha é o artefato: um prompt que se monta, se mede e se confere, e uma resposta que não é aceita só porque chegou.</p>
+      <p>Medir se o prompt melhorou é o capítulo 5; segurança e injeção de prompt, o capítulo 7; custo total e proporcionalidade, o capítulo 8; resumo e corte de histórico, o capítulo 9. O que o capítulo fecha é o artefato: um prompt que se monta, se mede e se confere, e uma resposta que não é aceita só porque chegou.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p4-6d">
         <legend>Escolha uma alternativa</legend>
@@ -6277,7 +6277,7 @@ usuário: E se eu pagar amanhã?</code></pre>
         <label class="alternativa"><input type="radio" name="c4q6" value="a" data-correta="false" data-explicacao="Incorreta. Um teto maior não corrige o campo ausente nem o valor inventado, e “mais cuidado” não é validação."><span><strong>A.</strong> Aumentar o teto e acrescentar “tenha mais cuidado” ao prompt.</span></label>
         <label class="alternativa"><input type="radio" name="c4q6" value="b" data-correta="false" data-explicacao="Incorreta. Forma válida não prova campos nem valores; o campo ausente e a data inventada passariam."><span><strong>B.</strong> Validar apenas se o JSON abre e fecha e aceitar o resto.</span></label>
         <label class="alternativa"><input type="radio" name="c4q6" value="c" data-correta="false" data-explicacao="Incorreta. Sem registro, o defeito volta sem que ninguém perceba."><span><strong>C.</strong> Corrigir a resposta à mão e não registrar a falha.</span></label>
-        <label class="alternativa"><input type="radio" name="c4q6" value="d" data-correta="true" data-explicacao="Correta. Cobre as quatro falhas: corte pelo motivo de parada, campo pelo schema, regra pela validação e valor inventado pela fonte. O reparo tem limite."><span><strong>D.</strong> Ler o motivo de parada, validar campos obrigatórios e regras, conferir os valores com a fonte e decidir entre reparar uma vez ou falhar de forma explícita.</span></label>
+        <label class="alternativa"><input type="radio" name="c4q6" value="d" data-correta="true" data-explicacao="Correta. Cobre as falhas do caso e a regra de negócio: corte pelo motivo de parada, campo pelo schema, valor inventado pela fonte e regra pela validação. O reparo tem limite."><span><strong>D.</strong> Ler o motivo de parada, validar campos obrigatórios e regras, conferir os valores com a fonte e decidir entre reparar uma vez ou falhar de forma explícita.</span></label>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
 
@@ -6290,7 +6290,7 @@ usuário: E se eu pagar amanhã?</code></pre>
 
     <section class="page" id="capitulo-5" aria-labelledby="titulo-do-capitulo-5">
       <h2 id="titulo-do-capitulo-5">Capítulo 5 — Avaliação e experimentação</h2>
-      <p>O capítulo 4 repetiu uma frase várias vezes: “isso é avaliação, no módulo 5”. A versão 2 do prompt da Aurora parece melhor que a versão 1. Parece. Quem decide se melhorou, e com base em quê?</p>
+      <p>O capítulo 4 repetiu uma frase várias vezes: “isso é avaliação, no capítulo 5”. A versão 2 do prompt da Aurora parece melhor que a versão 1. Parece. Quem decide se melhorou, e com base em quê?</p>
       <p>Este capítulo responde a essa pergunta. Avaliar é comparar o resultado com um critério escrito, sobre casos conhecidos, e repetir. Impressão não é medida, e uma execução só também não é.</p>
       <p>Ao final, você define o que é resultado adequado, reúne casos reais e falhas, fixa uma referência inicial, escolhe quem confere (regra, modelo ou pessoa), vigia regressões e só declara “melhorou” quando a comparação é confiável.</p>
 
@@ -6313,7 +6313,7 @@ usuário: E se eu pagar amanhã?</code></pre>
       <p>As etiquetas dos capítulos anteriores continuam valendo. <span class="qual">Registrado na documentação</span> aponta para a documentação de uma empresa, com data de consulta. <span class="qual">Registrado no artigo</span> aponta para um artigo científico. <span class="qual">Registrado na fonte</span> aponta para um texto técnico publicado por uma empresa. <span class="qual">Proposta didática</span> é uma situação ou uma leitura do guia, sem trecho de fonte que a sustente. A Aurora Educação continua sendo o caso principal. Os números das tabelas da Aurora são fictícios e não foram medidos: servem para aprender a ler uma tabela, não para dizer quanto um modelo acerta.</p>
 
       <h3>Sobre as fontes</h3>
-      <p>Da Anthropic, entram o artigo de engenharia <em>Demystifying evals for AI agents</em> (09/01/2026) e a página de documentação sobre critérios de sucesso e avaliações. Entre os artigos, Zheng et al. (2023) e Wang et al. (2023) tratam do modelo como avaliador, e Miller (2024) trata da incerteza nos resultados de uma avaliação. Tudo foi consultado em 16/11/2026. Páginas de documentação mudam sem aviso; por isso, cada afirmação leva a data de consulta.</p>
+      <p>Da Anthropic, entram o artigo de engenharia <em>Demystifying evals for AI agents</em> (09/01/2026) e a página de documentação sobre critérios de sucesso e avaliações. Entre os artigos, Zheng et al. (2023) e Wang et al. (2023) tratam do modelo como avaliador, e Miller (2024) trata da incerteza nos resultados de uma avaliação. A OpenAI (guia de avaliação) e o Google Cloud (serviço de avaliação) entram como outras vozes do mercado. Tudo foi consultado em 16/11/2026. Páginas de documentação mudam sem aviso; por isso, cada afirmação leva a data de consulta.</p>
 
       <nav class="page-nav" aria-label="Navegação do capítulo 5">
         <a href="#questoes-capitulo-4">Questões do capítulo 4</a>
@@ -6417,7 +6417,7 @@ usuário: E se eu pagar amanhã?</code></pre>
 
       <h3>Reprovação automática e custo</h3>
       <p>Alguns critérios anulam todos os outros. Uma resposta que confirma matrícula está reprovada mesmo que cite a seção certa. Chame isso de <dfn>reprovação automática</dfn>. Os demais critérios contam um a um.</p>
-      <p>Acertar não basta: a resposta também custa e demora. Tempo de resposta e custo por resposta entram na lista como critério, com um limite combinado. O módulo 7 trata do custo total; o módulo 15, de como reduzi-lo.</p>
+      <p>Acertar não basta: a resposta também custa e demora. Tempo de resposta e custo por resposta entram na lista como critério, com um limite combinado. O capítulo 8 trata do custo total; o capítulo 16, de como reduzi-lo.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p5-1b">
         <legend>Escolha uma alternativa</legend>
@@ -6486,7 +6486,7 @@ ou pedir documento.</code></pre>
         </tbody>
       </table>
       </div>
-      <p>O critério 5 não vem do prompt: vem do aceite da unidade 3.4, que já pedia um tempo de resposta (“até 5 segundos em 90% dos casos”), e do custo por resposta, assunto dos módulos 7 e 15. Comece com poucos critérios, de três a cinco, e acrescente quando uma falha real mostrar o que faltou (<span class="qual">proposta didática</span>).</p>
+      <p>O critério 5 não vem do prompt: vem do aceite da unidade 3.4, que já pedia um tempo de resposta (“até 5 segundos em 90% dos casos”), e do custo por resposta, assunto dos capítulos 8 e 16. Comece com poucos critérios, de três a cinco, e acrescente quando uma falha real mostrar o que faltou (<span class="qual">proposta didática</span>).</p>
 
       <h3>O que ainda não dá para medir</h3>
       <p>A lista não diz se a resposta foi <em>útil</em> ao aluno, nem se o tom foi acolhedor. Isso exige pessoa ou rubrica com escala, assunto da unidade 5.4. E a lista não diz se a v2 é melhor que a v1: critérios sem casos não medem nada. Os casos entram na unidade 5.2; a comparação, na 5.6.</p>
@@ -6546,7 +6546,7 @@ ou pedir documento.</code></pre>
         <thead><tr><th scope="col">Fonte do caso</th><th scope="col">O que traz</th><th scope="col">Cuidado</th></tr></thead>
         <tbody>
           <tr><th scope="row">Falhas observadas</th><td>O erro que já aconteceu</td><td>Anotar a entrada antes de corrigir</td></tr>
-          <tr><th scope="row">Pedidos reais</th><td>O que as pessoas de fato perguntam</td><td>Retirar dados pessoais (módulo 6)</td></tr>
+          <tr><th scope="row">Pedidos reais</th><td>O que as pessoas de fato perguntam</td><td>Retirar dados pessoais (capítulo 7)</td></tr>
           <tr><th scope="row">Casos de recusa</th><td>O que o assistente não pode fazer</td><td>Um para cada limite do prompt</td></tr>
           <tr><th scope="row">Casos de borda</th><td>Pergunta fora da página, duas perguntas numa, texto confuso</td><td>Poucos e variados</td></tr>
         </tbody>
@@ -6643,7 +6643,7 @@ Motivo: o assistente não confirma matrícula (3.6d)</code></pre>
         <ul>
           <li>Um conjunto de 16 casos fictícios cobre uso normal, borda, recusa e dado pessoal.</li>
           <li>Testar só o que deve acontecer treina o sistema para um lado só.</li>
-          <li>Casos com dado pessoal real pedem cuidado de segurança (módulo 6).</li>
+          <li>Casos com dado pessoal real pedem cuidado de segurança (capítulo 7).</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> O treino de um guarda de portão: não basta praticar abrir o portão para quem pode entrar; é preciso praticar também recusar quem não pode, sem ofender ninguém.</p></div>
@@ -6665,7 +6665,7 @@ Motivo: o assistente não confirma matrícula (3.6d)</code></pre>
         </tbody>
       </table>
       </div>
-      <p>Os casos de dado pessoal usam dados inventados. Casos tirados de conversas reais exigem retirar ou proteger os dados antes: esse cuidado é do módulo 6.</p>
+      <p>Os casos de dado pessoal usam dados inventados. Casos tirados de conversas reais exigem retirar ou proteger os dados antes: esse cuidado é do capítulo 7.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p5-2c">
         <legend>Escolha uma alternativa</legend>
@@ -6764,7 +6764,7 @@ Motivo: o assistente não confirma matrícula (3.6d)</code></pre>
           <tr><th scope="row">A v1 do assistente</th><td>A v2 melhorou?</td><td>Mesmos casos e critérios</td></tr>
           <tr><th scope="row">Pessoa treinada da secretaria</th><td>O assistente chega perto de quem atende hoje?</td><td>Uma pessoa também erra e varia</td></tr>
           <tr><th scope="row">Regra fixa, como uma busca por palavra</th><td>A IA vale mais que uma solução simples?</td><td>A regra pode ser boa o bastante</td></tr>
-          <tr><th scope="row">Outro modelo</th><td>Trocar de modelo compensa?</td><td>Módulo 13</td></tr>
+          <tr><th scope="row">Outro modelo</th><td>Trocar de modelo compensa?</td><td>Capítulo 14</td></tr>
         </tbody>
       </table>
       </div>
@@ -7056,6 +7056,7 @@ para decidir.</code></pre>
           <tr><th scope="row">1. Datas e valores da fonte</th><td>Regra</td><td>Amostra</td></tr>
           <tr><th scope="row">2 e 3. Seção citada, até três frases</th><td>Regra</td><td>Não precisa</td></tr>
           <tr><th scope="row">4. Diz o que não encontrou</th><td>Juiz com rubrica</td><td>Valida o juiz</td></tr>
+          <tr><th scope="row">5. Tempo e custo</th><td>Regra, por medição</td><td>Não precisa</td></tr>
           <tr><th scope="row">Reprovação automática</th><td>Regra</td><td>Lê os casos de dúvida</td></tr>
         </tbody>
       </table>
@@ -7210,7 +7211,7 @@ para decidir.</code></pre>
         <ul>
           <li>Rode o conjunto a cada mudança de prompt, modelo, esforço ou fonte.</li>
           <li>Se um caso de regressão cai, a mudança fica parada ou recebe decisão registrada.</li>
-          <li>Monitorar o uso real em produção é outro assunto (módulo 14).</li>
+          <li>Monitorar o uso real em produção é outro assunto (capítulo 15).</li>
         </ul>
       </div>
       <div class="analogia"><p><strong>Pense assim.</strong> A lista de verificação antes de decolar: ela é percorrida a cada voo, e um item vermelho segura o avião no solo até alguém decidir o que fazer.</p></div>
@@ -7232,7 +7233,7 @@ Próximo passo: corrigir o caso 07 e rodar de novo</code></pre>
       <p>Caiu um caso de regressão. Há duas saídas honestas: corrigir e rodar de novo, ou liberar com uma decisão escrita por quem responde pelo assistente, com o motivo e o risco aceito. O que não vale é rodar até passar, tirar o caso do conjunto ou olhar só o total.</p>
       <p>A Anthropic escreve que a queda no resultado “signals that something is broken and needs to be improved”. A decisão fica no registro, para quem chegar depois entender por que a mudança passou ou ficou parada.</p>
       <p>A OpenAI chama a mesma rotina de avaliação contínua: “Set up continuous evaluation (CE) to run evals on every change, monitor your app to identify new cases of nondeterminism, and grow the eval set over time”. Em português: rodar as avaliações a cada mudança, observar o aplicativo para achar novos casos de variação e aumentar o conjunto com o tempo. Um aviso sobre ferramenta: a mesma página diz que a OpenAI está descontinuando a sua plataforma de avaliações (“Evals will become read-only for existing users on October 31, 2026, and the platform is scheduled to shut down on November 30, 2026”). O método continua valendo, mas uma ferramenta pode sair do ar. Por isso o guia ensina a rotina, e não um produto.</p>
-      <p>Fica de fora o acompanhamento do assistente já em uso, com conversas reais e queixas dos alunos. Isso é monitoramento e operação, assunto do módulo 14. Aqui, o conjunto serve antes de liberar uma mudança.</p>
+      <p>Fica de fora o acompanhamento do assistente já em uso, com conversas reais e queixas dos alunos. Isso é monitoramento e operação, assunto do capítulo 15. Aqui, o conjunto serve antes de liberar uma mudança.</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p5-5c">
         <legend>Escolha uma alternativa</legend>
@@ -7244,7 +7245,7 @@ Próximo passo: corrigir o caso 07 e rodar de novo</code></pre>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
-      <p>Rode a regressão a cada mudança e registre o resultado. Se um caso cai, corrija ou decida por escrito. O conjunto guarda o que já funcionava; o uso real em produção é do módulo 14. Na unidade 5.6, vem a pergunta final: a diferença entre v1 e v2 é confiável?</p>
+      <p>Rode a regressão a cada mudança e registre o resultado. Se um caso cai, corrija ou decida por escrito. O conjunto guarda o que já funcionava; o uso real em produção é do capítulo 15. Na unidade 5.6, vem a pergunta final: a diferença entre v1 e v2 é confiável?</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Queda no resultado:</strong> Anthropic, <em>Demystifying evals for AI agents</em>, 09/01/2026: “as a decline in score signals that something is broken and needs to be improved” (<span class="qual">registrado na fonte</span>, consultado em 16/11/2026).</p>
@@ -7444,7 +7445,7 @@ Esforço: dois níveis nos mesmos casos; escolha por
   acerto, custo e tempo.
 Próximo passo: corrigir o caso 07 e repetir.</code></pre>
       </figure>
-      <p>Fica de fora o que é de outros módulos: segurança (6), custo total (7), escolha de modelo (13) e operação (14).</p>
+      <p>Fica de fora o que é de outros capítulos: segurança (7), custo total (8), escolha de modelo (14) e operação (15).</p>
       <h3>Pergunta</h3>
       <fieldset class="questao" aria-describedby="enunciado-p5-6d">
         <legend>Escolha uma alternativa</legend>
@@ -7456,7 +7457,7 @@ Próximo passo: corrigir o caso 07 e repetir.</code></pre>
         <div class="retorno" role="status" aria-live="polite"></div>
       </fieldset>
       <h3>Ponto de retomada</h3>
-      <p>Os três desenhos do capítulo 4 estão prontos: v1 contra v2, passos intermediários e esforço, com a decisão registrada. As questões do capítulo fecham o estudo da Parte I até aqui.</p>
+      <p>Os três desenhos do capítulo 4 estão prontos: v1 contra v2, passos intermediários e esforço, com a decisão registrada. As questões do capítulo fecham a Parte I.</p>
       <h3>Notas de fonte</h3>
       <div class="fontes">
         <p><strong>Parâmetros da Anthropic:</strong> conforme as partes 4.5 e 4.6 deste guia: guia de migração da API 2026-10-21 e página de esforço, consultados em 14/11/2026 (<span class="qual">registrado na documentação</span>). Não se generaliza para outros provedores.</p>
@@ -18680,7 +18681,7 @@ Desvio (regra fixa):
         <dt>JSON Schema (10.2)</dt><dd>Linguagem declarativa para descrever estrutura, tipos e restrições de dados JSON trocados em contratos de ferramentas.</dd>
         <dt>Juiz-LLM (5.4)</dt><dd>Modelo que aplica um critério a uma resposta. Rápido, mas com vieses de posição, tamanho e autopreferência.</dd>
         <dt>Just-in-time (9.3)</dt><dd>Abordagem de manter apenas identificadores leves (caminhos, links, consultas) e buscar conteúdo completo sob demanda em execução.</dd>
-        <dt>KV cache (1.5)</dt><dd>Técnica que guarda em memória contas já feitas para não refazê-las. Assunto do módulo 12.</dd>
+        <dt>KV cache (1.5)</dt><dd>Técnica que guarda em memória contas já feitas para não refazê-las. Assunto do capítulo 13.</dd>
         <dt>Laço do agente (12.1)</dt><dd>Ciclo em que o modelo avalia o estado, pede ferramentas, recebe os resultados e repete até responder sem pedir ferramenta.</dd>
         <dt>Latência (2.3)</dt><dd>Tempo entre fazer o pedido e receber a resposta.</dd>
         <dt>Limite de simultaneidade (2.6)</dt><dd>Máximo de pedidos em andamento ao mesmo tempo; o excedente espera ou é recusado.</dd>
@@ -18728,7 +18729,7 @@ Desvio (regra fixa):
         <dt>Orçamento de raciocínio (9.2)</dt><dd>Parcela de tokens consumida pelo raciocínio estendido dentro da janela e do teto <code>max_tokens</code>, faturada como saída.</dd>
         <dt>Orçamento de tentativas (8.3)</dt><dd>Limite explícito de novas tentativas por pedido e por cliente para impedir que retentativas amplifiquem uma falha em cascata. Em inglês, <em>retry budget</em>.</dd>
         <dt>Orçamento operacional de janela (9.2)</dt><dd>Limite de uso definido pela engenharia abaixo do teto físico da janela para preservar atenção, latência e margem para saída.</dd>
-        <dt>PagedAttention (1.5)</dt><dd>Técnica que organiza a memória do KV cache quase sem desperdício, usada no servidor vLLM. Assunto do módulo 12.</dd>
+        <dt>PagedAttention (1.5)</dt><dd>Técnica que organiza a memória do KV cache quase sem desperdício, usada no servidor vLLM. Assunto do capítulo 13.</dd>
         <dt>Papel (4.3)</dt><dd>Quem diz a mensagem: o sistema, o usuário ou o assistente. Organiza a conversa; não dá permissão.</dd>
         <dt>Parâmetros (1.2)</dt><dd>Números ajustáveis que o modelo usa nas suas contas; formados por pesos e vieses.</dd>
         <dt>Parâmetros ativos (13.1)</dt><dd>Em um modelo de mistura de especialistas, os parâmetros que participam do cálculo de cada token, em geral menos que o total carregado na memória.</dd>
