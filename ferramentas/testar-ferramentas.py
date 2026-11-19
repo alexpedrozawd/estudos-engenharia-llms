@@ -66,6 +66,15 @@ class Golden(unittest.TestCase):
         linha_ini = int(out.splitlines()[0].split("\t")[1].split("-")[0])
         self.assertIn('id="unidade-13-2a"', ler_texto(GUIA).splitlines()[linha_ini - 1])
 
+    def test_mapa_respeita_fronteira_de_numero(self):
+        rc, out = executar("mapa", "1")
+        self.assertEqual(rc, 0)
+        ids = [l.split("\t")[0] for l in out.strip().splitlines()]
+        self.assertIn("capitulo-1", ids)
+        self.assertIn("questoes-capitulo-1", ids)
+        self.assertNotIn("capitulo-10", ids)
+        self.assertNotIn("unidade-10-1a", ids)
+
     def test_mapa_prefixo_inexistente_falha(self):
         rc, _ = executar("mapa", "99.9")
         self.assertEqual(rc, 1)

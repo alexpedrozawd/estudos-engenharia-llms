@@ -65,6 +65,7 @@ class Rede(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.srv.shutdown()
+        cls.srv.server_close()
 
     def test_baixa_pagina_permitida_sem_dados_do_projeto(self):
         CABECALHOS.clear()
@@ -108,9 +109,10 @@ class Manifesto(unittest.TestCase):
     def test_manifesto_confere_com_contagem_independente(self):
         total = 0
         for p in glob.glob(os.path.join(RAIZ, "pacote-de-fontes-*.md")):
-            for linha in open(p, encoding="utf-8"):
-                if re.match(r"^\| `[^`]+` \|.*https?://.*\| `[0-9a-f]{16}` \|\s*$", linha):
-                    total += 1
+            with open(p, encoding="utf-8") as f:
+                for linha in f:
+                    if re.match(r"^\| `[^`]+` \|.*https?://.*\| `[0-9a-f]{16}` \|\s*$", linha):
+                        total += 1
         itens = fontes.manifesto()
         self.assertEqual(len(itens), total)
         self.assertGreater(total, 150)

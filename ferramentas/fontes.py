@@ -115,13 +115,17 @@ def sha16(b):
 
 
 def cmd_manifesto(pacote):
-    itens = manifesto([p for p in pacotes_padrao() if not pacote or os.path.basename(p) == pacote])
+    todos = [p for p in pacotes_padrao() if not pacote or os.path.basename(p) == pacote]
+    itens = manifesto(todos)
     por_pacote = {}
     for i in itens:
         por_pacote[i["pacote"]] = por_pacote.get(i["pacote"], 0) + 1
     for p, n in por_pacote.items():
         print(f"{n:3} chaves  {p}")
+    fora = [os.path.basename(p) for p in todos if os.path.basename(p) not in por_pacote]
     print(f"{len(itens)} entradas, {len({i['chave'] for i in itens})} chaves únicas, {len(hosts_permitidos(itens))} domínios")
+    if fora:
+        print(f"fora do manifesto (sem tabela com Hash bruto (16)): {', '.join(fora)}")
     return 0 if itens else 1
 
 

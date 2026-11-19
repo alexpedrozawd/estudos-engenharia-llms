@@ -117,7 +117,8 @@ def montar_casos():
         if fo.manifesto([p]):
             for _, _, c in ct.ler_pacote(p):
                 ouro[c[0]] = {"fonte": c[3], "trecho": c[7]}
-    base = json.load(open(CASOS, encoding="utf-8"))
+    with open(CASOS, encoding="utf-8") as f:
+        base = json.load(f)
     casos = []
     for b in base:
         g = ouro[b["id"]]
@@ -131,7 +132,8 @@ def montar_casos():
 
 
 def rodar_caso(llm, modelo, caso):
-    texto = open(os.path.join(TEXTOS, caso["fonte"] + ".txt"), encoding="utf-8", errors="replace").read()
+    with open(os.path.join(TEXTOS, caso["fonte"] + ".txt"), encoding="utf-8", errors="replace") as f:
+        texto = f.read()
     chunks = fazer_chunks(texto)
     cand = ranking_lexico(chunks, caso["palavras"], K_CAND)
     trechos = [chunks[i] for i in cand]
@@ -162,7 +164,10 @@ def cmd_rodar(modelo, tempo_total, limite):
     llm = carregar("llm", "llm-local.py")
     os.makedirs(SAIDA, exist_ok=True)
     caminho = arquivo_modelo(modelo)
-    feitos = {json.loads(l)["id"] for l in open(caminho, encoding="utf-8")} if os.path.exists(caminho) else set()
+    feitos = set()
+    if os.path.exists(caminho):
+        with open(caminho, encoding="utf-8") as f:
+            feitos = {json.loads(l)["id"] for l in f}
     casos = [c for c in montar_casos() if c["id"] not in feitos]
     if limite:
         casos = casos[:limite]
@@ -184,7 +189,8 @@ def cmd_rodar(modelo, tempo_total, limite):
 
 
 def resumo_modelo(caminho):
-    linhas = [json.loads(l) for l in open(caminho, encoding="utf-8")]
+    with open(caminho, encoding="utf-8") as f:
+        linhas = [json.loads(l) for l in f]
     pos = [r for r in linhas if r["tipo"] == "pos"]
     neg = [r for r in linhas if r["tipo"] == "neg"]
     n = len(pos)

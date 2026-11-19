@@ -258,13 +258,16 @@ def cmd_fechar(guia, com_pdf):
 
 
 def cmd_mapa(guia, prefixo):
-    _, e = ler(guia)
+    texto, e = ler(guia)
     p = prefixo.strip().lower().replace(".", "-")
-    alvo = [("unidade-" + p), ("capitulo-" + p), ("questoes-capitulo-" + p)] if p else [""]
-    total = len(ler(guia)[0].splitlines())
+    if p:
+        padrao = re.compile(r"(?:unidade|capitulo|questoes-capitulo)-" + re.escape(p) + r"(?:$|-|[a-z])")
+    else:
+        padrao = re.compile(r"^(?:capitulo-|introducao$|sumario$|glossario$|referencias$)")
+    total = len(texto.splitlines())
     saida = 0
     for i, s in enumerate(e.secoes):
-        if any(s["id"].startswith(a) for a in alvo) and (p or s["id"].startswith(("capitulo-", "introducao", "sumario", "glossario", "referencias"))):
+        if padrao.match(s["id"]):
             fim = e.secoes[i + 1]["linha"] - 1 if i + 1 < len(e.secoes) else total
             print(f"{s['id']}\t{s['linha']}-{fim}\t{s['palavras']}p")
             saida += 1

@@ -7,6 +7,7 @@ import http.server
 import importlib.util
 import json
 import os
+import shutil
 import sys
 import tempfile
 import threading
@@ -66,6 +67,7 @@ class Cliente(unittest.TestCase):
     def tearDownClass(cls):
         cls.srv.shutdown()
         cls.srv.server_close()
+        shutil.rmtree(cls.tmp, ignore_errors=True)
 
     def setUp(self):
         RECEBIDOS.clear()
@@ -87,7 +89,8 @@ class Cliente(unittest.TestCase):
 
     def test_log_registra_tokens_mas_nao_o_texto_do_prompt(self):
         llm.chat("m", "s", "SEGREDO-DO-PROMPT", {"type": "object"}, tarefa="t")
-        linha = open(llm.LOG, encoding="utf-8").read().splitlines()[-1]
+        with open(llm.LOG, encoding="utf-8") as f:
+            linha = f.read().splitlines()[-1]
         self.assertNotIn("SEGREDO-DO-PROMPT", linha)
         dados = json.loads(linha)
         self.assertEqual((dados["modelo"], dados["tarefa"], dados["prompt_tokens"], dados["saida_tokens"]), ("m", "t", 50, 9))
@@ -107,7 +110,8 @@ class Cliente(unittest.TestCase):
         RESPOSTA["conteudo"] = "isto não é json"
         with self.assertRaises(ValueError):
             llm.chat("m", "s", "u", {"type": "object"}, tarefa="invalido")
-        ultima = json.loads(open(llm.LOG, encoding="utf-8").read().splitlines()[-1])
+        with open(llm.LOG, encoding="utf-8") as f:
+            ultima = json.loads(f.read().splitlines()[-1])
         self.assertEqual(ultima.get("erro"), "json_invalido")
 
     def test_endereco_fixo_ignora_ollama_host(self):
@@ -164,7 +168,8 @@ class CorpusReal(unittest.TestCase):
         cls.casos = bench.montar_casos()
 
     def ler(self, fonte):
-        return open(os.path.join(bench.TEXTOS, fonte + ".txt"), encoding="utf-8", errors="replace").read()
+        with open(os.path.join(bench.TEXTOS, fonte + ".txt"), encoding="utf-8", errors="replace") as f:
+            return f.read()
 
     def test_quantidade_de_casos(self):
         self.assertEqual(sum(c["tipo"] == "pos" for c in self.casos), 36)
