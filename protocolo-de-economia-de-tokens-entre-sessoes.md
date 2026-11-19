@@ -52,4 +52,37 @@ Não conferir as 178 páginas do PDF como imagem. Não diffar o HTML atual contr
 
 Número sem prova não vale. Meça com `wc -c`, `sha256sum` e o `validar-guia.py`; converta para tokens apenas como estimativa (caracteres ÷ 3,5 em HTML, ÷ 3,6 em prosa). Não há tokenizador instalado no ambiente (13/11/2026), então nenhum número deste documento é medida exata de tokens.
 
+## 8. Ferramentas que substituem leitura e comando soltos (19/11/2026)
+
+Os números das seções 1 a 7 são de 13/11/2026; em 19/11/2026 o HTML tem 2.200.828 bytes e 316 partes, então ler por trecho vale ainda mais. Todas usam só a biblioteca padrão (`python -I`), não gastam LLM e têm testes (`ferramentas/testar-ferramentas.py`, `testar-fontes.py`, `testar-llm-local.py`).
+
+| Comando | Para quê | Saída |
+|---|---|---|
+| `guia.py mapa 13.2` | id, linhas e palavras das partes de um prefixo; leia depois com `offset`/`limit` | 1 linha por parte |
+| `guia.py contar` | partes, palavras, tabelas, questões, glossário, `<dfn>`, links | 1 linha JSON |
+| `guia.py fechar [--pdf]` | renumerar (conferir), validar, executar trechos, ids/`<dfn>`/sumário/tabelas, contagens, hashes, PDF temporário com `pdfinfo` e esqueleto de changelog | cerca de 1,1 KB (comandos soltos: 4,4 KB) |
+| `guia.py pdf --substituir --motivo M` | substitui o PDF só depois de copiar o atual para `arquivo/antes-M-<data>/` | 1 linha |
+| `fontes.py manifesto/baixar/extrair/conferir` | baixa as fontes do manifesto dos pacotes (só https e só domínios do manifesto), extrai o texto e roda `conferir-trechos.py` | por pacote: 1 linha + reprovações |
+| `fontes.py achar CHAVE "palavras"` | trechos candidatos da fonte com `chave:linha`, sem a fronteira ler a página | até 5 trechos de 420 caracteres |
+
+- Cache de fontes e saídas locais ficam em `cache-fontes/` e `rascunho-local/` (no `.gitignore`).
+- Conferir as 9 fontes do Capítulo 16: 300.406 bytes de texto que a fronteira leria, contra 123 bytes de saída do script.
+- Limite verificado: 25 das 196 fontes do manifesto respondem 403/400 ao download automático (`www.anthropic.com`, `docs.vllm.ai`, `nist`, `azure`) ou usam http (`cormack-rrf`). Não se disfarça o agente de usuário; essas ficam com a busca e a leitura da fronteira. Com as 171 baixadas, 579 de 754 trechos dos pacotes dos Caps. 6–16 e da expansão do Grupo A foram reconfirmados; 8 reprovações têm a fonte baixada (`openai-model-selection`, `openai-your-data`, `gemma-4-31b`) e pedem conferência manual de vigência.
+- A descoberta de fontes novas continua com a busca da fronteira (modo "standard"); o script cuida de baixar, extrair, localizar e conferir.
+
+## 9. LLM local neste projeto: decisão de 19/11/2026
+
+Testado em 54 casos (36 afirmações com gabarito nos trechos já conferidos e 18 controles sem suporte), com limites fixados antes (G1 acerto ≥ script lexical; G2 falso aceite ≤ 5%; G3 bytes lidos ≤ 50% dos candidatos). Tarefa: o script separa 10 trechos candidatos e o modelo só escolhe até 3 números, sem escrever citação.
+
+| Modelo | Acerto@3 local / script | Falso aceite | Bytes lidos | Veredito |
+|---|---|---|---|---|
+| Qwen 3.8 27B `iq3_xxs` | 97% / 97% | 2/18 (11%) | 797 de 4.403 | reprovado em G2 |
+| Qwen 3.8 27B `q3_k_xl` | 97% / 97% | 2/18 (11%) | 860 de 4.403 | reprovado em G2 |
+| Gemma 4 26B-A4B | 97% / 97% | 2/18 (11%) | 740 de 4.403 | reprovado em G2 |
+
+- O local não achou nenhum trecho que o script não achasse (0 casos exclusivos), então não há ganho de acerto. A economia de bytes (cerca de 0,8 KB contra 1,5 KB do top-3 do script) é pequena frente ao custo de GPU e à revisão.
+- Os 2 falsos aceites são os mesmos nos três modelos e vêm de fontes da Anthropic com assunto próximo; o controle é ambíguo, mas a regra fixada antes não permite descartá-lo.
+- Limites do teste: as palavras-chave em inglês foram escritas por quem conhecia o gabarito, o que favorece o script; 36 casos e uma só tarefa. O resultado não prova que o local seja inútil em outras tarefas, e sim que, aqui, não compensa.
+- **Decisão (divergência com o Pipeline Triangular da diretriz global):** neste projeto o LLM local não entra no fluxo. O que economiza é a camada sem LLM (seção 8); a fronteira continua autora e revisora. Reabrir só com tarefa nova, verificador por código e novo portão. Antes de qualquer uso: `llm-local.py` recusa a GPU ocupada e só fala com `127.0.0.1`.
+
 Atualizado em 13/11/2026 por deepseek - conta não verificada (referência ao protocolo no `CLAUDE.md` e no handoff; nota do `continue-work`). Assinatura: claude - pessoal, 13/11/2026.

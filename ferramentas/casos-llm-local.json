@@ -1,0 +1,182 @@
+[
+ {
+  "id": "FI-01",
+  "afirmacao": "Claude decide quando chamar uma ferramenta a partir do pedido do usuário e da descrição da ferramenta, e devolve uma chamada estruturada.",
+  "palavras": "tool use call decides description structured"
+ },
+ {
+  "id": "FI-05",
+  "afirmacao": "Por padrão o modelo decide quando e quantas ferramentas usar, e é possível forçar esse comportamento por um parâmetro.",
+  "palavras": "model decide tools forced behavior parameter"
+ },
+ {
+  "id": "FI-07",
+  "afirmacao": "Com cache de prompt, mudar o parâmetro de escolha de ferramenta invalida blocos de mensagem em cache.",
+  "palavras": "cache invalidate tool choice parameter messages"
+ },
+ {
+  "id": "FI-14",
+  "afirmacao": "Servidores devem devolver resultados estruturados conforme o esquema e clientes devem validá-los.",
+  "palavras": "server structured results schema client validate"
+ },
+ {
+  "id": "FI-24",
+  "afirmacao": "A ferramenta de busca de ferramentas permite trabalhar com centenas ou milhares de ferramentas carregando sob demanda.",
+  "palavras": "tool search many tools discover load demand"
+ },
+ {
+  "id": "FI-28",
+  "afirmacao": "É possível importar só um subconjunto das ferramentas de um servidor MCP com um parâmetro de lista permitida.",
+  "palavras": "MCP server subset tools allowed parameter import"
+ },
+ {
+  "id": "FI-41",
+  "afirmacao": "Em caso de erro, tentar de novo com espera exponencial e limite de tentativas; repetir de imediato esgota a cota.",
+  "palavras": "retry exponential backoff limit attempts"
+ },
+ {
+  "id": "FI-49",
+  "afirmacao": "O MCP segue uma arquitetura em que cada host pode executar várias instâncias de cliente.",
+  "palavras": "MCP architecture host client instances"
+ },
+ {
+  "id": "BR-04",
+  "afirmacao": "O ripgrep busca por regex recursivamente no diretório atual e, por padrão, respeita o gitignore e ignora arquivos ocultos.",
+  "palavras": "search regex recursively gitignore hidden files"
+ },
+ {
+  "id": "BR-08",
+  "afirmacao": "Por padrão, os arquivos são divididos em pedaços de 800 tokens com sobreposição de 400 tokens.",
+  "palavras": "chunk size overlap tokens default files split"
+ },
+ {
+  "id": "BR-14",
+  "afirmacao": "O mecanismo de RAG cria um índice (corpus) que estrutura a base de conhecimento para busca.",
+  "palavras": "RAG index corpus knowledge base search"
+ },
+ {
+  "id": "BR-17",
+  "afirmacao": "Um embedding é um vetor de números; a distância entre vetores mede a relação entre os textos.",
+  "palavras": "embedding vector distance relatedness"
+ },
+ {
+  "id": "BR-27",
+  "afirmacao": "Na segunda etapa, cada documento recuperado é pontuado e reordenado por um método mais custoso.",
+  "palavras": "re-ranking passages scored computationally intensive stage"
+ },
+ {
+  "id": "BR-31",
+  "afirmacao": "Dá para ajustar quantos resultados recuperar do armazém de vetores, reduzindo tokens e latência com risco de piorar a resposta.",
+  "palavras": "number of results vector store token usage latency answer quality"
+ },
+ {
+  "id": "BR-34",
+  "afirmacao": "Grounding é conectar a saída do modelo a fontes de informação verificáveis.",
+  "palavras": "grounding connect output verifiable sources"
+ },
+ {
+  "id": "BR-38",
+  "afirmacao": "Avaliar arquiteturas de RAG é difícil porque há várias dimensões, como a qualidade do contexto recuperado e a fidelidade da resposta.",
+  "palavras": "evaluating RAG architectures dimensions retrieval context faithful"
+ },
+ {
+  "id": "HW-03",
+  "afirmacao": "Os componentes básicos de um agente são um modelo, instruções da tarefa e, opcionalmente, ferramentas.",
+  "palavras": "agent components model instructions tools"
+ },
+ {
+  "id": "HW-04",
+  "afirmacao": "O SDK permite criar agentes com instruções, ferramentas, guardrails, handoffs e um laço embutido que roda até concluir a tarefa.",
+  "palavras": "agents instructions tools guardrails handoffs loop complete"
+ },
+ {
+  "id": "HW-08",
+  "afirmacao": "O agente avalia o prompt, chama ferramentas, recebe resultados e repete até terminar.",
+  "palavras": "agent evaluates prompt calls tools results repeats done"
+ },
+ {
+  "id": "HW-13",
+  "afirmacao": "O SDK de agentes dá controle sobre implantação, armazenamento e aprovações; o runner cuida do laço do agente e dos handoffs.",
+  "palavras": "agents SDK deployment storage approvals runner loop handoffs"
+ },
+ {
+  "id": "HW-27",
+  "afirmacao": "Use agentes como ferramentas quando um especialista ajuda numa subtarefa sem assumir a conversa; use handoffs quando o roteamento faz parte do fluxo.",
+  "palavras": "agents as tools specialist subtask handoffs routing conversation"
+ },
+ {
+  "id": "HW-34",
+  "afirmacao": "Os guardrails de ferramenta rodam a cada chamada de função guardada, com verificação de entrada antes e de saída depois.",
+  "palavras": "tool guardrails function invocation input output before after"
+ },
+ {
+  "id": "HW-45",
+  "afirmacao": "O agente de laço não decide sozinho quando parar; é preciso implementar um mecanismo de término para evitar laços infinitos.",
+  "palavras": "loop agent stop termination infinite loops"
+ },
+ {
+  "id": "HW-64",
+  "afirmacao": "A execução de um agente pode ser interrompida por queda de rede, falta de energia ou sistema externo fora do ar.",
+  "palavras": "agent execution interrupted network power failure external system"
+ },
+ {
+  "id": "HW-65",
+  "afirmacao": "Sessões guardam a conversa, não o sistema de arquivos; para reverter arquivos use checkpoints de arquivo.",
+  "palavras": "sessions persist conversation filesystem checkpointing revert files"
+ },
+ {
+  "id": "HW-67",
+  "afirmacao": "O fluxo com humano no circuito pausa a execução até uma pessoa aprovar ou rejeitar chamadas de ferramenta sensíveis.",
+  "palavras": "human in the loop pause approve reject sensitive tool calls"
+ },
+ {
+  "id": "IL-02",
+  "afirmacao": "Os modelos são carregados inteiros na memória, então é preciso espaço em disco e RAM suficientes.",
+  "palavras": "models loaded memory disk space RAM quantize"
+ },
+ {
+  "id": "IL-03",
+  "afirmacao": "Para produção ou alta vazão, recomendam-se motores de serviço dedicados como SGLang ou vLLM.",
+  "palavras": "production high-throughput serving engines recommended"
+ },
+ {
+  "id": "IL-05",
+  "afirmacao": "Numa arquitetura de mistura de especialistas, um roteador escolhe dois especialistas para processar o estado atual e combina as saídas.",
+  "palavras": "mixture of experts router selects experts combine outputs"
+ },
+ {
+  "id": "IL-10",
+  "afirmacao": "O vLLM promete quase nenhum desperdício de memória de cache KV e compartilhamento flexível do cache entre requisições.",
+  "palavras": "vLLM KV cache memory waste sharing requests"
+ },
+ {
+  "id": "IL-12",
+  "afirmacao": "O Ollama define o tamanho padrão de contexto conforme a VRAM disponível.",
+  "palavras": "Ollama default context length VRAM"
+ },
+ {
+  "id": "IL-31",
+  "afirmacao": "A atenção por consulta agrupada generaliza a de consulta múltipla usando um número intermediário de cabeças de chave e valor.",
+  "palavras": "grouped-query attention multi-query key-value heads intermediate"
+ },
+ {
+  "id": "IL-37",
+  "afirmacao": "O servidor usa um buffer KV unificado compartilhado entre todas as sequências, por padrão quando o número de slots é automático.",
+  "palavras": "server unified KV buffer sequences slots default"
+ },
+ {
+  "id": "IL-52",
+  "afirmacao": "O cache K/V de contexto pode ser quantizado para reduzir muito a memória quando o Flash Attention está ativo.",
+  "palavras": "KV cache quantized reduce memory flash attention"
+ },
+ {
+  "id": "BR-22",
+  "afirmacao": "Não está claro se embeddings de ponta em similaridade textual servem igualmente para outras tarefas como agrupamento ou reordenação.",
+  "palavras": "embeddings semantic textual similarity clustering reranking tasks"
+ },
+ {
+  "id": "BR-32",
+  "afirmacao": "Modelos que combinam memória paramétrica pré-treinada e não paramétrica para geração de linguagem.",
+  "palavras": "retrieval augmented generation parametric non-parametric memory"
+ }
+]

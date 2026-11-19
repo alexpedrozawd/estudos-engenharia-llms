@@ -5,3 +5,7 @@ __pycache__/
 *.pyc
 *.bak
 .DS_Store
+
+# Dados derivados e rascunhos locais (nunca versionar: fontes baixadas, textos extraídos, saídas de LLM local)
+cache-fontes/
+rascunho-local/
