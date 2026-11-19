@@ -1,6 +1,6 @@
 # Changelog: ajustes de impressão e troca dos exemplos (13/11/2026)
 
-Autoria: deepseek - conta não verificada. Projeto: `/var/home/apsrv/Documentos/Projetos/estudos-engenharia-llms` (não é repositório Git). Base: HTML de 13/11/2026, hash `3bfbea0ae27668a9`, guardado em `arquivo/antes-ajustes-visuais-e-exemplos-2026-11-13/`.
+Autoria: deepseek - conta não verificada. Projeto: a raiz deste projeto (não é repositório Git). Base: HTML de 13/11/2026, hash `3bfbea0ae27668a9`, guardado em `arquivo/antes-ajustes-visuais-e-exemplos-2026-11-13/`.
 
 ## 1. O que mudou
 

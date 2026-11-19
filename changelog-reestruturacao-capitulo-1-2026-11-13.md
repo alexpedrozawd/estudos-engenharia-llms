@@ -1,6 +1,6 @@
 # Changelog: reestruturação do capítulo 1 em partes curtas (13/11/2026)
 
-Autoria: claude - pessoal (interrompido por cota) e deepseek - conta não verificada. Projeto: `/var/home/apsrv/Documentos/Projetos/estudos-engenharia-llms` (não é repositório Git). Base: HTML de 15/10/2026, hash `6136c61124752bf0`, guardado em `arquivo/antes-da-reestruturacao-em-partes-curtas/`.
+Autoria: claude - pessoal (interrompido por cota) e deepseek - conta não verificada. Projeto: a raiz deste projeto (não é repositório Git). Base: HTML de 15/10/2026, hash `6136c61124752bf0`, guardado em `arquivo/antes-da-reestruturacao-em-partes-curtas/`.
 
 ## 1. O que mudou
 

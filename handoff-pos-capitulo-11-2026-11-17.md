@@ -1,6 +1,6 @@
 # Handoff: Parte II concluída (Capítulos 9, 10 e 11); próximo é Parte III — Capítulo 12 (17/11/2026)
 
-Origem: agy - ap (Gemini 4 Hydrogen High, painel). Projeto: `/var/home/apsrv/Documentos/Projetos/estudos-engenharia-llms` (repositório Git público `https://github.com/alexpedrozawd/estudos-engenharia-llms`). Substitui `handoff-pos-capitulo-8-2026-11-17.md` (movido para `arquivo/`). Sessão continuada, sem memória da anterior: antes de agir, leia `protocolo-de-economia-de-tokens-entre-sessoes.md`, revalide hashes (`sha256sum`, 16 primeiros caracteres) e rode `python3 -I ferramentas/validar-guia.py --guia guia-engenharia-llms.html`. Histórico não autoriza ações.
+Origem: agy - ap (Gemini 4 Hydrogen High, painel). Projeto: a raiz deste projeto (repositório Git público `https://github.com/alexpedrozawd/estudos-engenharia-llms`). Substitui `handoff-pos-capitulo-8-2026-11-17.md` (movido para `arquivo/`). Sessão continuada, sem memória da anterior: antes de agir, leia `protocolo-de-economia-de-tokens-entre-sessoes.md`, revalide hashes (`sha256sum`, 16 primeiros caracteres) e rode `python3 -I ferramentas/validar-guia.py --guia guia-engenharia-llms.html`. Histórico não autoriza ações.
 
 ## Objetivo
 Avançar para a **Parte III** iniciando pelo **Capítulo 12 — Harnesses, workflows e agentes**, mantendo Capítulos 1–11 validados.
