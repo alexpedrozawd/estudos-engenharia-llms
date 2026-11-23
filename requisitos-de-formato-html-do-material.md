@@ -22,6 +22,8 @@ Registro das decisões do operador para a produção do material. Complementa o 
 
 As questões substituem o formato dos cinco exercícios de fechamento descritos anteriormente. A pergunta curta de compreensão de cada unidade permanece no planejamento; não confundir cinco questões do módulo com cinco alternativas por questão.
 
+- **Inclusão de programação (decisão do operador, 23/11/2026):** revoga a proibição de código de 15/10/2026. O material passa a combinar blocos curtos executáveis em Python padrão/`unittest.mock` dentro do HTML (validados por `ferramentas/executar-trechos-de-codigo.py` na convenção `<figure class="bloco-codigo">`) com uma trilha separada de laboratórios práticos (`laboratorios/`), preservando as partes curtas para TDAH. Ver `planejamento-reestruturado-2026-11-23.md`.
+
 ## 2. Telas e adaptação
 
 | Ambiente | Base conhecida | Implicação para o HTML |
@@ -82,7 +84,7 @@ Proposta de animação: transição discreta de opacidade em cerca de 150–200 
 
 Quantidade de alternativas, possibilidade de nova tentativa e regra para preservar a primeira resposta ainda não foram definidas. Sugestão inicial: quatro alternativas plausíveis, uma correta. Não introduzir pontuação, ranking, bloqueio de avanço ou gamificação por rotina.
 
-As questões médias e difícil devem apresentar casos, restrições, textos de configuração ou resultados para analisar, evitando se limitar à memorização; não exigem ler nem escrever programas (decisão de 15/10/2026). Escolher uma alternativa não demonstra, sozinho, capacidade de projetar ou operar sistemas; a prática executável já prevista na formação mantém escopo e autorização próprios.
+As questões médias e difícil devem apresentar casos, restrições, textos de configuração ou resultados para analisar, evitando se limitar à memorização; desde a decisão de 23/11/2026, podem também envolver leitura e análise de snippets curtos em Python, enquanto exercícios práticos extensos ficam na trilha de laboratórios (`laboratorios/`). Escolher uma alternativa não demonstra, sozinho, capacidade de projetar ou operar sistemas.
 
 ## 5. Implementação e aceite futuros
 

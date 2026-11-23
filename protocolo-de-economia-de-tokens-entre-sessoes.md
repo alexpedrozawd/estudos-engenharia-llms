@@ -64,6 +64,7 @@ Os números das seções 1 a 7 são de 13/11/2026; em 19/11/2026 o HTML tem 2.20
 | `guia.py pdf --substituir --motivo M` | substitui o PDF só depois de copiar o atual para `arquivo/antes-M-<data>/` | 1 linha |
 | `fontes.py manifesto/baixar/extrair/conferir` | baixa as fontes do manifesto dos pacotes (só https e só domínios do manifesto), extrai o texto e roda `conferir-trechos.py` | por pacote: 1 linha + reprovações |
 | `fontes.py achar CHAVE "palavras"` | trechos candidatos da fonte com `chave:linha`, sem a fronteira ler a página | até 5 trechos de 420 caracteres |
+| `livros.py extrair/ler/achar/pagina-png` | extrai PDFs locais dos livros para `cache-fontes/livros/` (fora do Git), lê intervalos contínuos de páginas, localiza termos e renderiza PNG pontual de figuras/tabelas | texto por página ou 1 PNG |
 
 - Cache de fontes e saídas locais ficam em `cache-fontes/` e `rascunho-local/` (no `.gitignore`).
 - Conferir as 9 fontes do Capítulo 16: 300.406 bytes de texto que a fronteira leria, contra 123 bytes de saída do script.
