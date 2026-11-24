@@ -1,11 +1,12 @@
 # Plano de evolução rumo à nota 10 — Mercado de trabalho e revisão visual (24/11/2026)
 
-Estado: **proposta para aprovação do operador (somente planejamento; nada das Fases 5A–5E foi implementado).**
+Estado: **aprovado pelo operador em 24/11/2026 (`Fase 5A` concluída; `Fases 5B–5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
 
 ## 1. Contexto, baseline e objetivo
 
 - **Baseline pós-auditoria de 24/11/2026:** nota realista **7,2 / 10** (`8,5 / 10` em arquitetura conceitual; `5,0 / 10` em prática hands-on de mercado; `5,5 / 10` em acabamento visual e validação externa).
-- **Estado atual do guia:** `guia-engenharia-llms.html` (`377` seções, `445` questões, `26` blocos executáveis, `502` termos no Glossário, `73` molduras vazias `data-imagem=`, `0` `<img>` e `0` `<svg>`), `guia-engenharia-llms.pdf` (`657` páginas A4) e `laboratorios/` (`18` labs offline + projeto integrador, `82` testes).
+- **Estado após a Fase 5A (24/11/2026):** `guia-engenharia-llms.html` (`385` seções, `453` questões, `26` blocos executáveis, `528` termos no Glossário, `73` molduras vazias `data-imagem=`, `0` `<img>` e `0` `<svg>`), `guia-engenharia-llms.pdf` (`657` páginas A4 — regeração provisória prevista ao fim da Fase 5C) e `laboratorios/` (`18` labs offline + projeto integrador, `84` testes).
+- **Decisões aprovadas pelo operador em 24/11/2026:** `5C` = reduzir aquarelas de `73` para `18` (uma abertura por capítulo) + diagramas técnicos SVG; `5D` = diretório `laboratorios-mercado/` na raiz, `pgvector` como banco vetorial padrão do projeto 02 e workflow `.github/workflows/` para CI offline; cadência = 1 fase aprofundada por sessão com 1 `/handoff` limpo ao fim de cada fase finalizada.
 - **Ambiente local verificado:** `podman` (`/usr/bin/podman`) e `ollama` (`/home/linuxbrew/.linuxbrew/bin/ollama`) disponíveis; `docker` e `nvidia-smi` ausentes no `PATH` atual.
 - **Objetivo:** levar o material o mais próximo possível de **10 / 10** para formar arquitetos e engenheiros de LLMs de fronteira ou locais conforme a realidade do mercado, sem quebrar o formato TDAH, as validações determinísticas nem a trilha offline rápida existente.
 - **Fora do escopo deste plano:** alterar `guia-engenharia-llms.html` ou regerar `guia-engenharia-llms.pdf` durante o planejamento; gerar a arte final antes de estabilizar textos, diagramas e decisões pendentes.
@@ -14,7 +15,7 @@ Estado: **proposta para aprovação do operador (somente planejamento; nada das 
 
 ## 2. Fases verificáveis (5A–5E + Encerramento)
 
-### Fase 5A — Fechamento das 5 lacunas conceituais de 2026 no HTML (cirúrgico)
+### ✅ Fase 5A — Fechamento das 5 lacunas conceituais de 2026 no HTML (concluída em 24/11/2026)
 - **O que fazer:** adicionar partes curtas pontuais (sem inflar capítulos) cobrindo os temas de mercado 2025–2026 hoje ausentes ou sub-representados:
   1. **Decodificação restrita (*constrained decoding*):** gramáticas livres de contexto, `XGrammar`, `Outlines` e garantia estrutural de JSON/ferramentas em modelos locais (Cap. 4 ou 14).
   2. **Serviço de inferência moderno:** `SGLang` / `RadixAttention`, desagregação de *prefill* e *decode*, `FP4`, extensão de contexto (`RoPE` / `YaRN`), `MLA` e papel de `FlashAttention` (Cap. 14).
