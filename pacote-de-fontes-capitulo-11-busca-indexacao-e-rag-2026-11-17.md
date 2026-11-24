@@ -15,14 +15,14 @@ Baixar páginas HTML, Markdown e PDFs para uma pasta limpa (ex.: `/tmp/cap11-bru
 | `2309.15217` | Es et al., *RAGAS: Automated Evaluation of Retrieval Augmented Generation* (`arXiv:2309.15217`, 2023) — https://arxiv.org/pdf/2309.15217 | `6c24762a3f277fd1` |
 | `anthropic-contextual-retrieval` | Anthropic, *Contextual Retrieval* (19/09/2024) — https://www.anthropic.com/research/contextual-retrieval | `4eb72e5a9868019a` |
 | `anthropic-context-eng` | Anthropic, *Effective context engineering for AI agents* (29/09/2025) — https://www.anthropic.com/research/effective-context-engineering-for-ai-agents | `d18df32d4dbca19c` |
-| `ripgrep-readme` | BurntSushi, *ripgrep (rg) README* — https://raw.githubusercontent.com/BurntSushi/ripgrep/master/README.md | `945622d974f65e4e` |
+| `ripgrep-readme` | BurntSushi, *ripgrep (rg) README* — https://raw.githubusercontent.com/BurntSushi/ripgrep/master/README.md | `d447f5df7240510e` |
 | `tree-sitter` | Tree-sitter, *Introduction* — https://tree-sitter.github.io/tree-sitter/ | `d40532333e46e7c3` |
-| `openai-embeddings` | OpenAI, *Embeddings* (API Guides) — https://developers.openai.com/api/docs/guides/embeddings | `ec5e4405fc48c9e3` |
-| `openai-retrieval` | OpenAI, *Retrieval* (API Guides) — https://developers.openai.com/api/docs/guides/retrieval | `51c22d0b4cc148e6` |
-| `openai-file-search` | OpenAI, *File search* (API Guides) — https://developers.openai.com/api/docs/guides/tools-file-search | `dfefc2106290aa71` |
-| `google-embeddings` | Google Cloud, *Get text embeddings* (Gemini Enterprise Agent Platform) — https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings | `d45efe2a4f5d98a0` |
-| `google-rag-overview` | Google Cloud, *RAG Engine overview* (Gemini Enterprise Agent Platform) — https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview | `180be36357d0d4c5` |
-| `google-vertex-grounding` | Google Cloud, *Grounding overview* (Gemini Enterprise Agent Platform) — https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview | `bcf3f08313dd24dd` |
+| `openai-embeddings` | OpenAI, *Embeddings* (API Guides) — https://developers.openai.com/api/docs/guides/embeddings | `c77daf72edb4710a` |
+| `openai-retrieval` | OpenAI, *Retrieval* (API Guides) — https://developers.openai.com/api/docs/guides/retrieval | `2dbea9c62e003d62` |
+| `openai-file-search` | OpenAI, *File search* (API Guides) — https://developers.openai.com/api/docs/guides/tools-file-search | `b6ca97f584a000c2` |
+| `google-embeddings` | Google Cloud, *Get text embeddings* (Gemini Enterprise Agent Platform) — https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings | `5d08c4583ca09dd9` |
+| `google-rag-overview` | Google Cloud, *RAG Engine overview* (Gemini Enterprise Agent Platform) — https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview | `69016337f10b38f0` |
+| `google-vertex-grounding` | Google Cloud, *Grounding overview* (Gemini Enterprise Agent Platform) — https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview | `8a547a69ddd2ac70` |
 
 Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-capitulo-11-busca-indexacao-e-rag-2026-11-17.md --textos /tmp/cap11-textos --projeto .`
 

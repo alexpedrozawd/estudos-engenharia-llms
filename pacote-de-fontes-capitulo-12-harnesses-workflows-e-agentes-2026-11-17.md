@@ -10,10 +10,10 @@ Baixar as páginas para uma pasta nova e vazia (ex.: `/tmp/cap12-bruto`) com `cu
 |---|---|---|
 | `anthropic-building-effective-agents` | Anthropic, *Building effective agents* (19/12/2024; a página traz nota de que parte das ferramentas descritas mudou) — https://www.anthropic.com/research/building-effective-agents | `b673e56fedf53043` |
 | `anthropic-effective-harnesses` | Anthropic, *Effective harnesses for long-running agents* (26/11/2025) — https://www.anthropic.com/research/effective-harnesses-for-long-running-agents | `ecb2a3cded33eae9` |
-| `anthropic-agent-sdk` | Anthropic, *Agent SDK overview* — https://code.claude.com/docs/en/agent-sdk/overview | `79376cb75cbe8b96` |
-| `anthropic-agent-loop` | Anthropic, *How the agent loop works* (Agent SDK) — https://code.claude.com/docs/en/agent-sdk/agent-loop | `2862c744a537f3e4` |
-| `anthropic-agent-sessions` | Anthropic, *Work with sessions* (Agent SDK) — https://code.claude.com/docs/en/agent-sdk/sessions | `a0dadfcb559039be` |
-| `openai-agents-guide` | OpenAI, *Agents* (API Guides) — https://developers.openai.com/api/docs/guides/agents | `2954ca69e52db8b9` |
+| `anthropic-agent-sdk` | Anthropic, *Agent SDK overview* — https://code.claude.com/docs/en/agent-sdk/overview | `c6d23182d41ba922` |
+| `anthropic-agent-loop` | Anthropic, *How the agent loop works* (Agent SDK) — https://code.claude.com/docs/en/agent-sdk/agent-loop | `fba9a1228c7e2ba1` |
+| `anthropic-agent-sessions` | Anthropic, *Work with sessions* (Agent SDK) — https://code.claude.com/docs/en/agent-sdk/sessions | `75abe82d32ca6af1` |
+| `openai-agents-guide` | OpenAI, *Agents* (API Guides) — https://developers.openai.com/api/docs/guides/agents | `7f252267c531837d` |
 | `openai-agents-sdk` | OpenAI, *Agents SDK* (documentação, página inicial) — https://openai.github.io/openai-agents-python/ | `418aad0de89bcbc0` |
 | `openai-sdk-running-agents` | OpenAI, *Running agents* (Agents SDK) — https://openai.github.io/openai-agents-python/running_agents/ | `394c38f5c6cb6464` |
 | `openai-sdk-multi-agent` | OpenAI, *Agent orchestration* (Agents SDK) — https://openai.github.io/openai-agents-python/multi_agent/ | `04cdd5d259f7e759` |

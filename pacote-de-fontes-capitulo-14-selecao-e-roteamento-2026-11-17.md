@@ -9,19 +9,19 @@ Baixar as páginas e PDFs para pastas novas e vazias (`/tmp/cap14-bruto`, `/tmp/
 | Chave | Fonte pública e endereço efetivo | Hash bruto (16) |
 |---|---|---|
 | `bea` | Anthropic, *Building effective agents* (19/12/2024) — https://www.anthropic.com/research/building-effective-agents | `b673e56fedf53043` |
-| `anthropic-choosing-model` | Anthropic, *Choosing the right model* — https://platform.claude.com/docs/en/about-claude/models/choosing-a-model | `b321dac29ab84c74` |
-| `anthropic-effort` | Anthropic, *Effort* — https://platform.claude.com/docs/en/build-with-claude/effort | `6796ee7aa3a354a9` |
-| `openai-model-selection` | OpenAI, *Model selection* (API Guides) — https://developers.openai.com/api/docs/guides/model-selection | `300a2acd19388e71` |
-| `openai-caching` | OpenAI, *Prompt caching* (API Guides) — https://developers.openai.com/api/docs/guides/prompt-caching | `f936fb3b087c0359` |
-| `google-model-selection` | Google Cloud, *Google models* (catálogo de modelos) — https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models | `1206ad52929a82bf` |
-| `litellm-routing` | LiteLLM, *Router - Load Balancing* — https://docs.litellm.ai/docs/routing | `1ba22da6244231b6` |
-| `litellm-fallbacks` | LiteLLM, *Reliability - Retries, Fallbacks* — https://docs.litellm.ai/docs/proxy/reliability | `f3e5285cbcf0e795` |
-| `openrouter-fallbacks` | OpenRouter, *Model Fallbacks* — https://openrouter.ai/docs/guides/routing/model-fallbacks | `316cd1554fdf109f` |
+| `anthropic-choosing-model` | Anthropic, *Choosing the right model* — https://platform.claude.com/docs/en/about-claude/models/choosing-a-model | `e84c2b2675b5f458` |
+| `anthropic-effort` | Anthropic, *Effort* — https://platform.claude.com/docs/en/build-with-claude/effort | `73b19e3476fc7ad3` |
+| `openai-model-selection` | OpenAI, *Model selection* (API Guides) — https://developers.openai.com/api/docs/guides/model-selection | `b3c490b4dc82fb83` |
+| `openai-caching` | OpenAI, *Prompt caching* (API Guides) — https://developers.openai.com/api/docs/guides/prompt-caching | `72a62505b62a78ed` |
+| `google-model-selection` | Google Cloud, *Google models* (catálogo de modelos) — https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models | `2ee1b71b4034a2fe` |
+| `litellm-routing` | LiteLLM, *Router - Load Balancing* — https://docs.litellm.ai/docs/routing | `4ef2949453e9d395` |
+| `litellm-fallbacks` | LiteLLM, *Reliability - Retries, Fallbacks* — https://docs.litellm.ai/docs/proxy/reliability | `b4c513b1ead1cbae` |
+| `openrouter-fallbacks` | OpenRouter, *Model Fallbacks* — https://openrouter.ai/docs/guides/routing/model-fallbacks | `926f464e5ea940f2` |
 | `ifeval` | Zhou et al., *Instruction-Following Evaluation for Large Language Models* (`arXiv:2311.07911`, 2023) — https://arxiv.org/pdf/2311.07911 | `5d7cedfd762af6d9` |
 | `livecodebench` | Jain et al., *LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code* (`arXiv:2403.07974`, 2024) — https://arxiv.org/pdf/2403.07974 | `a9bd3f7b96ac846a` |
 | `livecodebench-site` | LiveCodeBench, página do projeto — https://livecodebench.github.io/ | `8c21afea9af59054` |
 | `swebench` | Jimenez et al., *SWE-bench: Can Language Models Resolve Real-World GitHub Issues?* (`arXiv:2310.06770`, 2023) — https://arxiv.org/pdf/2310.06770 | `f7e8e1df64129742` |
-| `swebench-verified` | SWE-bench, página *SWE-bench Verified* — https://www.swebench.com/verified.html | `8dda70c3eec64d57` |
+| `swebench-verified` | SWE-bench, página *SWE-bench Verified* — https://www.swebench.com/verified.html | `df1b387546fc351e` |
 | `swebench-pro` | Deng et al., *SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks?* (`arXiv:2509.16941`, 2025) — https://arxiv.org/pdf/2509.16941 | `38bafe017fe2e259` |
 | `routellm` | Ong et al., *RouteLLM: Learning to Route LLMs with Preference Data* (`arXiv:2406.18665`, 2024) — https://arxiv.org/pdf/2406.18665 | `c9bc9c8171cab95b` |
 | `frugalgpt` | Chen, Zaharia e Zou, *FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance* (`arXiv:2305.05176`, 2023) — https://arxiv.org/pdf/2305.05176 | `035ae8b90333dad8` |

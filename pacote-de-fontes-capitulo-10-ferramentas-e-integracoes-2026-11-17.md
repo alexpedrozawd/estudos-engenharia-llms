@@ -8,22 +8,22 @@ Baixar as páginas HTML para uma pasta limpa (ex.: `/tmp/cap10-bruto`) e extrair
 
 | Chave | Fonte pública e endereço efetivo | Hash bruto (16) |
 |---|---|---|
-| `anthropic-tool-use-overview` | Anthropic, *Tool use with Claude* (Claude Platform Docs) — https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview | `3bade8f2b1759870` |
-| `anthropic-implement-tool-use` | Anthropic, *How to implement tool use* (Claude Platform Docs) — https://platform.claude.com/docs/en/agents-and-tools/tool-use/implement-tool-use | `d525b5ea3b58c170` |
+| `anthropic-tool-use-overview` | Anthropic, *Tool use with Claude* (Claude Platform Docs) — https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview | `528c3942798aacfc` |
+| `anthropic-implement-tool-use` | Anthropic, *How to implement tool use* (Claude Platform Docs) — https://platform.claude.com/docs/en/agents-and-tools/tool-use/implement-tool-use | `b5ae93a0c4f724ba` |
 | `anthropic-writing-tools` | Anthropic, *Writing effective tools for AI agents* (11/09/2025) — https://www.anthropic.com/research/writing-tools-for-agents | `f1dcaf2bef2f259d` |
 | `anthropic-building-agents` | Anthropic, *Building effective agents* (19/12/2024) — https://www.anthropic.com/research/building-effective-agents | `b673e56fedf53043` |
 | `anthropic-code-mcp` | Anthropic, *Code execution with MCP: Building more efficient agents* (04/11/2025) — https://www.anthropic.com/research/code-execution-with-mcp | `a11bd277a7f4f366` |
-| `anthropic-tool-search` | Anthropic, *Tool search tool* (Claude Platform Docs) — https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool | `159439942ab2c846` |
-| `openai-function-calling` | OpenAI, *Function calling* (API Guides) — https://developers.openai.com/api/docs/guides/function-calling | `c222b8acce7600a7` |
-| `openai-connectors-mcp` | OpenAI, *Connectors and MCP servers* (API Guides) — https://developers.openai.com/api/docs/guides/tools-connectors-mcp | `15190088a3576ad2` |
-| `openai-agents-errors` | OpenAI, *Errors and recovery* (Agents API) — https://developers.openai.com/api/docs/guides/agents-api/errors | `5d861779e2e706bc` |
-| `google-function-calling` | Google Cloud, *Function calling* (Vertex AI Docs) — https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling | `810bac4bf8db7340` |
-| `json-schema` | JSON Schema, *What is JSON Schema?* — https://json-schema.org/overview/what-is-jsonschema | `b4cd73ae25b7757c` |
-| `mcp-spec-latest` | Model Context Protocol, *Specification* (revisão 2026-07-28) — https://modelcontextprotocol.io/specification/latest | `0a31b6d32b972cca` |
-| `mcp-architecture` | Model Context Protocol, *Architecture* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/architecture | `396b180891e0b00a` |
-| `mcp-spec-tools` | Model Context Protocol, *Tools* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/server/tools | `442c697db4397cad` |
-| `mcp-resources` | Model Context Protocol, *Resources* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/server/resources | `0288cdc4fbdc2783` |
-| `mcp-security` | Model Context Protocol, *Security Best Practices* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/basic/security_best_practices | `f2f5d7e46fe539f2` |
+| `anthropic-tool-search` | Anthropic, *Tool search tool* (Claude Platform Docs) — https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool | `be9e1e5ef8da7020` |
+| `openai-function-calling` | OpenAI, *Function calling* (API Guides) — https://developers.openai.com/api/docs/guides/function-calling | `22c9cd31f1bb646d` |
+| `openai-connectors-mcp` | OpenAI, *Connectors and MCP servers* (API Guides) — https://developers.openai.com/api/docs/guides/tools-connectors-mcp | `428a2abf07b4e20c` |
+| `openai-agents-errors` | OpenAI, *Errors and recovery* (Agents API) — https://developers.openai.com/api/docs/guides/agents-api/errors | `acb0046b1e78e5b8` |
+| `google-function-calling` | Google Cloud, *Function calling* (Vertex AI Docs) — https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling | `93ea66c680acb97c` |
+| `json-schema` | JSON Schema, *What is JSON Schema?* — https://json-schema.org/overview/what-is-jsonschema | `4f9b93df50606df8` |
+| `mcp-spec-latest` | Model Context Protocol, *Specification* (revisão 2026-07-28) — https://modelcontextprotocol.io/specification/latest | `cbd0dd5a4f979b1c` |
+| `mcp-architecture` | Model Context Protocol, *Architecture* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/architecture | `e74fc7083726a93c` |
+| `mcp-spec-tools` | Model Context Protocol, *Tools* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/server/tools | `422d98f94ec700e2` |
+| `mcp-resources` | Model Context Protocol, *Resources* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/server/resources | `dcdeee474f2920db` |
+| `mcp-security` | Model Context Protocol, *Security Best Practices* (versão 2026-07-28) — https://modelcontextprotocol.io/specification/latest/basic/security_best_practices | `398a22d4791dfefc` |
 
 Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-capitulo-10-ferramentas-e-integracoes-2026-11-17.md --textos /tmp/cap10-textos --projeto .`
 

@@ -20,13 +20,13 @@ Baixar as páginas HTML, arquivos Markdown oficiais e PDFs para uma pasta limpa 
 | `LLM10_UnboundedConsumption` | OWASP Top 10 for LLM Applications 2025 (v2.0), *LLM10:2025 Unbounded Consumption* — https://raw.githubusercontent.com/OWASP/www-project-top-10-for-large-language-model-applications/main/2_0_vulns/LLM10_UnboundedConsumption.md | `25f5e3b9c5308c57` |
 | `nist-ai-600-1` | NIST, *Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile* (NIST AI 600-1, 26/07/2024) — https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf | `6e73620ab6b64e90` |
 | `anthropic-sandboxing` | Anthropic, *Making Claude Code safer with sandboxing* — https://www.anthropic.com/engineering/claude-code-sandboxing | `72fafa69fc4c4c50` |
-| `claude-mitigate-jailbreaks` | Anthropic, *Mitigate jailbreaks and prompt injections* — https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks | `eb1b5daaf7a5c358` |
-| `claude-zdr` | Anthropic, *API and data retention* — https://platform.claude.com/docs/en/build-with-claude/zero-data-retention | `ddc03f29c54f7ee4` |
-| `openai-safety` | OpenAI, *Safety best practices* — https://platform.openai.com/docs/guides/safety-best-practices | `db2d481376666aa5` |
-| `openai-your-data` | OpenAI, *Data controls in the OpenAI platform* — https://platform.openai.com/docs/guides/your-data | `009146666748391d` |
-| `google-model-armor` | Google Cloud, *Model Armor overview* — https://cloud.google.com/security-command-center/docs/model-armor-overview | `87a3de0fea908212` |
-| `vertex-data-gov` | Google Cloud, *Gemini Enterprise Agent Platform and zero data retention* — https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance | `978aa1504f6ee1cd` |
-| `mcp-security-latest` | Model Context Protocol, *Security Best Practices* — https://modelcontextprotocol.io/specification/latest/basic/security_best_practices | `3f33760f7ec2112e` |
+| `claude-mitigate-jailbreaks` | Anthropic, *Mitigate jailbreaks and prompt injections* — https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks | `60b3769ed4c6e4b8` |
+| `claude-zdr` | Anthropic, *API and data retention* — https://platform.claude.com/docs/en/build-with-claude/zero-data-retention | `f258c1c0f79f9ef1` |
+| `openai-safety` | OpenAI, *Safety best practices* — https://platform.openai.com/docs/guides/safety-best-practices | `36c6250242e3ad29` |
+| `openai-your-data` | OpenAI, *Data controls in the OpenAI platform* — https://platform.openai.com/docs/guides/your-data | `799acde724302958` |
+| `google-model-armor` | Google Cloud, *Model Armor overview* — https://cloud.google.com/security-command-center/docs/model-armor-overview | `fa35bcb63c44fbf1` |
+| `vertex-data-gov` | Google Cloud, *Gemini Enterprise Agent Platform and zero data retention* — https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance | `c28d1757f526e0bb` |
+| `mcp-security-latest` | Model Context Protocol, *Security Best Practices* — https://modelcontextprotocol.io/specification/latest/basic/security_best_practices | `398a22d4791dfefc` |
 | `lgpd-13709-atualizada` | Brasil, *Lei nº 13.709, de 14 de agosto de 2018 (LGPD)*, texto atualizado no Portal da Câmara dos Deputados — https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html | `5ade20f12d206504` |
 
 Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-capitulo-7-seguranca-e-governanca-2026-11-17.md --textos /tmp/seguranca-textos --projeto .`

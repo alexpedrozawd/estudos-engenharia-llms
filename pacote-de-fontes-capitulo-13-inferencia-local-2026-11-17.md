@@ -8,8 +8,8 @@ Baixar as páginas e PDFs para pastas novas e vazias (`/tmp/cap13-bruto`, `/tmp/
 
 | Chave | Fonte pública e endereço efetivo | Hash bruto (16) |
 |---|---|---|
-| `llamacpp-quantize` | llama.cpp, *Quantize* (README da ferramenta `llama-quantize`) — https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md | `4dcc340a48ea558b` |
-| `llamacpp-server` | llama.cpp, *HTTP server* (README) — https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md | `33556a5ff88c0213` |
+| `llamacpp-quantize` | llama.cpp, *Quantize* (README da ferramenta `llama-quantize`) — https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md | `01cef4c81d031034` |
+| `llamacpp-server` | llama.cpp, *HTTP server* (README) — https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md | `4ad7fc1f1b568773` |
 | `gguf-spec` | ggml, *GGUF* (especificação do formato) — https://raw.githubusercontent.com/ggml-org/ggml/master/docs/gguf.md | `64caa0360e093f1f` |
 | `vllm-quantization` | vLLM, *Quantization* (visão geral) — https://docs.vllm.ai/en/latest/features/quantization/ | `52ec0faae4e56ca0` |
 | `vllm-awq` | vLLM, *AutoAWQ* — https://docs.vllm.ai/en/latest/features/quantization/auto_awq/ | `923321dd6f9c828b` |
@@ -18,16 +18,16 @@ Baixar as páginas e PDFs para pastas novas e vazias (`/tmp/cap13-bruto`, `/tmp/
 | `vllm-int4` | vLLM, *INT4 W4A16* — https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int4/ | `b062afb28439da28` |
 | `vllm-kvcache` | vLLM, *Quantized KV Cache* — https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/ | `79f81d0f71664aea` |
 | `vllm-speculative_decoding` | vLLM, *Speculative Decoding* — https://docs.vllm.ai/en/latest/features/speculative_decoding/ | `b4630b4291194cc8` |
-| `ollama-faq` | Ollama, *FAQ* — https://docs.ollama.com/faq | `ee0c335648095efb` |
-| `ollama-context` | Ollama, *Context length* — https://docs.ollama.com/context-length | `14967500ad349ea5` |
+| `ollama-faq` | Ollama, *FAQ* — https://docs.ollama.com/faq | `e4217a798d2dffc5` |
+| `ollama-context` | Ollama, *Context length* — https://docs.ollama.com/context-length | `c1ce09d0a8fe0a5c` |
 | `2309.06180` | Kwon et al., *Efficient Memory Management for Large Language Model Serving with PagedAttention* (`arXiv:2309.06180`, 2023) — https://arxiv.org/pdf/2309.06180 | `55b3b324d779a67c` |
 | `2211.17192` | Leviathan, Kalman e Matias, *Fast Inference from Transformers via Speculative Decoding* (`arXiv:2211.17192`, 2022) — https://arxiv.org/pdf/2211.17192 | `8967e2daab74178b` |
 | `2106.09685` | Hu et al., *LoRA: Low-Rank Adaptation of Large Language Models* (`arXiv:2106.09685`, 2021) — https://arxiv.org/pdf/2106.09685 | `e9a0d3128767db61` |
 | `2305.14314` | Dettmers et al., *QLoRA: Efficient Finetuning of Quantized LLMs* (`arXiv:2305.14314`, 2023) — https://arxiv.org/pdf/2305.14314 | `33a4e757c19d6ea8` |
 | `2401.04088` | Jiang et al., *Mixtral of Experts* (`arXiv:2401.04088`, 2024) — https://arxiv.org/pdf/2401.04088 | `f8bbf0e9d979b7a8` |
 | `2305.13245` | Ainslie et al., *GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints* (`arXiv:2305.13245`, 2023) — https://arxiv.org/pdf/2305.13245 | `ba9094fe73db9bf5` |
-| `qwen3-8-27b` | Qwen, ficha do modelo *Qwen3.8-27B* (Hugging Face) — https://huggingface.co/Qwen/Qwen3.8-27B | `7c24f46af1e0024e` |
-| `gemma-4-31b` | Google, ficha do modelo *Gemma 4 31B-it* (Hugging Face; a mesma ficha descreve toda a família) — https://huggingface.co/google/gemma-4-31B-it | `e209f5c435b1e660` |
+| `qwen3-8-27b` | Qwen, ficha do modelo *Qwen3.8-27B* (Hugging Face) — https://huggingface.co/Qwen/Qwen3.8-27B | `fad487963259e1aa` |
+| `gemma-4-31b` | Google, ficha do modelo *Gemma 4 31B-it* (Hugging Face; a mesma ficha descreve toda a família) — https://huggingface.co/google/gemma-4-31B-it | `8be760215d8dcf53` |
 
 Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-capitulo-13-inferencia-local-2026-11-17.md --textos /tmp/cap13-textos --projeto .`
 

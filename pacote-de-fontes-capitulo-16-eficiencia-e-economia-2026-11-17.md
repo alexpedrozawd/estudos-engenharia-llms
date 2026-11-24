@@ -8,15 +8,15 @@ Baixar as páginas para uma pasta nova e vazia (`/tmp/cap16-bruto`) e extrair co
 
 | Chave | Fonte pública e endereço efetivo | Hash bruto (16) |
 |---|---|---|
-| `anthropic-caching` | Anthropic, *Prompt caching* — https://platform.claude.com/docs/en/build-with-claude/prompt-caching | `fd2bf0775ec4d3cc` |
-| `anthropic-pricing` | Anthropic, *Pricing* — https://platform.claude.com/docs/en/about-claude/pricing | `2c76555607eafaf0` |
-| `anthropic-batch` | Anthropic, *Batch processing* — https://platform.claude.com/docs/en/build-with-claude/batch-processing | `920ffb005a26632c` |
-| `anthropic-tokens` | Anthropic, *Token counting* — https://platform.claude.com/docs/en/build-with-claude/token-counting | `427144317fb8c989` |
-| `openai-cost` | OpenAI, *Cost optimization* (API Guides) — https://developers.openai.com/api/docs/guides/cost-optimization | `e02427b547b2f05b` |
-| `openai-batch` | OpenAI, *Batch API* (API Guides) — https://developers.openai.com/api/docs/guides/batch | `b2928e7f90a2df00` |
-| `openai-caching` | OpenAI, *Prompt caching* (API Guides) — https://developers.openai.com/api/docs/guides/prompt-caching | `f936fb3b087c0359` |
-| `gcp-caching` | Google Cloud, *Context caching overview* — https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview | `090b754ff70f743b` |
-| `litellm-cost` | LiteLLM, *Cost Tracking* — https://docs.litellm.ai/docs/proxy/cost_tracking | `9ef50e7d051b8ae0` |
+| `anthropic-caching` | Anthropic, *Prompt caching* — https://platform.claude.com/docs/en/build-with-claude/prompt-caching | `c7fc7c7e330dde7d` |
+| `anthropic-pricing` | Anthropic, *Pricing* — https://platform.claude.com/docs/en/about-claude/pricing | `95543d2ecebbf29f` |
+| `anthropic-batch` | Anthropic, *Batch processing* — https://platform.claude.com/docs/en/build-with-claude/batch-processing | `e602b0b88805c98e` |
+| `anthropic-tokens` | Anthropic, *Token counting* — https://platform.claude.com/docs/en/build-with-claude/token-counting | `39cec0eae602cd20` |
+| `openai-cost` | OpenAI, *Cost optimization* (API Guides) — https://developers.openai.com/api/docs/guides/cost-optimization | `24e533a9f42cb8de` |
+| `openai-batch` | OpenAI, *Batch API* (API Guides) — https://developers.openai.com/api/docs/guides/batch | `e713b108a0f66456` |
+| `openai-caching` | OpenAI, *Prompt caching* (API Guides) — https://developers.openai.com/api/docs/guides/prompt-caching | `72a62505b62a78ed` |
+| `gcp-caching` | Google Cloud, *Context caching overview* — https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview | `5b1629641d27ffff` |
+| `litellm-cost` | LiteLLM, *Cost Tracking* — https://docs.litellm.ai/docs/proxy/cost_tracking | `6d307e4ee11f3592` |
 
 Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-capitulo-16-eficiencia-e-economia-2026-11-17.md --textos /tmp/cap16-textos --projeto .`
 

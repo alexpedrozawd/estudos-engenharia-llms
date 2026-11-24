@@ -4,17 +4,17 @@ Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`g
 
 ## Estado atual (24/11/2026)
 
-- **Fase 3 da reestruturação concluída:** `18` capítulos em três partes, integrando os dois livros de Chip Huyen (*AI Engineering* e *Designing Machine Learning Systems*) às fontes públicas de 2026, com programação em duas camadas. São `360` páginas lógicas (`320` partes de conteúdo), `427` questões (`106/107/108/106`), `149` tabelas com `.rolagem`, `479` termos no Glossário, `22` blocos Python executáveis e um estudo de caso com rubrica por capítulo. PDF com `628` páginas A4 (provisório até as imagens). Ver [changelog-fase-3-reestruturacao-huyen-2026-11-24.md](changelog-fase-3-reestruturacao-huyen-2026-11-24.md).
+- **Fase 3 concluída e ajustes iniciais da Fase 4 aplicados:** `18` capítulos em três partes, integrando os dois livros de Chip Huyen (*AI Engineering* e *Designing Machine Learning Systems*) às fontes públicas de 2026 (reconferidas em 24/11/2026), com programação em duas camadas. São `377` páginas lógicas (`337` partes de conteúdo), `445` questões (`111/111/112/111`), `149` tabelas com `.rolagem`, `501` termos no Glossário, `26` blocos Python executáveis e um estudo de caso com rubrica por capítulo. Caps. 6 e 15 ampliados para `18` partes cada e revisados por agentes de IA (`L1`). PDF com `654` páginas A4 (provisório até as imagens). Ver [changelog-fase-4-ampliacao-fontes-l1-l2-2026-11-24.md](changelog-fase-4-ampliacao-fontes-l1-l2-2026-11-24.md).
   - **Parte I — Fundamentos, arquitetura, especificação e avaliação:** Caps. 1–5.
   - **Parte II — Dados, conhecimento, contexto e agentes:** Cap. 6 (Engenharia de Dados e Datasets), 7 (Busca, Indexação e RAG), 8 (Grafos), 9 (Contexto, Memória e Feedback), 10 (Ferramentas e Protocolos), 11 (Harnesses, Workflows e Agentes).
   - **Parte III — Segurança, adaptação, operação e economia:** Cap. 12 (Segurança e Guardrails), 13 (Atos Autodestrutivos), 14 (Inferência Local), 15 (Fine-tuning, Quantização e Destilação), 16 (Seleção e Roteamento), 17 (LLMOps), 18 (Eficiência e Economia).
 - **Laboratórios:** `laboratorios/` traz um laboratório por capítulo e o projeto integrador, em Python padrão, com `82` testes offline (`python3 -I -W error::ResourceWarning laboratorios/executar_labs.py`).
-- **Próximo (Fase 4):** revisão técnica humana, piloto nos três aparelhos, imagens em aquarela e PDF final ([roadmap.md](roadmap.md)).
+- **Próximo (fechamento da Fase 4):** execução manual do piloto e teste em telas/leitor de tela ([roteiro-piloto-e-validacao-em-telas-2026-11-24.md](roteiro-piloto-e-validacao-em-telas-2026-11-24.md)), geração das `73` imagens em aquarela (`L8`) e PDF final ([roadmap.md](roadmap.md)).
 
 ## Estrutura principal
 
 - `guia-engenharia-llms.html` — livro completo interativo (questões com retorno imediato em `aria-live`, glossário e referências).
-- `guia-engenharia-llms.pdf` — versão A4 gerada via Chromium headless (`628` páginas).
+- `guia-engenharia-llms.pdf` — versão A4 gerada via Chromium headless (`654` páginas).
 - `planejamento-reestruturado-2026-11-23.md` — plano curricular vigente (`18` capítulos + programação).
 - `laboratorios/` — `18` laboratórios e projeto integrador, com testes offline.
 - `planejamento-completo-estudos-engenharia-llms.md` — plano curricular anterior (`16` módulos).

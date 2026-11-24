@@ -8,28 +8,28 @@ Arquivos baixados para `/tmp/expansao-grupo-a-bruto` e extraídos para `/tmp/exp
 
 | Chave | Fonte pública e endereço efetivo | Hash bruto (16) |
 |---|---|---|
-| `openai-chat-ref` | OpenAI, *Chat Completions API Reference* — https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create | `f49f2dc391aca818` |
-| `llamacpp-server` | llama.cpp, *HTTP server* — https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md | `fa5c3c2f661dbe85` |
-| `anthropic-extended-thinking` | Anthropic, *Extended thinking* — https://platform.claude.com/docs/en/build-with-claude/extended-thinking | `13ccb9c9dbda1bdc` |
-| `openai-realtime` | OpenAI, *Realtime API* — https://developers.openai.com/api/docs/guides/realtime | `5ce8671664239df9` |
-| `mdn-websockets` | MDN, *WebSocket API* — https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API | `11b30b8c84ef4e1e` |
-| `mdn-backpressure` | MDN, *Streams API Concepts* — https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Concepts | `7be358bb12b56ffa` |
+| `openai-chat-ref` | OpenAI, *Chat Completions API Reference* — https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create | `b1e4d9f2098ef0b1` |
+| `llamacpp-server` | llama.cpp, *HTTP server* — https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md | `4ad7fc1f1b568773` |
+| `anthropic-extended-thinking` | Anthropic, *Extended thinking* — https://platform.claude.com/docs/en/build-with-claude/extended-thinking | `f2a62cf71dd5816f` |
+| `openai-realtime` | OpenAI, *Realtime API* — https://developers.openai.com/api/docs/guides/realtime | `8f7daec6c3cc1a78` |
+| `mdn-websockets` | MDN, *WebSocket API* — https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API | `fd5039fa84ce1c1b` |
+| `mdn-backpressure` | MDN, *Streams API Concepts* — https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Concepts | `b54813f74da4a256` |
 | `anthropic-evals-agents` | Anthropic, *Demystifying evals for AI agents* (09/01/2026) — https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents | `01f67e8fbc731df6` |
 | `arxiv-evals-2411.00640-pdf` | Miller, *Adding Error Bars to Evals* (arXiv:2411.00640) — https://arxiv.org/pdf/2411.00640 | `22570aaf1313c7ab` |
 | `a2a-spec` | Agent2Agent (A2A) Protocol, *Specification* — https://a2a-protocol.org/latest/specification/ | `3f0ab47bd7f206c8` |
-| `anthropic-computer-use` | Anthropic, *Computer use tool* — https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool | `e504b05cbb58a3df` |
+| `anthropic-computer-use` | Anthropic, *Computer use tool* — https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool | `4dd316d99eb31ed0` |
 | `arxiv-hnsw-1603.09320` | Malkov & Yashunin, *HNSW* (arXiv:1603.09320) — https://arxiv.org/abs/1603.09320 | `516f3b519e8617d5` |
 | `owasp-llm08` | OWASP, *LLM08:2025 Vector and Embedding Weaknesses* — https://raw.githubusercontent.com/OWASP/www-project-top-10-for-large-language-model-applications/main/2_0_vulns/LLM08_VectorAndEmbeddingWeaknesses.md | `be1bf57ee64f56e7` |
-| `google-docai-layout` | Google Cloud, *Document AI Layout Parser* — https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk | `137f544ed9ae514d` |
+| `google-docai-layout` | Google Cloud, *Document AI Layout Parser* — https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk | `7c0a5f2bd161d9a3` |
 | `cormack-rrf` | Cormack, Clarke & Büttcher, *Reciprocal Rank Fusion* (SIGIR 2009) — https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf | `5c1f9f1fe0d80f67` |
 | `arxiv-dpo-2305.18290` | Rafailov et al., *Direct Preference Optimization* (arXiv:2305.18290) — https://arxiv.org/abs/2305.18290 | `9ff15332f40a12f4` |
 | `arxiv-deepseek-2501.12948-pdf` | DeepSeek-AI, *DeepSeek-R1* (arXiv:2501.12948) — https://arxiv.org/pdf/2501.12948 | `b191b0a365a64b4a` |
-| `openai-fine-tuning` | OpenAI, *Fine-tuning* — https://developers.openai.com/api/docs/guides/fine-tuning | `50a575f6f70b33a9` |
-| `openai-distillation` | OpenAI, *Model distillation* — https://developers.openai.com/api/docs/guides/distillation | `49afd79da0d40db6` |
-| `openai-rft` | OpenAI, *Reinforcement fine-tuning* — https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning | `f3efbac3aaaee2a8` |
+| `openai-fine-tuning` | OpenAI, *Fine-tuning* — https://developers.openai.com/api/docs/guides/fine-tuning | `bbb7366a8f637186` |
+| `openai-distillation` | OpenAI, *Model distillation* — https://developers.openai.com/api/docs/guides/distillation | `97bf47cae736a641` |
+| `openai-rft` | OpenAI, *Reinforcement fine-tuning* — https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning | `89f4f1e3b4faa084` |
 | `fowler-dark` | Martin Fowler, *Dark Launching* (29/04/2020) — https://martinfowler.com/bliki/DarkLaunching.html | `3e39819c496dd5b8` |
 | `google-sre-canary` | Google SRE Workbook, cap. 16 *Canarying Releases* — https://sre.google/workbook/canarying-releases/ | `2129ec6fefdb7807` |
-| `google-data-drift` | Google Cloud BigQuery ML, *ML.VALIDATE_DATA_DRIFT* — https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-validate-data-drift | `e7f77b1f4d49c022` |
+| `google-data-drift` | Google Cloud BigQuery ML, *ML.VALIDATE_DATA_DRIFT* — https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-validate-data-drift | `8f61a29647659f09` |
 | `mlflow-evals` | MLflow, *LLM and Agent Evaluation* — https://mlflow.org/docs/latest/genai/eval-monitor/ | `a953723c0a278b84` |
 
 Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-expansao-grupo-a-2026-11-18.md --textos /tmp/expansao-grupo-a-textos --projeto .`

@@ -22,14 +22,14 @@ Baixar as páginas HTML, arquivos Markdown e PDFs para uma pasta limpa (ex.: `/t
 | `anthropic-harnesses` | Anthropic, *Effective harnesses for long-running agents* (26/11/2025) — https://www.anthropic.com/research/effective-harnesses-for-long-running-agents | `a8091f0b1a45eda4` |
 | `anthropic-writing-tools` | Anthropic, *Writing effective tools for AI agents* (11/09/2025) — https://www.anthropic.com/research/writing-tools-for-agents | `f1dcaf2bef2f259d` |
 | `anthropic-code-mcp` | Anthropic, *Code execution with MCP: Building more efficient agents* (04/11/2025) — https://www.anthropic.com/research/code-execution-with-mcp | `a11bd277a7f4f366` |
-| `anthropic-cc-best-practices` | Anthropic, *Best Practices for Claude Code* — https://code.claude.com/docs/en/best-practices | `c3cdacec0162e37d` |
-| `openai-agents-errors` | OpenAI, *Errors and recovery (Agents API)* — https://developers.openai.com/api/docs/guides/agents-api/errors | `c2f053fb72180dc6` |
-| `openai-guardrails-approvals` | OpenAI, *Guardrails and human review (Agents SDK)* — https://developers.openai.com/api/docs/guides/agents/guardrails-approvals | `871752ba44b3f66f` |
-| `openai-spend-limits` | OpenAI, *Spend limits* — https://developers.openai.com/api/docs/guides/spend-limits | `c390d663cfc85416` |
-| `openai-cost-opt` | OpenAI, *Cost optimization* — https://developers.openai.com/api/docs/guides/cost-optimization | `f064c53f8044b2f2` |
-| `openai-accuracy` | OpenAI, *Optimizing LLM Accuracy* — https://developers.openai.com/api/docs/guides/optimizing-llm-accuracy | `17046eb1ce97b1d3` |
-| `google-vertex-tuning` | Google Cloud, *Introduction to tuning (Gemini Enterprise Agent Platform)* — https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models | `e7f5e732882389ab` |
-| `google-vertex-grounding` | Google Cloud, *Grounding overview (Gemini Enterprise Agent Platform)* — https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview | `5deefca034f50d86` |
+| `anthropic-cc-best-practices` | Anthropic, *Best Practices for Claude Code* — https://code.claude.com/docs/en/best-practices | `9ebeaa7f142f0577` |
+| `openai-agents-errors` | OpenAI, *Errors and recovery (Agents API)* — https://developers.openai.com/api/docs/guides/agents-api/errors | `acb0046b1e78e5b8` |
+| `openai-guardrails-approvals` | OpenAI, *Guardrails and human review (Agents SDK)* — https://developers.openai.com/api/docs/guides/agents/guardrails-approvals | `8c6ad3730d5066d3` |
+| `openai-spend-limits` | OpenAI, *Spend limits* — https://developers.openai.com/api/docs/guides/spend-limits | `fe6daac754688968` |
+| `openai-cost-opt` | OpenAI, *Cost optimization* — https://developers.openai.com/api/docs/guides/cost-optimization | `24e533a9f42cb8de` |
+| `openai-accuracy` | OpenAI, *Optimizing LLM Accuracy* — https://developers.openai.com/api/docs/guides/optimizing-llm-accuracy | `f26f06d68941c132` |
+| `google-vertex-tuning` | Google Cloud, *Introduction to tuning (Gemini Enterprise Agent Platform)* — https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models | `277d6961f923994e` |
+| `google-vertex-grounding` | Google Cloud, *Grounding overview (Gemini Enterprise Agent Platform)* — https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview | `8a547a69ddd2ac70` |
 | `sre-release` | Google, *Site Reliability Engineering*, cap. 8 (*Release Engineering*) — https://sre.google/sre-book/release-engineering/ | `0b537c19afa5255d` |
 | `sre-simplicity` | Google, *Site Reliability Engineering*, cap. 9 (*Simplicity*) — https://sre.google/sre-book/simplicity/ | `a7cba2a6ee39961f` |
 | `sre-emergency` | Google, *Site Reliability Engineering*, cap. 13 (*Emergency Response*) — https://sre.google/sre-book/emergency-response/ | `482484e038066f22` |

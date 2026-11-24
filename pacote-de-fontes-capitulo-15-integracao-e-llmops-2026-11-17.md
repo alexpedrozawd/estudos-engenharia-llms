@@ -8,24 +8,24 @@ Baixar as páginas para uma pasta nova e vazia (`/tmp/cap15-bruto`) e extrair co
 
 | Chave | Fonte pública e endereço efetivo | Hash bruto (16) |
 |---|---|---|
-| `openai-prod` | OpenAI, *Production best practices* (API Guides) — https://platform.openai.com/docs/guides/production-best-practices | `7fa14934113ee6c6` |
-| `openai-rate` | OpenAI, *Rate limits* (API Guides) — https://platform.openai.com/docs/guides/rate-limits | `d5b95859691f054a` |
-| `openai-latency` | OpenAI, *Latency optimization* (API Guides) — https://platform.openai.com/docs/guides/latency-optimization | `e1e038a3e7e00ee7` |
-| `anthropic-versioning` | Anthropic, *API versions* — https://docs.claude.com/en/api/versioning | `5c23554c6210801a` |
-| `anthropic-errors` | Anthropic, *Errors* — https://docs.claude.com/en/api/errors | `5e5a6e02dc95a539` |
-| `anthropic-deprecations` | Anthropic, *Model deprecations* — https://docs.claude.com/en/docs/about-claude/model-deprecations | `15cc24ce64015565` |
+| `openai-prod` | OpenAI, *Production best practices* (API Guides) — https://platform.openai.com/docs/guides/production-best-practices | `5c2df7ac335272cb` |
+| `openai-rate` | OpenAI, *Rate limits* (API Guides) — https://platform.openai.com/docs/guides/rate-limits | `7dcbe2a1adca2d44` |
+| `openai-latency` | OpenAI, *Latency optimization* (API Guides) — https://platform.openai.com/docs/guides/latency-optimization | `d1f897002e6240c2` |
+| `anthropic-versioning` | Anthropic, *API versions* — https://docs.claude.com/en/api/versioning | `5b3ced36bb7fbf8f` |
+| `anthropic-errors` | Anthropic, *Errors* — https://docs.claude.com/en/api/errors | `ccfacc582721d892` |
+| `anthropic-deprecations` | Anthropic, *Model deprecations* — https://docs.claude.com/en/docs/about-claude/model-deprecations | `fe3373a1c485d817` |
 | `sre-canary` | Beyer et al. (orgs.), *The Site Reliability Workbook*, cap. 16 — Canarying Releases — https://sre.google/workbook/canarying-releases/ | `2129ec6fefdb7807` |
 | `sre-postmortem` | Beyer et al. (orgs.), *Site Reliability Engineering*, cap. 15 — Postmortem Culture — https://sre.google/sre-book/postmortem-culture/ | `ef876f0a0f09a88f` |
 | `semver` | Preston-Werner, *Semantic Versioning 2.0.0* — https://semver.org/ | `1d282f7eb59a4e4d` |
 | `bedrock-logging` | AWS, *Monitor model invocation using CloudWatch Logs and Amazon S3* — https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html | `80c081c2c34a5f52` |
 | `azure-trace` | Microsoft, *View trace results for AI applications* (Foundry) — https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-application | `b802eea6dc7456fe` |
-| `langfuse-obs` | Langfuse, *LLM Observability and Application Tracing* — https://langfuse.com/docs/observability/overview | `53220ef5524ef78b` |
-| `langfuse-prompts` | Langfuse, *Prompt Management* — https://langfuse.com/docs/prompt-management/overview | `7ba99a258bdc5f49` |
+| `langfuse-obs` | Langfuse, *LLM Observability and Application Tracing* — https://langfuse.com/docs/observability/overview | `c17f510d169c815e` |
+| `langfuse-prompts` | Langfuse, *Prompt Management* — https://langfuse.com/docs/prompt-management/overview | `480101240da5f4c6` |
 | `mlflow-prompts` | MLflow, *Prompt Registry* — https://mlflow.org/docs/latest/genai/prompt-registry/ | `4134da417eac5240` |
-| `otel-genai` | OpenTelemetry, *GenAI semantic conventions* (repositório dedicado) — https://github.com/open-telemetry/semantic-conventions-genai | `4f16a7c6fe25f3b5` |
-| `otel-spans` | OpenTelemetry, *Semantic conventions for generative client AI spans* — https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md | `7c64a4863a9fd503` |
-| `otel-metrics` | OpenTelemetry, *Semantic conventions for generative AI metrics* — https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-metrics.md | `6e7575edf8d50c8b` |
-| `otel-inference` | OpenTelemetry, *Client inference* (atributos de spans e métricas) — https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/client-inference.md | `2059d7f6d5bf3456` |
+| `otel-genai` | OpenTelemetry, *GenAI semantic conventions* (repositório dedicado) — https://github.com/open-telemetry/semantic-conventions-genai | `d56d61ebfaf735b1` |
+| `otel-spans` | OpenTelemetry, *Semantic conventions for generative client AI spans* — https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md | `7423e7a1f47f0669` |
+| `otel-metrics` | OpenTelemetry, *Semantic conventions for generative AI metrics* — https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-metrics.md | `dabd7b298092d3dd` |
+| `otel-inference` | OpenTelemetry, *Client inference* (atributos de spans e métricas) — https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/client-inference.md | `1a7a32a5dae7f80f` |
 
 Comando de conferência: `python3 -I ferramentas/conferir-trechos.py --pacote pacote-de-fontes-capitulo-15-integracao-e-llmops-2026-11-17.md --textos /tmp/cap15-textos --projeto .`
 
