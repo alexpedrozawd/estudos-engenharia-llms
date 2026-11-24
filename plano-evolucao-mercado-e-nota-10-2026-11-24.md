@@ -1,11 +1,11 @@
 # Plano de evolução rumo à nota 10 — Mercado de trabalho e revisão visual (24/11/2026)
 
-Estado: **aprovado pelo operador em 24/11/2026 (`Fase 5A` concluída; `Fases 5B–5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
+Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A e 5B` concluídas; `Fases 5C–5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
 
 ## 1. Contexto, baseline e objetivo
 
 - **Baseline pós-auditoria de 24/11/2026:** nota realista **7,2 / 10** (`8,5 / 10` em arquitetura conceitual; `5,0 / 10` em prática hands-on de mercado; `5,5 / 10` em acabamento visual e validação externa).
-- **Estado após a Fase 5A (24/11/2026):** `guia-engenharia-llms.html` (`385` seções, `453` questões, `26` blocos executáveis, `528` termos no Glossário, `73` molduras vazias `data-imagem=`, `0` `<img>` e `0` `<svg>`), `guia-engenharia-llms.pdf` (`657` páginas A4 — regeração provisória prevista ao fim da Fase 5C) e `laboratorios/` (`18` labs offline + projeto integrador, `84` testes).
+- **Estado após a Fase 5B (24/11/2026):** `guia-engenharia-llms.html` (`385` seções, `453` questões `113/113/114/113` com `91/108` questões de fechamento e `18/18` rubricas quantitativas endurecidas, `26` blocos executáveis, `528` termos no Glossário, `73` molduras vazias `data-imagem=`, `0` `<img>` e `0` `<svg>`), `guia-engenharia-llms.pdf` (`657` páginas A4 — regeração provisória prevista ao fim da Fase 5C) e `laboratorios/` (`18` labs offline + projeto integrador, `84` testes).
 - **Decisões aprovadas pelo operador em 24/11/2026:** `5C` = reduzir aquarelas de `73` para `18` (uma abertura por capítulo) + diagramas técnicos SVG; `5D` = diretório `laboratorios-mercado/` na raiz, `pgvector` como banco vetorial padrão do projeto 02 e workflow `.github/workflows/` para CI offline; cadência = 1 fase aprofundada por sessão com 1 `/handoff` limpo ao fim de cada fase finalizada.
 - **Ambiente local verificado:** `podman` (`/usr/bin/podman`) e `ollama` (`/home/linuxbrew/.linuxbrew/bin/ollama`) disponíveis; `docker` e `nvidia-smi` ausentes no `PATH` atual.
 - **Objetivo:** levar o material o mais próximo possível de **10 / 10** para formar arquitetos e engenheiros de LLMs de fronteira ou locais conforme a realidade do mercado, sem quebrar o formato TDAH, as validações determinísticas nem a trilha offline rápida existente.
@@ -25,12 +25,12 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fase 5A` concluída; `Fases 5B�
 - **Fontes e controle:** registrar trechos literais em pacote de fontes e validar via `ferramentas/fontes.py` e `ferramentas/conferir-trechos.py`; atualizar `#sumario`, `#glossario` e `#referencias`.
 - **Resultado verificável:** `python3 -I ferramentas/guia.py fechar` com `0` falhas e `node ferramentas/auditar-guia-navegador.mjs` com `0` estouros em `320 px` e `0` violações `axe-core`.
 
-### Fase 5B — Endurecimento pedagógico (questões e estudos de caso)
+### ✅ Fase 5B — Endurecimento pedagógico (questões e estudos de caso; concluída em 24/11/2026)
 - **O que fazer:**
   - Revisar os distratores das `108` questões de fechamento (`6 × 18` capítulos), priorizando médias e difíceis, trocando alternativas caricatas por trade-offs plausíveis de arquitetura.
   - Reforçar critérios quantitativos nas rubricas dos `18` estudos de caso (contas de VRAM/`KV cache`, limites de Wilson, latência `p95`, orçamento mensal).
 - **Invariantes obrigatórios:** manter distribuição equilibrada `A/B/C/D`, `LONGEST_TRUE=0` (correta nunca estritamente a maior), `BAD_EXP=0` e explicação coerente em cada alternativa.
-- **Resultado verificável:** `python3 -I ferramentas/validar-guia.py --guia guia-engenharia-llms.html` (`16 OK, 0 FALHA`), `auditar-guia-navegador.mjs` (`445+` questões clicáveis sem falhas) e auditoria de comprimento/distribuição com `0` violações.
+- **Resultado verificável:** `python3 -I ferramentas/validar-guia.py --guia guia-engenharia-llms.html` (`16 OK, 0 FALHA`), `auditar-guia-navegador.mjs` (`445+` questões clicáveis sem falhas) e auditoria de comprimento/distribuição com `0` violações. ✅ **Concluída:** `91/108` questões endurecidas, `18/18` rubricas quantitativas, `453/453` questões aprovadas no navegador (`changelog-fase-5b-questoes-e-rubricas-2026-11-24.md`).
 
 ### Fase 5C — Revisão dos diagramas técnicos SVG e estratégia visual (`L8` redesenhado)
 - **O que fazer:**

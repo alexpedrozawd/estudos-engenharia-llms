@@ -29,7 +29,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 | Sessão | Fase | Foco principal | PDF regerado? | Handoff gerado | Estado |
 |---|---|---|---|---|---|
 | **Sessão 1** | **Fase 5A** | Fechamento das 5 lacunas conceituais 2026 no HTML (8 partes curtas + fontes conferidas) | Não | Fase 5A → Fase 5B | Concluída (24/11/2026) |
-| **Sessão 2** | **Fase 5B** | Endurecimento das `108` questões de fechamento e rubricas quantitativas dos `18` estudos de caso | Não | Fase 5B → Fase 5C | Pendente |
+| **Sessão 2** | **Fase 5B** | Endurecimento das `108` questões de fechamento e rubricas quantitativas dos `18` estudos de caso | Não | Fase 5B → Fase 5C | Concluída (24/11/2026) |
 | **Sessão 3** | **Fase 5C** | `18–24` diagramas `<svg>` inline acessíveis, redução `73 → 18` molduras de aquarela e atualização do validador | Sim (provisório) | Fase 5C → Fase 5D | Pendente |
 | **Sessão 4** | **Fase 5D** | Camada 3 prática em `laboratorios-mercado/` (6 projetos OCI + `pgvector` + smoke-tests + execução real) e `.github/workflows/` | Não | Fase 5D → Fase 5E | Pendente |
 | **Sessão 5** | **Fase 5E** | Validação externa humana (`L1`/`L2`), geração das `18` aquarelas (`L8`), PDF definitivo e encerramento | Sim (definitivo) | Encerramento final | Pendente |
@@ -61,6 +61,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
   - Endurecer critérios quantitativos nas rubricas dos `18` estudos de caso (contas de VRAM/`KV cache`, intervalos de Wilson, latência `p95`, orçamento mensal e critérios de bloqueio).
 - **Invariantes:** distribuição equilibrada `A/B/C/D`, `LONGEST_TRUE = 0`, `BAD_EXP = 0` (`Correta.` / `Incorreta.` em toda alternativa).
 - **Aceite:** `validar-guia.py` (`16 OK, 0 FALHA`), `guia.py fechar` (`0` falhas), `auditar-guia-navegador.mjs` (`453+` questões clicáveis sem falhas) e auditoria Python de equilíbrio/comprimento sem violações.
+- **Resultado em 24/11/2026:** ✅ **Concluída** (`91/108` questões de fechamento endurecidas mantendo `113/113/114/113`, `LONGEST_TRUE = 0`, `BAD_EXP = 0`, `SHORTEST_TRUE = 0`; `18/18` rubricas com critérios quantitativos e bloqueios; `guia-engenharia-llms.html` sha `81ff0e778f2ba073`; `guia.py fechar` e `auditar-guia-navegador.mjs` com `0` falhas; PDF `53129052eebf7800` mantido até a Fase 5C; ver [`changelog-fase-5b-questoes-e-rubricas-2026-11-24.md`](changelog-fase-5b-questoes-e-rubricas-2026-11-24.md)).
 - **Fechamento da sessão:** changelog + docs + commit/push em `main` + `/handoff` para Sessão 3.
 
 ### Sessão 3 — Fase 5C: Diagramas técnicos SVG e redução de aquarelas (`73 → 18`)
