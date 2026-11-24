@@ -7,7 +7,9 @@ Verifica: idioma e viewport; textos exatos da capa; links internos (#id) e para 
 ausência de dependências externas; um gabarito por questão (grupo de radios com 4 alternativas
 e uma marcada data-correta="true"); consistência básica do sumário; links web com target=_blank e
 rel=noopener; blocos de código (figure.bloco-codigo, pre.codigo e pre.saida com role=region, pre.codigo com
-tabindex, rótulo, data-executavel e legenda coerente) e rolagem horizontal só dentro do bloco.
+tabindex, rótulo, data-executavel e legenda coerente); diagramas técnicos SVG inline acessíveis
+(figure.diagrama, role=img, viewBox, title/desc, aria-labelledby/describedby, sem scripts ou URLs externas);
+molduras/imagens válidas (figure.imagem) e rolagem horizontal só dentro do bloco.
 
 Não verifica (exige navegador): reflow em 320 px CSS sem rolagem horizontal, conforto nos
 aparelhos reais e aparência. Esses itens ficam como pendentes no registro de validação.
@@ -67,9 +69,9 @@ class Coletor(HTMLParser):
             self.ids.add(a["id"])
         if tag == "a" and "href" in a:
             self.hrefs.append(a["href"])
-        for attr in ("src", "href"):
+        for attr in ("src", "href", "xlink:href"):
             v = a.get(attr, "")
-            if tag in ("script", "img", "iframe", "source") and attr == "src" and v:
+            if tag in ("script", "img", "iframe", "source", "image", "use") and attr in ("src", "href", "xlink:href") and v:
                 if re.match(r"^(https?:)?//", v):
                     self.externos.append(f"<{tag} {attr}={v}>")
             if tag == "link" and attr == "href" and v and re.match(r"^(https?:)?//", v):
@@ -219,6 +221,64 @@ def checar(guia_path):
         reg("rolagem horizontal só dentro do bloco de código",
             bool(re.search(r"pre\.codigo[^{]*\{[^}]*overflow-x\s*:\s*auto", css)),
             "" if re.search(r"pre\.codigo[^{]*\{[^}]*overflow-x\s*:\s*auto", css) else "esperado pre.codigo { overflow-x: auto }")
+
+    # Diagramas técnicos SVG inline (Fase 5C): <figure class="diagrama"> com <svg role="img" viewBox="...">,
+    # <title id="...">, <desc id="...">, aria-labelledby/describedby, <figcaption> e sem scripts/URLs externas.
+    svgs_brutos = re.findall(r"<svg\b[^>]*>.*?</svg>", bruto, re.S)
+    figs_diag = re.findall(r'<figure\b[^>]*class="[^"]*\bdiagrama\b[^"]*"[^>]*>(.*?)</figure>', bruto, re.S)
+    if not svgs_brutos and not figs_diag:
+        reg("diagramas SVG acessíveis e sem dependências externas", True, "nenhum SVG no guia")
+    else:
+        erros_svg = []
+        if len(figs_diag) != len(svgs_brutos):
+            erros_svg.append(f"{len(svgs_brutos)} <svg> e {len(figs_diag)} <figure class=diagrama>")
+        for idx, fig in enumerate(figs_diag, 1):
+            leg = re.search(r"<figcaption\b[^>]*>(.*?)</figcaption>", fig, re.S)
+            if not leg or not re.sub(r"<[^>]+>", "", leg.group(1)).strip():
+                erros_svg.append(f"diagrama #{idx}: <figcaption> ausente ou vazio")
+            m_svg = re.search(r"<svg\b([^>]*)>(.*?)</svg>", fig, re.S)
+            if not m_svg:
+                erros_svg.append(f"diagrama #{idx}: sem <svg>")
+                continue
+            attrs_s, corpo_s = m_svg.group(1), m_svg.group(2)
+            slug_m = re.search(r'data-diagrama="([^"]+)"', fig)
+            nome_s = slug_m.group(1) if slug_m else f"diagrama #{idx}"
+            if 'role="img"' not in attrs_s:
+                erros_svg.append(f"{nome_s}: sem role=img")
+            if not re.search(r'viewBox="[^"]+"', attrs_s):
+                erros_svg.append(f"{nome_s}: sem viewBox")
+            t_m = re.search(r'<title\b([^>]*)>(.*?)</title>', corpo_s, re.S)
+            d_m = re.search(r'<desc\b([^>]*)>(.*?)</desc>', corpo_s, re.S)
+            if not t_m or not re.sub(r"<[^>]+>", "", t_m.group(2)).strip():
+                erros_svg.append(f"{nome_s}: <title> ausente ou vazio")
+            if not d_m or not re.sub(r"<[^>]+>", "", d_m.group(2)).strip():
+                erros_svg.append(f"{nome_s}: <desc> ausente ou vazio")
+            if t_m and d_m:
+                t_id = re.search(r'\bid="([^"]+)"', t_m.group(1))
+                d_id = re.search(r'\bid="([^"]+)"', d_m.group(1))
+                lbl = re.search(r'aria-labelledby="([^"]+)"', attrs_s)
+                dsc = re.search(r'aria-describedby="([^"]+)"', attrs_s)
+                if not t_id or not lbl or t_id.group(1) not in lbl.group(1).split():
+                    erros_svg.append(f"{nome_s}: aria-labelledby não referencia id de <title>")
+                if not d_id or not dsc or d_id.group(1) not in dsc.group(1).split():
+                    erros_svg.append(f"{nome_s}: aria-describedby não referencia id de <desc>")
+            sem_ns = re.sub(r'xmlns(?::xlink)?="http://www\.w3\.org/[^"]+"', "", m_svg.group(0))
+            if re.search(r"<script\b|@import\b|https?://|//", sem_ns, re.I):
+                erros_svg.append(f"{nome_s}: contém <script>, @import ou URL externa")
+        css_all = "".join(c.css)
+        if not re.search(r"figure\.diagrama\s+svg\s*\{[^}]*max-width\s*:\s*100%", css_all):
+            erros_svg.append("CSS sem max-width: 100% em figure.diagrama svg")
+        reg("diagramas SVG acessíveis e sem dependências externas", not erros_svg, "; ".join(erros_svg[:4]))
+
+    # Molduras/imagens de abertura (figure.imagem com data-imagem): moldura acessível ou <img> com alt.
+    figs_img = re.findall(r'<figure\b[^>]*class="[^"]*\bimagem\b[^"]*"[^>]*>(.*?)</figure>', bruto, re.S)
+    erros_img = []
+    for idx, fig in enumerate(figs_img, 1):
+        tem_moldura = re.search(r'<div\b[^>]*class="[^"]*\bmoldura\b[^"]*"[^>]*role="img"[^>]*aria-label="([^"]+)"', fig)
+        tem_img = re.search(r'<img\b[^>]*alt="([^"]+)"', fig)
+        if not ((tem_moldura and tem_moldura.group(1).strip()) or (tem_img and tem_img.group(1).strip())):
+            erros_img.append(f"imagem #{idx}: sem moldura role=img/aria-label ou <img> com alt")
+    reg("molduras ou imagens com texto alternativo válido", not erros_img, f"{len(figs_img)} figuras" if not erros_img else "; ".join(erros_img[:4]))
 
     esperado = list(range(1, len(c.numeros) + 1))
     reg("páginas numeradas em sequência a partir de 1", c.numeros == esperado, f"{c.numeros}")

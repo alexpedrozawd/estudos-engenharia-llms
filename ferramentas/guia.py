@@ -46,6 +46,8 @@ class Estrutura(HTMLParser):
         self.dfn = []
         self.links_sumario = set()
         self.links_web = set()
+        self.diagramas_svg = 0
+        self.molduras_imagem = 0
         self._sec = None
         self._ignorar = 0
         self._em_dfn = False
@@ -58,8 +60,12 @@ class Estrutura(HTMLParser):
         linha = self.getpos()[0]
         if a.get("id"):
             self.ids.append(a["id"])
-        if tag in ("script", "style"):
+        if tag in ("script", "style", "svg"):
             self._ignorar += 1
+        if tag == "svg":
+            self.diagramas_svg += 1
+        if tag == "figure" and a.get("data-imagem"):
+            self.molduras_imagem += 1
         if tag == "section" and "page" in (a.get("class") or "").split():
             self._sec = {"id": a.get("id") or "", "linha": linha, "palavras": 0}
             self.secoes.append(self._sec)
@@ -83,7 +89,7 @@ class Estrutura(HTMLParser):
                 self.links_web.add(href)
 
     def handle_endtag(self, tag):
-        if tag in ("script", "style") and self._ignorar:
+        if tag in ("script", "style", "svg") and self._ignorar:
             self._ignorar -= 1
         if tag == "dfn" and self._em_dfn:
             self._em_dfn = False
@@ -131,6 +137,8 @@ def contagens(guia):
         "gabaritos": e.corretas,
         "glossario_termos": len(e.termos_glossario),
         "dfn": len(e.dfn),
+        "diagramas_svg": e.diagramas_svg,
+        "molduras_imagem": e.molduras_imagem,
         "links_web_unicos": len(e.links_web),
         "linhas_html": ult,
         "bytes_html": os.path.getsize(guia),
@@ -253,7 +261,8 @@ def cmd_fechar(guia, com_pdf):
     hoje = datetime.date.today().strftime("%d/%m/%Y")
     print("\nESQUELETO DE CHANGELOG (fatos; complete o porquê e a assinatura)")
     print(f"- {hoje}: {c['partes']} partes; {c['questoes']} questões; {c['tabelas']} tabelas ({c['tabelas_rolagem']} com .rolagem); "
-          f"{c['glossario_termos']} termos no glossário; HTML sha {sha16(guia)}; verificação: {'0 falhas' if not falhas else str(falhas) + ' falha(s)'}.")
+          f"{c['glossario_termos']} termos no glossário; {c['diagramas_svg']} diagramas SVG; {c['molduras_imagem']} molduras data-imagem=; "
+          f"HTML sha {sha16(guia)}; verificação: {'0 falhas' if not falhas else str(falhas) + ' falha(s)'}.")
     return 1 if falhas else 0
 
 

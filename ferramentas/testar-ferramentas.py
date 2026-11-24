@@ -57,6 +57,8 @@ class Golden(unittest.TestCase):
         self.assertEqual(c["bytes_html"], os.path.getsize(GUIA))
         glos = re.search(r'<section class="page" id="glossario".*?</section>', texto, re.S).group(0)
         self.assertEqual(c["glossario_termos"], len(re.findall(r"<dt[ >]", glos)))
+        self.assertEqual(c["diagramas_svg"], len(re.findall(r"<svg\b", texto)))
+        self.assertEqual(c["molduras_imagem"], len(re.findall(r'data-imagem="[^"]+"', texto)))
 
     def test_mapa_devolve_as_partes_do_prefixo(self):
         rc, out = executar("mapa", "14.2")
@@ -150,6 +152,24 @@ class Mutacao(unittest.TestCase):
         # tira do sumário o link da primeira parte da unidade 2.1 (a seção continua existindo)
         novo = self.trocar('<a href="#unidade-2-1a"', '<a href="#capitulo-2"', 1)
         self.esperar_falha(novo, "sum", "FALHA capítulos, questões e primeira parte")
+
+    def test_svg_sem_role_img(self):
+        novo = self.trocar('<svg role="img"', '<svg', 1)
+        self.esperar_falha(novo, "svg_role", "FALHA")
+
+    def test_svg_sem_desc(self):
+        achado = re.search(r"<desc\b[^>]*>.*?</desc>", self.texto, re.S)
+        self.assertIsNotNone(achado)
+        self.esperar_falha(self.texto.replace(achado.group(0), "", 1), "svg_desc", "FALHA")
+
+    def test_svg_sem_viewbox(self):
+        achado = re.search(r'<svg\b[^>]*?(viewBox="[^"]+")', self.texto)
+        self.assertIsNotNone(achado)
+        self.esperar_falha(self.texto.replace(achado.group(1), "", 1), "svg_vb", "FALHA")
+
+    def test_svg_com_script(self):
+        novo = self.trocar("</svg>", "<script></script></svg>", 1)
+        self.esperar_falha(novo, "svg_scr", "FALHA")
 
 
 @unittest.skipIf(RAPIDO, "geração de PDF desligada por --rapido")

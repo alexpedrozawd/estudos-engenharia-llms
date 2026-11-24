@@ -1,11 +1,11 @@
 # Plano de evolução rumo à nota 10 — Mercado de trabalho e revisão visual (24/11/2026)
 
-Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A e 5B` concluídas; `Fases 5C–5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
+Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A, 5B e 5C` concluídas; `Fases 5D–5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
 
 ## 1. Contexto, baseline e objetivo
 
 - **Baseline pós-auditoria de 24/11/2026:** nota realista **7,2 / 10** (`8,5 / 10` em arquitetura conceitual; `5,0 / 10` em prática hands-on de mercado; `5,5 / 10` em acabamento visual e validação externa).
-- **Estado após a Fase 5B (24/11/2026):** `guia-engenharia-llms.html` (`385` seções, `453` questões `113/113/114/113` com `91/108` questões de fechamento e `18/18` rubricas quantitativas endurecidas, `26` blocos executáveis, `528` termos no Glossário, `73` molduras vazias `data-imagem=`, `0` `<img>` e `0` `<svg>`), `guia-engenharia-llms.pdf` (`657` páginas A4 — regeração provisória prevista ao fim da Fase 5C) e `laboratorios/` (`18` labs offline + projeto integrador, `84` testes).
+- **Estado após a Fase 5C (24/11/2026):** `guia-engenharia-llms.html` (`385` seções, `453` questões `113/113/114/113`, `26` blocos executáveis, `528` termos no Glossário, `18` molduras `data-imagem="cap-1".."cap-18"`, `22` diagramas `<svg>` inline acessíveis, sha `45e11a0cd880451a`), `guia-engenharia-llms.pdf` (`664` páginas A4, sha `482a150cb91f3efc`) e `laboratorios/` (`18` labs offline + projeto integrador, `84` testes).
 - **Decisões aprovadas pelo operador em 24/11/2026:** `5C` = reduzir aquarelas de `73` para `18` (uma abertura por capítulo) + diagramas técnicos SVG; `5D` = diretório `laboratorios-mercado/` na raiz, `pgvector` como banco vetorial padrão do projeto 02 e workflow `.github/workflows/` para CI offline; cadência = 1 fase aprofundada por sessão com 1 `/handoff` limpo ao fim de cada fase finalizada.
 - **Ambiente local verificado:** `podman` (`/usr/bin/podman`) e `ollama` (`/home/linuxbrew/.linuxbrew/bin/ollama`) disponíveis; `docker` e `nvidia-smi` ausentes no `PATH` atual.
 - **Objetivo:** levar o material o mais próximo possível de **10 / 10** para formar arquitetos e engenheiros de LLMs de fronteira ou locais conforme a realidade do mercado, sem quebrar o formato TDAH, as validações determinísticas nem a trilha offline rápida existente.
@@ -32,14 +32,12 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A e 5B` concluídas; `Fa
 - **Invariantes obrigatórios:** manter distribuição equilibrada `A/B/C/D`, `LONGEST_TRUE=0` (correta nunca estritamente a maior), `BAD_EXP=0` e explicação coerente em cada alternativa.
 - **Resultado verificável:** `python3 -I ferramentas/validar-guia.py --guia guia-engenharia-llms.html` (`16 OK, 0 FALHA`), `auditar-guia-navegador.mjs` (`445+` questões clicáveis sem falhas) e auditoria de comprimento/distribuição com `0` violações. ✅ **Concluída:** `91/108` questões endurecidas, `18/18` rubricas quantitativas, `453/453` questões aprovadas no navegador (`changelog-fase-5b-questoes-e-rubricas-2026-11-24.md`).
 
-### Fase 5C — Revisão dos diagramas técnicos SVG e estratégia visual (`L8` redesenhado)
+### ✅ Fase 5C — Revisão dos diagramas técnicos SVG e estratégia visual (`L8` redesenhado; concluída em 24/11/2026)
 - **O que fazer:**
   - Inserir **18 a 24 diagramas técnicos em `<svg>` inline** (sem fontes/scripts externos, com `role="img"`, `<title>`, `<desc>`, alto contraste e adaptação responsiva em `320 px` e `@media print` A4) nas unidades estruturais centrais: pilha Transformer/`Q·K`, arquitetura em 5 camadas, fluxo RAG híbrido + RRF, GraphRAG vs. grafo de estado, orçamento/compactação de contexto, fluxo MCP + sandbox, defesa em profundidade, memória GPU/`KV cache`/`GQA`/`PagedAttention`/desagregação, memória LoRA/`QLoRA`, gateway de roteamento, pipeline LLMOps/canário/drift e fluxo de cache por prefixo.
   - Atualizar `requisitos-de-formato-html-do-material.md` (§8 e §9) e `ferramentas/validar-guia.py` se necessário para validar `<svg>` acessíveis.
-- **Decisão material pendente do operador (antes de iniciar 5C):**
-  - **Opção A (recomendada):** reduzir as ilustrações artísticas em aquarela de `73` para `18` (uma abertura por capítulo), combinadas com os ~20 diagramas técnicos SVG nas partes.
-  - **Opção B:** manter todas as `73` molduras em aquarela além dos diagramas SVG.
-- **Resultado verificável:** `guia.py fechar` (`0` falhas), `auditar-guia-navegador.mjs` (`320 px` sem estouros + `axe-core` `0` violações) e inspeção visual de amostras renderizadas em HTML e PDF.
+- **Decisão aprovada (24/11/2026):** reduzir as ilustrações artísticas em aquarela de `73` para `18` (uma abertura por capítulo), combinadas com `22` diagramas técnicos SVG nas partes.
+- **Resultado verificável:** ✅ **Concluída:** `22` diagramas `<svg>` inline acessíveis, `18` molduras `cap-1`..`cap-18`, `validar-guia.py` (`18 OK`), `testar-ferramentas.py` (`19 tests OK` sem `--rapido`), `guia.py fechar` (`0` falhas), `auditar-guia-navegador.mjs` (`0` estouros `320 px` + `axe-core` `0` violações), inspeção visual HTML/PDF aprovada e PDF provisório regerado com `664` páginas A4 (`changelog-fase-5c-diagramas-svg-e-molduras-2026-11-24.md`).
 
 ### Fase 5D — Camada 3 prática de mercado (6 projetos reais opt-in)
 - **O que fazer:** criar trilha prática separada da pasta `laboratorios/` (preservando os `18` labs offline rápidos intactos), com `pyproject.toml` / `venv` próprio e `compose.yaml` compatível com **Podman e Docker**, integrando `laboratorios/comum/cliente_llm.py` e runtimes/serviços reais:

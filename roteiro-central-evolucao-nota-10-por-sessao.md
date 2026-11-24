@@ -30,7 +30,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 |---|---|---|---|---|---|
 | **Sessão 1** | **Fase 5A** | Fechamento das 5 lacunas conceituais 2026 no HTML (8 partes curtas + fontes conferidas) | Não | Fase 5A → Fase 5B | Concluída (24/11/2026) |
 | **Sessão 2** | **Fase 5B** | Endurecimento das `108` questões de fechamento e rubricas quantitativas dos `18` estudos de caso | Não | Fase 5B → Fase 5C | Concluída (24/11/2026) |
-| **Sessão 3** | **Fase 5C** | `18–24` diagramas `<svg>` inline acessíveis, redução `73 → 18` molduras de aquarela e atualização do validador | Sim (provisório) | Fase 5C → Fase 5D | Pendente |
+| **Sessão 3** | **Fase 5C** | `18–24` diagramas `<svg>` inline acessíveis, redução `73 → 18` molduras de aquarela e atualização do validador | Sim (provisório) | Fase 5C → Fase 5D | Concluída (24/11/2026) |
 | **Sessão 4** | **Fase 5D** | Camada 3 prática em `laboratorios-mercado/` (6 projetos OCI + `pgvector` + smoke-tests + execução real) e `.github/workflows/` | Não | Fase 5D → Fase 5E | Pendente |
 | **Sessão 5** | **Fase 5E** | Validação externa humana (`L1`/`L2`), geração das `18` aquarelas (`L8`), PDF definitivo e encerramento | Sim (definitivo) | Encerramento final | Pendente |
 
@@ -71,6 +71,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
   - Atualizar `requisitos-de-formato-html-do-material.md` (§8 e §9) e `ferramentas/validar-guia.py` (validação de `<svg>` acessíveis) + `ferramentas/testar-ferramentas.py`.
   - Regerar o PDF provisório via `guia.py pdf --substituir --motivo fase-5c-diagramas-svg` e inspecionar amostras renderizadas em HTML e PDF.
 - **Aceite:** `guia.py fechar` (`0` falhas), `testar-ferramentas.py` OK, `auditar-guia-navegador.mjs` (`0` estouros `320 px` e `0` violações `axe-core`) e inspeção visual aprovada.
+- **Resultado em 24/11/2026:** ✅ **Concluída** (`22` diagramas `<svg>` inline acessíveis com `0` sobreposições/overflows em `320 px` e `1280 px`; molduras reduzidas de `73` para `18` aberturas `cap-1`..`cap-18`; `requisitos-de-formato-html-do-material.md` §8–§9, `validar-guia.py` `18 OK`, `guia.py` e `testar-ferramentas.py` `19 tests OK` sem `--rapido`; `guia-engenharia-llms.html` sha `45e11a0cd880451a`; PDF provisório regerado com `664` páginas A4 sha `482a150cb91f3efc`, anterior em `arquivo/antes-fase-5c-diagramas-svg-2026-11-24/`; `auditar-guia-navegador.mjs` com `46 passes`, `0` violações `axe-core` e `453/453` questões OK; ver [`changelog-fase-5c-diagramas-svg-e-molduras-2026-11-24.md`](changelog-fase-5c-diagramas-svg-e-molduras-2026-11-24.md)).
 - **Fechamento da sessão:** changelog + docs + commit/push em `main` + `/handoff` para Sessão 4.
 
 ### Sessão 4 — Fase 5D: Camada 3 prática de mercado (`laboratorios-mercado/`) e CI
