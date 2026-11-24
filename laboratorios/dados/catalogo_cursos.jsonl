@@ -1,0 +1,5 @@
+{"id": "AUL-101", "curso": "Fundamentos de LLMs", "modulo": 1, "titulo": "Tokens, embeddings e atenção causal", "duracao_min": 28, "nivel": "iniciante"}
+{"id": "AUL-102", "curso": "Arquitetura de Sistemas", "modulo": 2, "titulo": "Portas de entrada, gateways e cache de prefixo", "duracao_min": 35, "nivel": "intermediario"}
+{"id": "AUL-103", "curso": "Engenharia de Dados", "modulo": 6, "titulo": "Deduplicação por MinHash e prevenção de vazamento treino-teste", "duracao_min": 42, "nivel": "intermediario"}
+{"id": "AUL-104", "curso": "RAG em Produção", "modulo": 7, "titulo": "BM25, HNSW e Reciprocal Rank Fusion", "duracao_min": 45, "nivel": "intermediario"}
+{"id": "AUL-105", "curso": "Fine-tuning e LoRA", "modulo": 15, "titulo": "Aritmética de VRAM, BF16 e adaptadores NF4", "duracao_min": 50, "nivel": "avancado"}

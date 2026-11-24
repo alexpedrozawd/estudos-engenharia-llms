@@ -6,6 +6,7 @@ Uso (Python com -I, só biblioteca padrão):
     python -I fontes.py extrair                                              # bruto -> texto (HTML, RFC, MD e PDF via pdftotext)
     python -I fontes.py achar CHAVE "palavras da consulta" [-n 5]            # trechos candidatos com chave:linha
     python -I fontes.py conferir [--pacote P]                                # conferir-trechos.py em cada pacote, saída curta
+    python -I fontes.py vigencia [--pacote P] [--dias 30] [--estrito]        # idade e divergência de hash sem tocar na rede
 
 Manifesto = tabelas `Chave | Fonte e endereço | Hash bruto (16)` dos pacotes de fontes do projeto.
 Dados baixados e extraídos ficam em cache-fontes/ (fora do Git, ver .gitignore). Nada é enviado ao servidor
@@ -262,16 +263,85 @@ def cmd_conferir(pacote):
     return 1 if falhas else 0
 
 
+def avaliar_vigencia(itens, indice, dias=30, hoje=None):
+    """Classifica chaves únicas do manifesto frente ao índice local sem tocar na rede."""
+    ref = datetime.strptime(hoje, "%Y-%m-%d").date() if hoje else datetime.now(timezone.utc).date()
+    por_chave = {}
+    for item in itens:
+        por_chave.setdefault(item["chave"], item)
+    ausentes, vencidas, divergentes = [], [], []
+    atuais = 0
+    for chave in sorted(por_chave):
+        reg = indice.get(chave)
+        if not reg:
+            ausentes.append(chave)
+            continue
+        item = por_chave[chave]
+        mesmo_hash = reg.get("hash") == item["hash_bruto"]
+        if not mesmo_hash:
+            divergentes.append((chave, item["hash_bruto"], reg.get("hash", "-")))
+        data_txt = reg.get("data") or ""
+        idade = None
+        if data_txt:
+            try:
+                idade = (ref - datetime.strptime(data_txt, "%Y-%m-%d").date()).days
+            except ValueError:
+                idade = None
+        if idade is None or idade > dias:
+            vencidas.append((chave, data_txt or "sem data", idade))
+        elif mesmo_hash:
+            atuais += 1
+    return {
+        "total": len(por_chave),
+        "atuais": atuais,
+        "ausentes": ausentes,
+        "vencidas": vencidas,
+        "divergentes": divergentes,
+    }
+
+
+def cmd_vigencia(pacote=None, dias=30, estrito=False, indice_path=None, hoje=None):
+    todos = [p for p in pacotes_padrao() if not pacote or os.path.basename(p) == pacote]
+    itens = manifesto(todos)
+    if not itens:
+        print("FALHA nenhuma entrada no manifesto para avaliar")
+        return 1
+    caminho_ind = indice_path or os.path.join(CACHE, "indice.json")
+    indice = {}
+    if os.path.exists(caminho_ind):
+        try:
+            with open(caminho_ind, encoding="utf-8") as f:
+                indice = json.load(f)
+        except Exception as e:
+            print(f"FALHA índice inválido ({caminho_ind}): {e}")
+            return 1
+    res = avaliar_vigencia(itens, indice, dias=dias, hoje=hoje)
+    print(f"Vigência (janela {dias}d): {res['total']} chaves únicas | {res['atuais']} atuais | "
+          f"{len(res['ausentes'])} fora do cache | {len(res['vencidas'])} vencidas | {len(res['divergentes'])} hash divergente")
+    if res["ausentes"]:
+        print("  ausentes: " + ", ".join(res["ausentes"][:12]) + (f" (+{len(res['ausentes']) - 12})" if len(res["ausentes"]) > 12 else ""))
+    if res["vencidas"]:
+        amostra = [f"{k} ({d})" for k, d, _ in res["vencidas"][:12]]
+        print("  vencidas: " + ", ".join(amostra) + (f" (+{len(res['vencidas']) - 12})" if len(res["vencidas"]) > 12 else ""))
+    if res["divergentes"]:
+        amostra = [f"{k} ({h1}->{h2})" for k, h1, h2 in res["divergentes"][:12]]
+        print("  hash divergente: " + ", ".join(amostra) + (f" (+{len(res['divergentes']) - 12})" if len(res['divergentes']) > 12 else ""))
+    tem_pendencia = bool(res["ausentes"] or res["vencidas"] or res["divergentes"])
+    return 1 if (estrito and tem_pendencia) else 0
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("comando", choices=["manifesto", "baixar", "extrair", "achar", "conferir"])
+    p.add_argument("comando", choices=["manifesto", "baixar", "extrair", "achar", "conferir", "vigencia"])
     p.add_argument("chave_ou_nada", nargs="?")
     p.add_argument("consulta", nargs="?")
     p.add_argument("--pacote")
     p.add_argument("--chave")
     p.add_argument("--atraso", type=float, default=1.0)
     p.add_argument("--retomar", action="store_true", help="baixar: pula chaves já presentes no índice")
+    p.add_argument("--dias", type=int, default=30, help="vigencia: prazo máximo em dias desde a última coleta")
+    p.add_argument("--estrito", action="store_true", help="vigencia: sai com código 1 se houver pendência")
     p.add_argument("-n", type=int, default=5)
     a = p.parse_args()
     if a.comando == "manifesto":
@@ -284,6 +354,8 @@ def main():
         if not (a.chave_ou_nada and a.consulta):
             p.error("achar exige CHAVE e consulta")
         return cmd_achar(a.chave_ou_nada, a.consulta, a.n)
+    if a.comando == "vigencia":
+        return cmd_vigencia(a.pacote, a.dias, a.estrito)
     return cmd_conferir(a.pacote)
 
 

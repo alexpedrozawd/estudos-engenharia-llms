@@ -59,12 +59,12 @@ class Golden(unittest.TestCase):
         self.assertEqual(c["glossario_termos"], len(re.findall(r"<dt[ >]", glos)))
 
     def test_mapa_devolve_as_partes_do_prefixo(self):
-        rc, out = executar("mapa", "13.2")
+        rc, out = executar("mapa", "14.2")
         self.assertEqual(rc, 0)
         ids = [l.split("\t")[0] for l in out.strip().splitlines()]
-        self.assertEqual(ids, ["unidade-13-2a", "unidade-13-2b", "unidade-13-2c"])
+        self.assertEqual(ids, ["unidade-14-2a", "unidade-14-2b", "unidade-14-2c"])
         linha_ini = int(out.splitlines()[0].split("\t")[1].split("-")[0])
-        self.assertIn('id="unidade-13-2a"', ler_texto(GUIA).splitlines()[linha_ini - 1])
+        self.assertIn('id="unidade-14-2a"', ler_texto(GUIA).splitlines()[linha_ini - 1])
 
     def test_mapa_respeita_fronteira_de_numero(self):
         rc, out = executar("mapa", "1")

@@ -1,20 +1,22 @@
 # Guia para Engenharia de LLMs
 
-Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`guia-engenharia-llms.pdf`) sobre especificação, arquitetura, integração, avaliação e operação de sistemas com modelos de linguagem (LLMs), locais ou de fronteira (em transição para incluir programação em duas camadas conforme o novo planejamento de 23/11/2026).
+Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`guia-engenharia-llms.pdf`) sobre especificação, arquitetura, integração, avaliação e operação de sistemas com modelos de linguagem (LLMs), locais ou de fronteira, com programação em duas camadas: blocos curtos executáveis no HTML e laboratórios em `laboratorios/`.
 
-## Estado atual (23/11/2026)
+## Estado atual (24/11/2026)
 
-- **Edição vigente (Capítulos 1 a 16 concluídos, revisados e fechados):** `316` partes (`175.906` palavras em partes; HTML `sha256` `19a020013721c5a5`), `376` questões (`94/94/94/94`), `141` tabelas (`141` com `.rolagem`), `402` termos `<dt>` no Glossário (`395` `<dfn>`), `67` molduras `data-imagem=` e `722` links externos (`275` URLs únicas); o PDF, de `534` páginas A4 (`sha256` `10ff8c03dd8dfe83`), foi regerado em 18/11/2026.
-  - **Parte I — Fundamentos e controle:** Cap. 1 (`19` partes), Cap. 2 (`18`), Cap. 3 (`17`), Cap. 4 (`18`), Cap. 5 (`17`).
-  - **Parte II — Contexto, grafos, segurança e proporcionalidade:** Cap. 6 (Engenharia de grafos aplicada a LLMs), Cap. 7 (Segurança e governança), Cap. 8 (Atos autodestrutivos e proporcionalidade), Cap. 9 (Contexto e memória), Cap. 10 (Ferramentas e integrações), Cap. 11 (Busca, indexação e RAG).
-  - **Parte III — Operação, desempenho e economia:** Cap. 12 (Harnesses, workflows e agentes), Cap. 13 (Inferência local), Cap. 14 (Seleção e roteamento), Cap. 15 (Integração empresarial e LLMOps), Cap. 16 (Eficiência e economia).
-- **Novo planejamento aprovado (23/11/2026):** ver [planejamento-reestruturado-2026-11-23.md](planejamento-reestruturado-2026-11-23.md) e [roadmap.md](roadmap.md) — reorganização para `18` capítulos integrando os dois livros de Chip Huyen (*AI Engineering* e *Designing Machine Learning Systems*) como fontes primárias, as fontes públicas de 2026 como complementares e programação executável em duas camadas (blocos curtos no HTML + `18` laboratórios em `laboratorios/`), preservando o formato para TDAH. Ferramenta local de leitura dos PDFs criada em `ferramentas/livros.py` (textos mantidos fora do Git em `cache-fontes/livros/`). Ver `changelog-planejamento-huyen-e-programacao-2026-11-23.md`.
+- **Fase 3 da reestruturação concluída:** `18` capítulos em três partes, integrando os dois livros de Chip Huyen (*AI Engineering* e *Designing Machine Learning Systems*) às fontes públicas de 2026, com programação em duas camadas. São `360` páginas lógicas (`320` partes de conteúdo), `427` questões (`106/107/108/106`), `149` tabelas com `.rolagem`, `479` termos no Glossário, `22` blocos Python executáveis e um estudo de caso com rubrica por capítulo. PDF com `628` páginas A4 (provisório até as imagens). Ver [changelog-fase-3-reestruturacao-huyen-2026-11-24.md](changelog-fase-3-reestruturacao-huyen-2026-11-24.md).
+  - **Parte I — Fundamentos, arquitetura, especificação e avaliação:** Caps. 1–5.
+  - **Parte II — Dados, conhecimento, contexto e agentes:** Cap. 6 (Engenharia de Dados e Datasets), 7 (Busca, Indexação e RAG), 8 (Grafos), 9 (Contexto, Memória e Feedback), 10 (Ferramentas e Protocolos), 11 (Harnesses, Workflows e Agentes).
+  - **Parte III — Segurança, adaptação, operação e economia:** Cap. 12 (Segurança e Guardrails), 13 (Atos Autodestrutivos), 14 (Inferência Local), 15 (Fine-tuning, Quantização e Destilação), 16 (Seleção e Roteamento), 17 (LLMOps), 18 (Eficiência e Economia).
+- **Laboratórios:** `laboratorios/` traz um laboratório por capítulo e o projeto integrador, em Python padrão, com `82` testes offline (`python3 -I -W error::ResourceWarning laboratorios/executar_labs.py`).
+- **Próximo (Fase 4):** revisão técnica humana, piloto nos três aparelhos, imagens em aquarela e PDF final ([roadmap.md](roadmap.md)).
 
 ## Estrutura principal
 
 - `guia-engenharia-llms.html` — livro completo interativo (questões com retorno imediato em `aria-live`, glossário e referências).
-- `guia-engenharia-llms.pdf` — versão A4 gerada via Chromium headless (`534` páginas).
-- `planejamento-reestruturado-2026-11-23.md` — novo plano curricular aprovado (`18` capítulos + programação).
+- `guia-engenharia-llms.pdf` — versão A4 gerada via Chromium headless (`628` páginas).
+- `planejamento-reestruturado-2026-11-23.md` — plano curricular vigente (`18` capítulos + programação).
+- `laboratorios/` — `18` laboratórios e projeto integrador, com testes offline.
 - `planejamento-completo-estudos-engenharia-llms.md` — plano curricular anterior (`16` módulos).
 - `plano-de-lacunas-para-nota-10-2026-11-19.md` — plano de lacunas de qualidade (`L1`–`L8`).
 - `pacote-de-fontes-*.md` — trechos literais conferidos de fontes públicas primárias.
@@ -25,4 +27,5 @@ Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`g
 
 ```bash
 python3 -I ferramentas/guia.py fechar
+python3 -I -W error::ResourceWarning laboratorios/executar_labs.py
 ```

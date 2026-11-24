@@ -3,13 +3,18 @@
 Uso (Python com -I, só biblioteca padrão):
     python -I ferramentas/testar-fontes.py
 """
+import contextlib
 import glob
 import http.server
 import importlib.util
+import io
+import json
 import os
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 import threading
 import unittest
 import urllib.error
@@ -140,6 +145,45 @@ class Busca(unittest.TestCase):
     def test_achar_sem_termos_em_comum_nao_inventa(self):
         res, _ = fontes.achar(self.TEXTO, "xyzzy plugh", n=3)
         self.assertEqual(res, [])
+
+
+class Vigencia(unittest.TestCase):
+    def test_avaliar_vigencia_classifica_atuais_vencidas_divergentes_e_ausentes(self):
+        itens = [
+            {"chave": "ok", "hash_bruto": "aaaaaaaaaaaaaaaa"},
+            {"chave": "vencida", "hash_bruto": "bbbbbbbbbbbbbbbb"},
+            {"chave": "mudou", "hash_bruto": "cccccccccccccccc"},
+            {"chave": "ausente", "hash_bruto": "dddddddddddddddd"},
+        ]
+        indice = {
+            "ok": {"hash": "aaaaaaaaaaaaaaaa", "data": "2026-11-10"},
+            "vencida": {"hash": "bbbbbbbbbbbbbbbb", "data": "2026-09-01"},
+            "mudou": {"hash": "eeeeeeeeeeeeeeee", "data": "2026-11-18"},
+        }
+        res = fontes.avaliar_vigencia(itens, indice, dias=30, hoje="2026-11-23")
+        self.assertEqual(res["total"], 4)
+        self.assertEqual(res["atuais"], 1)
+        self.assertEqual(res["ausentes"], ["ausente"])
+        self.assertEqual([k for k, _, _ in res["vencidas"]], ["vencida"])
+        self.assertEqual(res["divergentes"], [("mudou", "cccccccccccccccc", "eeeeeeeeeeeeeeee")])
+
+    def test_cmd_vigencia_estrito_retorna_um_quando_ha_pendencia(self):
+        tmp = tempfile.mkdtemp(prefix="fontes-vigencia-")
+        try:
+            ind = os.path.join(tmp, "indice.json")
+            with open(ind, "w", encoding="utf-8") as f:
+                json.dump({"bea": {"hash": "0000000000000000", "data": "2026-11-19"}}, f)
+            with contextlib.redirect_stdout(io.StringIO()):
+                rc = fontes.cmd_vigencia(
+                    pacote="pacote-de-fontes-capitulo-14-selecao-e-roteamento-2026-11-17.md",
+                    dias=30,
+                    estrito=True,
+                    indice_path=ind,
+                    hoje="2026-11-23",
+                )
+            self.assertEqual(rc, 1)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
 
 
 if __name__ == "__main__":

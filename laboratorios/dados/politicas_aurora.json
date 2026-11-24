@@ -1,0 +1,26 @@
+{
+  "organizacao": "Aurora Educação (fictícia)",
+  "politicas": [
+    {
+      "id": "POL-01",
+      "titulo": "Cancelamento e reembolso",
+      "prazo_dias": 7,
+      "exige_aprovacao_humana": true,
+      "texto": "Estudantes podem solicitar cancelamento integral em até 7 dias corridos após a matrícula pelo portal oficial."
+    },
+    {
+      "id": "POL-02",
+      "titulo": "Privacidade de dados acadêmicos",
+      "prazo_dias": 0,
+      "exige_aprovacao_humana": true,
+      "texto": "Notas, CPF e histórico escolar não devem ser enviados a serviços externos sem anonimização prévia e base legal registrada."
+    },
+    {
+      "id": "POL-03",
+      "titulo": "Uso de monitoria por IA",
+      "prazo_dias": 0,
+      "exige_aprovacao_humana": false,
+      "texto": "O tutor automatizado explica conceitos passo a passo e cita a aula correspondente, mas não entrega gabaritos prontos de avaliações."
+    }
+  ]
+}
