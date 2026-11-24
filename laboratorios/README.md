@@ -16,7 +16,7 @@ python3 -I -W error::ResourceWarning laboratorios/executar_labs.py --alvo comum
 
 ## Uso opcional com provedores reais
 
-O cliente neutro em `laboratorios/comum/cliente_llm.py` aceita um adaptador HTTP opcional para provedores compatíveis (OpenAI, Anthropic, Google Gemini ou Ollama local) via variáveis de ambiente (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OLLAMA_HOST`). Os testes automatizados do repositório nunca acessam a rede: usam `ClienteMockDeterministico` e `unittest.mock`.
+O cliente neutro em `laboratorios/comum/cliente_llm.py` traz `ClienteHTTPOpenAICompativel`, `ClienteHTTPAnthropic`, `ClienteHTTPGemini`, `ClienteHTTPOllama` e `criar_cliente_por_ambiente()` para provedores reais opcionais via variáveis de ambiente (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OLLAMA_HOST`). Os testes automatizados do repositório nunca acessam a rede: usam `ClienteMockDeterministico`, `opener` fake e `unittest.mock`.
 
 ## Estrutura
 

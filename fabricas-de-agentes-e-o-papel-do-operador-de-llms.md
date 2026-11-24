@@ -125,12 +125,12 @@ A mudança de nível não ocorre de uma só vez, mas por migração iterativa de
 
 Este ensaio reflete diretamente as competências estruturadas no plano pedagógico do projeto:
 
-- [Módulo 2: Arquitetura de sistemas com LLM](file:///D:/Documentos/estudos-engenharia-llms/planejamento-capitulo-2-arquitetura-de-sistemas-com-llm.md) — fronteiras, chamadas assíncronas, limites de taxa e persistência de estado.
-- [Módulo 7: Atos autodestrutivos e proporcionalidade](file:///D:/Documentos/estudos-engenharia-llms/planejamento-completo-estudos-engenharia-llms.md#L17) — contenção de danos, condições de parada e prevenção de complexidade desnecessária.
-- [Módulo 9: Ferramentas e integrações](file:///D:/Documentos/estudos-engenharia-llms/planejamento-completo-estudos-engenharia-llms.md#L19) — contratos de chamada de função, filtros e interfaces de execução segura.
-- [Módulo 11: Harnesses, workflows e agentes](file:///D:/Documentos/estudos-engenharia-llms/planejamento-completo-estudos-engenharia-llms.md#L21) — ciclos, estados, interrupção e retomada de loops em segundo plano.
-- [Módulo 13: Seleção e roteamento](file:///D:/Documentos/estudos-engenharia-llms/planejamento-completo-estudos-engenharia-llms.md#L23) — contingência, escalonamento e adequação de modelos a custos e capacidades.
-- [Módulo 14: Integração empresarial e LLMOps](file:///D:/Documentos/estudos-engenharia-llms/planejamento-completo-estudos-engenharia-llms.md#L24) — observabilidade, sandboxing, versionamento e operação sem interrupção.
+- [Módulo 2: Arquitetura de sistemas com LLM](planejamento-capitulo-2-arquitetura-de-sistemas-com-llm.md) — fronteiras, chamadas assíncronas, limites de taxa e persistência de estado.
+- [Módulo 7: Atos autodestrutivos e proporcionalidade](planejamento-completo-estudos-engenharia-llms.md) — contenção de danos, condições de parada e prevenção de complexidade desnecessária.
+- [Módulo 9: Ferramentas e integrações](planejamento-completo-estudos-engenharia-llms.md) — contratos de chamada de função, filtros e interfaces de execução segura.
+- [Módulo 11: Harnesses, workflows e agentes](planejamento-completo-estudos-engenharia-llms.md) — ciclos, estados, interrupção e retomada de loops em segundo plano.
+- [Módulo 13: Seleção e roteamento](planejamento-completo-estudos-engenharia-llms.md) — contingência, escalonamento e adequação de modelos a custos e capacidades.
+- [Módulo 14: Integração empresarial e LLMOps](planejamento-completo-estudos-engenharia-llms.md) — observabilidade, sandboxing, versionamento e operação sem interrupção.
 
 ---
 

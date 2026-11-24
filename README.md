@@ -8,8 +8,8 @@ Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`g
   - **Parte I — Fundamentos, arquitetura, especificação e avaliação:** Caps. 1–5.
   - **Parte II — Dados, conhecimento, contexto e agentes:** Cap. 6 (Engenharia de Dados e Datasets), 7 (Busca, Indexação e RAG), 8 (Grafos), 9 (Contexto, Memória e Feedback), 10 (Ferramentas e Protocolos), 11 (Harnesses, Workflows e Agentes).
   - **Parte III — Segurança, adaptação, operação e economia:** Cap. 12 (Segurança e Guardrails), 13 (Atos Autodestrutivos), 14 (Inferência Local), 15 (Fine-tuning, Quantização e Destilação), 16 (Seleção e Roteamento), 17 (LLMOps), 18 (Eficiência e Economia).
-- **Laboratórios:** `laboratorios/` traz um laboratório por capítulo e o projeto integrador, em Python padrão, com `82` testes offline (`python3 -I -W error::ResourceWarning laboratorios/executar_labs.py`).
-- **Próximo (fechamento da Fase 4):** etapa visual final (`L8`, `73` imagens em aquarela) + PDF definitivo quando autorizado pelo operador ([roadmap.md](roadmap.md)).
+- **Laboratórios:** `laboratorios/` traz um laboratório por capítulo e o projeto integrador, em Python padrão, com `84` testes offline (`python3 -I -W error::ResourceWarning laboratorios/executar_labs.py`) e adaptadores HTTP reais opcionais em `laboratorios/comum/cliente_llm.py`.
+- **Próximo (evolução rumo à nota 10 e fechamento da Fase 4):** plano em [plano-evolucao-mercado-e-nota-10-2026-11-24.md](plano-evolucao-mercado-e-nota-10-2026-11-24.md) (lacunas 2026, endurecimento de questões, diagramas SVG técnicos, Camada 3 prática de mercado, revisão/piloto humano `L1`/`L2`) + etapa visual final (`L8`) e PDF definitivo quando autorizado pelo operador ([roadmap.md](roadmap.md)).
 
 ## Estrutura principal
 

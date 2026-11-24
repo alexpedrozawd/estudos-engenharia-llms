@@ -131,10 +131,19 @@ def inspecionar_logprobs_remoto(
         opener=opener,
     )
     escolha = dados["choices"][0]
+    itens = (escolha.get("logprobs") or {}).get("content") or []
+    vals = [
+        item["logprob"]
+        for item in itens
+        if isinstance(item, dict)
+        and isinstance(item.get("logprob"), (int, float))
+        and not isinstance(item.get("logprob"), bool)
+    ]
+    logprob_medio = round(sum(vals) / len(vals), 4) if vals else None
     return {
         "texto": escolha["message"]["content"],
         "tokens_entrada": dados["usage"]["prompt_tokens"],
         "tokens_saida": dados["usage"]["completion_tokens"],
-        "logprob_medio": -0.12,
+        "logprob_medio": logprob_medio,
         "modo": "http",
     }

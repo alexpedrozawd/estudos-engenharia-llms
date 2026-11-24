@@ -62,6 +62,28 @@ class TestLab01Fundamentos(unittest.TestCase):
             res_http = inspecionar_logprobs_remoto("Oi", opener=lambda req, timeout=15.0: RespFake(corpo))
         self.assertEqual(res_http["modo"], "http")
         self.assertEqual(res_http["texto"], "cinco")
+        self.assertIsNone(res_http["logprob_medio"])
+
+        corpo_lp = json.dumps(
+            {
+                "choices": [
+                    {
+                        "message": {"content": "cinco"},
+                        "logprobs": {
+                            "content": [
+                                {"token": "cin", "logprob": -0.1},
+                                {"token": "co", "logprob": -0.3},
+                            ]
+                        },
+                    }
+                ],
+                "usage": {"prompt_tokens": 5, "completion_tokens": 2},
+            }
+        ).encode("utf-8")
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "chave-teste"}):
+            res_lp = inspecionar_logprobs_remoto("Oi", opener=lambda req, timeout=15.0: RespFake(corpo_lp))
+        self.assertEqual(res_lp["modo"], "http")
+        self.assertAlmostEqual(res_lp["logprob_medio"], -0.2, places=4)
 
 
 if __name__ == "__main__":
