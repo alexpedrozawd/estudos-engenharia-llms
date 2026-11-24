@@ -1111,7 +1111,7 @@
 
     <section class="page" id="unidade-1-4a" aria-labelledby="titulo-da-unidade-1-4a">
       <h2 id="titulo-da-unidade-1-4a">1.4a O laço de geração</h2>
-      <p class="rotulo-unidade">Unidade 1.4 — Como o modelo gera a resposta (parte 1 de 4).</p>
+      <p class="rotulo-unidade">Unidade 1.4 — Como o modelo gera a resposta (parte 1 de 5).</p>
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
@@ -1182,7 +1182,7 @@
 
     <section class="page" id="unidade-1-4b" aria-labelledby="titulo-da-unidade-1-4b">
       <h2 id="titulo-da-unidade-1-4b">1.4b Como o modelo escolhe cada token</h2>
-      <p class="rotulo-unidade">Unidade 1.4 — Como o modelo gera a resposta (parte 2 de 4).</p>
+      <p class="rotulo-unidade">Unidade 1.4 — Como o modelo gera a resposta (parte 2 de 5).</p>
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
@@ -1248,7 +1248,7 @@
 
     <section class="page" id="unidade-1-4c" aria-labelledby="titulo-da-unidade-1-4c">
       <h2 id="titulo-da-unidade-1-4c">1.4c Modelos que raciocinam antes de responder</h2>
-      <p class="rotulo-unidade">Unidade 1.4 — Como o modelo gera a resposta (parte 3 de 4).</p>
+      <p class="rotulo-unidade">Unidade 1.4 — Como o modelo gera a resposta (parte 3 de 5).</p>
       <div class="resumo" role="note">
         <strong>Em 3 linhas</strong>
         <ul>
@@ -8282,6 +8282,8 @@ def normalizar(t):
 def jaccard(a, b, n=3):
     def ngramas(t):
         p = normalizar(t).split()
+        if len(p) &lt; n:
+            return {tuple(p)} if p else set()
         return {tuple(p[i:i + n]) for i in range(len(p) - n + 1)}
     A, B = ngramas(a), ngramas(b)
     return len(A &amp; B) / len(A | B) if A | B else 1.0

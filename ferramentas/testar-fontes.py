@@ -186,5 +186,51 @@ class Vigencia(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
 
 
+class Importacao(unittest.TestCase):
+    def test_importar_propaga_mesma_url_atualiza_indice_e_extrai(self):
+        tmp = tempfile.mkdtemp(prefix="fontes-importar-")
+        try:
+            manuais = os.path.join(tmp, "manuais")
+            bruto = os.path.join(tmp, "bruto")
+            textos = os.path.join(tmp, "textos")
+            ind = os.path.join(tmp, "indice.json")
+            os.makedirs(manuais, exist_ok=True)
+            html = "<html><body><p>Conteudo salvo pelo navegador.</p></body></html>"
+            with open(os.path.join(manuais, "k1.htm"), "w", encoding="utf-8") as f:
+                f.write(html)
+            itens = [
+                {"chave": "k1", "url": "https://exemplo.test/artigo", "hash_bruto": "0000000000000000"},
+                {"chave": "k2", "url": "https://exemplo.test/artigo", "hash_bruto": "0000000000000000"},
+            ]
+            with contextlib.redirect_stdout(io.StringIO()):
+                rc = fontes.cmd_importar(pasta=manuais, bruto=bruto, textos=textos, indice_path=ind, itens=itens)
+            self.assertEqual(rc, 0)
+            with open(ind, encoding="utf-8") as f:
+                reg = json.load(f)
+            self.assertEqual(set(reg), {"k1", "k2"})
+            self.assertEqual(reg["k1"]["origem"], "manual")
+            self.assertEqual(reg["k1"]["hash"], reg["k2"]["hash"])
+            self.assertTrue(os.path.isfile(os.path.join(bruto, "k1.html")))
+            self.assertTrue(os.path.isfile(os.path.join(bruto, "k2.html")))
+            with open(os.path.join(textos, "k2.txt"), encoding="utf-8") as f:
+                self.assertIn("Conteudo salvo pelo navegador.", f.read())
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_importar_reprova_chave_fora_do_manifesto(self):
+        tmp = tempfile.mkdtemp(prefix="fontes-importar-erro-")
+        try:
+            manuais = os.path.join(tmp, "manuais")
+            os.makedirs(manuais, exist_ok=True)
+            with open(os.path.join(manuais, "desconhecida.html"), "w", encoding="utf-8") as f:
+                f.write("<html></html>")
+            with contextlib.redirect_stdout(io.StringIO()):
+                rc = fontes.cmd_importar(pasta=manuais, bruto=os.path.join(tmp, "b"), textos=os.path.join(tmp, "t"),
+                                         indice_path=os.path.join(tmp, "i.json"), itens=[])
+            self.assertEqual(rc, 1)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

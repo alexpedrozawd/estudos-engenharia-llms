@@ -3,6 +3,7 @@
 Uso (Python com -I, só biblioteca padrão):
     python -I fontes.py manifesto [--pacote P]
     python -I fontes.py baixar   [--pacote P] [--chave K] [--atraso 1.0]    # rede: só https e só domínios do manifesto
+    python -I fontes.py importar [--pasta cache-fontes/manuais] [--chave K]  # registra cópias locais autorizadas + extrai
     python -I fontes.py extrair                                              # bruto -> texto (HTML, RFC, MD e PDF via pdftotext)
     python -I fontes.py achar CHAVE "palavras da consulta" [-n 5]            # trechos candidatos com chave:linha
     python -I fontes.py conferir [--pacote P]                                # conferir-trechos.py em cada pacote, saída curta
@@ -34,6 +35,8 @@ RAIZ = os.path.dirname(AQUI)
 CACHE = os.path.join(RAIZ, "cache-fontes")
 BRUTO = os.path.join(CACHE, "bruto")
 TEXTOS = os.path.join(CACHE, "textos")
+MANUAIS = os.path.join(CACHE, "manuais")
+EXTS_MANUAIS = {".html", ".htm", ".pdf", ".md", ".txt"}
 AGENTE = "guia-fontes/1.0 (leitura de documentação pública)"
 LIMITE_BYTES = 25 * 1024 * 1024
 TEMPO = 30
@@ -130,15 +133,48 @@ def cmd_manifesto(pacote):
     return 0 if itens else 1
 
 
+def carregar_indice(indice_path):
+    if not os.path.exists(indice_path):
+        return {}
+    with open(indice_path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def salvar_indice(indice_path, indice):
+    os.makedirs(os.path.dirname(indice_path), exist_ok=True)
+    with open(indice_path, "w", encoding="utf-8") as f:
+        json.dump(indice, f, ensure_ascii=False, indent=1)
+
+
+def salvar_bruto(indice, item, ext, corpo, bruto=BRUTO, origem=None):
+    """Salva bytes brutos da chave no cache e atualiza o registro no índice."""
+    os.makedirs(bruto, exist_ok=True)
+    chave = item["chave"]
+    for antigo in glob.glob(os.path.join(bruto, chave + ".*")):
+        os.remove(antigo)
+    with open(os.path.join(bruto, chave + ext), "wb") as f:
+        f.write(corpo)
+    h = sha16(corpo)
+    reg = {
+        "url": item["url"],
+        "hash": h,
+        "bytes": len(corpo),
+        "ext": ext,
+        "data": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "hash_do_manifesto": item["hash_bruto"],
+        "igual_ao_manifesto": h == item["hash_bruto"],
+    }
+    if origem:
+        reg["origem"] = origem
+    indice[chave] = reg
+    return h, h == item["hash_bruto"]
+
+
 def cmd_baixar(pacote, chave, atraso, retomar=False):
     itens = manifesto([p for p in pacotes_padrao() if not pacote or os.path.basename(p) == pacote])
     permitidos = hosts_permitidos(itens)
-    os.makedirs(BRUTO, exist_ok=True)
     indice_path = os.path.join(CACHE, "indice.json")
-    indice = {}
-    if os.path.exists(indice_path):
-        with open(indice_path, encoding="utf-8") as f:
-            indice = json.load(f)
+    indice = carregar_indice(indice_path)
     vistos, falhas = set(), 0
     for i in itens:
         if chave and i["chave"] != chave:
@@ -153,20 +189,73 @@ def cmd_baixar(pacote, chave, atraso, retomar=False):
             falhas += 1
             continue
         ext = extensao(i["url"], tipo, corpo)
-        for antigo in glob.glob(os.path.join(BRUTO, i["chave"] + ".*")):
-            os.remove(antigo)
-        with open(os.path.join(BRUTO, i["chave"] + ext), "wb") as f:
-            f.write(corpo)
-        h = sha16(corpo)
-        indice[i["chave"]] = {"url": i["url"], "hash": h, "bytes": len(corpo), "ext": ext,
-                              "data": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-                              "hash_do_manifesto": i["hash_bruto"], "igual_ao_manifesto": h == i["hash_bruto"]}
-        print(f"OK    {i['chave']} {ext} {len(corpo)} bytes {'(hash igual ao manifesto)' if h == i['hash_bruto'] else '(hash difere do manifesto)'}")
+        h, igual = salvar_bruto(indice, i, ext, corpo)
+        print(f"OK    {i['chave']} {ext} {len(corpo)} bytes {'(hash igual ao manifesto)' if igual else f'(hash difere do manifesto: {h})'}")
         time.sleep(atraso)
-    with open(indice_path, "w", encoding="utf-8") as f:
-        json.dump(indice, f, ensure_ascii=False, indent=1)
+    salvar_indice(indice_path, indice)
     print(f"{len(vistos) - falhas} baixadas, {falhas} falhas")
     return 1 if falhas else 0
+
+
+def cmd_importar(pasta=None, pacote=None, chave=None, bruto=BRUTO, textos=TEXTOS, indice_path=None, itens=None):
+    """Importa cópias locais autorizadas (ex.: salvas pelo navegador) para o cache e extrai textos."""
+    origem_dir = pasta or MANUAIS
+    if not os.path.isdir(origem_dir):
+        print(f"FALHA pasta de importação não encontrada: {origem_dir}")
+        return 1
+    if itens is None:
+        itens = manifesto([p for p in pacotes_padrao() if not pacote or os.path.basename(p) == pacote])
+    por_chave, por_url = {}, {}
+    for it in itens:
+        por_chave.setdefault(it["chave"], it)
+        por_url.setdefault(it["url"], []).append(it)
+    arquivos = [n for n in sorted(os.listdir(origem_dir))
+                if not n.startswith(".") and os.path.isfile(os.path.join(origem_dir, n))]
+    if not arquivos:
+        print(f"FALHA nenhum arquivo encontrado em {origem_dir}")
+        return 1
+    chaves_presentes = {os.path.splitext(n)[0] for n in arquivos if os.path.splitext(n)[1].lower() in EXTS_MANUAIS}
+    caminho_ind = indice_path or os.path.join(CACHE, "indice.json")
+    indice = carregar_indice(caminho_ind)
+    importadas, falhas = 0, 0
+    for nome in arquivos:
+        stem, ext = os.path.splitext(nome)
+        ext = ".html" if ext.lower() == ".htm" else ext.lower()
+        if ext not in EXTS_MANUAIS:
+            print(f"IGNORADO {nome}: extensão não suportada ({ext or 'sem extensão'})")
+            continue
+        if stem not in por_chave:
+            print(f"FALHA {nome}: chave '{stem}' ausente no manifesto")
+            falhas += 1
+            continue
+        caminho = os.path.join(origem_dir, nome)
+        if os.path.getsize(caminho) > LIMITE_BYTES:
+            print(f"FALHA {nome}: arquivo acima de {LIMITE_BYTES} bytes")
+            falhas += 1
+            continue
+        with open(caminho, "rb") as f:
+            corpo = f.read()
+        if not corpo:
+            print(f"FALHA {nome}: arquivo vazio")
+            falhas += 1
+            continue
+        alvos = [por_chave[stem]]
+        for outro in por_url.get(por_chave[stem]["url"], []):
+            if outro["chave"] != stem and outro["chave"] not in chaves_presentes and all(a["chave"] != outro["chave"] for a in alvos):
+                alvos.append(outro)
+        for alvo in alvos:
+            if chave and alvo["chave"] != chave:
+                continue
+            h, igual = salvar_bruto(indice, alvo, ext, corpo, bruto=bruto, origem="manual")
+            importadas += 1
+            status_h = "(hash igual ao manifesto)" if igual else f"(novo hash: {h}, manifesto: {alvo['hash_bruto']})"
+            print(f"OK    {alvo['chave']} <- {nome} ({len(corpo)} bytes) {status_h}")
+    salvar_indice(caminho_ind, indice)
+    if importadas:
+        if cmd_extrair(bruto=bruto, textos=textos) != 0:
+            falhas += 1
+    print(f"{importadas} chave(s) importada(s), {falhas} falha(s)")
+    return 1 if (falhas or not importadas) else 0
 
 
 def modulo_extrator():
@@ -333,11 +422,12 @@ def cmd_vigencia(pacote=None, dias=30, estrito=False, indice_path=None, hoje=Non
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("comando", choices=["manifesto", "baixar", "extrair", "achar", "conferir", "vigencia"])
+    p.add_argument("comando", choices=["manifesto", "baixar", "importar", "extrair", "achar", "conferir", "vigencia"])
     p.add_argument("chave_ou_nada", nargs="?")
     p.add_argument("consulta", nargs="?")
     p.add_argument("--pacote")
     p.add_argument("--chave")
+    p.add_argument("--pasta", help="importar: pasta com cópias locais autorizadas (padrão: cache-fontes/manuais)")
     p.add_argument("--atraso", type=float, default=1.0)
     p.add_argument("--retomar", action="store_true", help="baixar: pula chaves já presentes no índice")
     p.add_argument("--dias", type=int, default=30, help="vigencia: prazo máximo em dias desde a última coleta")
@@ -348,6 +438,8 @@ def main():
         return cmd_manifesto(a.pacote)
     if a.comando == "baixar":
         return cmd_baixar(a.pacote, a.chave, a.atraso, a.retomar)
+    if a.comando == "importar":
+        return cmd_importar(a.pasta, a.pacote, a.chave)
     if a.comando == "extrair":
         return cmd_extrair()
     if a.comando == "achar":
