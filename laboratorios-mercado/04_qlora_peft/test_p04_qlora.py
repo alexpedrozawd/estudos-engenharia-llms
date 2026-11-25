@@ -87,18 +87,36 @@ class TestAvaliacaoPorFatia(unittest.TestCase):
         self.assertEqual(antes["taxa_formato"], 0.0)
         melhor = qr.avaliar(self.teste, self._modelo())
         r = qr.comparar(antes, melhor)
-        self.assertTrue(r["aprovado"])
+        # Só 3 casos mudaram (todos ganhos): McNemar exato p = 0,25, então não se promove.
+        self.assertFalse(r["aprovado"])
+        self.assertEqual(r["veredito"], "inconclusivo")
+        self.assertEqual(r["pareado"], {"ganhos": 3, "perdas": 0, "p_valor_mcnemar_exato": 0.25})
         self.assertEqual(r["delta_por_fatia"]["com_ruido"], 0.75)
+        # Com 6 ganhos e 0 perdas (p = 0,03125 < 0,05), o mesmo portão aprova.
+        antes_duas = qr.avaliar(self.teste, self._modelo(erra_fatia=("informal", "com_ruido")))
+        r_sig = qr.comparar(antes_duas, melhor)
+        self.assertTrue(r_sig["aprovado"])
+        self.assertEqual(r_sig["veredito"], "aprovado")
         # Média sobe (0,50 -> 0,75), mas a fatia "formal" cai de 1,00 para 0,25: portão reprova.
         antes2 = qr.avaliar(self.teste, self._modelo(erra_fatia=("informal", "com_ruido")))
         pior_em_formal = qr.avaliar(self.teste, self._modelo(erra_fatia="formal"))
         r2 = qr.comparar(antes2, pior_em_formal)
         self.assertEqual(r2["delta_global"], 0.25)
         self.assertFalse(r2["aprovado"])
+        self.assertEqual(r2["veredito"], "reprovado")
         self.assertTrue(any(x.startswith("formal") for x in r2["regressoes"]))
 
+    def test_sem_detalhes_por_caso_e_inconclusivo(self):
+        antes = qr.avaliar(self.teste, self._modelo(erra_fatia=("informal", "com_ruido")))
+        depois = qr.avaliar(self.teste, self._modelo())
+        for r in (antes, depois):
+            r.pop("detalhes")
+        out = qr.comparar(antes, depois)
+        self.assertEqual(out["veredito"], "inconclusivo")
+        self.assertIsNone(out["pareado"])
+
     def test_cli_comparar_codigo_de_saida(self):
-        antes = qr.avaliar(self.teste, self._modelo(erra_fatia="informal"))
+        antes = qr.avaliar(self.teste, self._modelo(erra_fatia=("informal", "com_ruido")))
         depois = qr.avaliar(self.teste, self._modelo())
         with tempfile.TemporaryDirectory() as d:
             pa, pd = os.path.join(d, "a.json"), os.path.join(d, "d.json")
@@ -110,6 +128,19 @@ class TestAvaliacaoPorFatia(unittest.TestCase):
             with redirect_stdout(io.StringIO()):
                 self.assertEqual(tq.main(["comparar", pa, pd]), 0)
                 self.assertEqual(tq.main(["comparar", pd, pa]), 2)
+
+    def test_cli_recusa_conjuntos_diferentes(self):
+        antes = qr.avaliar(self.teste, self._modelo(erra_fatia=("informal", "com_ruido")))
+        depois = dict(qr.avaliar(self.teste, self._modelo()), conjunto="validacao")
+        with tempfile.TemporaryDirectory() as d:
+            pa, pd = os.path.join(d, "a.json"), os.path.join(d, "d.json")
+            for p, obj in ((pa, antes), (pd, depois)):
+                with open(p, "w", encoding="utf-8") as f:
+                    json.dump(obj, f)
+            from contextlib import redirect_stdout
+            import io
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(tq.main(["comparar", pa, pd]), 2)
 
     def test_filtrar_kwargs_por_assinatura(self):
         class Fake:
@@ -149,6 +180,41 @@ class TestAvaliacaoPorFatia(unittest.TestCase):
         with redirect_stdout(io.StringIO()):
             rc = tq.main(["avaliar", "--modelo", "m", "--saida", "x.json"])
         self.assertEqual(rc, 2)
+
+class TestEstatisticaEValidacao(unittest.TestCase):
+    def test_wilson_registro_rocm(self):
+        # Registro de 25/11/2026: 8/12 antes e 11/12 depois; as faixas de 95% se sobrepõem.
+        self.assertEqual(qr.wilson(8, 12), (0.3906, 0.8619))
+        self.assertEqual(qr.wilson(11, 12), (0.6461, 0.9851))
+        self.assertEqual(qr.wilson(0, 0), (0.0, 1.0))
+
+    def test_mcnemar_exato(self):
+        self.assertEqual(qr.mcnemar_exato(3, 0), 0.25)
+        self.assertEqual(qr.mcnemar_exato(6, 0), 0.03125)
+        self.assertEqual(qr.mcnemar_exato(0, 0), 1.0)
+        self.assertEqual(qr.mcnemar_exato(2, 2), 1.0)
+
+    def test_validacao_separada_preserva_teste(self):
+        ex = qr.carregar_jsonl(tq.DADOS)
+        tr0, te0 = qr.dividir(ex, 0.34, "aurora-v1")
+        tr, va, te = qr.dividir_com_validacao(ex, 0.2, 0.34, "aurora-v1")
+        self.assertEqual(te, te0)
+        self.assertEqual(len(va), 12)
+        ids = [e["id"] for e in tr + va + te]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(sorted(ids), sorted(e["id"] for e in ex))
+        self.assertEqual(qr.dividir_com_validacao(ex, 0.0, 0.34, "aurora-v1"), (tr0, [], te0))
+        m = qr.manifesto(qr.ConfigQLoRA(fracao_validacao=0.2), tq.DADOS, tr, te, {}, validacao=va)
+        self.assertEqual(len(m["ids_validacao"]), 12)
+        with self.assertRaises(ValueError):
+            qr.ConfigQLoRA(fracao_validacao=0.7).validar()
+
+    def test_cli_avaliar_validacao_vazia(self):
+        from contextlib import redirect_stdout
+        import io
+        with redirect_stdout(io.StringIO()):
+            self.assertEqual(tq.main(["avaliar", "--backend", "http", "--base-url", "http://127.0.0.1:9/v1",
+                                      "--modelo", "x", "--conjunto", "validacao", "--saida", os.devnull]), 2)
 
 
 if __name__ == "__main__":

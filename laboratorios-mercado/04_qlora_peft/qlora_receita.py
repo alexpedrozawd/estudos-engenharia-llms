@@ -4,11 +4,14 @@ Tudo o que decide o resultado fica explícito e com hash no manifesto: dados, di
 estratificada por (fatia, categoria), formato de conversa, hiperparâmetros de LoRA,
 quantização 4 bits (NF4), sementes e versões. A avaliação antes/depois é por fatia, e o
 portão reprova o adaptador se alguma fatia piorar além da tolerância, mesmo que a média suba.
+Ganho só é aprovado com teste pareado (McNemar exato) significativo; sem isso o veredito é
+"inconclusivo". Hiperparâmetros (ex.: épocas) se escolhem no conjunto de validação, nunca no teste.
 """
 from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 from dataclasses import asdict, dataclass, field
 from typing import Callable, Dict, List, Optional, Sequence, Tuple
@@ -39,6 +42,7 @@ class ConfigQLoRA:
     semente: int = 42
     semente_divisao: str = "aurora-v1"
     fracao_teste: float = 0.34
+    fracao_validacao: float = 0.0
     extras: Dict[str, object] = field(default_factory=dict)
 
     def validar(self) -> None:
@@ -48,6 +52,8 @@ class ConfigQLoRA:
             raise ValueError("lora_dropout fora de [0, 1)")
         if not 0.0 < self.fracao_teste < 1.0:
             raise ValueError("fracao_teste fora de (0, 1)")
+        if not 0.0 <= self.fracao_validacao < 1.0 or self.fracao_teste + self.fracao_validacao >= 1.0:
+            raise ValueError("fracao_validacao fora de [0, 1) ou somada ao teste >= 1")
         if self.quant_tipo not in ("nf4", "fp4"):
             raise ValueError("quant_tipo deve ser nf4 ou fp4")
         if self.dtype_computo not in ("bfloat16", "float16", "float32"):
@@ -85,6 +91,29 @@ def dividir(exemplos: Sequence[Dict[str, str]], fracao_teste: float, semente: st
         teste += ordem[:n_teste]
         treino += ordem[n_teste:]
     return sorted(treino, key=lambda e: e["id"]), sorted(teste, key=lambda e: e["id"])
+
+
+def dividir_com_validacao(exemplos: Sequence[Dict[str, str]], fracao_validacao: float, fracao_teste: float,
+                          semente: str) -> Tuple[List[dict], List[dict], List[dict]]:
+    """(treino, validação, teste). O teste é o mesmo de `dividir`; a validação sai do que seria treino.
+
+    Escolha de épocas e demais hiperparâmetros usa a validação; o teste é avaliado uma vez, no fim.
+    """
+    treino, teste = dividir(exemplos, fracao_teste, semente)
+    if fracao_validacao <= 0:
+        return treino, [], teste
+    grupos: Dict[Tuple[str, str], List[dict]] = {}
+    for e in treino:
+        grupos.setdefault((e["fatia"], e["categoria"]), []).append(e)
+    treino_final, validacao = [], []
+    for chave in sorted(grupos):
+        ordem = sorted(grupos[chave], key=lambda e: hashlib.sha256((semente + "|val|" + e["id"]).encode()).hexdigest())
+        total = len(ordem) + sum(1 for t in teste if (t["fatia"], t["categoria"]) == chave)
+        n_val = max(1, round(total * fracao_validacao)) if len(ordem) > 1 else 0
+        validacao += ordem[:n_val]
+        treino_final += ordem[n_val:]
+    return (sorted(treino_final, key=lambda e: e["id"]), sorted(validacao, key=lambda e: e["id"]),
+            teste)
 
 
 def para_conversa(ex: Dict[str, str]) -> Dict[str, List[Dict[str, str]]]:
@@ -135,8 +164,40 @@ def avaliar(teste: Sequence[Dict[str, str]], prever: Callable[[str], str]) -> Di
     }
 
 
-def comparar(antes: Dict[str, object], depois: Dict[str, object], tolerancia: float = 0.05) -> Dict[str, object]:
-    """Portão de promoção: média melhora e nenhuma fatia cai mais que `tolerancia`."""
+def wilson(acertos: int, n: int, z: float = 1.96) -> Tuple[float, float]:
+    """Intervalo de Wilson (95% com z = 1,96): fica em [0, 1] mesmo em amostras pequenas (parte 5.6f)."""
+    if n <= 0:
+        return (0.0, 1.0)
+    p = acertos / n
+    den = 1 + z * z / n
+    centro = (p + z * z / (2 * n)) / den
+    margem = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / den
+    return (round(max(0.0, centro - margem), 4), round(min(1.0, centro + margem), 4))
+
+
+def mcnemar_exato(ganhos: int, perdas: int) -> float:
+    """p-valor bilateral exato de McNemar: binomial(0,5) sobre os casos que mudaram de resultado."""
+    n = ganhos + perdas
+    if n == 0:
+        return 1.0
+    k = min(ganhos, perdas)
+    return round(min(1.0, 2 * sum(math.comb(n, i) for i in range(k + 1)) / 2 ** n), 6)
+
+
+def pareamento(antes: Dict[str, object], depois: Dict[str, object]) -> Optional[Tuple[int, int]]:
+    """(ganhos, perdas) por caso; None se faltarem detalhes ou os casos não forem os mesmos."""
+    def acertos(r: Dict[str, object]) -> Dict[str, bool]:
+        return {d["id"]: d["previsto"] == d["esperado"] for d in (r.get("detalhes") or [])}
+    a, d = acertos(antes), acertos(depois)
+    if not a or set(a) != set(d):
+        return None
+    return (sum(1 for i in a if not a[i] and d[i]), sum(1 for i in a if a[i] and not d[i]))
+
+
+def comparar(antes: Dict[str, object], depois: Dict[str, object], tolerancia: float = 0.05,
+             alfa: float = 0.05) -> Dict[str, object]:
+    """Portão de promoção: média melhora, nenhuma fatia cai mais que `tolerancia` e o ganho
+    pareado é significativo (McNemar exato < `alfa`). Sem significância: "inconclusivo"."""
     deltas, regressoes = {}, []
     for fatia, a in antes["por_fatia"].items():
         d = depois["por_fatia"].get(fatia)
@@ -148,8 +209,23 @@ def comparar(antes: Dict[str, object], depois: Dict[str, object], tolerancia: fl
         if delta < -tolerancia:
             regressoes.append(f"{fatia}: {a['acuracia']:.2f} -> {d['acuracia']:.2f}")
     melhora = round(depois["acuracia"] - antes["acuracia"], 4)
+    par = pareamento(antes, depois)
+    p_valor = mcnemar_exato(*par) if par else None
+    if regressoes or melhora <= 0:
+        veredito = "reprovado"
+    elif p_valor is None or p_valor >= alfa:
+        veredito = "inconclusivo"
+    else:
+        veredito = "aprovado"
+
+    def ic(r: Dict[str, object]) -> Tuple[float, float]:
+        n = int(r.get("n") or 0)
+        return wilson(round(float(r["acuracia"]) * n), n)
+
     return {"delta_global": melhora, "delta_por_fatia": deltas, "regressoes": regressoes,
-            "aprovado": melhora > 0 and not regressoes, "tolerancia": tolerancia}
+            "aprovado": veredito == "aprovado", "veredito": veredito, "tolerancia": tolerancia,
+            "alfa": alfa, "wilson95_antes": ic(antes), "wilson95_depois": ic(depois),
+            "pareado": None if par is None else {"ganhos": par[0], "perdas": par[1], "p_valor_mcnemar_exato": p_valor}}
 
 
 def sha_json(obj: object) -> str:
@@ -158,19 +234,24 @@ def sha_json(obj: object) -> str:
 
 def manifesto(cfg: ConfigQLoRA, caminho_dados: str, treino: Sequence[dict], teste: Sequence[dict],
               versoes: Optional[Dict[str, str]] = None,
-              acelerador: Optional[Dict[str, object]] = None) -> Dict[str, object]:
+              acelerador: Optional[Dict[str, object]] = None,
+              validacao: Sequence[dict] = ()) -> Dict[str, object]:
     cfg.validar()
     with open(caminho_dados, "rb") as f:
         sha_dados = hashlib.sha256(f.read()).hexdigest()
     conf = asdict(cfg)
     conf["modulos_alvo"] = list(cfg.modulos_alvo)
+    divisao = {"treino": [e["id"] for e in treino], "teste": [e["id"] for e in teste]}
+    if validacao:
+        divisao["validacao"] = [e["id"] for e in validacao]
     saida: Dict[str, object] = {
         "configuracao": conf,
         "sha256_configuracao": sha_json(conf),
         "sha256_dados": sha_dados,
         "ids_treino": [e["id"] for e in treino],
         "ids_teste": [e["id"] for e in teste],
-        "sha256_divisao": sha_json({"treino": [e["id"] for e in treino], "teste": [e["id"] for e in teste]}),
+        "ids_validacao": [e["id"] for e in validacao],
+        "sha256_divisao": sha_json(divisao),
         "sha256_formato_conversa": sha_json(para_conversa({"texto": "<x>", "categoria": CATEGORIAS[0]})),
         "versoes": dict(sorted((versoes or {}).items())),
     }

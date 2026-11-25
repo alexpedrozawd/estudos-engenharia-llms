@@ -9,6 +9,9 @@
     .venv-mercado/bin/python -I laboratorios-mercado/04_qlora_peft/treinar_qlora.py treinar --saida-adaptador adaptador/
     # 4) servir modelo base + adaptador, avaliar de novo ("depois") e aplicar o portão
     .venv-mercado/bin/python -I laboratorios-mercado/04_qlora_peft/treinar_qlora.py comparar antes.json depois.json
+
+Escolha de épocas sem vazamento: passe `--fracao-validacao F` (antes do subcomando) a todos os passos,
+compare candidatos com `avaliar --conjunto validacao` e avalie o teste uma única vez, no fim.
 """
 from __future__ import annotations
 
@@ -29,8 +32,9 @@ DADOS = os.path.join(AQUI, "dados", "chamados_aurora.jsonl")
 
 
 def _carregar(cfg: qr.ConfigQLoRA):
+    """(treino, validação, teste); validação vazia quando `fracao_validacao` é 0."""
     exemplos = qr.carregar_jsonl(DADOS)
-    return qr.dividir(exemplos, cfg.fracao_teste, cfg.semente_divisao)
+    return qr.dividir_com_validacao(exemplos, cfg.fracao_validacao, cfg.fracao_teste, cfg.semente_divisao)
 
 
 def detectar_acelerador(torch_mod) -> dict[str, object]:
@@ -93,8 +97,8 @@ def _renderizar_prompt_hf(tokenizer, texto: str) -> str:
 
 
 def cmd_plano(args, cfg) -> int:
-    treino, teste = _carregar(cfg)
-    m = qr.manifesto(cfg, DADOS, treino, teste, qr.versoes_instaladas())
+    treino, validacao, teste = _carregar(cfg)
+    m = qr.manifesto(cfg, DADOS, treino, teste, qr.versoes_instaladas(), validacao=validacao)
     print(json.dumps(m, ensure_ascii=False, indent=2))
     if args.registrar:
         print("registro:", mb.registrar_execucao("p04-qlora-manifesto", m))
@@ -102,8 +106,12 @@ def cmd_plano(args, cfg) -> int:
 
 
 def cmd_avaliar(args, cfg) -> int:
-    _, teste = _carregar(cfg)
-    extra_meta: dict[str, object] = {"backend": args.backend}
+    _, validacao, teste = _carregar(cfg)
+    casos = validacao if args.conjunto == "validacao" else teste
+    if not casos:
+        print("FALHA conjunto de validação vazio; use --fracao-validacao > 0 antes do subcomando")
+        return 2
+    extra_meta: dict[str, object] = {"backend": args.backend, "conjunto": args.conjunto}
     if args.backend == "hf":
         try:
             torch, tokenizer, modelo, acel = _carregar_modelo_hf(
@@ -132,7 +140,7 @@ def cmd_avaliar(args, cfg) -> int:
             novos = gerados[0][entradas["input_ids"].shape[1]:]
             return tokenizer.decode(novos, skip_special_tokens=True)
 
-        resultado = qr.avaliar(teste, prever_hf)
+        resultado = qr.avaliar(casos, prever_hf)
         extra_meta["adaptador"] = args.adaptador
         extra_meta["acelerador"] = acel
     else:
@@ -149,7 +157,7 @@ def cmd_avaliar(args, cfg) -> int:
             timeout_s=120.0,
         )
         resultado = qr.avaliar(
-            teste,
+            casos,
             lambda t: cliente.completar(t, sistema=qr.SISTEMA, temperatura=0.0, max_tokens=32).texto,
         )
 
@@ -168,7 +176,10 @@ def cmd_comparar(args, cfg) -> int:
         antes = json.load(f)
     with open(args.depois, encoding="utf-8") as f:
         depois = json.load(f)
-    r = qr.comparar(antes, depois, args.tolerancia)
+    if antes.get("conjunto", "teste") != depois.get("conjunto", "teste"):
+        print("FALHA antes e depois avaliados em conjuntos diferentes")
+        return 2
+    r = qr.comparar(antes, depois, args.tolerancia, args.alfa)
     print(json.dumps(r, ensure_ascii=False, indent=2))
     return 0 if r["aprovado"] else 2
 
@@ -200,7 +211,7 @@ def cmd_treinar(args, cfg) -> int:  # pragma: no cover - exige GPU (CUDA ou AMD 
     if not acel["disponivel"]:
         print("FALHA QLoRA/LoRA exige GPU CUDA ou AMD ROCm (torch.cuda.is_available() == False); nada foi treinado.")
         return 3
-    treino, teste = _carregar(cfg_efetiva)
+    treino, validacao, teste = _carregar(cfg_efetiva)
     torch.manual_seed(cfg_efetiva.semente)
     _, tokenizer, modelo, _ = _carregar_modelo_hf(
         cfg_efetiva.modelo_base, cfg_efetiva, usar_quant_4bit=cfg_efetiva.quant_4bit
@@ -229,7 +240,8 @@ def cmd_treinar(args, cfg) -> int:  # pragma: no cover - exige GPU (CUDA ou AMD 
     os.makedirs(args.saida_adaptador, exist_ok=True)
     treinador.save_model(args.saida_adaptador)
     tokenizer.save_pretrained(args.saida_adaptador)
-    m = qr.manifesto(cfg_efetiva, DADOS, treino, teste, qr.versoes_instaladas(), acelerador=acel)
+    m = qr.manifesto(cfg_efetiva, DADOS, treino, teste, qr.versoes_instaladas(), acelerador=acel,
+                     validacao=validacao)
     with open(os.path.join(args.saida_adaptador, "manifesto.json"), "w", encoding="utf-8") as f:
         json.dump(m, f, ensure_ascii=False, indent=2)
     print("adaptador salvo em", args.saida_adaptador, "acelerador:", json.dumps(acel, ensure_ascii=False))
@@ -238,6 +250,8 @@ def cmd_treinar(args, cfg) -> int:  # pragma: no cover - exige GPU (CUDA ou AMD 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--fracao-validacao", type=float, default=0.0,
+                    help="fração separada para validação (escolha de épocas); o teste não muda")
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("plano")
     p.add_argument("--registrar", action="store_true")
@@ -247,19 +261,22 @@ def main(argv=None) -> int:
     p.add_argument("--modelo", required=True)
     p.add_argument("--adaptador", default=None)
     p.add_argument("--sem-quant", action="store_true")
+    p.add_argument("--conjunto", choices=("teste", "validacao"), default="teste")
     p.add_argument("--saida", required=True)
     p.add_argument("--registrar", action="store_true")
     p = sub.add_parser("comparar")
     p.add_argument("antes")
     p.add_argument("depois")
     p.add_argument("--tolerancia", type=float, default=0.05)
+    p.add_argument("--alfa", type=float, default=0.05, help="nível do teste pareado de McNemar exato")
     p = sub.add_parser("treinar")
     p.add_argument("--saida-adaptador", required=True)
     p.add_argument("--modelo-base", default=None)
     p.add_argument("--sem-quant", action="store_true")
     p.add_argument("--epocas", type=int, default=None)
     args = ap.parse_args(argv)
-    cfg = qr.ConfigQLoRA()
+    cfg = qr.ConfigQLoRA(fracao_validacao=args.fracao_validacao)
+    cfg.validar()
     return {"plano": cmd_plano, "avaliar": cmd_avaliar, "comparar": cmd_comparar, "treinar": cmd_treinar}[args.cmd](args, cfg)
 
 

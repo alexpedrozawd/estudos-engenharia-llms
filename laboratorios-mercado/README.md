@@ -27,7 +27,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (77 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (83 testes)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 
@@ -72,7 +72,7 @@ Máquina: CPU de 16 núcleos, 31 GiB de RAM, sem GPU CUDA; llama.cpp server em c
 | 01 | Qwen3-4B-Thinking-2507 Q4_K_M, 2 slots: concorrência 1 → TTFT p95 88 ms, 14,4 tokens/s, 100% no SLO; concorrência 4 → TTFT p95 6,0 s, 22,0 tokens/s, 25% no SLO; RSS 5,2 GiB |
 | 02 | Fase 6: 12 PDFs, 41 trechos, `qwen3-embedding:0.6b` + `qwen3:4b-instruct`; `auditoria_acl` com `0` vazamentos; `recall@4` `1,0` vetorial / `0,98` híbrida RRF / `0,92` lexical; `23/25` acertos, `3/3` recusas corretas, fidelidade média `0,84` |
 | 03 | stdio e Streamable HTTP; validação recusou nota 11; código aprovado rodou em container sem rede (`Network unreachable` na tentativa de conexão) |
-| 04 | QLoRA 4-bit NF4 real em AMD RX 9070 XT (`rocm7.14.1` + `bitsandbytes 0.50.2`, `Qwen/Qwen3-1.7B`): base `0,6667`; `3` épocas (`8,55 s`) `0,5833` reprovada pelo portão (`informal` caiu); `12` épocas (`22,53 s`) `0,9167` (`+0,25` em todas as fatias), **aprovada** |
+| 04 | QLoRA 4-bit NF4 real em AMD RX 9070 XT (`rocm7.14.1` + `bitsandbytes 0.50.2`, `Qwen/Qwen3-1.7B`): base `0,6667`; `3` épocas (`8,55 s`) `0,5833` reprovada pelo portão (`informal` caiu); `12` épocas (`22,53 s`) `0,9167` (`+0,25` em todas as fatias), aprovada pelo portão antigo, mas **inconclusiva** pelo portão estatístico de 25/11/2026 (8/12 → 11/12, McNemar exato `p ≥ 0,25`; épocas escolhidas no teste) |
 | 05 | Fase 6: `401` sem chave, `200` com `X-API-Key`, SSE (TTFT `199 ms`), cancelamento (`cancelados: 1`), `GET /metrics` Prometheus e `6` spans recebidos na API v3 do Jaeger |
 | 06 | Fase 6 + anti-BFLA real: `8` cenários com `5` chamadas MCP nativas via `tool_calls` (`0` reparos de `json_schema`, `0` bloqueios de saída, `13.555` tokens em cache de prefixo, PII mascarada, injeção bloqueada) e `4/4` verificações anti-BFLA reais (`401` sem chave, `403` na elevação `aluno -> admin`, `200` sem vazamento vs `admin` autorizado) |
 | 07 | Fase 6: calibração `kappa = 0,7391` (`12` pares), avaliação `16` casos (`B = 13`, `empate = 3`, `A = 0`; `3` vieses neutralizados; `+1,5625` no bootstrap, `promover_b = true`) e PNG real via `pdftoppm` (VLM remoto arquivado pelo operador) |
