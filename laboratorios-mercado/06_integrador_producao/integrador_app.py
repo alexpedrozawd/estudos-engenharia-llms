@@ -35,9 +35,14 @@ from mercado_base.cliente_openai import (  # noqa: E402
     gerar_estruturado,
 )
 from mercado_base.pii import RE_CPF, RE_EMAIL, RE_TELEFONE, mascarar_pii  # noqa: E402,F401
-from mercado_base.seguranca_http import carregar_seguranca_de_ambiente, instalar_seguranca_http  # noqa: E402
+from mercado_base.seguranca_http import (  # noqa: E402
+    ORDEM_PERFIS,
+    carregar_seguranca_de_ambiente,
+    instalar_seguranca_http,
+)
 
-from fastapi import FastAPI  # noqa: E402
+from fastapi import FastAPI, Request  # noqa: E402
+from fastapi.responses import JSONResponse  # noqa: E402
 from mcp import Client  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
 
@@ -182,6 +187,7 @@ class Assistente:
             "com_ferramenta_mcp": 0,
             "chamadas_ferramentas_mcp": 0,
             "reparos_estruturado": 0,
+            "falhas_esquema": 0,
             "tokens_entrada": 0,
             "tokens_saida": 0,
             "tokens_cache": 0,
@@ -208,6 +214,8 @@ class Assistente:
             self._totais["com_ferramenta_mcp"] += 1
         self._totais["chamadas_ferramentas_mcp"] += len(reg.get("ferramentas_chamadas") or ())
         self._totais["reparos_estruturado"] += int(reg.get("reparos_estruturado") or 0)
+        if reg.get("acao_saida") == "falha_esquema_estruturado":
+            self._totais["falhas_esquema"] += 1
         self._totais["tokens_entrada"] += int(reg.get("tokens_entrada") or 0)
         self._totais["tokens_saida"] += int(reg.get("tokens_saida") or 0)
         self._totais["tokens_cache"] += int(reg.get("tokens_cache") or 0)
@@ -322,9 +330,23 @@ class Assistente:
                 ),
             },
         ]
-        estruturado, meta_est = await asyncio.to_thread(
-            gerar_estruturado, cliente, mensagens_estruturado, RespostaEstruturada, max_reparos=2, max_tokens=1024
-        )
+        try:
+            estruturado, meta_est = await asyncio.to_thread(
+                gerar_estruturado, cliente, mensagens_estruturado, RespostaEstruturada, max_reparos=2, max_tokens=1024
+            )
+        except ValueError:
+            return {
+                "resposta": rp.RESPOSTA_RECUSA,
+                "tokens_entrada": tokens_in,
+                "tokens_saida": tokens_out,
+                "tokens_cache": tokens_cache,
+                "trechos": trechos_totais,
+                "ferramentas_chamadas": ferramentas_chamadas,
+                "passos_agente": passos,
+                "reparos_estruturado": 2,
+                "confianca": "baixa",
+                "falha_esquema": True,
+            }
         tokens_in += int(meta_est["tokens_entrada"])
         tokens_out += int(meta_est["tokens_saida"])
         tokens_cache += int(meta_est["tokens_cache"])
@@ -354,6 +376,7 @@ class Assistente:
             "passos_agente": passos,
             "reparos_estruturado": int(meta_est["reparos"]),
             "confianca": estruturado.confianca,
+            "falha_esquema": False,
         }
 
     async def responder(
@@ -395,6 +418,7 @@ class Assistente:
         trechos_finais = gerado["trechos"]
         marcar("agente_llm")
         saida = verificar_saida(gerado["resposta"], trechos_finais)
+        acao_saida = "falha_esquema_estruturado" if gerado.get("falha_esquema") else saida["acao"]
         marcar("guardrail_saida")
         custo = self.precos.custo(decisao["rota"], gerado["tokens_entrada"], gerado["tokens_saida"])
         if decisao["rota"] == "fronteira":
@@ -407,7 +431,7 @@ class Assistente:
             "passos_agente": gerado["passos_agente"],
             "reparos_estruturado": gerado["reparos_estruturado"],
             "confianca": gerado["confianca"],
-            "trechos": [x.id for x in trechos_finais], "acao_saida": saida["acao"],
+            "trechos": [x.id for x in trechos_finais], "acao_saida": acao_saida,
             "fidelidade": saida["fidelidade"]["fidelidade"], "tokens_entrada": gerado["tokens_entrada"],
             "tokens_saida": gerado["tokens_saida"], "tokens_cache": gerado["tokens_cache"],
             "custo_usd": custo, "etapas_ms": etapas,
@@ -433,6 +457,7 @@ class Assistente:
             "com_ferramenta_mcp": self._totais["com_ferramenta_mcp"],
             "chamadas_ferramentas_mcp": self._totais["chamadas_ferramentas_mcp"],
             "reparos_estruturado": self._totais["reparos_estruturado"],
+            "falhas_esquema": self._totais["falhas_esquema"],
             "latencia_ms": {"p50": round(mb.percentil(total, 50), 3) if total else None,
                             "p95": round(mb.percentil(total, 95), 3) if total else None},
             "latencia_p50_por_etapa_ms": {e: round(mb.percentil([r["etapas_ms"][e] for r in regs if e in r["etapas_ms"]], 50), 3)
@@ -458,6 +483,7 @@ def criar_app(
     assistente: Assistente,
     *,
     api_keys: Optional[Sequence[str]] = None,
+    perfis_por_chave: Optional[Dict[str, str]] = None,
     limite_taxa: int = 0,
     janela_taxa_s: float = 60.0,
     relogio: Callable[[], float] = time.monotonic,
@@ -467,6 +493,7 @@ def criar_app(
     instalar_seguranca_http(
         app,
         api_keys=api_keys,
+        perfis_por_chave=perfis_por_chave,
         limite_taxa=limite_taxa,
         janela_taxa_s=janela_taxa_s,
         rotas_publicas=("/saude",),
@@ -478,7 +505,13 @@ def criar_app(
         return {"status": "ok"}
 
     @app.post("/v1/assistente")
-    async def perguntar(p: Pergunta):
+    async def perguntar(p: Pergunta, request: Request):
+        perfil_max = getattr(request.state, "perfil_maximo", None)
+        if perfil_max is not None and ORDEM_PERFIS[p.perfil] > ORDEM_PERFIS[perfil_max]:
+            return JSONResponse(
+                {"erro": "perfil_nao_autorizado", "perfil_maximo": perfil_max},
+                status_code=403,
+            )
         return await assistente.responder(
             p.pergunta, p.id_requisicao, perfil=p.perfil, apenas_vigentes=p.apenas_vigentes
         )
@@ -530,5 +563,9 @@ def criar_app_de_ambiente() -> FastAPI:
         fronteira = criar_cliente_por_ambiente(provedor, modelo=os.environ.get("FRONTEIRA_MODELO") or None)
     precos = Precos(**json.loads(os.environ["INTEGRADOR_PRECOS_JSON"])) if os.environ.get("INTEGRADOR_PRECOS_JSON") else Precos()
     seg = carregar_seguranca_de_ambiente("INTEGRADOR_")
-    return criar_app(Assistente(armazem, embedder, local, fronteira, precos=precos),
-                     api_keys=seg["api_keys"], limite_taxa=seg["limite_taxa"])
+    return criar_app(
+        Assistente(armazem, embedder, local, fronteira, precos=precos),
+        api_keys=seg["api_keys"],
+        perfis_por_chave=seg["perfis_por_chave"],
+        limite_taxa=seg["limite_taxa"],
+    )

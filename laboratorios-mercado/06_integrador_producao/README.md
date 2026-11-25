@@ -2,11 +2,11 @@
 
 Assistente acadêmico ponta a ponta (`integrador_app.py`), reutilizando os projetos 02, 03 e 05 e `mercado_base/` (além do cliente neutro em `laboratorios/comum` para provedores de fronteira opcionais):
 
-1. **Segurança HTTP opcional:** autenticação via `X-API-Key` / `Authorization: Bearer` e *rate limiting* (`429 + Retry-After`) via `mercado_base.seguranca_http`.
+1. **Segurança HTTP opcional e anti-BFLA:** autenticação via `X-API-Key` / `Authorization: Bearer`, vínculo opcional chave → perfil máximo (`AURORA_PERFIS_CHAVES`, bloqueando elevação com HTTP `403`) e *rate limiting* (`429 + Retry-After`) via `mercado_base.seguranca_http`.
 2. **Guardrail de entrada:** bloqueia padrões de injeção de prompt antes de qualquer chamada ao LLM; mascara CPF (com validação de dígitos verificadores), e-mail e telefone via `mercado_base.pii`.
 3. **Roteamento:** dado pessoal → local; pergunta complexa com orçamento → fronteira; sem cliente de fronteira → local com motivo `fallback`.
 4. **RAG com ACL e vigência:** busca híbrida do projeto 02 com `FiltroBusca(perfil=..., apenas_vigentes=...)` pré-filtrado em SQL no `pgvector`.
-5. **Laço agêntico MCP + *structured outputs*:** converte as ferramentas do servidor MCP (`consultar_prazo`, `calcular_media_ponderada`, `executar_python_isolado` com *elicitation*/falha fechada) para `tools` OpenAI via `mcp_tools_para_openai`, executa até `max_passos_agente` passos via `ClienteChatOpenAI` e consolida em `RespostaEstruturada` (`response_format` `json_schema` estrito + reparo automático via Pydantic), medindo `tokens_cache`.
+5. **Laço agêntico MCP + *structured outputs*:** converte as ferramentas do servidor MCP (`consultar_prazo`, `calcular_media_ponderada`, `executar_python_isolado` com *elicitation*/falha fechada) para `tools` OpenAI via `mcp_tools_para_openai`, executa até `max_passos_agente` passos via `ClienteChatOpenAI` e consolida em `RespostaEstruturada` (`response_format` `json_schema` estrito + reparo automático via Pydantic + degradação segura sem HTTP `500` em falha persistente de schema), medindo `tokens_cache`.
 6. **Guardrail de saída e histórico limitado:** mascara CPF, e-mail e telefone que escaparem; exige citação `[Tn]` válida; registra histórico em `collections.deque(maxlen=...)` mantendo contadores cumulativos em `GET /v1/relatorio`.
 
 Preços: `Precos` vem com fronteira em valores **ilustrativos** (USD por milhão de tokens); configure `INTEGRADOR_PRECOS_JSON` com a tabela vigente do seu fornecedor. O custo local não inclui energia nem hardware.

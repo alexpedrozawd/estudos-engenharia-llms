@@ -262,6 +262,48 @@ class TestAssistente(unittest.TestCase):
             self.assertEqual(r429.status_code, 429)
             self.assertIn("Retry-After", r429.headers)
 
+    def test_anti_bfla_bloqueia_elevacao_de_perfil_com_403(self):
+        a, _, _ = montar(resposta_local="Resposta [T1].")
+        app = ia.criar_app(a, perfis_por_chave={"chave-aluno": "aluno", "chave-admin": "admin"})
+        with TestClient(app) as c:
+            r_negado = c.post(
+                "/v1/assistente",
+                json={"pergunta": "código interno AUR-FIN-2026", "perfil": "admin"},
+                headers={"X-API-Key": "chave-aluno"},
+            )
+            self.assertEqual(r_negado.status_code, 403)
+            self.assertEqual(r_negado.json()["erro"], "perfil_nao_autorizado")
+            r_ok = c.post(
+                "/v1/assistente",
+                json={"pergunta": "Qual a taxa?", "perfil": "aluno"},
+                headers={"X-API-Key": "chave-aluno"},
+            )
+            self.assertEqual(r_ok.status_code, 200)
+            r_admin = c.post(
+                "/v1/assistente",
+                json={"pergunta": "código interno AUR-FIN-2026", "perfil": "admin"},
+                headers={"X-API-Key": "chave-admin"},
+            )
+            self.assertEqual(r_admin.status_code, 200)
+
+    def test_falha_esquema_estruturado_degrada_sem_500(self):
+        emb, arm = rs.EmbedderHash(256), rs.ArmazemMemoria()
+        ia.ingerir_corpus(arm, emb)
+        local = ClienteChatFalso([
+            RespostaChat(conteudo="Resposta livre."),
+            RespostaChat(conteudo="nao-json-1"),
+            RespostaChat(conteudo="nao-json-2"),
+            RespostaChat(conteudo="nao-json-3"),
+        ])
+        a = ia.Assistente(arm, emb, local)
+        with TestClient(ia.criar_app(a)) as c:
+            r = c.post("/v1/assistente", json={"pergunta": "Qual a taxa?"})
+            self.assertEqual(r.status_code, 200)
+            d = r.json()
+            self.assertEqual(d["acao_saida"], "falha_esquema_estruturado")
+            self.assertEqual(d["resposta"], ia.rp.RESPOSTA_RECUSA)
+            self.assertEqual(c.get("/v1/relatorio").json()["falhas_esquema"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()
