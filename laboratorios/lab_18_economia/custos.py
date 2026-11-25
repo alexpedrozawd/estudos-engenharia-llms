@@ -12,17 +12,21 @@ from typing import Dict, List, Sequence
 def custo_sessao(prefixo: int, turnos: int, tokens_turno: int, saida_turno: int, mult_leitura: float = 1.0,
                  mult_gravacao: float = 1.0, invalidacoes: int = 0, mult_saida: float = 4.0) -> float:
     """O prefixo é gravado 1 + invalidacoes vezes e lido nos demais turnos."""
+    # EXERCICIO-INICIO: gravações = min(turnos, 1 + invalidações); os outros turnos leem o prefixo; some prefixo, turnos e saída com seus multiplicadores.
     gravacoes = min(turnos, 1 + invalidacoes)
     leituras = turnos - gravacoes
     entrada = (gravacoes * prefixo * mult_gravacao + leituras * prefixo * mult_leitura + turnos * tokens_turno)
     return entrada + turnos * saida_turno * mult_saida
+    # EXERCICIO-FIM
 
 
 def leituras_para_compensar(mult_gravacao: float, mult_leitura: float) -> float:
     """Leituras mínimas para o cache sair mais barato que reenviar o prefixo sem cache."""
+    # EXERCICIO-INICIO: ceil((mult_gravacao − 1)/(1 − mult_leitura)), no mínimo 1; infinito se a leitura não for mais barata.
     if mult_leitura >= 1:
         return math.inf
     return max(1, math.ceil((mult_gravacao - 1) / (1 - mult_leitura)))
+    # EXERCICIO-FIM
 
 
 def invalidacoes_maximas(base: Dict[str, int], mult_leitura: float, mult_gravacao: float) -> int:
@@ -37,7 +41,9 @@ def invalidacoes_maximas(base: Dict[str, int], mult_leitura: float, mult_gravaca
 
 def decidir_lote(prazo_horas: float, interativo: bool, janela_lote_horas: float = 24.0) -> bool:
     """Lote só quando ninguém espera na tela e o prazo comporta a janela do lote."""
+    # EXERCICIO-INICIO: lote só para pedido não interativo com prazo >= janela do lote.
     return not interativo and prazo_horas >= janela_lote_horas
+    # EXERCICIO-FIM
 
 
 def varrer(base: Dict[str, int], campo: str, valores: Sequence[int], mult_leitura: float = 0.1,

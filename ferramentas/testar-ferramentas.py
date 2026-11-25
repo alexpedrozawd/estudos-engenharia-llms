@@ -8,6 +8,7 @@ Golden: cada número do guia.py é comparado a uma contagem independente (regex 
 Mutação: cópias do guia em pasta temporária recebem um defeito cada; a verificação tem de reprovar
 com a mensagem esperada, e a cópia sem defeito (controle) tem de passar. O guia original não é tocado
 (hash conferido antes e depois).
+Exercícios: marcadores dos labs, cópia gerada que falha antes e passa com a solução, e cobertura por trecho.
 """
 import hashlib
 import importlib.util
@@ -198,6 +199,93 @@ class Pdf(unittest.TestCase):
             self.assertGreater(os.path.getsize(antigo), 1000)
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
+
+
+spec_ex = importlib.util.spec_from_file_location("gerar_exercicios", os.path.join(AQUI, "gerar-exercicios.py"))
+ex = importlib.util.module_from_spec(spec_ex)
+spec_ex.loader.exec_module(ex)
+
+
+def hash_arvore(pasta):
+    h = hashlib.sha256()
+    for d, subpastas, nomes in sorted(os.walk(pasta)):
+        subpastas[:] = sorted(s for s in subpastas if s != "__pycache__")
+        for n in sorted(nomes):
+            if n.endswith(".py"):
+                h.update(os.path.relpath(os.path.join(d, n), pasta).encode())
+                h.update(ler_texto(os.path.join(d, n), "rb"))
+    return h.hexdigest()
+
+
+class Exercicios(unittest.TestCase):
+    """Modo exercício: marcadores válidos, cópia que falha antes e passa com a solução, originais intactos."""
+
+    def test_marcadores_dos_originais_sao_validos(self):
+        inv, erros = ex.inventario()
+        self.assertEqual(erros, [])
+        self.assertEqual(len(inv["laboratorios"]), 19)  # 18 labs + projeto integrador
+        self.assertEqual(len(inv["laboratorios-mercado"]), 7)
+
+    def test_parser_rejeita_marcadores_invalidos(self):
+        ok = "def f():\n    # EXERCICIO-INICIO: dica\n    return 1\n    # EXERCICIO-FIM\n"
+        self.assertEqual(len(ex.trechos(ok)), 1)
+        novo, n = ex.transformar(ok)
+        self.assertEqual(n, 1)
+        self.assertIn("raise NotImplementedError('Exercício: dica')", novo)
+        self.assertNotIn("return 1", novo)
+        ruins = {
+            "sem FIM": "def f():\n    # EXERCICIO-INICIO: d\n    return 1\n",
+            "FIM sem INICIO": "def f():\n    return 1\n    # EXERCICIO-FIM\n",
+            "aninhado": "def f():\n    # EXERCICIO-INICIO: a\n    # EXERCICIO-INICIO: b\n    x = 1\n    # EXERCICIO-FIM\n",
+            "sem dica": "def f():\n    # EXERCICIO-INICIO:\n    return 1\n    # EXERCICIO-FIM\n",
+            "recuo": "def f():\n    # EXERCICIO-INICIO: d\n    return 1\n  # EXERCICIO-FIM\n",
+            "vazio": "def f():\n    # EXERCICIO-INICIO: d\n    # EXERCICIO-FIM\n",
+        }
+        for nome, texto in ruins.items():
+            with self.subTest(nome):
+                with self.assertRaises(ex.ErroMarcador):
+                    ex.trechos(texto)
+
+    def test_copia_falha_antes_e_passa_com_a_solucao(self):
+        antes = hash_arvore(os.path.join(RAIZ, "laboratorios"))
+        tmp = tempfile.mkdtemp(prefix="exercicios-teste-")
+        try:
+            destino = os.path.join(tmp, "ex")
+            self.assertGreater(ex.gerar(destino), 0)
+            self.assertTrue(os.path.isfile(os.path.join(destino, "EXERCICIOS.md")))
+            with self.assertRaises(SystemExit):  # protege o trabalho já feito na cópia
+                ex.gerar(destino)
+            cod, saida = ex._rodar(sys.executable, destino, "laboratorios", "lab_05_avaliacao")
+            self.assertNotEqual(cod, 0)
+            self.assertIn("NotImplementedError", saida)
+            rel = os.path.join("laboratorios", "lab_05_avaliacao", "pipeline_avaliacao.py")
+            shutil.copyfile(os.path.join(RAIZ, rel), os.path.join(destino, rel))  # "implementa" com a solução
+            cod, saida = ex._rodar(sys.executable, destino, "laboratorios", "lab_05_avaliacao")
+            self.assertEqual(cod, 0, saida[-800:])
+            self.assertEqual(ex.gerar(destino, ["lab_05_avaliacao"], forcar=True), 4)  # refaz só um lab
+            cod, _ = ex._rodar(sys.executable, destino, "laboratorios", "lab_05_avaliacao")
+            self.assertNotEqual(cod, 0)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(hash_arvore(os.path.join(RAIZ, "laboratorios")), antes, "os originais não podem mudar")
+
+    def test_destino_inseguro_e_pasta_alheia_sao_recusados(self):
+        for destino in (RAIZ, os.path.join(RAIZ, "laboratorios"), os.path.join(RAIZ, "docs", "x"), os.path.dirname(RAIZ)):
+            with self.subTest(destino):
+                with self.assertRaises(SystemExit):
+                    ex.gerar(destino, forcar=True)
+        tmp = tempfile.mkdtemp(prefix="exercicios-alheia-")
+        try:
+            with open(os.path.join(tmp, "meu-arquivo.txt"), "w") as f:
+                f.write("não apagar")
+            with self.assertRaises(SystemExit):
+                ex.gerar(tmp, forcar=True)
+            self.assertTrue(os.path.isfile(os.path.join(tmp, "meu-arquivo.txt")))
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_cada_trecho_dos_labs_e_coberto_por_teste(self):
+        self.assertEqual(ex.verificar("laboratorios"), [])
 
 
 if __name__ == "__main__":

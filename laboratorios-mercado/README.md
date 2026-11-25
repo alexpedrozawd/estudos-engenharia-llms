@@ -33,6 +33,10 @@ python3.13 -m venv .venv-mercado
 
 Não usam rede, GPU nem containers: `httpx.MockTransport`, armazém vetorial em memória, conexão SQL falsa, MCP em processo, executor de sandbox falso e relógios injetados. O mesmo comando roda no CI ([`../.github/workflows/testes-offline.yml`](../.github/workflows/testes-offline.yml)).
 
+## Modo exercício
+
+Para praticar sem a solução, gere a cópia com trechos em branco: `python3 -I ferramentas/gerar-exercicios.py` (roteiro em [README.md](../README.md#modo-exercício-labs-sem-a-solução)).
+
 ## Serviços (`compose.yaml`, Podman ou Docker)
 
 Todos os serviços ficam em perfis e escutam só em `127.0.0.1`.

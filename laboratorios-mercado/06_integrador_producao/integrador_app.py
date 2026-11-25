@@ -99,12 +99,14 @@ def mcp_tools_para_openai(ferramentas_mcp: Sequence[object]) -> List[Dict[str, o
 
 
 def verificar_entrada(texto: str) -> Dict[str, object]:
+    # EXERCICIO-INICIO: bloqueie padrões de injeção; senão mascare a PII e devolva o texto mascarado.
     baixo = texto.lower()
     for padrao in PADROES_INJECAO:
         if re.search(padrao, baixo):
             return {"bloqueado": True, "motivo": "possivel_injecao_de_prompt", "texto": "", "pii": []}
     mascarado, pii = mascarar_pii(texto)
     return {"bloqueado": False, "motivo": "", "texto": mascarado, "pii": pii}
+    # EXERCICIO-FIM
 
 
 def verificar_saida(resposta: str, trechos, limiar_fidelidade: float = 0.5) -> Dict[str, object]:
@@ -113,6 +115,7 @@ def verificar_saida(resposta: str, trechos, limiar_fidelidade: float = 0.5) -> D
     Fidelidade lexical abaixo do limiar não bloqueia (a métrica não reconhece paráfrase), mas marca
     a resposta para revisão humana amostral (`aprovado_com_alerta`).
     """
+    # EXERCICIO-INICIO: mascare PII e meça a fidelidade; recusa do modelo passa; citação inválida ou ausente vira a recusa padrão.
     limpa, _ = mascarar_pii(resposta)
     fid = rp.fidelidade(limpa, trechos)
     citou = bool(re.search(r"\[T\d+\]", limpa))
@@ -122,6 +125,7 @@ def verificar_saida(resposta: str, trechos, limiar_fidelidade: float = 0.5) -> D
         return {"texto": rp.RESPOSTA_RECUSA, "acao": "bloqueado_sem_citacao_valida", "fidelidade": fid}
     acao = "aprovado" if fid["fidelidade"] >= limiar_fidelidade else "aprovado_com_alerta"
     return {"texto": limpa, "acao": acao, "fidelidade": fid}
+    # EXERCICIO-FIM
 
 
 @dataclass
@@ -145,6 +149,7 @@ class Roteador:
     limite_palavras: int = 40
 
     def decidir(self, texto: str, pii: List[str], fronteira_disponivel: bool) -> Dict[str, str]:
+        # EXERCICIO-INICIO: PII ou pergunta simples = local; complexa vai à fronteira se houver orçamento e disponibilidade, senão local.
         if pii:
             return {"rota": "local", "motivo": "dados pessoais detectados"}
         complexa = len(texto.split()) > self.limite_palavras or bool(GATILHOS_COMPLEXIDADE.search(texto))
@@ -155,6 +160,7 @@ class Roteador:
         if not fronteira_disponivel:
             return {"rota": "local", "motivo": "fallback: fronteira indisponível"}
         return {"rota": "fronteira", "motivo": "pergunta complexa"}
+        # EXERCICIO-FIM
 
 
 @dataclass

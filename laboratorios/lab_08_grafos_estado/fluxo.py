@@ -48,17 +48,20 @@ class FluxoReembolso:
         return "gravar_pagamento" if e.get("aprovado") else "PAUSA"
 
     def _gravar(self, e: Dict) -> str:
+        # EXERCICIO-INICIO: efeito idempotente: INSERT OR IGNORE pela chave; a falha simulada "apos_gravar" acontece depois do efeito e antes do checkpoint.
         self.db.execute("INSERT OR IGNORE INTO efeitos VALUES (?, ?)", (e["chave"], e["valor"]))
         if self.falhar_em == "apos_gravar":
             self.falhar_em = None
             raise FalhaSimulada("queda depois do efeito e antes do checkpoint")
         return "fim"
+        # EXERCICIO-FIM
 
     # --- motor
     def _salvar(self, fluxo: str, no: str, estado: Dict) -> None:
         self.db.execute("INSERT OR REPLACE INTO checkpoint VALUES (?, ?, ?)", (fluxo, no, json.dumps(estado, sort_keys=True)))
 
     def executar(self, fluxo: str, pedido: Optional[Dict] = None, aprovado: bool = False) -> Dict[str, object]:
+        # EXERCICIO-INICIO: retome do checkpoint (ou comece em "ler_pedido"), percorra os nós até "fim" salvando o checkpoint a cada nó e registre as visitas.
         linha = self.db.execute("SELECT no, estado FROM checkpoint WHERE fluxo = ?", (fluxo,)).fetchone()
         if linha:
             no, estado = linha[0], json.loads(linha[1])
@@ -75,6 +78,7 @@ class FluxoReembolso:
             no = proximo
             self._salvar(fluxo, no, estado)
         return {"status": "concluido", "motivo": estado.get("motivo", "ok")}
+        # EXERCICIO-FIM
 
     def pagamentos(self) -> List[tuple]:
         return self.db.execute("SELECT chave, valor FROM efeitos ORDER BY chave").fetchall()

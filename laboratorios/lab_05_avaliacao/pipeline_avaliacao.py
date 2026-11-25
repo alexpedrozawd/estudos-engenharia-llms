@@ -20,6 +20,7 @@ def entropia_e_perplexidade(probs: Sequence[float]) -> Tuple[float, float, float
 
 def intervalo_wilson(acertos: int, total: int, z: float = 1.96) -> Tuple[float, float]:
     """Calcula intervalo de confiança de Wilson para proporção binomial."""
+    # EXERCICIO-INICIO: centro = (p + z²/2n)/(1 + z²/n); margem = z·√((p(1−p) + z²/4n)/n)/(1 + z²/n); limite a [0, 1]; valide as contagens.
     if total <= 0 or not (0 <= acertos <= total):
         raise ValueError("contagens inválidas")
     p_hat = acertos / total
@@ -28,6 +29,7 @@ def intervalo_wilson(acertos: int, total: int, z: float = 1.96) -> Tuple[float, 
     centro = (p_hat + z2 / (2.0 * total)) / denom
     margem = (z * math.sqrt((p_hat * (1.0 - p_hat) + z2 / (4.0 * total)) / total)) / denom
     return max(0.0, centro - margem), min(1.0, centro + margem)
+    # EXERCICIO-FIM
 
 
 def bootstrap_diferenca_media(
@@ -38,6 +40,7 @@ def bootstrap_diferenca_media(
     semente: int = 42,
 ) -> Dict[str, float]:
     """Estima IC 95% por bootstrap pareado da diferença (v2 - v1)."""
+    # EXERCICIO-INICIO: diferenças pareadas (v2 − v1), reamostragem com random.Random(semente), médias ordenadas e percentis 2,5% e 97,5%.
     if len(v1) != len(v2) or not v1:
         raise ValueError("listas pareadas devem ter mesmo tamanho > 0")
     diffs = [b - a for a, b in zip(v1, v2)]
@@ -55,10 +58,12 @@ def bootstrap_diferenca_media(
         "ic95_inf": medias[idx_inf],
         "ic95_sup": medias[idx_sup],
     }
+    # EXERCICIO-FIM
 
 
 def comparar_pareado(v1: Sequence[int], v2: Sequence[int]) -> Dict[str, int]:
     """Conta ganhos, perdas e empates caso a caso entre v1 e v2."""
+    # EXERCICIO-INICIO: conte ganhos (0→1), perdas (1→0), ambos_ok e ambos_falha; saldo = ganhos − perdas.
     if len(v1) != len(v2):
         raise ValueError("tamanhos distintos")
     ganhos = perdas = ambos_ok = ambos_falha = 0
@@ -78,6 +83,7 @@ def comparar_pareado(v1: Sequence[int], v2: Sequence[int]) -> Dict[str, int]:
         "ambos_ok": ambos_ok,
         "ambos_falha": ambos_falha,
     }
+    # EXERCICIO-FIM
 
 
 def avaliar_por_fatias(registros: Sequence[Dict[str, object]]) -> Dict[str, Dict[str, float]]:
@@ -102,6 +108,7 @@ def julgar_pareado_sem_vies_posicao(
     cliente: ClienteMockDeterministico,
 ) -> str:
     """Roda juiz nas duas ordens (A/B e B/A) para detectar viés de posição."""
+    # EXERCICIO-INICIO: pergunte ao juiz nas duas ordens; só há vencedor se as duas respostas concordarem depois da inversão.
     ordem_1 = cliente.completar(f"Pergunta: {pergunta}\n[1] {resp_a}\n[2] {resp_b}").texto.strip()
     ordem_2 = cliente.completar(f"Pergunta: {pergunta}\n[1] {resp_b}\n[2] {resp_a}").texto.strip()
     if ordem_1 == "1" and ordem_2 == "2":
@@ -109,3 +116,4 @@ def julgar_pareado_sem_vies_posicao(
     if ordem_1 == "2" and ordem_2 == "1":
         return "vencedor_B"
     return "empate_ou_inconsistente"
+    # EXERCICIO-FIM

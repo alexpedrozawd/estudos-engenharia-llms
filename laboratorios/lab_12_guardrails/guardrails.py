@@ -31,6 +31,7 @@ TEMAS_PERMITIDOS = ("prazo", "matrícula", "matricula", "reembolso", "aula", "cu
 
 def mascarar(texto: str) -> Tuple[str, Dict[str, str]]:
     """Troca dados pessoais por marcadores; devolve o texto e o mapa reverso (fica no servidor)."""
+    # EXERCICIO-INICIO: para cada tipo de PII, troque cada achado distinto por [TIPO_n] (n global) e guarde o mapa reverso.
     reverso: Dict[str, str] = {}
     n = 0
     for tipo, padrao in PADROES_PII.items():
@@ -40,6 +41,7 @@ def mascarar(texto: str) -> Tuple[str, Dict[str, str]]:
             reverso[marcador] = achado
             texto = texto.replace(achado, marcador)
     return texto, reverso
+    # EXERCICIO-FIM
 
 
 def desmascarar(texto: str, reverso: Dict[str, str]) -> str:
@@ -49,8 +51,10 @@ def desmascarar(texto: str, reverso: Dict[str, str]) -> str:
 
 
 def tem_injecao(texto: str) -> bool:
+    # EXERCICIO-INICIO: texto em minúsculas contra os padrões de SINAIS_INJECAO.
     baixo = texto.lower()
     return any(re.search(p, baixo) for p in SINAIS_INJECAO)
+    # EXERCICIO-FIM
 
 
 def isolar_saida_ferramenta(nome: str, texto: str) -> str:
@@ -59,9 +63,11 @@ def isolar_saida_ferramenta(nome: str, texto: str) -> str:
     O conteúdo nunca vira instrução: o prompt de sistema diz que o que está entre
     as marcas é dado. A marca de suspeita permite ao harness barrar ação de escrita.
     """
+    # EXERCICIO-INICIO: neutralize <<< e >>>, marque suspeita_de_injecao=true se houver sinal e envolva em <<<DADO ...>>> e <<<FIM_DADO>>>.
     limpo = texto.replace("<<<", "«").replace(">>>", "»")
     aviso = " suspeita_de_injecao=true" if tem_injecao(texto) else ""
     return f"<<<DADO ferramenta={nome}{aviso}>>>\n{limpo}\n<<<FIM_DADO>>>"
+    # EXERCICIO-FIM
 
 
 def guardrail_entrada(texto: str) -> Tuple[bool, str]:
@@ -75,6 +81,7 @@ def guardrail_entrada(texto: str) -> Tuple[bool, str]:
 
 
 def guardrail_saida(texto: str, segredos: Sequence[str]) -> Tuple[bool, str]:
+    # EXERCICIO-INICIO: bloqueie se a saída contiver um segredo ou PII sem máscara; senão (True, "ok").
     for s in segredos:
         if s and s in texto:
             return False, "bloqueado: vazamento de instrução interna"
@@ -82,6 +89,7 @@ def guardrail_saida(texto: str, segredos: Sequence[str]) -> Tuple[bool, str]:
         if re.search(padrao, texto):
             return False, f"bloqueado: {tipo} sem máscara na saída do modelo"
     return True, "ok"
+    # EXERCICIO-FIM
 
 
 @dataclass

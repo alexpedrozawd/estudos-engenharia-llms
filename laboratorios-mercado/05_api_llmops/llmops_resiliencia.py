@@ -47,8 +47,10 @@ def classificar_status(status: int, retry_after: Optional[str] = None) -> Except
 def atraso_backoff(tentativa: int, *, base_s: float = 0.25, teto_s: float = 8.0,
                    rng: Optional[random.Random] = None) -> float:
     """Backoff exponencial com *full jitter*: uniforme em [0, min(teto, base * 2^tentativa)]."""
+    # EXERCICIO-INICIO: jitter total: uniform(0, min(teto_s, base_s·2**tentativa)).
     limite = min(teto_s, base_s * (2 ** tentativa))
     return (rng or random).uniform(0.0, limite)
+    # EXERCICIO-FIM
 
 
 async def com_retry(fn: Callable[[], Awaitable[T]], *, tentativas: int = 3, base_s: float = 0.25,
@@ -56,6 +58,7 @@ async def com_retry(fn: Callable[[], Awaitable[T]], *, tentativas: int = 3, base
                     dormir: Callable[[float], Awaitable[None]] = asyncio.sleep,
                     ao_tentar: Optional[Callable[[int, Exception], None]] = None) -> T:
     """Repete só erros transitórios; respeita `Retry-After` quando o servidor informa."""
+    # EXERCICIO-INICIO: repita só ErroTransitorio até `tentativas`, esperando retry_after_s (ou o backoff) limitado ao teto; relance na última.
     if tentativas < 1:
         raise ValueError("tentativas deve ser >= 1")
     for i in range(tentativas):
@@ -70,6 +73,7 @@ async def com_retry(fn: Callable[[], Awaitable[T]], *, tentativas: int = 3, base
                 i, base_s=base_s, teto_s=teto_s, rng=rng)
             await dormir(min(espera, teto_s))
     raise AssertionError("inalcançável")
+    # EXERCICIO-FIM
 
 
 class Disjuntor:
@@ -94,6 +98,7 @@ class Disjuntor:
 
     def permitir(self) -> None:
         """Levanta `CircuitoAberto` se a chamada não deve sair. No meio-aberto, deixa passar 1 sonda."""
+        # EXERCICIO-INICIO: aberto = CircuitoAberto com o tempo restante; meio-aberto = uma sonda por vez.
         estado = self.estado
         if estado == "aberto":
             raise CircuitoAberto(self.tempo_aberto_s - (self._relogio() - self.aberto_desde))
@@ -101,6 +106,7 @@ class Disjuntor:
             if self._sonda_em_andamento:
                 raise CircuitoAberto(1.0)
             self._sonda_em_andamento = True
+        # EXERCICIO-FIM
 
     def registrar_sucesso(self) -> None:
         self.falhas = 0
@@ -108,7 +114,9 @@ class Disjuntor:
         self._sonda_em_andamento = False
 
     def registrar_falha(self) -> None:
+        # EXERCICIO-INICIO: libere a sonda, conte a falha e (re)abra ao atingir o limite ou se já estava aberto.
         self._sonda_em_andamento = False
         self.falhas += 1
         if self.falhas >= self.limite_falhas or self.aberto_desde is not None:
             self.aberto_desde = self._relogio()
+        # EXERCICIO-FIM

@@ -28,13 +28,16 @@ class ResultadoChamada:
 
 def calcular_espera_s(tentativa: int, base_s: float = 0.25, teto_s: float = 4.0, rng: Optional[random.Random] = None) -> float:
     """Calcula espera exponencial com jitter completo determinístico."""
+    # EXERCICIO-INICIO: backoff exponencial com jitter total: uniform(0, min(teto_s, base_s * 2**tentativa)), 4 casas; rng padrão random.Random(7).
     gerador = rng or random.Random(7)
     limite = min(teto_s, base_s * (2 ** tentativa))
     return round(gerador.uniform(0.0, limite), 4)
+    # EXERCICIO-FIM
 
 
 def analisar_eventos_sse(linhas: Iterable[str]) -> Dict[str, object]:
     """Lê eventos SSE simulados e detecta se o fim foi natural ou cortado."""
+    # EXERCICIO-INICIO: só linhas "data:"; "[DONE]" encerra; junte os "delta" e guarde "stop_reason" (padrão "incompleto"; "end_turn" ao ver [DONE]).
     pedacos: List[str] = []
     motivo_parada = "incompleto"
     for bruta in linhas:
@@ -52,6 +55,7 @@ def analisar_eventos_sse(linhas: Iterable[str]) -> Dict[str, object]:
         if "stop_reason" in evento:
             motivo_parada = str(evento["stop_reason"])
     return {"texto": "".join(pedacos), "motivo_parada": motivo_parada}
+    # EXERCICIO-FIM
 
 
 class ClienteResiliente:
@@ -76,6 +80,7 @@ class ClienteResiliente:
         payload: Dict[str, object],
         transporte: Callable[[Dict[str, object]], Dict[str, str]],
     ) -> ResultadoChamada:
+        # EXERCICIO-INICIO: idempotência por id_pedido (mesmo payload = cache; outro payload = ValueError), fila limitada e nova tentativa só em ErroTransitorio.
         impressao = self.gerar_impressao(payload)
         if id_pedido in self._registros:
             previo = self._registros[id_pedido]
@@ -114,3 +119,4 @@ class ClienteResiliente:
             raise ErroTransitorio(f"esgotadas {self.max_tentativas} tentativas: {ultimo_erro}")
         finally:
             self.em_andamento -= 1
+        # EXERCICIO-FIM

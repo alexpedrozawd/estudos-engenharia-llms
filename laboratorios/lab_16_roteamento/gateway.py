@@ -28,12 +28,16 @@ def rotas(pedido: Dict[str, object]) -> List[str]:
 
 def custo_cascata(custo_rapido: float, custo_fronteira: float, taxa_reprovacao: float) -> float:
     """Tenta o rápido; o verificador reprova uma fração, que vai à fronteira."""
+    # EXERCICIO-INICIO: custo esperado = custo_rapido + taxa_reprovacao·custo_fronteira.
     return custo_rapido + taxa_reprovacao * custo_fronteira
+    # EXERCICIO-FIM
 
 
 def taxa_maxima_cascata(custo_rapido: float, custo_fronteira: float) -> float:
     """Acima desta taxa de reprovação, mandar tudo direto à fronteira sai mais barato."""
+    # EXERCICIO-INICIO: a cascata compensa enquanto a reprovação for menor que 1 − custo_rapido/custo_fronteira.
     return 1 - custo_rapido / custo_fronteira
+    # EXERCICIO-FIM
 
 
 @dataclass
@@ -48,6 +52,7 @@ class Gateway:
         self.registro.append(json.dumps(campos, ensure_ascii=False, sort_keys=True))
 
     def _destino(self, conversa: str, pedido: Dict[str, object]) -> str:
+        # EXERCICIO-INICIO: mantenha o modelo fixado na conversa se disponível; senão o primeiro candidato disponível; nenhum = "fila_humana".
         candidatos = rotas(pedido)
         fixo = self.fixados.get(conversa)
         if fixo and fixo in candidatos and fixo not in self.indisponiveis:
@@ -56,6 +61,7 @@ class Gateway:
             if destino not in self.indisponiveis:
                 return destino
         return "fila_humana"
+        # EXERCICIO-FIM
 
     def atender(self, conversa: str, pedido: Dict[str, object]) -> Dict[str, object]:
         destino = self._destino(conversa, pedido)

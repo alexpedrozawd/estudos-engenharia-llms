@@ -48,6 +48,7 @@ class BM25:
         return math.log(1 + (n - df + 0.5) / (df + 0.5))
 
     def ranking(self, consulta: str) -> List[Tuple[str, float]]:
+        # EXERCICIO-INICIO: some idf·f·(k1+1)/(f + k1·(1 − b + b·|d|/média)) por termo; descarte nota 0; ordene por nota decrescente e id.
         notas = []
         for d, t in self.tokens.items():
             s = 0.0
@@ -57,6 +58,7 @@ class BM25:
                     s += self.idf(termo) * f * (self.k1 + 1) / (f + self.k1 * (1 - self.b + self.b * len(t) / self.media))
             notas.append((d, s))
         return sorted([x for x in notas if x[1] > 0], key=lambda x: (-x[1], x[0]))
+        # EXERCICIO-FIM
 
 
 def vetor(texto: str, dim: int = 64) -> List[float]:
@@ -76,11 +78,13 @@ def ranking_vetorial(consulta: str, docs: Dict[str, str]) -> List[Tuple[str, flo
 
 
 def rrf(rankings: Sequence[Sequence[str]], k: int = 60) -> List[Tuple[str, float]]:
+    # EXERCICIO-INICIO: nota(doc) = soma de 1/(k + posição) em cada ranking (posição começa em 1); ordene por nota decrescente e id.
     nota: Dict[str, float] = {}
     for ranking in rankings:
         for pos, doc in enumerate(ranking, start=1):
             nota[doc] = nota.get(doc, 0.0) + 1.0 / (k + pos)
     return sorted(nota.items(), key=lambda x: (-x[1], x[0]))
+    # EXERCICIO-FIM
 
 
 def buscar_hibrido(consulta: str, docs: Dict[str, str], top: int = 3) -> List[str]:
@@ -95,16 +99,20 @@ def recall_at_k(recuperados: Sequence[str], relevantes: Sequence[str], k: int) -
 
 
 def mrr(recuperados: Sequence[str], relevantes: Sequence[str]) -> float:
+    # EXERCICIO-INICIO: 1/posição do primeiro documento relevante; 0.0 se nenhum.
     for pos, d in enumerate(recuperados, start=1):
         if d in relevantes:
             return 1.0 / pos
     return 0.0
+    # EXERCICIO-FIM
 
 
 def ndcg_at_k(recuperados: Sequence[str], relevantes: Sequence[str], k: int) -> float:
+    # EXERCICIO-INICIO: DCG = soma de 1/log2(pos + 1) dos relevantes no top-k, dividido pelo DCG ideal; 0.0 sem ideal.
     dcg = sum(1.0 / math.log2(p + 1) for p, d in enumerate(recuperados[:k], start=1) if d in relevantes)
     ideal = sum(1.0 / math.log2(p + 1) for p in range(1, min(k, len(relevantes)) + 1))
     return dcg / ideal if ideal else 0.0
+    # EXERCICIO-FIM
 
 
 def responder_com_fontes(consulta: str, docs: Dict[str, str], cliente: ClienteMockDeterministico) -> Dict[str, object]:

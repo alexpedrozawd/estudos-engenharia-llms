@@ -36,6 +36,7 @@ def estimar_tokens_idioma(texto: str, idioma: str = "pt") -> int:
 
 def softmax(logits: Sequence[float], temperatura: float = 1.0) -> List[float]:
     """Calcula probabilidades a partir de logits com estabilidade numérica."""
+    # EXERCICIO-INICIO: valide lista vazia e temperatura < 0; temperatura 0 = argmax; subtraia o maior logit antes de exp (estabilidade).
     if not logits:
         raise ValueError("logits não pode ser vazio")
     if temperatura < 0:
@@ -48,6 +49,7 @@ def softmax(logits: Sequence[float], temperatura: float = 1.0) -> List[float]:
     exps = [math.exp(x - m) for x in escalados]
     soma = sum(exps)
     return [e / soma for e in exps]
+    # EXERCICIO-FIM
 
 
 def filtrar_top_k_top_p(
@@ -57,6 +59,7 @@ def filtrar_top_k_top_p(
     top_p: float = 1.0,
 ) -> List[Tuple[str, float]]:
     """Aplica softmax, corta por top-k e top-p (nucleus) e renormaliza."""
+    # EXERCICIO-INICIO: softmax, ordene por probabilidade, corte top-k (se > 0), acumule até atingir top_p e renormalize; valide top_p em (0, 1].
     if not 0 < top_p <= 1.0:
         raise ValueError("top_p deve estar em (0, 1]")
     probs = softmax([logit for _, logit in candidatos], temperatura=temperatura)
@@ -78,6 +81,7 @@ def filtrar_top_k_top_p(
         pares = selecionados
     total = sum(p for _, p in pares)
     return [(tok, p / total) for tok, p in pares]
+    # EXERCICIO-FIM
 
 
 def amostrar_token(
@@ -88,6 +92,7 @@ def amostrar_token(
     semente: int = 42,
 ) -> Tuple[str, float]:
     """Sorteia um token de forma determinística usando Random(semente)."""
+    # EXERCICIO-INICIO: filtre com filtrar_top_k_top_p, sorteie random.Random(semente).random() e percorra a probabilidade acumulada; devolva (token, log p).
     filtrados = filtrar_top_k_top_p(candidatos, temperatura=temperatura, top_k=top_k, top_p=top_p)
     rng = random.Random(semente)
     alvo = rng.random()
@@ -98,6 +103,7 @@ def amostrar_token(
             return tok, math.log(p) if p > 0 else float("-inf")
     tok, p = filtrados[-1]
     return tok, math.log(p) if p > 0 else float("-inf")
+    # EXERCICIO-FIM
 
 
 def inspecionar_logprobs_remoto(

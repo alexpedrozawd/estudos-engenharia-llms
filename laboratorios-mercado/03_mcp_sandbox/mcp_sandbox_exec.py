@@ -29,6 +29,7 @@ class ResultadoExecucao:
 
 
 def escolher_motor(env=None, which: Callable[[str], Optional[str]] = shutil.which) -> str:
+    # EXERCICIO-INICIO: respeite MCP_SANDBOX_MOTOR (só podman ou docker); senão o primeiro disponível no PATH; nenhum = erro.
     env = os.environ if env is None else env
     preferido = env.get("MCP_SANDBOX_MOTOR", "").strip()
     if preferido:
@@ -39,10 +40,12 @@ def escolher_motor(env=None, which: Callable[[str], Optional[str]] = shutil.whic
         if which(motor):
             return motor
     raise RuntimeError("nenhum motor de containers (podman/docker) encontrado")
+    # EXERCICIO-FIM
 
 
 def montar_comando(codigo: str, *, motor: str = "podman", imagem: str = IMAGEM_PADRAO, nome: str = "",
                    memoria: str = "128m", cpus: str = "0.5", pids: int = 64) -> List[str]:
+    # EXERCICIO-INICIO: contêiner descartável sem rede, só leitura, sem capabilities, no-new-privileges e com limites de pids, memória e CPU.
     if motor not in ("podman", "docker"):
         raise ValueError("motor inválido")
     return [
@@ -60,6 +63,7 @@ def montar_comando(codigo: str, *, motor: str = "podman", imagem: str = IMAGEM_P
         "--env=PYTHONDONTWRITEBYTECODE=1",
         imagem, "python", "-I", "-c", codigo,
     ]
+    # EXERCICIO-FIM
 
 
 def _cortar(texto: str) -> str:

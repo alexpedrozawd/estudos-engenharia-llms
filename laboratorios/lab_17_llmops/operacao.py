@@ -56,28 +56,34 @@ def distribuicao(rotulos: Sequence[str]) -> Dict[str, float]:
 
 def psi(referencia: Dict[str, float], atual: Dict[str, float], piso: float = 1e-4) -> float:
     """Índice de estabilidade da população; considera faixas que só aparecem num dos lados."""
+    # EXERCICIO-INICIO: soma de (atual − ref)·ln(atual/ref) por faixa, com piso nas faixas vazias; 3 casas.
     total = 0.0
     for faixa in set(referencia) | set(atual):
         r = max(referencia.get(faixa, 0.0), piso)
         a = max(atual.get(faixa, 0.0), piso)
         total += (a - r) * math.log(a / r)
     return round(total, 3)
+    # EXERCICIO-FIM
 
 
 def grupo(usuario: str, fracao_canario: float = 0.05, sal: str = "canario-v2") -> str:
     """Sorteio determinístico por hash: o mesmo usuário cai sempre no mesmo grupo nesta rodada (sal)."""
+    # EXERCICIO-INICIO: sha256 de "sal:usuario", 8 primeiros hex / 0xFFFFFFFF; abaixo da fração = "canario", senão "controle".
     h = int(hashlib.sha256(f"{sal}:{usuario}".encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
     return "canario" if h < fracao_canario else "controle"
+    # EXERCICIO-FIM
 
 
 def decidir_canario(controle: Dict[str, float], canario: Dict[str, float], n_canario: int, n_minimo: int = 200,
                     max_piora_acerto: float = 0.02, max_aumento_latencia: float = 0.10) -> str:
     """Promover, reverter ou esperar mais dados (métricas: acerto e latência p95)."""
+    # EXERCICIO-INICIO: reverta se o acerto cair ou a p95 subir além do tolerado; promova com amostra mínima; senão espere.
     if canario["acerto"] < controle["acerto"] - max_piora_acerto:
         return "reverter"
     if canario["latencia_p95"] > controle["latencia_p95"] * (1 + max_aumento_latencia):
         return "reverter"
     return "promover" if n_canario >= n_minimo else "esperar"
+    # EXERCICIO-FIM
 
 
 def metricas_operacao(incidentes: Sequence[Dict[str, float]], mudancas: int) -> Dict[str, Optional[float]]:

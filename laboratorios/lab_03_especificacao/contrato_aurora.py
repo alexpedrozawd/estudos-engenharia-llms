@@ -20,12 +20,14 @@ def carregar_politicas(caminho: str = DADOS_POLITICAS) -> List[Dict[str, object]
 
 def classificar_escopo_pedido(pergunta: str) -> str:
     """Separa pedidos dentro do escopo, fora do escopo e ações proibidas."""
+    # EXERCICIO-INICIO: minúsculas; ação proibida (matrícula, desconto, gabarito) vem antes de dado sensível (cpf, nota, histórico); senão "permitido".
     texto = pergunta.lower()
     if any(termo in texto for termo in ("confirmar matrícula", "aplicar desconto", "gabarito")):
         return "fora_escopo_proibido"
     if any(termo in texto for termo in ("cpf", "nota", "histórico escolar")):
         return "sensivel_exige_triagem"
     return "permitido"
+    # EXERCICIO-FIM
 
 
 def validar_contrato_saida(
@@ -37,6 +39,7 @@ def validar_contrato_saida(
     timeout_ms: float = 1500.0,
 ) -> Dict[str, object]:
     """Valida contrato I/O e aciona fallback suave (smooth failing) se violado."""
+    # EXERCICIO-INICIO: na ordem: latência, ação proibida, excesso de palavras, citação POL-n ausente ou inválida; cada falha tem motivo próprio (veja o teste).
     if tempo_ms is not None and tempo_ms > timeout_ms:
         return {
             "aceito": False,
@@ -67,3 +70,4 @@ def validar_contrato_saida(
             "mensagem_usuario": "Não encontrei referência oficial válida para responder com segurança; encaminhando à secretaria.",
         }
     return {"aceito": True, "motivo": "ok", "citacoes": citacoes, "mensagem_usuario": resposta_modelo}
+    # EXERCICIO-FIM

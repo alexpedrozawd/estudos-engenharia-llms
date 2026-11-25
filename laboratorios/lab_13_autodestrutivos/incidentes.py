@@ -20,6 +20,7 @@ class Trava:
         self.vistos: Set[Tuple[str, str]] = set()
 
     def autorizar(self, acao: str, alvo: str) -> str:
+        # EXERCICIO-INICIO: na ordem: lista de permissão, repetição idêntica, orçamento de tentativas e confirmação humana para ação destrutiva.
         if acao not in self.permitidos:
             return "bloqueado: fora da lista de permissão"
         if (acao, alvo) in self.vistos:
@@ -31,6 +32,7 @@ class Trava:
         if acao in self.destrutivos and self.simular:
             return "simulado (dry-run): nada gravado"
         return "executar"
+        # EXERCICIO-FIM
 
 
 class Disjuntor:
@@ -46,12 +48,14 @@ class Disjuntor:
         return self.estado != "aberto"
 
     def registrar(self, sucesso: bool) -> None:
+        # EXERCICIO-INICIO: sucesso zera falhas e fecha; falha soma e abre (guardando o horário) ao atingir o limite ou se estava meio-aberto.
         if sucesso:
             self.falhas, self.estado = 0, "fechado"
             return
         self.falhas += 1
         if self.estado == "meio-aberto" or self.falhas >= self.limite:
             self.estado, self.aberto_em = "aberto", self.relogio()
+        # EXERCICIO-FIM
 
 
 class Transacao:
@@ -72,12 +76,14 @@ class Transacao:
         return False
 
     def desfazer(self) -> bool:
+        # EXERCICIO-INICIO: restaure o último estado do histórico no próprio dicionário; False se o histórico estiver vazio.
         if not self.historico:
             return False
         anterior = self.historico.pop()
         self.estado.clear()
         self.estado.update(anterior)
         return True
+        # EXERCICIO-FIM
 
 
 def simular_incidente(chamar: Callable[[], bool], tentativas: int, disjuntor: Optional[Disjuntor] = None) -> Dict[str, int]:

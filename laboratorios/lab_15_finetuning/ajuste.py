@@ -22,6 +22,7 @@ Matriz = List[List[float]]
 def memoria_treino(n_bilhoes: float, metodo: str = "completo", bytes_peso: float = 2, bytes_estado: float = 2,
                    fracao_treinavel: float = 0.01, ativacoes_gb: float = 0.0) -> Dict[str, float]:
     """`metodo`: completo, lora ou qlora (no QLoRA, pesos congelados em 4 bits = 0,5 byte)."""
+    # EXERCICIO-INICIO: pesos (QLoRA = 0,5 byte) + adaptador; gradiente e 2 estados do Adam só nos treináveis; some ativações; valide o método.
     if metodo not in {"completo", "lora", "qlora"}:
         raise ValueError(f"método desconhecido: {metodo}")
     peso = 0.5 if metodo == "qlora" else bytes_peso
@@ -30,6 +31,7 @@ def memoria_treino(n_bilhoes: float, metodo: str = "completo", bytes_peso: float
     grad_e_adam = treinaveis * bytes_estado * 3          # 1 gradiente + 2 estados do Adam
     return {"pesos": round(pesos, 3), "grad_e_adam": round(grad_e_adam, 3), "ativacoes": ativacoes_gb,
             "total": round(pesos + grad_e_adam + ativacoes_gb, 3)}
+    # EXERCICIO-FIM
 
 
 # ---------- 2. LoRA em miniatura ----------
@@ -102,6 +104,7 @@ def treinar_lora(w: Matriz, treino, validacao, r: int = 1, lr: float = 0.3, epoc
 
 def parada_antecipada(perdas_val: Sequence[float], paciencia: int = 1) -> int:
     """Época (1-based) com menor perda antes de `paciencia` épocas seguidas sem melhora."""
+    # EXERCICIO-INICIO: guarde a menor perda de validação e sua época (base 1); pare após `paciencia` épocas sem melhora.
     melhor, idx, sem = float("inf"), 0, 0
     for i, v in enumerate(perdas_val, start=1):
         if v < melhor:
@@ -111,11 +114,13 @@ def parada_antecipada(perdas_val: Sequence[float], paciencia: int = 1) -> int:
             if sem >= paciencia:
                 break
     return idx
+    # EXERCICIO-FIM
 
 
 # ---------- 3. Quantização ----------
 def quantizar_int8(vetor: Sequence[float], bloco: int = 0) -> Tuple[List[int], List[float], float]:
     """Escala única (bloco=0) ou por bloco; devolve inteiros, escalas e erro máximo de volta."""
+    # EXERCICIO-INICIO: por bloco: escala = max|x|/127 (ou 1.0); q = round(x/escala); devolva (valores, escalas).
     tam = bloco or len(vetor)
     q, escalas, erro = [], [], 0.0
     for ini in range(0, len(vetor), tam):
@@ -126,6 +131,7 @@ def quantizar_int8(vetor: Sequence[float], bloco: int = 0) -> Tuple[List[int], L
         q.extend(qs)
         escalas.append(escala)
     return q, escalas, erro
+    # EXERCICIO-FIM
 
 
 # ---------- 4. Antes/depois por fatia e manifesto ----------

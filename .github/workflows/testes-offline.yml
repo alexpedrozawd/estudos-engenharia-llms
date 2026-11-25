@@ -51,6 +51,9 @@ jobs:
       - name: Camada 3 — smoke-tests offline
         run: python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py
 
+      - name: Camada 3 — cada trecho de exercício é coberto por teste
+        run: python -I ferramentas/gerar-exercicios.py --verificar mercado
+
       - name: Camada 3 — compose.yaml válido (Docker Compose)
         run: >-
           docker compose -f laboratorios-mercado/compose.yaml

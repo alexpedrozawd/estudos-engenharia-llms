@@ -58,6 +58,7 @@ def julgar_com_inversao(
 ) -> Dict[str, object]:
     """Julga (A, B) e (B, A) para neutralizar viés de posição; discordância consolida em empate."""
 
+    # EXERCICIO-INICIO: chame o juiz em A/B e em B/A, desinverta o 2º rótulo e só aceite vencedor consistente.
     def _chamar(primeiro: str, segundo: str):
         msgs = [
             {"role": "system", "content": SISTEMA_JUIZ},
@@ -93,10 +94,12 @@ def julgar_com_inversao(
         "tokens_entrada": int(meta1["tokens_entrada"]) + int(meta2["tokens_entrada"]),
         "tokens_saida": int(meta1["tokens_saida"]) + int(meta2["tokens_saida"]),
     }
+    # EXERCICIO-FIM
 
 
 def cohen_kappa(rotulos_a: Sequence[str], rotulos_b: Sequence[str]) -> float:
     """Calcula o coeficiente kappa de Cohen entre dois avaliadores categóricos."""
+    # EXERCICIO-INICIO: kappa = (po − pe)/(1 − pe), com pe pela soma dos produtos das frequências marginais; valide os tamanhos.
     if len(rotulos_a) != len(rotulos_b) or not rotulos_a:
         raise ValueError("as listas de rótulos devem ter o mesmo tamanho (> 0)")
     n = len(rotulos_a)
@@ -106,6 +109,7 @@ def cohen_kappa(rotulos_a: Sequence[str], rotulos_b: Sequence[str]) -> float:
     if abs(1.0 - pe) < 1e-12:
         return 1.0 if abs(po - 1.0) < 1e-12 else 0.0
     return round((po - pe) / (1.0 - pe), 4)
+    # EXERCICIO-FIM
 
 
 def bootstrap_pareado(
@@ -117,6 +121,7 @@ def bootstrap_pareado(
     seed: int = 42,
 ) -> Dict[str, object]:
     """Testa ganho pareado (B - A) via bootstrap com intervalo de confiança bilateral."""
+    # EXERCICIO-INICIO: diferenças pareadas, reamostragem com semente, IC por percentis e p-valor unilateral (fração de médias <= 0).
     if len(escores_a) != len(escores_b) or not escores_a:
         raise ValueError("escores_a e escores_b devem ter o mesmo tamanho (> 0)")
     if n_amostras < 10:
@@ -150,6 +155,7 @@ def bootstrap_pareado(
         "p_valor_unilateral": round(nao_positivos / n_amostras, 4),
         "significativo": ic_inf > 0.0,
     }
+    # EXERCICIO-FIM
 
 
 def _gerar_resposta(cliente, prompt_sistema: str, contexto: str, pergunta: str) -> str:

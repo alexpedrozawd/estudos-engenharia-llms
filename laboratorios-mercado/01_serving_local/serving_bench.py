@@ -57,15 +57,19 @@ class Amostra:
 
     @property
     def ttft_ms(self) -> Optional[float]:
+        # EXERCICIO-INICIO: (primeiro_token − inicio) em ms; None se não chegou token.
         if self.primeiro_token is None:
             return None
         return (self.primeiro_token - self.inicio) * 1000.0
+        # EXERCICIO-FIM
 
     @property
     def tpot_ms(self) -> Optional[float]:
+        # EXERCICIO-INICIO: (fim − primeiro_token) em ms dividido por (tokens_saida − 1); None com menos de 2 tokens.
         if self.primeiro_token is None or self.tokens_saida < 2:
             return None
         return (self.fim - self.primeiro_token) * 1000.0 / (self.tokens_saida - 1)
+        # EXERCICIO-FIM
 
     @property
     def e2e_ms(self) -> float:
@@ -80,6 +84,7 @@ class Amostra:
 
 def resumir(amostras: Sequence[Amostra], duracao_s: float, slo: SLO) -> Dict[str, object]:
     """Agrega métricas de serving; só requisições bem-sucedidas entram nos percentis."""
+    # EXERCICIO-INICIO: só amostras ok: p50/p95 de TTFT, TPOT e ponta a ponta, vazão em tokens/s e fração que cumpre o SLO (veja as chaves no teste).
     oks = [a for a in amostras if a.ok]
     ttft = [a.ttft_ms for a in oks if a.ttft_ms is not None]
     tpot = [a.tpot_ms for a in oks if a.tpot_ms is not None]
@@ -108,6 +113,7 @@ def resumir(amostras: Sequence[Amostra], duracao_s: float, slo: SLO) -> Dict[str
         "slo": asdict(slo),
         "duracao_s": r(duracao_s),
     }
+    # EXERCICIO-FIM
 
 
 async def requisitar_stream(

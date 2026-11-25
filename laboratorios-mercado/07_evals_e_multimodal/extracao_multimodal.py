@@ -104,6 +104,7 @@ def montar_mensagens_vlm(pngs: Sequence[bytes], instrucao: str) -> List[Dict[str
 
 def validar_totais_fatura(fatura: FaturaExtraida, tolerancia: float = 0.01) -> Dict[str, object]:
     """Auditoria aritmética determinística (code-first): subtotais e soma total."""
+    # EXERCICIO-INICIO: confira o subtotal de cada item (qtd·valor) e a soma contra o total, com tolerância; liste as divergências.
     divergencias: List[str] = []
     soma_calculada = 0.0
     for idx, item in enumerate(fatura.itens, start=1):
@@ -124,6 +125,7 @@ def validar_totais_fatura(fatura: FaturaExtraida, tolerancia: float = 0.01) -> D
         "total_informado": round(fatura.total_informado, 2),
         "divergencias": divergencias,
     }
+    # EXERCICIO-FIM
 
 
 def extrair_fatura_de_pdf(

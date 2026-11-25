@@ -25,15 +25,27 @@ Material de estudo em HTML semântico (`guia-engenharia-llms.html`) e PDF A4 (`g
    - `06_integrador_producao` (Caps. 12, 16, 18): assistente com PII/injeção, roteamento, *tool calling* nativo MCP, *structured outputs* (`json_schema`), ACL e relatório de custo/cache.
    - `07_evals_e_multimodal` (Caps. 4, 5): avaliação A vs B com juiz calibrado (inversão de ordem, *kappa* de Cohen, bootstrap pareado) e extração multimodal PDF → PNG (`pdftoppm`) → Pydantic.
 
+### Modo exercício (labs sem a solução)
+
+Os labs vêm resolvidos. Para praticar, `ferramentas/gerar-exercicios.py` copia `laboratorios/` e `laboratorios-mercado/` para `rascunho-local/exercicios/` (fora do Git) e troca o corpo de 2 a 4 funções centrais por lab (`79` trechos marcados com `# EXERCICIO-INICIO` / `# EXERCICIO-FIM`) por `raise NotImplementedError` com uma dica. Os originais não mudam.
+
+1. Gere a cópia uma vez: `python3 -I ferramentas/gerar-exercicios.py` (a lista de trechos fica em `rascunho-local/exercicios/EXERCICIOS.md`).
+2. Leia a parte do guia do capítulo do lab.
+3. Implemente os trechos na cópia, sem abrir a solução.
+4. Rode os testes da cópia até passarem: `python3 -I -W error::ResourceWarning rascunho-local/exercicios/laboratorios/executar_labs.py --alvo lab_05_avaliacao` (camada 3: `.venv-mercado/bin/python -I rascunho-local/exercicios/laboratorios-mercado/executar_smoke.py --alvo 04_qlora_peft`).
+5. Compare com a solução: `diff -ru laboratorios/lab_05_avaliacao rascunho-local/exercicios/laboratorios/lab_05_avaliacao`.
+
+Para recomeçar um lab: `python3 -I ferramentas/gerar-exercicios.py --alvo lab_05_avaliacao --forcar` (apaga só o que você fez nesse lab). O gerador recusa sobrescrever a cópia inteira sem `--forcar`. A suíte de ferramentas e o CI conferem que cada trecho é coberto por teste (`--verificar labs` e `--verificar mercado`).
+
 ## Estrutura principal
 
 - `guia-engenharia-llms.html` — livro completo interativo (questões em `aria-live`, diagramas SVG inline, glossário e referências).
 - `guia-engenharia-llms.pdf` — versão A4 definitiva gerada via Chromium headless (`664` páginas).
 - `laboratorios/` — `18` laboratórios e projeto integrador, com `84` testes offline.
-- `laboratorios-mercado/` — Camada 3: `7` projetos com serviços reais, `74` smoke-tests offline e registros em `execucoes/`.
+- `laboratorios-mercado/` — Camada 3: `7` projetos com serviços reais, `83` smoke-tests offline e registros em `execucoes/`.
 - `.github/workflows/` — CI offline (labs, guia, ferramentas, smoke-tests, `compose.yaml` e build/smoke do `Containerfile`).
 - `docs/` — históricos organizados em [`docs/changelogs/`](docs/changelogs/), [`docs/fontes/`](docs/fontes/) e [`docs/historico/`](docs/historico/) (inclui [`planejamento-reestruturado-2026-11-23.md`](docs/historico/planejamento-reestruturado-2026-11-23.md)).
-- `ferramentas/` — `guia.py`, `fontes.py`, `livros.py`, `validar-guia.py`, `renumerar-paginas.py`, `executar-trechos-de-codigo.py`, `conferir-trechos.py`, `extrair-texto-web.py`, `auditar-guia-navegador.mjs` e testes (`testar-ferramentas.py`, `testar-fontes.py`, `testar-livros.py`, `testar-llm-local.py`).
+- `ferramentas/` — `guia.py`, `fontes.py`, `livros.py`, `validar-guia.py`, `renumerar-paginas.py`, `executar-trechos-de-codigo.py`, `conferir-trechos.py`, `extrair-texto-web.py`, `auditar-guia-navegador.mjs`, `gerar-exercicios.py` (modo exercício) e testes (`testar-ferramentas.py`, `testar-fontes.py`, `testar-livros.py`, `testar-llm-local.py`).
 - [`CLAUDE.md`](CLAUDE.md) — estado atual, instruções de retomada e protocolo de economia de tokens ([`protocolo-de-economia-de-tokens-entre-sessoes.md`](protocolo-de-economia-de-tokens-entre-sessoes.md)).
 
 ## Validação rápida

@@ -14,7 +14,9 @@ ACOES = {"buscar", "responder"}
 
 
 def erro_composto(acerto_por_passo: float, passos: int) -> float:
+    # EXERCICIO-INICIO: chance de acertar todos os passos: acerto_por_passo elevado a passos.
     return acerto_por_passo ** passos
+    # EXERCICIO-FIM
 
 
 class Harness:
@@ -40,6 +42,7 @@ class Harness:
         self.registro.append(json.dumps(campos, ensure_ascii=False, sort_keys=True))
 
     def executar(self, pergunta: str, estado: Optional[Dict] = None) -> Dict[str, object]:
+        # EXERCICIO-INICIO: laço com teto de passos: chame o modelo, pare em falha, execute a ação pedida e encerre na resposta final, registrando cada passo.
         estado = dict(estado or {"passo": 0, "observacao": "inicio"})
         while estado["passo"] < self.teto:
             estado["passo"] += 1
@@ -58,6 +61,7 @@ class Harness:
             self._log(passo=estado["passo"], pensou=dado.get("pensamento", ""), acao=dado["acao"], obs=obs)
         self._log(passo=estado["passo"], parada="teto de passos")
         return {"status": "teto", "estado": estado}
+        # EXERCICIO-FIM
 
 
 def roteiro_aurora() -> Dict[str, str]:

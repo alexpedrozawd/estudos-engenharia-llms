@@ -16,9 +16,11 @@ GIB = 1024 ** 3
 def memoria(params_b: float, bits_peso: float, camadas: int, cabecas_kv: int, dim_cabeca: int,
             contexto: int, bytes_kv: int = 2, usuarios: int = 1) -> Tuple[float, float]:
     """Pesos e KV cache em GiB (K e V por camada, cabeça KV, posição e usuário)."""
+    # EXERCICIO-INICIO: pesos = parâmetros·bits/8; KV = 2·camadas·cabeças_kv·dim·contexto·bytes·usuários; devolva os dois em GiB.
     pesos = params_b * 1e9 * bits_peso / 8
     kv = 2 * camadas * cabecas_kv * dim_cabeca * contexto * bytes_kv * usuarios
     return pesos / GIB, kv / GIB
+    # EXERCICIO-FIM
 
 
 def camadas_na_gpu(vram_gib: float, pesos_gib: float, kv_gib: float, camadas: int, reserva_gib: float = 1.0) -> int:
@@ -28,19 +30,23 @@ def camadas_na_gpu(vram_gib: float, pesos_gib: float, kv_gib: float, camadas: in
 
 
 def medir_pedido(inicio: float, carimbos: Sequence[float]) -> Dict[str, float]:
+    # EXERCICIO-INICIO: TTFT = 1º carimbo − início; ITL = diferenças entre carimbos; TPOT = média do ITL; total = último − início.
     if not carimbos:
         raise ValueError("pedido sem tokens")
     ttft = carimbos[0] - inicio
     itl = [b - a for a, b in zip(carimbos, carimbos[1:])]
     tpot = sum(itl) / len(itl) if itl else 0.0
     return {"ttft": ttft, "tpot": tpot, "total": carimbos[-1] - inicio, "tokens": len(carimbos), "itl": itl}
+    # EXERCICIO-FIM
 
 
 def percentil(valores: Sequence[float], p: float) -> float:
     """Percentil por posto mais próximo (nearest-rank): sempre um valor observado."""
+    # EXERCICIO-INICIO: nearest-rank: posição ceil(p/100·n), no mínimo 1, sobre os valores ordenados.
     ordenados = sorted(valores)
     k = max(1, math.ceil(p / 100 * len(ordenados)))
     return ordenados[k - 1]
+    # EXERCICIO-FIM
 
 
 def servidor_simulado(pedidos: int, semente: int = 14, fila_lenta_a_cada: int = 10) -> List[Tuple[float, List[float]]]:

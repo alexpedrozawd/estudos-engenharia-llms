@@ -32,6 +32,7 @@ def janela_por_pares(sistema: str, pares: Sequence[Tuple[str, str]], pergunta: s
                      cliente: ClienteMockDeterministico, reserva_resumo: int = 10) -> Dict[str, object]:
     """Mantém pares completos mais recentes dentro de `limite - reserva_resumo`;
     o que sai vira um resumo de até `reserva_resumo` tokens, cortado se o modelo exceder."""
+    # EXERCICIO-INICIO: do par mais novo ao mais antigo, mantenha os que cabem em limite − reserva_resumo (sistema e pergunta já contam); resuma os cortados.
     usados, mantidos = tokens(sistema) + tokens(pergunta), []
     orcamento = limite - reserva_resumo
     corte = len(pares)
@@ -48,6 +49,7 @@ def janela_por_pares(sistema: str, pares: Sequence[Tuple[str, str]], pergunta: s
         resumo = cliente.completar("Resuma em uma frase: " + antigos, esforco="low", max_tokens=reserva_resumo).texto
         resumo = " ".join(resumo.split()[:reserva_resumo])
     return {"sistema": sistema, "resumo": resumo, "pares": mantidos, "tokens": usados + tokens(resumo)}
+    # EXERCICIO-FIM
 
 
 class NotasSessao:
@@ -60,10 +62,12 @@ class NotasSessao:
         self.db.close()
 
     def lembrar(self, aluno: str, chave: str, valor: str) -> int:
+        # EXERCICIO-INICIO: nova versão = maior versão da chave (ou 0) + 1; insira sem apagar a anterior e devolva a versão.
         atual = self.db.execute("SELECT MAX(versao) FROM nota WHERE aluno = ? AND chave = ?", (aluno, chave)).fetchone()[0]
         versao = (atual or 0) + 1
         self.db.execute("INSERT INTO nota VALUES (?, ?, ?, ?)", (aluno, chave, valor, versao))
         return versao
+        # EXERCICIO-FIM
 
     def fatos(self, aluno: str) -> Dict[str, str]:
         linhas = self.db.execute(
@@ -91,6 +95,7 @@ def sinais(mensagem: str) -> List[str]:
 
 def taxas_por_versao(registros: Sequence[Tuple[str, str]]) -> Dict[str, Dict[str, float]]:
     """registros: (versao_prompt, mensagem_do_usuario). Devolve taxa de cada sinal por versão."""
+    # EXERCICIO-INICIO: conte mensagens e sinais por versão; taxa = sinais/total com 3 casas, chaves ordenadas.
     por: Dict[str, Counter] = defaultdict(Counter)
     totais: Counter = Counter()
     for versao, msg in registros:
@@ -98,3 +103,4 @@ def taxas_por_versao(registros: Sequence[Tuple[str, str]]) -> Dict[str, Dict[str
         for s in sinais(msg):
             por[versao][s] += 1
     return {v: {s: round(c / totais[v], 3) for s, c in sorted(por[v].items())} for v in sorted(totais)}
+    # EXERCICIO-FIM

@@ -45,6 +45,7 @@ def hash_texto(texto: str) -> str:
 
 def deduplicar_exatas(itens: Sequence[Dict], campo: str = "pergunta") -> Tuple[List[Dict], int]:
     """Mantém a primeira ocorrência de cada texto normalizado; devolve itens e removidos."""
+    # EXERCICIO-INICIO: hash do texto normalizado; mantenha a primeira ocorrência; devolva (únicos, quantidade removida).
     vistos, unicos = set(), []
     for item in itens:
         h = hash_texto(item[campo])
@@ -52,9 +53,11 @@ def deduplicar_exatas(itens: Sequence[Dict], campo: str = "pergunta") -> Tuple[L
             vistos.add(h)
             unicos.append(item)
     return unicos, len(itens) - len(unicos)
+    # EXERCICIO-FIM
 
 
 def jaccard(a: str, b: str, n: int = 3) -> float:
+    # EXERCICIO-INICIO: n-gramas de palavras do texto normalizado; |interseção| / |união|; conjuntos vazios = 1.0; texto com menos de n palavras vira um n-grama só.
     def ngramas(t: str):
         p = normalizar(t).split()
         if len(p) < n:
@@ -62,6 +65,7 @@ def jaccard(a: str, b: str, n: int = 3) -> float:
         return {tuple(p[i:i + n]) for i in range(len(p) - n + 1)}
     x, y = ngramas(a), ngramas(b)
     return len(x & y) / len(x | y) if x | y else 1.0
+    # EXERCICIO-FIM
 
 
 def amostra_estratificada(itens: Sequence[Dict], chave: str, fracao: float,
@@ -109,6 +113,7 @@ def dividir_por_grupo(itens: Sequence[Dict], grupo: str, fracao_teste: float,
 def detectar_vazamento(ajuste: Sequence[Dict], teste: Sequence[Dict], campo: str = "pergunta",
                        limiar: float = 0.5) -> List[Tuple[str, str, float]]:
     """Lista pares (teste, ajuste, nota) com semelhança >= limiar."""
+    # EXERCICIO-INICIO: para cada item de teste, ache o item de ajuste mais parecido por jaccard e registre (teste, ajuste, nota) se nota >= limiar.
     achados = []
     for t in teste:
         melhor = max(ajuste, key=lambda a: jaccard(t[campo], a[campo]), default=None)
@@ -117,6 +122,7 @@ def detectar_vazamento(ajuste: Sequence[Dict], teste: Sequence[Dict], campo: str
             if nota >= limiar:
                 achados.append((t[campo], melhor[campo], nota))
     return achados
+    # EXERCICIO-FIM
 
 
 def manifesto(itens: Sequence[Dict], versao: str, origem: str, estrato: str,

@@ -17,6 +17,7 @@ from rag_store import FiltroBusca, termos
 
 def fusao_rrf(listas: Sequence[Sequence[tuple]], k: int = 60) -> List[tuple]:
     """Reciprocal Rank Fusion: soma 1/(k + posição) de cada lista; desempate por id."""
+    # EXERCICIO-INICIO: RRF por id de trecho: soma de 1/(k + posição); ordene por nota decrescente e id.
     pontos: Dict[str, float] = {}
     trechos: Dict[str, Trecho] = {}
     for lista in listas:
@@ -24,6 +25,7 @@ def fusao_rrf(listas: Sequence[Sequence[tuple]], k: int = 60) -> List[tuple]:
             pontos[t.id] = pontos.get(t.id, 0.0) + 1.0 / (k + pos)
             trechos[t.id] = t
     return sorted(((trechos[i], s) for i, s in pontos.items()), key=lambda x: (-x[1], x[0].id))
+    # EXERCICIO-FIM
 
 
 class ReordenadorLexico:
@@ -156,6 +158,7 @@ def fidelidade(resposta: str, trechos: Sequence[Trecho], limiar: float = 0.6) ->
     Métrica lexical e conservadora (não detecta paráfrase); serve de portão barato antes de
     avaliadores por LLM ou humanos.
     """
+    # EXERCICIO-INICIO: recusa padrão = fidelidade 1; divida em frases, cole citações soltas na anterior; apoiada = cita [Tn] recuperado; liste citações inválidas.
     if resposta.strip() == RESPOSTA_RECUSA:
         return {"frases": 0, "apoiadas": 0, "fidelidade": 1.0, "citacoes_invalidas": [], "recusa": True}
     frases: List[str] = []
@@ -185,6 +188,7 @@ def fidelidade(resposta: str, trechos: Sequence[Trecho], limiar: float = 0.6) ->
         "fidelidade": round(apoiadas / len(frases), 3) if frases else 0.0,
         "citacoes_invalidas": sorted(invalidas), "recusa": False,
     }
+    # EXERCICIO-FIM
 
 
 def resolver_relevantes(trechos: Sequence[Trecho], criterios: Sequence[Dict[str, object]]) -> List[str]:
@@ -239,6 +243,7 @@ def avaliar_recuperacao(consultas: Sequence[Dict[str, object]], armazem, embedde
 def auditar_acl(consultas_acl: Sequence[Dict[str, object]], armazem, embedder, *, k: int = 4,
                 perfil_nao_autorizado: str = "aluno") -> Dict[str, object]:
     """Verifica que perfil sem permissão recebe zero trechos de documentos restritos."""
+    # EXERCICIO-INICIO: consulte com o perfil sem acesso e conte os trechos de documentos restritos que vazaram.
     detalhes = []
     vazamentos = 0
     filtro = FiltroBusca(perfil=perfil_nao_autorizado, apenas_vigentes=True)
@@ -258,3 +263,4 @@ def auditar_acl(consultas_acl: Sequence[Dict[str, object]], armazem, embedder, *
             "vazados": vazados,
         })
     return {"consultas": len(consultas_acl), "vazamentos": vazamentos, "detalhes": detalhes}
+    # EXERCICIO-FIM

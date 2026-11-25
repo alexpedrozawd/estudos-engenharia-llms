@@ -22,9 +22,11 @@ class Ferramenta:
     escrita: bool = False
 
     def schema(self) -> Dict[str, object]:
+        # EXERCICIO-INICIO: JSON Schema de objeto: tipo JSON de cada parâmetro, todos obrigatórios (ordenados) e additionalProperties false.
         return {"type": "object",
                 "properties": {k: {"type": TIPOS_JSON[t]} for k, t in self.parametros.items()},
                 "required": sorted(self.parametros), "additionalProperties": False}
+        # EXERCICIO-FIM
 
 
 @dataclass
@@ -44,6 +46,7 @@ class Registro:
 
     def chamar(self, nome: str, argumentos: Dict[str, object], aprovado: bool = False,
                chave_idempotencia: Optional[str] = None) -> Dict[str, object]:
+        # EXERCICIO-INICIO: recuse ferramenta inexistente, argumentos fora do schema e tipos errados; registre auditoria; erro volta como isError, não como exceção.
         def erro(msg: str) -> Dict[str, object]:
             self.auditoria.append({"ferramenta": nome, "resultado": "erro", "detalhe": msg})
             return {"content": [{"type": "text", "text": msg}], "isError": True}
@@ -72,6 +75,7 @@ class Registro:
             self.efeitos[chave_idempotencia] = saida
         self.auditoria.append({"ferramenta": nome, "resultado": "ok"})
         return {"content": [{"type": "text", "text": str(saida)}], "isError": False}
+        # EXERCICIO-FIM
 
 
 def servidor(registro: Registro, mensagem: str) -> str:

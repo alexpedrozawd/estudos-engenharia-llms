@@ -81,6 +81,7 @@ def tabela_markdown(cabecalho: Sequence[str], linhas: Sequence[Sequence[str]]) -
 
 
 def fatiar_texto(palavras: List[str], max_palavras: int, sobreposicao: int) -> List[str]:
+    # EXERCICIO-INICIO: janelas de max_palavras que avançam max_palavras − sobreposicao; valide max_palavras > sobreposicao.
     if max_palavras <= sobreposicao:
         raise ValueError("max_palavras deve ser maior que sobreposicao")
     pedacos, i = [], 0
@@ -90,6 +91,7 @@ def fatiar_texto(palavras: List[str], max_palavras: int, sobreposicao: int) -> L
             break
         i += max_palavras - sobreposicao
     return pedacos
+    # EXERCICIO-FIM
 
 
 def segmentar(

@@ -99,6 +99,7 @@ def dividir_com_validacao(exemplos: Sequence[Dict[str, str]], fracao_validacao: 
 
     Escolha de épocas e demais hiperparâmetros usa a validação; o teste é avaliado uma vez, no fim.
     """
+    # EXERCICIO-INICIO: separe o teste com dividir(); tire a validação do treino, estratificada por (fatia, categoria).
     treino, teste = dividir(exemplos, fracao_teste, semente)
     if fracao_validacao <= 0:
         return treino, [], teste
@@ -114,6 +115,7 @@ def dividir_com_validacao(exemplos: Sequence[Dict[str, str]], fracao_validacao: 
         treino_final += ordem[n_val:]
     return (sorted(treino_final, key=lambda e: e["id"]), sorted(validacao, key=lambda e: e["id"]),
             teste)
+    # EXERCICIO-FIM
 
 
 def para_conversa(ex: Dict[str, str]) -> Dict[str, List[Dict[str, str]]]:
@@ -166,6 +168,7 @@ def avaliar(teste: Sequence[Dict[str, str]], prever: Callable[[str], str]) -> Di
 
 def wilson(acertos: int, n: int, z: float = 1.96) -> Tuple[float, float]:
     """Intervalo de Wilson (95% com z = 1,96): fica em [0, 1] mesmo em amostras pequenas (parte 5.6f)."""
+    # EXERCICIO-INICIO: mesma fórmula do Lab 05, 4 casas; n <= 0 devolve (0.0, 1.0).
     if n <= 0:
         return (0.0, 1.0)
     p = acertos / n
@@ -173,15 +176,18 @@ def wilson(acertos: int, n: int, z: float = 1.96) -> Tuple[float, float]:
     centro = (p + z * z / (2 * n)) / den
     margem = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / den
     return (round(max(0.0, centro - margem), 4), round(min(1.0, centro + margem), 4))
+    # EXERCICIO-FIM
 
 
 def mcnemar_exato(ganhos: int, perdas: int) -> float:
     """p-valor bilateral exato de McNemar: binomial(0,5) sobre os casos que mudaram de resultado."""
+    # EXERCICIO-INICIO: binomial bicaudal (p = 0,5) nos pares discordantes: min(1, 2·soma C(n, i) para i <= min / 2^n), 6 casas; sem discordantes = 1.0.
     n = ganhos + perdas
     if n == 0:
         return 1.0
     k = min(ganhos, perdas)
     return round(min(1.0, 2 * sum(math.comb(n, i) for i in range(k + 1)) / 2 ** n), 6)
+    # EXERCICIO-FIM
 
 
 def pareamento(antes: Dict[str, object], depois: Dict[str, object]) -> Optional[Tuple[int, int]]:
@@ -198,6 +204,7 @@ def comparar(antes: Dict[str, object], depois: Dict[str, object], tolerancia: fl
              alfa: float = 0.05) -> Dict[str, object]:
     """Portão de promoção: média melhora, nenhuma fatia cai mais que `tolerancia` e o ganho
     pareado é significativo (McNemar exato < `alfa`). Sem significância: "inconclusivo"."""
+    # EXERCICIO-INICIO: delta de acurácia por fatia, regressões acima da tolerância, McNemar no pareamento e veredito aprovado, reprovado ou inconclusivo pelo alfa.
     deltas, regressoes = {}, []
     for fatia, a in antes["por_fatia"].items():
         d = depois["por_fatia"].get(fatia)
@@ -226,6 +233,7 @@ def comparar(antes: Dict[str, object], depois: Dict[str, object], tolerancia: fl
             "aprovado": veredito == "aprovado", "veredito": veredito, "tolerancia": tolerancia,
             "alfa": alfa, "wilson95_antes": ic(antes), "wilson95_depois": ic(depois),
             "pareado": None if par is None else {"ganhos": par[0], "perdas": par[1], "p_valor_mcnemar_exato": p_valor}}
+    # EXERCICIO-FIM
 
 
 def sha_json(obj: object) -> str:

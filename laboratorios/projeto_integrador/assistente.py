@@ -32,9 +32,11 @@ SINAIS_RISCO_ALTO = ("contestar", "recurso", "cancelar minha matrícula", "exclu
 
 
 def classificar(pergunta: str) -> Dict[str, object]:
+    # EXERCICIO-INICIO: risco "alto" se houver um de SINAIS_RISCO_ALTO; 4 passos para pergunta composta (" e " e "?"), senão 1.
     baixo = pergunta.lower()
     risco = "alto" if any(s in baixo for s in SINAIS_RISCO_ALTO) else "baixo"
     return {"risco": risco, "passos": 4 if " e " in baixo and "?" in baixo else 1}
+    # EXERCICIO-FIM
 
 
 def respostas_simuladas() -> Dict[str, str]:
@@ -73,6 +75,7 @@ class Assistente:
     atendimentos: int = 0
 
     def responder(self, conversa: str, pergunta: str) -> Dict[str, object]:
+        # EXERCICIO-INICIO: num span: guardrail de entrada, gateway, guardrail de saída e métricas; trate bloqueio e indisponibilidade (veja os testes).
         trace = f"{conversa}-{self.atendimentos + 1}"
         self.atendimentos += 1
         with self.rastreador.span("atender", trace) as raiz:
@@ -106,6 +109,7 @@ class Assistente:
             raiz["attributes"]["aurora.resultado"] = "respondido"
             return {"status": "respondido", "texto": desmascarar(texto, reverso), "citados": citados,
                     "destino": r["destino"], "enviado_ao_modelo": seguro}
+        # EXERCICIO-FIM
 
     def abrir_chamado(self, assunto: str, aprovado: bool, chave: Optional[str]) -> Dict[str, object]:
         """Escrita só com aprovação humana e chave de idempotência (repetir não duplica)."""

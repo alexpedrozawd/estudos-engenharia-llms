@@ -39,7 +39,9 @@ CATALOGO_PROMPTS: Dict[str, PromptVersionado] = {
 
 def escapar_delimitadores_xml(texto: str) -> str:
     """Neutraliza marcas XML em entradas do usuário para evitar injeção estrutural."""
+    # EXERCICIO-INICIO: escape &, < e > (o & primeiro) para o texto do usuário não fechar as tags do prompt.
     return texto.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    # EXERCICIO-FIM
 
 
 def montar_prompt_inscricao(versao: str, texto_aluno: str) -> Tuple[str, PromptVersionado]:
@@ -52,6 +54,7 @@ def montar_prompt_inscricao(versao: str, texto_aluno: str) -> Tuple[str, PromptV
 
 def validar_inscricao_json(bruto: str) -> Tuple[bool, Optional[Dict[str, object]], str]:
     """Valida JSON, schema estrito e regras de negócio (idade 5..100, oficina)."""
+    # EXERCICIO-INICIO: json.loads, raiz objeto, exatamente os campos do schema e tipos certos; devolva (ok, dados, status) com o motivo (veja o teste).
     try:
         dados = json.loads(bruto)
     except json.JSONDecodeError as exc:
@@ -77,6 +80,7 @@ def validar_inscricao_json(bruto: str) -> Tuple[bool, Optional[Dict[str, object]
     if dados["oficina"] not in OFICINAS_PERMITIDAS:
         return False, None, "oficina_fora_da_lista"
     return True, dados, "ok"
+    # EXERCICIO-FIM
 
 
 def extrair_com_reparo(
@@ -87,6 +91,7 @@ def extrair_com_reparo(
     max_reparos: int = 1,
 ) -> Dict[str, object]:
     """Executa chamada ao modelo com limite estrito de tentativas de reparo."""
+    # EXERCICIO-INICIO: monte o prompt versionado, chame o cliente e valide; se falhar, reenvie com o erro anexado até max_reparos, guardando os erros.
     prompt, artefato = montar_prompt_inscricao(versao, texto_aluno)
     erros: List[str] = []
     consulta = prompt
@@ -119,3 +124,4 @@ def extrair_com_reparo(
         "tentativas": 1 + max_reparos,
         "erros_previos": erros,
     }
+    # EXERCICIO-FIM
