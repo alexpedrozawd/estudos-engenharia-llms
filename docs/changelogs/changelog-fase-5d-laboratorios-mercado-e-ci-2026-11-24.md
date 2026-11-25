@@ -1,11 +1,11 @@
 # Changelog — Fase 5D: Camada 3 prática (`laboratorios-mercado/`) e CI offline (24/11/2026)
 
 Data: 24/11/2026. Autoria: `claude - pessoal`.
-Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md) (Sessão 4 — Fase 5D) e [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`](plano-evolucao-mercado-e-nota-10-2026-11-24.md).
+Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](../historico/roteiro-central-evolucao-nota-10-por-sessao.md) (Sessão 4 — Fase 5D) e [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`](../historico/plano-evolucao-mercado-e-nota-10-2026-11-24.md).
 
 ## 1. O que entrou
 
-1. **[`laboratorios-mercado/`](laboratorios-mercado/README.md)** na raiz, sem tocar em `laboratorios/` (84 testes offline preservados): `pyproject.toml` (dependências mínimas + extras `containers` e `finetuning`), `compose.yaml` (Podman e Docker; 9 serviços em 7 perfis, todos em `127.0.0.1`), `Containerfile` (usuário sem privilégios), `executar_smoke.py`, base comum `mercado_base/` e registros de execução real em [`laboratorios-mercado/execucoes/`](laboratorios-mercado/execucoes/).
+1. **[`laboratorios-mercado/`](../../laboratorios-mercado/README.md)** na raiz, sem tocar em `laboratorios/` (84 testes offline preservados): `pyproject.toml` (dependências mínimas + extras `containers` e `finetuning`), `compose.yaml` (Podman e Docker; 9 serviços em 7 perfis, todos em `127.0.0.1`), `Containerfile` (usuário sem privilégios), `executar_smoke.py`, base comum `mercado_base/` e registros de execução real em `execucoes/` em [`laboratorios-mercado/execucoes/`](../../laboratorios-mercado/execucoes/).
 2. **Seis projetos**, cada um com README, smoke-tests offline e roteiro real (`56` testes no total):
    - `01_serving_local`: benchmark `asyncio`/`httpx` com TTFT, TPOT, p50/p95, vazão, goodput e memória (`/api/ps` ou `/proc`).
    - `02_rag_producao`: PDF com tabela (pypdf `layout`) → `pgvector` (HNSW cosseno) + `tsvector` português → RRF → reranker léxico ou por LLM → citações → recall@k, MRR, nDCG e fidelidade lexical.
@@ -13,7 +13,7 @@ Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro
    - `04_qlora_peft`: receita QLoRA NF4 com manifesto de hashes, divisão estratificada estável, avaliação por fatia e portão antes/depois.
    - `05_api_llmops`: FastAPI com SSE e cancelamento, retry só antes do 1º token, backoff com *full jitter* e `Retry-After`, disjuntor, spans OpenTelemetry `gen_ai.*` sem conteúdo e avaliação contínua.
    - `06_integrador_producao`: guardrails de entrada e saída, roteamento local/fronteira com fallback, MCP, RAG e relatório de custo/latência por etapa.
-3. **CI:** [`.github/workflows/testes-offline.yml`](.github/workflows/testes-offline.yml) roda `executar_labs.py`, `guia.py fechar`, `testar-ferramentas.py --rapido`, `testar-fontes.py`, `testar-livros.py`, os smoke-tests da Camada 3 e `docker compose ... config -q`. Sem segredos, `permissions: contents: read`, sem LLM, GPU ou containers de serviço.
+3. **CI:** [`.github/workflows/testes-offline.yml`](../../.github/workflows/testes-offline.yml) roda `executar_labs.py`, `guia.py fechar`, `testar-ferramentas.py --rapido`, `testar-fontes.py`, `testar-livros.py`, os smoke-tests da Camada 3 e `docker compose ... config -q`. Sem segredos, `permissions: contents: read`, sem LLM, GPU ou containers de serviço.
 4. **Raiz:** `.dockerignore` (contexto de build só com `laboratorios/comum` e `laboratorios-mercado`) e `.gitignore` (`.venv-mercado/`, modelos e artefatos de build).
 
 ## 2. Execuções reais (ponta a ponta)

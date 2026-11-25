@@ -7,12 +7,12 @@ Data: 24/11/2026. Escopo definido pelo operador: **leitura exclusiva em telas** 
 Objetivo: medir compreensão real, ritmo de leitura (TDAH) e clareza das questões e dos blocos de código sem assistência do autor.
 
 ### Seleção sugerida de capítulos
-1. **Capítulo conceitual/estrutural:** [Capítulo 6 — Engenharia de Dados e Datasets para IA](guia-engenharia-llms.html#capitulo-6) (18 partes curtas + 6 questões + estudo de caso).
-2. **Capítulo operacional/quantitativo:** [Capítulo 15 — Fine-tuning, Quantização e Destilação](guia-engenharia-llms.html#capitulo-15) (18 partes curtas + 6 questões + estudo de caso).
+1. **Capítulo conceitual/estrutural:** [Capítulo 6 — Engenharia de Dados e Datasets para IA](../../guia-engenharia-llms.html#capitulo-6) (18 partes curtas + 6 questões + estudo de caso).
+2. **Capítulo operacional/quantitativo:** [Capítulo 15 — Fine-tuning, Quantização e Destilação](../../guia-engenharia-llms.html#capitulo-15) (18 partes curtas + 6 questões + estudo de caso).
 *(Alternativa rápida: 1 unidade completa de cada capítulo + as 6 questões de fechamento.)*
 
 ### Protocolo por participante
-1. Entregar apenas o link/arquivo [guia-engenharia-llms.html](guia-engenharia-llms.html) aberto no navegador do aparelho que a pessoa usa no dia a dia.
+1. Entregar apenas o link/arquivo [guia-engenharia-llms.html](../../guia-engenharia-llms.html) aberto no navegador do aparelho que a pessoa usa no dia a dia.
 2. Registrar aparelho, navegador, zoom do sistema e hora de início.
 3. Pedir que leia as partes em sequência sem pular `Em 3 linhas`, `Pense assim.` e `Pergunta`, respondendo às perguntas na hora e anotando qualquer termo ou frase que exija releitura.
 4. Ao fim do capítulo, resolver as 6 questões de fechamento e ler a rubrica do estudo de caso após formular uma resposta curta em voz alta ou texto.
@@ -33,7 +33,7 @@ Critério de aceite do piloto: todos os participantes completam sem ajuda extern
 
 ## 2. Validação manual nos aparelhos de tela
 
-Executar sobre a versão atual de [guia-engenharia-llms.html](guia-engenharia-llms.html), verificando pelo menos a capa, o sumário, a parte `6.3c` (código), `6.4c` (tabela + código + moldura), `15.3c` (código), `15.4a` (código + moldura) e as páginas de questões.
+Executar sobre a versão atual de [guia-engenharia-llms.html](../../guia-engenharia-llms.html), verificando pelo menos a capa, o sumário, a parte `6.3c` (código), `6.4c` (tabela + código + moldura), `15.3c` (código), `15.4a` (código + moldura) e as páginas de questões.
 
 | Dispositivo / Categoria | Condição de teste | O que conferir | Situação |
 |---|---|---|---|

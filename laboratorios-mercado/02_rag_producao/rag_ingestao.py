@@ -14,11 +14,12 @@ from __future__ import annotations
 import io
 import re
 from dataclasses import dataclass
-from typing import List, Sequence, Union
+from typing import List, Sequence, Tuple, Union
 
 from pypdf import PdfReader
 
 SEPARADOR_COLUNAS = re.compile(r"\s{3,}")
+PERFIS_PADRAO: Tuple[str, ...] = ("publico", "aluno", "docente", "coordenacao", "admin")
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,10 @@ class Trecho:
     pagina: int
     tipo: str  # "texto" ou "tabela"
     texto: str
+    perfis: Tuple[str, ...] = PERFIS_PADRAO
+    departamento: str = "geral"
+    versao: str = "2026"
+    vigente: bool = True
 
 
 def extrair_paginas_pdf(origem: Union[str, bytes]) -> List[str]:
@@ -94,8 +99,13 @@ def segmentar(
     max_palavras: int = 80,
     sobreposicao: int = 15,
     max_linhas_tabela: int = 8,
+    perfis: Sequence[str] = PERFIS_PADRAO,
+    departamento: str = "geral",
+    versao: str = "2026",
+    vigente: bool = True,
 ) -> List[Trecho]:
-    """Gera trechos estáveis (`doc:p<página>:<n>`) de texto e de tabela."""
+    """Gera trechos estáveis (`doc:p<página>:<n>`) de texto e de tabela com metadados e ACL."""
+    perfis_t = tuple(perfis)
     trechos: List[Trecho] = []
     for num, texto in enumerate(paginas, start=1):
         n = 0
@@ -104,10 +114,33 @@ def segmentar(
                 cab, corpo = linhas[0], linhas[1:]
                 for i in range(0, len(corpo), max_linhas_tabela):
                     n += 1
-                    trechos.append(Trecho(f"{doc}:p{num}:{n}", doc, num, "tabela",
-                                          tabela_markdown(cab, corpo[i:i + max_linhas_tabela])))
+                    trechos.append(
+                        Trecho(
+                            f"{doc}:p{num}:{n}",
+                            doc,
+                            num,
+                            "tabela",
+                            tabela_markdown(cab, corpo[i:i + max_linhas_tabela]),
+                            perfis=perfis_t,
+                            departamento=departamento,
+                            versao=versao,
+                            vigente=vigente,
+                        )
+                    )
             else:
                 for pedaco in fatiar_texto(" ".join(linhas).split(), max_palavras, sobreposicao):
                     n += 1
-                    trechos.append(Trecho(f"{doc}:p{num}:{n}", doc, num, "texto", pedaco))
+                    trechos.append(
+                        Trecho(
+                            f"{doc}:p{num}:{n}",
+                            doc,
+                            num,
+                            "texto",
+                            pedaco,
+                            perfis=perfis_t,
+                            departamento=departamento,
+                            versao=versao,
+                            vigente=vigente,
+                        )
+                    )
     return trechos

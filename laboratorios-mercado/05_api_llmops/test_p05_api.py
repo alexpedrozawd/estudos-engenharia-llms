@@ -168,6 +168,50 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(resumo["falhas"]["pii"], 1)
         self.assertTrue(resumo["alerta"])
 
+    def test_avaliacao_continua_detecta_telefone_e_ignora_cpf_invalido(self):
+        app, _ = cliente(ProvedorFalso(tokens=["Ligue (11) 91234-5678."]), avaliador=tel.AvaliadorContinuo(minimo_amostras=1))
+        with TestClient(app) as c:
+            r = c.post("/v1/respostas", json={"prompt": "tel"})
+            self.assertEqual(r.json()["avaliacao"], {"aprovada": False, "falhas": ["pii"]})
+        app_ok, _ = cliente(ProvedorFalso(tokens=["Protocolo 111.111.111-11 e 123.456.789-00."]))
+        with TestClient(app_ok) as c:
+            r2 = c.post("/v1/respostas", json={"prompt": "proto"})
+            self.assertEqual(r2.json()["avaliacao"], {"aprovada": True, "falhas": []})
+
+    def test_autenticacao_e_rate_limit(self):
+        agora = {"t": 100.0}
+        app, _ = cliente(ProvedorFalso(), api_keys=["segredo-1"], limite_taxa=2, janela_taxa_s=60.0, relogio=lambda: agora["t"])
+        with TestClient(app) as c:
+            self.assertEqual(c.get("/saude").status_code, 200)
+            self.assertEqual(c.post("/v1/respostas", json={"prompt": "oi"}).status_code, 401)
+            self.assertEqual(c.post("/v1/respostas", json={"prompt": "oi"}, headers={"X-API-Key": "errada"}).status_code, 401)
+            self.assertEqual(c.post("/v1/respostas", json={"prompt": "oi"}, headers={"X-API-Key": "segredo-1"}).status_code, 200)
+            self.assertEqual(c.post("/v1/respostas", json={"prompt": "oi"}, headers={"Authorization": "Bearer segredo-1"}).status_code, 200)
+            r429 = c.post("/v1/respostas", json={"prompt": "oi"}, headers={"X-API-Key": "segredo-1"})
+            self.assertEqual(r429.status_code, 429)
+            self.assertIn("Retry-After", r429.headers)
+            agora["t"] += 61.0
+            self.assertEqual(c.post("/v1/respostas", json={"prompt": "oi"}, headers={"X-API-Key": "segredo-1"}).status_code, 200)
+
+    def test_erro_permanente_upstream_401_403_404_vira_502_e_400_vira_400(self):
+        for status_upstream, esperado in ((401, 502), (403, 502), (404, 502), (400, 400)):
+            prov = ProvedorFalso(falhas_antes=1, erro=res.classificar_status(status_upstream))
+            app, _ = cliente(prov, tentativas=1)
+            with TestClient(app) as c:
+                r = c.post("/v1/respostas", json={"prompt": "oi"})
+                self.assertEqual(r.status_code, esperado)
+
+    def test_metrics_prometheus(self):
+        app, _ = cliente(ProvedorFalso())
+        with TestClient(app) as c:
+            c.post("/v1/respostas", json={"prompt": "oi"})
+            m = c.get("/metrics")
+            self.assertEqual(m.status_code, 200)
+            self.assertIn("text/plain", m.headers["content-type"])
+            self.assertIn('aurora_requisicoes_total{resultado="sucesso"} 1', m.text)
+            self.assertIn('aurora_disjuntor_estado{estado="fechado"} 1', m.text)
+            self.assertIn('aurora_tokens_total{direcao="saida"} 4', m.text)
+
 
 class TestCancelamento(unittest.TestCase):
     def test_desconexao_interrompe_upstream(self):

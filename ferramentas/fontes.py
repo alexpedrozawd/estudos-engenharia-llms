@@ -32,6 +32,7 @@ from datetime import datetime, timezone
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(AQUI)
+DOCS_FONTES = os.path.join(RAIZ, "docs", "fontes")
 CACHE = os.path.join(RAIZ, "cache-fontes")
 BRUTO = os.path.join(CACHE, "bruto")
 TEXTOS = os.path.join(CACHE, "textos")
@@ -46,7 +47,7 @@ URL = re.compile(r"https?://[^\s|)>\]`]+")
 
 
 def pacotes_padrao():
-    return sorted(glob.glob(os.path.join(RAIZ, "pacote-de-fontes-*.md")))
+    return sorted(glob.glob(os.path.join(DOCS_FONTES, "pacote-de-fontes-*.md")))
 
 
 def manifesto(pacotes=None):

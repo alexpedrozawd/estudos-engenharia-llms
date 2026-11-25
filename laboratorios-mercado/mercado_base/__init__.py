@@ -25,6 +25,7 @@ PROJETOS = (
     "04_qlora_peft",
     "05_api_llmops",
     "06_integrador_producao",
+    "07_evals_e_multimodal",
 )
 
 

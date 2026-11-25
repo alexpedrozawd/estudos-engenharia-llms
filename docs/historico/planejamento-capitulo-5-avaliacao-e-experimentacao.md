@@ -2,7 +2,7 @@
 
 Data: 16/11/2026. Autoria: claude - pessoal (Sonnet 5.5 High, painel). Etapa: **somente planejamento**; nada redigido no guia, nenhuma fonte baixada ou conferida por trecho. Depende de aprovação do operador antes do Bloco 1.
 
-Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md) (módulo 5), [plano do Capítulo 4](planejamento-capitulo-4-prompts-parametros-e-respostas.md) (molde), [requisitos de formato](requisitos-de-formato-html-do-material.md) (§8 e §9), [protocolo de economia de tokens](protocolo-de-economia-de-tokens-entre-sessoes.md), handoff do capítulo 4 (`arquivo/handoff-capitulo-4-concluido-2026-11-14.md`, arquivado localmente fora do Git). Herda o método dos capítulos 2 a 4 (partes curtas, pacote de fontes, pausa após a primeira unidade).
+Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md) (módulo 5), [plano do Capítulo 4](planejamento-capitulo-4-prompts-parametros-e-respostas.md) (molde), [requisitos de formato](../../requisitos-de-formato-html-do-material.md) (§8 e §9), [protocolo de economia de tokens](../../protocolo-de-economia-de-tokens-entre-sessoes.md), handoff do capítulo 4 (`arquivo/handoff-capitulo-4-concluido-2026-11-14.md`, arquivado localmente fora do Git). Herda o método dos capítulos 2 a 4 (partes curtas, pacote de fontes, pausa após a primeira unidade).
 
 ## 1. Objetivo, escopo e aceite
 

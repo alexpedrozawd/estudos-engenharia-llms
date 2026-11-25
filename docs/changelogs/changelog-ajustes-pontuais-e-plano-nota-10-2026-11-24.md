@@ -1,6 +1,6 @@
 # Changelog: Ajustes pontuais nos laboratórios/docs e plano rumo à nota 10 — 24/11/2026
 
-Registra a auditoria/revisão crítica de mercado do guia (`7,2 / 10`), a correção dos defeitos pontuais comprovados nos laboratórios e na higiene documental, e o plano estruturado rumo à nota 10 em [plano-evolucao-mercado-e-nota-10-2026-11-24.md](plano-evolucao-mercado-e-nota-10-2026-11-24.md). O HTML e o PDF principais permaneceram inalterados.
+Registra a auditoria/revisão crítica de mercado do guia (`7,2 / 10`), a correção dos defeitos pontuais comprovados nos laboratórios e na higiene documental, e o plano estruturado rumo à nota 10 em [plano-evolucao-mercado-e-nota-10-2026-11-24.md](../historico/plano-evolucao-mercado-e-nota-10-2026-11-24.md). O HTML e o PDF principais permaneceram inalterados.
 
 ## Autoria
 
@@ -8,19 +8,19 @@ Registra a auditoria/revisão crítica de mercado do guia (`7,2 / 10`), a corre�
 
 ## O que mudou
 
-- **Correção de `logprob_medio` no Lab 01 ([tokens_e_amostragem.py](laboratorios/lab_01_fundamentos/tokens_e_amostragem.py)):**
+- **Correção de `logprob_medio` no Lab 01 ([tokens_e_amostragem.py](../../laboratorios/lab_01_fundamentos/tokens_e_amostragem.py)):**
   - `inspecionar_logprobs_remoto()` deixou de retornar `-0.12` fixo no modo HTTP e passou a calcular a média real a partir de `choices[0].logprobs.content` (retornando `None` quando ausente).
-  - Cobertura adicionada em [test_lab_01.py](laboratorios/lab_01_fundamentos/test_lab_01.py).
-- **Adaptadores HTTP reais opcionais ([cliente_llm.py](laboratorios/comum/cliente_llm.py)):**
+  - Cobertura adicionada em [test_lab_01.py](../../laboratorios/lab_01_fundamentos/test_lab_01.py).
+- **Adaptadores HTTP reais opcionais ([cliente_llm.py](../../laboratorios/comum/cliente_llm.py)):**
   - Adicionados `ClienteHTTPOpenAICompativel`, `ClienteHTTPAnthropic`, `ClienteHTTPGemini` (chave enviada apenas em `x-goog-api-key`), `ClienteHTTPOllama` e fábrica `criar_cliente_por_ambiente()`, mantendo 100% de retrocompatibilidade com `ClienteMockDeterministico`.
-  - Cobertura determinística sem rede via `opener` fake em [test_cliente_llm.py](laboratorios/comum/test_cliente_llm.py) e alinhamento de [laboratorios/README.md](laboratorios/README.md).
+  - Cobertura determinística sem rede via `opener` fake em [test_cliente_llm.py](../../laboratorios/comum/test_cliente_llm.py) e alinhamento de [laboratorios/README.md](../../laboratorios/README.md).
 - **Higiene documental (3 itens baixos):**
-  - Substituídos 6 links absolutos `file:///D:/...` por links relativos em [fabricas-de-agentes-e-o-papel-do-operador-de-llms.md](fabricas-de-agentes-e-o-papel-do-operador-de-llms.md).
-  - Removido link quebrado para arquivo movido a `arquivo/` em [planejamento-capitulo-5-avaliacao-e-experimentacao.md](planejamento-capitulo-5-avaliacao-e-experimentacao.md).
-  - Marcada como histórica a nota de preflight de 10/11/2026 em [CLAUDE.md](CLAUDE.md).
+  - Substituídos 6 links absolutos `file:///D:/...` por links relativos em [fabricas-de-agentes-e-o-papel-do-operador-de-llms.md](../historico/fabricas-de-agentes-e-o-papel-do-operador-de-llms.md).
+  - Removido link quebrado para arquivo movido a `arquivo/` em [planejamento-capitulo-5-avaliacao-e-experimentacao.md](../historico/planejamento-capitulo-5-avaliacao-e-experimentacao.md).
+  - Marcada como histórica a nota de preflight de 10/11/2026 em [CLAUDE.md](../../CLAUDE.md).
 - **Planejamento (somente plano, sem implementação):**
-  - Criado [plano-evolucao-mercado-e-nota-10-2026-11-24.md](plano-evolucao-mercado-e-nota-10-2026-11-24.md) com as Fases `5A` (lacunas 2026), `5B` (questões e estudos de caso), `5C` (diagramas SVG e decisão `18` vs. `73` aquarelas), `5D` (Camada 3 prática de mercado com 6 projetos reais) e `5E` (`L1`/`L2` humanos + `L8` + PDF definitivo).
-  - Atualizados [CLAUDE.md](CLAUDE.md), [README.md](README.md) e [roadmap.md](roadmap.md).
+  - Criado [plano-evolucao-mercado-e-nota-10-2026-11-24.md](../historico/plano-evolucao-mercado-e-nota-10-2026-11-24.md) com as Fases `5A` (lacunas 2026), `5B` (questões e estudos de caso), `5C` (diagramas SVG e decisão `18` vs. `73` aquarelas), `5D` (Camada 3 prática de mercado com 6 projetos reais) e `5E` (`L1`/`L2` humanos + `L8` + PDF definitivo).
+  - Atualizados [CLAUDE.md](../../CLAUDE.md), [README.md](../../README.md) e [roadmap.md](../../roadmap.md).
 
 ## Hashes (SHA-256, 16 primeiros dígitos)
 

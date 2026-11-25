@@ -1,7 +1,7 @@
 # Changelog — Fase 5E: aquarelas finais (`L8`), PDF definitivo e encerramento (24/11/2026)
 
 Data: 24/11/2026. Autoria: `claude - pessoal`.
-Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md) (Sessão 5 — Fase 5E) e [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`](plano-evolucao-mercado-e-nota-10-2026-11-24.md).
+Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](../historico/roteiro-central-evolucao-nota-10-por-sessao.md) (Sessão 5 — Fase 5E) e [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`](../historico/plano-evolucao-mercado-e-nota-10-2026-11-24.md).
 
 ## 1. Resultado
 
@@ -45,7 +45,7 @@ Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro
 - Cada `figure.imagem[data-imagem="cap-N"]` trocou a moldura por `<img src="data:image/jpeg;base64,…" alt="…" width="1056" height="704" decoding="async">`. O HTML continua um arquivo único, sem recurso externo.
 - **Por que JPEG embutido:** com WebP, o Chrome recodificava as imagens sem perda no PDF (`40,4 MB`); com JPEG (`q80`, `4:2:0`, progressivo; `2,45 MB` no total), o Chrome repassa o arquivo ao PDF (`18,8 MB`). Custo: HTML `6.156.758` bytes (antes `2.885.919`).
 - CSS: saem `.moldura` e `.moldura-texto` (tela e impressão); entra `figure.imagem img { display: block; width: 100%; height: auto; border-radius: 4px; }`. A largura de impressão (`92 mm`) e a proporção `3:2` foram mantidas, então a paginação não mudou (`664` páginas).
-- [`requisitos-de-formato-html-do-material.md`](requisitos-de-formato-html-do-material.md) §8 atualizado.
+- [`requisitos-de-formato-html-do-material.md`](../../requisitos-de-formato-html-do-material.md) §8 atualizado.
 - Originais PNG, WebP descartados, prompts e script de geração ficam em `arquivo/aquarelas-fase-5e/` (fora do Git); HTML e PDF anteriores em `arquivo/antes-fase-5e-aquarelas-2026-11-24/`.
 
 ## 4. Validações (HTML final, sha `bb004776a6cdc9cb`)

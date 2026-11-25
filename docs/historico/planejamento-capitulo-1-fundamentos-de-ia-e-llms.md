@@ -2,7 +2,7 @@
 
 Data: 13/10/2026 (revisão final com benchmarks). Autoria: claude (perfil `.claude-ap`; planejamento em Sonnet 5.5 High). Etapa: somente planejamento; nenhuma unidade foi redigida e o HTML não foi alterado.
 
-Base: [planejamento aprovado](planejamento-completo-estudos-engenharia-llms.md), [requisitos de formato](requisitos-de-formato-html-do-material.md), [contexto do Router](contexto-de-estudo-ap-ai-router.md), [contexto da Nanda Mac](contexto-de-estudo-nanda-mac.md) e handoff de 13/10/2026.
+Base: [planejamento aprovado](planejamento-completo-estudos-engenharia-llms.md), [requisitos de formato](../../requisitos-de-formato-html-do-material.md), [contexto do Router](../../contexto-de-estudo-ap-ai-router.md), [contexto da Nanda Mac](../../contexto-de-estudo-nanda-mac.md) e handoff de 13/10/2026.
 
 ## 1. Objetivo, escopo e aceite
 

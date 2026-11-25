@@ -57,3 +57,8 @@ jobs:
           --profile serving --profile rag --profile app --profile ollama
           --profile vllm --profile observabilidade --profile sandbox
           config -q
+
+      - name: Camada 3 — build e smoke do Containerfile
+        run: |
+          docker build -f laboratorios-mercado/Containerfile -t laboratorios-mercado:ci .
+          docker run --rm laboratorios-mercado:ci python -c "import llmops_api, integrador_app, eval_pipeline, extracao_multimodal; print('container ok')"

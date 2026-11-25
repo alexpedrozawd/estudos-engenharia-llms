@@ -1,6 +1,6 @@
 # Changelog: Fase 5B — Endurecimento pedagógico das 108 questões e 18 rubricas (24/11/2026)
 
-Registra a conclusão da **Sessão 2 (Fase 5B)** em [guia-engenharia-llms.html](guia-engenharia-llms.html), focada exclusivamente nas `18` seções de fechamento (`#questoes-capitulo-1` a `#questoes-capitulo-18`): endurecimento dos distratores das `108` questões de múltipla escolha (`91` modificadas, priorizando médias e difíceis e removendo caricaturas em fáceis) e inclusão de critérios quantitativos e bloqueios explícitos nas rubricas de todos os `18` estudos de caso. Conforme política definida para o ciclo, o PDF provisório ([guia-engenharia-llms.pdf](guia-engenharia-llms.pdf), `657` páginas) permaneceu inalterado nesta fase e será regerado ao final da **Fase 5C**.
+Registra a conclusão da **Sessão 2 (Fase 5B)** em [guia-engenharia-llms.html](../../guia-engenharia-llms.html), focada exclusivamente nas `18` seções de fechamento (`#questoes-capitulo-1` a `#questoes-capitulo-18`): endurecimento dos distratores das `108` questões de múltipla escolha (`91` modificadas, priorizando médias e difíceis e removendo caricaturas em fáceis) e inclusão de critérios quantitativos e bloqueios explícitos nas rubricas de todos os `18` estudos de caso. Conforme política definida para o ciclo, o PDF provisório ([guia-engenharia-llms.pdf](../../guia-engenharia-llms.pdf), `657` páginas) permaneceu inalterado nesta fase e será regerado ao final da **Fase 5C**.
 
 ## Autoria
 
@@ -20,7 +20,7 @@ Registra a conclusão da **Sessão 2 (Fase 5B)** em [guia-engenharia-llms.html](
   - **Caps. 14–15:** conta explícita em `2 × 24 GiB = 48 GiB` (`27B Q4_K_M ≈ 15,4 GiB` de pesos; `30 × 32K` em `f16` exigiria `150 GiB`, reduzido para janela ativa `8K` em `q8_0` = `18,75 GiB`, SLOs `TTFT p95 ≤ 1,5 s`, `TPOT p95 ≤ 50 ms/tok`, `goodput ≥ 95%` e `0%` de descarga para CPU); e conta de treino `13B` em `24 GB` (pesos `26 GB` + `~78 GB` gradientes/AdamW = `≥ 104 GB` inviáveis em ajuste completo vs. QLoRA 4 bits, só liberando treino se prompt + modo estrito não baixarem erro de layout de `30%` para `< 5%`).
   - **Caps. 16–18:** roteamento de `60–80%` simples ao local, erro `429 < 1%`, fallback `≥ 90%`, `0` trocas no meio da conversa, canário `5% → 25% → 100%` com rollback se erro subir `> 1–2 pp`, `PSI` (alerta `0,10–0,20`, bloqueio `≥ 0,20`), `MTTD < 1 h`, `MTTR < 30 min`, `CFR < 10%`, orçamento mensal e peso `~100×` da saída na latência.
 - **Documentação atualizada:**
-  - Atualizados [roteiro-central-evolucao-nota-10-por-sessao.md](roteiro-central-evolucao-nota-10-por-sessao.md), [plano-evolucao-mercado-e-nota-10-2026-11-24.md](plano-evolucao-mercado-e-nota-10-2026-11-24.md), [CLAUDE.md](CLAUDE.md), [README.md](README.md) e [roadmap.md](roadmap.md).
+  - Atualizados [roteiro-central-evolucao-nota-10-por-sessao.md](../historico/roteiro-central-evolucao-nota-10-por-sessao.md), [plano-evolucao-mercado-e-nota-10-2026-11-24.md](../historico/plano-evolucao-mercado-e-nota-10-2026-11-24.md), [CLAUDE.md](../../CLAUDE.md), [README.md](../../README.md) e [roadmap.md](../../roadmap.md).
 
 ## Hashes (SHA-256, 16 primeiros dígitos)
 

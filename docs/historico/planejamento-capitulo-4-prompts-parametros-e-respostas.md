@@ -2,7 +2,7 @@
 
 Data: 13/11/2026. Autoria: deepseek - conta não verificada (painel). Etapa: **somente planejamento**; nada redigido no guia, nenhuma fonte baixada. Depende de aprovação do operador antes do Bloco 1.
 
-Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md), [plano do Capítulo 3](planejamento-capitulo-3-problemas-e-especificacoes.md), [requisitos de formato](requisitos-de-formato-html-do-material.md) (§8, parte curta; §9, impressão e exemplos), [protocolo de economia de tokens](protocolo-de-economia-de-tokens-entre-sessoes.md). Herda o método de produção dos capítulos 2 e 3 e a divisão em partes curtas de 13/11/2026.
+Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md), [plano do Capítulo 3](planejamento-capitulo-3-problemas-e-especificacoes.md), [requisitos de formato](../../requisitos-de-formato-html-do-material.md) (§8, parte curta; §9, impressão e exemplos), [protocolo de economia de tokens](../../protocolo-de-economia-de-tokens-entre-sessoes.md). Herda o método de produção dos capítulos 2 e 3 e a divisão em partes curtas de 13/11/2026.
 
 ## 1. Objetivo, escopo e aceite
 

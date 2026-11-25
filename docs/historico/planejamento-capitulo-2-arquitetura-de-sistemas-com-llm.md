@@ -2,7 +2,7 @@
 
 Data: 15/10/2026. Autoria: claude - pessoal (Opus 5.5, effort High declarado pelo operador). Etapa: **somente planejamento**; nada redigido no guia, nenhuma fonte baixada.
 
-Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md), [plano do Capítulo 1](planejamento-capitulo-1-fundamentos-de-ia-e-llms.md), [requisitos de formato](requisitos-de-formato-html-do-material.md), [reestruturação](planejamento-reestruturacao-sem-programacao.md), contextos do [Router](contexto-de-estudo-ap-ai-router.md) e da [Nanda Mac](contexto-de-estudo-nanda-mac.md). Herda do Capítulo 1 o formato de unidade (sete itens mais "Fontes da unidade"), as questões, os qualificadores, a regra de linguagem sobre o modelo e os limites. O plano do Capítulo 2 antigo (arquivado) serve só de modelo de método.
+Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md), [plano do Capítulo 1](planejamento-capitulo-1-fundamentos-de-ia-e-llms.md), [requisitos de formato](../../requisitos-de-formato-html-do-material.md), [reestruturação](planejamento-reestruturacao-sem-programacao.md), contextos do [Router](../../contexto-de-estudo-ap-ai-router.md) e da [Nanda Mac](../../contexto-de-estudo-nanda-mac.md). Herda do Capítulo 1 o formato de unidade (sete itens mais "Fontes da unidade"), as questões, os qualificadores, a regra de linguagem sobre o modelo e os limites. O plano do Capítulo 2 antigo (arquivado) serve só de modelo de método.
 
 ## 1. Objetivo, escopo e aceite
 

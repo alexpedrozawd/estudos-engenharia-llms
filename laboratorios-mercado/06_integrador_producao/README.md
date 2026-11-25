@@ -1,13 +1,13 @@
 # 06 — Integrador de produção
 
-Assistente acadêmico ponta a ponta (`integrador_app.py`), reutilizando os projetos 02, 03 e 05 e o cliente neutro de `laboratorios/comum`:
+Assistente acadêmico ponta a ponta (`integrador_app.py`), reutilizando os projetos 02, 03 e 05 e `mercado_base/` (além do cliente neutro em `laboratorios/comum` para provedores de fronteira opcionais):
 
-1. **Guardrail de entrada:** bloqueia padrões de injeção de prompt antes de qualquer chamada ao LLM; mascara CPF, e-mail e telefone.
-2. **Roteamento:** dado pessoal → local; pergunta complexa com orçamento → fronteira; sem cliente de fronteira → local com motivo `fallback`.
-3. **Ferramenta MCP:** perguntas de prazo chamam `consultar_prazo` no servidor do projeto 03 (em processo, só leitura); o resultado entra como trecho citável.
-4. **RAG:** busca híbrida do projeto 02 (pgvector em produção).
-5. **Guardrail de saída:** sem citação válida → recusa segura; fidelidade lexical abaixo de 0,5 → `aprovado_com_alerta` para revisão amostral; PII mascarada.
-6. **Relatório** (`GET /v1/relatorio`): requisições por rota, bloqueios, alertas, fallbacks, latência p50/p95 total e por etapa, tokens e custo.
+1. **Segurança HTTP opcional:** autenticação via `X-API-Key` / `Authorization: Bearer` e *rate limiting* (`429 + Retry-After`) via `mercado_base.seguranca_http`.
+2. **Guardrail de entrada:** bloqueia padrões de injeção de prompt antes de qualquer chamada ao LLM; mascara CPF (com validação de dígitos verificadores), e-mail e telefone via `mercado_base.pii`.
+3. **Roteamento:** dado pessoal → local; pergunta complexa com orçamento → fronteira; sem cliente de fronteira → local com motivo `fallback`.
+4. **RAG com ACL e vigência:** busca híbrida do projeto 02 com `FiltroBusca(perfil=..., apenas_vigentes=...)` pré-filtrado em SQL no `pgvector`.
+5. **Laço agêntico MCP + *structured outputs*:** converte as ferramentas do servidor MCP (`consultar_prazo`, `calcular_media_ponderada`, `executar_python_isolado` com *elicitation*/falha fechada) para `tools` OpenAI via `mcp_tools_para_openai`, executa até `max_passos_agente` passos via `ClienteChatOpenAI` e consolida em `RespostaEstruturada` (`response_format` `json_schema` estrito + reparo automático via Pydantic), medindo `tokens_cache`.
+6. **Guardrail de saída e histórico limitado:** mascara CPF, e-mail e telefone que escaparem; exige citação `[Tn]` válida; registra histórico em `collections.deque(maxlen=...)` mantendo contadores cumulativos em `GET /v1/relatorio`.
 
 Preços: `Precos` vem com fronteira em valores **ilustrativos** (USD por milhão de tokens); configure `INTEGRADOR_PRECOS_JSON` com a tabela vigente do seu fornecedor. O custo local não inclui energia nem hardware.
 
@@ -25,6 +25,6 @@ LLM_LOCAL_BASE_URL=http://127.0.0.1:8081/v1 LLM_LOCAL_MODELO=modelo-local INTEGR
 
 Fronteira opcional: `FRONTEIRA_PROVEDOR=openai|anthropic|gemini` (+ `FRONTEIRA_MODELO` e a chave do provedor por variável de ambiente).
 
-Em 24/11/2026 (sem fronteira configurada): 6 cenários, 5 respondidos na rota local e 1 bloqueado na entrada; 1 CPF mascarado; 1 chamada MCP; 1 fallback cuja resposta veio sem citação e virou recusa segura; latência p50 1,7 s e p95 7,0 s (CPU). Rodadas repetidas variam: temperatura 0 em CPU com 2 slots paralelos não garante saída idêntica.
+Em 25/11/2026 (Fase 6, `qwen3:4b-instruct` com `--jinja` + `pgvector`): `8` cenários, `7` respondidos na rota local e `1` bloqueado na entrada; `0` bloqueios de saída; `5` chamadas nativas MCP via `tool_calls` (`consultar_prazo`, `calcular_media_ponderada` com média `6.7`, `executar_python_isolado` negado por padrão em falha fechada); `0` reparos de JSON; `13.555` tokens em cache de prefixo de `16.641` tokens de entrada; CPF e telefone mascarados.
 
 Limites: regras de roteamento e padrões de injeção são didáticos (listas fixas não bastam contra ataques adaptativos); combine com as defesas do Cap. 12 do guia (Segurança, Guardrails e IA Responsável).

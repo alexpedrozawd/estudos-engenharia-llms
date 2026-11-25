@@ -5,7 +5,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 
 ## 1. Objetivo, baseline e decisões aprovadas
 
-- **Meta:** elevar `guia-engenharia-llms.html` e a trilha prática de **7,2 / 10** (`8,5` conceitual; `5,0` hands-on de mercado; `5,5` visual e validação externa) rumo a **10 / 10** sem quebrar o formato TDAH (§8 de [`requisitos-de-formato-html-do-material.md`](requisitos-de-formato-html-do-material.md)), as validações determinísticas nem a trilha offline rápida em `laboratorios/`.
+- **Meta:** elevar `guia-engenharia-llms.html` e a trilha prática de **7,2 / 10** (`8,5` conceitual; `5,0` hands-on de mercado; `5,5` visual e validação externa) rumo a **10 / 10** sem quebrar o formato TDAH (§8 de [`requisitos-de-formato-html-do-material.md`](../../requisitos-de-formato-html-do-material.md)), as validações determinísticas nem a trilha offline rápida em `laboratorios/`.
 - **Baseline inicial (24/11/2026, antes da Fase 5A):** `377` seções, `445` questões, `26` blocos Python executáveis, `502` termos no Glossário, `73` molduras `data-imagem=`, `0` `<svg>`, `guia-engenharia-llms.pdf` com `657` páginas A4, `laboratorios/` com `84` testes offline.
 - **Decisões do operador aprovadas em 24/11/2026:**
   1. **Fase 5C (visual):** reduzir aquarelas artísticas de `73` para `18` (uma abertura por capítulo) combinadas com `18–24` diagramas técnicos `<svg>` inline acessíveis.
@@ -19,7 +19,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 - Não alterar a imagem base do sistema (Bazzite): usar `venv` dedicado e contêineres compatíveis com `Podman` e `Docker`.
 - Chave Gemini (quando usada em código de mercado) apenas no cabeçalho `x-goog-api-key`, nunca na URL.
 - Manter neutralidade multi-fornecedor (zero menções a sistemas ou empresas reais internas do autor; exemplos empresariais na fictícia Aurora Educação marcados como *proposta didática*).
-- Não usar `ferramentas/llm-local.py` no fluxo do projeto (ver §9 de [`protocolo-de-economia-de-tokens-entre-sessoes.md`](protocolo-de-economia-de-tokens-entre-sessoes.md)).
+- Não usar `ferramentas/llm-local.py` no fluxo do projeto (ver §9 de [`protocolo-de-economia-de-tokens-entre-sessoes.md`](../../protocolo-de-economia-de-tokens-entre-sessoes.md)).
 - Em cada abertura de sessão, revalidar `git status -sb`, branch `main` (`alexpedrozawd`), hashes e ferramentas reais antes de editar.
 
 ---
@@ -52,7 +52,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
     8. `17.4d`: Observabilidade operacional (`Prometheus`, `Grafana`) e `CI/CD` de avaliações.
   - Atualizar rótulos `parte X de N`, mover `Fontes da unidade`, atualizar `#sumario`, `#glossario` (sem `<dfn>` duplicados), `#referencias` e renumerar páginas lógicas (`377 → 385`).
 - **Aceite:** `fontes.py conferir/vigencia` (`0` falhas), `guia.py fechar` (`0` falhas), `auditar-guia-navegador.mjs` (`0` estouros em `320 px`, `453/453` questões, `0` violações `axe-core`), equilíbrio `A/B/C/D` com `LONGEST_TRUE = 0`, `testar-fontes.py`, `testar-livros.py` e `executar_labs.py` OK.
-- **Resultado em 24/11/2026:** ✅ **Concluída** (`385` partes, `453` questões `113/113/114/113`, `528` termos no Glossário, `guia-engenharia-llms.html` sha `0f1dfaea62cd3fa2`, `34/34` trechos conferidos, `0` violações no navegador; ver [`changelog-fase-5a-lacunas-2026-2026-11-24.md`](changelog-fase-5a-lacunas-2026-2026-11-24.md)).
+- **Resultado em 24/11/2026:** ✅ **Concluída** (`385` partes, `453` questões `113/113/114/113`, `528` termos no Glossário, `guia-engenharia-llms.html` sha `0f1dfaea62cd3fa2`, `34/34` trechos conferidos, `0` violações no navegador; ver [`changelog-fase-5a-lacunas-2026-2026-11-24.md`](../changelogs/changelog-fase-5a-lacunas-2026-2026-11-24.md)).
 - **Fechamento da sessão:** changelog + docs + commit/push em `main` + `/handoff` para Sessão 2.
 
 ### Sessão 2 — Fase 5B: Endurecimento pedagógico (questões e estudos de caso)
@@ -61,7 +61,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
   - Endurecer critérios quantitativos nas rubricas dos `18` estudos de caso (contas de VRAM/`KV cache`, intervalos de Wilson, latência `p95`, orçamento mensal e critérios de bloqueio).
 - **Invariantes:** distribuição equilibrada `A/B/C/D`, `LONGEST_TRUE = 0`, `BAD_EXP = 0` (`Correta.` / `Incorreta.` em toda alternativa).
 - **Aceite:** `validar-guia.py` (`16 OK, 0 FALHA`), `guia.py fechar` (`0` falhas), `auditar-guia-navegador.mjs` (`453+` questões clicáveis sem falhas) e auditoria Python de equilíbrio/comprimento sem violações.
-- **Resultado em 24/11/2026:** ✅ **Concluída** (`91/108` questões de fechamento endurecidas mantendo `113/113/114/113`, `LONGEST_TRUE = 0`, `BAD_EXP = 0`, `SHORTEST_TRUE = 0`; `18/18` rubricas com critérios quantitativos e bloqueios; `guia-engenharia-llms.html` sha `81ff0e778f2ba073`; `guia.py fechar` e `auditar-guia-navegador.mjs` com `0` falhas; PDF `53129052eebf7800` mantido até a Fase 5C; ver [`changelog-fase-5b-questoes-e-rubricas-2026-11-24.md`](changelog-fase-5b-questoes-e-rubricas-2026-11-24.md)).
+- **Resultado em 24/11/2026:** ✅ **Concluída** (`91/108` questões de fechamento endurecidas mantendo `113/113/114/113`, `LONGEST_TRUE = 0`, `BAD_EXP = 0`, `SHORTEST_TRUE = 0`; `18/18` rubricas com critérios quantitativos e bloqueios; `guia-engenharia-llms.html` sha `81ff0e778f2ba073`; `guia.py fechar` e `auditar-guia-navegador.mjs` com `0` falhas; PDF `53129052eebf7800` mantido até a Fase 5C; ver [`changelog-fase-5b-questoes-e-rubricas-2026-11-24.md`](../changelogs/changelog-fase-5b-questoes-e-rubricas-2026-11-24.md)).
 - **Fechamento da sessão:** changelog + docs + commit/push em `main` + `/handoff` para Sessão 3.
 
 ### Sessão 3 — Fase 5C: Diagramas técnicos SVG e redução de aquarelas (`73 → 18`)
@@ -71,7 +71,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
   - Atualizar `requisitos-de-formato-html-do-material.md` (§8 e §9) e `ferramentas/validar-guia.py` (validação de `<svg>` acessíveis) + `ferramentas/testar-ferramentas.py`.
   - Regerar o PDF provisório via `guia.py pdf --substituir --motivo fase-5c-diagramas-svg` e inspecionar amostras renderizadas em HTML e PDF.
 - **Aceite:** `guia.py fechar` (`0` falhas), `testar-ferramentas.py` OK, `auditar-guia-navegador.mjs` (`0` estouros `320 px` e `0` violações `axe-core`) e inspeção visual aprovada.
-- **Resultado em 24/11/2026:** ✅ **Concluída** (`22` diagramas `<svg>` inline acessíveis com `0` sobreposições/overflows em `320 px` e `1280 px`; molduras reduzidas de `73` para `18` aberturas `cap-1`..`cap-18`; `requisitos-de-formato-html-do-material.md` §8–§9, `validar-guia.py` `18 OK`, `guia.py` e `testar-ferramentas.py` `19 tests OK` sem `--rapido`; `guia-engenharia-llms.html` sha `45e11a0cd880451a`; PDF provisório regerado com `664` páginas A4 sha `482a150cb91f3efc`, anterior em `arquivo/antes-fase-5c-diagramas-svg-2026-11-24/`; `auditar-guia-navegador.mjs` com `46 passes`, `0` violações `axe-core` e `453/453` questões OK; ver [`changelog-fase-5c-diagramas-svg-e-molduras-2026-11-24.md`](changelog-fase-5c-diagramas-svg-e-molduras-2026-11-24.md)).
+- **Resultado em 24/11/2026:** ✅ **Concluída** (`22` diagramas `<svg>` inline acessíveis com `0` sobreposições/overflows em `320 px` e `1280 px`; molduras reduzidas de `73` para `18` aberturas `cap-1`..`cap-18`; `requisitos-de-formato-html-do-material.md` §8–§9, `validar-guia.py` `18 OK`, `guia.py` e `testar-ferramentas.py` `19 tests OK` sem `--rapido`; `guia-engenharia-llms.html` sha `45e11a0cd880451a`; PDF provisório regerado com `664` páginas A4 sha `482a150cb91f3efc`, anterior em `arquivo/antes-fase-5c-diagramas-svg-2026-11-24/`; `auditar-guia-navegador.mjs` com `46 passes`, `0` violações `axe-core` e `453/453` questões OK; ver [`changelog-fase-5c-diagramas-svg-e-molduras-2026-11-24.md`](../changelogs/changelog-fase-5c-diagramas-svg-e-molduras-2026-11-24.md)).
 - **Fechamento da sessão:** changelog + docs + commit/push em `main` + `/handoff` para Sessão 4.
 
 ### Sessão 4 — Fase 5D: Camada 3 prática de mercado (`laboratorios-mercado/`) e CI
@@ -85,7 +85,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
     6. `06_integrador_producao`: assistente ponta a ponta integrando API `FastAPI`, RAG `pgvector`, MCP isolado, roteamento local/fronteira, guardrails e relatório de custo/latência.
   - Criar workflow em `.github/workflows/` para executar automaticamente as suítes offline (`executar_labs.py`, smoke-tests de `laboratorios-mercado/`, `validar-guia.py` e testes de ferramentas).
 - **Aceite:** smoke-tests offline determinísticos passando sem `ResourceWarning`, `podman compose config` válido, execução real de ao menos 1 projeto ponta a ponta contra Ollama/serviço local registrada em log/changelog e CI offline validado.
-- **Resultado em 24/11/2026:** ✅ **Concluída** (`laboratorios-mercado/` com 6 projetos, `pyproject.toml`, `compose.yaml` [9 serviços, 7 perfis; `podman compose config -q` OK] e `Containerfile`; `56` smoke-tests offline OK sem `ResourceWarning`; execução real dos 6 projetos registrada em `laboratorios-mercado/execucoes/` [llama.cpp em container + `pgvector`; QLoRA `treinar` não executado por falta de GPU CUDA]; `.github/workflows/testes-offline.yml`; `laboratorios/` intacta [84 testes OK]; HTML e PDF inalterados; ver [`changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md`](changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md)).
+- **Resultado em 24/11/2026:** ✅ **Concluída** (`laboratorios-mercado/` com 6 projetos, `pyproject.toml`, `compose.yaml` [9 serviços, 7 perfis; `podman compose config -q` OK] e `Containerfile`; `56` smoke-tests offline OK sem `ResourceWarning`; execução real dos 6 projetos registrada em `laboratorios-mercado/execucoes/` [llama.cpp em container + `pgvector`; QLoRA `treinar` não executado por falta de GPU CUDA]; `.github/workflows/testes-offline.yml`; `laboratorios/` intacta [84 testes OK]; HTML e PDF inalterados; ver [`changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md`](../changelogs/changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md)).
 - **Fechamento da sessão:** changelog + docs + commit/push em `main` + `/handoff` para Sessão 5.
 
 ### Sessão 5 — Fase 5E: Validação externa (`L1`/`L2`), arte final (`L8`) e PDF definitivo
@@ -95,7 +95,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
   3. **Arte final e PDF definitivo (`L8`):** gerar as `18` aquarelas aprovadas (uma por abertura de capítulo, 1056×704, fantasia medieval sem texto), inserir no HTML e regerar o PDF final via `python3 -I ferramentas/guia.py pdf --substituir --motivo fechamento-nota-10`.
 - **Dependência externa:** itens 1 e 2 dependem de participantes humanos externos; caso ocorram em paralelo antes da geração final, registrar evidências nominais no changelog antes do fechamento.
 - **Fechamento final:** suítes completas (`executar_labs.py`, `laboratorios-mercado/`, `guia.py fechar`, `testar-ferramentas.py`, `testar-fontes.py`, `testar-livros.py`, `auditar-guia-navegador.mjs`), consolidação documental e commit/push final em `main`.
-- **Resultado em 24/11/2026:** `L8` ✅ (`18` aquarelas geradas localmente com Qwen-Image 2.1 no `stable-diffusion.cpp`, inspecionadas e embutidas em JPEG; HTML sha `bb004776a6cdc9cb`); PDF definitivo ✅ (`664` páginas A4, sha `81d2fffd7394a880`); `L1` e `L2` **bloqueados** (operador sem revisores nem estudantes; nada simulado); todas as suítes aprovadas. Ver [`changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md`](changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md).
+- **Resultado em 24/11/2026:** `L8` ✅ (`18` aquarelas geradas localmente com Qwen-Image 2.1 no `stable-diffusion.cpp`, inspecionadas e embutidas em JPEG; HTML sha `bb004776a6cdc9cb`); PDF definitivo ✅ (`664` páginas A4, sha `81d2fffd7394a880`); `L1` e `L2` **bloqueados** (operador sem revisores nem estudantes; nada simulado); todas as suítes aprovadas. Ver [`changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md`](../changelogs/changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md).
 
 ---
 

@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime
 import json
 import os
 import sys
@@ -19,10 +20,17 @@ import httpx  # noqa: E402
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--url", default="http://127.0.0.1:8000")
+    ap.add_argument("--api-key", default=os.environ.get("AURORA_API_KEY", ""))
+    ap.add_argument("--jaeger-url", default="")
     ap.add_argument("--registrar", action="store_true")
     args = ap.parse_args(argv)
     out = {}
-    with httpx.Client(base_url=args.url, timeout=180.0) as c:
+    headers = {"X-API-Key": args.api_key} if args.api_key else {}
+    with httpx.Client(base_url=args.url, timeout=180.0, headers=headers) as c:
+        if args.api_key:
+            sem_chave = httpx.post(f"{args.url}/v1/respostas", json={"prompt": "oi"}, timeout=10.0)
+            out["auth_sem_chave_status"] = sem_chave.status_code
+
         t0 = time.perf_counter()
         r = c.post("/v1/respostas", json={"prompt": "Em uma frase: o que é rematrícula?", "max_tokens": 60,
                                           "id_requisicao": "real-completa-1"})
@@ -55,6 +63,44 @@ def main(argv=None) -> int:
         time.sleep(2.0)  # tempo para o servidor notar a desconexão
         out["cancelamento"] = {"deltas_antes_de_desistir": recebidos}
         out["metricas"] = c.get("/v1/metricas").json()
+        prom = c.get("/metrics")
+        out["prometheus"] = {
+            "status": prom.status_code,
+            "amostras": [l for l in prom.text.splitlines() if l and not l.startswith("#")][:8],
+        }
+    if args.jaeger_url:
+        time.sleep(5.5)  # BatchSpanProcessor exporta periodicamente em lotes
+        base_j = args.jaeger_url.rstrip("/")
+        agora = datetime.datetime.now(datetime.timezone.utc)
+        t_ini = (agora - datetime.timedelta(minutes=15)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        t_fim = (agora + datetime.timedelta(minutes=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        jr = httpx.get(
+            f"{base_j}/api/v3/traces",
+            params={
+                "query.service_name": "aurora-api-llmops",
+                "query.start_time_min": t_ini,
+                "query.start_time_max": t_fim,
+                "query.search_depth": 10,
+            },
+            timeout=15.0,
+        )
+        if jr.status_code == 200:
+            res_spans = (jr.json().get("result") or {}).get("resourceSpans") or []
+            spans_total = sum(
+                len(ss.get("spans") or [])
+                for rs_item in res_spans
+                for ss in (rs_item.get("scopeSpans") or [])
+            )
+            out["jaeger"] = {"status": 200, "api": "v3", "resource_spans": len(res_spans), "spans": spans_total}
+        else:
+            jr1 = httpx.get(f"{base_j}/api/traces", params={"service": "aurora-api-llmops", "limit": 10}, timeout=15.0)
+            traces = (jr1.json().get("data") or []) if jr1.status_code == 200 else []
+            out["jaeger"] = {
+                "status": jr1.status_code,
+                "api": "v1",
+                "traces": len(traces),
+                "spans": sum(len(t.get("spans") or []) for t in traces),
+            }
     print(json.dumps(out, ensure_ascii=False, indent=2))
     if args.registrar:
         print("registro:", mb.registrar_execucao("p05-api-llmops", out))

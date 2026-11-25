@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "laboratorios-mercado"
 version = "0.1.0"
-description = "Camada 3 do Guia para Engenharia de LLMs: seis projetos práticos com serviços reais (serving, RAG com pgvector, MCP, QLoRA, API LLMOps e integrador)."
+description = "Camada 3 do Guia para Engenharia de LLMs: sete projetos práticos com serviços reais (serving, RAG com pgvector e ACL, MCP, QLoRA, API LLMOps, integrador e evals/multimodal)."
 readme = "README.md"
 requires-python = ">=3.11"
 # Dependências mínimas para os smoke-tests offline e para as execuções reais com containers.

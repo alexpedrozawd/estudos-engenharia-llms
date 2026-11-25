@@ -1,0 +1,82 @@
+{
+  "auth_sem_chave_status": 401,
+  "cancelamento": {
+    "deltas_antes_de_desistir": 3
+  },
+  "carimbo": "2026-11-25T00-07-46-0300",
+  "completa": {
+    "avaliacao": {
+      "aprovada": true,
+      "falhas": []
+    },
+    "id_requisicao": "real-completa-1",
+    "ms": 3630.5,
+    "status": 200,
+    "tentativas": 1,
+    "texto": "Rematrícula é o ato de reativar ou registrar novamente um aluno em uma instituição de ensino, geralmente para que ele possa continuar seu curso com as devidas matrículas e obrigações acadêmicas.",
+    "tokens_cache": 19,
+    "tokens_saida": 53
+  },
+  "execucao": "p05-api-llmops",
+  "jaeger": {
+    "api": "v3",
+    "resource_spans": 6,
+    "spans": 6,
+    "status": 200
+  },
+  "metricas": {
+    "avaliacao_continua": {
+      "alerta": false,
+      "aprovadas": 2,
+      "avaliadas": 2,
+      "falhas": {
+        "longa_demais": 0,
+        "pii": 0,
+        "vazia": 0
+      },
+      "taxa_aprovacao": 1.0
+    },
+    "contadores": {
+      "cancelados": 1,
+      "falhas": 0,
+      "latencia_ms_contagem": 2,
+      "latencia_ms_soma": 9244.17,
+      "rejeitados_auth": 1,
+      "rejeitados_disjuntor": 0,
+      "rejeitados_rate_limit": 0,
+      "retries": 0,
+      "sucessos": 2,
+      "tokens_cache": 19,
+      "tokens_entrada": 20,
+      "tokens_saida": 53
+    },
+    "disjuntor": "fechado"
+  },
+  "prometheus": {
+    "amostras": [
+      "aurora_requisicoes_total{resultado=\"sucesso\"} 2",
+      "aurora_requisicoes_total{resultado=\"falha\"} 0",
+      "aurora_requisicoes_total{resultado=\"cancelado\"} 1",
+      "aurora_requisicoes_total{resultado=\"rejeitado_disjuntor\"} 0",
+      "aurora_requisicoes_total{resultado=\"rejeitado_auth\"} 1",
+      "aurora_requisicoes_total{resultado=\"rejeitado_rate_limit\"} 0",
+      "aurora_retries_total 0",
+      "aurora_disjuntor_estado{estado=\"fechado\"} 1"
+    ],
+    "status": 200
+  },
+  "stream": {
+    "deltas": 80,
+    "final": {
+      "avaliacao": {
+        "aprovada": true,
+        "falhas": []
+      },
+      "caracteres": 324,
+      "evento": "fim",
+      "id_requisicao": "real-stream-1"
+    },
+    "total_ms": 5618.2,
+    "ttft_ms_cliente": 199.0
+  }
+}

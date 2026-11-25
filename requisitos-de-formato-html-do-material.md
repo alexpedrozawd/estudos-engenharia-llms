@@ -4,7 +4,7 @@ Data: 13/10/2026. Autoria: codex - ap.
 
 ## 1. Finalidade e decisões confirmadas
 
-Registro das decisões do operador para a produção do material. Complementa o [planejamento aprovado](planejamento-completo-estudos-engenharia-llms.md) e os contextos do [Router](contexto-de-estudo-ap-ai-router.md) e da [Nanda Mac](contexto-de-estudo-nanda-mac.md). Em 13/10/2026, o operador autorizou iniciar a estrutura do livro e as páginas prontas para leitura, começando pela capa. Laboratórios permanecem sujeitos a escopo próprio.
+Registro das decisões do operador para a produção do material. Complementa o [planejamento aprovado](docs/historico/planejamento-completo-estudos-engenharia-llms.md) e os contextos do [Router](contexto-de-estudo-ap-ai-router.md) e da [Nanda Mac](contexto-de-estudo-nanda-mac.md). Em 13/10/2026, o operador autorizou iniciar a estrutura do livro e as páginas prontas para leitura, começando pela capa. Laboratórios permanecem sujeitos a escopo próprio.
 
 - Material completo em **HTML**, produzido por etapas na sequência dos 15 módulos acordados, distribuídos em três blocos.
 - Aparência minimalista de livro/Kindle: fundo que lembre papel, texto preto, leitura confortável e uma hierarquia clara de blocos, módulos, capítulos/unidades, títulos e subtítulos.

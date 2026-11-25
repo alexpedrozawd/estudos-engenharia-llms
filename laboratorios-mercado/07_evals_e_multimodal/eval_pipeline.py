@@ -1,0 +1,241 @@
+"""Pipeline de evals automatizados (Projeto 07): A vs B, juiz com inversão, Cohen's kappa e bootstrap pareado."""
+from __future__ import annotations
+
+import json
+import os
+import random
+import sys
+from typing import Dict, List, Literal, Sequence
+
+from pydantic import BaseModel, Field
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from mercado_base.cliente_openai import gerar_estruturado  # noqa: E402
+
+PROMPT_A = "Responda de forma breve à pergunta com base no contexto."
+PROMPT_B = (
+    "Você é o assistente da Aurora Educação (proposta didática). Responda com exatidão "
+    "usando somente o contexto fornecido, cite explicitamente o rótulo [T1] quando usar uma "
+    "informação e, se não houver apoio no contexto, responda exatamente: "
+    "Não encontrei essa informação nos documentos."
+)
+
+
+class VereditoJuiz(BaseModel):
+    vencedor: Literal["A", "B", "empate"]
+    nota_a: int = Field(ge=1, le=5)
+    nota_b: int = Field(ge=1, le=5)
+    justificativa: str = Field(min_length=1, max_length=400)
+
+
+SISTEMA_JUIZ = (
+    "Você é um avaliador técnico rigoroso de respostas RAG. Compare a Resposta 1 e a Resposta 2 "
+    "frente à pergunta e à resposta de referência. Penalize alucinações, omissões e falta de citação [T1] "
+    "quando a referência citar. Responda estritamente no esquema JSON."
+)
+
+
+def carregar_casos(caminho: str | None = None) -> Dict[str, object]:
+    alvo = caminho or os.path.join(os.path.dirname(os.path.abspath(__file__)), "dados", "casos_eval.json")
+    with open(alvo, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _inverter_rotulo(r: str) -> str:
+    if r == "A":
+        return "B"
+    if r == "B":
+        return "A"
+    return "empate"
+
+
+def julgar_com_inversao(
+    cliente_juiz,
+    pergunta: str,
+    referencia: str,
+    resp_a: str,
+    resp_b: str,
+) -> Dict[str, object]:
+    """Julga (A, B) e (B, A) para neutralizar viés de posição; discordância consolida em empate."""
+
+    def _chamar(primeiro: str, segundo: str):
+        msgs = [
+            {"role": "system", "content": SISTEMA_JUIZ},
+            {
+                "role": "user",
+                "content": (
+                    f"Pergunta: {pergunta}\n"
+                    f"Referência esperada: {referencia}\n\n"
+                    f"Resposta A:\n{primeiro}\n\n"
+                    f"Resposta B:\n{segundo}\n\n"
+                    "Atribua nota_a (1-5), nota_b (1-5), vencedor ('A', 'B' ou 'empate') e justificativa."
+                ),
+            },
+        ]
+        return gerar_estruturado(cliente_juiz, msgs, VereditoJuiz, max_reparos=2, max_tokens=256)
+
+    v1, meta1 = _chamar(resp_a, resp_b)
+    v2, meta2 = _chamar(resp_b, resp_a)
+    v2_mapeado = _inverter_rotulo(v2.vencedor)
+    vies_posicao = v1.vencedor != v2_mapeado
+    vencedor = "empate" if vies_posicao else v1.vencedor
+    nota_a = round((v1.nota_a + v2.nota_b) / 2.0, 3)
+    nota_b = round((v1.nota_b + v2.nota_a) / 2.0, 3)
+    return {
+        "vencedor": vencedor,
+        "vencedor_direto": v1.vencedor,
+        "vencedor_invertido_mapeado": v2_mapeado,
+        "vies_posicao": vies_posicao,
+        "nota_a": nota_a,
+        "nota_b": nota_b,
+        "justificativa": v1.justificativa,
+        "reparos": int(meta1["reparos"]) + int(meta2["reparos"]),
+        "tokens_entrada": int(meta1["tokens_entrada"]) + int(meta2["tokens_entrada"]),
+        "tokens_saida": int(meta1["tokens_saida"]) + int(meta2["tokens_saida"]),
+    }
+
+
+def cohen_kappa(rotulos_a: Sequence[str], rotulos_b: Sequence[str]) -> float:
+    """Calcula o coeficiente kappa de Cohen entre dois avaliadores categóricos."""
+    if len(rotulos_a) != len(rotulos_b) or not rotulos_a:
+        raise ValueError("as listas de rótulos devem ter o mesmo tamanho (> 0)")
+    n = len(rotulos_a)
+    categorias = sorted(set(rotulos_a) | set(rotulos_b))
+    po = sum(1 for a, b in zip(rotulos_a, rotulos_b) if a == b) / n
+    pe = sum((rotulos_a.count(c) / n) * (rotulos_b.count(c) / n) for c in categorias)
+    if abs(1.0 - pe) < 1e-12:
+        return 1.0 if abs(po - 1.0) < 1e-12 else 0.0
+    return round((po - pe) / (1.0 - pe), 4)
+
+
+def bootstrap_pareado(
+    escores_a: Sequence[float],
+    escores_b: Sequence[float],
+    *,
+    n_amostras: int = 2000,
+    alpha: float = 0.05,
+    seed: int = 42,
+) -> Dict[str, object]:
+    """Testa ganho pareado (B - A) via bootstrap com intervalo de confiança bilateral."""
+    if len(escores_a) != len(escores_b) or not escores_a:
+        raise ValueError("escores_a e escores_b devem ter o mesmo tamanho (> 0)")
+    if n_amostras < 10:
+        raise ValueError("n_amostras deve ser >= 10")
+    n = len(escores_a)
+    diffs_obs = [float(b) - float(a) for a, b in zip(escores_a, escores_b)]
+    rng = random.Random(seed)
+    medias_boot: List[float] = []
+    nao_positivos = 0
+    for _ in range(n_amostras):
+        soma = 0.0
+        for _i in range(n):
+            soma += diffs_obs[rng.randrange(n)]
+        media_b = soma / n
+        medias_boot.append(media_b)
+        if media_b <= 0.0:
+            nao_positivos += 1
+    medias_boot.sort()
+    idx_inf = max(0, min(n_amostras - 1, int((alpha / 2.0) * n_amostras)))
+    idx_sup = max(0, min(n_amostras - 1, int((1.0 - alpha / 2.0) * n_amostras) - 1))
+    ic_inf = round(medias_boot[idx_inf], 4)
+    ic_sup = round(medias_boot[idx_sup], 4)
+    return {
+        "n": n,
+        "n_amostras": n_amostras,
+        "media_a": round(sum(escores_a) / n, 4),
+        "media_b": round(sum(escores_b) / n, 4),
+        "diferenca_media": round(sum(diffs_obs) / n, 4),
+        "ic_inferior": ic_inf,
+        "ic_superior": ic_sup,
+        "p_valor_unilateral": round(nao_positivos / n_amostras, 4),
+        "significativo": ic_inf > 0.0,
+    }
+
+
+def _gerar_resposta(cliente, prompt_sistema: str, contexto: str, pergunta: str) -> str:
+    usuario = f"Contexto:\n{contexto}\n\nPergunta: {pergunta}"
+    if hasattr(cliente, "completar_chat"):
+        r = cliente.completar_chat(
+            [{"role": "system", "content": prompt_sistema}, {"role": "user", "content": usuario}],
+            temperatura=0.0,
+            max_tokens=180,
+        )
+        return r.conteudo.strip()
+    return cliente.completar(usuario, sistema=prompt_sistema, temperatura=0.0, max_tokens=180).texto.strip()
+
+
+def avaliar_prompts(
+    dados: Dict[str, object],
+    cliente_gerador,
+    cliente_juiz,
+    *,
+    limiar_kappa: float = 0.60,
+    n_bootstrap: int = 2000,
+    seed: int = 42,
+) -> Dict[str, object]:
+    """Calibra o juiz (Cohen's kappa), gera A vs B, julga com inversão e decide promoção por bootstrap."""
+    pares_cal = dados["pares_calibracao"]
+    rotulos_humanos: List[str] = []
+    rotulos_juiz: List[str] = []
+    vieses_cal = 0
+    for par in pares_cal:
+        j = julgar_com_inversao(
+            cliente_juiz,
+            str(par["pergunta"]),
+            str(par["referencia"]),
+            str(par["resposta_a"]),
+            str(par["resposta_b"]),
+        )
+        rotulos_humanos.append(str(par["julgamento_humano"]))
+        rotulos_juiz.append(str(j["vencedor"]))
+        vieses_cal += int(bool(j["vies_posicao"]))
+
+    kappa = cohen_kappa(rotulos_humanos, rotulos_juiz)
+    juiz_calibrado = kappa >= limiar_kappa
+
+    casos = dados["casos_avaliacao"]
+    resultados_casos: List[Dict[str, object]] = []
+    notas_a: List[float] = []
+    notas_b: List[float] = []
+    placar = {"A": 0, "B": 0, "empate": 0}
+    vieses_eval = 0
+
+    for caso in casos:
+        resp_a = _gerar_resposta(cliente_gerador, PROMPT_A, str(caso["contexto"]), str(caso["pergunta"]))
+        resp_b = _gerar_resposta(cliente_gerador, PROMPT_B, str(caso["contexto"]), str(caso["pergunta"]))
+        julg = julgar_com_inversao(
+            cliente_juiz,
+            str(caso["pergunta"]),
+            str(caso["referencia"]),
+            resp_a,
+            resp_b,
+        )
+        notas_a.append(float(julg["nota_a"]))
+        notas_b.append(float(julg["nota_b"]))
+        placar[str(julg["vencedor"])] += 1
+        vieses_eval += int(bool(julg["vies_posicao"]))
+        resultados_casos.append({
+            "id": caso["id"],
+            "resposta_a": resp_a,
+            "resposta_b": resp_b,
+            **julg,
+        })
+
+    boot = bootstrap_pareado(notas_a, notas_b, n_amostras=n_bootstrap, seed=seed)
+    return {
+        "calibracao": {
+            "pares": len(pares_cal),
+            "kappa": kappa,
+            "limiar_kappa": limiar_kappa,
+            "juiz_calibrado": juiz_calibrado,
+            "vieses_posicao": vieses_cal,
+        },
+        "avaliacao": {
+            "casos": len(casos),
+            "placar": placar,
+            "vieses_posicao": vieses_eval,
+            "bootstrap": boot,
+        },
+        "promover_b": bool(juiz_calibrado and boot["significativo"]),
+        "casos": resultados_casos,
+    }

@@ -1,7 +1,7 @@
 """Confere se cada trecho literal do pacote de fontes existe no texto da fonte.
 
 Uso (Python com -I, só biblioteca padrão):
-    python -I conferir-trechos.py --pacote pacotes-de-fontes-capitulo-1.md --textos <pasta-textos> --projeto <pasta-do-projeto>
+    python -I conferir-trechos.py --pacote ../docs/fontes/pacotes-de-fontes-capitulo-1.md --textos <pasta-textos> --projeto <pasta-do-projeto>
 
 Fontes: <pasta-textos>/<chave>.txt (PDF e páginas extraídas) ou <pasta-projeto>/<chave>.md (contextos de estudo).
 Linhas de tabela do pacote: ID | Unidade | Tipo | Fonte | Local | Edição/data | Qualificador | Trecho.

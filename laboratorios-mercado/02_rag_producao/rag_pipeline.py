@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Sequence
 
 from rag_ingestao import Trecho
-from rag_store import termos
+from rag_store import FiltroBusca, termos
 
 
 def fusao_rrf(listas: Sequence[Sequence[tuple]], k: int = 60) -> List[tuple]:
@@ -78,12 +78,29 @@ class Recuperacao:
     candidatos_lexicais: List[str] = field(default_factory=list)
 
 
+def _chamar_busca(fn, arg, k: int, filtro: Optional[FiltroBusca]):
+    if filtro is None:
+        return fn(arg, k)
+    return fn(arg, k, filtro=filtro)
+
+
 def recuperar(pergunta: str, armazem, embedder, *, k: int = 4, k_candidatos: int = 12,
-              reordenador=None) -> Recuperacao:
-    vetor = embedder.embutir([pergunta])[0]
-    vet = armazem.buscar_vetorial(vetor, k_candidatos)
-    lex = armazem.buscar_lexical(pergunta, k_candidatos)
-    fundidos = fusao_rrf([vet, lex])
+              reordenador=None, modo: str = "hibrida", filtro: Optional[FiltroBusca] = None) -> Recuperacao:
+    if modo not in ("vetorial", "lexical", "hibrida"):
+        raise ValueError(f"modo de recuperação inválido: {modo}")
+    vet: List[tuple] = []
+    lex: List[tuple] = []
+    if modo in ("vetorial", "hibrida"):
+        vetor = embedder.embutir([pergunta])[0]
+        vet = _chamar_busca(armazem.buscar_vetorial, vetor, k_candidatos, filtro)
+    if modo in ("lexical", "hibrida"):
+        lex = _chamar_busca(armazem.buscar_lexical, pergunta, k_candidatos, filtro)
+    if modo == "vetorial":
+        fundidos = list(vet)
+    elif modo == "lexical":
+        fundidos = list(lex)
+    else:
+        fundidos = fusao_rrf([vet, lex])
     if reordenador is not None:
         fundidos = reordenador.reordenar(pergunta, fundidos)
     return Recuperacao(pergunta, [t for t, _ in fundidos[:k]],
@@ -180,11 +197,27 @@ def resolver_relevantes(trechos: Sequence[Trecho], criterios: Sequence[Dict[str,
     return sorted(set(ids))
 
 
+def _filtro_da_consulta(c: Dict[str, object], padrao: Optional[FiltroBusca]) -> Optional[FiltroBusca]:
+    bruto = c.get("filtro")
+    if not isinstance(bruto, dict):
+        return padrao
+    return FiltroBusca(
+        perfil=bruto.get("perfil"),
+        departamento=bruto.get("departamento"),
+        apenas_vigentes=bruto.get("apenas_vigentes"),
+        versao=bruto.get("versao"),
+        tipo=bruto.get("tipo"),
+    )
+
+
 def avaliar_recuperacao(consultas: Sequence[Dict[str, object]], armazem, embedder, *, k: int = 4,
-                        reordenador=None) -> Dict[str, object]:
+                        reordenador=None, modo: str = "hibrida",
+                        filtro_padrao: Optional[FiltroBusca] = None) -> Dict[str, object]:
     por_consulta = []
     for c in consultas:
-        rec = recuperar(str(c["pergunta"]), armazem, embedder, k=k, reordenador=reordenador)
+        filtro = _filtro_da_consulta(c, filtro_padrao)
+        rec = recuperar(str(c["pergunta"]), armazem, embedder, k=k, reordenador=reordenador,
+                        modo=modo, filtro=filtro)
         ids = [t.id for t in rec.trechos]
         rel = list(c["relevantes"])
         por_consulta.append({
@@ -194,9 +227,34 @@ def avaliar_recuperacao(consultas: Sequence[Dict[str, object]], armazem, embedde
     n = max(len(por_consulta), 1)
     return {
         "k": k,
+        "modo": modo,
         "reordenador": getattr(reordenador, "nome", "nenhum"),
         "recall_medio": round(sum(p["recall"] for p in por_consulta) / n, 4),
         "mrr_medio": round(sum(p["mrr"] for p in por_consulta) / n, 4),
         "ndcg_medio": round(sum(p["ndcg"] for p in por_consulta) / n, 4),
         "por_consulta": por_consulta,
     }
+
+
+def auditar_acl(consultas_acl: Sequence[Dict[str, object]], armazem, embedder, *, k: int = 4,
+                perfil_nao_autorizado: str = "aluno") -> Dict[str, object]:
+    """Verifica que perfil sem permissão recebe zero trechos de documentos restritos."""
+    detalhes = []
+    vazamentos = 0
+    filtro = FiltroBusca(perfil=perfil_nao_autorizado, apenas_vigentes=True)
+    for c in consultas_acl:
+        rec = recuperar(str(c["pergunta"]), armazem, embedder, k=k, modo="hibrida", filtro=filtro)
+        restritos = set(c.get("docs_restritos") or ())
+        vazados = [
+            t.id
+            for t in rec.trechos
+            if perfil_nao_autorizado not in t.perfis or (restritos and t.doc in restritos)
+        ]
+        vazamentos += len(vazados)
+        detalhes.append({
+            "id": c["id"],
+            "perfil_testado": perfil_nao_autorizado,
+            "trechos_retornados": [t.id for t in rec.trechos],
+            "vazados": vazados,
+        })
+    return {"consultas": len(consultas_acl), "vazamentos": vazamentos, "detalhes": detalhes}

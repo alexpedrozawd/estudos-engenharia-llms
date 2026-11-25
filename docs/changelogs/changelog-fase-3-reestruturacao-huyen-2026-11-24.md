@@ -1,6 +1,6 @@
 # Changelog: Fase 3 da reestruturação (18 capítulos, Chip Huyen e programação em duas camadas) — 23 e 24/11/2026
 
-Fecha a Fase 3 de [planejamento-reestruturado-2026-11-23.md](planejamento-reestruturado-2026-11-23.md). As Fases 2 e 3 rodaram sem commit intermediário, por decisão registrada no handoff; este é o primeiro registro versionado delas.
+Fecha a Fase 3 de [planejamento-reestruturado-2026-11-23.md](../historico/planejamento-reestruturado-2026-11-23.md). As Fases 2 e 3 rodaram sem commit intermediário, por decisão registrada no handoff; este é o primeiro registro versionado delas.
 
 ## Autoria
 

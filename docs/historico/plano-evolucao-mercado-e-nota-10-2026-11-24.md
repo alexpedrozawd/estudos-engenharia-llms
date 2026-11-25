@@ -55,7 +55,7 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A–5E` concluídas, com
   2. Banco vetorial padrão do projeto 02: `pgvector` (PostgreSQL, recomendado pela adoção corporativa) ou `Qdrant`.
   3. Incluir workflow `.github/workflows/` para CI automático dos testes offline.
 - **Resultado verificável:** suíte própria de smoke-tests offline passando sem `ResourceWarning`, `compose config` válido em `podman`/`docker` e execução real de ao menos um projeto ponta a ponta contra Ollama/API local registrada em log/changelog.
-- **Resultado:** ✅ **Concluída em 24/11/2026:** `56` smoke-tests OK, `podman compose config -q` OK (Docker no CI), 6 projetos executados contra llama.cpp em container e `pgvector` (QLoRA `treinar` pendente de GPU CUDA), workflow `testes-offline.yml` ([`changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md`](changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md)).
+- **Resultado:** ✅ **Concluída em 24/11/2026:** `56` smoke-tests OK, `podman compose config -q` OK (Docker no CI), 6 projetos executados contra llama.cpp em container e `pgvector` (QLoRA `treinar` pendente de GPU CUDA), workflow `testes-offline.yml` ([`changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md`](../changelogs/changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md)).
 
 ### Fase 5E — Validação externa (`L1` humano + `L2` piloto real) e fechamento definitivo (`L8` + PDF final)
 - **O que fazer:**
@@ -63,7 +63,7 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A–5E` concluídas, com
   2. **Piloto de aprendizagem (`L2`):** aplicar leitura cronometrada + questões + estudo de caso + 1 projeto prático a 2–3 estudantes do público-alvo, ajustando pontos de trava.
   3. **Arte final e PDF definitivo (`L8`):** gerar as aquarelas aprovadas (`18` ou `73`), inserir no HTML e regerar o PDF via `python3 -I ferramentas/guia.py pdf --substituir --motivo fechamento-nota-10`.
 - **Dependência externa:** etapas 1 e 2 dependem de participantes humanos externos (sem isso, a nota permanece limitada pela ausência de validação fora da bolha de IA).
-- **Resultado:** ✅ **`L8` e PDF definitivo concluídos em 24/11/2026** (`18` aquarelas locais com Qwen-Image 2.1, PDF `664` páginas sha `81d2fffd7394a880`); `L1` e `L2` **bloqueados** (operador sem revisores nem estudantes). Ver [`changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md`](changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md).
+- **Resultado:** ✅ **`L8` e PDF definitivo concluídos em 24/11/2026** (`18` aquarelas locais com Qwen-Image 2.1, PDF `664` páginas sha `81d2fffd7394a880`); `L1` e `L2` **bloqueados** (operador sem revisores nem estudantes). Ver [`changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md`](../changelogs/changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md).
 
 ### Fase Final — Encerramento da entrega
 - Em cada fase executada (ou ao concluir o bloco), consolidar `README.md`, `roadmap.md`, `CLAUDE.md` e `changelog-*.md`, executar todas as suítes (`executar_labs.py`, `guia.py fechar`, `testar-ferramentas.py`, `testar-fontes.py`, `testar-livros.py`, `auditar-guia-navegador.mjs` e suíte da Camada 3), conferir estado Git (`alexpedrozawd`, branch `main`) e fazer commit/push apenas no fechamento da entrega (nunca por subetapa).

@@ -2,7 +2,7 @@
 
 Data: 13/11/2026. Autoria: deepseek - conta não verificada (painel). Etapa: **somente planejamento**; nada redigido no guia, nenhuma fonte baixada. Aprovado pelo operador em 13/11/2026 para começar; o primeiro passo é este plano, não a redação.
 
-Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md), [plano do Capítulo 2](planejamento-capitulo-2-arquitetura-de-sistemas-com-llm.md), [requisitos de formato](requisitos-de-formato-html-do-material.md) (§8, parte curta; §9, impressão e exemplos), [protocolo de economia de tokens](protocolo-de-economia-de-tokens-entre-sessoes.md). Herda do Capítulo 2 o método de produção; herda do formato de 13/11/2026 a divisão em partes curtas.
+Base: [plano mestre](planejamento-completo-estudos-engenharia-llms.md), [plano do Capítulo 2](planejamento-capitulo-2-arquitetura-de-sistemas-com-llm.md), [requisitos de formato](../../requisitos-de-formato-html-do-material.md) (§8, parte curta; §9, impressão e exemplos), [protocolo de economia de tokens](../../protocolo-de-economia-de-tokens-entre-sessoes.md). Herda do Capítulo 2 o método de produção; herda do formato de 13/11/2026 a divisão em partes curtas.
 
 ## 1. Objetivo, escopo e aceite
 

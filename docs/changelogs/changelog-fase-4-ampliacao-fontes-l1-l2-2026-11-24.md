@@ -1,6 +1,6 @@
 # Changelog: Ampliação dos Caps. 6 e 15, reconferência de fontes web, L1 (agentes) e roteiro L2 em telas — 24/11/2026
 
-Fecha as pendências herdadas da Fase 3 e avança os entregáveis preparatórios da Fase 4 em [roadmap.md](roadmap.md) e [planejamento-reestruturado-2026-11-23.md](planejamento-reestruturado-2026-11-23.md), seguindo as decisões do operador desta sessão.
+Fecha as pendências herdadas da Fase 3 e avança os entregáveis preparatórios da Fase 4 em [roadmap.md](../../roadmap.md) e [planejamento-reestruturado-2026-11-23.md](../historico/planejamento-reestruturado-2026-11-23.md), seguindo as decisões do operador desta sessão.
 
 ## Autoria
 
@@ -18,7 +18,7 @@ Fecha as pendências herdadas da Fase 3 e avança os entregáveis preparatórios
   - **Estado atual do guia:** `377` páginas lógicas (`337` partes de conteúdo), `219.231` palavras em partes, `445` questões (`111/111/112/111`, nenhuma com a correta estritamente mais longa), `149` tabelas com `.rolagem`, `501` termos no Glossário, `476` `<dfn>`, `26` blocos Python executáveis (`21` ilustrativos), `276` links web únicos e `73` molduras `data-imagem=`.
 - **Revisão técnica `L1` (via 3 subagentes de pesquisa somente leitura + aplicação direta):**
   - Revisados os novos conteúdos dos Caps. 6 e 15, as atualizações do Cap. 9, `#sumario`, `#glossario` e `#referencias`. Corrigidos links de navegação `page-nav` em `6.2a`–`6.5a` e `15.2a`, remissão `5.6` → `5.3c` em `6.4a`/`6.4c`, explicações breves na 1ª ocorrência de termos técnicos, alinhamento do texto de `alignment tax` (`15.1b`), ajuste `quatro` → `três` hiperparâmetros em `15.6a`, limpeza de referências órfãs (`Google Cloud` em `15.0` e `Ollama FAQ` em `15.6c`), atualização de `LLMOps (15.0)` → `(17.0)` e `5` inversões alfabéticas no Glossário.
-- **Roteiro de piloto e validação em telas (`L2`, [roteiro-piloto-e-validacao-em-telas-2026-11-24.md](roteiro-piloto-e-validacao-em-telas-2026-11-24.md)):**
+- **Roteiro de piloto e validação em telas (`L2`, [roteiro-piloto-e-validacao-em-telas-2026-11-24.md](../historico/roteiro-piloto-e-validacao-em-telas-2026-11-24.md)):**
   - Documento pronto para execução manual com 3–5 leitores, smartphone (Galaxy S24), tablet, notebook (Acer Nitro 5), televisor 55" 4K e leitor de tela. Validação em papel A4 explicitamente excluída conforme decisão do operador.
 - **PDF provisório (`guia-engenharia-llms.pdf`):**
   - Regerado com `654` páginas A4 (`15.745.034` bytes, sha256 `76ba915a7e6723aa`). Cópia anterior (`628` páginas) preservada em `arquivo/antes-fase-4-ampliacao-e-l1-2026-11-24/`.
@@ -33,7 +33,7 @@ Fecha as pendências herdadas da Fase 3 e avança os entregáveis preparatórios
 
 ## Pendente para encerramento da Fase 4
 
-- Execução manual do piloto e testes em telas + leitor de tela (`L2`, [roteiro-piloto-e-validacao-em-telas-2026-11-24.md](roteiro-piloto-e-validacao-em-telas-2026-11-24.md)).
+- Execução manual do piloto e testes em telas + leitor de tela (`L2`, [roteiro-piloto-e-validacao-em-telas-2026-11-24.md](../historico/roteiro-piloto-e-validacao-em-telas-2026-11-24.md)).
 - Geração das `73` imagens em aquarela (`L8`, passo final) e emissão do PDF definitivo após as imagens.
 
 Assinatura: agy - ap (24/11/2026).

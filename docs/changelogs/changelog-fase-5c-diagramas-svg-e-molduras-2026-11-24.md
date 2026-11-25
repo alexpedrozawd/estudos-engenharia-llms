@@ -1,15 +1,15 @@
 # Changelog — Fase 5C: Diagramas técnicos SVG, redução de molduras (73 → 18) e PDF provisório (24/11/2026)
 
 Data: 24/11/2026. Autoria: `agy - ap`.
-Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md) (Sessão 3 — Fase 5C) e [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`](plano-evolucao-mercado-e-nota-10-2026-11-24.md).
+Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](../historico/roteiro-central-evolucao-nota-10-por-sessao.md) (Sessão 3 — Fase 5C) e [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`](../historico/plano-evolucao-mercado-e-nota-10-2026-11-24.md).
 
 ## 1. Resumo das alterações
 
 1. **Redução das molduras `data-imagem=` (`73 → 18`):**
-   - Removidas todas as `73` molduras tracejadas que ficavam espalhadas dentro das unidades em [`guia-engenharia-llms.html`](guia-engenharia-llms.html) (nenhum parágrafo referenciava as molduras antigas).
+   - Removidas todas as `73` molduras tracejadas que ficavam espalhadas dentro das unidades em [`guia-engenharia-llms.html`](../../guia-engenharia-llms.html) (nenhum parágrafo referenciava as molduras antigas).
    - Inseridas exatamente **18 molduras** (`data-imagem="cap-1"` .. `"cap-18"`) na abertura de cada capítulo (`#capitulo-1` .. `#capitulo-18`, logo após `<h2>`), preservando a descrição (`aria-label`) de fantasia medieval sem texto (com ajuste no Cap. 7 trocando menção a código numérico por selo metálico entalhado). A geração das 18 aquarelas finais permanece na Fase 5E (`L8`).
 2. **22 diagramas técnicos `<svg>` inline acessíveis (`figure.diagrama`):**
-   - Adicionado CSS responsivo (`width: 100%; height: auto; max-width: 100%`) e regras de impressão A4 (`break-inside: avoid`, fundo `#fff`, `max-width: 168mm`, `svg { max-height: 115mm }`) em [`guia-engenharia-llms.html`](guia-engenharia-llms.html).
+   - Adicionado CSS responsivo (`width: 100%; height: auto; max-width: 100%`) e regras de impressão A4 (`break-inside: avoid`, fundo `#fff`, `max-width: 168mm`, `svg { max-height: 115mm }`) em [`guia-engenharia-llms.html`](../../guia-engenharia-llms.html).
    - Inseridos `22` diagramas `<svg>` inline sem fontes, `<script>` ou URLs externas (exceto `xmlns`), com `role="img"`, `viewBox`, `<title id="...">`, `<desc id="...">`, `aria-labelledby`, `aria-describedby`, IDs únicos (`svg-<slug>-*`) e `<figcaption>`:
      - Cap. 1: `1-4a-prefill-decode` (`#unidade-1-4a`), `1-5c-transformer-qk` (`#unidade-1-5c`)
      - Cap. 2: `2-1d-arquitetura-5-camadas` (`#unidade-2-1d`), `2-6b-fila-disjuntor` (`#unidade-2-6b`)
@@ -29,13 +29,13 @@ Plano de referência: [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro
      - Cap. 17: `17-6a-pipeline-llmops-canario` (`#unidade-17-6a`)
      - Cap. 18: `18-5a-cache-prefixo` (`#unidade-18-5a`)
 3. **Documentação de formato e validadores:**
-   - Atualizados §8 e §9 de [`requisitos-de-formato-html-do-material.md`](requisitos-de-formato-html-do-material.md).
-   - Atualizado [`ferramentas/validar-guia.py`](ferramentas/validar-guia.py) com 2 novas verificações (`diagramas SVG acessíveis e sem dependências externas` e `molduras ou imagens com texto alternativo válido`, totalizando 18 checagens) e checagem de `<image>`/`<use>` externos.
-   - Atualizado [`ferramentas/guia.py`](ferramentas/guia.py) para ignorar `<svg>` na contagem de palavras de prosa e expor `diagramas_svg` e `molduras_imagem` em `contar` e `fechar`.
-   - Atualizado [`ferramentas/testar-ferramentas.py`](ferramentas/testar-ferramentas.py) com conferência Golden de `diagramas_svg`/`molduras_imagem` e 4 testes de mutação para `<svg>` (`role="img"`, `<desc>`, `viewBox`, `<script>`).
+   - Atualizados §8 e §9 de [`requisitos-de-formato-html-do-material.md`](../../requisitos-de-formato-html-do-material.md).
+   - Atualizado [`ferramentas/validar-guia.py`](../../ferramentas/validar-guia.py) com 2 novas verificações (`diagramas SVG acessíveis e sem dependências externas` e `molduras ou imagens com texto alternativo válido`, totalizando 18 checagens) e checagem de `<image>`/`<use>` externos.
+   - Atualizado [`ferramentas/guia.py`](../../ferramentas/guia.py) para ignorar `<svg>` na contagem de palavras de prosa e expor `diagramas_svg` e `molduras_imagem` em `contar` e `fechar`.
+   - Atualizado [`ferramentas/testar-ferramentas.py`](../../ferramentas/testar-ferramentas.py) com conferência Golden de `diagramas_svg`/`molduras_imagem` e 4 testes de mutação para `<svg>` (`role="img"`, `<desc>`, `viewBox`, `<script>`).
 4. **PDF provisório regerado:**
    - Backup automático do PDF anterior (`657` páginas, sha `53129052eebf7800`) gravado em `arquivo/antes-fase-5c-diagramas-svg-2026-11-24/guia-engenharia-llms.pdf` (fora do Git).
-   - Novo PDF provisório [`guia-engenharia-llms.pdf`](guia-engenharia-llms.pdf) gerado com `664` páginas A4 (sha `482a150cb91f3efc`).
+   - Novo PDF provisório [`guia-engenharia-llms.pdf`](../../guia-engenharia-llms.pdf) gerado com `664` páginas A4 (sha `482a150cb91f3efc`).
 
 ## 2. Estado e validações executadas após a última edição
 

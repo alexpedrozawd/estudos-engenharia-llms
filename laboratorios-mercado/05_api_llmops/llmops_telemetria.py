@@ -10,16 +10,17 @@ Phoenix ou Langfuse com OTLP/HTTP), `memoria` (testes) ou `nenhum`.
 from __future__ import annotations
 
 import hashlib
-import re
+import os
+import sys
 from typing import Dict, Optional, Tuple
 
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter, SimpleSpanProcessor
-from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from mercado_base.pii import RE_CPF, RE_EMAIL, RE_TELEFONE, detectar_pii  # noqa: E402,F401
 
-RE_CPF = re.compile(r"\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b")
-RE_EMAIL = re.compile(r"\b[\w.+-]+@[\w-]+\.[\w.-]+\b")
+from opentelemetry.sdk.resources import Resource  # noqa: E402
+from opentelemetry.sdk.trace import TracerProvider  # noqa: E402
+from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter, SimpleSpanProcessor  # noqa: E402
+from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter  # noqa: E402
 
 
 def configurar_telemetria(modo: str = "console", servico: str = "aurora-api-llmops") -> Tuple[TracerProvider, Optional[InMemorySpanExporter]]:
@@ -71,7 +72,7 @@ class AvaliadorContinuo:
             return None
         checagens = {
             "vazia": not resposta.strip(),
-            "pii": bool(RE_CPF.search(resposta) or RE_EMAIL.search(resposta)),
+            "pii": bool(detectar_pii(resposta)),
             "longa_demais": len(resposta) > self.limite,
         }
         self.avaliadas += 1

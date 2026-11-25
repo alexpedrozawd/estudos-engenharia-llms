@@ -1,6 +1,6 @@
 # Changelog: Fase 5A — Fechamento das lacunas conceituais de 2026 (24/11/2026)
 
-Registra a criação do roteiro central por sessão ([roteiro-central-evolucao-nota-10-por-sessao.md](roteiro-central-evolucao-nota-10-por-sessao.md)), do pacote de fontes verificadas ([pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md](pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md)) e a inserção cirúrgica de **8 partes curtas** em [guia-engenharia-llms.html](guia-engenharia-llms.html) cobrindo as 5 lacunas de mercado 2025–2026. Conforme política definida para o ciclo, o PDF provisório ([guia-engenharia-llms.pdf](guia-engenharia-llms.pdf), `657` páginas) permaneceu inalterado nesta fase e será regerado ao final da **Fase 5C**.
+Registra a criação do roteiro central por sessão ([roteiro-central-evolucao-nota-10-por-sessao.md](../historico/roteiro-central-evolucao-nota-10-por-sessao.md)), do pacote de fontes verificadas ([pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md](../fontes/pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md)) e a inserção cirúrgica de **8 partes curtas** em [guia-engenharia-llms.html](../../guia-engenharia-llms.html) cobrindo as 5 lacunas de mercado 2025–2026. Conforme política definida para o ciclo, o PDF provisório ([guia-engenharia-llms.pdf](../../guia-engenharia-llms.pdf), `657` páginas) permaneceu inalterado nesta fase e será regerado ao final da **Fase 5C**.
 
 ## Autoria
 
@@ -9,11 +9,11 @@ Registra a criação do roteiro central por sessão ([roteiro-central-evolucao-n
 ## O que mudou
 
 - **Roteiro central e registro das decisões do operador:**
-  - Criado [roteiro-central-evolucao-nota-10-por-sessao.md](roteiro-central-evolucao-nota-10-por-sessao.md) organizando a cadência de 1 fase aprofundada + 1 handoff limpo por sessão (`5A`–`5E`).
-  - Registradas em [plano-evolucao-mercado-e-nota-10-2026-11-24.md](plano-evolucao-mercado-e-nota-10-2026-11-24.md) as 4 decisões aprovadas pelo operador: `18` aquarelas na abertura dos capítulos combinadas com diagramas SVG (`5C`); trilha prática em `laboratorios-mercado/` na raiz (`5D`); `pgvector` sobre PostgreSQL como banco vetorial padrão do projeto 02 (`5D`); e inclusão de `.github/workflows/` para CI offline (`5D`).
-- **Pacote de fontes da Fase 5A ([pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md](pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md)):**
+  - Criado [roteiro-central-evolucao-nota-10-por-sessao.md](../historico/roteiro-central-evolucao-nota-10-por-sessao.md) organizando a cadência de 1 fase aprofundada + 1 handoff limpo por sessão (`5A`–`5E`).
+  - Registradas em [plano-evolucao-mercado-e-nota-10-2026-11-24.md](../historico/plano-evolucao-mercado-e-nota-10-2026-11-24.md) as 4 decisões aprovadas pelo operador: `18` aquarelas na abertura dos capítulos combinadas com diagramas SVG (`5C`); trilha prática em `laboratorios-mercado/` na raiz (`5D`); `pgvector` sobre PostgreSQL como banco vetorial padrão do projeto 02 (`5D`); e inclusão de `.github/workflows/` para CI offline (`5D`).
+- **Pacote de fontes da Fase 5A ([pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md](../fontes/pacote-de-fontes-fase-5a-lacunas-2026-2026-11-24.md)):**
   - `27` chaves únicas baixadas em `cache-fontes/` (`223` chaves únicas no manifesto global, `205` atuais em cache, `0` vencidas, `0` hash divergente) e `34` trechos literais (`F5A-01`–`F5A-34`) aprovados em `conferir-trechos.py`.
-- **8 novas partes curtas em [guia-engenharia-llms.html](guia-engenharia-llms.html) (formato TDAH §8, 1 questão cada):**
+- **8 novas partes curtas em [guia-engenharia-llms.html](../../guia-engenharia-llms.html) (formato TDAH §8, 1 questão cada):**
   - `2.6f` — Backend assíncrono (`FastAPI`, `asyncio`, pool `httpx.AsyncClient`) e empacotamento em contêineres OCI (`Podman`/`Docker`). Gabarito `A`.
   - `4.5e` — Decodificação restrita (`XGrammar`, `Outlines`, `GBNF`) e interação com blocos de raciocínio/delimitadores. Gabarito `B`.
   - `7.4e` — Multimodalidade prática com VLMs e recuperação visual de documentos (`ColPali`, blocos de `28×28` pixels e controle de detalhe). Gabarito `C`.
@@ -24,7 +24,7 @@ Registra a criação do roteiro central por sessão ([roteiro-central-evolucao-n
   - `17.4d` — Métricas operacionais (`Prometheus`/`Grafana`) e portões automatizados de avaliação em `CI/CD` (`GitHub Actions`). Gabarito `D`.
 - **Atualizações coordenadas no HTML e nos documentos:**
   - Atualizados rótulos `parte X de N`, migrados e preservados integralmente os blocos `Fontes da unidade` das 8 unidades, encadeados os `page-nav` e renumeradas as páginas (`377 → 385`).
-  - Atualizados `#sumario`, `#glossario` (`502 → 528` termos, `476 → 502` `<dfn>` únicos, zero repetições), `#referencias`, [CLAUDE.md](CLAUDE.md), [README.md](README.md) e [roadmap.md](roadmap.md).
+  - Atualizados `#sumario`, `#glossario` (`502 → 528` termos, `476 → 502` `<dfn>` únicos, zero repetições), `#referencias`, [CLAUDE.md](../../CLAUDE.md), [README.md](../../README.md) e [roadmap.md](../../roadmap.md).
 
 ## Hashes (SHA-256, 16 primeiros dígitos)
 

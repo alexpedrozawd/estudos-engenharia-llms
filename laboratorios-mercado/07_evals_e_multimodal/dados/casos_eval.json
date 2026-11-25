@@ -1,0 +1,198 @@
+{
+  "pares_calibracao": [
+    {
+      "id": "cal-01",
+      "pergunta": "Qual a taxa do histórico escolar na Aurora Educação?",
+      "referencia": "A taxa do histórico escolar é R$ 25,00, com prazo de 5 dias úteis [T1].",
+      "resposta_a": "A taxa é 25 reais.",
+      "resposta_b": "A taxa do histórico escolar é de R$ 25,00 e o prazo é de 5 dias úteis [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-02",
+      "pergunta": "Até quando posso fazer a rematrícula?",
+      "referencia": "Até o décimo dia útil do início das aulas pelo portal do aluno [T1].",
+      "resposta_a": "A rematrícula deve ser feita pelo portal do aluno até o décimo dia útil do início das aulas [T1].",
+      "resposta_b": "Depende do semestre, consulte a secretaria.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-03",
+      "pergunta": "Qual o valor da mensalidade de Medicina?",
+      "referencia": "Não encontrei essa informação nos documentos.",
+      "resposta_a": "A mensalidade custa cerca de R$ 8.500,00.",
+      "resposta_b": "Não encontrei essa informação nos documentos.",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-04",
+      "pergunta": "Quanto custa a segunda via do diploma?",
+      "referencia": "R$ 120,00 com prazo de 30 dias úteis [T1].",
+      "resposta_a": "A segunda via do diploma custa R$ 120,00 e leva 30 dias úteis [T1].",
+      "resposta_b": "A segunda via do diploma tem taxa de R$ 120,00 e prazo de 30 dias úteis [T1].",
+      "julgamento_humano": "empate"
+    },
+    {
+      "id": "cal-05",
+      "pergunta": "Qual a nota mínima e frequência para aprovação?",
+      "referencia": "Média final igual ou maior que 6,0 e frequência mínima de 75% [T1].",
+      "resposta_a": "Nota 6,0.",
+      "resposta_b": "Para aprovação é necessária média final >= 6,0 e frequência mínima de 75% [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-06",
+      "pergunta": "Posso acumular bolsa mérito e monitoria?",
+      "referencia": "Não são acumuláveis entre si; prevalece o maior percentual [T1].",
+      "resposta_a": "Não, bolsas institucionais não são acumuláveis entre si; prevalece o maior percentual [T1].",
+      "resposta_b": "Sim, você soma 30% + 25%.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-07",
+      "pergunta": "Qual a multa por atraso na biblioteca?",
+      "referencia": "R$ 2,50 por dia de atraso [T1].",
+      "resposta_a": "A multa por atraso na devolução de livros é R$ 2,50 por dia [T1].",
+      "resposta_b": "Cobra-se R$ 2,50 diários pelo atraso na biblioteca [T1].",
+      "julgamento_humano": "empate"
+    },
+    {
+      "id": "cal-08",
+      "pergunta": "Em quantos dias corrigem dados pessoais?",
+      "referencia": "Em até 15 dias [T1].",
+      "resposta_a": "Em até 30 dias úteis.",
+      "resposta_b": "Pedidos de correção de dados são atendidos em até 15 dias [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-09",
+      "pergunta": "Qual a frequência mínima no estágio supervisionado?",
+      "referencia": "85 por cento da carga horária [T1].",
+      "resposta_a": "A frequência mínima obrigatória no estágio supervisionado é de 85% da carga horária [T1].",
+      "resposta_b": "A frequência mínima é 75%.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-10",
+      "pergunta": "Qual o prazo da declaração de matrícula?",
+      "referencia": "2 dias úteis e taxa R$ 0,00 [T1].",
+      "resposta_a": "O prazo é de 2 dias úteis e não há taxa (R$ 0,00) [T1].",
+      "resposta_b": "2 dias.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-11",
+      "pergunta": "Qual a senha do Wi-Fi dos docentes?",
+      "referencia": "Não encontrei essa informação nos documentos.",
+      "resposta_a": "Tente usar aurora2026.",
+      "resposta_b": "Não encontrei essa informação nos documentos.",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-12",
+      "pergunta": "Por quantos semestres vale o trancamento?",
+      "referencia": "Por no máximo dois semestres consecutivos [T1].",
+      "resposta_a": "O trancamento vale por no máximo dois semestres consecutivos [T1].",
+      "resposta_b": "Vale por até dois semestres seguidos [T1].",
+      "julgamento_humano": "empate"
+    }
+  ],
+  "casos_avaliacao": [
+    {
+      "id": "ev-01",
+      "contexto": "[T1] (tabela-de-servicos) Histórico escolar: prazo de 5 dias úteis, taxa de R$ 25,00. Segunda via do diploma: prazo de 30 dias úteis, taxa de R$ 120,00.",
+      "pergunta": "Quanto custa e qual o prazo do histórico escolar?",
+      "referencia": "O histórico escolar custa R$ 25,00 e tem prazo de 5 dias úteis [T1]."
+    },
+    {
+      "id": "ev-02",
+      "contexto": "[T1] (regulamento-academico) A rematrícula deve ser feita pelo portal do aluno até o décimo dia útil do início das aulas. Quem perde o prazo entra em lista de espera.",
+      "pergunta": "Qual o prazo de rematrícula e o que ocorre se perder?",
+      "referencia": "Até o décimo dia útil do início das aulas pelo portal do aluno; quem perde entra em lista de espera [T1]."
+    },
+    {
+      "id": "ev-03",
+      "contexto": "[T1] (regulamento-academico) É aprovado quem obtém média final igual ou maior que 6,0 e frequência mínima de 75 por cento das aulas.",
+      "pergunta": "Quais os critérios mínimos de aprovação direta?",
+      "referencia": "Média final igual ou maior que 6,0 e frequência mínima de 75% das aulas [T1]."
+    },
+    {
+      "id": "ev-04",
+      "contexto": "[T1] (regulamento-academico) O trancamento de matrícula pode ser pedido até a metade do semestre letivo e vale por no máximo dois semestres consecutivos.",
+      "pergunta": "Quando posso pedir trancamento e quanto tempo dura?",
+      "referencia": "Até a metade do semestre letivo, valendo por no máximo dois semestres consecutivos [T1]."
+    },
+    {
+      "id": "ev-05",
+      "contexto": "[T1] (tabela-bolsas-e-descontos) Bolsa mérito: 30% (média >= 8,5). Iniciação científica: 40%. Bolsas institucionais não são acumuláveis entre si; prevalece o maior percentual.",
+      "pergunta": "Posso acumular bolsa mérito e iniciação científica?",
+      "referencia": "Não, bolsas institucionais não são acumuláveis; prevalece o maior percentual (40%) [T1]."
+    },
+    {
+      "id": "ev-06",
+      "contexto": "[T1] (manual-biblioteca) O prazo de empréstimo é de 10 dias corridos. A multa por atraso é de R$ 2,50 por dia.",
+      "pergunta": "Qual o prazo de empréstimo de livros e a multa diária?",
+      "referencia": "Prazo de 10 dias corridos e multa de R$ 2,50 por dia de atraso [T1]."
+    },
+    {
+      "id": "ev-07",
+      "contexto": "[T1] (manual-estagio-e-tcc) A frequência mínima no estágio supervisionado é de 85%. A média da banca de TCC exige nota 7,0.",
+      "pergunta": "Qual a frequência mínima no estágio e a nota mínima da banca de TCC?",
+      "referencia": "Frequência mínima de 85% no estágio e nota mínima 7,0 na banca de TCC [T1]."
+    },
+    {
+      "id": "ev-08",
+      "contexto": "[T1] (politica-de-privacidade-academica) Pedidos de correção de dados são atendidos em até 15 dias. Notas e frequência só são exibidas ao aluno e aos docentes da disciplina.",
+      "pergunta": "Quem pode ver notas e em quanto tempo corrigem dados pessoais?",
+      "referencia": "Apenas o próprio aluno e os docentes da disciplina veem notas; correções são atendidas em até 15 dias [T1]."
+    },
+    {
+      "id": "ev-09",
+      "contexto": "[T1] (calendario-academico-2026) Segundo semestre: início em 03/08/2026, limite de rematrícula em 14/08/2026, colação de grau em 19/12/2026.",
+      "pergunta": "Quando é a colação de grau do segundo semestre de 2026?",
+      "referencia": "Em 19/12/2026 [T1]."
+    },
+    {
+      "id": "ev-10",
+      "contexto": "[T1] (tabela-de-servicos) Aproveitamento de disciplina: prazo 15 dias úteis, taxa R$ 60,00. Revisão de prova: prazo 7 dias úteis, taxa R$ 0,00.",
+      "pergunta": "Quanto custa pedir revisão de prova e qual o prazo?",
+      "referencia": "Não tem taxa (R$ 0,00) e o prazo é de 7 dias úteis [T1]."
+    },
+    {
+      "id": "ev-11",
+      "contexto": "[T1] (regulamento-academico) A média final é ponderada: prova 60%, trabalhos 30% e participação 10%.",
+      "pergunta": "Como é calculada a média final?",
+      "referencia": "Média ponderada com 60% prova, 30% trabalhos e 10% participação [T1]."
+    },
+    {
+      "id": "ev-12",
+      "contexto": "[T1] (tabela-de-servicos) Declaração de matrícula: prazo 2 dias úteis, taxa R$ 0,00.",
+      "pergunta": "Qual o valor da mensalidade de Medicina?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-13",
+      "contexto": "[T1] (manual-biblioteca) A taxa de reposição de cartão magnético é de R$ 18,00.",
+      "pergunta": "Quanto custa repor o cartão magnético da biblioteca?",
+      "referencia": "R$ 18,00 [T1]."
+    },
+    {
+      "id": "ev-14",
+      "contexto": "[T1] (regulamento-academico) Quem fica com média entre 4,0 e 5,9 pode fazer exame final; abaixo de 4,0 há reprovação direta.",
+      "pergunta": "Com média 3,5 tenho direito ao exame final?",
+      "referencia": "Não, abaixo de 4,0 há reprovação direta [T1]."
+    },
+    {
+      "id": "ev-15",
+      "contexto": "[T1] (manual-estagio-e-tcc) O depósito digital do TCC aprovado deve ocorrer em até 15 dias corridos após a defesa.",
+      "pergunta": "Qual o prazo para depositar o TCC aprovado?",
+      "referencia": "Até 15 dias corridos após a defesa [T1]."
+    },
+    {
+      "id": "ev-16",
+      "contexto": "[T1] (politica-de-privacidade-academica) O atendimento automatizado não deve pedir nem repetir CPF, senha ou dados de cartão.",
+      "pergunta": "Qual o telefone de atendimento do campus sul?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    }
+  ]
+}

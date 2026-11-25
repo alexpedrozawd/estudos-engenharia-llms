@@ -113,7 +113,7 @@ class Rede(unittest.TestCase):
 class Manifesto(unittest.TestCase):
     def test_manifesto_confere_com_contagem_independente(self):
         total = 0
-        for p in glob.glob(os.path.join(RAIZ, "pacote-de-fontes-*.md")):
+        for p in glob.glob(os.path.join(RAIZ, "docs", "fontes", "pacote-de-fontes-*.md")):
             with open(p, encoding="utf-8") as f:
                 for linha in f:
                     if re.match(r"^\| `[^`]+` \|.*https?://.*\| `[0-9a-f]{16}` \|\s*$", linha):

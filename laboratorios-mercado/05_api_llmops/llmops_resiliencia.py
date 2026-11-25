@@ -12,13 +12,18 @@ T = TypeVar("T")
 class ErroTransitorio(Exception):
     """Vale nova tentativa: 429, 5xx, timeout, conexão recusada."""
 
-    def __init__(self, mensagem: str, retry_after_s: Optional[float] = None):
+    def __init__(self, mensagem: str, retry_after_s: Optional[float] = None, status_code: Optional[int] = None):
         super().__init__(mensagem)
         self.retry_after_s = retry_after_s
+        self.status_code = status_code
 
 
 class ErroPermanente(Exception):
     """Não vale nova tentativa: 4xx de contrato (exceto 408/429), validação, autenticação."""
+
+    def __init__(self, mensagem: str, status_code: Optional[int] = None):
+        super().__init__(mensagem)
+        self.status_code = status_code
 
 
 class CircuitoAberto(Exception):
@@ -35,8 +40,8 @@ def classificar_status(status: int, retry_after: Optional[str] = None) -> Except
                 espera = max(0.0, float(retry_after))
             except ValueError:
                 espera = None
-        return ErroTransitorio(f"HTTP {status}", espera)
-    return ErroPermanente(f"HTTP {status}")
+        return ErroTransitorio(f"HTTP {status}", espera, status_code=status)
+    return ErroPermanente(f"HTTP {status}", status_code=status)
 
 
 def atraso_backoff(tentativa: int, *, base_s: float = 0.25, teto_s: float = 8.0,

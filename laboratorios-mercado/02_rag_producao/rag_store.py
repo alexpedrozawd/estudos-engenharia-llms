@@ -13,11 +13,39 @@ import hashlib
 import math
 import re
 import unicodedata
-from typing import Callable, Dict, List, Optional, Sequence
+from dataclasses import dataclass
+from typing import Callable, Dict, List, Optional, Sequence, Tuple
 
 import httpx
 
-from rag_ingestao import Trecho
+from rag_ingestao import PERFIS_PADRAO, Trecho
+
+
+@dataclass(frozen=True)
+class FiltroBusca:
+    """Critérios de pré-filtragem (ACL e metadados) aplicados antes do ranking/corte `k`."""
+
+    perfil: Optional[str] = None
+    departamento: Optional[str] = None
+    apenas_vigentes: Optional[bool] = None
+    versao: Optional[str] = None
+    tipo: Optional[str] = None
+
+
+def trecho_casa_filtro(t: Trecho, filtro: Optional[FiltroBusca]) -> bool:
+    if filtro is None:
+        return True
+    if filtro.perfil is not None and filtro.perfil not in t.perfis:
+        return False
+    if filtro.departamento is not None and t.departamento != filtro.departamento:
+        return False
+    if filtro.apenas_vigentes is not None and bool(t.vigente) != bool(filtro.apenas_vigentes):
+        return False
+    if filtro.versao is not None and t.versao != filtro.versao:
+        return False
+    if filtro.tipo is not None and t.tipo != filtro.tipo:
+        return False
+    return True
 
 PALAVRAS_VAZIAS = frozenset(
     "a o as os de da do das dos e em no na nos nas um uma para por com que se ao à é ou "
@@ -113,15 +141,23 @@ class ArmazemMemoria:
             self.itens[t.id] = (t, list(v))
         return len(trechos)
 
-    def buscar_vetorial(self, vetor: Sequence[float], k: int) -> List[tuple]:
-        pont = [(t, cosseno(vetor, v)) for t, v in self.itens.values()]
+    def buscar_vetorial(self, vetor: Sequence[float], k: int, filtro: Optional[FiltroBusca] = None) -> List[tuple]:
+        pont = [
+            (t, cosseno(vetor, v))
+            for t, v in self.itens.values()
+            if trecho_casa_filtro(t, filtro)
+        ]
         return sorted(pont, key=lambda x: (-x[1], x[0].id))[:k]
 
-    def buscar_lexical(self, consulta: str, k: int) -> List[tuple]:
+    def buscar_lexical(self, consulta: str, k: int, filtro: Optional[FiltroBusca] = None) -> List[tuple]:
         q = set(termos(consulta))
         if not q:
             return []
-        docs = [(t, termos(t.texto)) for t, _ in self.itens.values()]
+        docs = [
+            (t, termos(t.texto))
+            for t, _ in self.itens.values()
+            if trecho_casa_filtro(t, filtro)
+        ]
         n = len(docs)
         media = sum(len(d) for _, d in docs) / max(n, 1)
         df = {w: sum(1 for _, d in docs if w in d) for w in q}
@@ -164,11 +200,16 @@ class ArmazemPgvector:
             comandos.append(f"DROP TABLE IF EXISTS {self.TABELA}")
         comandos += [
             f"CREATE TABLE IF NOT EXISTS {self.TABELA} (id text PRIMARY KEY, doc text NOT NULL, "
-            f"pagina int NOT NULL, tipo text NOT NULL, texto text NOT NULL, texto_busca text NOT NULL, "
+            "pagina int NOT NULL, tipo text NOT NULL, texto text NOT NULL, texto_busca text NOT NULL, "
+            "perfis text[] NOT NULL DEFAULT ARRAY['publico','aluno','docente','coordenacao','admin'], "
+            "departamento text NOT NULL DEFAULT 'geral', versao text NOT NULL DEFAULT '2026', "
+            "vigente boolean NOT NULL DEFAULT true, "
             f"embedding vector({dim}) NOT NULL, "
             "lexico tsvector GENERATED ALWAYS AS (to_tsvector('portuguese', texto_busca)) STORED)",
             f"CREATE INDEX IF NOT EXISTS {self.TABELA}_hnsw ON {self.TABELA} USING hnsw (embedding vector_cosine_ops)",
             f"CREATE INDEX IF NOT EXISTS {self.TABELA}_lexico ON {self.TABELA} USING gin (lexico)",
+            f"CREATE INDEX IF NOT EXISTS {self.TABELA}_perfis ON {self.TABELA} USING gin (perfis)",
+            f"CREATE INDEX IF NOT EXISTS {self.TABELA}_vigente_dep ON {self.TABELA} (vigente, departamento)",
         ]
         with self._conectar() as con, con.cursor() as cur:
             for sql in comandos:
@@ -176,41 +217,99 @@ class ArmazemPgvector:
 
     def inserir(self, trechos: Sequence[Trecho], vetores: Sequence[Sequence[float]]) -> int:
         sql = (
-            f"INSERT INTO {self.TABELA} (id, doc, pagina, tipo, texto, texto_busca, embedding) "
-            "VALUES (%s, %s, %s, %s, %s, %s, %s::vector) ON CONFLICT (id) DO UPDATE SET "
+            f"INSERT INTO {self.TABELA} (id, doc, pagina, tipo, texto, texto_busca, "
+            "perfis, departamento, versao, vigente, embedding) "
+            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s::vector) ON CONFLICT (id) DO UPDATE SET "
             "doc = EXCLUDED.doc, pagina = EXCLUDED.pagina, tipo = EXCLUDED.tipo, texto = EXCLUDED.texto, "
-            "texto_busca = EXCLUDED.texto_busca, embedding = EXCLUDED.embedding"
+            "texto_busca = EXCLUDED.texto_busca, perfis = EXCLUDED.perfis, "
+            "departamento = EXCLUDED.departamento, versao = EXCLUDED.versao, "
+            "vigente = EXCLUDED.vigente, embedding = EXCLUDED.embedding"
         )
-        linhas = [(t.id, t.doc, t.pagina, t.tipo, t.texto, normalizar(t.texto), literal_vetor(v))
-                  for t, v in zip(trechos, vetores, strict=True)]
+        linhas = [
+            (
+                t.id,
+                t.doc,
+                t.pagina,
+                t.tipo,
+                t.texto,
+                normalizar(t.texto),
+                list(t.perfis),
+                t.departamento,
+                t.versao,
+                bool(t.vigente),
+                literal_vetor(v),
+            )
+            for t, v in zip(trechos, vetores, strict=True)
+        ]
         with self._conectar() as con, con.cursor() as cur:
             cur.executemany(sql, linhas)
         return len(linhas)
 
     @staticmethod
     def _trecho(linha) -> Trecho:
+        if len(linha) >= 10:
+            return Trecho(
+                id=linha[0],
+                doc=linha[1],
+                pagina=int(linha[2]),
+                tipo=linha[3],
+                texto=linha[4],
+                perfis=tuple(linha[5] or PERFIS_PADRAO),
+                departamento=str(linha[6]),
+                versao=str(linha[7]),
+                vigente=bool(linha[8]),
+            )
         return Trecho(id=linha[0], doc=linha[1], pagina=int(linha[2]), tipo=linha[3], texto=linha[4])
 
-    def buscar_vetorial(self, vetor: Sequence[float], k: int) -> List[tuple]:
+    @staticmethod
+    def _clausula_where(filtro: Optional[FiltroBusca]) -> Tuple[List[str], List[object]]:
+        if filtro is None:
+            return [], []
+        conds: List[str] = []
+        params: List[object] = []
+        if filtro.perfil is not None:
+            conds.append("%s = ANY(perfis)")
+            params.append(filtro.perfil)
+        if filtro.departamento is not None:
+            conds.append("departamento = %s")
+            params.append(filtro.departamento)
+        if filtro.apenas_vigentes is not None:
+            conds.append("vigente = %s")
+            params.append(bool(filtro.apenas_vigentes))
+        if filtro.versao is not None:
+            conds.append("versao = %s")
+            params.append(filtro.versao)
+        if filtro.tipo is not None:
+            conds.append("tipo = %s")
+            params.append(filtro.tipo)
+        return conds, params
+
+    def buscar_vetorial(self, vetor: Sequence[float], k: int, filtro: Optional[FiltroBusca] = None) -> List[tuple]:
         lit = literal_vetor(vetor)
+        conds, fparams = self._clausula_where(filtro)
+        where = f" WHERE {' AND '.join(conds)}" if conds else ""
         sql = (
-            f"SELECT id, doc, pagina, tipo, texto, 1 - (embedding <=> %s::vector) AS similaridade "
-            f"FROM {self.TABELA} ORDER BY embedding <=> %s::vector, id LIMIT %s"
+            f"SELECT id, doc, pagina, tipo, texto, perfis, departamento, versao, vigente, "
+            f"1 - (embedding <=> %s::vector) AS similaridade "
+            f"FROM {self.TABELA}{where} ORDER BY embedding <=> %s::vector, id LIMIT %s"
         )
         with self._conectar() as con, con.cursor() as cur:
-            cur.execute(sql, (lit, lit, int(k)))
-            return [(self._trecho(l), float(l[5])) for l in cur.fetchall()]
+            cur.execute(sql, (lit, *fparams, lit, int(k)))
+            return [(self._trecho(l), float(l[-1])) for l in cur.fetchall()]
 
-    def buscar_lexical(self, consulta: str, k: int) -> List[tuple]:
+    def buscar_lexical(self, consulta: str, k: int, filtro: Optional[FiltroBusca] = None) -> List[tuple]:
         # Termos já normalizados ([a-z0-9,]), unidos por OU: sem sintaxe de tsquery vinda do usuário.
         q = " | ".join(t.replace(",", "") for t in termos(consulta))
         if not q:
             return []
+        conds, fparams = self._clausula_where(filtro)
+        where = " AND ".join(["lexico @@ q", *conds])
         sql = (
-            "SELECT id, doc, pagina, tipo, texto, ts_rank(lexico, q) AS pontuacao "
+            "SELECT id, doc, pagina, tipo, texto, perfis, departamento, versao, vigente, "
+            "ts_rank(lexico, q) AS pontuacao "
             f"FROM {self.TABELA}, to_tsquery('portuguese', %s) q "
-            "WHERE lexico @@ q ORDER BY pontuacao DESC, id LIMIT %s"
+            f"WHERE {where} ORDER BY pontuacao DESC, id LIMIT %s"
         )
         with self._conectar() as con, con.cursor() as cur:
-            cur.execute(sql, (q, int(k)))
-            return [(self._trecho(l), float(l[5])) for l in cur.fetchall()]
+            cur.execute(sql, (q, *fparams, int(k)))
+            return [(self._trecho(l), float(l[-1])) for l in cur.fetchall()]

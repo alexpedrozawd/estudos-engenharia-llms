@@ -18,17 +18,29 @@ def ingerir_corpus(max_palavras=40):
     trechos = []
     with tempfile.TemporaryDirectory() as pasta:
         for doc, caminho in corpus_aurora.gerar_pdfs(pasta).items():
-            trechos += ing.segmentar(ing.extrair_paginas_pdf(caminho), doc, max_palavras=max_palavras, sobreposicao=8)
+            meta = corpus_aurora.metadados_doc(doc)
+            trechos += ing.segmentar(
+                ing.extrair_paginas_pdf(caminho),
+                doc,
+                max_palavras=max_palavras,
+                sobreposicao=8,
+                perfis=meta["perfis"],
+                departamento=meta["departamento"],
+                versao=meta["versao"],
+                vigente=meta["vigente"],
+            )
     return trechos
 
 
 class TestIngestao(unittest.TestCase):
     def test_tabela_vira_markdown_com_cabecalho(self):
         trechos = ingerir_corpus()
+        self.assertGreaterEqual(len(trechos), 35)
         tabelas = [t for t in trechos if t.tipo == "tabela"]
-        self.assertEqual(len(tabelas), 1)
-        linhas = tabelas[0].texto.splitlines()
-        self.assertEqual(linhas[0], "| Serviço | Prazo (dias úteis) | Taxa (R$) |")
+        self.assertGreaterEqual(len(tabelas), 4)
+        tab_serv = next(t for t in tabelas if t.doc == "tabela-de-servicos")
+        linhas = tab_serv.texto.splitlines()
+        self.assertEqual(linhas[0], "| Servico | Prazo (dias uteis) | Taxa (R$) |")
         self.assertIn("| Segunda via do diploma | 30 | 120,00 |", linhas)
         self.assertEqual(len(linhas), 2 + 5)
 
@@ -84,28 +96,38 @@ class FakeConexao:
 class TestPgvectorSQL(unittest.TestCase):
     def test_esquema_insercao_e_busca(self):
         log = []
-        linha = ("d:p1:1", "d", 1, "texto", "conteúdo", 0.9)
+        linha = ("d:p1:1", "d", 1, "texto", "conteúdo", ["aluno", "admin"], "academico", "2026", True, 0.9)
         arm = rs.ArmazemPgvector(conectar=lambda: FakeConexao(log, [linha]))
         arm.criar_esquema(3, recriar=True)
         sqls = [s for s, _ in log]
         self.assertEqual(sqls[0], "CREATE EXTENSION IF NOT EXISTS vector")
         self.assertIn("embedding vector(3) NOT NULL", sqls[2])
+        self.assertIn("perfis text[] NOT NULL", sqls[2])
         self.assertIn("USING hnsw (embedding vector_cosine_ops)", sqls[3])
+        self.assertIn("USING gin (perfis)", sqls[5])
         self.assertIn("to_tsvector('portuguese', texto_busca)", sqls[2])
         log.clear()
-        arm.inserir([ing.Trecho("d:p1:1", "d", 1, "texto", "Matrícula")], [[0.1, 0.2, 0.3]])
+        arm.inserir(
+            [ing.Trecho("d:p1:1", "d", 1, "texto", "Matrícula", perfis=("docente",), departamento="academico", versao="2026", vigente=True)],
+            [[0.1, 0.2, 0.3]],
+        )
         sql, linhas = log[0]
         self.assertIn("ON CONFLICT (id) DO UPDATE", sql)
         self.assertEqual(linhas[0][5], "matricula")
-        self.assertEqual(linhas[0][6], "[0.1,0.2,0.3]")
+        self.assertEqual(linhas[0][6], ["docente"])
+        self.assertEqual(linhas[0][10], "[0.1,0.2,0.3]")
         log.clear()
-        res = arm.buscar_vetorial([1, 0, 0], 2)
+        filtro = rs.FiltroBusca(perfil="docente", apenas_vigentes=True)
+        res = arm.buscar_vetorial([1, 0, 0], 2, filtro=filtro)
+        self.assertIn("WHERE %s = ANY(perfis) AND vigente = %s", log[0][0])
         self.assertIn("ORDER BY embedding <=> %s::vector", log[0][0])
-        self.assertEqual(log[0][1], ("[1,0,0]", "[1,0,0]", 2))
+        self.assertEqual(log[0][1], ("[1,0,0]", "docente", True, "[1,0,0]", 2))
         self.assertEqual(res[0][0].id, "d:p1:1")
+        self.assertEqual(res[0][0].perfis, ("aluno", "admin"))
         log.clear()
-        arm.buscar_lexical("Qual a taxa do histórico?", 2)
-        self.assertEqual(log[0][1], ("taxa | historico", 2))
+        arm.buscar_lexical("Qual a taxa do histórico?", 2, filtro=filtro)
+        self.assertIn("lexico @@ q AND %s = ANY(perfis) AND vigente = %s", log[0][0])
+        self.assertEqual(log[0][1], ("taxa | historico", "docente", True, 2))
         self.assertEqual(arm.buscar_lexical("a de o", 2), [])
 
     def test_dimensao_invalida(self):
@@ -152,9 +174,35 @@ class TestRecuperacaoEAvaliacao(unittest.TestCase):
         self.assertEqual(rp.recall_em_k(["x", "a"], ["a", "b"], 2), 0.5)
         self.assertEqual(rp.mrr(["x", "a"], ["a"]), 0.5)
         self.assertAlmostEqual(rp.ndcg_em_k(["a"], ["a"], 3), 1.0)
-        av = rp.avaliar_recuperacao(self.consultas, self.arm, self.emb, k=3, reordenador=rp.ReordenadorLexico())
-        self.assertGreaterEqual(av["recall_medio"], 0.8)
-        self.assertGreaterEqual(av["mrr_medio"], 0.6)
+        filtro = rs.FiltroBusca(perfil="aluno", apenas_vigentes=True)
+        av_vet = rp.avaliar_recuperacao(self.consultas, self.arm, self.emb, k=4, modo="vetorial", filtro_padrao=filtro)
+        av_lex = rp.avaliar_recuperacao(self.consultas, self.arm, self.emb, k=4, modo="lexical", filtro_padrao=filtro)
+        av_hib = rp.avaliar_recuperacao(
+            self.consultas, self.arm, self.emb, k=4, modo="hibrida", reordenador=rp.ReordenadorLexico(), filtro_padrao=filtro
+        )
+        self.assertGreaterEqual(av_hib["recall_medio"], 0.8)
+        self.assertGreaterEqual(av_hib["mrr_medio"], 0.6)
+        self.assertEqual(av_vet["modo"], "vetorial")
+        self.assertEqual(av_lex["modo"], "lexical")
+
+    def test_acl_e_versoes_conflitantes(self):
+        consultas_acl = [c for c in corpus_aurora.carregar_consultas() if c.get("categoria") == "acl"]
+        aud = rp.auditar_acl(consultas_acl, self.arm, self.emb, k=4, perfil_nao_autorizado="aluno")
+        self.assertEqual(aud["vazamentos"], 0)
+        self.assertEqual(aud["consultas"], 4)
+
+        rec_admin = rp.recuperar(
+            "código interno AUR-FIN-2026 estornos",
+            self.arm, self.emb, k=2, filtro=rs.FiltroBusca(perfil="admin", apenas_vigentes=True),
+        )
+        self.assertTrue(any(t.doc == "manual-financeiro-administrativo" for t in rec_admin.trechos))
+
+        rec_vig = rp.recuperar(
+            "taxa do histórico escolar",
+            self.arm, self.emb, k=4, filtro=rs.FiltroBusca(perfil="aluno", apenas_vigentes=True),
+        )
+        self.assertTrue(all(t.vigente for t in rec_vig.trechos))
+        self.assertTrue(any(t.doc == "tabela-de-servicos" for t in rec_vig.trechos))
 
     def test_reranker_prioriza_tabela_em_pergunta_de_valor(self):
         rec = rp.recuperar("Qual a taxa do histórico escolar?", self.arm, self.emb, k=1, reordenador=rp.ReordenadorLexico())
@@ -190,7 +238,8 @@ class TestPDFMinimo(unittest.TestCase):
         self.assertEqual(ing.extrair_paginas_pdf(dados)[0].strip(), "Olá, matrícula (teste)")
         with tempfile.TemporaryDirectory() as d:
             caminhos = corpus_aurora.gerar_pdfs(d)
-            self.assertEqual(sorted(os.path.basename(c) for c in caminhos.values())[0], "politica-de-privacidade-academica.pdf")
+            self.assertEqual(sorted(os.path.basename(c) for c in caminhos.values())[0], "calendario-academico-2026.pdf")
+            self.assertEqual(len(caminhos), 12)
 
 
 if __name__ == "__main__":

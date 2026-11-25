@@ -1,10 +1,10 @@
 # Changelog: Fontes da vLLM no GitHub, comando `importar`, exceção de consulta manual e ajustes leves — 24/11/2026
 
-Consolida a estratégia definida pelo operador para as fontes fora do cache e aplica os ajustes leves abertos no guia HTML/PDF, mantendo a Fase 4 pronta para a etapa de validação manual em telas (`L2`) e etapa final. Ver [roadmap.md](roadmap.md).
+Consolida a estratégia definida pelo operador para as fontes fora do cache e aplica os ajustes leves abertos no guia HTML/PDF, mantendo a Fase 4 pronta para a etapa de validação manual em telas (`L2`) e etapa final. Ver [roadmap.md](../../roadmap.md).
 
 ## Autoria
 
-- **24/11/2026, `agy - ap` (Gemini 4 Hydrogen High):** migração das `7` chaves da vLLM para a documentação Markdown oficial no GitHub, criação do subcomando `importar` em [ferramentas/fontes.py](ferramentas/fontes.py), registro da decisão do operador para as `18` chaves bloqueadas (`13` URLs), aplicação das duas correções leves em [guia-engenharia-llms.html](guia-engenharia-llms.html) e regeração do PDF provisório.
+- **24/11/2026, `agy - ap` (Gemini 4 Hydrogen High):** migração das `7` chaves da vLLM para a documentação Markdown oficial no GitHub, criação do subcomando `importar` em [ferramentas/fontes.py](../../ferramentas/fontes.py), registro da decisão do operador para as `18` chaves bloqueadas (`13` URLs), aplicação das duas correções leves em [guia-engenharia-llms.html](../../guia-engenharia-llms.html) e regeração do PDF provisório.
 
 ## O que mudou
 

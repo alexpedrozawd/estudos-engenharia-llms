@@ -5,7 +5,7 @@ FROM docker.io/library/python:3.13-slim
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
-    PYTHONPATH=/app/laboratorios:/app/laboratorios-mercado:/app/laboratorios-mercado/02_rag_producao:/app/laboratorios-mercado/03_mcp_sandbox:/app/laboratorios-mercado/05_api_llmops:/app/laboratorios-mercado/06_integrador_producao
+    PYTHONPATH=/app/laboratorios:/app/laboratorios-mercado:/app/laboratorios-mercado/02_rag_producao:/app/laboratorios-mercado/03_mcp_sandbox:/app/laboratorios-mercado/05_api_llmops:/app/laboratorios-mercado/06_integrador_producao:/app/laboratorios-mercado/07_evals_e_multimodal
 
 WORKDIR /app
 COPY laboratorios/comum /app/laboratorios/comum

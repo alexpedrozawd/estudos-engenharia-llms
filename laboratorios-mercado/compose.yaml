@@ -14,7 +14,8 @@ x-llama-base: &llama-base
   image: ${LLAMA_IMAGEM:-ghcr.io/ggml-org/llama.cpp:server}
   volumes:
     - ${MODELOS_DIR:-./modelos}:/modelos:ro
-  # Leitura de GGUF fora do contexto do container em hosts com SELinux, sem reetiquetar arquivos do usuário.
+  # Leitura de GGUF fora do contexto do container em hosts com SELinux sem reetiquetar arquivos do daemon Ollama.
+  # Alternativa mais restritiva para pasta dedicada de modelos (evita label=disable): monte com `:ro,Z` e remova `label=disable`.
   security_opt:
     - label=disable
     - no-new-privileges:true
@@ -37,6 +38,8 @@ services:
       - "8192"
       - --parallel
       - "2"
+      # --jinja habilita tool_calls e formatos estruturados no template do modelo (ex.: Qwen3).
+      - --jinja
       # "off" desliga o raciocínio quando o template do modelo aceita (Qwen3 híbrido); variantes
       # "Thinking" (ex.: Qwen3-4B-Thinking-2507) sempre raciocinam. Use "auto" para medir com raciocínio.
       - --reasoning

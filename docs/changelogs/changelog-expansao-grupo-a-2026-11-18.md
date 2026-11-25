@@ -24,7 +24,7 @@
 
 ## Pacote de fontes e backup
 
-- Fontes públicas primárias salvas em [pacote-de-fontes-expansao-grupo-a-2026-11-18.md](pacote-de-fontes-expansao-grupo-a-2026-11-18.md) com `40` trechos literais (`GA-01` a `GA-40`).
+- Fontes públicas primárias salvas em [pacote-de-fontes-expansao-grupo-a-2026-11-18.md](../fontes/pacote-de-fontes-expansao-grupo-a-2026-11-18.md) com `40` trechos literais (`GA-01` a `GA-40`).
 - Backup pré-expansão preservado em `arquivo/antes-expansao-grupo-a-2026-11-18/` (`guia-engenharia-llms.html`, `guia-engenharia-llms.pdf` e `CLAUDE.md`).
 
 ## Validações executadas
