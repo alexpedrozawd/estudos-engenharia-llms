@@ -35,6 +35,9 @@ def main(argv=None) -> int:
     ap.add_argument("--somente-bfla", action="store_true")
     ap.add_argument("--registrar", action="store_true")
     args = ap.parse_args(argv)
+    if args.somente_bfla and not (args.chave_aluno and args.chave_admin):
+        print(json.dumps({"erro": "--somente-bfla exige --chave-aluno e --chave-admin"}, ensure_ascii=False))
+        return 2
     saida: dict[str, object] = {}
     falha_bfla = False
 

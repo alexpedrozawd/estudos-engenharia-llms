@@ -500,24 +500,33 @@ def criar_app(
         relogio=relogio,
     )
 
+    def _verificar_perfil(request: Request, perfil_requerido: str) -> Optional[JSONResponse]:
+        perfil_max = getattr(request.state, "perfil_maximo", None)
+        if perfil_max is not None and ORDEM_PERFIS[perfil_requerido] > ORDEM_PERFIS[perfil_max]:
+            return JSONResponse(
+                {"erro": "perfil_nao_autorizado", "perfil_maximo": perfil_max},
+                status_code=403,
+            )
+        return None
+
     @app.get("/saude")
     async def saude():
         return {"status": "ok"}
 
     @app.post("/v1/assistente")
     async def perguntar(p: Pergunta, request: Request):
-        perfil_max = getattr(request.state, "perfil_maximo", None)
-        if perfil_max is not None and ORDEM_PERFIS[p.perfil] > ORDEM_PERFIS[perfil_max]:
-            return JSONResponse(
-                {"erro": "perfil_nao_autorizado", "perfil_maximo": perfil_max},
-                status_code=403,
-            )
+        bloqueio = _verificar_perfil(request, p.perfil)
+        if bloqueio is not None:
+            return bloqueio
         return await assistente.responder(
             p.pergunta, p.id_requisicao, perfil=p.perfil, apenas_vigentes=p.apenas_vigentes
         )
 
     @app.get("/v1/relatorio")
-    async def relatorio():
+    async def relatorio(request: Request):
+        bloqueio = _verificar_perfil(request, "coordenacao")
+        if bloqueio is not None:
+            return bloqueio
         return assistente.relatorio()
 
     return app

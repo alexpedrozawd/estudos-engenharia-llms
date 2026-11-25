@@ -27,7 +27,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (76 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (77 testes)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 

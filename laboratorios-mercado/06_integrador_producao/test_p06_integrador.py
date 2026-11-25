@@ -285,6 +285,16 @@ class TestAssistente(unittest.TestCase):
                 headers={"X-API-Key": "chave-admin"},
             )
             self.assertEqual(r_admin.status_code, 200)
+            self.assertEqual(c.get("/v1/relatorio", headers={"X-API-Key": "chave-aluno"}).status_code, 403)
+            self.assertEqual(c.get("/v1/relatorio", headers={"X-API-Key": "chave-admin"}).status_code, 200)
+
+    def test_cliente_real_somente_bfla_exige_duas_chaves(self):
+        from contextlib import redirect_stdout
+        import io
+        import cliente_integrador_real as cir
+
+        with redirect_stdout(io.StringIO()):
+            self.assertEqual(cir.main(["--somente-bfla"]), 2)
 
     def test_falha_esquema_estruturado_degrada_sem_500(self):
         emb, arm = rs.EmbedderHash(256), rs.ArmazemMemoria()

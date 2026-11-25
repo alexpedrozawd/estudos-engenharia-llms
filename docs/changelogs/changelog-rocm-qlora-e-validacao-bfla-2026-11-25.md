@@ -23,6 +23,22 @@ Data: 25/11/2026. Autoria: `agy - ap`.
 
 - Por decisão do operador em `25/11/2026`, a chamada opcional a VLM remoto foi arquivada em [`laboratorios-mercado/07_evals_e_multimodal/README.md`](../../laboratorios-mercado/07_evals_e_multimodal/README.md), mantendo código, smoke-tests e renderização PNG via `pdftoppm`.
 
-## 4. Validação completa pós-edição
+## 4. Ajustes pós-auditoria (`/auditorias` + `/revisar`)
 
-- `84` testes offline em `laboratorios/`, `76` smoke-tests em `laboratorios-mercado/`, `guia.py fechar` (`0` falhas), `testar-ferramentas.py --rapido`, `testar-fontes.py`, `testar-livros.py`, `podman compose config -q` (todos os perfis incluindo `finetuning`), `Containerfile` build/run e hashes congelados de `guia-engenharia-llms.html`/`.pdf` preservados intactos.
+- [`laboratorios-mercado/04_qlora_peft/README.md`](../../laboratorios-mercado/04_qlora_peft/README.md): documentada trava `-c` para `torch==2.12.0+rocm7.14.1` ao preparar o volume `/opt/venv` de `qlora-rocm`.
+- [`laboratorios-mercado/06_integrador_producao/cliente_integrador_real.py`](../../laboratorios-mercado/06_integrador_producao/cliente_integrador_real.py): `--somente-bfla` sem `--chave-aluno`/`--chave-admin` agora retorna erro explícito (código `2`).
+- [`laboratorios-mercado/06_integrador_producao/integrador_app.py`](../../laboratorios-mercado/06_integrador_producao/integrador_app.py): `GET /v1/relatorio` passou a exigir perfil mínimo `coordenacao` quando `AURORA_PERFIS_CHAVES`/`perfis_por_chave` está ativo (HTTP `403` para `aluno`).
+
+## 5. Validação completa pós-edição
+
+- `84` testes offline em `laboratorios/`, `77` smoke-tests em `laboratorios-mercado/`, `guia.py fechar` (`0` falhas), `testar-ferramentas.py --rapido`, `testar-fontes.py`, `testar-livros.py`, `podman compose config -q` (todos os perfis incluindo `finetuning`), `Containerfile` build/run, CI remoto `testes-offline` aprovado e hashes congelados de `guia-engenharia-llms.html`/`.pdf` preservados intactos.
+
+## 6. Avaliação realista atualizada (mercado de trabalho real — 25/11/2026)
+
+| Dimensão | Nota | Base factual e limites declarados |
+|---|---|---|
+| Conceitual e pedagógica (`guia-engenharia-llms.html`/`.pdf`) | **9,2 / 10** | 18 capítulos (~229 mil palavras), 2 livros de Chip Huyen + 205 fontes web de 2026 em cache, 453 questões balanceadas sem viés de comprimento, 18 rubricas quantitativas, 22 SVGs e `axe-core` sem violações; teto em 9,2 pela ausência de revisão técnica humana externa (`L1`) e piloto com estudantes (`L2`). |
+| Prática de mercado (`laboratorios/` + `laboratorios-mercado/`) | **9,3 / 10** | 84 testes offline + 77 smoke-tests em 7 projetos e 15 execuções reais registradas (`llama.cpp` `--jinja`, `pgvector` com ACL SQL, MCP 2.x com sandbox sem rede, QLoRA 4-bit NF4 real na RX 9070 XT com portão reprovando 3 épocas e aprovando 12 épocas, SSE/Prometheus/OTLP Jaeger v3, anti-BFLA `403` em `/v1/assistente` e `/v1/relatorio`, evals com *kappa* `0,7391` + `pdftoppm`). |
+| Engenharia, CI e acabamento do repositório | **9,4 / 10** | Raiz enxuta, históricos organizados em `docs/`, roteiro de estudo no `README.md`, 0 links quebrados nos `.md` rastreados, `compose.yaml` multi-perfil (incluindo `finetuning`) e CI remoto verde com build/smoke do `Containerfile`. |
+| **Nota técnica consolidada** | **9,3 / 10** | Média ponderada das três dimensões técnicas |
+| **Nota geral realista (mercado de trabalho)** | **9,1 / 10** | Desconto de `0,2` pela ausência de validação humana externa (`L1`/`L2`); fronteiras declaradas de escala distribuída (estado em memória de processo único), datasets didáticos (VLM remoto arquivado), serving GPU de alta carga (`vLLM`/`SGLang`) e segurança adaptativa (*red teaming*). |

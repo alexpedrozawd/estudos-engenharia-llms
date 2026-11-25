@@ -15,7 +15,14 @@ Tudo o que decide o resultado fica explícito e com hash: dados, divisão estrat
   --base-url http://127.0.0.1:8081/v1 --modelo modelo-local --saida antes.json
 
 # Treino e avaliação direta do mesmo modelo base + adaptador (container ROCm ou ambiente CUDA):
-# No host AMD (RX 9070 XT / gfx1201), use o serviço `qlora-rocm` (--profile finetuning no compose.yaml).
+# No host AMD (RX 9070 XT / gfx1201), prepare o volume `/opt/venv` do serviço `qlora-rocm`
+# travando a versão ROCm do PyTorch para o pip não baixar wheel CUDA por cima:
+#   podman compose -f laboratorios-mercado/compose.yaml --profile finetuning run --rm qlora-rocm bash -lc '
+#     printf "torch==2.12.0+rocm7.14.1\ntorchaudio==2.11.0+rocm7.14.1\ntorchvision==0.27.0+rocm7.14.1\n" > /tmp/c.txt &&
+#     python -m pip install --no-cache-dir -c /tmp/c.txt \
+#       "transformers>=4.50" "peft>=0.15" "trl>=0.19" "datasets>=3.0" "bitsandbytes>=0.50" "accelerate>=1.3" "pydantic>=2.11" "httpx>=0.28"
+#   '
+# Em seguida, execute dentro do mesmo container `qlora-rocm`:
 python -I laboratorios-mercado/04_qlora_peft/treinar_qlora.py avaliar \
   --backend hf --modelo Qwen/Qwen3-1.7B --saida antes.json
 python -I laboratorios-mercado/04_qlora_peft/treinar_qlora.py treinar \
