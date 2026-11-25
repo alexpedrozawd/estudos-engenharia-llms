@@ -224,7 +224,7 @@ class Exercicios(unittest.TestCase):
         inv, erros = ex.inventario()
         self.assertEqual(erros, [])
         self.assertEqual(len(inv["laboratorios"]), 19)  # 18 labs + projeto integrador
-        self.assertEqual(len(inv["laboratorios-mercado"]), 7)
+        self.assertEqual(len(inv["laboratorios-mercado"]), 8)  # projetos 01 a 08
 
     def test_parser_rejeita_marcadores_invalidos(self):
         ok = "def f():\n    # EXERCICIO-INICIO: dica\n    return 1\n    # EXERCICIO-FIM\n"

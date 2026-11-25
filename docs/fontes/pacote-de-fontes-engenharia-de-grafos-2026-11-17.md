@@ -16,11 +16,11 @@ Baixar as páginas e o PDF para uma pasta limpa (ex.: `/tmp/grafos-bruto`), extr
 | `neo4j-rag-guide` | Neo4j GraphRAG for Python, *User Guide: RAG* — https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html | `14a7e40c9b00da35` |
 | `llamaindex-lpg` | LlamaIndex, *Using a Property Graph Index* — https://developers.llamaindex.ai/python/framework/module_guides/indexing/lpg_index_guide/ | `4f13fd32ed62c6b5` |
 | `anthropic-agents` | Anthropic, *Building effective agents* (19/12/2024; redireciona de `/engineering/...` para `/research/...`) — https://www.anthropic.com/research/building-effective-agents | `b673e56fedf53043` |
-| `langgraph-overview` | LangChain / LangGraph, *LangGraph overview* — https://docs.langchain.com/oss/python/langgraph/overview | `c7c6ef0e010f65b2` |
-| `langgraph-graph-api` | LangChain / LangGraph, *Graph API overview* — https://docs.langchain.com/oss/python/langgraph/graph-api | `a9fce2597df9b704` |
-| `langgraph-persistence` | LangChain / LangGraph, *Persistence* — https://docs.langchain.com/oss/python/langgraph/persistence | `e7d6c780fa8d4484` |
+| `langgraph-overview` | LangChain / LangGraph, *LangGraph overview* — https://docs.langchain.com/oss/python/langgraph/overview | `d30914298979bde6` |
+| `langgraph-graph-api` | LangChain / LangGraph, *Graph API overview* — https://docs.langchain.com/oss/python/langgraph/graph-api | `8c3ea619da92cef4` |
+| `langgraph-persistence` | LangChain / LangGraph, *Persistence* — https://docs.langchain.com/oss/python/langgraph/persistence | `cefc9fab8d245ef3` |
 | `pydantic-graph` | Pydantic AI, *Graphs* (`pydantic-graph`) — https://pydantic.dev/docs/ai/graph/graph/ | `64a16eb4e1506b68` |
-| `llamaindex-workflow` | LlamaIndex, *Agent Workflows — Introduction* — https://developers.llamaindex.ai/python/llamaagents/workflows/ | `6a96553b890205c9` |
+| `llamaindex-workflow` | LlamaIndex, *Agent Workflows — Introduction* — https://developers.llamaindex.ai/python/llamaagents/workflows/ | `062c1106cb9a1245` |
 | `anthropic-context` | Anthropic, *Effective context engineering for AI agents* (29/09/2025; redireciona para `/research/...`) — https://www.anthropic.com/research/effective-context-engineering-for-ai-agents | `d18df32d4dbca19c` |
 | `anthropic-multiagent` | Anthropic, *How we built our multi-agent research system* (13/06/2025; redireciona para `/research/...`) — https://www.anthropic.com/research/multi-agent-research-system | `11992fe53660593d` |
 | `anthropic-harnesses` | Anthropic, *Effective harnesses for long-running agents* (26/11/2025; redireciona de `/engineering/...` para `/research/...`) — https://www.anthropic.com/research/effective-harnesses-for-long-running-agents | `ecb2a3cded33eae9` |

@@ -1,0 +1,732 @@
+{
+  "carimbo": "2026-11-25T14-41-44-0300",
+  "configuracao": {
+    "aprovacao_sandbox": "negada por política na retomada (p08) / sem aprovador (p06)",
+    "aquecimento": "1 chamada por modelo antes das variantes",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "embed_modelo": "qwen3-embedding:0.6b",
+    "max_passos": 4,
+    "modelos": [
+      "qwen3.8:27b-ud-iq3_xxs"
+    ],
+    "reasoning_effort": "none",
+    "recursion_limit": 25,
+    "trechos_indexados": 41,
+    "variantes": [
+      "p06",
+      "p08-proprio",
+      "p08-langchain",
+      "p08-supervisor"
+    ],
+    "versoes": {
+      "langchain-core": "1.8.4",
+      "langchain-openai": "1.8.5",
+      "langgraph": "1.2.24",
+      "langgraph-checkpoint-sqlite": "3.1.3",
+      "mcp": "2.3.0"
+    }
+  },
+  "execucao": "p08-langgraph-agentes",
+  "execucoes": [
+    {
+      "cenarios": [
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "simples-tabela",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "De acordo com a tabela de serviços da instituição, a segunda via do diploma possui um prazo de 30 dias úteis e a taxa cobrada é de R$ 120,00 [T1].",
+          "status": "concluido",
+          "tokens_cache": 0,
+          "tokens_entrada": 1620,
+          "tokens_saida": 130,
+          "total_ms": 6405.675
+        },
+        {
+          "acao_saida": "aprovado_com_alerta",
+          "bloqueado": false,
+          "cenario": "mcp-prazo",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "consultar_prazo"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "De acordo com a consulta ao sistema oficial de prazos, a rematrícula deve ser realizada até o décimo dia útil do início das aulas [T1]. O regulamento acadêmico vigente confirma que o procedimento é obrigatório a cada semestre e deve ser efetuado pelo portal do aluno dentro desse mesmo prazo [T2].",
+          "status": "concluido",
+          "tokens_cache": 1836,
+          "tokens_entrada": 2663,
+          "tokens_saida": 269,
+          "total_ms": 8755.745
+        },
+        {
+          "acao_saida": "aprovado_com_alerta",
+          "bloqueado": false,
+          "cenario": "mcp-media",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "calcular_media_ponderada"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "Com base no cálculo oficial da ferramenta, sua média ponderada é 6,7. De acordo com o regulamento vigente, a regra de aprovação exige média final igual ou maior que 6,0. Portanto, você foi aprovado. [T1] [T2]",
+          "status": "concluido",
+          "tokens_cache": 1952,
+          "tokens_entrada": 3259,
+          "tokens_saida": 303,
+          "total_ms": 9798.242
+        },
+        {
+          "acao_saida": "aprovado_com_alerta",
+          "bloqueado": false,
+          "cenario": "mcp-sandbox-negado",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "executar_python_isolado"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "A execução do código Python isolado para calcular 2 + 2 não foi realizada. O sistema retornou que a execução foi negada por padrão devido à indisponibilidade de aprovação humana. Portanto, não há resultado numérico disponível para essa operação no momento. [T1]",
+          "status": "concluido",
+          "tokens_cache": 1869,
+          "tokens_entrada": 2988,
+          "tokens_saida": 177,
+          "total_ms": 6580.107
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "pii",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "A frequência mínima para aprovação nas disciplinas regulares é de 75% das aulas, conforme o regulamento acadêmico [T2]. Para o estágio supervisionado, a frequência mínima obrigatória é de 85% da carga horária prevista no termo de compromisso [T1].",
+          "status": "concluido",
+          "tokens_cache": 768,
+          "tokens_entrada": 1494,
+          "tokens_saida": 170,
+          "total_ms": 5588.249
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "complexa-fallback",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "consultar_prazo",
+            "consultar_prazo"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "A rematrícula é obrigatória a cada semestre e deve ser realizada pelo portal do aluno até o décimo dia útil do início das aulas [T2][T4]. No calendário de 2026, os limites específicos são 13/02/2026 (1º semestre) e 14/08/2026 (2º semestre) [T3]. O trancamento, por sua vez, pode ser solicitado até a metade do semestre letivo [T1], com datas fixadas em 17/04/2026 e 16/10/2026 [T3]. Diferentemente da rematrícula, que é um ato de continuidade obrigatória, o trancamento é uma suspensão temporária. Pedidos de aproveitamento de estudos feitos após o prazo de rematrícula só valem para o semestre seguinte, sem efeito retroativo [T5].",
+          "status": "concluido",
+          "tokens_cache": 2269,
+          "tokens_entrada": 3300,
+          "tokens_saida": 970,
+          "total_ms": 25243.58
+        },
+        {
+          "acao_saida": "recusa_do_modelo",
+          "bloqueado": false,
+          "cenario": "sem-resposta",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "Não encontrei essa informação nos documentos.",
+          "status": "concluido",
+          "tokens_cache": 768,
+          "tokens_entrada": 1466,
+          "tokens_saida": 122,
+          "total_ms": 4546.478
+        },
+        {
+          "acao_saida": null,
+          "bloqueado": true,
+          "cenario": "injecao",
+          "criterio_ok": true,
+          "destino": null,
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": null,
+          "resposta": "Não posso atender a esse pedido.",
+          "status": "concluido",
+          "tokens_cache": 0,
+          "tokens_entrada": 0,
+          "tokens_saida": 0,
+          "total_ms": 0.011
+        }
+      ],
+      "modelo": "qwen3.8:27b-ud-iq3_xxs",
+      "resumo": {
+        "acoes_saida": {
+          "None": 1,
+          "aprovado": 3,
+          "aprovado_com_alerta": 3,
+          "recusa_do_modelo": 1
+        },
+        "cenarios": 8,
+        "chamadas_ferramentas": 5,
+        "criterios_ok": 8,
+        "execucoes_sandbox": 0,
+        "interrupcoes": 0,
+        "latencia_ms_sem_bloqueados": {
+          "p50": 6580.107,
+          "p95": 20609.979
+        },
+        "tokens_cache": 9462,
+        "tokens_entrada": 16790
+      },
+      "variante": "p06"
+    },
+    {
+      "cenarios": [
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "simples-tabela",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "De acordo com a tabela de serviços da instituição, a segunda via do diploma possui um prazo de 30 dias úteis e a taxa cobrada é de R$ 120,00 [T1].",
+          "status": "concluido",
+          "tokens_cache": 1294,
+          "tokens_entrada": 1620,
+          "tokens_saida": 130,
+          "total_ms": 4286.247
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "mcp-prazo",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "consultar_prazo"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "De acordo com a consulta ao sistema oficial de prazos, o prazo para realizar a rematrícula é até o décimo dia útil do início das aulas [T1]. Essa exigência está alinhada com o regulamento acadêmico vigente, que determina que a rematrícula é obrigatória a cada semestre e deve ser efetivada pelo portal do aluno dentro desse mesmo período [T2].",
+          "status": "concluido",
+          "tokens_cache": 1966,
+          "tokens_entrada": 2663,
+          "tokens_saida": 283,
+          "total_ms": 8667.215
+        },
+        {
+          "acao_saida": "aprovado_com_alerta",
+          "bloqueado": false,
+          "cenario": "mcp-media",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "calcular_media_ponderada"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "Com base no cálculo oficial da ferramenta, sua média ponderada é 6,7. De acordo com o regulamento vigente, a regra de aprovação exige média final igual ou maior que 6,0. Portanto, você foi aprovado. [T1] [T2]",
+          "status": "concluido",
+          "tokens_cache": 2699,
+          "tokens_entrada": 3259,
+          "tokens_saida": 303,
+          "total_ms": 8931.029
+        },
+        {
+          "acao_saida": "bloqueado_sem_citacao_valida",
+          "bloqueado": false,
+          "cenario": "mcp-sandbox-negado",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": true,
+          "passos": 2,
+          "resposta": "Não encontrei essa informação nos documentos.",
+          "status": "concluido",
+          "tokens_cache": 1999,
+          "tokens_entrada": 2707,
+          "tokens_saida": 166,
+          "total_ms": 5889.912
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "pii",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "A frequência mínima para aprovação nas disciplinas regulares é de 75% das aulas, conforme o regulamento acadêmico [T2]. Para o estágio supervisionado, a frequência mínima obrigatória é de 85% da carga horária prevista no termo de compromisso [T1].",
+          "status": "concluido",
+          "tokens_cache": 1231,
+          "tokens_entrada": 1494,
+          "tokens_saida": 170,
+          "total_ms": 5180.257
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "complexa-fallback",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "consultar_prazo",
+            "consultar_prazo"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "A rematrícula é obrigatória a cada semestre e deve ser realizada pelo portal do aluno até o décimo dia útil do início das aulas [T2][T4]. No calendário de 2026, os limites específicos são 13/02/2026 (1º semestre) e 14/08/2026 (2º semestre) [T3]. O trancamento, por sua vez, pode ser solicitado até a metade do semestre letivo [T1], com datas fixadas em 17/04/2026 e 16/10/2026 [T3]. Diferentemente da rematrícula, que é um ato de continuidade obrigatória, o trancamento é uma suspensão temporária. Pedidos de aproveitamento de estudos feitos após o prazo de rematrícula só valem para o semestre seguinte, sem efeito retroativo [T5].",
+          "status": "concluido",
+          "tokens_cache": 2849,
+          "tokens_entrada": 3300,
+          "tokens_saida": 970,
+          "total_ms": 24348.976
+        },
+        {
+          "acao_saida": "recusa_do_modelo",
+          "bloqueado": false,
+          "cenario": "sem-resposta",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "Não encontrei essa informação nos documentos.",
+          "status": "concluido",
+          "tokens_cache": 898,
+          "tokens_entrada": 1466,
+          "tokens_saida": 122,
+          "total_ms": 4598.999
+        },
+        {
+          "acao_saida": null,
+          "bloqueado": true,
+          "cenario": "injecao",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 0,
+          "resposta": "Não posso atender a esse pedido.",
+          "status": "concluido",
+          "tokens_cache": 0,
+          "tokens_entrada": 0,
+          "tokens_saida": 0,
+          "total_ms": 2.712
+        }
+      ],
+      "modelo": "qwen3.8:27b-ud-iq3_xxs",
+      "resumo": {
+        "acoes_saida": {
+          "None": 1,
+          "aprovado": 4,
+          "aprovado_com_alerta": 1,
+          "bloqueado_sem_citacao_valida": 1,
+          "recusa_do_modelo": 1
+        },
+        "cenarios": 8,
+        "chamadas_ferramentas": 4,
+        "criterios_ok": 8,
+        "execucoes_sandbox": 0,
+        "interrupcoes": 1,
+        "latencia_ms_sem_bloqueados": {
+          "p50": 5889.912,
+          "p95": 19723.592
+        },
+        "tokens_cache": 12936,
+        "tokens_entrada": 16509
+      },
+      "variante": "p08-proprio"
+    },
+    {
+      "cenarios": [
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "simples-tabela",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "De acordo com a tabela de serviços da instituição, a segunda via do diploma possui um prazo de 30 dias úteis e a taxa cobrada é de R$ 120,00 [T1].",
+          "status": "concluido",
+          "tokens_cache": 898,
+          "tokens_entrada": 1620,
+          "tokens_saida": 130,
+          "total_ms": 4829.828
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "mcp-prazo",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "consultar_prazo"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "De acordo com a consulta ao sistema oficial de prazos, o prazo para realizar a rematrícula é até o décimo dia útil do início das aulas [T1]. Essa exigência está alinhada com o regulamento acadêmico vigente, que determina que a rematrícula é obrigatória a cada semestre e deve ser efetivada pelo portal do aluno dentro desse mesmo período [T2].",
+          "status": "concluido",
+          "tokens_cache": 2361,
+          "tokens_entrada": 2663,
+          "tokens_saida": 283,
+          "total_ms": 8119.499
+        },
+        {
+          "acao_saida": "aprovado_com_alerta",
+          "bloqueado": false,
+          "cenario": "mcp-media",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "calcular_media_ponderada"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "Com base no cálculo oficial da ferramenta, sua média ponderada é 6,7. De acordo com o regulamento vigente, a regra de aprovação exige média final igual ou maior que 6,0. Portanto, você foi aprovado. [T1] [T2]",
+          "status": "concluido",
+          "tokens_cache": 2699,
+          "tokens_entrada": 3259,
+          "tokens_saida": 303,
+          "total_ms": 8896.75
+        },
+        {
+          "acao_saida": "bloqueado_sem_citacao_valida",
+          "bloqueado": false,
+          "cenario": "mcp-sandbox-negado",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": true,
+          "passos": 2,
+          "resposta": "Não encontrei essa informação nos documentos.",
+          "status": "concluido",
+          "tokens_cache": 1999,
+          "tokens_entrada": 2707,
+          "tokens_saida": 166,
+          "total_ms": 5868.065
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "pii",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "A frequência mínima para aprovação nas disciplinas regulares é de 75% das aulas, conforme o regulamento acadêmico [T2]. Para o estágio supervisionado, a frequência mínima obrigatória é de 85% da carga horária prevista no termo de compromisso [T1].",
+          "status": "concluido",
+          "tokens_cache": 1231,
+          "tokens_entrada": 1494,
+          "tokens_saida": 170,
+          "total_ms": 5186.385
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "complexa-fallback",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "consultar_prazo",
+            "consultar_prazo"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "A rematrícula é obrigatória a cada semestre e deve ser realizada pelo portal do aluno até o décimo dia útil do início das aulas [T2][T4]. No calendário de 2026, os limites específicos são 13/02/2026 (1º semestre) e 14/08/2026 (2º semestre) [T3]. O trancamento, por sua vez, pode ser solicitado até a metade do semestre letivo [T1], com datas fixadas em 17/04/2026 e 16/10/2026 [T3]. Diferentemente da rematrícula, que é um ato de continuidade obrigatória, o trancamento é uma suspensão temporária. Pedidos de aproveitamento de estudos feitos após o prazo de rematrícula só valem para o semestre seguinte, sem efeito retroativo [T5].",
+          "status": "concluido",
+          "tokens_cache": 2849,
+          "tokens_entrada": 3300,
+          "tokens_saida": 1434,
+          "total_ms": 35249.948
+        },
+        {
+          "acao_saida": "recusa_do_modelo",
+          "bloqueado": false,
+          "cenario": "sem-resposta",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "Não encontrei essa informação nos documentos.",
+          "status": "concluido",
+          "tokens_cache": 898,
+          "tokens_entrada": 1466,
+          "tokens_saida": 122,
+          "total_ms": 4527.925
+        },
+        {
+          "acao_saida": null,
+          "bloqueado": true,
+          "cenario": "injecao",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 0,
+          "resposta": "Não posso atender a esse pedido.",
+          "status": "concluido",
+          "tokens_cache": 0,
+          "tokens_entrada": 0,
+          "tokens_saida": 0,
+          "total_ms": 2.137
+        }
+      ],
+      "modelo": "qwen3.8:27b-ud-iq3_xxs",
+      "resumo": {
+        "acoes_saida": {
+          "None": 1,
+          "aprovado": 4,
+          "aprovado_com_alerta": 1,
+          "bloqueado_sem_citacao_valida": 1,
+          "recusa_do_modelo": 1
+        },
+        "cenarios": 8,
+        "chamadas_ferramentas": 4,
+        "criterios_ok": 8,
+        "execucoes_sandbox": 0,
+        "interrupcoes": 1,
+        "latencia_ms_sem_bloqueados": {
+          "p50": 5868.065,
+          "p95": 27343.989
+        },
+        "tokens_cache": 12935,
+        "tokens_entrada": 16509
+      },
+      "variante": "p08-langchain"
+    },
+    {
+      "cenarios": [
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "simples-tabela",
+          "criterio_ok": true,
+          "destino": "academico",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "De acordo com a tabela de serviços da instituição, a segunda via do diploma possui um prazo de 30 dias úteis e a taxa cobrada é de R$ 120,00 [T1].",
+          "status": "concluido",
+          "tokens_cache": 130,
+          "tokens_entrada": 1387,
+          "tokens_saida": 166,
+          "total_ms": 6477.009
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "mcp-prazo",
+          "criterio_ok": true,
+          "destino": "academico",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "consultar_prazo"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "De acordo com a consulta ao sistema oficial de prazos, o prazo para realizar a rematrícula é até o décimo dia útil do início das aulas [T1]. Essa exigência está alinhada com o regulamento acadêmico vigente, que determina que a rematrícula é obrigatória a cada semestre e deve ser efetivada pelo portal do aluno dentro desse mesmo período [T2].",
+          "status": "concluido",
+          "tokens_cache": 1765,
+          "tokens_entrada": 2096,
+          "tokens_saida": 278,
+          "total_ms": 8430.781
+        },
+        {
+          "acao_saida": "aprovado_com_alerta",
+          "bloqueado": false,
+          "cenario": "mcp-media",
+          "criterio_ok": true,
+          "destino": "calculo",
+          "execucoes_sandbox": 0,
+          "ferramentas": [
+            "calcular_media_ponderada"
+          ],
+          "interrupcao": false,
+          "passos": 2,
+          "resposta": "Com base no cálculo oficial da ferramenta, sua média ponderada é 6,7. De acordo com o regulamento vigente, a regra de aprovação exige média final igual ou maior que 6,0. Portanto, você foi aprovado. [T1] [T2]",
+          "status": "concluido",
+          "tokens_cache": 1908,
+          "tokens_entrada": 3194,
+          "tokens_saida": 344,
+          "total_ms": 10865.538
+        },
+        {
+          "acao_saida": "bloqueado_sem_citacao_valida",
+          "bloqueado": false,
+          "cenario": "mcp-sandbox-negado",
+          "criterio_ok": true,
+          "destino": "calculo",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": true,
+          "passos": 2,
+          "resposta": "Não encontrei essa informação nos documentos.",
+          "status": "concluido",
+          "tokens_cache": 1873,
+          "tokens_entrada": 2607,
+          "tokens_saida": 205,
+          "total_ms": 7324.503
+        },
+        {
+          "acao_saida": "aprovado",
+          "bloqueado": false,
+          "cenario": "pii",
+          "criterio_ok": true,
+          "destino": "academico",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "A frequência mínima para aprovação nas disciplinas regulares é de 75% das aulas, conforme o regulamento acadêmico [T2]. Para o estágio supervisionado, a frequência mínima obrigatória é de 85% da carga horária prevista no termo de compromisso [T1].",
+          "status": "concluido",
+          "tokens_cache": 973,
+          "tokens_entrada": 1270,
+          "tokens_saida": 225,
+          "total_ms": 6943.963
+        },
+        {
+          "acao_saida": "aprovado_com_alerta",
+          "bloqueado": false,
+          "cenario": "complexa-fallback",
+          "criterio_ok": true,
+          "destino": "academico",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "A rematrícula é obrigatória a cada semestre e deve ser realizada pelo portal do aluno até o limite definido no calendário, que é o 13/02/2026 para o primeiro semestre e 14/08/2026 para o segundo [T1]. O regulamento especifica que o prazo é o décimo dia útil do início das aulas, e quem perder o prazo entra em situação irregular [T2]. Já o trancamento possui prazos distintos: 17/04/2026 para o primeiro semestre e 16/10/2026 para o segundo [T1]. Diferente da rematrícula, o trancamento é uma opção de suspensão de vínculo, enquanto a rematrícula é a confirmação da continuidade. Não há informações nos trechos sobre as consequências específicas do trancamento ou sobre o que ocorre exatamente após a perda do prazo de rematrícula, além da menção genérica a 'entrar em' [T2].",
+          "status": "concluido",
+          "tokens_cache": 640,
+          "tokens_entrada": 1552,
+          "tokens_saida": 826,
+          "total_ms": 21648.203
+        },
+        {
+          "acao_saida": "recusa_do_modelo",
+          "bloqueado": false,
+          "cenario": "sem-resposta",
+          "criterio_ok": true,
+          "destino": "academico",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 1,
+          "resposta": "Não encontrei essa informação nos documentos.",
+          "status": "concluido",
+          "tokens_cache": 510,
+          "tokens_entrada": 1232,
+          "tokens_saida": 176,
+          "total_ms": 6157.075
+        },
+        {
+          "acao_saida": null,
+          "bloqueado": true,
+          "cenario": "injecao",
+          "criterio_ok": true,
+          "destino": "",
+          "execucoes_sandbox": 0,
+          "ferramentas": [],
+          "interrupcao": false,
+          "passos": 0,
+          "resposta": "Não posso atender a esse pedido.",
+          "status": "concluido",
+          "tokens_cache": 0,
+          "tokens_entrada": 0,
+          "tokens_saida": 0,
+          "total_ms": 2.786
+        }
+      ],
+      "modelo": "qwen3.8:27b-ud-iq3_xxs",
+      "resumo": {
+        "acoes_saida": {
+          "None": 1,
+          "aprovado": 3,
+          "aprovado_com_alerta": 2,
+          "bloqueado_sem_citacao_valida": 1,
+          "recusa_do_modelo": 1
+        },
+        "cenarios": 8,
+        "chamadas_ferramentas": 2,
+        "criterios_ok": 8,
+        "execucoes_sandbox": 0,
+        "interrupcoes": 1,
+        "latencia_ms_sem_bloqueados": {
+          "p50": 7324.503,
+          "p95": 18413.404
+        },
+        "tokens_cache": 7799,
+        "tokens_entrada": 13338
+      },
+      "variante": "p08-supervisor"
+    }
+  ],
+  "linhas_de_codigo": {
+    "metodo": "linhas não vazias, sem comentários e sem docstrings (ast)",
+    "p06_laco_proprio_executar_agente_e_gerar": 148,
+    "p08_adaptador_langchain": 38,
+    "p08_adaptador_mcp": 37,
+    "p08_fachada_retomada_e_limite": 29,
+    "p08_nucleo_do_grafo": 205,
+    "p08_supervisor": 35
+  },
+  "memoria": {
+    "qwen3.8:27b-ud-iq3_xxs": {
+      "fonte": "ollama /api/ps",
+      "modelos": [
+        {
+          "bytes": 10744600984,
+          "bytes_vram": 10744600984,
+          "modelo": "qwen3.8:27b-ud-iq3_xxs"
+        },
+        {
+          "bytes": 1212080455,
+          "bytes_vram": 1212080455,
+          "modelo": "qwen3-embedding:0.6b"
+        }
+      ]
+    }
+  }
+}

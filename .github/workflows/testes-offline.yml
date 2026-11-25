@@ -45,8 +45,8 @@ jobs:
           python -I -W error::ResourceWarning ferramentas/testar-fontes.py
           python -I ferramentas/testar-livros.py
 
-      - name: Camada 3 — dependências
-        run: python -m pip install -e "./laboratorios-mercado"
+      - name: Camada 3 — dependências (com o extra `agentes` do projeto 08)
+        run: python -m pip install -e "./laboratorios-mercado[agentes]"
 
       - name: Camada 3 — smoke-tests offline
         run: python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py

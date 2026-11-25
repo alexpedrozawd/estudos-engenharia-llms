@@ -1,6 +1,6 @@
 """Base comum da Camada 3 (laboratorios-mercado).
 
-Prepara `sys.path` para os seis projetos (pastas `01_*`..`06_*`, que não são pacotes
+Prepara `sys.path` para os projetos (pastas `01_*`..`08_*`, que não são pacotes
 importáveis por começarem com dígito) e para `laboratorios/comum` (cliente neutro
 reutilizado), e oferece utilidades determinísticas compartilhadas.
 """
@@ -26,6 +26,7 @@ PROJETOS = (
     "05_api_llmops",
     "06_integrador_producao",
     "07_evals_e_multimodal",
+    "08_langgraph_agentes",
 )
 
 

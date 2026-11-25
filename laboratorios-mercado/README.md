@@ -1,6 +1,6 @@
 # Laboratórios de mercado (Camada 3)
 
-Sete projetos com serviços reais, complementares aos laboratórios offline em [`../laboratorios/`](../laboratorios/README.md) (que continuam só com biblioteca padrão). Cada projeto tem smoke-tests offline e determinísticos, além de um roteiro de execução real com registro em [`execucoes/`](execucoes/). Os exemplos usam a Aurora Educação, instituição fictícia, como proposta didática.
+Oito projetos com serviços reais, complementares aos laboratórios offline em [`../laboratorios/`](../laboratorios/README.md) (que continuam só com biblioteca padrão). Cada projeto tem smoke-tests offline e determinísticos, além de um roteiro de execução real com registro em [`execucoes/`](execucoes/). Os exemplos usam a Aurora Educação, instituição fictícia, como proposta didática.
 
 | Projeto | Capítulos | O que pratica | Serviço real |
 |---|---|---|---|
@@ -11,15 +11,17 @@ Sete projetos com serviços reais, complementares aos laboratórios offline em [
 | [`05_api_llmops`](05_api_llmops/README.md) | 2, 17 | FastAPI, auth/rate limit, SSE com cancelamento, retry/disjuntor, Prometheus `/metrics`, OTLP → Jaeger e avaliação contínua | Endpoint OpenAI-compatível + Jaeger |
 | [`06_integrador_producao`](06_integrador_producao/README.md) | 12, 16, 18 | Guardrails PII/injeção, roteamento, laço agêntico MCP (`tool_calls`), `json_schema` estrito, RAG com ACL e relatório de custo/cache | Todos os anteriores |
 | [`07_evals_e_multimodal`](07_evals_e_multimodal/README.md) | 4, 5 | Evals A vs B com juiz calibrado (inversão A/B, *kappa* de Cohen, bootstrap pareado) e PDF → PNG (`pdftoppm`) → VLM/Pydantic | Endpoint OpenAI-compatível (e VLM opcional) |
+| [`08_langgraph_agentes`](08_langgraph_agentes/README.md) | 19 | Laço agêntico do 06 em `StateGraph` (LangGraph): checkpoint SQLite com PII mascarada, aprovação humana por `interrupt()`, lista de ferramentas permitidas, limite de passos e supervisor com dois subagentes | Endpoint OpenAI-compatível + servidor MCP do 03 |
 
 ## Ambiente (sem alterar a imagem do sistema)
 
 ```bash
 # na raiz do repositório; Python 3.11+ (3.13 recomendado)
 python3.13 -m venv .venv-mercado
-.venv-mercado/bin/python -m pip install -e "./laboratorios-mercado[containers]"
+.venv-mercado/bin/python -m pip install -e "./laboratorios-mercado[containers,agentes]"
 ```
 
+- `[agentes]` (langgraph, langchain-openai, langgraph-checkpoint-sqlite) é exigido pelos smoke-tests do projeto 08; o CI instala o mesmo extra.
 - `[containers]` instala o `podman-compose`, que o `podman compose` usa quando não há `docker-compose`. Com o venv no `PATH`: `export PATH="$PWD/.venv-mercado/bin:$PATH"`.
 - `[finetuning]` (torch, transformers, peft, trl, datasets, bitsandbytes>=0.50, accelerate) só é necessário para treinar no projeto 04 e exige GPU (CUDA ou AMD ROCm via perfil `finetuning` do `compose.yaml`).
 - Use instalação editável (`-e`): os registros de execução são gravados em `laboratorios-mercado/execucoes/`.
@@ -27,7 +29,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (87 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (100 testes)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 
@@ -80,6 +82,7 @@ Máquina: CPU de 16 núcleos, 31 GiB de RAM, sem GPU CUDA; llama.cpp server em c
 | 05 | Fase 6: `401` sem chave, `200` com `X-API-Key`, SSE (TTFT `199 ms`), cancelamento (`cancelados: 1`), `GET /metrics` Prometheus e `6` spans recebidos na API v3 do Jaeger |
 | 06 | Fase 6 + anti-BFLA real: `8` cenários com `5` chamadas MCP nativas via `tool_calls` (`0` reparos de `json_schema`, `0` bloqueios de saída, `13.555` tokens em cache de prefixo, PII mascarada, injeção bloqueada) e `4/4` verificações anti-BFLA reais (`401` sem chave, `403` na elevação `aluno -> admin`, `200` sem vazamento vs `admin` autorizado) |
 | 07 | Fase 6: calibração `kappa = 0,7391` (`12` pares), avaliação `16` casos (`B = 13`, `empate = 3`, `A = 0`; `3` vieses neutralizados; `+1,5625` no bootstrap, `promover_b = true`) e PNG real via `pdftoppm` (VLM remoto arquivado pelo operador) |
+| 08 | 25/11/2026, Ollama `/v1` na GPU: `27B` como agente `8/8` e `4B` para comparação `7/8` nas variantes P06, P08 (cliente próprio e `ChatOpenAI`) e supervisor; detalhes no [README do projeto](08_langgraph_agentes/README.md#execução-real-25112026) |
 
 ## Comparativo na GPU (Ollama `/v1`, RX 9070 XT 16 GB — 25/11/2026)
 
