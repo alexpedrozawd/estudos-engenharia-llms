@@ -1,0 +1,167 @@
+{
+  "acelerador": {
+    "backend": "rocm",
+    "disponivel": true,
+    "dispositivo": "AMD Radeon RX 9070 XT",
+    "versao_runtime": "7.14.60850"
+  },
+  "antes": {
+    "acelerador": {
+      "backend": "rocm",
+      "disponivel": true,
+      "dispositivo": "AMD Radeon RX 9070 XT",
+      "versao_runtime": "7.14.60850"
+    },
+    "acuracia": 0.6667,
+    "adaptador": null,
+    "backend": "hf",
+    "modelo": "Qwen/Qwen3-1.7B",
+    "n": 12,
+    "por_fatia": {
+      "com_ruido": {
+        "acertos": 2,
+        "acuracia": 0.5,
+        "formato_valido": 4,
+        "n": 4,
+        "taxa_formato": 1.0
+      },
+      "formal": {
+        "acertos": 3,
+        "acuracia": 0.75,
+        "formato_valido": 4,
+        "n": 4,
+        "taxa_formato": 1.0
+      },
+      "informal": {
+        "acertos": 3,
+        "acuracia": 0.75,
+        "formato_valido": 4,
+        "n": 4,
+        "taxa_formato": 1.0
+      }
+    },
+    "taxa_formato": 1.0
+  },
+  "carimbo": "2026-11-25T08-02-17-0300",
+  "execucao": "p04-qlora-rocm",
+  "modelo_base": "Qwen/Qwen3-1.7B",
+  "quantizacao": {
+    "dtype_computo": "bfloat16",
+    "quant_4bit": true,
+    "quant_dupla": true,
+    "quant_tipo": "nf4"
+  },
+  "rodada_12_epocas": {
+    "comparacao": {
+      "aprovado": true,
+      "delta_global": 0.25,
+      "delta_por_fatia": {
+        "com_ruido": 0.25,
+        "formal": 0.25,
+        "informal": 0.25
+      },
+      "regressoes": [],
+      "tolerancia": 0.05
+    },
+    "depois": {
+      "acelerador": {
+        "backend": "rocm",
+        "disponivel": true,
+        "dispositivo": "AMD Radeon RX 9070 XT",
+        "versao_runtime": "7.14.60850"
+      },
+      "acuracia": 0.9167,
+      "adaptador": "laboratorios-mercado/04_qlora_peft/adaptador_ep12",
+      "backend": "hf",
+      "modelo": "Qwen/Qwen3-1.7B",
+      "n": 12,
+      "por_fatia": {
+        "com_ruido": {
+          "acertos": 3,
+          "acuracia": 0.75,
+          "formato_valido": 4,
+          "n": 4,
+          "taxa_formato": 1.0
+        },
+        "formal": {
+          "acertos": 4,
+          "acuracia": 1.0,
+          "formato_valido": 4,
+          "n": 4,
+          "taxa_formato": 1.0
+        },
+        "informal": {
+          "acertos": 4,
+          "acuracia": 1.0,
+          "formato_valido": 4,
+          "n": 4,
+          "taxa_formato": 1.0
+        }
+      },
+      "taxa_formato": 1.0
+    },
+    "runtime_s": 22.53
+  },
+  "rodada_padrao_3_epocas": {
+    "comparacao": {
+      "aprovado": false,
+      "delta_global": -0.0834,
+      "delta_por_fatia": {
+        "com_ruido": 0.25,
+        "formal": 0.0,
+        "informal": -0.5
+      },
+      "regressoes": [
+        "informal: 0.75 -> 0.25"
+      ],
+      "tolerancia": 0.05
+    },
+    "depois": {
+      "acelerador": {
+        "backend": "rocm",
+        "disponivel": true,
+        "dispositivo": "AMD Radeon RX 9070 XT",
+        "versao_runtime": "7.14.60850"
+      },
+      "acuracia": 0.5833,
+      "adaptador": "laboratorios-mercado/04_qlora_peft/adaptador",
+      "backend": "hf",
+      "modelo": "Qwen/Qwen3-1.7B",
+      "n": 12,
+      "por_fatia": {
+        "com_ruido": {
+          "acertos": 3,
+          "acuracia": 0.75,
+          "formato_valido": 4,
+          "n": 4,
+          "taxa_formato": 1.0
+        },
+        "formal": {
+          "acertos": 3,
+          "acuracia": 0.75,
+          "formato_valido": 4,
+          "n": 4,
+          "taxa_formato": 1.0
+        },
+        "informal": {
+          "acertos": 1,
+          "acuracia": 0.25,
+          "formato_valido": 4,
+          "n": 4,
+          "taxa_formato": 1.0
+        }
+      },
+      "taxa_formato": 1.0
+    },
+    "runtime_s": 8.552
+  },
+  "versoes": {
+    "accelerate": "1.16.0",
+    "bitsandbytes": "0.50.2",
+    "datasets": "5.2.0",
+    "peft": "0.22.0",
+    "torch": "2.12.0+rocm7.14.1",
+    "transformers": "5.24.1",
+    "trl": "1.18.2"
+  }
+}

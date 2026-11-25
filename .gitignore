@@ -12,6 +12,10 @@ rascunho-local/
 
 # Camada 3 (laboratorios-mercado): ambiente virtual dedicado e modelos GGUF locais
 .venv-mercado/
+.venv-rocm/
 laboratorios-mercado/modelos/
 laboratorios-mercado/*.egg-info/
 laboratorios-mercado/build/
+laboratorios-mercado/04_qlora_peft/adaptador*/
+laboratorios-mercado/04_qlora_peft/antes*.json
+laboratorios-mercado/04_qlora_peft/depois*.json

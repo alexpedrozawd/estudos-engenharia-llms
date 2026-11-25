@@ -27,4 +27,6 @@ Fronteira opcional: `FRONTEIRA_PROVEDOR=openai|anthropic|gemini` (+ `FRONTEIRA_M
 
 Em 25/11/2026 (Fase 6, `qwen3:4b-instruct` com `--jinja` + `pgvector`): `8` cenários, `7` respondidos na rota local e `1` bloqueado na entrada; `0` bloqueios de saída; `5` chamadas nativas MCP via `tool_calls` (`consultar_prazo`, `calcular_media_ponderada` com média `6.7`, `executar_python_isolado` negado por padrão em falha fechada); `0` reparos de JSON; `13.555` tokens em cache de prefixo de `16.641` tokens de entrada; CPF e telefone mascarados.
 
+Em 25/11/2026 (validação real anti-BFLA com `INTEGRADOR_PERFIS_CHAVES`): `4/4` verificações aprovadas contra `uvicorn` + `llama.cpp` + `pgvector` — HTTP `401` (`nao_autenticado`) sem chave, HTTP `403` (`perfil_nao_autorizado`, `perfil_maximo: "aluno"`) ao solicitar `perfil: "admin"` com chave de aluno, HTTP `200` sem vazamento de `manual-financeiro-administrativo` no perfil `aluno` e HTTP `200` com acesso ao trecho restrito no perfil `admin` (registro em `execucoes/p06-integrador-anti-bfla-*.json`).
+
 Limites: regras de roteamento e padrões de injeção são didáticos (listas fixas não bastam contra ataques adaptativos); combine com as defesas do Cap. 12 do guia (Segurança, Guardrails e IA Responsável).

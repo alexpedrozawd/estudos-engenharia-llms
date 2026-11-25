@@ -24,14 +24,14 @@ dependencies = [
 [project.optional-dependencies]
 # Validação de compose.yaml com `podman compose` quando não há docker-compose no host.
 containers = ["podman-compose>=1.3"]
-# Treino QLoRA real do projeto 04 (exige GPU CUDA). Fora do CI e dos smoke-tests.
+# Treino QLoRA/LoRA real do projeto 04 (GPU NVIDIA CUDA ou AMD ROCm 7.x). Fora do CI e dos smoke-tests.
 finetuning = [
     "torch>=2.5",
     "transformers>=4.50",
     "peft>=0.15",
     "trl>=0.19",
     "datasets>=3.0",
-    "bitsandbytes>=0.45",
+    "bitsandbytes>=0.50",
     "accelerate>=1.3",
 ]
 

@@ -169,7 +169,28 @@ services:
       - /tmp:rw,noexec,nosuid,size=16m
     command: ["python", "-I", "-c", "print('sandbox ok')"]
 
+  qlora-rocm:
+    # Treino QLoRA/LoRA em GPU AMD (RDNA 4 / gfx1201 ou compatível com ROCm 7.x).
+    image: ${ROCM_PYTORCH_IMAGEM:-docker.io/rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.13_pytorch_release_2.12.0}
+    profiles: ["finetuning"]
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace
+      - hf-cache:/root/.cache/huggingface
+      - rocm-opt-venv:/opt/venv
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+    security_opt:
+      - label=disable
+      - no-new-privileges:true
+    shm_size: "8gb"
+    environment:
+      HF_HOME: /root/.cache/huggingface
+    command: ["python", "-c", "import torch; print('rocm_disponivel:', torch.cuda.is_available(), 'hip:', getattr(torch.version, 'hip', None))"]
+
 volumes:
   ollama-dados:
   hf-cache:
   pg-dados:
+  rocm-opt-venv:

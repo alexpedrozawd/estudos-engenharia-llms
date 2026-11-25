@@ -50,6 +50,8 @@ class ConfigQLoRA:
             raise ValueError("fracao_teste fora de (0, 1)")
         if self.quant_tipo not in ("nf4", "fp4"):
             raise ValueError("quant_tipo deve ser nf4 ou fp4")
+        if self.dtype_computo not in ("bfloat16", "float16", "float32"):
+            raise ValueError("dtype_computo deve ser bfloat16, float16 ou float32")
 
 
 def carregar_jsonl(caminho: str) -> List[Dict[str, str]]:
@@ -155,13 +157,14 @@ def sha_json(obj: object) -> str:
 
 
 def manifesto(cfg: ConfigQLoRA, caminho_dados: str, treino: Sequence[dict], teste: Sequence[dict],
-              versoes: Optional[Dict[str, str]] = None) -> Dict[str, object]:
+              versoes: Optional[Dict[str, str]] = None,
+              acelerador: Optional[Dict[str, object]] = None) -> Dict[str, object]:
     cfg.validar()
     with open(caminho_dados, "rb") as f:
         sha_dados = hashlib.sha256(f.read()).hexdigest()
     conf = asdict(cfg)
     conf["modulos_alvo"] = list(cfg.modulos_alvo)
-    return {
+    saida: Dict[str, object] = {
         "configuracao": conf,
         "sha256_configuracao": sha_json(conf),
         "sha256_dados": sha_dados,
@@ -171,6 +174,9 @@ def manifesto(cfg: ConfigQLoRA, caminho_dados: str, treino: Sequence[dict], test
         "sha256_formato_conversa": sha_json(para_conversa({"texto": "<x>", "categoria": CATEGORIAS[0]})),
         "versoes": dict(sorted((versoes or {}).items())),
     }
+    if acelerador is not None:
+        saida["acelerador"] = acelerador
+    return saida
 
 
 def versoes_instaladas(pacotes: Sequence[str] = ("torch", "transformers", "peft", "trl", "datasets",

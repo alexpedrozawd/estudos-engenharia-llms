@@ -14,4 +14,6 @@ Projeto complementar da Camada 3 para avaliar prompts com rigor estatístico e e
   --llm-base-url http://127.0.0.1:8081/v1 --llm-modelo qwen3-4b-instruct --registrar
 ```
 
-Em 25/11/2026 (`qwen3:4b-instruct` em CPU): calibração em `12` pares atingiu `kappa = 0,7391` (`>= 0,60`, `0` vieses de posição); avaliação em `16` casos teve placar `B = 13`, `empate = 3`, `A = 0` (`3` vieses de posição neutralizados pela inversão A/B), média `A = 3,375` vs `B = 4,9375` (`diferenca_media = +1,5625`, IC95% `[1,2812; 1,8125]`, `p = 0,0`, `promover_b = true`). Renderização multimodal `pdftoppm` gerou PNG real (`55.395` bytes) com payload `image_url` base64 validado (`vlm_remoto_executado = false` por não haver VLM local baixado).
+Em 25/11/2026 (`qwen3:4b-instruct` em CPU): calibração em `12` pares atingiu `kappa = 0,7391` (`>= 0,60`, `0` vieses de posição); avaliação em `16` casos teve placar `B = 13`, `empate = 3`, `A = 0` (`3` vieses de posição neutralizados pela inversão A/B), média `A = 3,375` vs `B = 4,9375` (`diferenca_media = +1,5625`, IC95% `[1,2812; 1,8125]`, `p = 0,0`, `promover_b = true`). Renderização multimodal `pdftoppm` gerou PNG real (`55.395` bytes) com payload `image_url` base64 validado.
+
+**Decisão registrada (25/11/2026):** a execução opcional contra VLM remoto (`--vlm-base-url` / `--vlm-modelo`) foi **arquivada/dispensada** pelo operador; código e testes offline de `extracao_multimodal.py` seguem preservados.

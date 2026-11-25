@@ -1,0 +1,43 @@
+{
+  "anti_bfla": [
+    {
+      "caso": "sem_chave_401",
+      "erro": "nao_autenticado",
+      "ok": true,
+      "status": 401
+    },
+    {
+      "caso": "elevacao_bloqueada_403",
+      "erro": "perfil_nao_autorizado",
+      "ok": true,
+      "perfil_maximo": "aluno",
+      "status": 403
+    },
+    {
+      "acao_saida": "recusa_do_modelo",
+      "caso": "aluno_sem_vazamento_200",
+      "ok": true,
+      "status": 200,
+      "trechos": [
+        "calendario-academico-2026:p1:1",
+        "tabela-bolsas-e-descontos:p1:1",
+        "regulamento-academico:p1:1"
+      ],
+      "vazou_restrito": false
+    },
+    {
+      "acao_saida": "aprovado",
+      "acessou_restrito": true,
+      "caso": "admin_autorizado_200",
+      "ok": true,
+      "status": 200,
+      "trechos": [
+        "manual-financeiro-administrativo:p1:2",
+        "manual-financeiro-administrativo:p1:1",
+        "calendario-academico-2026:p1:1"
+      ]
+    }
+  ],
+  "carimbo": "2026-11-25T07-46-25-0300",
+  "execucao": "p06-integrador-anti-bfla"
+}

@@ -50,6 +50,9 @@ class TestReceita(unittest.TestCase):
             qr.ConfigQLoRA(lora_dropout=1.0).validar()
         with self.assertRaises(ValueError):
             qr.ConfigQLoRA(quant_tipo="int8").validar()
+        with self.assertRaises(ValueError):
+            qr.ConfigQLoRA(dtype_computo="int4").validar()
+        qr.ConfigQLoRA(quant_4bit=False, dtype_computo="bfloat16").validar()
 
     def test_manifesto_reproduzivel(self):
         cfg = qr.ConfigQLoRA()
@@ -114,6 +117,38 @@ class TestAvaliacaoPorFatia(unittest.TestCase):
                 pass
         self.assertEqual(tq._filtrar_kwargs(Fake, {"output_dir": "x", "max_seq_length": 2, "max_length": 3}),
                          {"output_dir": "x", "max_length": 3})
+
+    def test_detectar_acelerador_cuda_rocm_e_cpu(self):
+        from types import SimpleNamespace
+
+        torch_cpu = SimpleNamespace(cuda=SimpleNamespace(is_available=lambda: False))
+        self.assertEqual(tq.detectar_acelerador(torch_cpu)["backend"], "cpu")
+
+        torch_rocm = SimpleNamespace(
+            version=SimpleNamespace(hip="7.14.0-abc", cuda=None),
+            cuda=SimpleNamespace(is_available=lambda: True, get_device_name=lambda _i: "AMD Radeon RX 9070 XT"),
+        )
+        acel_rocm = tq.detectar_acelerador(torch_rocm)
+        self.assertEqual(acel_rocm, {
+            "disponivel": True,
+            "backend": "rocm",
+            "dispositivo": "AMD Radeon RX 9070 XT",
+            "versao_runtime": "7.14.0-abc",
+        })
+
+        torch_cuda = SimpleNamespace(
+            version=SimpleNamespace(hip=None, cuda="12.6"),
+            cuda=SimpleNamespace(is_available=lambda: True, get_device_name=lambda _i: "NVIDIA L4"),
+        )
+        self.assertEqual(tq.detectar_acelerador(torch_cuda)["backend"], "cuda")
+
+    def test_avaliar_http_sem_base_url_retorna_erro_cli(self):
+        from contextlib import redirect_stdout
+        import io
+
+        with redirect_stdout(io.StringIO()):
+            rc = tq.main(["avaliar", "--modelo", "m", "--saida", "x.json"])
+        self.assertEqual(rc, 2)
 
 
 if __name__ == "__main__":
