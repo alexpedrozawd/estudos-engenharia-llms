@@ -27,7 +27,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (83 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (87 testes)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 
@@ -80,3 +80,21 @@ Máquina: CPU de 16 núcleos, 31 GiB de RAM, sem GPU CUDA; llama.cpp server em c
 | 05 | Fase 6: `401` sem chave, `200` com `X-API-Key`, SSE (TTFT `199 ms`), cancelamento (`cancelados: 1`), `GET /metrics` Prometheus e `6` spans recebidos na API v3 do Jaeger |
 | 06 | Fase 6 + anti-BFLA real: `8` cenários com `5` chamadas MCP nativas via `tool_calls` (`0` reparos de `json_schema`, `0` bloqueios de saída, `13.555` tokens em cache de prefixo, PII mascarada, injeção bloqueada) e `4/4` verificações anti-BFLA reais (`401` sem chave, `403` na elevação `aluno -> admin`, `200` sem vazamento vs `admin` autorizado) |
 | 07 | Fase 6: calibração `kappa = 0,7391` (`12` pares), avaliação `16` casos (`B = 13`, `empate = 3`, `A = 0`; `3` vieses neutralizados; `+1,5625` no bootstrap, `promover_b = true`) e PNG real via `pdftoppm` (VLM remoto arquivado pelo operador) |
+
+## Comparativo na GPU (Ollama `/v1`, RX 9070 XT 16 GB — 25/11/2026)
+
+Execução real via Ollama `0.40.18` (`/v1`) com `reasoning_effort=none` (`qwen3:4b-instruct` vs `qwen3.8:27b-ud-iq3_xxs`, ambos 100% em VRAM; embeddings `qwen3-embedding:0.6b` ocupando `1,13 GiB` adicionais em P02/P06). No P07, o `4B` gera em lote e o `27B` calibra e julga em seguida, eliminando o autojulgamento e evitando trocas repetidas de modelo na VRAM. Registros em [`execucoes/`](execucoes/).
+
+| Projeto | Modelo | Qualidade / Resultado | TTFT (p50 / p95) | Vazão (tok/s) | Latência (p50 / p95) | VRAM (`/api/ps`) |
+|---|---|---|---|---|---|---|
+| 01 (c=1) | `qwen3:4b-instruct` | `0` falhas, `100%` SLO | `17,8` / `30,5 ms` | `175,3` | `351,1` / `385,6 ms` | `2,96 GiB` |
+| 01 (c=1) | `qwen3.8:27b-ud-iq3_xxs` | `0` falhas, `100%` SLO | `189,2` / `224,4 ms` | `39,7` | `1.579,7` / `1.614,9 ms` | `10,01 GiB` |
+| 01 (c=4) | `qwen3:4b-instruct` | `0` falhas, `100%` SLO | `883,3` / `1.030,4 ms` | `185,5` | `1.215,0` / `1.321,0 ms` | `2,96 GiB` |
+| 01 (c=4) | `qwen3.8:27b-ud-iq3_xxs` | `0` falhas, `25%` SLO | `4.309,5` / `4.706,1 ms` | `40,1` | `5.702,6` / `5.712,3 ms` | `10,01 GiB` |
+| 02 (RAG) | `qwen3:4b-instruct` | `reranker` LLM MRR `0,90`; `23/25`, `3/3` recusas, fid. `0,84` | — | — | `300,1` / `538,9 ms` | `4,09 GiB` |
+| 02 (RAG) | `qwen3.8:27b-ud-iq3_xxs` | `reranker` LLM MRR `0,98`; `24/25`, `3/3` recusas, fid. `1,0` | — | — | `1.422,5` / `2.182,6 ms` | `11,14 GiB` |
+| 06 (Int.) | `qwen3:4b-instruct` | `5` MCP, `0` reparos/bloqueios, `9.511` cache | — | — | `2.373,7` / `4.578,2 ms` | `4,09 GiB` |
+| 06 (Int.) | `qwen3.8:27b-ud-iq3_xxs` | `3` MCP, `0` reparos/bloqueios, `8.075` cache | — | — | `7.930,2` / `17.778,7 ms` | `11,14 GiB` |
+| 07 (Eval) | `4B` gera → `27B` julga | `kappa = 0,871`; `B=15`, `emp=1`, `A=0`, `+1,125` (`p=0,0`) | — | — | gen `237,8`/`434,2 ms`; juiz `7.102,4`/`8.081,5 ms` | `2,96 GiB` → `10,01 GiB` |
+
+Observação operacional: sem `reasoning_effort=none`, o `qwen3.8:27b-ud-iq3_xxs` consome `max_tokens` em `reasoning` antes de emitir conteúdo (falhando em `max_tokens=4` e `json_schema` com `max_tokens=256`). Com `reasoning_effort=none`, todos os contratos (`tools`, `json_schema` estrito e *reranker*) funcionaram sem precisar recorrer à quantização `iq4_xs`.

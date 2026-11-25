@@ -314,6 +314,34 @@ class TestAssistente(unittest.TestCase):
             self.assertEqual(d["resposta"], ia.rp.RESPOSTA_RECUSA)
             self.assertEqual(c.get("/v1/relatorio").json()["falhas_esquema"], 1)
 
+    def test_cliente_chat_openai_reasoning_effort_e_descarregamento_ollama(self):
+        from mercado_base.cliente_openai import descarregar_modelo_ollama
+
+        capturas = []
+
+        def handler(request):
+            capturas.append((request.url.path, json.loads(request.content)))
+            if request.url.path.endswith("/api/chat"):
+                return httpx.Response(200, json={"done": True})
+            return httpx.Response(200, json={
+                "model": "qwen3.8:27b-ud-iq3_xxs",
+                "choices": [{"message": {"role": "assistant", "content": "ok"}, "finish_reason": "stop"}],
+                "usage": {"prompt_tokens": 10, "completion_tokens": 2},
+            })
+
+        transport = httpx.MockTransport(handler)
+        cli = ClienteChatOpenAI(
+            "http://servico.invalido/v1",
+            "qwen3.8:27b-ud-iq3_xxs",
+            reasoning_effort="none",
+            transport=transport,
+        )
+        resp = cli.completar_chat([{"role": "user", "content": "oi"}])
+        self.assertEqual(resp.texto, "ok")
+        self.assertEqual(capturas[0][1]["reasoning_effort"], "none")
+        self.assertTrue(descarregar_modelo_ollama("http://servico.invalido", "qwen3.8:27b-ud-iq3_xxs", transport=transport))
+        self.assertEqual(capturas[1][1]["keep_alive"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

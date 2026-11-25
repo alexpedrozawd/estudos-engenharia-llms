@@ -16,6 +16,6 @@ PID=$(podman inspect --format '{{.State.Pid}}' laboratorios-mercado_llama-chat_1
   --memoria-pid "$PID" --registrar
 ```
 
-Experimento sugerido: rode com `--concorrencia 1`, `2` e `4` contra um servidor com `--parallel 2`. Em 24/11/2026, a vazão subiu de 14,4 para 22,0 tokens/s, mas o TTFT p95 foi de 88 ms para 6,0 s e a fração no SLO caiu de 100% para 25%: a fila come o ganho de vazão. Registros em [`../execucoes/`](../execucoes/).
+Experimento sugerido: rode com `--concorrencia 1`, `2` e `4` contra um servidor com `--parallel 2`. Em 24/11/2026 (CPU), a vazão subiu de 14,4 para 22,0 tokens/s, mas o TTFT p95 foi de 88 ms para 6,0 s e a fração no SLO caiu de 100% para 25%: a fila come o ganho de vazão. Em 25/11/2026 (RX 9070 XT via Ollama `/v1` + `--sem-raciocinio`), `qwen3:4b-instruct` atingiu `185,5 tok/s` (`100%` SLO em c=4, `2,96 GiB` VRAM) e `qwen3.8:27b-ud-iq3_xxs` atingiu `39,7 tok/s` em c=1 (`100%` SLO, `10,01 GiB` VRAM) e `40,1 tok/s` em c=4 (`25%` SLO, TTFT p95 `4,71 s`). Registros em [`../execucoes/`](../execucoes/).
 
 Limites: tokens contados por evento são aproximação quando o servidor não envia `usage`; vLLM exige GPU NVIDIA (perfil `vllm`).

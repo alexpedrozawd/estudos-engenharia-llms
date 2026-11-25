@@ -5,11 +5,13 @@ import json
 import os
 import random
 import sys
-from typing import Dict, List, Literal, Sequence
+import time
+from typing import Callable, Dict, List, Literal, Optional, Sequence
 
 from pydantic import BaseModel, Field
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import mercado_base as mb  # noqa: E402
 from mercado_base.cliente_openai import gerar_estruturado  # noqa: E402
 
 PROMPT_A = "Responda de forma breve à pergunta com base no contexto."
@@ -178,13 +180,31 @@ def avaliar_prompts(
     limiar_kappa: float = 0.60,
     n_bootstrap: int = 2000,
     seed: int = 42,
+    ao_concluir_geracao: Optional[Callable[[], None]] = None,
 ) -> Dict[str, object]:
-    """Calibra o juiz (Cohen's kappa), gera A vs B, julga com inversão e decide promoção por bootstrap."""
+    """Calibra o juiz (Cohen's kappa), gera A vs B em lote, julga com inversão e decide por bootstrap."""
+    casos = dados["casos_avaliacao"]
+    geradas: List[tuple[Dict[str, object], str, str]] = []
+    latencias_gerador_ms: List[float] = []
+    for caso in casos:
+        t0 = time.perf_counter()
+        resp_a = _gerar_resposta(cliente_gerador, PROMPT_A, str(caso["contexto"]), str(caso["pergunta"]))
+        latencias_gerador_ms.append(round((time.perf_counter() - t0) * 1000.0, 3))
+        t0 = time.perf_counter()
+        resp_b = _gerar_resposta(cliente_gerador, PROMPT_B, str(caso["contexto"]), str(caso["pergunta"]))
+        latencias_gerador_ms.append(round((time.perf_counter() - t0) * 1000.0, 3))
+        geradas.append((caso, resp_a, resp_b))
+
+    if ao_concluir_geracao is not None:
+        ao_concluir_geracao()
+
     pares_cal = dados["pares_calibracao"]
     rotulos_humanos: List[str] = []
     rotulos_juiz: List[str] = []
     vieses_cal = 0
+    latencias_juiz_ms: List[float] = []
     for par in pares_cal:
+        t0 = time.perf_counter()
         j = julgar_com_inversao(
             cliente_juiz,
             str(par["pergunta"]),
@@ -192,6 +212,7 @@ def avaliar_prompts(
             str(par["resposta_a"]),
             str(par["resposta_b"]),
         )
+        latencias_juiz_ms.append(round((time.perf_counter() - t0) * 1000.0, 3))
         rotulos_humanos.append(str(par["julgamento_humano"]))
         rotulos_juiz.append(str(j["vencedor"]))
         vieses_cal += int(bool(j["vies_posicao"]))
@@ -199,16 +220,14 @@ def avaliar_prompts(
     kappa = cohen_kappa(rotulos_humanos, rotulos_juiz)
     juiz_calibrado = kappa >= limiar_kappa
 
-    casos = dados["casos_avaliacao"]
     resultados_casos: List[Dict[str, object]] = []
     notas_a: List[float] = []
     notas_b: List[float] = []
     placar = {"A": 0, "B": 0, "empate": 0}
     vieses_eval = 0
 
-    for caso in casos:
-        resp_a = _gerar_resposta(cliente_gerador, PROMPT_A, str(caso["contexto"]), str(caso["pergunta"]))
-        resp_b = _gerar_resposta(cliente_gerador, PROMPT_B, str(caso["contexto"]), str(caso["pergunta"]))
+    for caso, resp_a, resp_b in geradas:
+        t0 = time.perf_counter()
         julg = julgar_com_inversao(
             cliente_juiz,
             str(caso["pergunta"]),
@@ -216,6 +235,7 @@ def avaliar_prompts(
             resp_a,
             resp_b,
         )
+        latencias_juiz_ms.append(round((time.perf_counter() - t0) * 1000.0, 3))
         notas_a.append(float(julg["nota_a"]))
         notas_b.append(float(julg["nota_b"]))
         placar[str(julg["vencedor"])] += 1
@@ -241,6 +261,10 @@ def avaliar_prompts(
             "placar": placar,
             "vieses_posicao": vieses_eval,
             "bootstrap": boot,
+            "latencia_ms": {
+                "gerador": mb.resumir_latencias_ms(latencias_gerador_ms),
+                "juiz": mb.resumir_latencias_ms(latencias_juiz_ms),
+            },
         },
         "promover_b": bool(juiz_calibrado and boot["significativo"]),
         "casos": resultados_casos,

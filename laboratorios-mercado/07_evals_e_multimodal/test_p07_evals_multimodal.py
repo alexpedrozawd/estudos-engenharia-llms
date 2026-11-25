@@ -96,6 +96,72 @@ class TestEvals(unittest.TestCase):
         self.assertEqual(out["calibracao"]["kappa"], 1.0)
         self.assertTrue(out["promover_b"])
 
+    def test_avaliar_prompts_executa_em_duas_fases_e_mede_latencia(self):
+        dados = {
+            "pares_calibracao": [
+                {"id": "c1", "pergunta": "p1", "referencia": "r1", "resposta_a": "a", "resposta_b": "b", "julgamento_humano": "B"},
+            ],
+            "casos_avaliacao": [
+                {"id": "e1", "contexto": "ctx", "pergunta": "p1", "referencia": "r1"},
+                {"id": "e2", "contexto": "ctx", "pergunta": "p2", "referencia": "r2"},
+            ],
+        }
+        gerador = ClienteChatFalso([
+            RespostaChat("a1"), RespostaChat("b1 [T1]"),
+            RespostaChat("a2"), RespostaChat("b2 [T1]"),
+        ])
+        juiz = ClienteChatFalso([
+            _resp_json({"vencedor": "B", "nota_a": 2, "nota_b": 5, "justificativa": "ok"}),
+            _resp_json({"vencedor": "A", "nota_a": 5, "nota_b": 2, "justificativa": "ok"}),
+            _resp_json({"vencedor": "B", "nota_a": 2, "nota_b": 5, "justificativa": "ok"}),
+            _resp_json({"vencedor": "A", "nota_a": 5, "nota_b": 2, "justificativa": "ok"}),
+            _resp_json({"vencedor": "B", "nota_a": 2, "nota_b": 5, "justificativa": "ok"}),
+            _resp_json({"vencedor": "A", "nota_a": 5, "nota_b": 2, "justificativa": "ok"}),
+        ])
+        observado = {}
+
+        def ao_concluir():
+            observado["chamadas_gerador"] = len(gerador.chamadas)
+            observado["chamadas_juiz_antes"] = len(juiz.chamadas)
+
+        out = ep.avaliar_prompts(dados, gerador, juiz, limiar_kappa=0.60, n_bootstrap=50, ao_concluir_geracao=ao_concluir)
+        self.assertEqual(observado, {"chamadas_gerador": 4, "chamadas_juiz_antes": 0})
+        self.assertEqual(len(juiz.chamadas), 6)
+        lat = out["avaliacao"]["latencia_ms"]
+        self.assertIsNotNone(lat["gerador"]["p50"])
+        self.assertIsNotNone(lat["juiz"]["p95"])
+
+    def test_executar_evals_real_separa_gerador_e_juiz(self):
+        from contextlib import redirect_stdout
+        import io
+        from unittest.mock import patch
+        import executar_evals_real as eer
+
+        captura = {}
+
+        def fake_avaliar(dados, cli_gen, cli_juiz, **kwargs):
+            captura["gen"] = (cli_gen.base_url, cli_gen.modelo, cli_gen.reasoning_effort)
+            captura["juiz"] = (cli_juiz.base_url, cli_juiz.modelo, cli_juiz.reasoning_effort)
+            return {
+                "calibracao": {"pares": 1, "kappa": 1.0, "limiar_kappa": 0.6, "juiz_calibrado": True, "vieses_posicao": 0},
+                "avaliacao": {"casos": 1, "placar": {"A": 0, "B": 1, "empate": 0}, "vieses_posicao": 0, "bootstrap": {"significativo": True}},
+                "promover_b": True,
+                "casos": [],
+            }
+
+        with patch.object(ep, "avaliar_prompts", side_effect=fake_avaliar), redirect_stdout(io.StringIO()) as buf:
+            rc = eer.main([
+                "--llm-base-url", "http://127.0.0.1:11434/v1",
+                "--llm-modelo", "qwen3:4b-instruct",
+                "--juiz-modelo", "qwen3.8:27b-ud-iq3_xxs",
+                "--juiz-reasoning-effort", "none",
+            ])
+        self.assertEqual(rc, 0)
+        self.assertEqual(captura["gen"], ("http://127.0.0.1:11434/v1", "qwen3:4b-instruct", None))
+        self.assertEqual(captura["juiz"], ("http://127.0.0.1:11434/v1", "qwen3.8:27b-ud-iq3_xxs", "none"))
+        saida = json.loads(buf.getvalue())
+        self.assertEqual(saida["configuracao"]["juiz_modelo"], "qwen3.8:27b-ud-iq3_xxs")
+
 
 class TestMultimodal(unittest.TestCase):
     def test_pdf_para_png_pdftoppm_payload_e_extracao_com_reparo(self):

@@ -31,6 +31,10 @@ class RespostaChat:
     latencia_ms: float = 0.0
     finish_reason: str = "stop"
 
+    @property
+    def texto(self) -> str:
+        return self.conteudo
+
 
 def _adicionar_additional_properties_false(no: Any) -> Any:
     if isinstance(no, dict):
@@ -82,6 +86,7 @@ class ClienteChatOpenAI:
         api_key: str = "",
         provedor: str = "openai-compativel",
         timeout_s: float = 180.0,
+        reasoning_effort: Optional[str] = None,
         transport: Optional[httpx.BaseTransport] = None,
     ):
         self.base_url = base_url.rstrip("/")
@@ -89,6 +94,7 @@ class ClienteChatOpenAI:
         self.provedor = provedor
         self.api_key = api_key
         self.timeout_s = timeout_s
+        self.reasoning_effort = reasoning_effort
         self._transport = transport
 
     def completar_chat(
@@ -100,6 +106,7 @@ class ClienteChatOpenAI:
         response_format: Optional[Dict[str, object]] = None,
         temperatura: float = 0.0,
         max_tokens: int = 512,
+        reasoning_effort: Optional[str] = None,
     ) -> RespostaChat:
         cabecalhos = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
         payload: Dict[str, object] = {
@@ -108,6 +115,9 @@ class ClienteChatOpenAI:
             "temperature": temperatura,
             "max_tokens": max_tokens,
         }
+        esforco = reasoning_effort if reasoning_effort is not None else self.reasoning_effort
+        if esforco:
+            payload["reasoning_effort"] = esforco
         if tools:
             payload["tools"] = list(tools)
             if tool_choice is not None:
@@ -159,6 +169,53 @@ class ClienteChatOpenAI:
             latencia_ms=latencia_ms,
             finish_reason=str(escolha.get("finish_reason") or "stop"),
         )
+
+    def completar(
+        self,
+        prompt: str,
+        *,
+        sistema: str = "",
+        esforco: Optional[str] = None,
+        temperatura: float = 0.0,
+        max_tokens: int = 256,
+    ) -> RespostaChat:
+        """Interface compatível com `ClienteHTTPOpenAICompativel.completar` para reuso em RAG/evals."""
+        mensagens: List[Dict[str, object]] = []
+        if sistema:
+            mensagens.append({"role": "system", "content": sistema})
+        mensagens.append({"role": "user", "content": prompt})
+        return self.completar_chat(
+            mensagens,
+            temperatura=temperatura,
+            max_tokens=max_tokens,
+            reasoning_effort=esforco,
+        )
+
+
+def medir_memoria_ollama(host: str, transport: Optional[httpx.BaseTransport] = None) -> Dict[str, object]:
+    """Lê `/api/ps` do Ollama: bytes totais e em VRAM de cada modelo carregado."""
+    with httpx.Client(transport=transport, timeout=10.0) as c:
+        dados = c.get(f"{host.rstrip('/')}/api/ps").json()
+    modelos = [
+        {
+            "modelo": m.get("name") or m.get("model"),
+            "bytes": int(m.get("size") or 0),
+            "bytes_vram": int(m.get("size_vram") or 0),
+        }
+        for m in dados.get("models") or []
+    ]
+    return {"fonte": "ollama /api/ps", "modelos": modelos}
+
+
+def descarregar_modelo_ollama(
+    host: str,
+    modelo: str,
+    transport: Optional[httpx.BaseTransport] = None,
+) -> bool:
+    """Solicita ao Ollama o descarregamento imediato (`keep_alive: 0`) de um modelo da VRAM."""
+    with httpx.Client(transport=transport, timeout=30.0) as c:
+        resp = c.post(f"{host.rstrip('/')}/api/chat", json={"model": modelo, "messages": [], "keep_alive": 0})
+        return resp.status_code == 200
 
 
 class ClienteChatFalso:

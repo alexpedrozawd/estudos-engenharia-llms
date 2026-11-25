@@ -23,6 +23,7 @@ from typing import Callable, Dict, List, Optional, Sequence
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import mercado_base as mb  # noqa: E402
+from mercado_base.cliente_openai import medir_memoria_ollama  # noqa: E402
 
 import httpx  # noqa: E402
 
@@ -206,17 +207,6 @@ async def executar_benchmark(
         return list(amostras), relogio() - t0
 
 
-def medir_memoria_ollama(host: str, transport: Optional[httpx.BaseTransport] = None) -> Dict[str, object]:
-    """Lê `/api/ps` do Ollama: bytes totais e em VRAM de cada modelo carregado."""
-    with httpx.Client(transport=transport, timeout=10.0) as c:
-        dados = c.get(f"{host.rstrip('/')}/api/ps").json()
-    modelos = [
-        {"modelo": m.get("name") or m.get("model"), "bytes": int(m.get("size") or 0), "bytes_vram": int(m.get("size_vram") or 0)}
-        for m in dados.get("models") or []
-    ]
-    return {"fonte": "ollama /api/ps", "modelos": modelos}
-
-
 def medir_memoria_pid(pid: int, raiz_proc: str = "/proc") -> Dict[str, object]:
     """Lê `VmRSS` e `VmHWM` (pico) de um processo do runtime (llama-server, vLLM)."""
     valores: Dict[str, object] = {"fonte": f"{raiz_proc}/{pid}/status", "pid": pid}
@@ -237,9 +227,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--max-tokens", type=int, default=64)
     ap.add_argument("--slo-ttft-ms", type=float, default=2000.0)
     ap.add_argument("--slo-tpot-ms", type=float, default=150.0)
-    ap.add_argument("--sem-raciocinio", action="store_true", help="envia reasoning_effort=none (modelos com raciocínio)")
+    ap.add_argument(
+        "--sem-raciocinio",
+        action="store_true",
+        default=os.environ.get("SERVING_SEM_RACIOCINIO", "").strip() == "1",
+        help="envia reasoning_effort=none (modelos com raciocínio)",
+    )
     ap.add_argument("--aquecer", action="store_true", help="faz 1 requisição fora da medição para carregar o modelo")
-    ap.add_argument("--memoria-ollama", default="", help="host do Ollama para ler /api/ps (ex.: http://127.0.0.1:11434)")
+    ap.add_argument("--memoria-ollama", default=os.environ.get("OLLAMA_HOST", ""), help="host do Ollama para ler /api/ps (ex.: http://127.0.0.1:11434)")
     ap.add_argument("--memoria-pid", type=int, default=0)
     ap.add_argument("--registrar", action="store_true", help="grava JSON em laboratorios-mercado/execucoes/")
     args = ap.parse_args(argv)

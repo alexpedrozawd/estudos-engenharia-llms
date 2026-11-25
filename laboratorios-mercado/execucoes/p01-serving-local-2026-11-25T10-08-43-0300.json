@@ -1,0 +1,48 @@
+{
+  "carimbo": "2026-11-25T10-08-43-0300",
+  "configuracao": {
+    "base_url": "http://127.0.0.1:11434/v1",
+    "concorrencia": 4,
+    "extra": {
+      "reasoning_effort": "none"
+    },
+    "max_tokens": 64,
+    "modelo": "qwen3.8:27b-ud-iq3_xxs",
+    "requisicoes": 8
+  },
+  "erros": [],
+  "execucao": "p01-serving-local",
+  "fontes_de_tokens": [
+    "usage"
+  ],
+  "memoria": {
+    "fonte": "ollama /api/ps",
+    "modelos": [
+      {
+        "bytes": 10744600984,
+        "bytes_vram": 10744600984,
+        "modelo": "qwen3.8:27b-ud-iq3_xxs"
+      }
+    ]
+  },
+  "resumo": {
+    "duracao_s": 11.429,
+    "e2e_ms_p50": 5702.647,
+    "e2e_ms_p95": 5712.313,
+    "falhas": 0,
+    "fracao_dentro_do_slo": 0.25,
+    "goodput_req_s": 0.175,
+    "requisicoes": 8,
+    "requisicoes_s": 0.7,
+    "slo": {
+      "tpot_ms": 150.0,
+      "ttft_ms": 2000.0
+    },
+    "tokens_saida_total": 458,
+    "tpot_ms_p50": 22.114,
+    "tpot_ms_p95": 22.139,
+    "ttft_ms_p50": 4309.477,
+    "ttft_ms_p95": 4706.123,
+    "vazao_tokens_s": 40.072
+  }
+}

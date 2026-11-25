@@ -1,0 +1,910 @@
+{
+  "auditoria_acl": {
+    "consultas": 4,
+    "detalhes": [
+      {
+        "id": "q22",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "politica-de-privacidade-academica:p1:2",
+          "manual-estagio-e-tcc:p1:2",
+          "manual-estagio-e-tcc:p2:1",
+          "manual-biblioteca:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "q23",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "politica-de-privacidade-academica:p1:1",
+          "politica-de-privacidade-academica:p1:2",
+          "regulamento-academico:p2:1",
+          "tabela-bolsas-e-descontos:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "q24",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "tabela-bolsas-e-descontos:p1:1",
+          "calendario-academico-2026:p1:2",
+          "tabela-bolsas-e-descontos:p2:1",
+          "tabela-bolsas-e-descontos:p1:2"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "q25",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "calendario-academico-2026:p2:1",
+          "manual-estagio-e-tcc:p1:1",
+          "politica-de-privacidade-academica:p1:1",
+          "manual-biblioteca:p1:2"
+        ],
+        "vazados": []
+      }
+    ],
+    "vazamentos": 0
+  },
+  "carimbo": "2026-11-25T10-09-26-0300",
+  "configuracao": {
+    "dimensao": 1024,
+    "dsn": "postgresql://***@pgvector",
+    "embed_base_url": "http://127.0.0.1:11434/v1",
+    "embed_modelo": "qwen3-embedding:0.6b",
+    "k": 4,
+    "llm_base_url": "http://127.0.0.1:11434/v1",
+    "llm_modelo": "qwen3:4b-instruct",
+    "llm_reasoning_effort": "none",
+    "max_palavras": 40
+  },
+  "execucao": "p02-rag-pgvector",
+  "geracao": [
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [
+        "decimo dia util"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.5,
+        "frases": 2,
+        "recusa": false
+      },
+      "id": "q01",
+      "latencia_ms": 615.947,
+      "recusou_corretamente": null,
+      "resposta": "Devo fazer a rematrícula até o limite estabelecido no calendário acadêmico 2026. Para o primeiro semestre, o limite é 13/02/2026, e para o segundo semestre, é 14/08/2026. [T3]",
+      "tokens_saida": 73
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q02",
+      "latencia_ms": 402.129,
+      "recusou_corretamente": null,
+      "resposta": "Se eu perder o prazo da rematrícula, entro em lista de espera e só posso cursar disciplinas com vagas remanescentes. [T1]",
+      "tokens_saida": 39
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q03",
+      "latencia_ms": 399.857,
+      "recusou_corretamente": null,
+      "resposta": "O trancamento de matrícula pode ser pedido até a metade do semestre letivo e vale por no máximo dois semestres consecutivos. [T1]",
+      "tokens_saida": 39
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q04",
+      "latencia_ms": 286.983,
+      "recusou_corretamente": null,
+      "resposta": "O peso da prova na média final é de 60 por cento. [T1]",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q05",
+      "latencia_ms": 357.605,
+      "recusou_corretamente": null,
+      "resposta": "A nota mínima para aprovação é 6,0 [T1] e a frequência exigida é de 75 por cento [T1].",
+      "tokens_saida": 36
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q06",
+      "latencia_ms": 370.377,
+      "recusou_corretamente": null,
+      "resposta": "A segunda via do diploma custa R$ 120,00 e o prazo é de 30 dias úteis. [T1]",
+      "tokens_saida": 35
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q07",
+      "latencia_ms": 271.775,
+      "recusou_corretamente": null,
+      "resposta": "A taxa do histórico escolar é de R$ 25,00 [T2].",
+      "tokens_saida": 21
+    },
+    {
+      "categoria": "privacidade",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q08",
+      "latencia_ms": 277.797,
+      "recusou_corretamente": null,
+      "resposta": "Os dados pessoais são corrigidos em até 15 dias. [T1]",
+      "tokens_saida": 20
+    },
+    {
+      "categoria": "privacidade",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q09",
+      "latencia_ms": 304.726,
+      "recusou_corretamente": null,
+      "resposta": "Minhas notas só são exibidas ao proprio aluno e aos docentes da disciplina. [T1]",
+      "tokens_saida": 24
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q10",
+      "latencia_ms": 380.294,
+      "recusou_corretamente": null,
+      "resposta": "A data limite de rematrícula no primeiro semestre de 2026 é 13/02/2026. [T1]",
+      "tokens_saida": 36
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q11",
+      "latencia_ms": 294.293,
+      "recusou_corretamente": null,
+      "resposta": "A colação de grau do segundo semestre de 2026 acontece em 19/12/2026. [T1]",
+      "tokens_saida": 36
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q12",
+      "latencia_ms": 295.57,
+      "recusou_corretamente": null,
+      "resposta": "O percentual de desconto da bolsa de iniciação científica é de 40%. [T1]",
+      "tokens_saida": 26
+    },
+    {
+      "categoria": "financeiro",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q13",
+      "latencia_ms": 199.971,
+      "recusou_corretamente": null,
+      "resposta": "Não, não pode acumular bolsa mérito com bolsa de monitoria. [T2]",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q14",
+      "latencia_ms": 317.536,
+      "recusou_corretamente": null,
+      "resposta": "A multa por atraso na devolução de livros da biblioteca é de R$ 2,50 [T1].",
+      "tokens_saida": 31
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q15",
+      "latencia_ms": 244.487,
+      "recusou_corretamente": null,
+      "resposta": "A taxa para repor o cartão magnético da biblioteca é de R$ 18,00. [T1]",
+      "tokens_saida": 29
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q16",
+      "latencia_ms": 373.632,
+      "recusou_corretamente": null,
+      "resposta": "A frequência mínima exigida no estágio supervisionado é de 85 por cento da carga horária prevista no termo de compromisso. [T1]",
+      "tokens_saida": 39
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q17",
+      "latencia_ms": 270.571,
+      "recusou_corretamente": null,
+      "resposta": "A nota mínima exigida na banca de TCC é 7,0. [T1]",
+      "tokens_saida": 23
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q18",
+      "latencia_ms": 340.057,
+      "recusou_corretamente": null,
+      "resposta": "A taxa atual do histórico escolar, na regra vigente de 2026, é de R$ 25,00 [T3].",
+      "tokens_saida": 35
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q19",
+      "latencia_ms": 334.844,
+      "recusou_corretamente": null,
+      "resposta": "O valor vigente para segunda via do diploma em 2026 é de R$ 120,00 [T1].",
+      "tokens_saida": 31
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [
+        "6,0"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 3,
+        "recusa": false
+      },
+      "id": "q20",
+      "latencia_ms": 578.749,
+      "recusou_corretamente": null,
+      "resposta": "A média mínima para aprovação direta no regulamento vigente é abaixo de 4,0. Isso está indicado no trecho [T1], que afirma: \"abaixo de 4,0 ha reprovacao direta\".\n\nPortanto, a resposta é: abaixo de 4,0. [T1]",
+      "tokens_saida": 74
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.5,
+        "frases": 2,
+        "recusa": false
+      },
+      "id": "q21",
+      "latencia_ms": 464.771,
+      "recusou_corretamente": null,
+      "resposta": "O trancamento de matrícula pode ser pedido até a metade do semestre letivo e vale por no máximo dois semestres consecutivos. [T1]\n\nPortanto, o trancamento dura por **dois semestres consecutivos**.",
+      "tokens_saida": 60
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q22",
+      "latencia_ms": 273.227,
+      "recusou_corretamente": null,
+      "resposta": "O prazo de lançamento de notas para docentes é de 10 dias úteis após a prova. [T1]",
+      "tokens_saida": 29
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q23",
+      "latencia_ms": 257.386,
+      "recusou_corretamente": null,
+      "resposta": "O guia docente determina que avaliações substitutivas devem usar versão distinta do banco oficial de questoes. [T1]",
+      "tokens_saida": 31
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q24",
+      "latencia_ms": 238.974,
+      "recusou_corretamente": null,
+      "resposta": "O limite da bolsa emergencial concedida pela coordenação é de até 40 por cento [T1].",
+      "tokens_saida": 27
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 2,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 2,
+        "recusa": false
+      },
+      "id": "q25",
+      "latencia_ms": 356.099,
+      "recusou_corretamente": null,
+      "resposta": "O teto de parcelas é de até 6 parcelas mensais [T1]. O código interno para estornos é AUR-FIN-2026 [T1].",
+      "tokens_saida": 42
+    },
+    {
+      "categoria": "sem_resposta",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "q26",
+      "latencia_ms": 194.625,
+      "recusou_corretamente": true,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "sem_resposta",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "q27",
+      "latencia_ms": 169.151,
+      "recusou_corretamente": true,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "sem_resposta",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "q28",
+      "latencia_ms": 185.278,
+      "recusou_corretamente": true,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    }
+  ],
+  "geracao_resumo": {
+    "acerto_conteudo_esperado": 23,
+    "fidelidade_media": 0.84,
+    "latencia_ms": {
+      "p50": 300.148,
+      "p95": 538.857
+    },
+    "perguntas_sem_resposta": 3,
+    "recusas_corretas": 3,
+    "respondidas": 25
+  },
+  "ingestao": {
+    "documentos": 12,
+    "segundos": 1.316,
+    "trechos": 41,
+    "trechos_restritos": 12,
+    "trechos_revogados": 4,
+    "trechos_tabela": 4
+  },
+  "memoria": {
+    "geracao": {
+      "fonte": "ollama /api/ps",
+      "modelos": [
+        {
+          "bytes": 1212080455,
+          "bytes_vram": 1212080455,
+          "modelo": "qwen3-embedding:0.6b"
+        },
+        {
+          "bytes": 3180247121,
+          "bytes_vram": 3180247121,
+          "modelo": "qwen3:4b-instruct"
+        }
+      ]
+    },
+    "ingestao": {
+      "fonte": "ollama /api/ps",
+      "modelos": [
+        {
+          "bytes": 1212080455,
+          "bytes_vram": 1212080455,
+          "modelo": "qwen3-embedding:0.6b"
+        }
+      ]
+    }
+  },
+  "recuperacao": {
+    "hibrida_reranker_lexico": {
+      "k": 4,
+      "modo": "hibrida",
+      "mrr_medio": 0.8733,
+      "ndcg_medio": 0.8859,
+      "recall_medio": 0.94,
+      "reordenador": "lexico"
+    },
+    "hibrida_reranker_llm": {
+      "k": 4,
+      "modo": "hibrida",
+      "mrr_medio": 0.9,
+      "ndcg_medio": 0.9164,
+      "recall_medio": 0.98,
+      "reordenador": "llm"
+    },
+    "hibrida_rrf": {
+      "k": 4,
+      "modo": "hibrida",
+      "mrr_medio": 0.92,
+      "ndcg_medio": 0.9312,
+      "recall_medio": 0.98,
+      "reordenador": "nenhum"
+    },
+    "lexical": {
+      "k": 4,
+      "modo": "lexical",
+      "mrr_medio": 0.8667,
+      "ndcg_medio": 0.88,
+      "recall_medio": 0.92,
+      "reordenador": "nenhum"
+    },
+    "vetorial": {
+      "k": 4,
+      "modo": "vetorial",
+      "mrr_medio": 0.9333,
+      "ndcg_medio": 0.9473,
+      "recall_medio": 1.0,
+      "reordenador": "nenhum"
+    }
+  },
+  "recuperacao_por_consulta": [
+    {
+      "id": "q01",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:1",
+        "tabela-bolsas-e-descontos:p2:2",
+        "calendario-academico-2026:p1:2",
+        "calendario-academico-2026:p2:1"
+      ]
+    },
+    {
+      "id": "q02",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:2",
+        "calendario-academico-2026:p2:1",
+        "regulamento-academico:p1:1",
+        "tabela-bolsas-e-descontos:p2:2"
+      ]
+    },
+    {
+      "id": "q03",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:2",
+        "tabela-de-servicos:p1:2",
+        "calendario-academico-2026:p1:2",
+        "tabela-bolsas-e-descontos:p2:2"
+      ]
+    },
+    {
+      "id": "q04",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p2:1",
+        "regulamento-academico:p2:2",
+        "manual-estagio-e-tcc:p1:1",
+        "manual-estagio-e-tcc:p2:1"
+      ]
+    },
+    {
+      "id": "q05",
+      "mrr": 1.0,
+      "ndcg": 0.9197,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p2:2",
+        "manual-estagio-e-tcc:p1:1",
+        "regulamento-academico:p2:1",
+        "tabela-bolsas-e-descontos:p2:1"
+      ]
+    },
+    {
+      "id": "q06",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "tabela-de-servicos:p1:3",
+        "manual-biblioteca:p1:1",
+        "calendario-academico-2026:p1:2"
+      ]
+    },
+    {
+      "id": "q07",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-estagio-e-tcc:p2:2",
+        "tabela-de-servicos:p1:2",
+        "calendario-academico-2026:p1:1",
+        "politica-de-privacidade-academica:p1:1"
+      ]
+    },
+    {
+      "id": "q08",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-de-privacidade-academica:p1:2",
+        "politica-de-privacidade-academica:p1:1",
+        "tabela-de-servicos:p1:2",
+        "manual-biblioteca:p1:2"
+      ]
+    },
+    {
+      "id": "q09",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-de-privacidade-academica:p1:1",
+        "regulamento-academico:p2:2",
+        "tabela-de-servicos:p1:2",
+        "manual-estagio-e-tcc:p2:1"
+      ]
+    },
+    {
+      "id": "q10",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "calendario-academico-2026:p1:2",
+        "regulamento-academico:p1:1",
+        "calendario-academico-2026:p2:1",
+        "calendario-academico-2026:p1:1"
+      ]
+    },
+    {
+      "id": "q11",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "calendario-academico-2026:p1:2",
+        "calendario-academico-2026:p1:1",
+        "calendario-academico-2026:p2:1",
+        "regulamento-academico:p1:1"
+      ]
+    },
+    {
+      "id": "q12",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-bolsas-e-descontos:p1:2",
+        "tabela-bolsas-e-descontos:p1:1",
+        "tabela-bolsas-e-descontos:p1:3",
+        "tabela-bolsas-e-descontos:p2:1"
+      ]
+    },
+    {
+      "id": "q13",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-bolsas-e-descontos:p1:2",
+        "tabela-bolsas-e-descontos:p1:3",
+        "tabela-bolsas-e-descontos:p2:1",
+        "tabela-bolsas-e-descontos:p1:1"
+      ]
+    },
+    {
+      "id": "q14",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-biblioteca:p1:2",
+        "manual-biblioteca:p1:1",
+        "manual-estagio-e-tcc:p2:1",
+        "tabela-de-servicos:p1:3"
+      ]
+    },
+    {
+      "id": "q15",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-biblioteca:p1:2",
+        "manual-biblioteca:p1:1",
+        "manual-estagio-e-tcc:p2:1",
+        "tabela-de-servicos:p1:2"
+      ]
+    },
+    {
+      "id": "q16",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-estagio-e-tcc:p1:1",
+        "regulamento-academico:p2:2",
+        "tabela-bolsas-e-descontos:p2:2",
+        "tabela-bolsas-e-descontos:p2:1"
+      ]
+    },
+    {
+      "id": "q17",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-estagio-e-tcc:p1:2",
+        "manual-estagio-e-tcc:p1:1",
+        "regulamento-academico:p2:2",
+        "tabela-bolsas-e-descontos:p1:2"
+      ]
+    },
+    {
+      "id": "q18",
+      "mrr": 0.3333333333333333,
+      "ndcg": 0.5,
+      "recall": 1.0,
+      "recuperados": [
+        "calendario-academico-2026:p1:1",
+        "tabela-de-servicos:p1:1",
+        "tabela-de-servicos:p1:2",
+        "tabela-bolsas-e-descontos:p1:1"
+      ]
+    },
+    {
+      "id": "q19",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "calendario-academico-2026:p1:1",
+        "tabela-bolsas-e-descontos:p1:1",
+        "calendario-academico-2026:p1:2"
+      ]
+    },
+    {
+      "id": "q20",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p2:2",
+        "regulamento-academico:p2:1",
+        "manual-estagio-e-tcc:p1:1",
+        "tabela-bolsas-e-descontos:p1:2"
+      ]
+    },
+    {
+      "id": "q21",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:2",
+        "tabela-bolsas-e-descontos:p2:1",
+        "calendario-academico-2026:p1:2",
+        "manual-biblioteca:p2:2"
+      ]
+    },
+    {
+      "id": "q22",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-avaliacao:p1:1",
+        "politica-de-privacidade-academica:p1:2",
+        "tabela-de-servicos:p1:3",
+        "guia-docente-avaliacao:p2:1"
+      ]
+    },
+    {
+      "id": "q23",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-avaliacao:p1:1",
+        "guia-docente-avaliacao:p1:2",
+        "guia-docente-avaliacao:p2:1",
+        "guia-docente-avaliacao:p2:2"
+      ]
+    },
+    {
+      "id": "q24",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "norma-interna-coordenacao:p1:1",
+        "guia-docente-avaliacao:p2:2",
+        "norma-interna-coordenacao:p2:2",
+        "tabela-bolsas-e-descontos:p1:1"
+      ]
+    },
+    {
+      "id": "q25",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-financeiro-administrativo:p1:1",
+        "manual-financeiro-administrativo:p1:2",
+        "manual-financeiro-administrativo:p2:2",
+        "manual-financeiro-administrativo:p2:1"
+      ]
+    }
+  ],
+  "variante_escolhida_para_geracao": "vetorial"
+}

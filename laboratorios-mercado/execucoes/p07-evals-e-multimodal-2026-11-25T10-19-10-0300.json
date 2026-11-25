@@ -1,0 +1,143 @@
+{
+  "amostra_casos": [
+    {
+      "id": "ev-01",
+      "justificativa": "A Resposta B é superior porque inclui a citação [T1], conforme exigido pelas instruções para casos em que a referência cita a fonte. Ambas as respostas contêm as informações corretas (preço e prazo), mas a ausência da citação na Resposta A resulta em penalização técnica.",
+      "nota_a": 4.0,
+      "nota_b": 5.0,
+      "reparos": 0,
+      "resposta_a": "O histórico escolar custa R$ 25,00 e tem prazo de 5 dias úteis.",
+      "resposta_b": "O histórico escolar custa R$ 25,00 e tem um prazo de 5 dias úteis. [T1]",
+      "tokens_entrada": 442,
+      "tokens_saida": 245,
+      "vencedor": "B",
+      "vencedor_direto": "B",
+      "vencedor_invertido_mapeado": "B",
+      "vies_posicao": false
+    },
+    {
+      "id": "ev-02",
+      "justificativa": "A Resposta B é superior porque inclui a citação [T1], que é obrigatória conforme as instruções de avaliação para respostas RAG quando a referência a cita. Ambas as respostas contêm o mesmo conteúdo factual correto (prazo de 10 dias úteis e lista de espera), mas a ausência da citação na Resposta A a torna menos rigorosa e completa em termos de rastreabilidade. A Resposta B atende a todos os critérs",
+      "nota_a": 4.0,
+      "nota_b": 5.0,
+      "reparos": 0,
+      "resposta_a": "O prazo de rematrícula é até o décimo dia útil do início das aulas. Se quem perder esse prazo entra em lista de espera.",
+      "resposta_b": "O prazo de rematrícula é até o décimo dia útil do início das aulas. Se quem perde o prazo, entra em lista de espera. [T1]",
+      "tokens_entrada": 486,
+      "tokens_saida": 262,
+      "vencedor": "B",
+      "vencedor_direto": "B",
+      "vencedor_invertido_mapeado": "B",
+      "vies_posicao": false
+    },
+    {
+      "id": "ev-03",
+      "justificativa": "A Resposta B é superior porque inclui a citação [T1], que é obrigatória conforme as instruções de avaliação para respostas RAG quando a referência cita a fonte. A Resposta A, embora contenha as informações corretas, omite a citação, o que resulta em penalização. Ambas as respostas são factualmente corretas em relação aos critérios (média >= 6,0 e frequência >= 75%).",
+      "nota_a": 4.0,
+      "nota_b": 5.0,
+      "reparos": 0,
+      "resposta_a": "Média final igual ou maior que 6,0 e frequência mínima de 75 por cento das aulas.",
+      "resposta_b": "[T1] É aprovado quem obtém média final igual ou maior que 6,0 e frequência mínima de 75 por cento das aulas.",
+      "tokens_entrada": 452,
+      "tokens_saida": 239,
+      "vencedor": "B",
+      "vencedor_direto": "B",
+      "vencedor_invertido_mapeado": "B",
+      "vies_posicao": false
+    },
+    {
+      "id": "ev-04",
+      "justificativa": "A Resposta B é superior porque inclui a citação [T1], que é obrigatória conforme as instruções de avaliação para respostas baseadas em referência. Ambas as respostas contêm as informações factuais corretas (prazo até a metade do semestre e duração máxima de dois semestres consecutivos), mas a ausência da citação na Resposta A a torna menos rigorosa e completa em termos de rastreabilidade.",
+      "nota_a": 4.0,
+      "nota_b": 5.0,
+      "reparos": 0,
+      "resposta_a": "Posso pedir trancamento até a metade do semestre letivo e ele dura no máximo dois semestres consecutivos.",
+      "resposta_b": "Posso pedir trancamento até a metade do semestre letivo e o trancamento vale por no máximo dois semestres consecutivos. [T1]",
+      "tokens_entrada": 470,
+      "tokens_saida": 242,
+      "vencedor": "B",
+      "vencedor_direto": "B",
+      "vencedor_invertido_mapeado": "B",
+      "vies_posicao": false
+    }
+  ],
+  "avaliacao": {
+    "bootstrap": {
+      "diferenca_media": 1.125,
+      "ic_inferior": 0.9688,
+      "ic_superior": 1.3125,
+      "media_a": 3.875,
+      "media_b": 5.0,
+      "n": 16,
+      "n_amostras": 2000,
+      "p_valor_unilateral": 0.0,
+      "significativo": true
+    },
+    "casos": 16,
+    "latencia_ms": {
+      "gerador": {
+        "p50": 237.756,
+        "p95": 434.192
+      },
+      "juiz": {
+        "p50": 7102.406,
+        "p95": 8081.511
+      }
+    },
+    "placar": {
+      "A": 0,
+      "B": 15,
+      "empate": 1
+    },
+    "vieses_posicao": 1
+  },
+  "calibracao": {
+    "juiz_calibrado": true,
+    "kappa": 0.871,
+    "limiar_kappa": 0.6,
+    "pares": 12,
+    "vieses_posicao": 0
+  },
+  "carimbo": "2026-11-25T10-19-10-0300",
+  "configuracao": {
+    "juiz_base_url": "http://127.0.0.1:11434/v1",
+    "juiz_modelo": "qwen3.8:27b-ud-iq3_xxs",
+    "juiz_reasoning_effort": "none",
+    "llm_base_url": "http://127.0.0.1:11434/v1",
+    "llm_modelo": "qwen3:4b-instruct",
+    "llm_reasoning_effort": "none",
+    "vlm_modelo": null
+  },
+  "execucao": "p07-evals-e-multimodal",
+  "memoria": {
+    "gerador": {
+      "fonte": "ollama /api/ps",
+      "modelos": [
+        {
+          "bytes": 3180247121,
+          "bytes_vram": 3180247121,
+          "modelo": "qwen3:4b-instruct"
+        }
+      ]
+    },
+    "juiz": {
+      "fonte": "ollama /api/ps",
+      "modelos": [
+        {
+          "bytes": 10744600984,
+          "bytes_vram": 10744600984,
+          "modelo": "qwen3.8:27b-ud-iq3_xxs"
+        }
+      ]
+    }
+  },
+  "multimodal": {
+    "bytes_png": [
+      55395
+    ],
+    "paginas_png": 1,
+    "payload_multimodal_valido": true,
+    "vlm_remoto_executado": false
+  },
+  "promover_b": true
+}

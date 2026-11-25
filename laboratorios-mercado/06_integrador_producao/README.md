@@ -23,9 +23,11 @@ LLM_LOCAL_BASE_URL=http://127.0.0.1:8081/v1 LLM_LOCAL_MODELO=modelo-local INTEGR
 .venv-mercado/bin/python -I laboratorios-mercado/06_integrador_producao/cliente_integrador_real.py --registrar
 ```
 
-Fronteira opcional: `FRONTEIRA_PROVEDOR=openai|anthropic|gemini` (+ `FRONTEIRA_MODELO` e a chave do provedor por variável de ambiente).
+Fronteira opcional: `FRONTEIRA_PROVEDOR=openai|anthropic|gemini` (+ `FRONTEIRA_MODELO` e a chave do provedor por variável de ambiente). Para modelos locais com modo *thinking* no Ollama `/v1`, defina `LLM_LOCAL_REASONING_EFFORT=none`.
 
 Em 25/11/2026 (Fase 6, `qwen3:4b-instruct` com `--jinja` + `pgvector`): `8` cenários, `7` respondidos na rota local e `1` bloqueado na entrada; `0` bloqueios de saída; `5` chamadas nativas MCP via `tool_calls` (`consultar_prazo`, `calcular_media_ponderada` com média `6.7`, `executar_python_isolado` negado por padrão em falha fechada); `0` reparos de JSON; `13.555` tokens em cache de prefixo de `16.641` tokens de entrada; CPF e telefone mascarados.
+
+Em 25/11/2026 (Etapa 2 na GPU via Ollama `/v1`, `LLM_LOCAL_REASONING_EFFORT=none`): `qwen3:4b-instruct` (`5` chamadas MCP, `9.511` tokens em cache, p50 `2,37 s` / p95 `4,58 s`, `4,09 GiB` VRAM) vs `qwen3.8:27b-ud-iq3_xxs` (`3` chamadas MCP, `8.075` tokens em cache, p50 `7,93 s` / p95 `17,78 s`, `11,14 GiB` VRAM), ambos com `0` reparos/falhas de esquema e `0` bloqueios de saída.
 
 Em 25/11/2026 (validação real anti-BFLA com `INTEGRADOR_PERFIS_CHAVES`): `4/4` verificações aprovadas contra `uvicorn` + `llama.cpp` + `pgvector` — HTTP `401` (`nao_autenticado`) sem chave, HTTP `403` (`perfil_nao_autorizado`, `perfil_maximo: "aluno"`) ao solicitar `perfil: "admin"` com chave de aluno, HTTP `200` sem vazamento de `manual-financeiro-administrativo` no perfil `aluno` e HTTP `200` com acesso ao trecho restrito no perfil `admin` (registro em `execucoes/p06-integrador-anti-bfla-*.json`).
 

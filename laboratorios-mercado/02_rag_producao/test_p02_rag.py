@@ -230,6 +230,31 @@ class TestRecuperacaoEAvaliacao(unittest.TestCase):
         pos_ponto = rp.fidelidade("A taxa do histórico escolar é de R$ 25,00. [T1]", rec.trechos)
         self.assertEqual((pos_ponto["frases"], pos_ponto["apoiadas"]), (1, 1))
 
+    def test_cliente_chat_openai_completar_com_reasoning_effort(self):
+        from mercado_base.cliente_openai import ClienteChatOpenAI
+
+        payloads = []
+
+        def handler(request):
+            payloads.append(json.loads(request.content))
+            return httpx.Response(200, json={
+                "model": "qwen3.8:27b-ud-iq3_xxs",
+                "choices": [{"message": {"role": "assistant", "content": "3"}, "finish_reason": "stop"}],
+                "usage": {"prompt_tokens": 20, "completion_tokens": 1},
+            })
+
+        cli = ClienteChatOpenAI(
+            "http://servico.invalido/v1",
+            "qwen3.8:27b-ud-iq3_xxs",
+            reasoning_effort="none",
+            transport=httpx.MockTransport(handler),
+        )
+        r = cli.completar("Avalie.", sistema="Responda só 0-3.", max_tokens=4)
+        self.assertEqual(r.texto, "3")
+        self.assertEqual(payloads[0]["reasoning_effort"], "none")
+        self.assertEqual(mb.resumir_latencias_ms([]), {"p50": None, "p95": None})
+        self.assertEqual(mb.resumir_latencias_ms([10.0, 20.0, 30.0]), {"p50": 20.0, "p95": 29.0})
+
 
 class TestPDFMinimo(unittest.TestCase):
     def test_pdf_valido_e_latin1(self):

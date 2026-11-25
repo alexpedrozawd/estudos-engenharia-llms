@@ -57,6 +57,16 @@ def percentil(valores: Sequence[float], p: float) -> float:
     return float(ordenados[baixo] + (ordenados[alto] - ordenados[baixo]) * (pos - baixo))
 
 
+def resumir_latencias_ms(valores: Sequence[float]) -> Dict[str, Optional[float]]:
+    """Devolve `p50` e `p95` arredondados em ms (ou `None` se a lista estiver vazia)."""
+    if not valores:
+        return {"p50": None, "p95": None}
+    return {
+        "p50": round(percentil(valores, 50), 3),
+        "p95": round(percentil(valores, 95), 3),
+    }
+
+
 def sha256_texto(texto: str) -> str:
     return hashlib.sha256(texto.encode("utf-8")).hexdigest()
 

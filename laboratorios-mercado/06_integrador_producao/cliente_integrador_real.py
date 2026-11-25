@@ -11,6 +11,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import mercado_base as mb  # noqa: E402
+from mercado_base.cliente_openai import medir_memoria_ollama  # noqa: E402
 
 import httpx  # noqa: E402
 
@@ -32,6 +33,10 @@ def main(argv=None) -> int:
     ap.add_argument("--api-key", default=os.environ.get("AURORA_API_KEY", ""))
     ap.add_argument("--chave-aluno", default=os.environ.get("AURORA_CHAVE_ALUNO", ""))
     ap.add_argument("--chave-admin", default=os.environ.get("AURORA_CHAVE_ADMIN", ""))
+    ap.add_argument("--modelo-local", default=os.environ.get("LLM_LOCAL_MODELO", ""))
+    ap.add_argument("--base-url-local", default=os.environ.get("LLM_LOCAL_BASE_URL", ""))
+    ap.add_argument("--reasoning-effort", default=os.environ.get("LLM_LOCAL_REASONING_EFFORT", ""))
+    ap.add_argument("--ollama-host", default=os.environ.get("OLLAMA_HOST", ""))
     ap.add_argument("--somente-bfla", action="store_true")
     ap.add_argument("--registrar", action="store_true")
     args = ap.parse_args(argv)
@@ -39,6 +44,13 @@ def main(argv=None) -> int:
         print(json.dumps({"erro": "--somente-bfla exige --chave-aluno e --chave-admin"}, ensure_ascii=False))
         return 2
     saida: dict[str, object] = {}
+    if args.modelo_local or args.base_url_local or args.reasoning_effort:
+        saida["configuracao"] = {
+            "url_integrador": args.url,
+            "llm_local_modelo": args.modelo_local or None,
+            "llm_local_base_url": args.base_url_local or None,
+            "llm_local_reasoning_effort": args.reasoning_effort or None,
+        }
     falha_bfla = False
 
     if not args.somente_bfla:
@@ -61,6 +73,8 @@ def main(argv=None) -> int:
                 })
             saida["cenarios"] = cenarios_out
             saida["relatorio"] = c.get("/v1/relatorio").json()
+    if args.ollama_host:
+        saida["memoria"] = medir_memoria_ollama(args.ollama_host)
 
     if args.chave_aluno and args.chave_admin:
         bfla = []

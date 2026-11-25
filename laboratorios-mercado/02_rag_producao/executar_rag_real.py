@@ -17,8 +17,8 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import mercado_base as mb  # noqa: E402
+from mercado_base.cliente_openai import ClienteChatOpenAI, medir_memoria_ollama  # noqa: E402
 
-from comum.cliente_llm import ClienteHTTPOpenAICompativel  # noqa: E402
 import corpus_aurora  # noqa: E402
 import rag_ingestao as ing  # noqa: E402
 import rag_pipeline as rp  # noqa: E402
@@ -32,6 +32,8 @@ def main(argv=None) -> int:
     ap.add_argument("--embed-modelo", default=os.environ.get("EMBED_MODELO", "embed-local"))
     ap.add_argument("--llm-base-url", default=os.environ.get("LLM_BASE_URL", ""))
     ap.add_argument("--llm-modelo", default=os.environ.get("LLM_MODELO", "modelo-local"))
+    ap.add_argument("--llm-reasoning-effort", default=os.environ.get("LLM_REASONING_EFFORT", ""))
+    ap.add_argument("--ollama-host", default=os.environ.get("OLLAMA_HOST", ""))
     ap.add_argument("--k", type=int, default=4)
     ap.add_argument("--max-palavras", type=int, default=40)
     ap.add_argument("--registrar", action="store_true")
@@ -61,6 +63,7 @@ def main(argv=None) -> int:
     armazem.criar_esquema(embedder.dim, recriar=True)
     armazem.inserir(trechos, vetores)
     t_ingestao = time.perf_counter() - t0
+    memoria_ingestao = medir_memoria_ollama(args.ollama_host) if args.ollama_host else {}
 
     consultas = corpus_aurora.carregar_consultas()
     com_resposta = [
@@ -79,11 +82,12 @@ def main(argv=None) -> int:
         ("hibrida_reranker_lexico", "hibrida", rp.ReordenadorLexico()),
     ]
     if args.llm_base_url:
-        cliente = ClienteHTTPOpenAICompativel(
-            modelo=args.llm_modelo,
+        cliente = ClienteChatOpenAI(
             base_url=args.llm_base_url,
+            modelo=args.llm_modelo,
             provedor="openai-compativel-local",
             timeout_s=180.0,
+            reasoning_effort=args.llm_reasoning_effort or None,
         )
         variantes.append(("hibrida_reranker_llm", "hibrida", rp.ReordenadorLLM(cliente)))
 
@@ -119,11 +123,15 @@ def main(argv=None) -> int:
                 "recusou_corretamente": (fid["recusa"] if c.get("sem_resposta") else None),
             })
 
+    memoria = medir_memoria_ollama(args.ollama_host) if args.ollama_host else {}
     resultado = {
         "configuracao": {
+            "embed_base_url": args.embed_base_url,
             "embed_modelo": args.embed_modelo,
             "dimensao": embedder.dim,
+            "llm_base_url": args.llm_base_url or None,
             "llm_modelo": args.llm_modelo,
+            "llm_reasoning_effort": args.llm_reasoning_effort or None,
             "k": args.k,
             "max_palavras": args.max_palavras,
             "dsn": "postgresql://***@pgvector",
@@ -142,6 +150,8 @@ def main(argv=None) -> int:
         "recuperacao_por_consulta": avaliacoes[nome_melhor]["por_consulta"],
         "geracao": geracao,
     }
+    if memoria_ingestao or memoria:
+        resultado["memoria"] = {"ingestao": memoria_ingestao, "geracao": memoria}
     if geracao:
         respondidas = [g for g in geracao if g["recusou_corretamente"] is None]
         resultado["geracao_resumo"] = {
@@ -150,6 +160,7 @@ def main(argv=None) -> int:
             "respondidas": len(respondidas),
             "recusas_corretas": sum(1 for g in geracao if g["recusou_corretamente"]),
             "perguntas_sem_resposta": sum(1 for g in geracao if g["recusou_corretamente"] is not None),
+            "latencia_ms": mb.resumir_latencias_ms([float(g["latencia_ms"]) for g in geracao]),
         }
     print(json.dumps(resultado, ensure_ascii=False, indent=2))
     if args.registrar:

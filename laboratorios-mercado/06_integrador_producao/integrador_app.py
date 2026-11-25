@@ -571,6 +571,7 @@ def criar_app_de_ambiente() -> FastAPI:
         modelo=os.environ.get("LLM_LOCAL_MODELO", "modelo-local"),
         provedor="local",
         timeout_s=180.0,
+        reasoning_effort=os.environ.get("LLM_LOCAL_REASONING_EFFORT", "").strip() or None,
     )
     fronteira = None
     provedor = os.environ.get("FRONTEIRA_PROVEDOR", "").strip()
