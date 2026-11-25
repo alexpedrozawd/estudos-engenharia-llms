@@ -1,0 +1,45 @@
+{
+  "aprovacao": "aprovar-automatico",
+  "calcular_media_ponderada": {
+    "aprovado": true,
+    "media": 6.7,
+    "regra": "aprovado se média >= 6,0"
+  },
+  "carimbo": "2026-11-24T21-06-28-0300",
+  "consultar_prazo": "Até o décimo dia útil do início das aulas.",
+  "execucao": "p03-mcp-streamable-http",
+  "executar_python_isolado": {
+    "aprovado_por": "demonstracao-automatica",
+    "codigo_saida": 0,
+    "erro": "",
+    "executado": true,
+    "motivo": "concluído",
+    "saida": "olá da sandbox 3.13.18 1\n",
+    "sha256_codigo": "db99f4bf181dc9dafb53ffaa4e74f3594db801efd8e5d9fc7c5d6ab23c4a97f7"
+  },
+  "executar_sem_rede": {
+    "aprovado_por": "demonstracao-automatica",
+    "codigo_saida": 1,
+    "erro": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\n    s = socket.create_connection(('1.1.1.1', 53), timeout=3)\n  File \"/usr/local/lib/python3.13/socket.py\", line 868, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.13/socket.py\", line 853, in create_connection\n    sock.connect(sa)\n    ~~~~~~~~~~~~^^^^\nOSError: [Errno 101] Network unreachable\n",
+    "executado": true,
+    "motivo": "concluído",
+    "saida": "",
+    "sha256_codigo": "7efbf2e96250821276dc9db43b6099e0fad14f75a80ce50e9dba10120d1773e6"
+  },
+  "ferramentas": {
+    "calcular_media_ponderada": {
+      "destrutiva": false,
+      "somente_leitura": true
+    },
+    "consultar_prazo": {
+      "destrutiva": false,
+      "somente_leitura": true
+    },
+    "executar_python_isolado": {
+      "destrutiva": true,
+      "somente_leitura": false
+    }
+  },
+  "transporte": "streamable-http",
+  "validacao_rejeita_nota_11": true
+}

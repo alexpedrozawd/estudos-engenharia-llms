@@ -1,0 +1,172 @@
+# Camada 3 (laboratorios-mercado) — serviços reais, compatíveis com Podman e Docker.
+#
+# Todos os serviços ficam em perfis e escutam só em 127.0.0.1. Exemplos:
+#   podman compose -f laboratorios-mercado/compose.yaml --profile serving up -d   # llama.cpp chat + embeddings
+#   podman compose -f laboratorios-mercado/compose.yaml --profile rag up -d       # PostgreSQL + pgvector
+#   docker compose -f laboratorios-mercado/compose.yaml config -q                 # validação (CI)
+#
+# Variáveis (com padrão seguro para laboratório local; troque PG_SENHA fora da sua máquina):
+#   MODELOS_DIR, MODELO_CHAT_ARQUIVO, MODELO_EMBED_ARQUIVO, PG_SENHA, LLAMA_IMAGEM
+
+name: laboratorios-mercado
+
+x-llama-base: &llama-base
+  image: ${LLAMA_IMAGEM:-ghcr.io/ggml-org/llama.cpp:server}
+  volumes:
+    - ${MODELOS_DIR:-./modelos}:/modelos:ro
+  # Leitura de GGUF fora do contexto do container em hosts com SELinux, sem reetiquetar arquivos do usuário.
+  security_opt:
+    - label=disable
+    - no-new-privileges:true
+  restart: "no"
+
+services:
+  llama-chat:
+    <<: *llama-base
+    profiles: ["serving", "app"]
+    command:
+      - -m
+      - /modelos/${MODELO_CHAT_ARQUIVO:-modelo-chat.gguf}
+      - --alias
+      - ${MODELO_CHAT_ALIAS:-modelo-local}
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8080"
+      - -c
+      - "8192"
+      - --parallel
+      - "2"
+      # "off" desliga o raciocínio quando o template do modelo aceita (Qwen3 híbrido); variantes
+      # "Thinking" (ex.: Qwen3-4B-Thinking-2507) sempre raciocinam. Use "auto" para medir com raciocínio.
+      - --reasoning
+      - ${LLAMA_REASONING:-off}
+    ports:
+      - "127.0.0.1:8081:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  llama-embed:
+    <<: *llama-base
+    profiles: ["serving", "rag", "app"]
+    command:
+      - -m
+      - /modelos/${MODELO_EMBED_ARQUIVO:-modelo-embed.gguf}
+      - --alias
+      - ${MODELO_EMBED_ALIAS:-embed-local}
+      - --embedding
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8080"
+      - -c
+      - "2048"
+    ports:
+      - "127.0.0.1:8082:8080"
+
+  ollama:
+    image: docker.io/ollama/ollama:latest
+    profiles: ["ollama"]
+    ports:
+      - "127.0.0.1:11435:11434"
+    volumes:
+      - ollama-dados:/root/.ollama
+
+  vllm:
+    # Exige GPU NVIDIA com CUDA (ou imagem ROCm equivalente); fica fora dos perfis padrão.
+    image: docker.io/vllm/vllm-openai:latest
+    profiles: ["vllm"]
+    command: ["--model", "${VLLM_MODELO:-Qwen/Qwen3-1.7B}", "--max-model-len", "8192"]
+    ports:
+      - "127.0.0.1:8083:8000"
+    volumes:
+      - hf-cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  postgres:
+    image: docker.io/pgvector/pgvector:pg17
+    profiles: ["rag", "app"]
+    environment:
+      POSTGRES_USER: aurora
+      POSTGRES_DB: rag
+      POSTGRES_PASSWORD: ${PG_SENHA:-senha-local-de-laboratorio}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - pg-dados:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aurora -d rag"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  jaeger:
+    image: docker.io/jaegertracing/jaeger:latest
+    profiles: ["observabilidade"]
+    ports:
+      - "127.0.0.1:16686:16686"
+      - "127.0.0.1:4318:4318"
+
+  api-llmops:
+    build:
+      context: ..
+      dockerfile: laboratorios-mercado/Containerfile
+    image: localhost/laboratorios-mercado:dev
+    profiles: ["app"]
+    command: ["uvicorn", "--factory", "llmops_api:criar_app_de_ambiente", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      LLM_BASE_URL: http://llama-chat:8080/v1
+      LLM_MODELO: ${MODELO_CHAT_ALIAS:-modelo-local}
+      OTEL_EXPORTADOR: console
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      - llama-chat
+
+  integrador:
+    image: localhost/laboratorios-mercado:dev
+    profiles: ["app"]
+    command: ["uvicorn", "--factory", "integrador_app:criar_app_de_ambiente", "--host", "0.0.0.0", "--port", "8001"]
+    environment:
+      LLM_LOCAL_BASE_URL: http://llama-chat:8080/v1
+      LLM_LOCAL_MODELO: ${MODELO_CHAT_ALIAS:-modelo-local}
+      EMBED_BASE_URL: http://llama-embed:8080/v1
+      EMBED_MODELO: ${MODELO_EMBED_ALIAS:-embed-local}
+      PGVECTOR_DSN: postgresql://aurora:${PG_SENHA:-senha-local-de-laboratorio}@postgres:5432/rag
+    ports:
+      - "127.0.0.1:8001:8001"
+    depends_on:
+      - api-llmops
+      - postgres
+      - llama-embed
+
+  sandbox-python:
+    # Mesmo isolamento aplicado por mcp_sandbox_exec.py em cada execução de ferramenta.
+    image: docker.io/library/python:3.13-alpine
+    profiles: ["sandbox"]
+    network_mode: none
+    read_only: true
+    user: "65534:65534"
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 64
+    mem_limit: 128m
+    cpus: 0.5
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    command: ["python", "-I", "-c", "print('sandbox ok')"]
+
+volumes:
+  ollama-dados:
+  hf-cache:
+  pg-dados:

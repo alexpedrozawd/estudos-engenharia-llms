@@ -1,0 +1,302 @@
+{
+  "carimbo": "2026-11-24T21-04-50-0300",
+  "configuracao": {
+    "dimensao": 1024,
+    "dsn": "postgresql://***@pgvector",
+    "embed_modelo": "qwen3-embedding-0.6b",
+    "k": 3,
+    "llm_modelo": "qwen3-4b-instruct-2507",
+    "max_palavras": 40
+  },
+  "execucao": "p02-rag-pgvector",
+  "geracao": [
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q01",
+      "latencia_ms": 1926.173,
+      "recusou_corretamente": null,
+      "resposta": "Devo fazer a rematrícula até o décimo dia útil do início das aulas. [T1]",
+      "tokens_saida": 25
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q02",
+      "latencia_ms": 3077.407,
+      "recusou_corretamente": null,
+      "resposta": "Se eu perder o prazo da rematrícula, entro em lista de espera e só posso cursar disciplinas com vagas remanescentes. [T1]",
+      "tokens_saida": 39
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q03",
+      "latencia_ms": 6104.408,
+      "recusou_corretamente": null,
+      "resposta": "O trancamento de matrícula pode ser pedido até a metade do semestre letivo e vale por no máximo dois semestres consecutivos. [T1]",
+      "tokens_saida": 39
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q04",
+      "latencia_ms": 3614.497,
+      "recusou_corretamente": null,
+      "resposta": "O peso da prova na média final é 60 por cento. [T1]",
+      "tokens_saida": 21
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.5,
+        "frases": 2,
+        "recusa": false
+      },
+      "id": "q05",
+      "latencia_ms": 4386.717,
+      "recusou_corretamente": null,
+      "resposta": "A nota mínima para aprovação é 6,0 [T1]. A frequência exigida é de 75 por cento das aulas [T1].",
+      "tokens_saida": 38
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q06",
+      "latencia_ms": 4951.567,
+      "recusou_corretamente": null,
+      "resposta": "A segunda via do diploma custa R$ 120,00 e o prazo é de 30 dias úteis. [T1]",
+      "tokens_saida": 35
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q07",
+      "latencia_ms": 3417.419,
+      "recusou_corretamente": null,
+      "resposta": "A taxa do histórico escolar é de 25,00 R$ [T1].",
+      "tokens_saida": 21
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q08",
+      "latencia_ms": 1722.856,
+      "recusou_corretamente": null,
+      "resposta": "Os dados pessoais dos alunos são corrigidos em até 15 dias. [T1]",
+      "tokens_saida": 22
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q09",
+      "latencia_ms": 1907.222,
+      "recusou_corretamente": null,
+      "resposta": "Minhas notas só são exibidas ao próprio aluno e aos docentes da disciplina. [T1]",
+      "tokens_saida": 24
+    },
+    {
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "q10",
+      "latencia_ms": 3682.729,
+      "recusou_corretamente": true,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    }
+  ],
+  "geracao_resumo": {
+    "acerto_conteudo_esperado": 9,
+    "fidelidade_media": 0.833,
+    "perguntas_sem_resposta": 1,
+    "recusas_corretas": 1,
+    "respondidas": 9
+  },
+  "ingestao": {
+    "documentos": 3,
+    "segundos": 1.198,
+    "trechos": 9,
+    "trechos_tabela": 1
+  },
+  "recuperacao": {
+    "reranker_lexico": {
+      "k": 3,
+      "mrr_medio": 0.7963,
+      "ndcg_medio": 0.8479,
+      "recall_medio": 1.0,
+      "reordenador": "lexico"
+    },
+    "reranker_llm": {
+      "k": 3,
+      "mrr_medio": 0.8333,
+      "ndcg_medio": 0.877,
+      "recall_medio": 1.0,
+      "reordenador": "llm"
+    },
+    "sem_reranker": {
+      "k": 3,
+      "mrr_medio": 0.9444,
+      "ndcg_medio": 0.959,
+      "recall_medio": 1.0,
+      "reordenador": "nenhum"
+    }
+  },
+  "recuperacao_por_consulta": [
+    {
+      "id": "q01",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:1",
+        "politica-de-privacidade-academica:p1:2",
+        "regulamento-academico:p1:2"
+      ]
+    },
+    {
+      "id": "q02",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:1",
+        "regulamento-academico:p1:2",
+        "tabela-de-servicos:p1:2"
+      ]
+    },
+    {
+      "id": "q03",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:2",
+        "tabela-de-servicos:p1:2",
+        "regulamento-academico:p1:1"
+      ]
+    },
+    {
+      "id": "q04",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p2:1",
+        "regulamento-academico:p2:2",
+        "tabela-de-servicos:p1:2"
+      ]
+    },
+    {
+      "id": "q05",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p2:1",
+        "regulamento-academico:p2:2",
+        "politica-de-privacidade-academica:p1:1"
+      ]
+    },
+    {
+      "id": "q06",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "regulamento-academico:p1:2",
+        "regulamento-academico:p1:1"
+      ]
+    },
+    {
+      "id": "q07",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "tabela-de-servicos:p1:3",
+        "politica-de-privacidade-academica:p1:1"
+      ]
+    },
+    {
+      "id": "q08",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-de-privacidade-academica:p1:2",
+        "politica-de-privacidade-academica:p1:1",
+        "tabela-de-servicos:p1:2"
+      ]
+    },
+    {
+      "id": "q09",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-de-privacidade-academica:p1:1",
+        "regulamento-academico:p2:2",
+        "regulamento-academico:p1:2"
+      ]
+    }
+  ],
+  "variante_escolhida_para_geracao": "sem_reranker"
+}

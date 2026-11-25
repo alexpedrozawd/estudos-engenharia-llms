@@ -1,6 +1,6 @@
 # Plano de evolução rumo à nota 10 — Mercado de trabalho e revisão visual (24/11/2026)
 
-Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A, 5B e 5C` concluídas; `Fases 5D–5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
+Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A–5D` concluídas; `Fase 5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
 
 ## 1. Contexto, baseline e objetivo
 
@@ -55,6 +55,7 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A, 5B e 5C` concluídas;
   2. Banco vetorial padrão do projeto 02: `pgvector` (PostgreSQL, recomendado pela adoção corporativa) ou `Qdrant`.
   3. Incluir workflow `.github/workflows/` para CI automático dos testes offline.
 - **Resultado verificável:** suíte própria de smoke-tests offline passando sem `ResourceWarning`, `compose config` válido em `podman`/`docker` e execução real de ao menos um projeto ponta a ponta contra Ollama/API local registrada em log/changelog.
+- **Resultado:** ✅ **Concluída em 24/11/2026:** `56` smoke-tests OK, `podman compose config -q` OK (Docker no CI), 6 projetos executados contra llama.cpp em container e `pgvector` (QLoRA `treinar` pendente de GPU CUDA), workflow `testes-offline.yml` ([`changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md`](changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md)).
 
 ### Fase 5E — Validação externa (`L1` humano + `L2` piloto real) e fechamento definitivo (`L8` + PDF final)
 - **O que fazer:**
@@ -74,4 +75,4 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A, 5B e 5C` concluídas;
 - **Fase 5D (Camada 3 prática em Python/containers/testes):** **HIGH** para desenho dos contratos e revisão; implementação modular pode seguir com fronteira suficiente vigente em High.
 - **Fechamento documental e Git:** preservar configuração suficiente vigente da demanda em High.
 
-Assinatura: agy - ap (24/11/2026).
+Assinatura: agy - ap (24/11/2026). Atualizado em 24/11/2026 por claude - pessoal (resultado da Fase 5D).

@@ -1,0 +1,54 @@
+{
+  "cancelamento": {
+    "deltas_antes_de_desistir": 3
+  },
+  "carimbo": "2026-11-24T21-11-30-0300",
+  "completa": {
+    "avaliacao": {
+      "aprovada": true,
+      "falhas": []
+    },
+    "id_requisicao": "real-completa-1",
+    "ms": 3423.7,
+    "status": 200,
+    "tentativas": 1,
+    "texto": "Rematrícula é o ato de reativar ou registrar novamente um aluno em uma instituição de ensino, geralmente para que ele possa continuar seus estudos em um novo período letivo ou após uma pausa.",
+    "tokens_saida": 49
+  },
+  "execucao": "p05-api-llmops",
+  "metricas": {
+    "avaliacao_continua": {
+      "alerta": false,
+      "aprovadas": 2,
+      "avaliadas": 2,
+      "falhas": {
+        "longa_demais": 0,
+        "pii": 0,
+        "vazia": 0
+      },
+      "taxa_aprovacao": 1.0
+    },
+    "contadores": {
+      "cancelados": 1,
+      "falhas": 0,
+      "rejeitados_disjuntor": 0,
+      "retries": 0,
+      "sucessos": 2
+    },
+    "disjuntor": "fechado"
+  },
+  "stream": {
+    "deltas": 80,
+    "final": {
+      "avaliacao": {
+        "aprovada": true,
+        "falhas": []
+      },
+      "caracteres": 324,
+      "evento": "fim",
+      "id_requisicao": "real-stream-1"
+    },
+    "total_ms": 5730.4,
+    "ttft_ms_cliente": 235.4
+  }
+}

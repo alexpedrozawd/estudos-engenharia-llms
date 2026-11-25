@@ -1,0 +1,59 @@
+# CI offline: nenhuma etapa chama LLM, API paga, GPU ou container de serviço.
+# Rede só para instalar pacotes (apt e pip). Sem segredos.
+name: testes-offline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: testes-offline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: laboratorios-mercado/pyproject.toml
+
+      - name: Poppler (pdfinfo, pdftotext, pdftoppm)
+        run: sudo apt-get update -q && sudo apt-get install -y -q poppler-utils
+
+      - name: Laboratórios offline (biblioteca padrão)
+        run: python -I -W error::ResourceWarning laboratorios/executar_labs.py
+
+      - name: Guia — verificação, contagens e trechos de código
+        run: python -I ferramentas/guia.py fechar --guia guia-engenharia-llms.html
+
+      - name: Ferramentas do guia (sem gerar PDF)
+        run: python -I ferramentas/testar-ferramentas.py --rapido
+
+      - name: Ferramentas de fontes e livros
+        run: |
+          python -I -W error::ResourceWarning ferramentas/testar-fontes.py
+          python -I ferramentas/testar-livros.py
+
+      - name: Camada 3 — dependências
+        run: python -m pip install -e "./laboratorios-mercado"
+
+      - name: Camada 3 — smoke-tests offline
+        run: python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py
+
+      - name: Camada 3 — compose.yaml válido (Docker Compose)
+        run: >-
+          docker compose -f laboratorios-mercado/compose.yaml
+          --profile serving --profile rag --profile app --profile ollama
+          --profile vllm --profile observabilidade --profile sandbox
+          config -q

@@ -1,0 +1,36 @@
+{"id": "c01", "fatia": "formal", "categoria": "financeiro", "texto": "Prezados, gostaria de solicitar a segunda via do boleto da mensalidade de março."}
+{"id": "c02", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito esclarecimento sobre a cobrança duplicada identificada na fatura deste mês."}
+{"id": "c03", "fatia": "formal", "categoria": "financeiro", "texto": "Venho requerer informações sobre o parcelamento do débito em aberto."}
+{"id": "c04", "fatia": "formal", "categoria": "academico", "texto": "Solicito a revisão da nota atribuída na avaliação final de Estatística."}
+{"id": "c05", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de confirmar a data de entrega do trabalho de conclusão de curso."}
+{"id": "c06", "fatia": "formal", "categoria": "academico", "texto": "Requeiro informações sobre o aproveitamento de disciplinas cursadas em outra instituição."}
+{"id": "c07", "fatia": "formal", "categoria": "acesso", "texto": "Não consigo acessar o portal do aluno desde a atualização de ontem."}
+{"id": "c08", "fatia": "formal", "categoria": "acesso", "texto": "Solicito a redefinição da senha do ambiente virtual de aprendizagem."}
+{"id": "c09", "fatia": "formal", "categoria": "acesso", "texto": "Minha conta institucional de e-mail encontra-se bloqueada."}
+{"id": "c10", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito a emissão de declaração de matrícula para fins de estágio."}
+{"id": "c11", "fatia": "formal", "categoria": "secretaria", "texto": "Requeiro a emissão do histórico escolar atualizado."}
+{"id": "c12", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de saber o prazo para a emissão do diploma."}
+{"id": "c13", "fatia": "informal", "categoria": "financeiro", "texto": "oi, cadê o boleto desse mês? não chegou nada"}
+{"id": "c14", "fatia": "informal", "categoria": "financeiro", "texto": "me cobraram duas vezes, como faço pra estornar?"}
+{"id": "c15", "fatia": "informal", "categoria": "financeiro", "texto": "dá pra parcelar o que eu devo?"}
+{"id": "c16", "fatia": "informal", "categoria": "academico", "texto": "minha nota de cálculo tá errada, quem revisa?"}
+{"id": "c17", "fatia": "informal", "categoria": "academico", "texto": "quando é a prova substitutiva de física?"}
+{"id": "c18", "fatia": "informal", "categoria": "academico", "texto": "posso trancar só uma matéria?"}
+{"id": "c19", "fatia": "informal", "categoria": "acesso", "texto": "o portal não abre de jeito nenhum"}
+{"id": "c20", "fatia": "informal", "categoria": "acesso", "texto": "esqueci a senha do ava, socorro"}
+{"id": "c21", "fatia": "informal", "categoria": "acesso", "texto": "meu login dá erro toda hora"}
+{"id": "c22", "fatia": "informal", "categoria": "secretaria", "texto": "preciso de uma declaração pra levar no estágio"}
+{"id": "c23", "fatia": "informal", "categoria": "secretaria", "texto": "como peço meu histórico?"}
+{"id": "c24", "fatia": "informal", "categoria": "secretaria", "texto": "meu diploma sai quando?"}
+{"id": "c25", "fatia": "com_ruido", "categoria": "financeiro", "texto": "bolto nao xegou pagar como??"}
+{"id": "c26", "fatia": "com_ruido", "categoria": "financeiro", "texto": "cobransa dupla no cartao q isso"}
+{"id": "c27", "fatia": "com_ruido", "categoria": "financeiro", "texto": "parselar divida mensalidad atrasada"}
+{"id": "c28", "fatia": "com_ruido", "categoria": "academico", "texto": "nota errda prova final revisao pfv"}
+{"id": "c29", "fatia": "com_ruido", "categoria": "academico", "texto": "data tcc entrega qnd"}
+{"id": "c30", "fatia": "com_ruido", "categoria": "academico", "texto": "aproveitamnto materia outra facul"}
+{"id": "c31", "fatia": "com_ruido", "categoria": "acesso", "texto": "portau fora do ar n entra"}
+{"id": "c32", "fatia": "com_ruido", "categoria": "acesso", "texto": "senha ava esqeci resetar"}
+{"id": "c33", "fatia": "com_ruido", "categoria": "acesso", "texto": "emaiu bloqeado n acesso"}
+{"id": "c34", "fatia": "com_ruido", "categoria": "secretaria", "texto": "declarasao matricula estagio urgente"}
+{"id": "c35", "fatia": "com_ruido", "categoria": "secretaria", "texto": "istorico escolar pedir onde"}
+{"id": "c36", "fatia": "com_ruido", "categoria": "secretaria", "texto": "diploma prazo emisao"}

@@ -1,0 +1,20 @@
+# Imagem dos serviços de aplicação da Camada 3 (api-llmops e integrador).
+# Contexto de build = raiz do repositório (ver compose.yaml e .dockerignore).
+FROM docker.io/library/python:3.13-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PYTHONPATH=/app/laboratorios:/app/laboratorios-mercado:/app/laboratorios-mercado/02_rag_producao:/app/laboratorios-mercado/03_mcp_sandbox:/app/laboratorios-mercado/05_api_llmops:/app/laboratorios-mercado/06_integrador_producao
+
+WORKDIR /app
+COPY laboratorios/comum /app/laboratorios/comum
+COPY laboratorios-mercado /app/laboratorios-mercado
+# chmod: o host pode ter umask restritiva (pastas 700); o usuário sem privilégios precisa ler o código.
+RUN pip install /app/laboratorios-mercado \
+    && rm -rf /app/laboratorios-mercado/build /app/laboratorios-mercado/*.egg-info \
+    && chmod -R a+rX /app \
+    && useradd --system --uid 10001 --no-create-home aurora
+USER 10001
+EXPOSE 8000 8001
+CMD ["uvicorn", "--factory", "llmops_api:criar_app_de_ambiente", "--host", "0.0.0.0", "--port", "8000"]

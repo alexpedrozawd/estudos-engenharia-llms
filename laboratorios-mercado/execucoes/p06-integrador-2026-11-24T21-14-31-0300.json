@@ -1,0 +1,159 @@
+{
+  "carimbo": "2026-11-24T21-14-31-0300",
+  "cenarios": [
+    {
+      "acao_saida": "aprovado",
+      "cenario": "simples-tabela",
+      "etapas_ms": {
+        "ferramenta_mcp": 0.009,
+        "guardrail_entrada": 0.367,
+        "guardrail_saida": 0.435,
+        "llm": 2604.514,
+        "rag": 54.222,
+        "roteamento": 0.012
+      },
+      "ferramenta_mcp": false,
+      "fidelidade": 1.0,
+      "motivo_rota": "pergunta simples",
+      "pii_mascarada": [],
+      "resposta": "A segunda via do diploma custa R$ 120,00 e o prazo é de 30 dias úteis. [T1]",
+      "rota": "local",
+      "status": 200,
+      "total_ms": 2659.572
+    },
+    {
+      "acao_saida": "aprovado",
+      "cenario": "mcp-prazo",
+      "etapas_ms": {
+        "ferramenta_mcp": 35.918,
+        "guardrail_entrada": 0.016,
+        "guardrail_saida": 0.069,
+        "llm": 1384.71,
+        "rag": 58.251,
+        "roteamento": 0.01
+      },
+      "ferramenta_mcp": true,
+      "fidelidade": 1.0,
+      "motivo_rota": "pergunta simples",
+      "pii_mascarada": [],
+      "resposta": "Até o décimo dia útil do início das aulas. [T1]",
+      "rota": "local",
+      "status": 200,
+      "total_ms": 1478.98
+    },
+    {
+      "acao_saida": "aprovado",
+      "cenario": "pii",
+      "etapas_ms": {
+        "ferramenta_mcp": 0.006,
+        "guardrail_entrada": 0.019,
+        "guardrail_saida": 0.072,
+        "llm": 1917.393,
+        "rag": 73.561,
+        "roteamento": 0.004
+      },
+      "ferramenta_mcp": false,
+      "fidelidade": 1.0,
+      "motivo_rota": "dados pessoais detectados",
+      "pii_mascarada": [
+        "cpf"
+      ],
+      "resposta": "A frequência mínima para aprovação é de 75 por cento das aulas. [T1]",
+      "rota": "local",
+      "status": 200,
+      "total_ms": 1991.06
+    },
+    {
+      "acao_saida": "bloqueado_sem_citacao_valida",
+      "cenario": "complexa-fallback",
+      "etapas_ms": {
+        "ferramenta_mcp": 0.005,
+        "guardrail_entrada": 0.017,
+        "guardrail_saida": 0.103,
+        "llm": 8442.515,
+        "rag": 61.845,
+        "roteamento": 0.007
+      },
+      "ferramenta_mcp": false,
+      "fidelidade": 0.0,
+      "motivo_rota": "fallback: fronteira indisponível",
+      "pii_mascarada": [],
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "rota": "local",
+      "status": 200,
+      "total_ms": 8504.497
+    },
+    {
+      "acao_saida": "recusa_do_modelo",
+      "cenario": "sem-resposta",
+      "etapas_ms": {
+        "ferramenta_mcp": 0.006,
+        "guardrail_entrada": 0.015,
+        "guardrail_saida": 0.019,
+        "llm": 767.253,
+        "rag": 84.989,
+        "roteamento": 0.009
+      },
+      "ferramenta_mcp": false,
+      "fidelidade": 1.0,
+      "motivo_rota": "pergunta simples",
+      "pii_mascarada": [],
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "rota": "local",
+      "status": 200,
+      "total_ms": 852.297
+    },
+    {
+      "acao_saida": null,
+      "cenario": "injecao",
+      "etapas_ms": {
+        "guardrail_entrada": 0.007
+      },
+      "ferramenta_mcp": null,
+      "fidelidade": null,
+      "motivo_rota": "possivel_injecao_de_prompt",
+      "pii_mascarada": null,
+      "resposta": "Não posso atender a esse pedido.",
+      "rota": null,
+      "status": 200,
+      "total_ms": 0.01
+    }
+  ],
+  "execucao": "p06-integrador",
+  "relatorio": {
+    "alertas_fidelidade": 0,
+    "bloqueios_entrada": 1,
+    "bloqueios_saida": 1,
+    "com_ferramenta_mcp": 1,
+    "com_pii_mascarada": 1,
+    "custo_usd_total": 0.0,
+    "fallbacks": 1,
+    "latencia_ms": {
+      "p50": 1735.02,
+      "p95": 7043.266
+    },
+    "latencia_p50_por_etapa_ms": {
+      "ferramenta_mcp": 0.006,
+      "guardrail_entrada": 0.017,
+      "guardrail_saida": 0.072,
+      "llm": 1917.393,
+      "rag": 61.845,
+      "roteamento": 0.009
+    },
+    "por_rota": {
+      "bloqueado": 1,
+      "local": 5
+    },
+    "precos_usd_por_milhao": {
+      "fronteira_entrada": 1.0,
+      "fronteira_saida": 4.0,
+      "local_entrada": 0.0,
+      "local_saida": 0.0
+    },
+    "requisicoes": 6,
+    "tokens": {
+      "entrada": 1984,
+      "saida": 202
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "acuracia": 0.75,
+  "carimbo": "2026-11-24T21-08-34-0300",
+  "detalhes": [
+    {
+      "esperado": "financeiro",
+      "formato_valido": true,
+      "id": "c01",
+      "previsto": "financeiro"
+    },
+    {
+      "esperado": "academico",
+      "formato_valido": true,
+      "id": "c05",
+      "previsto": "academico"
+    },
+    {
+      "esperado": "acesso",
+      "formato_valido": true,
+      "id": "c09",
+      "previsto": "acesso"
+    },
+    {
+      "esperado": "secretaria",
+      "formato_valido": true,
+      "id": "c11",
+      "previsto": "academico"
+    },
+    {
+      "esperado": "financeiro",
+      "formato_valido": true,
+      "id": "c14",
+      "previsto": "financeiro"
+    },
+    {
+      "esperado": "academico",
+      "formato_valido": true,
+      "id": "c18",
+      "previsto": "academico"
+    },
+    {
+      "esperado": "acesso",
+      "formato_valido": true,
+      "id": "c20",
+      "previsto": "acesso"
+    },
+    {
+      "esperado": "secretaria",
+      "formato_valido": true,
+      "id": "c24",
+      "previsto": "academico"
+    },
+    {
+      "esperado": "financeiro",
+      "formato_valido": true,
+      "id": "c25",
+      "previsto": "financeiro"
+    },
+    {
+      "esperado": "academico",
+      "formato_valido": true,
+      "id": "c30",
+      "previsto": "academico"
+    },
+    {
+      "esperado": "acesso",
+      "formato_valido": true,
+      "id": "c33",
+      "previsto": "acesso"
+    },
+    {
+      "esperado": "secretaria",
+      "formato_valido": true,
+      "id": "c35",
+      "previsto": "acesso"
+    }
+  ],
+  "execucao": "p04-qlora-avaliacao",
+  "modelo": "qwen3-4b-instruct-2507",
+  "n": 12,
+  "por_fatia": {
+    "com_ruido": {
+      "acertos": 3,
+      "acuracia": 0.75,
+      "formato_valido": 4,
+      "n": 4,
+      "taxa_formato": 1.0
+    },
+    "formal": {
+      "acertos": 3,
+      "acuracia": 0.75,
+      "formato_valido": 4,
+      "n": 4,
+      "taxa_formato": 1.0
+    },
+    "informal": {
+      "acertos": 3,
+      "acuracia": 0.75,
+      "formato_valido": 4,
+      "n": 4,
+      "taxa_formato": 1.0
+    }
+  },
+  "taxa_formato": 1.0
+}

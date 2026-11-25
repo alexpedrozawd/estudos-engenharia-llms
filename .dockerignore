@@ -1,0 +1,10 @@
+# Contexto de build do laboratorios-mercado/Containerfile: só o necessário.
+*
+!laboratorios/comum/**
+!laboratorios-mercado/**
+**/__pycache__
+**/*.pyc
+laboratorios-mercado/execucoes
+laboratorios-mercado/modelos
+laboratorios-mercado/build
+laboratorios-mercado/*.egg-info

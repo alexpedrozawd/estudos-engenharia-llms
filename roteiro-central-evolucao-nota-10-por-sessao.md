@@ -31,7 +31,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 | **Sessão 1** | **Fase 5A** | Fechamento das 5 lacunas conceituais 2026 no HTML (8 partes curtas + fontes conferidas) | Não | Fase 5A → Fase 5B | Concluída (24/11/2026) |
 | **Sessão 2** | **Fase 5B** | Endurecimento das `108` questões de fechamento e rubricas quantitativas dos `18` estudos de caso | Não | Fase 5B → Fase 5C | Concluída (24/11/2026) |
 | **Sessão 3** | **Fase 5C** | `18–24` diagramas `<svg>` inline acessíveis, redução `73 → 18` molduras de aquarela e atualização do validador | Sim (provisório) | Fase 5C → Fase 5D | Concluída (24/11/2026) |
-| **Sessão 4** | **Fase 5D** | Camada 3 prática em `laboratorios-mercado/` (6 projetos OCI + `pgvector` + smoke-tests + execução real) e `.github/workflows/` | Não | Fase 5D → Fase 5E | Pendente |
+| **Sessão 4** | **Fase 5D** | Camada 3 prática em `laboratorios-mercado/` (6 projetos OCI + `pgvector` + smoke-tests + execução real) e `.github/workflows/` | Não | Fase 5D → Fase 5E | Concluída (24/11/2026) |
 | **Sessão 5** | **Fase 5E** | Validação externa humana (`L1`/`L2`), geração das `18` aquarelas (`L8`), PDF definitivo e encerramento | Sim (definitivo) | Encerramento final | Pendente |
 
 ---
@@ -85,6 +85,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
     6. `06_integrador_producao`: assistente ponta a ponta integrando API `FastAPI`, RAG `pgvector`, MCP isolado, roteamento local/fronteira, guardrails e relatório de custo/latência.
   - Criar workflow em `.github/workflows/` para executar automaticamente as suítes offline (`executar_labs.py`, smoke-tests de `laboratorios-mercado/`, `validar-guia.py` e testes de ferramentas).
 - **Aceite:** smoke-tests offline determinísticos passando sem `ResourceWarning`, `podman compose config` válido, execução real de ao menos 1 projeto ponta a ponta contra Ollama/serviço local registrada em log/changelog e CI offline validado.
+- **Resultado em 24/11/2026:** ✅ **Concluída** (`laboratorios-mercado/` com 6 projetos, `pyproject.toml`, `compose.yaml` [9 serviços, 7 perfis; `podman compose config -q` OK] e `Containerfile`; `56` smoke-tests offline OK sem `ResourceWarning`; execução real dos 6 projetos registrada em `laboratorios-mercado/execucoes/` [llama.cpp em container + `pgvector`; QLoRA `treinar` não executado por falta de GPU CUDA]; `.github/workflows/testes-offline.yml`; `laboratorios/` intacta [84 testes OK]; HTML e PDF inalterados; ver [`changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md`](changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md)).
 - **Fechamento da sessão:** changelog + docs + commit/push em `main` + `/handoff` para Sessão 5.
 
 ### Sessão 5 — Fase 5E: Validação externa (`L1`/`L2`), arte final (`L8`) e PDF definitivo
@@ -104,4 +105,4 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 3. Realizar commit único da fase concluída e `git push origin main` na conta `alexpedrozawd`.
 4. Gerar **exatamente um `/handoff` ao fim da fase finalizada**, declarando expressamente no bloco copiável que **cada sessão executa uma fase completa e gera um novo handoff apenas na conclusão da fase**, para permitir limpar a sessão com segurança antes de iniciar a fase seguinte.
 
-Assinatura: agy - ap.
+Assinatura: agy - ap. Atualizado em 24/11/2026 por claude - pessoal (Fase 5D concluída).

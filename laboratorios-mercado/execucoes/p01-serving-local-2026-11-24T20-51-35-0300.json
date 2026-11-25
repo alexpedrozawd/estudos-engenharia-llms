@@ -1,0 +1,42 @@
+{
+  "carimbo": "2026-11-24T20-51-35-0300",
+  "configuracao": {
+    "base_url": "http://127.0.0.1:8081/v1",
+    "concorrencia": 4,
+    "extra": {},
+    "max_tokens": 64,
+    "modelo": "qwen3-4b",
+    "requisicoes": 8
+  },
+  "erros": [],
+  "execucao": "p01-serving-local",
+  "fontes_de_tokens": [
+    "usage"
+  ],
+  "memoria": {
+    "fonte": "/proc/1139437/status",
+    "pid": 1139437,
+    "vmhwm_kib": 5477448,
+    "vmrss_kib": 5477448
+  },
+  "resumo": {
+    "duracao_s": 23.254,
+    "e2e_ms_p50": 11597.779,
+    "e2e_ms_p95": 11848.517,
+    "falhas": 0,
+    "fracao_dentro_do_slo": 0.25,
+    "goodput_req_s": 0.086,
+    "requisicoes": 8,
+    "requisicoes_s": 0.344,
+    "slo": {
+      "tpot_ms": 150.0,
+      "ttft_ms": 2000.0
+    },
+    "tokens_saida_total": 512,
+    "tpot_ms_p50": 92.167,
+    "tpot_ms_p95": 92.629,
+    "ttft_ms_p50": 5786.553,
+    "ttft_ms_p95": 6022.418,
+    "vazao_tokens_s": 22.018
+  }
+}

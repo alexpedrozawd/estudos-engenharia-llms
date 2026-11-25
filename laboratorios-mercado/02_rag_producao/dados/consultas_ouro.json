@@ -1,0 +1,12 @@
+[
+  {"id": "q01", "pergunta": "Até quando devo fazer a rematrícula?", "relevantes": [{"doc": "regulamento-academico", "pagina": 1, "contem": "décimo dia útil"}], "resposta_esperada_contem": ["décimo dia útil"]},
+  {"id": "q02", "pergunta": "O que acontece se eu perder o prazo da rematrícula?", "relevantes": [{"doc": "regulamento-academico", "pagina": 1, "contem": "lista de espera"}], "resposta_esperada_contem": ["lista de espera"]},
+  {"id": "q03", "pergunta": "Por quanto tempo posso trancar a matrícula?", "relevantes": [{"doc": "regulamento-academico", "pagina": 1, "contem": "trancamento"}], "resposta_esperada_contem": ["dois semestres"]},
+  {"id": "q04", "pergunta": "Qual o peso da prova na média final?", "relevantes": [{"doc": "regulamento-academico", "pagina": 2, "contem": "ponderada"}], "resposta_esperada_contem": ["60"]},
+  {"id": "q05", "pergunta": "Qual a nota mínima para aprovação e a frequência exigida?", "relevantes": [{"doc": "regulamento-academico", "pagina": 2, "contem": "6,0"}], "resposta_esperada_contem": ["6,0", "75"]},
+  {"id": "q06", "pergunta": "Quanto custa a segunda via do diploma e qual o prazo?", "relevantes": [{"doc": "tabela-de-servicos", "pagina": 1, "contem": "Segunda via do diploma"}], "resposta_esperada_contem": ["120,00", "30"]},
+  {"id": "q07", "pergunta": "Qual a taxa do histórico escolar?", "relevantes": [{"doc": "tabela-de-servicos", "pagina": 1, "contem": "Histórico escolar"}], "resposta_esperada_contem": ["25,00"]},
+  {"id": "q08", "pergunta": "Em quantos dias corrigem meus dados pessoais?", "relevantes": [{"doc": "politica-de-privacidade-academica", "pagina": 1, "contem": "correção de dados"}], "resposta_esperada_contem": ["15 dias"]},
+  {"id": "q09", "pergunta": "Quem pode ver minhas notas?", "relevantes": [{"doc": "politica-de-privacidade-academica", "pagina": 1, "contem": "Notas e frequência"}], "resposta_esperada_contem": ["docentes"]},
+  {"id": "q10", "pergunta": "Qual é o valor da mensalidade do curso de Medicina?", "relevantes": [], "resposta_esperada_contem": [], "sem_resposta": true}
+]

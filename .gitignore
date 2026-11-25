@@ -9,3 +9,9 @@ __pycache__/
 # Dados derivados e rascunhos locais (nunca versionar: fontes baixadas, textos extraídos, saídas de LLM local)
 cache-fontes/
 rascunho-local/
+
+# Camada 3 (laboratorios-mercado): ambiente virtual dedicado e modelos GGUF locais
+.venv-mercado/
+laboratorios-mercado/modelos/
+laboratorios-mercado/*.egg-info/
+laboratorios-mercado/build/
