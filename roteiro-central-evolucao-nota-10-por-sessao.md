@@ -32,7 +32,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 | **Sessão 2** | **Fase 5B** | Endurecimento das `108` questões de fechamento e rubricas quantitativas dos `18` estudos de caso | Não | Fase 5B → Fase 5C | Concluída (24/11/2026) |
 | **Sessão 3** | **Fase 5C** | `18–24` diagramas `<svg>` inline acessíveis, redução `73 → 18` molduras de aquarela e atualização do validador | Sim (provisório) | Fase 5C → Fase 5D | Concluída (24/11/2026) |
 | **Sessão 4** | **Fase 5D** | Camada 3 prática em `laboratorios-mercado/` (6 projetos OCI + `pgvector` + smoke-tests + execução real) e `.github/workflows/` | Não | Fase 5D → Fase 5E | Concluída (24/11/2026) |
-| **Sessão 5** | **Fase 5E** | Validação externa humana (`L1`/`L2`), geração das `18` aquarelas (`L8`), PDF definitivo e encerramento | Sim (definitivo) | Encerramento final | Pendente |
+| **Sessão 5** | **Fase 5E** | Validação externa humana (`L1`/`L2`), geração das `18` aquarelas (`L8`), PDF definitivo e encerramento | Sim (definitivo) | Encerramento final | Concluída em 24/11/2026 (`L8` + PDF); `L1`/`L2` bloqueados |
 
 ---
 
@@ -95,6 +95,7 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
   3. **Arte final e PDF definitivo (`L8`):** gerar as `18` aquarelas aprovadas (uma por abertura de capítulo, 1056×704, fantasia medieval sem texto), inserir no HTML e regerar o PDF final via `python3 -I ferramentas/guia.py pdf --substituir --motivo fechamento-nota-10`.
 - **Dependência externa:** itens 1 e 2 dependem de participantes humanos externos; caso ocorram em paralelo antes da geração final, registrar evidências nominais no changelog antes do fechamento.
 - **Fechamento final:** suítes completas (`executar_labs.py`, `laboratorios-mercado/`, `guia.py fechar`, `testar-ferramentas.py`, `testar-fontes.py`, `testar-livros.py`, `auditar-guia-navegador.mjs`), consolidação documental e commit/push final em `main`.
+- **Resultado em 24/11/2026:** `L8` ✅ (`18` aquarelas geradas localmente com Qwen-Image 2.1 no `stable-diffusion.cpp`, inspecionadas e embutidas em JPEG; HTML sha `bb004776a6cdc9cb`); PDF definitivo ✅ (`664` páginas A4, sha `81d2fffd7394a880`); `L1` e `L2` **bloqueados** (operador sem revisores nem estudantes; nada simulado); todas as suítes aprovadas. Ver [`changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md`](changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md).
 
 ---
 
@@ -105,4 +106,4 @@ Referência técnica completa: [`plano-evolucao-mercado-e-nota-10-2026-11-24.md`
 3. Realizar commit único da fase concluída e `git push origin main` na conta `alexpedrozawd`.
 4. Gerar **exatamente um `/handoff` ao fim da fase finalizada**, declarando expressamente no bloco copiável que **cada sessão executa uma fase completa e gera um novo handoff apenas na conclusão da fase**, para permitir limpar a sessão com segurança antes de iniciar a fase seguinte.
 
-Assinatura: agy - ap. Atualizado em 24/11/2026 por claude - pessoal (Fase 5D concluída).
+Assinatura: agy - ap. Atualizado em 24/11/2026 por claude - pessoal (Fases 5D e 5E concluídas).

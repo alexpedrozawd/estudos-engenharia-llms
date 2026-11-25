@@ -1,6 +1,6 @@
 # Plano de evolução rumo à nota 10 — Mercado de trabalho e revisão visual (24/11/2026)
 
-Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A–5D` concluídas; `Fase 5E` em execução por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
+Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A–5E` concluídas, com `L1`/`L2` bloqueados por falta de participantes humanos; cadência por sessão conforme [`roteiro-central-evolucao-nota-10-por-sessao.md`](roteiro-central-evolucao-nota-10-por-sessao.md)).**
 
 ## 1. Contexto, baseline e objetivo
 
@@ -63,6 +63,7 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A–5D` concluídas; `Fa
   2. **Piloto de aprendizagem (`L2`):** aplicar leitura cronometrada + questões + estudo de caso + 1 projeto prático a 2–3 estudantes do público-alvo, ajustando pontos de trava.
   3. **Arte final e PDF definitivo (`L8`):** gerar as aquarelas aprovadas (`18` ou `73`), inserir no HTML e regerar o PDF via `python3 -I ferramentas/guia.py pdf --substituir --motivo fechamento-nota-10`.
 - **Dependência externa:** etapas 1 e 2 dependem de participantes humanos externos (sem isso, a nota permanece limitada pela ausência de validação fora da bolha de IA).
+- **Resultado:** ✅ **`L8` e PDF definitivo concluídos em 24/11/2026** (`18` aquarelas locais com Qwen-Image 2.1, PDF `664` páginas sha `81d2fffd7394a880`); `L1` e `L2` **bloqueados** (operador sem revisores nem estudantes). Ver [`changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md`](changelog-fase-5e-aquarelas-pdf-definitivo-e-encerramento-2026-11-24.md).
 
 ### Fase Final — Encerramento da entrega
 - Em cada fase executada (ou ao concluir o bloco), consolidar `README.md`, `roadmap.md`, `CLAUDE.md` e `changelog-*.md`, executar todas as suítes (`executar_labs.py`, `guia.py fechar`, `testar-ferramentas.py`, `testar-fontes.py`, `testar-livros.py`, `auditar-guia-navegador.mjs` e suíte da Camada 3), conferir estado Git (`alexpedrozawd`, branch `main`) e fazer commit/push apenas no fechamento da entrega (nunca por subetapa).
@@ -75,4 +76,4 @@ Estado: **aprovado pelo operador em 24/11/2026 (`Fases 5A–5D` concluídas; `Fa
 - **Fase 5D (Camada 3 prática em Python/containers/testes):** **HIGH** para desenho dos contratos e revisão; implementação modular pode seguir com fronteira suficiente vigente em High.
 - **Fechamento documental e Git:** preservar configuração suficiente vigente da demanda em High.
 
-Assinatura: agy - ap (24/11/2026). Atualizado em 24/11/2026 por claude - pessoal (resultado da Fase 5D).
+Assinatura: agy - ap (24/11/2026). Atualizado em 24/11/2026 por claude - pessoal (resultados das Fases 5D e 5E).
