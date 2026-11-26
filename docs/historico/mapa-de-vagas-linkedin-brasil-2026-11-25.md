@@ -2,6 +2,8 @@
 
 Insumo da etapa 5 do [plano de prontidão](plano-prontidao-para-vaga-pleno-2026-11-25.md), antecipado por pedido do operador (prioridade para vagas no Brasil).
 
+**Reconferido em 26/11/2026** (seção [Reconferência](#reconferência-em-26112026-55-vagas)): amostra ampliada para `55` vagas abertas, regra de 1/3 reaplicada sem nova lacuna prática.
+
 ## Método e limites
 
 - **Coleta:** busca pública de vagas do LinkedIn (rota sem login, por navegador sem interface), filtro geográfico Brasil, termos `LLM Engineer`, `Generative AI Engineer`, `GenAI Engineer`, `IA Generativa` e `Engenheiro de IA LLM`; leitura só de vagas, com pausas entre pedidos; a conta do operador não foi usada.
@@ -43,6 +45,43 @@ Insumo da etapa 5 do [plano de prontidão](plano-prontidao-para-vaga-pleno-2026-
 3. Langfuse/LangSmith (21%), bancos vetoriais gerenciados (≤ 10% cada) e Kubernetes (14%) ficam abaixo do corte: Langfuse entra como item prático curto via OTLP; bancos vetoriais como trade-off nos casos de system design; Kubernetes segue opcional (etapa 6a).
 4. Comunicação com negócio (59%) e arquitetura (66%) reforçam a etapa 5 (casos de system design e bloco de comunicação); inglês (41%) é preparo pessoal, fora do guia.
 
+## Reconferência em 26/11/2026 (55 vagas)
+
+- **Coleta:** mesma rota pública e os mesmos `5` termos, mais `Engenheiro de IA Pleno` e `AI Engineer Pleno` (a amostra de 25/11 tinha só `1` vaga pleno), duas páginas por termo, `71` anúncios. Descrições das vagas já vistas reaproveitadas do cache de 25/11.
+- **Seleção:** remoção de `8` repetições (mesmo texto de descrição em outro anúncio), da vaga encerrada e das vagas sem foco explícito em LLM ou IA generativa na descrição (`10`, quase todas de ML clássico; `2` delas estavam na amostra de 25/11).
+- **Situação das 29 vagas de 25/11:** `28` seguem abertas; a da Claro Brasil (`4481478812`) não aceita mais candidaturas. Com o filtro de foco, `26` continuam na amostra. Entram `29` novas (tabela no fim).
+- **Senioridade pelo título:** `26` sênior, lead ou especialista, `2` pleno, `5` júnior e `22` sem nível (no LinkedIn: `8` "Mid-Senior", `2` "Associate", `12` sem informação). O mercado segue pedindo mais senioridade do que "pleno".
+- **Limites:** os mesmos de 25/11 (expressões regulares, sem separar obrigatório de desejável). As categorias agregadas abaixo usam expressões novas, então a comparação com 25/11 é aproximada. Scripts, descrições e matriz em `rascunho-local/vagas-linkedin-2026-11-26/` (fora do Git).
+
+| Requisito | Vagas (55) | % | Sem nível sênior no título (29) | Cobertura no projeto em 26/11 |
+|---|---:|---:|---:|---|
+| Agentes | 46 | 84 | 76% | Forte (Caps. 11 e 19, P03, P06, P08) |
+| APIs / integração | 44 | 80 | 72% | Forte (P05, P06) |
+| RAG | 43 | 78 | 69% | Forte (Cap. 7, P02) |
+| Python | 42 | 76 | 83% | Forte |
+| Arquitetura / system design | 40 | 73 | 69% | Conceitual forte; treino em [casos de system design](../preparacao-para-vaga/casos-de-system-design.md) |
+| Comunicação com negócio | 38 | 69 | 69% | Cap. 3; treino em [entrevista](../preparacao-para-vaga/entrevista-comunicacao-e-diagnostico.md) |
+| Custo e latência | 36 | 65 | 62% | Forte (Caps. 14, 16 e 18) |
+| Avaliação (evals) | 33 | 60 | 52% | Forte (Cap. 5, P07) |
+| Observabilidade | 32 | 58 | 48% | Boa (OTLP, Prometheus, Jaeger, Langfuse) |
+| Prompt | 31 | 56 | 55% | Forte (Cap. 4) |
+| Nuvem (AWS, Azure ou GCP) | 29 | 53 | 55% | Cap. 20 e P06 com provedores testados offline; deploy real só na etapa 6b |
+| Framework de LLM/agentes | 25 | 45 | 41% | Cap. 19 e P08 (LangGraph + `ChatOpenAI` do LangChain) |
+| Inglês | 24 | 44 | 41% | Fora do escopo do guia |
+| Multiagentes | 20 | 36 | 34% | P08 (supervisor) |
+| Guardrails / segurança | 20 | 36 | 31% | Forte (Cap. 12, P06 com red teaming) |
+| API da OpenAI | 20 | 36 | — | P06 (fronteira opcional, testada offline) |
+| Banco vetorial (qualquer) | 20 | 36 | 34% | `pgvector` (P02); Pinecone `7`, Weaviate `5`, FAISS `3` vagas: trade-off no caso 1 |
+| LGPD / compliance | 19 | 35 | 34% | Boa (Cap. 12, P06) |
+| LangChain / LangGraph | 19 / 17 | 35 / 31 | 24% / 28% | P08 |
+| Docker / CI/CD | 16 cada | 29 | 24% (Docker) | Podman, `Containerfile` e CI |
+| MCP | 16 | 29 | 21% | Cap. 10, P03 |
+| Fine-tuning | 13 | 24 | 24% | Cap. 15, P04 |
+| Rastreamento de LLM (Langfuse, LangSmith, Phoenix/Arize) | 9 | 16 | — | Langfuse auto-hospedado (17.4e) |
+| Kubernetes | 8 | 15 | 21% | Etapa 6a (opcional) |
+
+**Regra de 1/3 reaplicada:** nenhum requisito sem prática passou do corte. Nuvem (`53%`) tem prática sem custo, e o deploy real segue na etapa 6b, que depende de autorização. Bancos vetoriais gerenciados continuam abaixo do corte cada um (`≤ 13%`) e ficam como trade-off. Nas vagas sem nível sênior no título, o perfil é o mesmo: agentes, RAG, Python, APIs, arquitetura e comunicação a partir de `69%`.
+
 ## Vagas consideradas
 
 | Vaga | Empresa | Local | Nível |
@@ -58,7 +97,7 @@ Insumo da etapa 5 do [plano de prontidão](plano-prontidao-para-vaga-pleno-2026-
 | [AI Machine Learning Engineer - Remote - Latin America](https://www.linkedin.com/jobs/view/4475041492) | FullStack | Recife, Pernambuco | Associado |
 | [Senior Application AI Engineer and Data Scientist - Globalization E-Invoicing Unit](https://www.linkedin.com/jobs/view/4475261580) | SAP | Grande São Paulo | Sênior/lead |
 | [Senior Application AI Engineer - Globalization E-Invoicing Unit](https://www.linkedin.com/jobs/view/4475262498) | SAP | Grande São Paulo | Sênior/lead |
-| [Generative AI Engineer](https://www.linkedin.com/jobs/view/4481478812) | Claro Brasil | São Paulo, São Paulo | Pleno/sênior |
+| [Generative AI Engineer](https://www.linkedin.com/jobs/view/4481478812) | Claro Brasil | São Paulo, São Paulo | Pleno/sênior (encerrada em 26/11) |
 | [AI Engineer Senior](https://www.linkedin.com/jobs/view/4482541880) | Hotmart | Belo Horizonte, Minas Gerais | Sênior/lead |
 | [ENGENHEIRO(A) DE IA JUNIOR](https://www.linkedin.com/jobs/view/4483916028) | Agricopel | Jaraguá do Sul, Santa Catarina | Júnior |
 | [Especialista em IA Generativa e Automação](https://www.linkedin.com/jobs/view/4485124293) | LUZA Group | Curitiba, Paraná | Sênior/lead |
@@ -77,4 +116,38 @@ Insumo da etapa 5 do [plano de prontidão](plano-prontidao-para-vaga-pleno-2026-
 | [Senior AI Engineer](https://www.linkedin.com/jobs/view/4494397562) | Keyrus | São Paulo, São Paulo | Sênior/lead |
 | [Analista Sênior de Engenharia de IA](https://www.linkedin.com/jobs/view/4494743737) | Accenture Brasil | São Paulo, São Paulo | Sênior/lead |
 
-claude - pessoal, 25/11/2026.
+## Vagas novas na reconferência de 26/11/2026
+
+| Vaga | Empresa | Local | Nível |
+|---|---|---|---|
+| [AI/ML Engineer](https://www.linkedin.com/jobs/view/4415690659) | Perform | São Paulo, São Paulo | Não informado (Mid-Senior) |
+| [Pipeline - Engenheiro de IA - Pleno](https://www.linkedin.com/jobs/view/4415726843) | EY | Fortaleza, Ceará | Pleno |
+| [Engenheiro de IA (Senior)](https://www.linkedin.com/jobs/view/4454140268) | EY | São Paulo, São Paulo | Sênior/lead |
+| [Engenheiro(a) de IA Generativa](https://www.linkedin.com/jobs/view/4455974806) | 4DF Connect | São Paulo, São Paulo | Não informado (Mid-Senior) |
+| [Gestor(a) de Inteligência Artificial](https://www.linkedin.com/jobs/view/4461462345) | Engeform | São Paulo, São Paulo | Não informado |
+| [Software Dev Engineer - AI Agents, IES LATech](https://www.linkedin.com/jobs/view/4466010041) | Amazon | Grande São Paulo | Não informado |
+| [Staff AI Engineer (Agentic Systems)](https://www.linkedin.com/jobs/view/4468777459) | Livelo Brasil | Barueri, São Paulo | Sênior/lead |
+| [Pessoa Engenheira de IA](https://www.linkedin.com/jobs/view/4472641584) | Volkswagen do Brasil | São Bernardo do Campo, São Paulo | Não informado |
+| [Engenheiro de IA](https://www.linkedin.com/jobs/view/4473372497) | Jump | São Paulo, São Paulo | Não informado |
+| [AI Engineer - GenAI, LLMs & AI Agents](https://www.linkedin.com/jobs/view/4474355836) | 4DF Connect | Joinville, Santa Catarina | Não informado (Mid-Senior) |
+| [Especialista em Engenharia de IA - Holding](https://www.linkedin.com/jobs/view/4474630588) | JHSF | São Paulo, São Paulo | Sênior/lead |
+| [AI Engineer (Developer) - Autonomous Compliance Foundation](https://www.linkedin.com/jobs/view/4477017254) | SAP | Grande São Paulo | Não informado (Mid-Senior) |
+| [Senior AI Engineer (Developer) - Autonomous Compliance Foundation](https://www.linkedin.com/jobs/view/4477018184) | SAP | Grande São Paulo | Sênior/lead |
+| [Engenheiro de IA Sênior](https://www.linkedin.com/jobs/view/4479116355) | Selbetti Tecnologia | São Paulo, São Paulo | Sênior/lead |
+| [Senior AI Engineer](https://www.linkedin.com/jobs/view/4479839763) | Artefact | Grande São Paulo | Sênior/lead |
+| [Analista de Inteligência Artificial](https://www.linkedin.com/jobs/view/4480063337) | Grupo Alves da Cunha | Salvador, Bahia | Não informado |
+| [Pessoa Desenvolvedora (.Net + IA Generativa)](https://www.linkedin.com/jobs/view/4480269105) | MJV Technology & Innovation | São Paulo, São Paulo | Não informado |
+| [Engenheiro de Machine Learning / IA - presencial em São Paulo](https://www.linkedin.com/jobs/view/4483166734) | 4DF Connect | São Paulo, São Paulo | Não informado (Mid-Senior) |
+| [Machine Learning Engineer](https://www.linkedin.com/jobs/view/4485366988) | 4flow | Campinas, São Paulo | Não informado (Associate) |
+| [(1609) Senior AI Engineer (Full Stack)](https://www.linkedin.com/jobs/view/4487023121) | Nortal | Grande Rio de Janeiro | Sênior/lead |
+| [Desenvolvedor(a) de Agentes de IA](https://www.linkedin.com/jobs/view/4487096360) | Loovi | Grande Belo Horizonte | Não informado (Mid-Senior) |
+| [Senior Software Engineer, AI Assistant (Bella)](https://www.linkedin.com/jobs/view/4490820903) | ejobs Finland | Brasília, Distrito Federal | Sênior/lead |
+| [Engenheiro(a) de Inteligência Artificial - AI Engineer](https://www.linkedin.com/jobs/view/4492110536) | nommad | São Paulo, São Paulo | Não informado (Mid-Senior) |
+| [Senior AI Engineer (Internal Tools & Agents)](https://www.linkedin.com/jobs/view/4492581494) | Jobgether | Brasil | Sênior/lead |
+| [Software Engineer I - GenAI (CLT) - Remoto](https://www.linkedin.com/jobs/view/4492655776) | GRAN | Brasil | Júnior |
+| [Junior Forward Deployed AI Engineer - AI/ML & Data Track](https://www.linkedin.com/jobs/view/4493217970) | FullStack | Manaus, Amazonas | Júnior |
+| [Junior Forward Deployed AI Engineer - Application Engineering](https://www.linkedin.com/jobs/view/4493225271) | FullStack | Manaus, Amazonas | Júnior |
+| [AI Applied Engineer](https://www.linkedin.com/jobs/view/4493391930) | Artefact | Grande São Paulo | Não informado |
+| [Engenheiro de Inteligência Artificial](https://www.linkedin.com/jobs/view/4493472261) | LICAV | Limeira, São Paulo | Não informado |
+
+claude - pessoal, 25/11/2026; reconferido em 26/11/2026 por claude - pessoal.
