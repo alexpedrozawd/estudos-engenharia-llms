@@ -164,7 +164,7 @@ Fale em voz alta e grave. Depois, pontue com a rubrica e compare com a resposta 
 
 **Sinais de sênior:** sabe que um *kappa* alto contra rótulos fáceis não prova calibração em casos difíceis.
 
-**Evidência no projeto (P07, 26/11/2026):** `150` casos e `40` pares de calibração; *kappa* `0,955` [`0,86`; `1,0`] (`0,871` nos `12` pares pré-rotulados); placar `B = 137`, `empate = 9`, `A = 4` e diferença `+0,98` [`0,84`; `1,11`]. Limite: os rótulos humanos independentes estão pendentes, e casos e juiz vêm do mesmo modelo.
+**Evidência no projeto (P07, 26/11/2026):** `150` casos e `40` pares de calibração; *kappa* `0,955` [`0,86`; `1,0`] (`0,871` nos `12` pares pré-rotulados); placar `B = 137`, `empate = 9`, `A = 4` e diferença `+0,98` [`0,84`; `1,11`]. Limite: não há rótulos humanos independentes (revisão humana fora do escopo por uso pessoal), e casos e juiz vêm do mesmo modelo.
 
 ---
 
