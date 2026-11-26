@@ -1,0 +1,86 @@
+{
+  "data": "2026-11-25T20:11:20-03:00",
+  "langfuse": "http://127.0.0.1:3000",
+  "versao_langfuse": "4.86.0",
+  "modelo": "qwen3:4b-instruct",
+  "llm_base_url": "http://127.0.0.1:11434/v1",
+  "p05": {
+    "requisicoes": 2
+  },
+  "p06": {
+    "requisicoes": 3,
+    "rotas": {
+      "p06-lf-1": "local",
+      "p06-lf-2": "local",
+      "p06-lf-3": "bloqueado"
+    }
+  },
+  "observacoes_esperadas": 5,
+  "observacoes_recebidas": 5,
+  "por_servico": {
+    "aurora-integrador": 3,
+    "aurora-api-llmops": 2
+  },
+  "por_tipo": {
+    "GENERATION": 5
+  },
+  "uso_tokens": [
+    {
+      "servico": "aurora-integrador",
+      "nome": "chat nenhum",
+      "uso": {
+        "input": 0,
+        "output": 0,
+        "total": 0
+      },
+      "latencia_s": 0
+    },
+    {
+      "servico": "aurora-integrador",
+      "nome": "chat qwen3:4b-instruct",
+      "uso": {
+        "input": 656,
+        "output": 204,
+        "input_cached_tokens": 1800,
+        "total": 2660
+      },
+      "latencia_s": 1.735
+    },
+    {
+      "servico": "aurora-integrador",
+      "nome": "chat qwen3:4b-instruct",
+      "uso": {
+        "input": 560,
+        "output": 62,
+        "input_cached_tokens": 845,
+        "total": 1467
+      },
+      "latencia_s": 0.7
+    },
+    {
+      "servico": "aurora-api-llmops",
+      "nome": "chat qwen3:4b-instruct",
+      "uso": {
+        "input": 1,
+        "output": 2,
+        "input_cached_tokens": 16,
+        "total": 19
+      },
+      "latencia_s": 0.019
+    },
+    {
+      "servico": "aurora-api-llmops",
+      "nome": "chat qwen3:4b-instruct",
+      "uso": {
+        "input": 1,
+        "output": 35,
+        "input_cached_tokens": 18,
+        "total": 54
+      },
+      "latencia_s": 0.265
+    }
+  ],
+  "sem_texto_de_entrada_ou_saida": true,
+  "sem_pii_nem_prompt": true,
+  "duracao_s": 6.52
+}

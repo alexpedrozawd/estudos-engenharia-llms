@@ -3,6 +3,7 @@
 # Todos os serviços ficam em perfis e escutam só em 127.0.0.1. Exemplos:
 #   podman compose -f laboratorios-mercado/compose.yaml --profile serving up -d   # llama.cpp chat + embeddings
 #   podman compose -f laboratorios-mercado/compose.yaml --profile rag up -d       # PostgreSQL + pgvector
+#   podman compose -f laboratorios-mercado/compose.yaml --profile langfuse up -d  # Langfuse 4 (traces OTLP do P05/P06)
 #   docker compose -f laboratorios-mercado/compose.yaml config -q                 # validação (CI)
 #
 # Variáveis (com padrão seguro para laboratório local; troque PG_SENHA fora da sua máquina):
@@ -119,6 +120,144 @@ services:
       - "127.0.0.1:16686:16686"
       - "127.0.0.1:4318:4318"
 
+  # --- Langfuse auto-hospedado (perfil "langfuse"; Cap. 17, parte 17.4e) -------------------------
+  # Recebe traces OTLP/HTTP do P05 e do P06 em http://127.0.0.1:3000/api/public/otel (Basic com as chaves
+  # pública:secreta). Segue o docker-compose.yml oficial da versão 4, reduzido ao necessário para traces:
+  # sem gateway de IA, sem portas extras no host e com telemetria de uso do Langfuse desligada.
+  # Uso local e de estudo: sem alta disponibilidade nem backup. Troque as senhas fora da sua máquina.
+  langfuse-worker:
+    image: docker.io/langfuse/langfuse-worker:${LANGFUSE_IMAGEM_TAG:-4.86.0}
+    profiles: ["langfuse"]
+    restart: "no"
+    depends_on: &langfuse-depende
+      langfuse-postgres:
+        condition: service_healthy
+      langfuse-minio:
+        condition: service_healthy
+      langfuse-redis:
+        condition: service_healthy
+      langfuse-clickhouse:
+        condition: service_healthy
+    environment: &langfuse-env
+      NEXTAUTH_URL: http://localhost:3000
+      DATABASE_URL: postgresql://postgres:${LANGFUSE_PG_SENHA:-senha-local-de-laboratorio}@langfuse-postgres:5432/postgres
+      SALT: ${LANGFUSE_SALT:-sal-local-de-laboratorio}
+      # 64 caracteres hexadecimais; gere com `openssl rand -hex 32` fora do laboratório.
+      ENCRYPTION_KEY: ${LANGFUSE_ENCRYPTION_KEY:-0000000000000000000000000000000000000000000000000000000000000000}
+      TELEMETRY_ENABLED: "false"
+      CLICKHOUSE_MIGRATION_URL: clickhouse://langfuse-clickhouse:9000
+      CLICKHOUSE_URL: http://langfuse-clickhouse:8123
+      CLICKHOUSE_USER: clickhouse
+      CLICKHOUSE_PASSWORD: ${LANGFUSE_CH_SENHA:-senha-local-de-laboratorio}
+      CLICKHOUSE_CLUSTER_ENABLED: "false"
+      LANGFUSE_S3_EVENT_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_EVENT_UPLOAD_REGION: auto
+      LANGFUSE_S3_EVENT_UPLOAD_ACCESS_KEY_ID: minio
+      LANGFUSE_S3_EVENT_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_MINIO_SENHA:-senha-local-de-laboratorio}
+      LANGFUSE_S3_EVENT_UPLOAD_ENDPOINT: http://langfuse-minio:9000
+      LANGFUSE_S3_EVENT_UPLOAD_FORCE_PATH_STYLE: "true"
+      LANGFUSE_S3_EVENT_UPLOAD_PREFIX: events/
+      LANGFUSE_S3_MEDIA_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_MEDIA_UPLOAD_REGION: auto
+      LANGFUSE_S3_MEDIA_UPLOAD_ACCESS_KEY_ID: minio
+      LANGFUSE_S3_MEDIA_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_MINIO_SENHA:-senha-local-de-laboratorio}
+      LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://langfuse-minio:9000
+      LANGFUSE_S3_MEDIA_UPLOAD_FORCE_PATH_STYLE: "true"
+      LANGFUSE_S3_MEDIA_UPLOAD_PREFIX: media/
+      REDIS_HOST: langfuse-redis
+      REDIS_PORT: "6379"
+      REDIS_AUTH: ${LANGFUSE_REDIS_SENHA:-senha-local-de-laboratorio}
+
+  langfuse-web:
+    image: docker.io/langfuse/langfuse:${LANGFUSE_IMAGEM_TAG:-4.86.0}
+    profiles: ["langfuse"]
+    restart: "no"
+    depends_on: *langfuse-depende
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      <<: *langfuse-env
+      NEXTAUTH_SECRET: ${LANGFUSE_NEXTAUTH_SECRET:-segredo-local-de-laboratorio}
+      AUTH_DISABLE_SIGNUP: "true"
+      # Inicialização sem tela (headless): organização, projeto, chaves e um usuário local.
+      # Sem aspas nos valores (recomendação da documentação do Langfuse para Compose).
+      LANGFUSE_INIT_ORG_ID: aurora
+      LANGFUSE_INIT_ORG_NAME: Aurora Educacao
+      LANGFUSE_INIT_PROJECT_ID: laboratorios-mercado
+      LANGFUSE_INIT_PROJECT_NAME: laboratorios-mercado
+      LANGFUSE_INIT_PROJECT_RETENTION: ${LANGFUSE_RETENCAO_DIAS:-30}
+      LANGFUSE_INIT_PROJECT_PUBLIC_KEY: ${LANGFUSE_CHAVE_PUBLICA:-pk-lf-laboratorio-local}
+      LANGFUSE_INIT_PROJECT_SECRET_KEY: ${LANGFUSE_CHAVE_SECRETA:-sk-lf-laboratorio-local}
+      LANGFUSE_INIT_USER_EMAIL: ${LANGFUSE_USUARIO_EMAIL:-admin@laboratorio.local}
+      LANGFUSE_INIT_USER_NAME: admin
+      LANGFUSE_INIT_USER_PASSWORD: ${LANGFUSE_USUARIO_SENHA:-senha-local-de-laboratorio}
+
+  langfuse-clickhouse:
+    image: docker.io/clickhouse/clickhouse-server:26.3.62.3
+    profiles: ["langfuse"]
+    restart: "no"
+    user: "101:101"
+    environment:
+      CLICKHOUSE_DB: default
+      CLICKHOUSE_USER: clickhouse
+      CLICKHOUSE_PASSWORD: ${LANGFUSE_CH_SENHA:-senha-local-de-laboratorio}
+    volumes:
+      - langfuse-clickhouse-dados:/var/lib/clickhouse
+      - langfuse-clickhouse-logs:/var/log/clickhouse-server
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8123/ping || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  langfuse-minio:
+    image: cgr.dev/chainguard/minio:latest
+    profiles: ["langfuse"]
+    restart: "no"
+    entrypoint: sh
+    command: -c 'mkdir -p /data/langfuse && minio server --address ":9000" --console-address ":9001" /data'
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: ${LANGFUSE_MINIO_SENHA:-senha-local-de-laboratorio}
+    volumes:
+      - langfuse-minio-dados:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 2s
+      timeout: 5s
+      retries: 20
+
+  langfuse-redis:
+    image: docker.io/library/redis:7
+    profiles: ["langfuse"]
+    restart: "no"
+    command: --requirepass ${LANGFUSE_REDIS_SENHA:-senha-local-de-laboratorio} --maxmemory-policy noeviction
+    volumes:
+      - langfuse-redis-dados:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${LANGFUSE_REDIS_SENHA:-senha-local-de-laboratorio}", "ping"]
+      interval: 3s
+      timeout: 10s
+      retries: 10
+
+  langfuse-postgres:
+    image: docker.io/library/postgres:17
+    profiles: ["langfuse"]
+    restart: "no"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${LANGFUSE_PG_SENHA:-senha-local-de-laboratorio}
+      POSTGRES_DB: postgres
+      TZ: UTC
+      PGTZ: UTC
+    volumes:
+      - langfuse-postgres-dados:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
   api-llmops:
     build:
       context: ..
@@ -190,6 +329,11 @@ services:
     command: ["python", "-c", "import torch; print('rocm_disponivel:', torch.cuda.is_available(), 'hip:', getattr(torch.version, 'hip', None))"]
 
 volumes:
+  langfuse-postgres-dados:
+  langfuse-clickhouse-dados:
+  langfuse-clickhouse-logs:
+  langfuse-minio-dados:
+  langfuse-redis-dados:
   ollama-dados:
   hf-cache:
   pg-dados:

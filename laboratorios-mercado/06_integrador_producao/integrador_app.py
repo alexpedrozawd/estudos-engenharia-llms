@@ -34,6 +34,7 @@ from mercado_base.cliente_openai import (  # noqa: E402
     ClienteChatOpenAI,
     gerar_estruturado,
 )
+from mercado_base.provedores_nuvem import PROVEDORES_NUVEM, criar_cliente_nuvem  # noqa: E402
 from mercado_base.pii import RE_CPF, RE_EMAIL, RE_TELEFONE, mascarar_pii  # noqa: E402,F401
 from mercado_base.seguranca_http import (  # noqa: E402
     ORDEM_PERFIS,
@@ -47,6 +48,7 @@ from mcp import Client  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
 
 import corpus_aurora  # noqa: E402
+from llmops_telemetria import configurar_telemetria  # noqa: E402
 import mcp_cliente_aurora  # noqa: E402
 import mcp_ferramentas  # noqa: E402
 import rag_ingestao as ing  # noqa: E402
@@ -177,6 +179,7 @@ class Assistente:
     aprovador_mcp: Optional[Callable] = None
     max_passos_agente: int = 4
     max_registros: int = 1000
+    tracer: Optional[object] = None  # OpenTelemetry; None = sem traces (padrão)
     registros: Deque[Dict[str, object]] = field(init=False)
     _totais: Dict[str, object] = field(init=False, repr=False)
 
@@ -226,6 +229,32 @@ class Assistente:
         self._totais["tokens_saida"] += int(reg.get("tokens_saida") or 0)
         self._totais["tokens_cache"] += int(reg.get("tokens_cache") or 0)
         self._totais["custo_usd_total"] += float(reg.get("custo_usd") or 0.0)
+
+    def _emitir_trace(self, reg: Dict[str, object], cliente: Optional[object]) -> None:
+        """Um span por pergunta (`gen_ai.*`), sem texto do prompt, da resposta ou PII mascarada."""
+        if self.tracer is None:
+            return
+        modelo = str(getattr(cliente, "modelo", "") or "nenhum")
+        fim = time.time_ns()
+        inicio = fim - int(float(reg.get("total_ms") or 0.0) * 1_000_000)
+        span = self.tracer.start_span("chat " + modelo, start_time=inicio)
+        span.set_attribute("gen_ai.operation.name", "chat")
+        span.set_attribute("gen_ai.request.model", modelo)
+        span.set_attribute("gen_ai.provider.name", str(getattr(cliente, "provedor", "") or "nenhum"))
+        span.set_attribute("gen_ai.usage.input_tokens", int(reg.get("tokens_entrada") or 0))
+        span.set_attribute("gen_ai.usage.output_tokens", int(reg.get("tokens_saida") or 0))
+        if reg.get("tokens_cache"):
+            span.set_attribute("gen_ai.usage.cache_read.input_tokens", int(reg["tokens_cache"]))
+        span.set_attribute("aurora.id_requisicao", str(reg["id"]))
+        span.set_attribute("aurora.rota", str(reg.get("rota") or "bloqueado"))
+        span.set_attribute("aurora.bloqueado", bool(reg.get("bloqueado")))
+        if reg.get("motivo_rota"):
+            span.set_attribute("aurora.motivo_rota", str(reg["motivo_rota"]))
+        if reg.get("acao_saida"):
+            span.set_attribute("aurora.acao_saida", str(reg["acao_saida"]))
+        span.set_attribute("aurora.custo_usd", float(reg.get("custo_usd") or 0.0))
+        span.set_attribute("aurora.ferramentas", len(reg.get("ferramentas_chamadas") or ()))
+        span.end(end_time=fim)
 
     async def _executar_agente_e_gerar(
         self, cliente, pergunta: str, trechos_rag: Sequence[ing.Trecho]
@@ -410,6 +439,7 @@ class Assistente:
                    "total_ms": round((time.perf_counter() - t_total) * 1000, 3), "custo_usd": 0.0,
                    "tokens_entrada": 0, "tokens_saida": 0, "tokens_cache": 0}
             self._registrar(reg)
+            self._emitir_trace(reg, None)
             return {**reg, "resposta": "Não posso atender a esse pedido."}
         decisao = self.roteador.decidir(ent["texto"], ent["pii"], self.cliente_fronteira is not None)
         marcar("roteamento")
@@ -444,6 +474,7 @@ class Assistente:
             "total_ms": round((time.perf_counter() - t_total) * 1000, 3),
         }
         self._registrar(reg)
+        self._emitir_trace(reg, cliente)
         return {**reg, "resposta": saida["texto"]}
 
     def relatorio(self) -> Dict[str, object]:
@@ -558,9 +589,20 @@ def ingerir_corpus(armazem, embedder, max_palavras: int = 40) -> int:
     return armazem.inserir(trechos, vetores)
 
 
-def criar_app_de_ambiente() -> FastAPI:
+def criar_fronteira_de_ambiente(env) -> Optional[object]:
+    """Cliente de fronteira por `FRONTEIRA_PROVEDOR`; vazio = sem fronteira (tudo vai ao local)."""
     from comum.cliente_llm import criar_cliente_por_ambiente
 
+    provedor = str(env.get("FRONTEIRA_PROVEDOR", "")).strip().lower()
+    modelo = str(env.get("FRONTEIRA_MODELO", "")).strip() or None
+    if provedor in PROVEDORES_NUVEM:  # azure, bedrock ou vertex: endpoint compatível com OpenAI (Cap. 20)
+        return criar_cliente_nuvem(provedor, modelo=modelo, env=env)
+    if provedor:  # openai, anthropic ou gemini; chaves só por variável de ambiente (Gemini via x-goog-api-key)
+        return criar_cliente_por_ambiente(provedor, modelo=modelo, env=env)
+    return None
+
+
+def criar_app_de_ambiente() -> FastAPI:
     embedder = rs.EmbedderOpenAICompativel(os.environ.get("EMBED_BASE_URL", "http://127.0.0.1:8082/v1"),
                                            os.environ.get("EMBED_MODELO", "embed-local"))
     armazem = rs.ArmazemPgvector(os.environ["PGVECTOR_DSN"])
@@ -573,14 +615,15 @@ def criar_app_de_ambiente() -> FastAPI:
         timeout_s=180.0,
         reasoning_effort=os.environ.get("LLM_LOCAL_REASONING_EFFORT", "").strip() or None,
     )
-    fronteira = None
-    provedor = os.environ.get("FRONTEIRA_PROVEDOR", "").strip()
-    if provedor:  # openai, anthropic ou gemini; chaves só por variável de ambiente (Gemini via x-goog-api-key)
-        fronteira = criar_cliente_por_ambiente(provedor, modelo=os.environ.get("FRONTEIRA_MODELO") or None)
+    fronteira = criar_fronteira_de_ambiente(os.environ)
+    tracer = None
+    modo_otel = os.environ.get("OTEL_EXPORTADOR", "nenhum").strip() or "nenhum"
+    if modo_otel != "nenhum":  # ex.: otlp para Jaeger ou Langfuse (OTEL_EXPORTER_OTLP_ENDPOINT/HEADERS)
+        tracer = configurar_telemetria(modo_otel, servico="aurora-integrador")[0].get_tracer("aurora.integrador")
     precos = Precos(**json.loads(os.environ["INTEGRADOR_PRECOS_JSON"])) if os.environ.get("INTEGRADOR_PRECOS_JSON") else Precos()
     seg = carregar_seguranca_de_ambiente("INTEGRADOR_")
     return criar_app(
-        Assistente(armazem, embedder, local, fronteira, precos=precos),
+        Assistente(armazem, embedder, local, fronteira, precos=precos, tracer=tracer),
         api_keys=seg["api_keys"],
         perfis_por_chave=seg["perfis_por_chave"],
         limite_taxa=seg["limite_taxa"],

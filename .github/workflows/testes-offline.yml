@@ -59,7 +59,7 @@ jobs:
           docker compose -f laboratorios-mercado/compose.yaml
           --profile serving --profile rag --profile app --profile ollama
           --profile vllm --profile observabilidade --profile sandbox
-          --profile finetuning
+          --profile finetuning --profile langfuse
           config -q
 
       - name: Camada 3 — build e smoke do Containerfile

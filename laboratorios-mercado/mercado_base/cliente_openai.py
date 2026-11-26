@@ -88,7 +88,9 @@ class ClienteChatOpenAI:
         timeout_s: float = 180.0,
         reasoning_effort: Optional[str] = None,
         transport: Optional[httpx.BaseTransport] = None,
+        cabecalhos: Optional[Dict[str, str]] = None,
     ):
+        """`cabecalhos` substitui o `Authorization: Bearer` padrão (ex.: `api-key` do Azure OpenAI)."""
         self.base_url = base_url.rstrip("/")
         self.modelo = modelo
         self.provedor = provedor
@@ -96,6 +98,7 @@ class ClienteChatOpenAI:
         self.timeout_s = timeout_s
         self.reasoning_effort = reasoning_effort
         self._transport = transport
+        self._cabecalhos = dict(cabecalhos) if cabecalhos else None
 
     def completar_chat(
         self,
@@ -108,7 +111,10 @@ class ClienteChatOpenAI:
         max_tokens: int = 512,
         reasoning_effort: Optional[str] = None,
     ) -> RespostaChat:
-        cabecalhos = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
+        if self._cabecalhos is not None:
+            cabecalhos = dict(self._cabecalhos)
+        else:
+            cabecalhos = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
         payload: Dict[str, object] = {
             "model": self.modelo,
             "messages": list(mensagens),

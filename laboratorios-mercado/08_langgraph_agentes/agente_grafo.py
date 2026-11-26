@@ -387,8 +387,13 @@ class AgenteLangGraph:
         try:
             out = self.grafo.invoke(entrada, config)
         except GraphRecursionError:
+            # O checkpoint guarda o último estado salvo: preserva as ferramentas que já rodaram (auditoria).
+            try:
+                feitas = list(self.grafo.get_state(config).values.get("ferramentas_chamadas") or [])
+            except ValueError:  # grafo sem checkpointer
+                feitas = []
             return {"status": "limite_de_passos", "thread_id": thread_id, "resposta": rp.RESPOSTA_RECUSA,
-                    "acao_saida": "recusa_limite_de_passos", "ferramentas_chamadas": [],
+                    "acao_saida": "recusa_limite_de_passos", "ferramentas_chamadas": feitas,
                     "total_ms": round((time.perf_counter() - t0) * 1000, 3)}
         base = {
             "thread_id": thread_id,

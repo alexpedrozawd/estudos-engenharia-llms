@@ -153,6 +153,9 @@ class TestGrafoAgente(BaseP08):
         self.assertEqual(r2["status"], "limite_de_passos")
         self.assertEqual(r2["resposta"], ia.rp.RESPOSTA_RECUSA)
         self.assertEqual(r2["acao_saida"], "recusa_limite_de_passos")
+        # Ferramentas que rodaram antes do estouro continuam no retorno (lidas do checkpoint).
+        self.assertTrue(r2["ferramentas_chamadas"])
+        self.assertEqual(set(r2["ferramentas_chamadas"]), {"consultar_prazo"})
 
     def test_injecao_bloqueada_antes_do_modelo(self):
         a = self.agente([])

@@ -9,7 +9,7 @@ Oito projetos com serviços reais, complementares aos laboratórios offline em [
 | [`03_mcp_sandbox`](03_mcp_sandbox/README.md) | 10, 12, 13 | Servidor e cliente MCP (stdio e Streamable HTTP), Pydantic, aprovação humana, container sem rede | SDK oficial `mcp` 2.x, Podman/Docker |
 | [`04_qlora_peft`](04_qlora_peft/README.md) | 6, 15 | Receita QLoRA reproduzível, manifesto, avaliação por fatia e portão antes/depois | `peft`/`trl` (GPU CUDA ou AMD ROCm 7.x) |
 | [`05_api_llmops`](05_api_llmops/README.md) | 2, 17 | FastAPI, auth/rate limit, SSE com cancelamento, retry/disjuntor, Prometheus `/metrics`, OTLP → Jaeger e avaliação contínua | Endpoint OpenAI-compatível + Jaeger |
-| [`06_integrador_producao`](06_integrador_producao/README.md) | 12, 16, 18 | Guardrails PII/injeção, roteamento, laço agêntico MCP (`tool_calls`), `json_schema` estrito, RAG com ACL e relatório de custo/cache | Todos os anteriores |
+| [`06_integrador_producao`](06_integrador_producao/README.md) | 12, 16, 18, 20 | Guardrails PII/injeção, roteamento, laço agêntico MCP (`tool_calls`), `json_schema` estrito, RAG com ACL, relatório de custo/cache, fronteira em Azure/Bedrock/Vertex (Cap. 20) e trace OTLP por pergunta | Todos os anteriores |
 | [`07_evals_e_multimodal`](07_evals_e_multimodal/README.md) | 4, 5 | Evals A vs B com juiz calibrado (inversão A/B, *kappa* de Cohen, bootstrap pareado) e PDF → PNG (`pdftoppm`) → VLM/Pydantic | Endpoint OpenAI-compatível (e VLM opcional) |
 | [`08_langgraph_agentes`](08_langgraph_agentes/README.md) | 19 | Laço agêntico do 06 em `StateGraph` (LangGraph): checkpoint SQLite com PII mascarada, aprovação humana por `interrupt()`, lista de ferramentas permitidas, limite de passos e supervisor com dois subagentes | Endpoint OpenAI-compatível + servidor MCP do 03 |
 
@@ -29,7 +29,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (100 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (113 testes)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 
@@ -50,6 +50,7 @@ Todos os serviços ficam em perfis e escutam só em `127.0.0.1`.
 | `app` | `api-llmops`, `integrador` (imagem do [`Containerfile`](Containerfile)) e dependências | 8000, 8001 |
 | `ollama` / `vllm` | Ollama em container / vLLM (exige GPU NVIDIA) | 11435 / 8083 |
 | `observabilidade` | Jaeger (UI, query v3 e OTLP/HTTP) | 16686, 4318 |
+| `langfuse` | Langfuse 4.86.0 (web, worker, PostgreSQL, ClickHouse, Redis, MinIO); recebe OTLP do P05/P06 em `/api/public/otel` (Basic com `pk-lf-laboratorio-local:sk-lf-laboratorio-local`); conferência em `executar_traces_langfuse.py` | 3000 |
 | `sandbox` | Modelo de container restrito usado pelo projeto 03 | — |
 | `finetuning` | `qlora-rocm` (`rocm/pytorch` com `/dev/kfd` e `/dev/dri` para GPU AMD) | — |
 
@@ -69,6 +70,8 @@ podman compose -f laboratorios-mercado/compose.yaml --profile serving --profile 
 
 Os projetos reaproveitam [`../laboratorios/comum/cliente_llm.py`](../laboratorios/comum/cliente_llm.py): `OPENAI_API_KEY`, `ANTHROPIC_API_KEY` ou `GEMINI_API_KEY` só por variável de ambiente. A chave Gemini vai apenas no cabeçalho `x-goog-api-key`, nunca na URL. Nenhum teste nem o CI usa chaves.
 
+Nuvens gerenciadas (Cap. 20): o P06 aceita `FRONTEIRA_PROVEDOR=azure|bedrock|vertex` por [`mercado_base/provedores_nuvem.py`](mercado_base/provedores_nuvem.py), com o mesmo `ClienteChatOpenAI` e credenciais só por variável de ambiente; variáveis e limites no [README do P06](06_integrador_producao/README.md#execução-real). Nenhum teste nem o CI usam chave real.
+
 ## Execuções reais registradas (24–25/11/2026)
 
 Máquina: CPU de 16 núcleos, 31 GiB de RAM, sem GPU CUDA; llama.cpp server em container (CPU, `--jinja`); PostgreSQL 17 + pgvector; Jaeger `v2.23.0`. Detalhes em [`changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md`](../docs/changelogs/changelog-fase-5d-laboratorios-mercado-e-ci-2026-11-24.md) e [`changelog-fase-6-mercado-producao-2026-11-25.md`](../docs/changelogs/changelog-fase-6-mercado-producao-2026-11-25.md).
@@ -83,6 +86,7 @@ Máquina: CPU de 16 núcleos, 31 GiB de RAM, sem GPU CUDA; llama.cpp server em c
 | 06 | Fase 6 + anti-BFLA real: `8` cenários com `5` chamadas MCP nativas via `tool_calls` (`0` reparos de `json_schema`, `0` bloqueios de saída, `13.555` tokens em cache de prefixo, PII mascarada, injeção bloqueada) e `4/4` verificações anti-BFLA reais (`401` sem chave, `403` na elevação `aluno -> admin`, `200` sem vazamento vs `admin` autorizado) |
 | 07 | Fase 6: calibração `kappa = 0,7391` (`12` pares), avaliação `16` casos (`B = 13`, `empate = 3`, `A = 0`; `3` vieses neutralizados; `+1,5625` no bootstrap, `promover_b = true`) e PNG real via `pdftoppm` (VLM remoto arquivado pelo operador) |
 | 08 | 25/11/2026, Ollama `/v1` na GPU: `27B` como agente `8/8` e `4B` para comparação `7/8` nas variantes P06, P08 (cliente próprio e `ChatOpenAI`) e supervisor; detalhes no [README do projeto](08_langgraph_agentes/README.md#execução-real-25112026) |
+| 05 + 06 → Langfuse | 25/11/2026, perfil `langfuse` (Langfuse `4.86.0`) e `qwen3:4b-instruct` no Ollama: `5/5` observações recebidas (`2` do P05, `3` do P06, uma bloqueada na entrada), todas `GENERATION` com tokens de entrada, saída e cache, sem texto nem PII; `execucoes/p05-p06-langfuse-2026-11-25T20-11-20-0300.json` |
 
 ## Comparativo na GPU (Ollama `/v1`, RX 9070 XT 16 GB — 25/11/2026)
 

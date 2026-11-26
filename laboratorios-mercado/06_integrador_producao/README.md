@@ -23,7 +23,17 @@ LLM_LOCAL_BASE_URL=http://127.0.0.1:8081/v1 LLM_LOCAL_MODELO=modelo-local INTEGR
 .venv-mercado/bin/python -I laboratorios-mercado/06_integrador_producao/cliente_integrador_real.py --registrar
 ```
 
-Fronteira opcional: `FRONTEIRA_PROVEDOR=openai|anthropic|gemini` (+ `FRONTEIRA_MODELO` e a chave do provedor por variável de ambiente). Para modelos locais com modo *thinking* no Ollama `/v1`, defina `LLM_LOCAL_REASONING_EFFORT=none`.
+Fronteira opcional: `FRONTEIRA_PROVEDOR=openai|anthropic|gemini` (+ `FRONTEIRA_MODELO` e a chave do provedor por variável de ambiente) ou, desde o Cap. 20, `azure|bedrock|vertex` pelo endpoint compatível com OpenAI de cada nuvem (`mercado_base/provedores_nuvem.py`; ferramentas MCP e `json_schema` seguem iguais):
+
+| Nuvem | Variáveis | Autenticação |
+|---|---|---|
+| Azure OpenAI (Foundry) | `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT` | `AZURE_OPENAI_API_KEY` (`api-key`) ou `AZURE_OPENAI_AD_TOKEN` (Entra ID, Bearer) |
+| Amazon Bedrock | `AWS_REGION`, `BEDROCK_MODELO` | `AWS_BEARER_TOKEN_BEDROCK` (chave do Bedrock de curta duração) |
+| Vertex AI | `VERTEX_PROJETO`, `VERTEX_LOCAL` (padrão `global`), `VERTEX_MODELO` | `VERTEX_ACCESS_TOKEN` (ex.: `gcloud auth print-access-token`) |
+
+Os `13` testes de `test_p06_nuvem.py` conferem URL, cabeçalhos, corpo e respostas com transporte falso, sem chave real. **Limite:** tokens do Entra ID e OAuth são lidos uma vez do ambiente e não são renovados; num servidor de longa duração, a rota de fronteira falha quando o token expira (renovação automática fica para um deploy real, etapa opcional 6b). SigV4 com credenciais IAM não é suportado.
+
+Traces: `OTEL_EXPORTADOR=otlp` (padrão `nenhum`) emite um span `gen_ai.*` por pergunta, sem texto de prompt, resposta ou PII, para Jaeger ou Langfuse (perfil `langfuse` do `compose.yaml`; ver `laboratorios-mercado/executar_traces_langfuse.py`). Para modelos locais com modo *thinking* no Ollama `/v1`, defina `LLM_LOCAL_REASONING_EFFORT=none`.
 
 Em 25/11/2026 (Fase 6, `qwen3:4b-instruct` com `--jinja` + `pgvector`): `8` cenários, `7` respondidos na rota local e `1` bloqueado na entrada; `0` bloqueios de saída; `5` chamadas nativas MCP via `tool_calls` (`consultar_prazo`, `calcular_media_ponderada` com média `6.7`, `executar_python_isolado` negado por padrão em falha fechada); `0` reparos de JSON; `13.555` tokens em cache de prefixo de `16.641` tokens de entrada; CPF e telefone mascarados.
 
