@@ -1,0 +1,16 @@
+# Kubernetes local (Etapa 6a): P05 (api-llmops), P06 (integrador) e pgvector no namespace `aurora`.
+# Aplicar: kubectl apply -k laboratorios-mercado/k8s/manifests (o script executar_k8s_local.py faz isso e cria o Secret).
+# O Secret `aurora-segredos` NÃO fica aqui: é gerado com valores aleatórios pelo script, fora do Git.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: aurora
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - pgvector.yaml
+  - api-llmops.yaml
+  - integrador.yaml
+  - networkpolicy.yaml
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: aurora-lab

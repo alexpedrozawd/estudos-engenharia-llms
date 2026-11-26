@@ -29,7 +29,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (136 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (146 testes, inclusive os manifests de k8s/)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 
@@ -65,6 +65,10 @@ podman compose -f laboratorios-mercado/compose.yaml --profile serving --profile 
 - Autenticação opcional e limite de taxa nas APIs (`05` e `06`): configure `AURORA_API_KEYS` (aceita `X-API-Key` ou `Authorization: Bearer`) e `AURORA_RATE_LIMIT_RPM`.
 - Para reaproveitar modelos já baixados pelo Ollama sem copiar, aponte `MODELOS_DIR` para `~/.ollama/models/blobs` e use o nome `sha256-...` da camada `model` do manifesto em `~/.ollama/models/manifests/`. O volume é somente leitura; `label=disable` evita reetiquetar arquivos do daemon do host em SELinux (em pastas dedicadas de modelos, prefira `:ro,Z` sem `label=disable`).
 - Modelos "Thinking" (ex.: Qwen3-4B-Thinking-2507, a tag `qwen3:4b` do Ollama em 11/2026) sempre raciocinam: `--reasoning off` não desliga. Para respostas diretas e *tool calling*, use uma variante Instruct (ex.: `qwen3:4b-instruct`).
+
+## Kubernetes local (kind)
+
+[`k8s/`](k8s/README.md) sobe P05, P06 e `pgvector` em kind com Podman rootless (Etapa 6a): Secret gerado fora do Git, *probes*, limites, Pod Security `restricted`, NetworkPolicy, PVC e *rollout*/*rollback* sem indisponibilidade, validados por `k8s/executar_k8s_local.py validar`.
 
 ## Provedores de fronteira (opcionais)
 

@@ -19,6 +19,8 @@ dependencies = [
     "opentelemetry-exporter-otlp-proto-http>=1.30",
     "psycopg[binary]>=3.2",
     "pypdf>=5.0",
+    # Leitura dos manifests Kubernetes nos smoke-tests do k8s/ (Etapa 6a).
+    "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]

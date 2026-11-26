@@ -1,0 +1,103 @@
+# P06 — assistente integrador (RAG + LLM + auth com vínculo de perfil anti-BFLA).
+# /v1/relatorio usa diretório temporário: /tmp é emptyDir porque a raiz é somente leitura.
+apiVersion: v1
+kind: Service
+metadata:
+  name: integrador
+spec:
+  selector:
+    app.kubernetes.io/name: integrador
+  ports:
+    - name: http
+      port: 8001
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integrador
+spec:
+  replicas: 2
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 120
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: integrador
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: integrador
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 20
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: integrador
+          image: localhost/laboratorios-mercado:k8s-v1
+          imagePullPolicy: Never
+          command: ["uvicorn", "--factory", "integrador_app:criar_app_de_ambiente", "--host", "0.0.0.0", "--port", "8001"]
+          ports:
+            - name: http
+              containerPort: 8001
+          env:
+            - name: PGVECTOR_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: aurora-segredos
+                  key: PGVECTOR_DSN
+            - name: INTEGRADOR_PERFIS_CHAVES
+              valueFrom:
+                secretKeyRef:
+                  name: aurora-segredos
+                  key: INTEGRADOR_PERFIS_CHAVES
+          envFrom:
+            - configMapRef:
+                name: aurora-config
+          # Encerramento gracioso: o pod segue atendendo 5 s depois de sair dos endpoints do Service,
+          # evitando erros durante rollout (medido pelo script: sem isso, 1 a 3 falhas por troca).
+          lifecycle:
+            preStop:
+              sleep:
+                seconds: 5
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 768Mi
+          readinessProbe:
+            httpGet:
+              path: /saude
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /saude
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 2
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: 128Mi

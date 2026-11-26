@@ -19,11 +19,12 @@ import mercado_base  # noqa: E402  (prepara sys.path dos projetos e de laborator
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--alvo", choices=mercado_base.PROJETOS, help="executa só um projeto")
+    # `k8s` (Etapa 6a) não é projeto de laboratório: só os testes offline dos manifests Kubernetes.
+    ap.add_argument("--alvo", choices=mercado_base.PROJETOS + ("k8s",), help="executa só um projeto")
     args = ap.parse_args()
     loader = unittest.TestLoader()
     suite = unittest.TestSuite()
-    for projeto in [args.alvo] if args.alvo else mercado_base.PROJETOS:
+    for projeto in [args.alvo] if args.alvo else mercado_base.PROJETOS + ("k8s",):
         pasta = os.path.join(AQUI, projeto)
         suite.addTests(loader.discover(start_dir=pasta, pattern="test_*.py", top_level_dir=pasta))
     resultado = unittest.TextTestRunner(verbosity=2).run(suite)

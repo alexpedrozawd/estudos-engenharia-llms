@@ -392,6 +392,36 @@ class TestAssistente(unittest.TestCase):
         with TestClient(ia.criar_app(b)) as c, self.assertRaises(BaseException):
             c.post("/v1/assistente", json={"pergunta": "Qual a taxa do histórico?"})
 
+    def test_falha_de_recuperacao_degrada_para_503(self):
+        """Achado da Etapa 6a (kind): embeddings ou pgvector inalcançáveis viravam 500."""
+        import httpx
+        import psycopg
+
+        class EmbedderQueFalha:
+            dim, nome = 256, "falha"
+
+            def __init__(self, exc):
+                self.exc = exc
+
+            def embutir(self, textos):
+                raise self.exc
+
+        emb, arm = rs.EmbedderHash(256), rs.ArmazemMemoria()
+        ia.ingerir_corpus(arm, emb)
+        for exc in (httpx.ConnectError("Name or service not known"), psycopg.OperationalError("sem banco")):
+            a = ia.Assistente(arm, EmbedderQueFalha(exc), ClienteChatFalso([]))
+            with TestClient(ia.criar_app(a)) as c, self.assertLogs("integrador", "WARNING"):
+                r = c.post("/v1/assistente", json={"pergunta": "Qual a taxa do histórico?"})
+                self.assertEqual(r.status_code, 503)
+                self.assertEqual(r.headers["Retry-After"], "5")
+                self.assertEqual(r.json()["acao_saida"], "falha_backend")
+                self.assertIn("rag", r.json()["etapas_ms"])
+        # Erro de SQL ou de código na recuperação continua visível (não vira 503).
+        self.assertFalse(ia.falha_de_backend(psycopg.ProgrammingError("tabela ausente")))
+        b = ia.Assistente(arm, EmbedderQueFalha(ValueError("bug")), ClienteChatFalso([]))
+        with TestClient(ia.criar_app(b)) as c, self.assertRaises(BaseException):
+            c.post("/v1/assistente", json={"pergunta": "Qual a taxa do histórico?"})
+
     def test_cliente_chat_openai_reasoning_effort_e_descarregamento_ollama(self):
         from mercado_base.cliente_openai import descarregar_modelo_ollama
 

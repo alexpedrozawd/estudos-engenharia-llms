@@ -1,0 +1,130 @@
+{
+  "aprovado": true,
+  "carimbo": "2026-11-26T10-12-47-0300",
+  "cluster": "aurora-lab",
+  "execucao": "k8s-local",
+  "historico_rollout_integrador": [
+    "deployment.apps/integrador ",
+    "REVISION  CHANGE-CAUSE",
+    "1         <none>",
+    "3         <none>",
+    "4         <none>",
+    "17        <none>",
+    "19        <none>",
+    "20        <none>"
+  ],
+  "limites": [
+    "LLM e embeddings do host (Ollama em 127.0.0.1) não são alcançáveis do kind rootless; o caminho real de resposta é validado fora do cluster (Etapa 2)."
+  ],
+  "namespace": "aurora",
+  "pods": [
+    {
+      "app": "api-llmops",
+      "pronto": true,
+      "reinicios": 0
+    },
+    {
+      "app": "api-llmops",
+      "pronto": true,
+      "reinicios": 0
+    },
+    {
+      "app": "integrador",
+      "pronto": true,
+      "reinicios": 0
+    },
+    {
+      "app": "integrador",
+      "pronto": true,
+      "reinicios": 0
+    },
+    {
+      "app": "integrador",
+      "pronto": true,
+      "reinicios": 0
+    },
+    {
+      "app": "postgres",
+      "pronto": true,
+      "reinicios": 0
+    }
+  ],
+  "verificacoes": [
+    {
+      "ok": true,
+      "pods": 6,
+      "verificacao": "pods_prontos"
+    },
+    {
+      "ok": true,
+      "verificacao": "namespace_restricted"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "verificacao": "p05_saude"
+    },
+    {
+      "ok": true,
+      "status": 401,
+      "verificacao": "p05_sem_chave_401"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "verificacao": "p06_saude"
+    },
+    {
+      "ok": true,
+      "status": 401,
+      "verificacao": "p06_sem_chave_401"
+    },
+    {
+      "ok": true,
+      "status": 403,
+      "verificacao": "p06_anti_bfla_403"
+    },
+    {
+      "ok": true,
+      "retry_after": "5",
+      "segundos": 0.04,
+      "status": 503,
+      "verificacao": "p06_backend_inalcancavel_503"
+    },
+    {
+      "de_p05": "bloqueado:TimeoutError",
+      "de_p06": "conectou",
+      "ok": true,
+      "verificacao": "networkpolicy_postgres"
+    },
+    {
+      "ok": true,
+      "valor": "persistiu",
+      "verificacao": "pvc_persistencia"
+    },
+    {
+      "ok": true,
+      "segundos": 8.6,
+      "sonda_falha": 0,
+      "sonda_ok": 179,
+      "verificacao": "rollout_v2_sem_indisponibilidade"
+    },
+    {
+      "motivos_espera": [
+        "ErrImageNeverPull"
+      ],
+      "ok": true,
+      "replicas_prontas_durante": 2,
+      "rollout_travou": true,
+      "sonda_falha": 0,
+      "sonda_ok": 239,
+      "verificacao": "rollout_quebrado_e_rollback"
+    }
+  ],
+  "versoes": {
+    "kind": "kind v0.33.0 go1.27.0 linux/amd64",
+    "kubectl_cliente": "v1.37.3",
+    "podman": "podman version 6.2.0",
+    "servidor": "v1.37.0"
+  }
+}

@@ -1,0 +1,20 @@
+# Configuração não secreta. Senhas, DSN e chaves ficam no Secret `aurora-segredos` (gerado pelo script).
+# LLM e embeddings apontam para o Ollama do host, que NÃO é alcançável de dentro do kind rootless (o nome
+# host.containers.internal nem resolve nos pods e o Ollama escuta só em 127.0.0.1): sem backend,
+# /v1/assistente devolve 503 + Retry-After (degradação segura, validada pelo script).
+# Para respostas reais, aponte estas URLs para um serviço alcançável pelo cluster.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aurora-config
+data:
+  LLM_BASE_URL: "http://host.containers.internal:11434/v1"
+  LLM_MODELO: "qwen3:4b-instruct"
+  LLM_LOCAL_BASE_URL: "http://host.containers.internal:11434/v1"
+  LLM_LOCAL_MODELO: "qwen3:4b-instruct"
+  LLM_LOCAL_REASONING_EFFORT: "none"
+  EMBED_BASE_URL: "http://host.containers.internal:11434/v1"
+  EMBED_MODELO: "qwen3-embedding:0.6b"
+  OTEL_EXPORTADOR: "nenhum"
+  LLMOPS_RATE_LIMIT_RPM: "120"
+  INTEGRADOR_RATE_LIMIT_RPM: "120"

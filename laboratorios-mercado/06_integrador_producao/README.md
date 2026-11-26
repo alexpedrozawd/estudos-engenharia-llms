@@ -44,7 +44,7 @@ Em 25/11/2026 (validação real anti-BFLA com `INTEGRADOR_PERFIS_CHAVES`): `4/4`
 Limites: regras de roteamento e padrões de injeção são didáticos (listas fixas não bastam contra ataques adaptativos); combine com as defesas do Cap. 12 do guia (Segurança, Guardrails e IA Responsável).
 
 **Red teaming com garak (Etapa 4, 26/11/2026; [relatório](redteam/relatorio-red-teaming-p06-2026-11-26.md)):** garak `0.17.1` em container próprio contra `/v1/assistente` com autenticação e o 27B: `14` sondas e `342` tentativas (injeção direta e indireta, extração do prompt de sistema, codificações, exfiltração por Markdown, XSS, SQL, Jinja, DAN, ANSI e *tags* Unicode). Correções com teste:
-- falha do LLM agora vira HTTP `503` + `Retry-After` e `falhas_backend` no relatório, em vez de `500` com *traceback*;
+- falha do LLM agora vira HTTP `503` + `Retry-After` e `falhas_backend` no relatório, em vez de `500` com *traceback*; desde a Etapa 6a (kind), a falha na recuperação (embeddings inalcançáveis ou `pgvector` fora do ar) também vira `503`, enquanto erro de SQL ou de código continua visível;
 - *tags* Unicode são bloqueadas na entrada (`caracteres_ocultos_unicode`);
 - caracteres de controle saem da resposta.
 

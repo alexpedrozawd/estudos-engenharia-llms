@@ -76,7 +76,14 @@ def falha_de_backend(exc: BaseException) -> bool:
     """
     if isinstance(exc, BaseExceptionGroup):
         return bool(exc.exceptions) and all(falha_de_backend(e) for e in exc.exceptions)
-    return isinstance(exc, (httpx.HTTPError, TimeoutError, ConnectionError))
+    tipos: tuple = (httpx.HTTPError, TimeoutError, ConnectionError)
+    try:  # banco fora do ar ou inalcançável (pgvector); erro de SQL continua sendo defeito visível
+        import psycopg
+
+        tipos += (psycopg.OperationalError,)
+    except ImportError:
+        pass
+    return isinstance(exc, tipos)
 
 
 GATILHOS_COMPLEXIDADE = re.compile(r"\b(compare|comparar|analise|analisar|plano|estrat[eé]gia|detalhadamente|passo a passo)\b", re.I)
@@ -478,28 +485,38 @@ class Assistente:
             return {**reg, "resposta": "Não posso atender a esse pedido."}
         decisao = self.roteador.decidir(ent["texto"], ent["pii"], self.cliente_fronteira is not None)
         marcar("roteamento")
-        filtro = rs.FiltroBusca(perfil=perfil, apenas_vigentes=apenas_vigentes)
-        rec = await asyncio.to_thread(
-            rp.recuperar, ent["texto"], self.armazem, self.embedder,
-            k=self.k, reordenador=self.reordenador, filtro=filtro,
-        )
-        marcar("rag")
         cliente = self.cliente_fronteira if decisao["rota"] == "fronteira" else self.cliente_local
-        try:
-            gerado = await self._executar_agente_e_gerar(cliente, ent["texto"], rec.trechos)
-        except Exception as exc:  # noqa: BLE001 - filtrado por falha_de_backend; o resto sobe
-            if not falha_de_backend(exc):
-                raise
+
+        def indisponivel(etapa: str, componente: str, exc: BaseException, cliente_trace) -> Dict[str, object]:
             # Red teaming (Etapa 4): o modelo devolveu 500 e o P06 respondia 500 com traceback no log.
-            LOG.warning("falha do backend LLM na rota %s: %s", decisao["rota"], type(exc).__name__)
-            marcar("agente_llm")
+            # Kubernetes (Etapa 6a): embeddings/pgvector inalcançáveis também viravam 500.
+            LOG.warning("falha do backend %s na rota %s: %s", componente, decisao["rota"], type(exc).__name__)
+            marcar(etapa)
             reg = {"id": id_req, "bloqueado": False, "rota": decisao["rota"], "motivo_rota": decisao["motivo"],
                    "pii_mascarada": ent["pii"], "acao_saida": "falha_backend", "indisponivel": True,
                    "tokens_entrada": 0, "tokens_saida": 0, "tokens_cache": 0, "custo_usd": 0.0,
                    "etapas_ms": etapas, "total_ms": round((time.perf_counter() - t_total) * 1000, 3)}
             self._registrar(reg)
-            self._emitir_trace(reg, cliente)
+            self._emitir_trace(reg, cliente_trace)
             return {**reg, "resposta": RESPOSTA_INDISPONIVEL}
+
+        filtro = rs.FiltroBusca(perfil=perfil, apenas_vigentes=apenas_vigentes)
+        try:
+            rec = await asyncio.to_thread(
+                rp.recuperar, ent["texto"], self.armazem, self.embedder,
+                k=self.k, reordenador=self.reordenador, filtro=filtro,
+            )
+        except Exception as exc:  # noqa: BLE001 - filtrado por falha_de_backend; o resto sobe
+            if not falha_de_backend(exc):
+                raise
+            return indisponivel("rag", "de recuperação", exc, None)
+        marcar("rag")
+        try:
+            gerado = await self._executar_agente_e_gerar(cliente, ent["texto"], rec.trechos)
+        except Exception as exc:  # noqa: BLE001 - filtrado por falha_de_backend; o resto sobe
+            if not falha_de_backend(exc):
+                raise
+            return indisponivel("agente_llm", "LLM", exc, cliente)
         trechos_finais = gerado["trechos"]
         marcar("agente_llm")
         saida = verificar_saida(gerado["resposta"], trechos_finais)
