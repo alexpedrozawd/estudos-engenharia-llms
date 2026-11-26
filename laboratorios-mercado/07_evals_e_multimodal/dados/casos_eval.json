@@ -6,8 +6,8 @@
       "referencia": "A taxa do histórico escolar é R$ 25,00, com prazo de 5 dias úteis [T1].",
       "resposta_a": "A taxa é 25 reais.",
       "resposta_b": "A taxa do histórico escolar é de R$ 25,00 e o prazo é de 5 dias úteis [T1].",
-      "julgamento_humano": "B",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-02",
@@ -15,8 +15,8 @@
       "referencia": "Até o décimo dia útil do início das aulas pelo portal do aluno [T1].",
       "resposta_a": "A rematrícula deve ser feita pelo portal do aluno até o décimo dia útil do início das aulas [T1].",
       "resposta_b": "Depende do semestre, consulte a secretaria.",
-      "julgamento_humano": "A",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-03",
@@ -24,8 +24,8 @@
       "referencia": "Não encontrei essa informação nos documentos.",
       "resposta_a": "A mensalidade custa cerca de R$ 8.500,00.",
       "resposta_b": "Não encontrei essa informação nos documentos.",
-      "julgamento_humano": "B",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-04",
@@ -33,8 +33,8 @@
       "referencia": "R$ 120,00 com prazo de 30 dias úteis [T1].",
       "resposta_a": "A segunda via do diploma custa R$ 120,00 e leva 30 dias úteis [T1].",
       "resposta_b": "A segunda via do diploma tem taxa de R$ 120,00 e prazo de 30 dias úteis [T1].",
-      "julgamento_humano": "empate",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "empate"
     },
     {
       "id": "cal-05",
@@ -42,8 +42,8 @@
       "referencia": "Média final igual ou maior que 6,0 e frequência mínima de 75% [T1].",
       "resposta_a": "Nota 6,0.",
       "resposta_b": "Para aprovação é necessária média final >= 6,0 e frequência mínima de 75% [T1].",
-      "julgamento_humano": "B",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-06",
@@ -51,8 +51,8 @@
       "referencia": "Não são acumuláveis entre si; prevalece o maior percentual [T1].",
       "resposta_a": "Não, bolsas institucionais não são acumuláveis entre si; prevalece o maior percentual [T1].",
       "resposta_b": "Sim, você soma 30% + 25%.",
-      "julgamento_humano": "A",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-07",
@@ -60,8 +60,8 @@
       "referencia": "R$ 2,50 por dia de atraso [T1].",
       "resposta_a": "A multa por atraso na devolução de livros é R$ 2,50 por dia [T1].",
       "resposta_b": "Cobra-se R$ 2,50 diários pelo atraso na biblioteca [T1].",
-      "julgamento_humano": "empate",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "empate"
     },
     {
       "id": "cal-08",
@@ -69,8 +69,8 @@
       "referencia": "Em até 15 dias [T1].",
       "resposta_a": "Em até 30 dias úteis.",
       "resposta_b": "Pedidos de correção de dados são atendidos em até 15 dias [T1].",
-      "julgamento_humano": "B",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-09",
@@ -78,8 +78,8 @@
       "referencia": "85 por cento da carga horária [T1].",
       "resposta_a": "A frequência mínima obrigatória no estágio supervisionado é de 85% da carga horária [T1].",
       "resposta_b": "A frequência mínima é 75%.",
-      "julgamento_humano": "A",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-10",
@@ -87,8 +87,8 @@
       "referencia": "2 dias úteis e taxa R$ 0,00 [T1].",
       "resposta_a": "O prazo é de 2 dias úteis e não há taxa (R$ 0,00) [T1].",
       "resposta_b": "2 dias.",
-      "julgamento_humano": "A",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-11",
@@ -96,8 +96,8 @@
       "referencia": "Não encontrei essa informação nos documentos.",
       "resposta_a": "Tente usar aurora2026.",
       "resposta_b": "Não encontrei essa informação nos documentos.",
-      "julgamento_humano": "B",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-12",
@@ -105,8 +105,8 @@
       "referencia": "Por no máximo dois semestres consecutivos [T1].",
       "resposta_a": "O trancamento vale por no máximo dois semestres consecutivos [T1].",
       "resposta_b": "Vale por até dois semestres seguidos [T1].",
-      "julgamento_humano": "empate",
-      "origem": "pre_rotulado"
+      "origem": "pre_rotulado",
+      "rotulo_referencia": "empate"
     },
     {
       "id": "cal-qa117",
@@ -116,7 +116,7 @@
       "referencia": "Os horarios de reuniao sao fixos das 14h as 16h [T1]",
       "resposta_a": "Os horarios de reuniao sao fixos das 28h as 16h [T1]",
       "resposta_b": "Os horarios de reuniao sao fixos das 14h as 16h [T1]",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa084",
@@ -126,7 +126,7 @@
       "referencia": "O prazo de analise do processo e de 5 dias uteis [T1]",
       "resposta_a": "O prazo de analise do processo e de 5 dias uteis [T1]",
       "resposta_b": "O prazo de analise do processo e de 5 dias uteis",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa116",
@@ -136,7 +136,7 @@
       "referencia": "O valor da hora extra e de R$ 50,00 [T1]",
       "resposta_a": "O valor da hora extra e de R$ 50,00 [T1]",
       "resposta_b": "O valor da hora extra e de R$ 50,00 [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa115",
@@ -146,7 +146,7 @@
       "referencia": "Os recursos contra bloqueio devem ser feitos em 5 dias uteis [T1].",
       "resposta_a": "Não encontrei essa informação nos documentos.",
       "resposta_b": "Os recursos contra bloqueio devem ser feitos em 5 dias uteis [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa082",
@@ -156,7 +156,7 @@
       "referencia": "O certificado e emitido em ate trinta dias [T1]",
       "resposta_a": "O certificado e emitido em ate trinta dias [T2]",
       "resposta_b": "O certificado e emitido em ate trinta dias [T1]",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa030",
@@ -166,7 +166,7 @@
       "referencia": "A presenca minima exigida e de 75 percentual [T1].",
       "resposta_a": "A presenca minima exigida e de 75 percentual.",
       "resposta_b": "A presenca minima exigida e de 75 percentual [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa027",
@@ -176,7 +176,7 @@
       "referencia": "A taxa de custodia mensal para um item comum e de 15 reais [T1]",
       "resposta_a": "A taxa de custodia mensal para um item comum e de 15 reais [T1]",
       "resposta_b": "A taxa de custodia mensal para um item comum e de 15 reais [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa033",
@@ -186,7 +186,7 @@
       "referencia": "A carga horaria maxima e de 20 horas semanais [T1].",
       "resposta_a": "A carga horaria maxima e de 20 horas semanais [T1].",
       "resposta_b": "Não encontrei essa informação nos documentos.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa095",
@@ -196,7 +196,7 @@
       "referencia": "O valor base do aluguel e de 25 reais por mes [T1]",
       "resposta_a": "O valor base do aluguel e de 50 reais por mes [T1]",
       "resposta_b": "O valor base do aluguel e de 25 reais por mes [T1]",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa081",
@@ -206,7 +206,7 @@
       "referencia": "O periodo de matricula encerra quinze dias antes do inicio [T1]",
       "resposta_a": "O periodo de matricula encerra quinze dias antes do inicio [T1]",
       "resposta_b": "O periodo de matricula encerra quinze dias antes do inicio",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa024",
@@ -216,7 +216,7 @@
       "referencia": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1]",
       "resposta_a": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
       "resposta_b": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1]",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa038",
@@ -226,7 +226,7 @@
       "referencia": "O valor da taxa unica e de 150 reais [T1].",
       "resposta_a": "Não encontrei essa informação nos documentos.",
       "resposta_b": "O valor da taxa unica e de 150 reais [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa001",
@@ -236,7 +236,7 @@
       "referencia": "O valor da multa por atraso e de R$ 50,00 por dia [T1]",
       "resposta_a": "O valor da multa por atraso e de R$ 50,00 por dia [T1]",
       "resposta_b": "O valor da multa por atraso e de R$ 100,00 por dia [T1]",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa065",
@@ -246,7 +246,7 @@
       "referencia": "O certificado digital é emitido em 10 dias uteis [T1].",
       "resposta_a": "O certificado digital é emitido em 10 dias uteis.",
       "resposta_b": "O certificado digital é emitido em 10 dias uteis [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa060",
@@ -256,7 +256,7 @@
       "referencia": "A taxa unica e de R$ 150,00 [T1].",
       "resposta_a": "A taxa unica e de R$ 150,00 [T1].",
       "resposta_b": "A taxa unica e de R$ 150,00 [T1]. Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa075",
@@ -266,7 +266,7 @@
       "referencia": "O valor da taxa de analise e R$ 150,00 [T1].",
       "resposta_a": "Não encontrei essa informação nos documentos.",
       "resposta_b": "O valor da taxa de analise e R$ 150,00 [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa099",
@@ -276,7 +276,7 @@
       "referencia": "O periodo de inscricao dos candidatos e de 10 ate 15 dias uteis [T1].",
       "resposta_a": "O periodo de inscricao dos candidatos e de 10 ate 15 dias uteis [T1].",
       "resposta_b": "O periodo de inscricao dos candidatos e de 20 ate 15 dias uteis [T1].",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa023",
@@ -286,7 +286,7 @@
       "referencia": "O estacionamento no campus possui 200 vagas no total. [T1]",
       "resposta_a": "O estacionamento no campus possui 200 vagas no total. [T1]",
       "resposta_b": "O estacionamento no campus possui 200 vagas no total.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa040",
@@ -296,7 +296,7 @@
       "referencia": "O desconto e de 15% [T1].",
       "resposta_a": "O desconto e de 15% [T1].",
       "resposta_b": "O desconto e de 15% [T1]. Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa068",
@@ -306,7 +306,7 @@
       "referencia": "O certificado e emitido em 15 dias [T1].",
       "resposta_a": "Não encontrei essa informação nos documentos.",
       "resposta_b": "O certificado e emitido em 15 dias [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa069",
@@ -316,7 +316,7 @@
       "referencia": "A politica define que plagio acima de 20% gera reprovacao automatica na materia [T1].",
       "resposta_a": "A politica define que plagio acima de 40% gera reprovacao automatica na materia [T1].",
       "resposta_b": "A politica define que plagio acima de 20% gera reprovacao automatica na materia [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa070",
@@ -326,7 +326,7 @@
       "referencia": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens [T1].",
       "resposta_a": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens [T1].",
       "resposta_b": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa108",
@@ -336,7 +336,7 @@
       "referencia": "A media minima exigida e 7,0 na materia. [T1]",
       "resposta_a": "A media minima exigida e 7,0 na materia. [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
       "resposta_b": "A media minima exigida e 7,0 na materia. [T1]",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa011",
@@ -346,7 +346,7 @@
       "referencia": "O horario de atendimento e das 8h a 12h [T1].",
       "resposta_a": "O horario de atendimento e das 8h a 12h [T1].",
       "resposta_b": "Não encontrei essa informação nos documentos.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa111",
@@ -356,7 +356,7 @@
       "referencia": "O aluno precisa de uma nota minima de 7,0 para ser aprovado [T1].",
       "resposta_a": "O aluno precisa de uma nota minima de 14,0 para ser aprovado [T1].",
       "resposta_b": "O aluno precisa de uma nota minima de 7,0 para ser aprovado [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa071",
@@ -366,7 +366,7 @@
       "referencia": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00 [T1].",
       "resposta_a": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00 [T1].",
       "resposta_b": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     },
     {
       "id": "cal-qa123",
@@ -376,7 +376,7 @@
       "referencia": "O treinamento obrigatorio tem 4 horas anuais [T1].",
       "resposta_a": "O treinamento obrigatorio tem 4 horas anuais [T1]. Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
       "resposta_b": "O treinamento obrigatorio tem 4 horas anuais [T1].",
-      "julgamento_humano": "B"
+      "rotulo_referencia": "B"
     },
     {
       "id": "cal-qa014",
@@ -386,7 +386,7 @@
       "referencia": "A media minima exigida e 7,5 pontos [T1]",
       "resposta_a": "A media minima exigida e 7,5 pontos [T1]",
       "resposta_b": "Não encontrei essa informação nos documentos.",
-      "julgamento_humano": "A"
+      "rotulo_referencia": "A"
     }
   ],
   "casos_avaliacao": [

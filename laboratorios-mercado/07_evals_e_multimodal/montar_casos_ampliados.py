@@ -92,7 +92,12 @@ def main(argv=None) -> int:
                       "contexto": contexto_da_pagina(corpus, outros[0], 1), "pergunta": q["pergunta"],
                       "referencia": RECUSA})
 
-    pares = [dict(p, origem="pre_rotulado") for p in humanos]
+    pares = []
+    for p in humanos:  # nome antigo do campo vira `rotulo_referencia` (o pipeline aceita os dois)
+        p = dict(p, origem="pre_rotulado")
+        if "julgamento_humano" in p:
+            p["rotulo_referencia"] = p.pop("julgamento_humano")
+        pares.append(p)
     escolhidas = sorted(consultas, key=lambda q: _h(args.semente + "|cal|", q["id"]))[:args.pares_construcao]
     # Metade dos pares com a resposta boa em A, escolhida por hash (sem viés de posição no rótulo).
     boa_em_a_ids = {q["id"] for q in sorted(escolhidas, key=lambda q: _h(args.semente + "|lado|", q["id"]))
@@ -104,7 +109,7 @@ def main(argv=None) -> int:
         pares.append({"id": f"cal-{q['id']}", "origem": "construcao", "defeito": defeito,
                       "pergunta": q["pergunta"], "referencia": q["resposta_referencia"],
                       "resposta_a": boa if boa_em_a else ruim, "resposta_b": ruim if boa_em_a else boa,
-                      "julgamento_humano": "A" if boa_em_a else "B"})
+                      "rotulo_referencia": "A" if boa_em_a else "B"})
 
     with open(CASOS, "w", encoding="utf-8") as f:
         json.dump({"pares_calibracao": pares, "casos_avaliacao": casos}, f, ensure_ascii=False, indent=2)

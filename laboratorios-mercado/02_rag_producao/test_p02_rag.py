@@ -316,6 +316,9 @@ class TestCorpusAmpliado(unittest.TestCase):
         self.assertEqual(r["auditoria_acl"]["vazamentos"], 0)
         e = r["estatistica_recuperacao"]
         self.assertEqual(len(e["comparacoes"]), len(r["recuperacao"]) - 1)
+        sel = r["selecao_da_variante"]
+        self.assertFalse(sel["mesmo_conjunto"])
+        self.assertEqual(e["acerto_em_k"][e["escolhida"]]["n"], sel["n_teste"])
         for cmp in e["comparacoes"].values():
             self.assertIn("p_valor_mcnemar_exato", cmp)
             self.assertLessEqual(cmp["bootstrap_mrr"]["ic_inferior"], cmp["bootstrap_mrr"]["ic_superior"])
@@ -338,12 +341,24 @@ class TestEstatisticaECache(unittest.TestCase):
         with self.assertRaises(ValueError):
             est.comparar_binario({"a": True}, {"b": True})
 
+    def test_selecao_e_teste_disjuntos(self):
+        import executar_rag_real as err
+        ids = [f"q{i}" for i in range(10)]
+        sel, tes = err.dividir_selecao_teste(ids, 0.5, "s")
+        self.assertEqual((len(sel), len(tes)), (5, 5))
+        self.assertFalse(sel & tes)
+        self.assertEqual(err.dividir_selecao_teste(list(reversed(ids)), 0.5, "s"), (sel, tes))
+        with self.assertRaises(ValueError):
+            err.dividir_selecao_teste(ids, 1.0, "s")
+
     def test_estatistica_recuperacao_compara_escolhida(self):
         import executar_rag_real as err
         pc = lambda r: [{"id": f"q{i}", "recall": v, "mrr": v} for i, v in enumerate(r)]
         aval = {"x": {"por_consulta": pc([1, 0, 0, 1])}, "y": {"por_consulta": pc([1, 1, 1, 1])}}
         e = err.estatistica_recuperacao(aval, "y")
         self.assertEqual(e["acerto_em_k"]["y"]["acertos"], 4)
+        so_teste = err.estatistica_recuperacao(aval, "y", {"q1", "q2"})
+        self.assertEqual(so_teste["acerto_em_k"]["x"]["n"], 2)
         self.assertEqual(e["comparacoes"]["y_vs_x"]["ganhos_b"], 2)
 
     def test_cache_reaproveita_e_guarda_latencia_original(self):

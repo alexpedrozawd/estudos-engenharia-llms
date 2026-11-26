@@ -29,7 +29,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (135 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (136 testes)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 
@@ -108,7 +108,7 @@ Execução real via Ollama `0.40.18` (`/v1`) com `reasoning_effort=none` (`qwen3
 
 | Projeto | Antes | Depois | Resultado principal |
 |---|---|---|---|
-| 02 (RAG) | `12` PDFs, `41` trechos, `28` perguntas | `57` documentos, `275` trechos, `151` perguntas | *reranker* LLM: acerto@4 `134/148` [`0,85`; `0,94`]; vence as `4` outras variantes (McNemar `p` de `0,0003` a `0,02`); ACL `0` vazamentos em `26` |
+| 02 (RAG) | `12` PDFs, `41` trechos, `28` perguntas | `57` documentos, `275` trechos, `151` perguntas | *reranker* LLM escolhido em `74` perguntas e medido em outras `74`: MRR `+0,16` a `+0,18` sobre todas (IC acima de zero), acerto@4 `63/74` [`0,75`; `0,91`], sem diferença significativa no acerto@4 contra as híbridas; ACL `0` vazamentos em `26` |
 | 04 (QLoRA) | `36` chamados (`12` de teste) | `360` (`163` treino / `74` validação / `123` teste) | épocas escolhidas na validação (`6`); teste `0,610 → 0,976`, `45` ganhos e `0` perdas, McNemar `p < 10⁻⁶`; portão **aprovou** sem intervenção |
 | 07 (Evals) | `16` casos, `12` pares | `150` casos, `40` pares | `kappa = 0,955` [`0,86`; `1,0`] (`0,871` nos `12` pré-rotulados); `B = 137`, `empate = 9`, `A = 4`; `+0,98` [`0,84`; `1,11`] |
 

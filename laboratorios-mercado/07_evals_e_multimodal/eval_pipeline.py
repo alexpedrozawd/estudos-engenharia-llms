@@ -44,6 +44,18 @@ def carregar_casos(caminho: str | None = None) -> Dict[str, object]:
         return json.load(f)
 
 
+def rotulo_de_referencia(par: Dict[str, object]) -> str:
+    """Rótulo contra o qual o juiz é calibrado (`rotulo_referencia`; `julgamento_humano` é o nome antigo).
+
+    A origem diz quem rotulou: `pre_rotulado` (autor do lab), `construcao` (defeito conhecido) ou, quando
+    houver, `humano` (pessoa revisora independente).
+    """
+    rotulo = par.get("rotulo_referencia", par.get("julgamento_humano"))
+    if rotulo not in ("A", "B", "empate"):
+        raise ValueError(f"par {par.get('id')}: rótulo de referência ausente ou inválido")
+    return str(rotulo)
+
+
 def _inverter_rotulo(r: str) -> str:
     if r == "A":
         return "B"
@@ -228,7 +240,7 @@ def avaliar_prompts(
             str(par["resposta_b"]),
         )
         latencias_juiz_ms.append(round((time.perf_counter() - t0) * 1000.0, 3))
-        rotulos_humanos.append(str(par["julgamento_humano"]))
+        rotulos_humanos.append(rotulo_de_referencia(par))
         rotulos_juiz.append(str(j["vencedor"]))
         vieses_cal += int(bool(j["vies_posicao"]))
 

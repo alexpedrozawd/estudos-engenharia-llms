@@ -85,7 +85,7 @@ class TestEvals(unittest.TestCase):
         ])
         respostas_juiz = []
         for par in subset["pares_calibracao"]:
-            jh = par["julgamento_humano"]
+            jh = ep.rotulo_de_referencia(par)
             respostas_juiz.append(_resp_json({"vencedor": jh, "nota_a": 4, "nota_b": 4, "justificativa": "ok"}))
             inv = "B" if jh == "A" else ("A" if jh == "B" else "empate")
             respostas_juiz.append(_resp_json({"vencedor": inv, "nota_a": 4, "nota_b": 4, "justificativa": "ok"}))
@@ -216,14 +216,18 @@ class TestCasosAmpliados(unittest.TestCase):
         self.assertEqual(Counter(p["origem"] for p in pares), {"pre_rotulado": 12, "construcao": 28})
         self.assertEqual(len({c["id"] for c in casos}), 150)
         construcao = [p for p in pares if p["origem"] == "construcao"]
-        self.assertEqual(Counter(p["julgamento_humano"] for p in construcao), {"A": 14, "B": 14})
+        self.assertEqual(Counter(p["rotulo_referencia"] for p in construcao), {"A": 14, "B": 14})
         for p in construcao:
-            boa = p["resposta_a"] if p["julgamento_humano"] == "A" else p["resposta_b"]
-            ruim = p["resposta_b"] if p["julgamento_humano"] == "A" else p["resposta_a"]
+            boa = p["resposta_a"] if p["rotulo_referencia"] == "A" else p["resposta_b"]
+            ruim = p["resposta_b"] if p["rotulo_referencia"] == "A" else p["resposta_a"]
             self.assertEqual(boa, p["referencia"])
             self.assertNotEqual(ruim, boa)
         for c in casos:
             self.assertTrue(c["contexto"].startswith("[T1]"), c["id"])
+        self.assertFalse(any("julgamento_humano" in p for p in pares))
+        self.assertEqual(ep.rotulo_de_referencia({"julgamento_humano": "B"}), "B")
+        with self.assertRaises(ValueError):
+            ep.rotulo_de_referencia({"id": "x"})
 
     def test_defeitos_por_construcao(self):
         import montar_casos_ampliados as m

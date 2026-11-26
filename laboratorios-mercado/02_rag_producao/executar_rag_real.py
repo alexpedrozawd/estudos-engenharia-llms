@@ -9,6 +9,7 @@ Exemplo:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -27,14 +28,32 @@ import rag_pipeline as rp  # noqa: E402
 import rag_store as rs  # noqa: E402
 
 
-def estatistica_recuperacao(avaliacoes: dict, escolhida: str) -> dict:
+def dividir_selecao_teste(ids, fracao: float, semente: str):
+    """Separa perguntas por hash: a seleção escolhe a variante; o teste mede, sem ter influído na escolha."""
+    if not 0.0 <= fracao < 1.0:
+        raise ValueError("fracao de seleção fora de [0, 1)")
+    ordem = sorted(ids, key=lambda i: hashlib.sha256((semente + str(i)).encode()).hexdigest())
+    n = round(len(ordem) * fracao)
+    return set(ordem[:n]), set(ordem[n:])
+
+
+def mrr_medio(avaliacao: dict, ids) -> float:
+    vals = [p["mrr"] for p in avaliacao["por_consulta"] if p["id"] in ids]
+    return round(sum(vals) / len(vals), 4) if vals else 0.0
+
+
+def estatistica_recuperacao(avaliacoes: dict, escolhida: str, ids=None) -> dict:
     """Acerto@k por pergunta (ao menos um trecho relevante no top-k): Wilson 95% por variante; a escolhida
-    contra cada outra com McNemar exato no acerto@k e bootstrap pareado no MRR."""
+    contra cada outra com McNemar exato no acerto@k e bootstrap pareado no MRR. Com `ids`, só essas
+    perguntas entram (o conjunto de teste, separado do que escolheu a variante)."""
+    def consultas(nome):
+        return [p for p in avaliacoes[nome]["por_consulta"] if ids is None or p["id"] in ids]
+
     def acerto(nome):
-        return {p["id"]: p["recall"] > 0 for p in avaliacoes[nome]["por_consulta"]}
+        return {p["id"]: p["recall"] > 0 for p in consultas(nome)}
 
     def mrrs(nome):
-        return [p["mrr"] for p in avaliacoes[nome]["por_consulta"]]
+        return [p["mrr"] for p in consultas(nome)]
 
     saida = {"acerto_em_k": {}, "escolhida": escolhida, "comparacoes": {}}
     for nome in avaliacoes:
@@ -63,6 +82,9 @@ def main(argv=None) -> int:
     ap.add_argument("--max-palavras", type=int, default=40)
     ap.add_argument("--corpus", choices=("base", "ampliado"), default="ampliado",
                     help="base: 12 documentos e 28 perguntas; ampliado: 57 documentos e 151 perguntas (Etapa 3)")
+    ap.add_argument("--fracao-selecao", type=float, default=0.5,
+                    help="fração das perguntas que escolhe a variante; o resto testa (0 = escolher e testar nas mesmas)")
+    ap.add_argument("--semente-selecao", default="aurora-selecao-v1")
     ap.add_argument("--cache-llm", default="", help="arquivo de cache das chamadas ao LLM (execução retomável)")
     ap.add_argument("--registrar", action="store_true")
     args = ap.parse_args(argv)
@@ -130,7 +152,13 @@ def main(argv=None) -> int:
     }
     auditoria_acl = rp.auditar_acl(consultas_acl, armazem, embedder, k=args.k, perfil_nao_autorizado="aluno")
 
-    melhor = max(range(len(variantes)), key=lambda i: (avaliacoes[variantes[i][0]]["mrr_medio"], -i))
+    todos_ids = [c["id"] for c in com_resposta]
+    if args.fracao_selecao > 0:
+        ids_selecao, ids_teste = dividir_selecao_teste(todos_ids, args.fracao_selecao, args.semente_selecao)
+    else:
+        ids_selecao = ids_teste = set(todos_ids)
+    mrr_selecao = {nome: mrr_medio(avaliacoes[nome], ids_selecao) for nome, _, _ in variantes}
+    melhor = max(range(len(variantes)), key=lambda i: (mrr_selecao[variantes[i][0]], -i))
     nome_melhor, modo_melhor, reord_melhor = variantes[melhor]
 
     geracao = []
@@ -181,9 +209,16 @@ def main(argv=None) -> int:
         "auditoria_acl": auditoria_acl,
         "variante_escolhida_para_geracao": nome_melhor,
         "recuperacao_por_consulta": avaliacoes[nome_melhor]["por_consulta"],
-        "estatistica_recuperacao": estatistica_recuperacao(avaliacoes, nome_melhor),
+        "selecao_da_variante": {
+            "criterio": "maior MRR nas perguntas de seleção; estatística só nas de teste",
+            "fracao_selecao": args.fracao_selecao, "n_selecao": len(ids_selecao), "n_teste": len(ids_teste),
+            "mesmo_conjunto": ids_selecao == ids_teste, "mrr_selecao": mrr_selecao,
+        },
+        "estatistica_recuperacao": estatistica_recuperacao(avaliacoes, nome_melhor, ids_teste),
         "geracao": geracao,
     }
+    if isinstance(cliente, ClienteChatComCache) and cliente.chamadas_reais == 0:
+        memoria_ingestao, memoria = {}, {}  # só cache: /api/ps não descreveria esta execução
     if memoria_ingestao or memoria:
         resultado["memoria"] = {"ingestao": memoria_ingestao, "geracao": memoria}
     if geracao:
