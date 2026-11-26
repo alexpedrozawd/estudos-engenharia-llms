@@ -35,7 +35,7 @@ Limites: o revisor é um modelo de linguagem e não substitui a revisão humana.
 | 4 | Red teaming do P06 com garak | `14` sondas, `342` tentativas, `3` achados corrigidos | [Etapa 4](changelog-etapa-4-red-teaming-p06-2026-11-26.md) |
 | 5 | Preparação para vaga | `10` casos de system design, bloco de entrevista e portfólio; `55` vagas no mapa | [Etapa 5](changelog-etapa-5-preparacao-para-vaga-2026-11-26.md) |
 | 6a | Kubernetes local com kind | `12/12` verificações; `0` falhas no *rollout* | [Etapa 6a](changelog-etapa-6a-kubernetes-local-2026-11-26.md) |
-| 6b | Deploy do P06 em nuvem | **bloqueada**: exige autorização, conta, provedor e teto de gasto | — |
+| 6b | Deploy do P06 em nuvem | **descartada** pelo operador em 26/11/2026 (uso pessoal) | [decisão](changelog-p02-perguntas-naturais-e-escopo-pessoal-2026-11-26.md) |
 | 7 | Encerramento | este changelog | — |
 
 ## Reavaliação (autoavaliação do autor, não medição externa)
@@ -44,10 +44,9 @@ Em 25/11 a auditoria realista deu `7/10` para o objetivo de vaga pleno (guia `8,
 
 O que subiu a nota: labs com exercício, modelo forte na GPU, amostras com intervalo de confiança e teste pareado, red teaming com correções, Kubernetes local, LangGraph e preparo de entrevista.
 
-O que segue faltando:
+O que segue faltando (deploy em nuvem e revisão humana foram descartados pelo operador em 26/11/2026):
 
-- deploy real em nuvem: a nuvem aparece em `52%` das vagas e a 6b está bloqueada;
-- dados revisados por pessoas e usuários reais;
+- usuários reais;
 - inglês, citado em `41%` das vagas e fora do guia.
 
 ## Documentação

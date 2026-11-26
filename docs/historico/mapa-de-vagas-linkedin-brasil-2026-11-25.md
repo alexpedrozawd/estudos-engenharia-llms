@@ -65,7 +65,7 @@ Insumo da etapa 5 do [plano de prontidão](plano-prontidao-para-vaga-pleno-2026-
 | Avaliação (evals) | 33 | 60 | 52% | Forte (Cap. 5, P07) |
 | Observabilidade | 32 | 58 | 48% | Boa (OTLP, Prometheus, Jaeger, Langfuse) |
 | Prompt | 31 | 56 | 55% | Forte (Cap. 4) |
-| Nuvem (AWS, Azure ou GCP) | 29 | 53 | 55% | Cap. 20 e P06 com provedores testados offline; deploy real só na etapa 6b |
+| Nuvem (AWS, Azure ou GCP) | 29 | 53 | 55% | Cap. 20 e P06 com provedores testados offline; deploy real descartado pelo operador (uso pessoal) |
 | Framework de LLM/agentes | 25 | 45 | 41% | Cap. 19 e P08 (LangGraph + `ChatOpenAI` do LangChain) |
 | Inglês | 24 | 44 | 41% | Fora do escopo do guia |
 | Multiagentes | 20 | 36 | 34% | P08 (supervisor) |
@@ -80,7 +80,7 @@ Insumo da etapa 5 do [plano de prontidão](plano-prontidao-para-vaga-pleno-2026-
 | Rastreamento de LLM (Langfuse, LangSmith, Phoenix/Arize) | 9 | 16 | — | Langfuse auto-hospedado (17.4e) |
 | Kubernetes | 8 | 15 | 21% | Etapa 6a (opcional) |
 
-**Regra de 1/3 reaplicada:** nenhum requisito sem prática passou do corte. Nuvem (`53%`) tem prática sem custo, e o deploy real segue na etapa 6b, que depende de autorização. Bancos vetoriais gerenciados continuam abaixo do corte cada um (`≤ 13%`) e ficam como trade-off. Nas vagas sem nível sênior no título, o perfil é o mesmo: agentes, RAG, Python, APIs, arquitetura e comunicação a partir de `69%`.
+**Regra de 1/3 reaplicada:** nenhum requisito sem prática passou do corte. Nuvem (`53%`) tem prática sem custo, e o deploy real foi descartado pelo operador em 26/11/2026 (uso pessoal). Bancos vetoriais gerenciados continuam abaixo do corte cada um (`≤ 13%`) e ficam como trade-off. Nas vagas sem nível sênior no título, o perfil é o mesmo: agentes, RAG, Python, APIs, arquitetura e comunicação a partir de `69%`.
 
 ## Vagas consideradas
 

@@ -376,6 +376,34 @@ class TestEstatisticaECache(unittest.TestCase):
             self.assertEqual((r.texto, r.latencia_ms), ("um", 120.0))
             self.assertEqual(sorted(outro.latencias_ms()), [80.0, 120.0])
 
+    def test_reescrita_tira_o_tema_sem_entregar_a_resposta(self):
+        import reescrever_perguntas as rr
+        tema = rr.TEMA_POR_DOC["uso-de-armarios"]
+        self.assertEqual(tema, "aluguel de armarios")
+        self.assertEqual(rr.separar_prefixo("Sobre aluguel de armarios: qual e o valor mensal base?", tema),
+                         "qual e o valor mensal base?")
+        com_dois_pontos = rr.TEMA_POR_DOC["iniciacao-cientifica"]
+        self.assertEqual(rr.separar_prefixo(f"Sobre {com_dois_pontos}: qual a bolsa?", com_dois_pontos), "qual a bolsa?")
+        with self.assertRaises(ValueError):
+            rr.separar_prefixo("qual e o valor mensal base?", tema)
+        self.assertIsNone(rr.ler_json("nao e json", "pergunta"))
+        self.assertEqual(rr.ler_json('{"pergunta": "ok?"}', "pergunta"), "ok?")
+        checar = lambda nova: rr.checar_reescrita(nova, tema, "25 reais", "valor base do aluguel")
+        self.assertIsNone(checar("Quanto custa por mes pra alugar um armario na faculdade?"))
+        self.assertEqual(checar("Qual o valor do aluguel de armarios por mes?"), "repete a expressão do tema")
+        self.assertEqual(checar("O aluguel do armario sai por 25 reais?"), "contém a resposta")
+        self.assertEqual(checar("Quanto custa alugar um armario na faculdade"), "não termina com ponto de interrogação")
+        longo = rr.checar_reescrita("Sobre o aluguel e os armarios: quanto custa?", "aluguel dos armarios grandes",
+                                    "25 reais", "x")
+        self.assertIn("repete mais de 1", longo)
+        # Toda pergunta já reescrita no arquivo congelado continua passando nas travas.
+        for q in corpus_aurora.carregar_consultas(ampliado=True):
+            if "pergunta_original" in q:
+                t = rr.TEMA_POR_DOC[q["relevantes"][0]["doc"]]
+                rr.separar_prefixo(q["pergunta_original"], t)
+                self.assertIsNone(rr.checar_reescrita(q["pergunta"], t, q["resposta_esperada_contem"][0],
+                                                      q["relevantes"][0]["contem"]), q["id"])
+
 
 if __name__ == "__main__":
     unittest.main()

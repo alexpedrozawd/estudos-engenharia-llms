@@ -2,7 +2,7 @@
 
 Dez casos para treinar entrevistas de arquitetura (`73%` das vagas do [mapa reconferido em 26/11/2026](../historico/mapa-de-vagas-linkedin-brasil-2026-11-25.md#reconferência-em-26112026-55-vagas)). Cada um parte de um estudo de caso do guia, que é mais curto, e acrescenta o que a entrevista cobra: perguntas de esclarecimento, estimativas, alternativas e números medidos no projeto. Empresa dos enunciados: Aurora Educação, fictícia.
 
-Premissas marcadas com "suponha" são hipóteses de treino. Números com origem em `laboratorios-mercado/execucoes/` foram medidos na RX 9070 XT local, com dados sintéticos e sem revisão humana amostral (pendente).
+Premissas marcadas com "suponha" são hipóteses de treino. Números com origem em `laboratorios-mercado/execucoes/` foram medidos na RX 9070 XT local, com dados sintéticos e revisão amostral por modelo de fronteira (revisão humana fora do escopo por uso pessoal).
 
 ## Como treinar (45 minutos)
 
@@ -269,4 +269,4 @@ Fale em voz alta e grave. Depois, pontue com a rubrica e compare com a resposta 
 
 **Evidência no projeto:** P05 com `/metrics` e spans no Jaeger; P05 e P06 enviando traces ao Langfuse auto-hospedado (`5/5` observações com tokens de entrada, saída e cache, sem texto nem PII).
 
-claude - pessoal, 26/11/2026.
+claude - pessoal, 26/11/2026; atualizado em 26/11/2026 por agy - ap (Gemini 4 Hydrogen High).

@@ -1,6 +1,6 @@
 # Kubernetes local com kind (Etapa 6a)
 
-P05 (`api-llmops`), P06 (`integrador`) e `pgvector` no namespace `aurora`, em um cluster [kind](https://kind.sigs.k8s.io/) rodando no Podman rootless. Sem custo e sem nuvem. A Etapa 6b (deploy em nuvem) depende de autorização do operador.
+P05 (`api-llmops`), P06 (`integrador`) e `pgvector` no namespace `aurora`, em um cluster [kind](https://kind.sigs.k8s.io/) rodando no Podman rootless. Sem custo e sem nuvem. O deploy em nuvem (antiga Etapa 6b) foi descartado pelo operador em 26/11/2026: o material é de uso pessoal.
 
 ## O que os manifests mostram
 

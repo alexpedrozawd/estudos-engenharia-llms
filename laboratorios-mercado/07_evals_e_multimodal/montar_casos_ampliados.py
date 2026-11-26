@@ -74,11 +74,12 @@ def main(argv=None) -> int:
         consultas = json.load(f)
 
     casos = [dict(c, origem="manual") for c in manuais]
+    # O P07 usa a pergunta gerada (com "Sobre <tema>:"); o contexto vem pronto, então o prefixo não ajuda o juiz.
     for q in consultas:
         crit = q["relevantes"][0]
         casos.append({"id": f"ev-{q['id']}", "origem": "corpus_p02", "consulta_p02": q["id"],
                       "contexto": contexto_da_pagina(corpus, crit["doc"], int(crit["pagina"])),
-                      "pergunta": q["pergunta"], "referencia": q["resposta_referencia"]})
+                      "pergunta": q.get("pergunta_original", q["pergunta"]), "referencia": q["resposta_referencia"]})
     faltam = args.total_casos - len(casos)
     if faltam < 0:
         raise SystemExit(f"FALHA {len(casos)} casos já passam de --total-casos")
@@ -89,7 +90,8 @@ def main(argv=None) -> int:
         outros = sorted((d for d in corpus if corpus[d]["metadados"]["departamento"] != depto),
                         key=lambda d: _h(args.semente + q["id"], d))
         casos.append({"id": f"ev-recusa-{q['id']}", "origem": "recusa_construcao", "consulta_p02": q["id"],
-                      "contexto": contexto_da_pagina(corpus, outros[0], 1), "pergunta": q["pergunta"],
+                      "contexto": contexto_da_pagina(corpus, outros[0], 1),
+                      "pergunta": q.get("pergunta_original", q["pergunta"]),
                       "referencia": RECUSA})
 
     pares = []
