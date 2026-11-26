@@ -169,7 +169,7 @@
     @media (min-width: 150rem) { :root { --reading-size: 2rem; } }
     .rotulo-unidade { font-size: .88em; text-align: left; text-indent: 0; margin-block: -.4em 1.6em; }
     .resumo { border: 1px solid #8a8577; border-left: 4px solid #8a8577; border-radius: 4px; padding: .6em .9em .3em; margin: 1.2em 0 1.6em; text-align: justify; }
-    .resumo strong { display: block; margin-block-end: .3em; }
+    .resumo > strong { display: block; margin-block-end: .3em; }
     .resumo ul { margin: 0 0 .5em; padding-left: 1.3em; }
     .resumo li { margin-block: .2em; text-align: justify; }
     .analogia { border-left: 3px solid #8a8577; padding-left: 1em; margin: 1.2em 0 1.6em; text-align: justify; }
@@ -201,6 +201,7 @@
         margin: 0;
         padding: 0;
         line-height: 1.42;
+        overflow-wrap: break-word;
       }
       /* Só as divisões maiores começam em página nova; as partes seguem o fluxo. */
       #sumario, #introducao, #capitulo-1, #capitulo-2, #capitulo-3, #capitulo-4, #capitulo-5, #capitulo-6, #capitulo-7, #capitulo-8, #capitulo-9, #capitulo-10, #capitulo-11, #capitulo-12, #capitulo-13, #capitulo-14, #capitulo-15, #capitulo-16, #capitulo-17, #capitulo-18, #capitulo-19, #capitulo-20,
@@ -211,28 +212,32 @@
       p { margin-block-end: .6em; }
       .rotulo-unidade { margin-block: -.2em .8em; }
       .resumo, .analogia, .caixa, fieldset.questao, figure.bloco-codigo, figure.diagrama { margin-block: .75em; }
-      .alternativa { min-height: 0; padding: .22em .3em; break-inside: avoid; }
+      .alternativa { min-height: 0; padding: .22em .3em; }
       #capitulo-1 > h2, #capitulo-2 > h2, #capitulo-3 > h2, #capitulo-4 > h2, #capitulo-5 > h2, #capitulo-6 > h2, #capitulo-7 > h2, #capitulo-8 > h2, #capitulo-9 > h2, #capitulo-10 > h2, #capitulo-11 > h2, #capitulo-12 > h2, #capitulo-13 > h2, #capitulo-14 > h2, #capitulo-15 > h2, #capitulo-16 > h2, #capitulo-17 > h2, #capitulo-18 > h2, #capitulo-19 > h2, #capitulo-20 > h2, #glossario > h2, #referencias > h2,
       #questoes-capitulo-1 > h2, #questoes-capitulo-2 > h2, #questoes-capitulo-3 > h2, #questoes-capitulo-4 > h2, #questoes-capitulo-5 > h2, #questoes-capitulo-6 > h2, #questoes-capitulo-7 > h2, #questoes-capitulo-8 > h2, #questoes-capitulo-9 > h2, #questoes-capitulo-10 > h2, #questoes-capitulo-11 > h2, #questoes-capitulo-12 > h2, #questoes-capitulo-13 > h2, #questoes-capitulo-14 > h2, #questoes-capitulo-15 > h2, #questoes-capitulo-16 > h2, #questoes-capitulo-17 > h2, #questoes-capitulo-18 > h2, #questoes-capitulo-19 > h2, #questoes-capitulo-20 > h2 { margin-block-start: 0; }
-      /* Nenhum bloco essencial termina dividido entre duas páginas, evitando vãos mortos em questões longas. */
-      h1, h2, h3, h4, legend, figcaption, caption, .rotulo-unidade, fieldset.questao > p { break-after: avoid; break-inside: avoid; }
+      /* Nenhum bloco essencial, questão, item do sumário ou termo do glossário termina partido entre páginas. */
+      h1, h2, h3, h4, figcaption, caption, dt, .chapter-name, .rotulo-unidade, .rotulo-saida { break-after: avoid; break-inside: avoid; }
       p, li, dt, dd { orphans: 3; widows: 3; }
       dt, dd { break-inside: avoid; }
-      figure, .fluxo li, .resumo, .analogia, .caixa, .quadro-resposta,
-      .rolagem, details.feedback, .page-nav,
-      figure.bloco-codigo, pre.codigo, pre.saida, .gabarito-impresso { break-inside: avoid; }
+      figure, .fluxo, .fluxo li, .resumo, .analogia, .caixa, .quadro-resposta,
+      .contents > li, fieldset.questao, .rolagem, details.feedback, .page-nav,
+      figure.bloco-codigo, pre.codigo, pre.saida { break-inside: avoid; page-break-inside: avoid; }
+      fieldset.questao { display: flex; flex-direction: column; }
       table { break-inside: auto; }
       thead { display: table-header-group; }
       tr, th, td { break-inside: avoid; }
-      /* Tabela e código cabem na página, sem corte nem rolagem no papel. */
+      /* Tabela e código cabem na página, sem corte, rolagem ou quebra indevida de palavras no papel. */
       .rolagem { overflow: visible; }
       .rolagem .tabela { min-width: 0; }
+      .rolagem .tabela code { white-space: normal; overflow-wrap: break-word; }
       .tabela { font-size: .88em; }
+      .page code { overflow-wrap: break-word; }
+      .fontes, .fontes code { overflow-wrap: anywhere; }
       .contents { font-size: .82em; }
       .contents li { margin-block-end: .55em; }
       .chapter-topics { line-height: 1.4; }
       .units { line-height: 1.35; }
-      pre.codigo, pre.saida { overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .72em; }
+      pre.codigo, pre.saida { overflow: visible; white-space: pre-wrap; overflow-wrap: break-word; font-size: .68em; padding: .55em .75em; }
       figure.imagem { width: 92mm; margin-block: .8em; margin-inline: auto; }
       figure.diagrama { background: #fff; border-color: #8a8577; padding: 4mm; max-width: 168mm; margin-inline: auto; break-inside: avoid; }
       figure.diagrama svg { max-height: 115mm; width: 100%; height: auto; }
