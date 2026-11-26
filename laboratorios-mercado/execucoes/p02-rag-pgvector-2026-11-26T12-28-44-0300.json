@@ -1,0 +1,4925 @@
+{
+  "auditoria_acl": {
+    "consultas": 26,
+    "detalhes": [
+      {
+        "id": "q22",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "regulamento-atividades-complementares:p3:1",
+          "carteirinha-estudantil:p1:1",
+          "emprestimo-de-notebooks:p1:1",
+          "manual-ouvidoria:p1:2"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "q23",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "politica-de-privacidade-academica:p1:1",
+          "politica-de-privacidade-academica:p1:2",
+          "programa-de-mentoria:p1:1",
+          "regras-provas-online:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "q24",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "programa-apoio-psicologico:p3:1",
+          "cursos-de-extensao:p3:1",
+          "regulamento-monitoria:p3:1",
+          "empresa-junior:p3:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "q25",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "financiamento-estudantil-privado:p2:1",
+          "pagamento-pix-e-cartao:p3:1",
+          "achados-e-perdidos:p3:2",
+          "programa-apoio-psicologico:p1:2"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa102",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "disciplinas-ead:p1:1",
+          "nivelamento-matematica:p1:1",
+          "iniciacao-cientifica:p2:2",
+          "nivelamento-matematica:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa103",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "iniciacao-cientifica:p2:2",
+          "cursos-de-extensao:p2:1",
+          "regras-provas-online:p3:2",
+          "regulamento-eventos-academicos:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa104",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "manual-estagio-e-tcc:p1:1",
+          "regulamento-atividades-complementares:p1:1",
+          "regulamento-estacionamento:p1:1",
+          "cursos-de-extensao:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa105",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "manual-estagio-e-tcc:p1:1",
+          "manual-estagio-e-tcc:p1:2",
+          "iniciacao-cientifica:p3:1",
+          "programa-intercambio:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa106",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "manual-estagio-e-tcc:p1:2",
+          "manual-estagio-e-tcc:p1:1",
+          "segunda-chamada-de-provas:p2:1",
+          "carteirinha-estudantil:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa107",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "politica-de-privacidade-academica:p1:2",
+          "regras-de-reembolso:p3:1",
+          "tabela-bolsas-e-descontos:p2:2",
+          "calendario-academico-2026:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa108",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "nivelamento-matematica:p2:1",
+          "iniciacao-cientifica:p2:1",
+          "politica-integridade-academica:p1:1",
+          "regulamento-academico:p2:2"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa109",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "achados-e-perdidos:p2:2",
+          "regras-provas-online:p1:1",
+          "regras-provas-online:p1:2",
+          "seguro-estudantil:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa110",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "manual-estagio-e-tcc:p1:2",
+          "regulamento-atividades-complementares:p3:1",
+          "calendario-academico-2026:p2:1",
+          "segunda-chamada-de-provas:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa111",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "nivelamento-matematica:p2:1",
+          "iniciacao-cientifica:p2:1",
+          "programa-intercambio:p2:1",
+          "manual-estagio-e-tcc:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa112",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "regulamento-academico:p1:1",
+          "regras-provas-online:p3:1",
+          "dupla-diplomacao:p1:2",
+          "iniciacao-cientifica:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa113",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "calendario-academico-2026:p2:1",
+          "reingresso-e-reabertura:p1:1",
+          "carteirinha-estudantil:p1:1",
+          "politica-de-privacidade-academica:p1:2"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa114",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "regras-de-reembolso:p2:1",
+          "pagamento-pix-e-cartao:p3:1",
+          "transporte-fretado-campus:p3:1",
+          "segunda-chamada-de-provas:p3:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa115",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "regulamento-atividades-complementares:p2:1",
+          "manual-estagio-e-tcc:p1:2",
+          "calendario-academico-2026:p2:1",
+          "nucleo-acessibilidade:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa116",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "achados-e-perdidos:p2:2",
+          "emprestimo-de-notebooks:p2:1",
+          "programa-intercambio:p1:1",
+          "regulamento-atividades-complementares:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa117",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "iniciacao-cientifica:p3:1",
+          "nucleo-acessibilidade:p1:2",
+          "calendario-academico-2026:p1:2",
+          "dupla-diplomacao:p1:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa118",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "regulamento-atividades-complementares:p3:1",
+          "manual-ouvidoria:p2:1",
+          "financiamento-estudantil-privado:p1:1",
+          "programa-apoio-psicologico:p2:2"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa119",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "regras-de-reembolso:p2:1",
+          "financiamento-estudantil-privado:p2:1",
+          "dupla-diplomacao:p3:1",
+          "emprestimo-de-notebooks:p3:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa120",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "carteirinha-estudantil:p1:1",
+          "regras-de-reembolso:p2:1",
+          "cursos-de-extensao:p2:1",
+          "colacao-de-grau:p1:2"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa121",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "emprestimo-de-notebooks:p2:2",
+          "carteirinha-estudantil:p2:2",
+          "regulamento-estacionamento:p2:2",
+          "iniciacao-cientifica:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa122",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "manual-ouvidoria:p2:1",
+          "regulamento-estacionamento:p2:1",
+          "emprestimo-de-notebooks:p3:1",
+          "regras-de-reembolso:p2:1"
+        ],
+        "vazados": []
+      },
+      {
+        "id": "qa123",
+        "perfil_testado": "aluno",
+        "trechos_retornados": [
+          "politica-de-privacidade-academica:p1:2",
+          "regulamento-esportes-e-academia:p2:1",
+          "tabela-bolsas-e-descontos:p2:1",
+          "politica-de-privacidade-academica:p1:1"
+        ],
+        "vazados": []
+      }
+    ],
+    "vazamentos": 0
+  },
+  "cache_llm": {
+    "chamadas_reais": 1107,
+    "reaproveitadas": 1436
+  },
+  "carimbo": "2026-11-26T12-28-44-0300",
+  "configuracao": {
+    "corpus": "ampliado",
+    "dimensao": 1024,
+    "dsn": "postgresql://***@pgvector",
+    "embed_base_url": "http://127.0.0.1:11434/v1",
+    "embed_modelo": "qwen3-embedding:0.6b",
+    "k": 4,
+    "llm_base_url": "http://127.0.0.1:11434/v1",
+    "llm_modelo": "qwen3.8:27b-ud-iq3_xxs",
+    "llm_reasoning_effort": "none",
+    "max_palavras": 40
+  },
+  "estatistica_recuperacao": {
+    "acerto_em_k": {
+      "hibrida_reranker_lexico": {
+        "acertos": 39,
+        "n": 74,
+        "wilson95": [
+          0.4148,
+          0.6366
+        ]
+      },
+      "hibrida_reranker_llm": {
+        "acertos": 45,
+        "n": 74,
+        "wilson95": [
+          0.4942,
+          0.7114
+        ]
+      },
+      "hibrida_rrf": {
+        "acertos": 39,
+        "n": 74,
+        "wilson95": [
+          0.4148,
+          0.6366
+        ]
+      },
+      "lexical": {
+        "acertos": 33,
+        "n": 74,
+        "wilson95": [
+          0.3382,
+          0.5591
+        ]
+      },
+      "vetorial": {
+        "acertos": 41,
+        "n": 74,
+        "wilson95": [
+          0.4409,
+          0.6618
+        ]
+      }
+    },
+    "comparacoes": {
+      "hibrida_reranker_llm_vs_hibrida_reranker_lexico": {
+        "acertos_a": 39,
+        "acertos_b": 45,
+        "bootstrap_mrr": {
+          "diferenca_media": 0.1306,
+          "ic_inferior": 0.0608,
+          "ic_superior": 0.2027
+        },
+        "ganhos_b": 6,
+        "n": 74,
+        "p_valor_mcnemar_exato": 0.03125,
+        "perdas_b": 0,
+        "wilson95_a": [
+          0.4148,
+          0.6366
+        ],
+        "wilson95_b": [
+          0.4942,
+          0.7114
+        ]
+      },
+      "hibrida_reranker_llm_vs_hibrida_rrf": {
+        "acertos_a": 39,
+        "acertos_b": 45,
+        "bootstrap_mrr": {
+          "diferenca_media": 0.1194,
+          "ic_inferior": 0.0563,
+          "ic_superior": 0.1869
+        },
+        "ganhos_b": 6,
+        "n": 74,
+        "p_valor_mcnemar_exato": 0.03125,
+        "perdas_b": 0,
+        "wilson95_a": [
+          0.4148,
+          0.6366
+        ],
+        "wilson95_b": [
+          0.4942,
+          0.7114
+        ]
+      },
+      "hibrida_reranker_llm_vs_lexical": {
+        "acertos_a": 33,
+        "acertos_b": 45,
+        "bootstrap_mrr": {
+          "diferenca_media": 0.1959,
+          "ic_inferior": 0.1216,
+          "ic_superior": 0.2793
+        },
+        "ganhos_b": 13,
+        "n": 74,
+        "p_valor_mcnemar_exato": 0.0018310546875,
+        "perdas_b": 1,
+        "wilson95_a": [
+          0.3382,
+          0.5591
+        ],
+        "wilson95_b": [
+          0.4942,
+          0.7114
+        ]
+      },
+      "hibrida_reranker_llm_vs_vetorial": {
+        "acertos_a": 41,
+        "acertos_b": 45,
+        "bootstrap_mrr": {
+          "diferenca_media": 0.1295,
+          "ic_inferior": 0.0597,
+          "ic_superior": 0.2117
+        },
+        "ganhos_b": 7,
+        "n": 74,
+        "p_valor_mcnemar_exato": 0.34375,
+        "perdas_b": 3,
+        "wilson95_a": [
+          0.4409,
+          0.6618
+        ],
+        "wilson95_b": [
+          0.4942,
+          0.7114
+        ]
+      }
+    },
+    "escolhida": "hibrida_reranker_llm"
+  },
+  "execucao": "p02-rag-pgvector",
+  "geracao": [
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q01",
+      "latencia_ms": 1627.549,
+      "recusou_corretamente": null,
+      "resposta": "A rematrícula deve ser feita pelo portal do aluno até o décimo dia útil do início das aulas [T1].",
+      "tokens_saida": 26
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q02",
+      "latencia_ms": 1568.521,
+      "recusou_corretamente": null,
+      "resposta": "Se você perder o prazo da rematrícula, entrará em lista de espera e só poderá cursar disciplinas com vagas remanescentes [T1].",
+      "tokens_saida": 32
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q03",
+      "latencia_ms": 1332.088,
+      "recusou_corretamente": null,
+      "resposta": "O trancamento de matrícula vale por no máximo dois semestres consecutivos [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q04",
+      "latencia_ms": 1251.95,
+      "recusou_corretamente": null,
+      "resposta": "O peso da prova na média final é de 60 por cento [T1].",
+      "tokens_saida": 19
+    },
+    {
+      "categoria": "regulamento",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 3,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.75,
+        "frases": 4,
+        "recusa": false
+      },
+      "id": "q05",
+      "latencia_ms": 5353.064,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, as informações variam conforme o contexto específico (matemática, regulamento geral, estágio/TCC ou iniciação científica):\n\n*   **Matemática:** A nota mínima para ser aprovado é **7,0** e a presença mínima nas aulas teóricas é de **75%** [T1].\n*   **Regulamento Acadêmico (Geral):** A média final igual ou maior que **6,0** e frequência mínima de **75%** das aulas são os critérios para aprovação [T2].\n*   **Estágio Supervisionado e TCC:** A frequência mínima obrigatória no estágio é de **85%** da carga horária prevista, e a média da banca de TCC exige nota **7,0** [T3].\n*   **Iniciação Científica:** A presença mínima exigida é de **75%** [T4].",
+      "tokens_saida": 195
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q06",
+      "latencia_ms": 1635.42,
+      "recusou_corretamente": null,
+      "resposta": "A segunda via do diploma custa R$ 120,00 e o prazo é de 30 dias úteis [T1].",
+      "tokens_saida": 30
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q07",
+      "latencia_ms": 1280.088,
+      "recusou_corretamente": null,
+      "resposta": "A taxa do histórico escolar é de R$ 25,00 [T1].",
+      "tokens_saida": 20
+    },
+    {
+      "categoria": "privacidade",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q08",
+      "latencia_ms": 1298.616,
+      "recusou_corretamente": null,
+      "resposta": "Pedidos de correção de dados são atendidos em até 15 dias [T1].",
+      "tokens_saida": 21
+    },
+    {
+      "categoria": "privacidade",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q09",
+      "latencia_ms": 1557.033,
+      "recusou_corretamente": null,
+      "resposta": "De acordo com a política de privacidade acadêmica, suas notas e frequência são exibidas apenas a você próprio e aos docentes da disciplina [T1].",
+      "tokens_saida": 32
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q10",
+      "latencia_ms": 1645.908,
+      "recusou_corretamente": null,
+      "resposta": "A data limite de rematrícula no primeiro semestre de 2026 é 13/02/2026 [T1].",
+      "tokens_saida": 33
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q11",
+      "latencia_ms": 1452.144,
+      "recusou_corretamente": null,
+      "resposta": "A colação de grau do segundo semestre de 2026 acontece em 19/12/2026 [T1].",
+      "tokens_saida": 32
+    },
+    {
+      "categoria": "tabela",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q12",
+      "latencia_ms": 1333.439,
+      "recusou_corretamente": null,
+      "resposta": "O percentual de desconto da bolsa de iniciação científica é de 40% [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "financeiro",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.5,
+        "frases": 2,
+        "recusa": false
+      },
+      "id": "q13",
+      "latencia_ms": 1752.59,
+      "recusou_corretamente": null,
+      "resposta": "Não, você não pode acumular as bolsas. De acordo com o documento, as bolsas institucionais não são acumuláveis entre si, prevalecendo o maior percentual [T1].",
+      "tokens_saida": 40
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q14",
+      "latencia_ms": 1536.398,
+      "recusou_corretamente": null,
+      "resposta": "A multa por atraso na devolução de livros da biblioteca é de R$ 2,50 por dia [T1][T2].",
+      "tokens_saida": 31
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q15",
+      "latencia_ms": 1455.914,
+      "recusou_corretamente": null,
+      "resposta": "A taxa de reposição de cartão magnético da biblioteca é de R$ 18,00 [T1].",
+      "tokens_saida": 26
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q16",
+      "latencia_ms": 1511.78,
+      "recusou_corretamente": null,
+      "resposta": "A frequência mínima obrigatória no estágio supervisionado é de 85 por cento da carga horária prevista no termo de compromisso [T1].",
+      "tokens_saida": 30
+    },
+    {
+      "categoria": "distracao",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q17",
+      "latencia_ms": 1281.66,
+      "recusou_corretamente": null,
+      "resposta": "A nota mínima exigida na banca de TCC é 7,0 [T1].",
+      "tokens_saida": 20
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q18",
+      "latencia_ms": 1336.706,
+      "recusou_corretamente": null,
+      "resposta": "A taxa atual do histórico escolar é de R$ 25,00 [T1].",
+      "tokens_saida": 21
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 2,
+        "recusa": false
+      },
+      "id": "q19",
+      "latencia_ms": 1795.997,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, o valor para a segunda via do diploma é de R$ 120,00 [T1].\n\nNão encontrei essa informação nos documentos.",
+      "tokens_saida": 43
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q20",
+      "latencia_ms": 1188.424,
+      "recusou_corretamente": null,
+      "resposta": "A média mínima para aprovação direta é 6,0 [T1].",
+      "tokens_saida": 16
+    },
+    {
+      "categoria": "versao_conflitante",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q21",
+      "latencia_ms": 1363.686,
+      "recusou_corretamente": null,
+      "resposta": "O trancamento de matrícula vale por no máximo dois semestres consecutivos [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q22",
+      "latencia_ms": 1374.202,
+      "recusou_corretamente": null,
+      "resposta": "O prazo para lançamento de notas no sistema acadêmico é de 10 dias úteis após a prova [T1].",
+      "tokens_saida": 25
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q23",
+      "latencia_ms": 1398.34,
+      "recusou_corretamente": null,
+      "resposta": "O guia docente determina que as avaliações substitutivas devem usar versão distinta do banco oficial de questões [T1].",
+      "tokens_saida": 24
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q24",
+      "latencia_ms": 1448.439,
+      "recusou_corretamente": null,
+      "resposta": "O limite da bolsa emergencial concedida pela coordenação é de até 40 por cento por um semestre [T1].",
+      "tokens_saida": 27
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "q25",
+      "latencia_ms": 1690.933,
+      "recusou_corretamente": null,
+      "resposta": "O teto de parcelas é de até 6 parcelas mensais e o código interno para estornos é AUR-FIN-2026 [T1].",
+      "tokens_saida": 36
+    },
+    {
+      "categoria": "sem_resposta",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "q26",
+      "latencia_ms": 1240.304,
+      "recusou_corretamente": true,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "sem_resposta",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "q27",
+      "latencia_ms": 1228.467,
+      "recusou_corretamente": true,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "sem_resposta",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "q28",
+      "latencia_ms": 1233.788,
+      "recusou_corretamente": true,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 50,00 por dia"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa001",
+      "latencia_ms": 1103.149,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "4 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa002",
+      "latencia_ms": 849.037,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa003",
+      "latencia_ms": 1188.019,
+      "recusou_corretamente": null,
+      "resposta": "A perda de pen drive custa R$ 50,00 [T1].",
+      "tokens_saida": 19
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "2 GB por dia"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa004",
+      "latencia_ms": 983.429,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "60 minutos"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa005",
+      "latencia_ms": 962.611,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 50"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa006",
+      "latencia_ms": 1052.62,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 50"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa007",
+      "latencia_ms": 964.499,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa008",
+      "latencia_ms": 1410.122,
+      "recusou_corretamente": null,
+      "resposta": "De acordo com o documento [T1], a refeição completa no Restaurante Universitário custa R$ 12,00.",
+      "tokens_saida": 28
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "15 minutos"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa009",
+      "latencia_ms": 943.033,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa010",
+      "latencia_ms": 1213.954,
+      "recusou_corretamente": null,
+      "resposta": "A bolsa inicial para o monitor é de 600 reais por mês [T1].",
+      "tokens_saida": 20
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "das 8h a 12h"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa011",
+      "latencia_ms": 935.453,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "5 faltas"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa012",
+      "latencia_ms": 756.925,
+      "recusou_corretamente": null,
+      "resposta": "[T2]",
+      "tokens_saida": 4
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa013",
+      "latencia_ms": 1557.56,
+      "recusou_corretamente": null,
+      "resposta": "A taxa de inscrição no programa de intercâmbio da Aurora é de R$ 150,00 [T2].",
+      "tokens_saida": 29
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "7,5 pontos"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa014",
+      "latencia_ms": 956.986,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "5 dias uteis."
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa015",
+      "latencia_ms": 1321.626,
+      "recusou_corretamente": null,
+      "resposta": "O prazo para o 1º retorno (resposta inicial) na ouvidoria é de 1 dia útil [T1].",
+      "tokens_saida": 28
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "7 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa016",
+      "latencia_ms": 929.91,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 50,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa017",
+      "latencia_ms": 933.931,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa018",
+      "latencia_ms": 1241.851,
+      "recusou_corretamente": null,
+      "resposta": "O valor máximo por hora extra é de R$ 50,00 [T1].",
+      "tokens_saida": 21
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "100 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa019",
+      "latencia_ms": 973.937,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 30,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa020",
+      "latencia_ms": 1115.695,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa021",
+      "latencia_ms": 1215.296,
+      "recusou_corretamente": null,
+      "resposta": "O horário de saída do campus A é às 07h30 diariamente [T1].",
+      "tokens_saida": 21
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "10 por cento"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa022",
+      "latencia_ms": 980.811,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa023",
+      "latencia_ms": 1189.749,
+      "recusou_corretamente": null,
+      "resposta": "A capacidade total do estacionamento da Aurora é de 200 vagas [T1].",
+      "tokens_saida": 19
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 50,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa024",
+      "latencia_ms": 960.494,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa025",
+      "latencia_ms": 1231.589,
+      "recusou_corretamente": null,
+      "resposta": "De acordo com o trecho [T1], você pode levar no máximo 5 pessoas no total.",
+      "tokens_saida": 21
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "24 horas uteis"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.5,
+        "frases": 2,
+        "recusa": false
+      },
+      "id": "qa026",
+      "latencia_ms": 1875.398,
+      "recusou_corretamente": null,
+      "resposta": "O prazo para retirada gratuita é de 7 dias corridos. Após esse período, o item fica sob guarda sem custo extra, mas a retirada continua sendo possível, exigindo documentos de identidade [T1][T2].",
+      "tokens_saida": 46
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "15 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.25,
+        "frases": 4,
+        "recusa": false
+      },
+      "id": "qa027",
+      "latencia_ms": 3908.618,
+      "recusou_corretamente": null,
+      "resposta": "O valor mensal para deixar um celular (item eletrônico) na guarda é de R$ 100,00.\n\n**Cálculo:**\n*   A taxa para itens eletrônicos é de R$ 25,00 por semana de guarda [T1].\n*   Considerando um mês padrão de 4 semanas: 4 semanas x R$ 25,00 = R$ 100,00.\n\n*Nota: Se você for aluno em dia com a mensalidade, há um desconto de 50%, o que resultaria em R$ 50,00 por mês [T3].*",
+      "tokens_saida": 138
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa028",
+      "latencia_ms": 1234.698,
+      "recusou_corretamente": null,
+      "resposta": "O limite máximo é de 3 objetos por pessoa por dia de retirada [T1].",
+      "tokens_saida": 19
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa029",
+      "latencia_ms": 1337.494,
+      "recusou_corretamente": null,
+      "resposta": "O valor da bolsa da iniciação científica é de 400 reais mensais [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "75 percentual"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.25,
+        "frases": 4,
+        "recusa": false
+      },
+      "id": "qa030",
+      "latencia_ms": 5497.725,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, não há uma informação que especifique um \"mínimo de horas\" para frequentar um projeto de pesquisa de forma geral.\n\nO trecho [T1] menciona uma \"carga horaria minima e de 12 horas semanais\" no contexto da \"iniciacao cientifica\", mas não é possível confirmar se isso se aplica a todos os projetos de pesquisa ou apenas a essa modalidade específica, nem se refere a frequência obrigatória ou carga de trabalho. O trecho [T3] menciona \"Dedicacao de 8 horas semanais\" para \"Monitoria academica\", e o trecho [T2] menciona \"carga horaria minima de 10 horas\" para o contexto de monitoria (implícito pelo título do documento).\n\nPortanto, como a pergunta é genérica (\"projeto de pesquisa\") e os trechos fornecem requisitos de carga horária para modalidades específicas (Iniciação",
+      "tokens_saida": 200
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa031",
+      "latencia_ms": 1340.205,
+      "recusou_corretamente": null,
+      "resposta": "O prazo para entrega do relatório final da iniciação científica é de 15 dias [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "10 dias uteis"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa032",
+      "latencia_ms": 927.873,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "20 horas semanais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa033",
+      "latencia_ms": 820.871,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa034",
+      "latencia_ms": 1663.699,
+      "recusou_corretamente": null,
+      "resposta": "A Junior oferece uma bolsa auxílio de R$ 500,00 mensais e uma bolsa auxílio de R$ 800,00 por projeto [T1].",
+      "tokens_saida": 39
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "50,00 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa035",
+      "latencia_ms": 981.564,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "80% de presenca"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa036",
+      "latencia_ms": 935.509,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "20,00 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 3,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.6,
+        "frases": 5,
+        "recusa": false
+      },
+      "id": "qa037",
+      "latencia_ms": 5577.987,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos documentos fornecidos, o valor de juros ou multa depende do tipo de conta ou serviço, pois há regras diferentes para cada caso:\n\n*   **Para atraso no pagamento geral (regras de reembolso):** Atrasos de até 3 dias têm multa de 2%; pagamentos em atraso acima de 30 dias geram juros [T3].\n*   **Para financiamento estudantil privado:** A multa por atraso é de 2% sobre o saldo, e há juros mensais fixos de 1,5% ao mês [T4].\n*   **Para atraso na devolução de notebooks:** A multa é de R$ 10,00 por dia [T2].\n*   **Para atraso em serviços de laboratórios de informática:** O pagamento é de R$ 50,00 por dia de atraso [T1].\n\nNão há um único valor único para \"a conta da",
+      "tokens_saida": 200
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "150 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa038",
+      "latencia_ms": 1011.928,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "15 minutos"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa039",
+      "latencia_ms": 959.898,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa040",
+      "latencia_ms": 1279.678,
+      "recusou_corretamente": null,
+      "resposta": "Sim, há um desconto de 15% para quem comprar os dois itens juntos [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "10 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa041",
+      "latencia_ms": 1061.314,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.333,
+        "frases": 3,
+        "recusa": false
+      },
+      "id": "qa042",
+      "latencia_ms": 3212.446,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, os prazos para troca dos EPIs são:\n\n*   **Óculos de segurança:** devem ser trocados a cada 30 dias [T1].\n*   **Luvas:** devem ser trocadas a cada 4 horas de uso contínuo [T2].\n\nOs demais itens mencionados (capacete e calça) não possuem prazo de troca especificado nos trechos, apenas requisitos de certificação ou material [T1].",
+      "tokens_saida": 106
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "100 litros"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa043",
+      "latencia_ms": 991.835,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 50000"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa044",
+      "latencia_ms": 799.776,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "48 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa045",
+      "latencia_ms": 824.257,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "20 por cento"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa046",
+      "latencia_ms": 973.242,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa047",
+      "latencia_ms": 1126.497,
+      "recusou_corretamente": null,
+      "resposta": "A segunda via da carteirinha custa 25 reais [T1].",
+      "tokens_saida": 17
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "2 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa048",
+      "latencia_ms": 1320.08,
+      "recusou_corretamente": null,
+      "resposta": "O prazo de entrega da carteirinha é de 5 dias úteis após a solicitação [T1].",
+      "tokens_saida": 23
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa049",
+      "latencia_ms": 1189.827,
+      "recusou_corretamente": null,
+      "resposta": "A reemissão por dano custa 50 reais [T1].",
+      "tokens_saida": 17
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "4 sessoes"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa050",
+      "latencia_ms": 1495.622,
+      "recusou_corretamente": null,
+      "resposta": "Com base no trecho [T1], o máximo de sessões de apoio psicológico que você pode agendar é de 4 por mês.",
+      "tokens_saida": 30
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 150"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa051",
+      "latencia_ms": 933.473,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "5 dias uteis"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa052",
+      "latencia_ms": 943.641,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "5 dias uteis."
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa053",
+      "latencia_ms": 993.157,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 10,00."
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa054",
+      "latencia_ms": 1044.857,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 10,00 por dia"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa055",
+      "latencia_ms": 942.333,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa056",
+      "latencia_ms": 1132.715,
+      "recusou_corretamente": null,
+      "resposta": "A cobrança será de R$ 30,00 [T1].",
+      "tokens_saida": 17
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "72 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa057",
+      "latencia_ms": 972.057,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 50,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa058",
+      "latencia_ms": 1059.739,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa059",
+      "latencia_ms": 1193.529,
+      "recusou_corretamente": null,
+      "resposta": "O horário de início do evento é das 09:00 [T1].",
+      "tokens_saida": 19
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa060",
+      "latencia_ms": 1549.492,
+      "recusou_corretamente": null,
+      "resposta": "A taxa única para inscrição nos Cursos Livres de Extensão é de R$ 150,00 [T1].",
+      "tokens_saida": 28
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "10%"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa061",
+      "latencia_ms": 1057.112,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa062",
+      "latencia_ms": 993.898,
+      "recusou_corretamente": null,
+      "resposta": "O certificado das extensões tem validade de 3 anos [T1].",
+      "tokens_saida": 16
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa063",
+      "latencia_ms": 1643.472,
+      "recusou_corretamente": null,
+      "resposta": "A inscrição na prévia de matemática (nivelamento-matematica) custa uma taxa única de R$ 50,00 [T1].",
+      "tokens_saida": 34
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "75%"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa064",
+      "latencia_ms": 974.93,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa065",
+      "latencia_ms": 1247.913,
+      "recusou_corretamente": null,
+      "resposta": "O certificado digital do nivelamento de matemática é emitido em 10 dias [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa066",
+      "latencia_ms": 946.769,
+      "recusou_corretamente": null,
+      "resposta": "Cada encontro dura 4 horas por dia [T1].",
+      "tokens_saida": 14
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "10 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa067",
+      "latencia_ms": 945.401,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "15 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa068",
+      "latencia_ms": 1099.779,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "20%"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa069",
+      "latencia_ms": 934.865,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa070",
+      "latencia_ms": 1238.624,
+      "recusou_corretamente": null,
+      "resposta": "A Aurora pede no mínimo 10 itens de referências bibliográficas [T1].",
+      "tokens_saida": 20
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 1.000,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa071",
+      "latencia_ms": 958.335,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.333,
+        "frases": 3,
+        "recusa": false
+      },
+      "id": "qa072",
+      "latencia_ms": 2819.663,
+      "recusou_corretamente": null,
+      "resposta": "Há informações conflitantes nos documentos fornecidos:\n\n*   O trecho [T1] afirma que \"cada prova online tem duracao de 120 minutos\".\n*   O trecho [T2] afirma que \"Prova online dura 90 minutos\".\n\nPortanto, não é possível determinar um único tempo de duração correto com base apenas nos trechos fornecidos, pois eles apresentam valores diferentes.",
+      "tokens_saida": 89
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa073",
+      "latencia_ms": 1212.983,
+      "recusou_corretamente": null,
+      "resposta": "O mínimo de internet para as avaliações monitoradas é de 5 Mbps [T1].",
+      "tokens_saida": 19
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "2 dias uteis"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa074",
+      "latencia_ms": 960.113,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa075",
+      "latencia_ms": 1299.609,
+      "recusou_corretamente": null,
+      "resposta": "A taxa de análise para transferência externa é de R$ 150,00 [T1].",
+      "tokens_saida": 23
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "25% da carga"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa076",
+      "latencia_ms": 966.19,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "3 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa077",
+      "latencia_ms": 945.649,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "30 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa078",
+      "latencia_ms": 958.796,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "100 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa079",
+      "latencia_ms": 1081.596,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "5 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa080",
+      "latencia_ms": 943.798,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "15 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa081",
+      "latencia_ms": 948.844,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "30 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa082",
+      "latencia_ms": 1063.821,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 200,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa083",
+      "latencia_ms": 990.352,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "5 dias uteis"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa084",
+      "latencia_ms": 923.383,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "2% sobre o saldo"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa085",
+      "latencia_ms": 1056.743,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "3 parcelas em atraso"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa086",
+      "latencia_ms": 948.924,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "24 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa087",
+      "latencia_ms": 983.349,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "15%"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa088",
+      "latencia_ms": 920.024,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "2 justificativas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa089",
+      "latencia_ms": 947.439,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.333,
+        "frases": 3,
+        "recusa": false
+      },
+      "id": "qa090",
+      "latencia_ms": 3209.84,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, não há menção a um \"limite de dias para liquidar a fatura via Pix\". O documento menciona que o pagamento por Pix deve ser feito até 3 dias antes [T1], que o saldo é creditado em D+1 [T1] e que o reembolso leva 5 dias úteis [T3], mas não especifica um prazo máximo para a liquidação da fatura.\n\nNão encontrei essa informação nos documentos.",
+      "tokens_saida": 103
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 99999"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa091",
+      "latencia_ms": 952.185,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa092",
+      "latencia_ms": 1381.554,
+      "recusou_corretamente": null,
+      "resposta": "Com base no trecho [T1], a cota de impressão em preto e branco é de 10 páginas por dia.",
+      "tokens_saida": 27
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "R$ 5,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa093",
+      "latencia_ms": 947.667,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa094",
+      "latencia_ms": 1197.031,
+      "recusou_corretamente": null,
+      "resposta": "O prazo para o material urgente ficar pronto é de 1 minuto [T1].",
+      "tokens_saida": 18
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa095",
+      "latencia_ms": 1380.852,
+      "recusou_corretamente": null,
+      "resposta": "Com base no trecho [T2], o valor base do aluguel do armário é de 25 reais por mês.",
+      "tokens_saida": 27
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "5 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa096",
+      "latencia_ms": 975.709,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "50 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa097",
+      "latencia_ms": 957.921,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "15 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa098",
+      "latencia_ms": 930.966,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "10 ate 15 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa099",
+      "latencia_ms": 932.851,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "500 reais"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa100",
+      "latencia_ms": 1313.853,
+      "recusou_corretamente": null,
+      "resposta": "O teto para gastos em cartazes é de R$ 500 por chapa [T1].",
+      "tokens_saida": 23
+    },
+    {
+      "categoria": "ampliado",
+      "faltou_esperado": [
+        "48 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa101",
+      "latencia_ms": 853.325,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "75 por cento"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa102",
+      "latencia_ms": 1256.995,
+      "recusou_corretamente": null,
+      "resposta": "A taxa mínima de presença exigida para alunos EAD é de 75% [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "10 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa103",
+      "latencia_ms": 946.485,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa104",
+      "latencia_ms": 1285.836,
+      "recusou_corretamente": null,
+      "resposta": "De acordo com o documento, cada orientador pode atender no máximo 15 alunos [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "3 membros"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa105",
+      "latencia_ms": 1267.318,
+      "recusou_corretamente": null,
+      "resposta": "O número mínimo de professores que devem compor a banca do TCC é 3 [T1].",
+      "tokens_saida": 22
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa106",
+      "latencia_ms": 1504.466,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, o custo para imprimir o TCC é de R$ 5,00 por folha [T1].",
+      "tokens_saida": 32
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 3,
+        "recusa": false
+      },
+      "id": "qa107",
+      "latencia_ms": 2761.009,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, não há menção a um prazo específico para \"desbloqueio de disciplina\". O trecho [T1] menciona um prazo de 5 dias úteis para recurso em caso de quebra de pré-requisito, mas não utiliza o termo \"desbloqueio\" nem garante que esse seja o procedimento para essa finalidade específica.\n\nNão encontrei essa informação nos documentos.",
+      "tokens_saida": 86
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "7,0 na materia"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa108",
+      "latencia_ms": 1103.39,
+      "recusou_corretamente": null,
+      "resposta": "A nota mínima para ser aprovado é 7,0 [T1].",
+      "tokens_saida": 16
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "R$ 100,00 por tentativa"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa109",
+      "latencia_ms": 946.171,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 3,
+        "recusa": false
+      },
+      "id": "qa110",
+      "latencia_ms": 4168.276,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, não há uma regra única para \"reavaliação de notas\" em geral, pois os prazos variam conforme o contexto específico (TCC ou segunda chamada):\n\n*   Para o **pedido de revisão de nota da banca de TCC**, o prazo é de **até 3 dias úteis** após a defesa [T1].\n*   Para a **segunda chamada de provas** (que permite pedir a realização de nova prova), o prazo máximo é de **5 dias úteis** [T2].\n\nOs trechos não fornecem um prazo específico para reavaliação de notas de provas regulares distintas do TCC ou da segunda chamada.",
+      "tokens_saida": 145
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "7,0"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa111",
+      "latencia_ms": 1007.982,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "2 apelacoes"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa112",
+      "latencia_ms": 913.103,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa113",
+      "latencia_ms": 1222.058,
+      "recusou_corretamente": null,
+      "resposta": "O prazo máximo para solicitar o reset de senha é de 24 horas [T1].",
+      "tokens_saida": 20
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "R$ 50,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa114",
+      "latencia_ms": 940.379,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "5 dias uteis"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa115",
+      "latencia_ms": 944.378,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "R$ 50,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa116",
+      "latencia_ms": 979.867,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "14h as 16h"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa117",
+      "latencia_ms": 952.798,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "15 dias uteis"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa118",
+      "latencia_ms": 956.127,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.0,
+        "frases": 3,
+        "recusa": false
+      },
+      "id": "qa119",
+      "latencia_ms": 3389.845,
+      "recusou_corretamente": null,
+      "resposta": "Com base nos trechos fornecidos, não há menção a um \"RU\" (Recebedor Único ou outro termo similar) nem a um \"acréscimo inicial\" específico para esse termo. Os documentos mencionam multas iniciais de 2% [T1], multas de 10% [T2] e multas de 2% para atraso de até 3 dias [T3], mas não especificam uma regra para \"RU\".\n\nNão encontrei essa informação nos documentos.",
+      "tokens_saida": 111
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "30 dias"
+      ],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa120",
+      "latencia_ms": 751.077,
+      "recusou_corretamente": null,
+      "resposta": "[T1]",
+      "tokens_saida": 4
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "4 horas"
+      ],
+      "fidelidade": {
+        "apoiadas": 0,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 0,
+        "recusa": true
+      },
+      "id": "qa121",
+      "latencia_ms": 933.696,
+      "recusou_corretamente": null,
+      "resposta": "Não encontrei essa informação nos documentos.",
+      "tokens_saida": 10
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [
+        "R$ 500,00"
+      ],
+      "fidelidade": {
+        "apoiadas": 3,
+        "citacoes_invalidas": [],
+        "fidelidade": 0.75,
+        "frases": 4,
+        "recusa": false
+      },
+      "id": "qa122",
+      "latencia_ms": 4348.646,
+      "recusou_corretamente": null,
+      "resposta": "A informação sobre o valor da penalidade por atraso varia conforme o contexto específico descrito nos documentos fornecidos:\n\n*   No contexto da ouvidoria, a multa por atraso é de 2% ao dia, com valor mínimo de R$ 50,00 [T1].\n*   No contexto dos diários de classe, o valor da multa por atraso na entrega é de 50 reais por dia [T2].\n*   No contexto de provas online, a multa por atraso é de 10% do valor total [T3].\n*   No contexto de segunda chamada de provas, a multa por atraso na taxa é de 20,00 reais [T4].",
+      "tokens_saida": 154
+    },
+    {
+      "categoria": "acl",
+      "faltou_esperado": [],
+      "fidelidade": {
+        "apoiadas": 1,
+        "citacoes_invalidas": [],
+        "fidelidade": 1.0,
+        "frases": 1,
+        "recusa": false
+      },
+      "id": "qa123",
+      "latencia_ms": 1429.48,
+      "recusou_corretamente": null,
+      "resposta": "O preparo da equipe é renovado por meio de um treinamento obrigatório de 4 horas anuais para todos [T1].",
+      "tokens_saida": 27
+    }
+  ],
+  "geracao_resumo": {
+    "acerto_conteudo_esperado": 63,
+    "fidelidade_media": 0.862,
+    "latencia_ms": {
+      "p50": 1115.695,
+      "p95": 3211.143
+    },
+    "perguntas_sem_resposta": 3,
+    "recusas_corretas": 3,
+    "respondidas": 148,
+    "wilson95_conteudo_esperado": [
+      0.3489,
+      0.5062
+    ],
+    "wilson95_recusas": [
+      0.4385,
+      1.0
+    ]
+  },
+  "ingestao": {
+    "documentos": 57,
+    "segundos": 4.503,
+    "trechos": 275,
+    "trechos_restritos": 60,
+    "trechos_revogados": 4,
+    "trechos_tabela": 4
+  },
+  "memoria": {
+    "geracao": {
+      "fonte": "ollama /api/ps",
+      "modelos": [
+        {
+          "bytes": 10744600984,
+          "bytes_vram": 10744600984,
+          "modelo": "qwen3.8:27b-ud-iq3_xxs"
+        },
+        {
+          "bytes": 1212080455,
+          "bytes_vram": 1212080455,
+          "modelo": "qwen3-embedding:0.6b"
+        }
+      ]
+    },
+    "ingestao": {
+      "fonte": "ollama /api/ps",
+      "modelos": [
+        {
+          "bytes": 1212080455,
+          "bytes_vram": 1212080455,
+          "modelo": "qwen3-embedding:0.6b"
+        },
+        {
+          "bytes": 10744600984,
+          "bytes_vram": 10744600984,
+          "modelo": "qwen3.8:27b-ud-iq3_xxs"
+        }
+      ]
+    }
+  },
+  "recuperacao": {
+    "hibrida_reranker_lexico": {
+      "k": 4,
+      "modo": "hibrida",
+      "mrr_medio": 0.4043,
+      "ndcg_medio": 0.4221,
+      "recall_medio": 0.4899,
+      "reordenador": "lexico"
+    },
+    "hibrida_reranker_llm": {
+      "k": 4,
+      "modo": "hibrida",
+      "mrr_medio": 0.5389,
+      "ndcg_medio": 0.5422,
+      "recall_medio": 0.5709,
+      "reordenador": "llm"
+    },
+    "hibrida_rrf": {
+      "k": 4,
+      "modo": "hibrida",
+      "mrr_medio": 0.4178,
+      "ndcg_medio": 0.4343,
+      "recall_medio": 0.4966,
+      "reordenador": "nenhum"
+    },
+    "lexical": {
+      "k": 4,
+      "modo": "lexical",
+      "mrr_medio": 0.3356,
+      "ndcg_medio": 0.3491,
+      "recall_medio": 0.3986,
+      "reordenador": "nenhum"
+    },
+    "vetorial": {
+      "k": 4,
+      "modo": "vetorial",
+      "mrr_medio": 0.3998,
+      "ndcg_medio": 0.4188,
+      "recall_medio": 0.5034,
+      "reordenador": "nenhum"
+    }
+  },
+  "recuperacao_por_consulta": [
+    {
+      "id": "q01",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:1",
+        "reingresso-e-reabertura:p1:1",
+        "carteirinha-estudantil:p1:2",
+        "pagamento-pix-e-cartao:p1:1"
+      ]
+    },
+    {
+      "id": "q02",
+      "mrr": 0.3333333333333333,
+      "ndcg": 0.5,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:1",
+        "reingresso-e-reabertura:p2:1",
+        "regulamento-academico:p1:2",
+        "calendario-academico-2026:p2:1"
+      ]
+    },
+    {
+      "id": "q03",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:2",
+        "colacao-de-grau:p1:2",
+        "nivelamento-matematica:p1:1",
+        "carteirinha-estudantil:p1:1"
+      ]
+    },
+    {
+      "id": "q04",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p2:1",
+        "nivelamento-matematica:p2:1",
+        "regulamento-academico:p2:2",
+        "regras-provas-online:p1:1"
+      ]
+    },
+    {
+      "id": "q05",
+      "mrr": 0.5,
+      "ndcg": 0.3869,
+      "recall": 0.5,
+      "recuperados": [
+        "nivelamento-matematica:p2:1",
+        "regulamento-academico:p2:2",
+        "manual-estagio-e-tcc:p1:1",
+        "iniciacao-cientifica:p2:2"
+      ]
+    },
+    {
+      "id": "q06",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "carteirinha-estudantil:p2:1",
+        "regulamento-eventos-academicos:p3:1",
+        "regras-de-reembolso:p3:1"
+      ]
+    },
+    {
+      "id": "q07",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "transferencia-externa:p2:1",
+        "manual-estagio-e-tcc:p2:2",
+        "achados-e-perdidos:p2:1"
+      ]
+    },
+    {
+      "id": "q08",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-de-privacidade-academica:p1:2",
+        "regulamento-atividades-complementares:p3:1",
+        "achados-e-perdidos:p3:1",
+        "pagamento-pix-e-cartao:p2:2"
+      ]
+    },
+    {
+      "id": "q09",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-de-privacidade-academica:p1:1",
+        "politica-integridade-academica:p1:1",
+        "iniciacao-cientifica:p2:1",
+        "transferencia-externa:p2:1"
+      ]
+    },
+    {
+      "id": "q10",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "calendario-academico-2026:p1:2",
+        "regulamento-academico:p1:1",
+        "calendario-academico-2026:p2:1",
+        "programa-intercambio:p1:2"
+      ]
+    },
+    {
+      "id": "q11",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "calendario-academico-2026:p1:2",
+        "calendario-academico-2026:p1:1",
+        "calendario-academico-2026:p2:1",
+        "manual-estagio-e-tcc:p2:2"
+      ]
+    },
+    {
+      "id": "q12",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-bolsas-e-descontos:p1:2",
+        "tabela-bolsas-e-descontos:p1:1",
+        "programa-apoio-psicologico:p2:1",
+        "iniciacao-cientifica:p1:1"
+      ]
+    },
+    {
+      "id": "q13",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-bolsas-e-descontos:p1:3",
+        "tabela-bolsas-e-descontos:p1:2",
+        "regulamento-monitoria:p1:1",
+        "iniciacao-cientifica:p2:1"
+      ]
+    },
+    {
+      "id": "q14",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-biblioteca:p1:1",
+        "manual-biblioteca:p1:2",
+        "emprestimo-de-notebooks:p2:1",
+        "emprestimo-de-notebooks:p1:1"
+      ]
+    },
+    {
+      "id": "q15",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-biblioteca:p1:2",
+        "carteirinha-estudantil:p3:1",
+        "pagamento-pix-e-cartao:p1:2",
+        "pagamento-pix-e-cartao:p1:1"
+      ]
+    },
+    {
+      "id": "q16",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-estagio-e-tcc:p1:1",
+        "iniciacao-cientifica:p2:2",
+        "regulamento-academico:p2:2",
+        "tabela-bolsas-e-descontos:p2:1"
+      ]
+    },
+    {
+      "id": "q17",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-estagio-e-tcc:p1:1",
+        "manual-estagio-e-tcc:p1:2",
+        "nivelamento-matematica:p2:1",
+        "programa-intercambio:p2:1"
+      ]
+    },
+    {
+      "id": "q18",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "tabela-de-servicos:p1:1",
+        "transferencia-externa:p2:1",
+        "manual-estagio-e-tcc:p2:2"
+      ]
+    },
+    {
+      "id": "q19",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "regras-de-reembolso:p3:1",
+        "carteirinha-estudantil:p1:1",
+        "segunda-chamada-de-provas:p3:1"
+      ]
+    },
+    {
+      "id": "q20",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p2:2",
+        "regulamento-academico:p2:1",
+        "regulamento-monitoria:p1:1",
+        "programa-intercambio:p2:1"
+      ]
+    },
+    {
+      "id": "q21",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-academico:p1:2",
+        "calendario-academico-2026:p1:2",
+        "carteirinha-estudantil:p2:2",
+        "colacao-de-grau:p2:2"
+      ]
+    },
+    {
+      "id": "q22",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-avaliacao:p1:1",
+        "guia-docente-orientacao-tcc:p1:1",
+        "regulamento-atividades-complementares:p3:1",
+        "carteirinha-estudantil:p1:1"
+      ]
+    },
+    {
+      "id": "q23",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-avaliacao:p1:1",
+        "guia-docente-avaliacao:p1:2",
+        "guia-docente-avaliacao:p2:1",
+        "guia-docente-diarios-de-classe:p2:2"
+      ]
+    },
+    {
+      "id": "q24",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "norma-interna-coordenacao:p1:1",
+        "regulamento-monitoria:p3:1",
+        "programa-apoio-psicologico:p3:1",
+        "cursos-de-extensao:p3:1"
+      ]
+    },
+    {
+      "id": "q25",
+      "mrr": 1.0,
+      "ndcg": 0.9197,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-financeiro-administrativo:p1:1",
+        "manual-financeiro-inadimplencia:p2:1",
+        "manual-financeiro-administrativo:p1:2",
+        "manual-ti-administracao-contas:p1:1"
+      ]
+    },
+    {
+      "id": "qa001",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "disciplinas-ead:p2:1",
+        "regulamento-monitoria:p3:1",
+        "regulamento-atividades-complementares:p2:1",
+        "regras-de-reembolso:p2:1"
+      ]
+    },
+    {
+      "id": "qa002",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "uso-de-armarios:p3:1",
+        "programa-intercambio:p1:2",
+        "uso-de-armarios:p3:2",
+        "regulamento-estacionamento:p2:2"
+      ]
+    },
+    {
+      "id": "qa003",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-laboratorios-informatica:p3:1",
+        "emprestimo-de-notebooks:p3:1",
+        "emprestimo-de-notebooks:p1:2",
+        "achados-e-perdidos:p2:2"
+      ]
+    },
+    {
+      "id": "qa004",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "politica-uso-wifi-campus:p1:1",
+        "regulamento-laboratorios-informatica:p1:1",
+        "segunda-chamada-de-provas:p2:1",
+        "iniciacao-cientifica:p2:1"
+      ]
+    },
+    {
+      "id": "qa005",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-estacionamento:p3:2",
+        "regulamento-estacionamento:p3:1",
+        "transporte-fretado-campus:p2:1",
+        "regulamento-estacionamento:p1:1"
+      ]
+    },
+    {
+      "id": "qa006",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "emprestimo-de-notebooks:p1:1",
+        "regulamento-atividades-complementares:p1:1",
+        "transporte-fretado-campus:p1:1",
+        "programa-intercambio:p1:1"
+      ]
+    },
+    {
+      "id": "qa007",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-monitoria:p3:1",
+        "achados-e-perdidos:p2:1",
+        "achados-e-perdidos:p2:2",
+        "programa-intercambio:p1:1"
+      ]
+    },
+    {
+      "id": "qa008",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-restaurante-universitario:p2:1",
+        "servicos-de-impressao:p1:2",
+        "financiamento-estudantil-privado:p1:2",
+        "manual-restaurante-universitario:p1:1"
+      ]
+    },
+    {
+      "id": "qa009",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "iniciacao-cientifica:p3:2",
+        "emprestimo-de-notebooks:p1:1",
+        "iniciacao-cientifica:p3:1",
+        "carteirinha-estudantil:p1:1"
+      ]
+    },
+    {
+      "id": "qa010",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-monitoria:p1:1",
+        "regulamento-laboratorios-informatica:p3:1",
+        "achados-e-perdidos:p2:1",
+        "achados-e-perdidos:p3:2"
+      ]
+    },
+    {
+      "id": "qa011",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "cursos-de-extensao:p3:1",
+        "regulamento-monitoria:p1:1",
+        "programa-apoio-psicologico:p3:2",
+        "manual-ouvidoria:p1:2"
+      ]
+    },
+    {
+      "id": "qa012",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "regras-provas-online:p3:2",
+        "regulamento-monitoria:p3:1",
+        "regras-de-reembolso:p3:2",
+        "regras-de-reembolso:p3:1"
+      ]
+    },
+    {
+      "id": "qa013",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "dupla-diplomacao:p1:1",
+        "programa-intercambio:p1:1",
+        "colacao-de-grau:p1:1",
+        "empresa-junior:p1:1"
+      ]
+    },
+    {
+      "id": "qa014",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "iniciacao-cientifica:p2:1",
+        "regulamento-academico:p2:2",
+        "regras-provas-online:p2:2",
+        "reingresso-e-reabertura:p3:2"
+      ]
+    },
+    {
+      "id": "qa015",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-ouvidoria:p1:1",
+        "manual-ouvidoria:p3:2",
+        "tabela-bolsas-e-descontos:p2:2",
+        "financiamento-estudantil-privado:p3:2"
+      ]
+    },
+    {
+      "id": "qa016",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "nucleo-acessibilidade:p1:1",
+        "nivelamento-matematica:p2:2",
+        "segunda-chamada-de-provas:p1:1",
+        "segunda-chamada-de-provas:p3:2"
+      ]
+    },
+    {
+      "id": "qa017",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "nucleo-acessibilidade:p1:1",
+        "regras-provas-online:p1:2",
+        "nucleo-acessibilidade:p3:1",
+        "regras-provas-online:p1:1"
+      ]
+    },
+    {
+      "id": "qa018",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-atividades-complementares:p1:1",
+        "regulamento-laboratorios-informatica:p2:1",
+        "uso-de-armarios:p2:1",
+        "cursos-de-extensao:p2:1"
+      ]
+    },
+    {
+      "id": "qa019",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "calendario-academico-2026:p2:1",
+        "regulamento-monitoria:p2:1",
+        "regulamento-monitoria:p3:1",
+        "reingresso-e-reabertura:p3:2"
+      ]
+    },
+    {
+      "id": "qa020",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-atividades-complementares:p1:1",
+        "regulamento-eventos-academicos:p3:1",
+        "regulamento-eventos-academicos:p1:1",
+        "segunda-chamada-de-provas:p2:1"
+      ]
+    },
+    {
+      "id": "qa021",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "transporte-fretado-campus:p2:1",
+        "emprestimo-de-notebooks:p2:2",
+        "achados-e-perdidos:p3:1",
+        "iniciacao-cientifica:p1:2"
+      ]
+    },
+    {
+      "id": "qa022",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "tabela-bolsas-e-descontos:p2:1",
+        "carteirinha-estudantil:p2:2",
+        "dupla-diplomacao:p3:1",
+        "politica-de-privacidade-academica:p1:1"
+      ]
+    },
+    {
+      "id": "qa023",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-estacionamento:p1:1",
+        "colacao-de-grau:p1:1",
+        "politica-uso-wifi-campus:p1:1",
+        "manual-restaurante-universitario:p2:1"
+      ]
+    },
+    {
+      "id": "qa024",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "achados-e-perdidos:p2:2",
+        "regulamento-estacionamento:p2:2",
+        "regulamento-estacionamento:p1:1",
+        "carteirinha-estudantil:p1:2"
+      ]
+    },
+    {
+      "id": "qa025",
+      "mrr": 1.0,
+      "ndcg": 0.6131,
+      "recall": 0.5,
+      "recuperados": [
+        "regulamento-estacionamento:p3:2",
+        "calendario-academico-2026:p1:1",
+        "politica-de-privacidade-academica:p1:1",
+        "politica-uso-wifi-campus:p1:1"
+      ]
+    },
+    {
+      "id": "qa026",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "achados-e-perdidos:p1:1",
+        "achados-e-perdidos:p1:2",
+        "achados-e-perdidos:p3:1",
+        "carteirinha-estudantil:p3:1"
+      ]
+    },
+    {
+      "id": "qa027",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "achados-e-perdidos:p2:1",
+        "achados-e-perdidos:p1:1",
+        "achados-e-perdidos:p2:2",
+        "achados-e-perdidos:p1:2"
+      ]
+    },
+    {
+      "id": "qa028",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "achados-e-perdidos:p3:1",
+        "uso-de-armarios:p1:2",
+        "achados-e-perdidos:p1:1",
+        "achados-e-perdidos:p1:2"
+      ]
+    },
+    {
+      "id": "qa029",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "iniciacao-cientifica:p1:1",
+        "regulamento-monitoria:p1:1",
+        "iniciacao-cientifica:p3:1",
+        "empresa-junior:p3:1"
+      ]
+    },
+    {
+      "id": "qa030",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "iniciacao-cientifica:p1:1",
+        "regulamento-monitoria:p2:1",
+        "tabela-bolsas-e-descontos:p1:2",
+        "regulamento-atividades-complementares:p2:1"
+      ]
+    },
+    {
+      "id": "qa031",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "iniciacao-cientifica:p3:1",
+        "manual-estagio-e-tcc:p2:1",
+        "iniciacao-cientifica:p1:1",
+        "financiamento-estudantil-privado:p1:1"
+      ]
+    },
+    {
+      "id": "qa032",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "eleicoes-diretorio-academico:p1:1",
+        "eleicoes-diretorio-academico:p3:2",
+        "nivelamento-matematica:p2:2",
+        "colacao-de-grau:p1:1"
+      ]
+    },
+    {
+      "id": "qa033",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-atividades-complementares:p2:2",
+        "programa-intercambio:p1:2",
+        "regulamento-atividades-complementares:p1:1",
+        "empresa-junior:p2:2"
+      ]
+    },
+    {
+      "id": "qa034",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "empresa-junior:p3:1",
+        "achados-e-perdidos:p2:2",
+        "financiamento-estudantil-privado:p1:1",
+        "politica-integridade-academica:p3:2"
+      ]
+    },
+    {
+      "id": "qa035",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "segunda-chamada-de-provas:p3:1",
+        "carteirinha-estudantil:p2:1",
+        "carteirinha-estudantil:p1:1",
+        "regras-de-reembolso:p3:1"
+      ]
+    },
+    {
+      "id": "qa036",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regras-provas-online:p3:2",
+        "iniciacao-cientifica:p2:2",
+        "segunda-chamada-de-provas:p3:1",
+        "dupla-diplomacao:p3:1"
+      ]
+    },
+    {
+      "id": "qa037",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-laboratorios-informatica:p1:1",
+        "emprestimo-de-notebooks:p1:1",
+        "regras-de-reembolso:p2:1",
+        "financiamento-estudantil-privado:p2:1"
+      ]
+    },
+    {
+      "id": "qa038",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "programa-intercambio:p1:1",
+        "programa-de-mentoria:p1:1",
+        "nivelamento-matematica:p1:1",
+        "cursos-de-extensao:p1:1"
+      ]
+    },
+    {
+      "id": "qa039",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "disciplinas-ead:p3:1",
+        "iniciacao-cientifica:p1:2",
+        "nucleo-acessibilidade:p2:1",
+        "regulamento-eventos-academicos:p3:1"
+      ]
+    },
+    {
+      "id": "qa040",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "colacao-de-grau:p3:1",
+        "empresa-junior:p2:1",
+        "pagamento-pix-e-cartao:p2:1",
+        "regulamento-monitoria:p3:1"
+      ]
+    },
+    {
+      "id": "qa041",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "seguranca-laboratorios-quimica:p1:1",
+        "nivelamento-matematica:p2:1",
+        "regulamento-eventos-academicos:p1:1",
+        "nivelamento-matematica:p1:1"
+      ]
+    },
+    {
+      "id": "qa042",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "seguranca-laboratorios-quimica:p2:1",
+        "seguranca-laboratorios-quimica:p2:2",
+        "carteirinha-estudantil:p2:2",
+        "colacao-de-grau:p3:1"
+      ]
+    },
+    {
+      "id": "qa043",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "achados-e-perdidos:p3:1",
+        "regras-provas-online:p2:2",
+        "eleicoes-diretorio-academico:p2:1",
+        "seguranca-laboratorios-quimica:p1:2"
+      ]
+    },
+    {
+      "id": "qa044",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "pagamento-pix-e-cartao:p3:2",
+        "emprestimo-de-notebooks:p1:2",
+        "regulamento-estacionamento:p2:1",
+        "reingresso-e-reabertura:p3:2"
+      ]
+    },
+    {
+      "id": "qa045",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "disciplinas-ead:p2:1",
+        "nucleo-acessibilidade:p2:2",
+        "manual-biblioteca:p2:1",
+        "segunda-chamada-de-provas:p3:2"
+      ]
+    },
+    {
+      "id": "qa046",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "programa-intercambio:p1:1",
+        "calendario-academico-2026:p1:1",
+        "colacao-de-grau:p1:1",
+        "nucleo-acessibilidade:p1:1"
+      ]
+    },
+    {
+      "id": "qa047",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "carteirinha-estudantil:p1:1",
+        "manual-biblioteca:p1:2",
+        "carteirinha-estudantil:p3:1",
+        "regras-de-reembolso:p3:1"
+      ]
+    },
+    {
+      "id": "qa048",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "carteirinha-estudantil:p1:1",
+        "carteirinha-estudantil:p2:1",
+        "servicos-de-impressao:p1:2",
+        "carteirinha-estudantil:p1:2"
+      ]
+    },
+    {
+      "id": "qa049",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "carteirinha-estudantil:p3:1",
+        "carteirinha-estudantil:p1:1",
+        "regras-de-reembolso:p3:1",
+        "eleicoes-diretorio-academico:p3:1"
+      ]
+    },
+    {
+      "id": "qa050",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "programa-apoio-psicologico:p1:1",
+        "manual-biblioteca:p2:1",
+        "nucleo-acessibilidade:p2:2",
+        "achados-e-perdidos:p3:1"
+      ]
+    },
+    {
+      "id": "qa051",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "financiamento-estudantil-privado:p1:1",
+        "manual-biblioteca:p2:1",
+        "programa-apoio-psicologico:p1:1",
+        "nucleo-acessibilidade:p1:2"
+      ]
+    },
+    {
+      "id": "qa052",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "manual-ouvidoria:p1:1",
+        "manual-ouvidoria:p3:2",
+        "carteirinha-estudantil:p3:2",
+        "nucleo-acessibilidade:p1:1"
+      ]
+    },
+    {
+      "id": "qa053",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "programa-intercambio:p1:1",
+        "dupla-diplomacao:p1:1",
+        "regulamento-academico:p1:1",
+        "calendario-academico-2026:p1:1"
+      ]
+    },
+    {
+      "id": "qa054",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "programa-apoio-psicologico:p2:1",
+        "regulamento-esportes-e-academia:p1:1",
+        "emprestimo-de-notebooks:p3:1",
+        "regulamento-academico:p1:1"
+      ]
+    },
+    {
+      "id": "qa055",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "uso-de-armarios:p2:1",
+        "emprestimo-de-notebooks:p3:1",
+        "carteirinha-estudantil:p3:2",
+        "carteirinha-estudantil:p3:1"
+      ]
+    },
+    {
+      "id": "qa056",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "emprestimo-de-notebooks:p3:1",
+        "emprestimo-de-notebooks:p1:2",
+        "disciplinas-ead:p3:1",
+        "manual-biblioteca:p1:2"
+      ]
+    },
+    {
+      "id": "qa057",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "tabela-de-servicos:p1:2",
+        "calendario-academico-2026:p1:1",
+        "nivelamento-matematica:p2:2",
+        "regulamento-esportes-e-academia:p1:1"
+      ]
+    },
+    {
+      "id": "qa058",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "colacao-de-grau:p1:1",
+        "nivelamento-matematica:p1:1",
+        "regulamento-esportes-e-academia:p1:1",
+        "regulamento-eventos-academicos:p1:1"
+      ]
+    },
+    {
+      "id": "qa059",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regulamento-eventos-academicos:p3:1",
+        "iniciacao-cientifica:p1:2",
+        "iniciacao-cientifica:p3:2",
+        "regulamento-eventos-academicos:p1:1"
+      ]
+    },
+    {
+      "id": "qa060",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "cursos-de-extensao:p1:1",
+        "nivelamento-matematica:p1:1",
+        "disciplinas-ead:p1:1",
+        "regulamento-esportes-e-academia:p1:1"
+      ]
+    },
+    {
+      "id": "qa061",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "segunda-chamada-de-provas:p2:1",
+        "empresa-junior:p2:1",
+        "regulamento-atividades-complementares:p1:1",
+        "programa-intercambio:p1:1"
+      ]
+    },
+    {
+      "id": "qa062",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "cursos-de-extensao:p3:2",
+        "regulamento-eventos-academicos:p1:1",
+        "cursos-de-extensao:p1:2",
+        "colacao-de-grau:p1:2"
+      ]
+    },
+    {
+      "id": "qa063",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "nivelamento-matematica:p1:1",
+        "cursos-de-extensao:p1:1",
+        "carteirinha-estudantil:p1:1",
+        "programa-de-mentoria:p1:1"
+      ]
+    },
+    {
+      "id": "qa064",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "cursos-de-extensao:p2:1",
+        "nivelamento-matematica:p1:1",
+        "nivelamento-matematica:p1:2",
+        "tabela-bolsas-e-descontos:p2:1"
+      ]
+    },
+    {
+      "id": "qa065",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "nivelamento-matematica:p3:1",
+        "cursos-de-extensao:p1:2",
+        "regulamento-eventos-academicos:p1:1",
+        "nivelamento-matematica:p1:1"
+      ]
+    },
+    {
+      "id": "qa066",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "disciplinas-ead:p1:1",
+        "manual-biblioteca:p2:2",
+        "colacao-de-grau:p2:2",
+        "colacao-de-grau:p2:1"
+      ]
+    },
+    {
+      "id": "qa067",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "disciplinas-ead:p2:1",
+        "manual-ouvidoria:p2:1",
+        "emprestimo-de-notebooks:p3:1",
+        "carteirinha-estudantil:p3:1"
+      ]
+    },
+    {
+      "id": "qa068",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "cursos-de-extensao:p1:1",
+        "dupla-diplomacao:p2:1",
+        "regulamento-eventos-academicos:p1:1",
+        "regulamento-eventos-academicos:p3:1"
+      ]
+    },
+    {
+      "id": "qa069",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-integridade-academica:p1:1",
+        "dupla-diplomacao:p3:1",
+        "manual-estagio-e-tcc:p1:1",
+        "manual-estagio-e-tcc:p1:2"
+      ]
+    },
+    {
+      "id": "qa070",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-integridade-academica:p2:1",
+        "manual-estagio-e-tcc:p1:1",
+        "segunda-chamada-de-provas:p1:1",
+        "manual-estagio-e-tcc:p1:2"
+      ]
+    },
+    {
+      "id": "qa071",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "politica-integridade-academica:p3:1",
+        "politica-integridade-academica:p1:2",
+        "politica-integridade-academica:p3:2",
+        "disciplinas-ead:p2:1"
+      ]
+    },
+    {
+      "id": "qa072",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regras-provas-online:p1:1",
+        "disciplinas-ead:p2:1",
+        "disciplinas-ead:p1:1",
+        "regras-provas-online:p1:2"
+      ]
+    },
+    {
+      "id": "qa073",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "regras-provas-online:p2:2",
+        "nivelamento-matematica:p2:1",
+        "iniciacao-cientifica:p2:2",
+        "regras-provas-online:p1:1"
+      ]
+    },
+    {
+      "id": "qa074",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "nucleo-acessibilidade:p2:1",
+        "regulamento-atividades-complementares:p2:1",
+        "achados-e-perdidos:p2:2",
+        "nivelamento-matematica:p2:2"
+      ]
+    },
+    {
+      "id": "qa075",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "transferencia-externa:p1:1",
+        "reingresso-e-reabertura:p3:1",
+        "servicos-de-impressao:p3:2",
+        "financiamento-estudantil-privado:p1:1"
+      ]
+    },
+    {
+      "id": "qa076",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "tabela-bolsas-e-descontos:p2:1",
+        "calendario-academico-2026:p1:1",
+        "regulamento-laboratorios-informatica:p1:1",
+        "dupla-diplomacao:p1:1"
+      ]
+    },
+    {
+      "id": "qa077",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "calendario-academico-2026:p2:1",
+        "manual-ouvidoria:p3:2",
+        "carteirinha-estudantil:p1:1",
+        "manual-ouvidoria:p2:2"
+      ]
+    },
+    {
+      "id": "qa078",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "segunda-chamada-de-provas:p1:1",
+        "transferencia-externa:p1:1",
+        "regulamento-academico:p1:1",
+        "emprestimo-de-notebooks:p1:1"
+      ]
+    },
+    {
+      "id": "qa079",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "segunda-chamada-de-provas:p1:1",
+        "emprestimo-de-notebooks:p1:1",
+        "programa-intercambio:p1:1",
+        "emprestimo-de-notebooks:p2:1"
+      ]
+    },
+    {
+      "id": "qa080",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "nivelamento-matematica:p2:2",
+        "calendario-academico-2026:p2:1",
+        "tabela-bolsas-e-descontos:p2:2",
+        "regulamento-academico:p1:2"
+      ]
+    },
+    {
+      "id": "qa081",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "dupla-diplomacao:p1:1",
+        "eleicoes-diretorio-academico:p1:1",
+        "manual-biblioteca:p1:1",
+        "segunda-chamada-de-provas:p3:1"
+      ]
+    },
+    {
+      "id": "qa082",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "dupla-diplomacao:p2:1",
+        "regras-de-reembolso:p3:1",
+        "tabela-de-servicos:p1:2",
+        "colacao-de-grau:p1:2"
+      ]
+    },
+    {
+      "id": "qa083",
+      "mrr": 0.3333333333333333,
+      "ndcg": 0.5,
+      "recall": 1.0,
+      "recuperados": [
+        "disciplinas-ead:p2:1",
+        "regras-provas-online:p3:1",
+        "dupla-diplomacao:p3:1",
+        "regras-de-reembolso:p2:1"
+      ]
+    },
+    {
+      "id": "qa084",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "financiamento-estudantil-privado:p1:1",
+        "manual-estagio-e-tcc:p1:2",
+        "manual-estagio-e-tcc:p2:1",
+        "nivelamento-matematica:p2:2"
+      ]
+    },
+    {
+      "id": "qa085",
+      "mrr": 0.3333333333333333,
+      "ndcg": 0.5,
+      "recall": 1.0,
+      "recuperados": [
+        "pagamento-pix-e-cartao:p3:1",
+        "regras-de-reembolso:p2:1",
+        "financiamento-estudantil-privado:p2:1",
+        "financiamento-estudantil-privado:p3:1"
+      ]
+    },
+    {
+      "id": "qa086",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "pagamento-pix-e-cartao:p1:1",
+        "transporte-fretado-campus:p1:2",
+        "carteirinha-estudantil:p3:1",
+        "financiamento-estudantil-privado:p1:1"
+      ]
+    },
+    {
+      "id": "qa087",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "nivelamento-matematica:p2:2",
+        "calendario-academico-2026:p2:1",
+        "regras-de-reembolso:p3:1",
+        "carteirinha-estudantil:p3:1"
+      ]
+    },
+    {
+      "id": "qa088",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-monitoria:p3:1",
+        "reingresso-e-reabertura:p3:2",
+        "carteirinha-estudantil:p2:2",
+        "regulamento-estacionamento:p2:1"
+      ]
+    },
+    {
+      "id": "qa089",
+      "mrr": 1.0,
+      "ndcg": 0.6131,
+      "recall": 0.5,
+      "recuperados": [
+        "regras-de-reembolso:p3:2",
+        "regulamento-atividades-complementares:p2:1",
+        "regulamento-esportes-e-academia:p1:1",
+        "reingresso-e-reabertura:p3:2"
+      ]
+    },
+    {
+      "id": "qa090",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "pagamento-pix-e-cartao:p1:1",
+        "pagamento-pix-e-cartao:p2:2",
+        "pagamento-pix-e-cartao:p2:1",
+        "nivelamento-matematica:p3:1"
+      ]
+    },
+    {
+      "id": "qa091",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "emprestimo-de-notebooks:p1:1",
+        "regulamento-atividades-complementares:p1:1",
+        "manual-ouvidoria:p1:1",
+        "politica-uso-wifi-campus:p1:1"
+      ]
+    },
+    {
+      "id": "qa092",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "servicos-de-impressao:p1:1",
+        "reingresso-e-reabertura:p3:2",
+        "achados-e-perdidos:p2:1",
+        "pagamento-pix-e-cartao:p3:2"
+      ]
+    },
+    {
+      "id": "qa093",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "segunda-chamada-de-provas:p2:1",
+        "regras-de-reembolso:p3:1",
+        "financiamento-estudantil-privado:p1:1",
+        "reingresso-e-reabertura:p3:2"
+      ]
+    },
+    {
+      "id": "qa094",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "servicos-de-impressao:p3:2",
+        "eleicoes-diretorio-academico:p3:2",
+        "regras-de-reembolso:p3:1",
+        "achados-e-perdidos:p1:1"
+      ]
+    },
+    {
+      "id": "qa095",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "achados-e-perdidos:p2:1",
+        "uso-de-armarios:p1:1",
+        "programa-intercambio:p1:1",
+        "dupla-diplomacao:p1:1"
+      ]
+    },
+    {
+      "id": "qa096",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "achados-e-perdidos:p1:1",
+        "uso-de-armarios:p3:1",
+        "emprestimo-de-notebooks:p2:1",
+        "regulamento-academico:p2:2"
+      ]
+    },
+    {
+      "id": "qa097",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "programa-apoio-psicologico:p2:1",
+        "programa-intercambio:p3:1",
+        "programa-de-mentoria:p1:1",
+        "dupla-diplomacao:p1:1"
+      ]
+    },
+    {
+      "id": "qa098",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "cursos-de-extensao:p1:2",
+        "regulamento-eventos-academicos:p1:1",
+        "programa-intercambio:p2:1",
+        "cursos-de-extensao:p3:2"
+      ]
+    },
+    {
+      "id": "qa099",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "eleicoes-diretorio-academico:p1:1",
+        "regulamento-atividades-complementares:p2:1",
+        "disciplinas-ead:p2:1",
+        "eleicoes-diretorio-academico:p3:2"
+      ]
+    },
+    {
+      "id": "qa100",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "eleicoes-diretorio-academico:p2:1",
+        "manual-estagio-e-tcc:p1:2",
+        "financiamento-estudantil-privado:p1:2",
+        "manual-estagio-e-tcc:p2:1"
+      ]
+    },
+    {
+      "id": "qa101",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "manual-ouvidoria:p3:2",
+        "eleicoes-diretorio-academico:p3:2",
+        "transferencia-externa:p3:1",
+        "nivelamento-matematica:p2:2"
+      ]
+    },
+    {
+      "id": "qa102",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "disciplinas-ead:p1:1",
+        "iniciacao-cientifica:p2:2",
+        "nivelamento-matematica:p2:1",
+        "guia-docente-horas-complementares:p2:2"
+      ]
+    },
+    {
+      "id": "qa103",
+      "mrr": 0.25,
+      "ndcg": 0.4307,
+      "recall": 1.0,
+      "recuperados": [
+        "iniciacao-cientifica:p2:2",
+        "cursos-de-extensao:p2:1",
+        "guia-docente-horas-complementares:p3:2",
+        "guia-docente-diarios-de-classe:p2:1"
+      ]
+    },
+    {
+      "id": "qa104",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-orientacao-tcc:p1:1",
+        "guia-docente-orientacao-tcc:p1:2",
+        "manual-estagio-e-tcc:p1:1",
+        "regulamento-atividades-complementares:p1:1"
+      ]
+    },
+    {
+      "id": "qa105",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-orientacao-tcc:p2:1",
+        "iniciacao-cientifica:p3:1",
+        "manual-estagio-e-tcc:p1:1",
+        "manual-estagio-e-tcc:p1:2"
+      ]
+    },
+    {
+      "id": "qa106",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-orientacao-tcc:p3:2",
+        "segunda-chamada-de-provas:p2:1",
+        "servicos-de-impressao:p1:1",
+        "carteirinha-estudantil:p2:1"
+      ]
+    },
+    {
+      "id": "qa107",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "norma-coordenacao-pre-requisitos:p1:1",
+        "politica-de-privacidade-academica:p1:2",
+        "tabela-bolsas-e-descontos:p2:2",
+        "calendario-academico-2026:p2:1"
+      ]
+    },
+    {
+      "id": "qa108",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "nivelamento-matematica:p2:1",
+        "norma-coordenacao-banca-revisao:p2:2",
+        "norma-coordenacao-banca-revisao:p2:1",
+        "disciplinas-ead:p2:1"
+      ]
+    },
+    {
+      "id": "qa109",
+      "mrr": 0.5,
+      "ndcg": 0.6309,
+      "recall": 1.0,
+      "recuperados": [
+        "regras-provas-online:p1:2",
+        "norma-coordenacao-pre-requisitos:p3:1",
+        "achados-e-perdidos:p2:2",
+        "regras-provas-online:p1:1"
+      ]
+    },
+    {
+      "id": "qa110",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "manual-estagio-e-tcc:p1:2",
+        "segunda-chamada-de-provas:p1:1",
+        "guia-docente-avaliacao:p1:1",
+        "norma-coordenacao-banca-revisao:p3:1"
+      ]
+    },
+    {
+      "id": "qa111",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "nivelamento-matematica:p2:1",
+        "iniciacao-cientifica:p2:1",
+        "guia-docente-orientacao-tcc:p3:1",
+        "disciplinas-ead:p2:1"
+      ]
+    },
+    {
+      "id": "qa112",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "programa-intercambio:p1:2",
+        "guia-docente-diarios-de-classe:p1:2",
+        "regulamento-academico:p1:1",
+        "regras-provas-online:p3:1"
+      ]
+    },
+    {
+      "id": "qa113",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-ti-administracao-contas:p1:1",
+        "guia-docente-diarios-de-classe:p3:2",
+        "calendario-academico-2026:p2:1",
+        "manual-ti-administracao-contas:p3:2"
+      ]
+    },
+    {
+      "id": "qa114",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "manual-financeiro-inadimplencia:p1:1",
+        "segunda-chamada-de-provas:p3:1",
+        "manual-ti-administracao-contas:p1:2",
+        "regras-de-reembolso:p2:1"
+      ]
+    },
+    {
+      "id": "qa115",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-atividades-complementares:p2:1",
+        "manual-ti-administracao-contas:p1:1",
+        "manual-estagio-e-tcc:p1:2",
+        "nucleo-acessibilidade:p2:1"
+      ]
+    },
+    {
+      "id": "qa116",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "guia-docente-horas-complementares:p1:1",
+        "guia-docente-horas-complementares:p1:2",
+        "achados-e-perdidos:p2:2",
+        "emprestimo-de-notebooks:p2:1"
+      ]
+    },
+    {
+      "id": "qa117",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "iniciacao-cientifica:p3:1",
+        "nucleo-acessibilidade:p1:2",
+        "dupla-diplomacao:p1:1",
+        "guia-docente-horas-complementares:p2:2"
+      ]
+    },
+    {
+      "id": "qa118",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "regulamento-atividades-complementares:p3:1",
+        "manual-ouvidoria:p2:1",
+        "financiamento-estudantil-privado:p1:1",
+        "programa-apoio-psicologico:p2:2"
+      ]
+    },
+    {
+      "id": "qa119",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-financeiro-inadimplencia:p1:1",
+        "manual-ti-administracao-contas:p1:2",
+        "regras-de-reembolso:p2:1",
+        "financiamento-estudantil-privado:p2:1"
+      ]
+    },
+    {
+      "id": "qa120",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "manual-financeiro-inadimplencia:p3:1",
+        "carteirinha-estudantil:p1:1",
+        "colacao-de-grau:p1:2",
+        "programa-apoio-psicologico:p2:1"
+      ]
+    },
+    {
+      "id": "qa121",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "protocolo-incidentes-de-dados:p2:1",
+        "emprestimo-de-notebooks:p2:2",
+        "carteirinha-estudantil:p2:2",
+        "guia-docente-diarios-de-classe:p3:2"
+      ]
+    },
+    {
+      "id": "qa122",
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "recall": 0.0,
+      "recuperados": [
+        "manual-ouvidoria:p2:1",
+        "guia-docente-diarios-de-classe:p1:2",
+        "regras-provas-online:p3:1",
+        "segunda-chamada-de-provas:p3:1"
+      ]
+    },
+    {
+      "id": "qa123",
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "recall": 1.0,
+      "recuperados": [
+        "protocolo-incidentes-de-dados:p3:1",
+        "guia-docente-avaliacao:p2:1",
+        "politica-de-privacidade-academica:p1:2",
+        "protocolo-incidentes-de-dados:p1:2"
+      ]
+    }
+  ],
+  "selecao_da_variante": {
+    "criterio": "maior MRR nas perguntas de seleção; estatística só nas de teste",
+    "fracao_selecao": 0.5,
+    "mesmo_conjunto": false,
+    "mrr_selecao": {
+      "hibrida_reranker_lexico": 0.3829,
+      "hibrida_reranker_llm": 0.5214,
+      "hibrida_rrf": 0.3986,
+      "lexical": 0.3108,
+      "vetorial": 0.3727
+    },
+    "n_selecao": 74,
+    "n_teste": 74
+  },
+  "variante_escolhida_para_geracao": "hibrida_reranker_llm"
+}

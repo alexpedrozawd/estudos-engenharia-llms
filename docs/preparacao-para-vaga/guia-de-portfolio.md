@@ -12,12 +12,12 @@ Quatro projetos cobrem o que as vagas mais pedem (agentes `84%`, APIs `80%`, RAG
 
 ## P02 — RAG de produção com `pgvector`
 
-**30 segundos:** "Montei um RAG com busca híbrida no PostgreSQL com `pgvector`, controle de acesso por perfil dentro da consulta SQL e avaliação estatística. Com `151` perguntas, mostrei que a reordenação por LLM melhora a posição do trecho certo, mas que, no acerto entre os quatro primeiros, a diferença contra a busca híbrida ainda pode ser acaso."
+**30 segundos:** "Montei um RAG com busca híbrida no PostgreSQL com `pgvector`, controle de acesso por perfil dentro da consulta SQL e avaliação estatística. Com `151` perguntas, mostrei na prática o peso do vocabulário: quando tirei o cabeçalho de tema das perguntas geradas, o acerto entre os quatro primeiros caiu de `63/74` para `45/74` e a busca por palavra-chave despencou de `0,79` para `0,40` de *recall*, enquanto o *reranker* por LLM segurou a posição do trecho certo com vantagem estatística no MRR."
 
 **2 minutos:**
-- **Problema:** perguntas sobre regulamentos com siglas, tabelas, versões revogadas e documentos restritos.
-- **Decisões:** `pgvector` em vez de banco vetorial dedicado, para ter ACL e vigência na mesma consulta SQL (trade-off no [caso 1](casos-de-system-design.md#caso-1--rag-sobre-documentos-internos-com-controle-de-acesso)); busca lexical em português + vetorial com RRF; tabelas em Markdown com cabeçalho repetido; perguntas que escolhem a variante separadas das que medem.
-- **Números (26/11/2026, `57` documentos, `275` trechos):** *reranker* LLM com acerto@4 `63/74` (Wilson 95% [`0,75`; `0,91`]) e MRR `+0,16` a `+0,18` sobre as demais variantes, com intervalo acima de zero; contra as híbridas no acerto@4, McNemar `p = 0,125` e `0,22`; `0` vazamentos de ACL em `26` consultas restritas; p50/p95 da geração `1.337 / 1.643 ms`.
+- **Problema:** perguntas sobre regulamentos com siglas, tabelas, versões revogadas, documentos restritos e vocabulário diferente do texto oficial.
+- **Decisões:** `pgvector` em vez de banco vetorial dedicado, para ter ACL e vigência na mesma consulta SQL (trade-off no [caso 1](casos-de-system-design.md#caso-1--rag-sobre-documentos-internos-com-controle-de-acesso)); busca lexical em português + vetorial com RRF; tabelas em Markdown com cabeçalho repetido; perguntas que escolhem a variante separadas das que medem; reescrita natural para remover o prefixo `"Sobre <tema>:"`.
+- **Números (26/11/2026, `57` documentos, `275` trechos):** sem o prefixo, *reranker* LLM com acerto@4 `45/74` (Wilson 95% [`0,49`; `0,71`]; era `63/74` com o prefixo) e MRR `+0,12` a `+0,20` sobre as demais variantes, com intervalo acima de zero; vence a lexical (`p = 0,0018`), a RRF e o *reranker* léxico (`p = 0,031`), mas não a vetorial (`p = 0,344`); geração com conteúdo esperado em `63/148` (`25/25` nas perguntas base e `38/123` nas ampliadas reescritas; era `127/148` com prefixo); `0` vazamentos de ACL em `26` consultas restritas; p50/p95 da geração `1.116 / 3.211 ms`.
 - **Limites:** corpus e perguntas do mesmo LLM; fidelidade lexical não reconhece paráfrase; conexão por operação (em produção, *pool*); varredura iterativa do `pgvector` desligada.
 
 **Perguntas prováveis:** por que não Pinecone; como o filtro de ACL interage com o índice HNSW; como escolheu `k = 4`; quanto custa o *reranker* (`8` chamadas por pergunta); como trocaria o modelo de embedding sem parar o serviço.
@@ -64,4 +64,4 @@ Quatro projetos cobrem o que as vagas mais pedem (agentes `84%`, APIs `80%`, RAG
 3. Um erro que você encontrou e corrigiu, com o método do [bloco de diagnóstico](entrevista-comunicacao-e-diagnostico.md#3-diagnosticar-falhas-não-determinísticas).
 4. O que faria a seguir: revisão humana dos dados, deploy com teto de gasto, carga com usuários reais.
 
-claude - pessoal, 26/11/2026.
+claude - pessoal, 26/11/2026; atualizado em 26/11/2026 por agy - ap (Gemini 4 Hydrogen High).

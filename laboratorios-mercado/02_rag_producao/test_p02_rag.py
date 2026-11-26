@@ -396,6 +396,10 @@ class TestEstatisticaECache(unittest.TestCase):
         longo = rr.checar_reescrita("Sobre o aluguel e os armarios: quanto custa?", "aluguel dos armarios grandes",
                                     "25 reais", "x")
         self.assertIn("repete mais de 1", longo)
+        p2 = rr.prompt_reescrita("qual a taxa?", "eventos", "um aluno", "mudou o sentido")
+        p3 = rr.prompt_reescrita("qual a taxa?", "eventos", "um aluno", "mudou o sentido", "tentativa anterior?")
+        self.assertNotEqual(p2, p3)
+        self.assertIn("tentativa anterior?", p3)
         # Toda pergunta já reescrita no arquivo congelado continua passando nas travas.
         for q in corpus_aurora.carregar_consultas(ampliado=True):
             if "pergunta_original" in q:

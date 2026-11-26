@@ -109,7 +109,7 @@ def main(argv=None) -> int:
         boa, ruim = q["resposta_referencia"], aplicar_defeito(q["resposta_referencia"], defeito)
         boa_em_a = q["id"] in boa_em_a_ids
         pares.append({"id": f"cal-{q['id']}", "origem": "construcao", "defeito": defeito,
-                      "pergunta": q["pergunta"], "referencia": q["resposta_referencia"],
+                      "pergunta": q.get("pergunta_original", q["pergunta"]), "referencia": q["resposta_referencia"],
                       "resposta_a": boa if boa_em_a else ruim, "resposta_b": ruim if boa_em_a else boa,
                       "rotulo_referencia": "A" if boa_em_a else "B"})
 

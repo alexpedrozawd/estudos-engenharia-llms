@@ -42,7 +42,7 @@ ESQUEMA = {"type": "json_schema", "json_schema": {"name": "pergunta", "strict": 
 ESQUEMA_EQUIVALENCIA = {"type": "json_schema", "json_schema": {"name": "equivalencia", "strict": True, "schema": {
     "type": "object", "additionalProperties": False, "required": ["equivalente"],
     "properties": {"equivalente": {"type": "boolean"}}}}}
-MAX_TENTATIVAS = 4
+MAX_TENTATIVAS = 6
 
 
 def palavras_de_conteudo(texto: str) -> set:
@@ -84,7 +84,7 @@ def checar_reescrita(nova: str, tema: str, resposta_curta: str, trecho: str) -> 
     return None
 
 
-def prompt_reescrita(resto: str, tema: str, quem: str, motivo: str = "") -> str:
+def prompt_reescrita(resto: str, tema: str, quem: str, motivo: str = "", anterior: str = "") -> str:
     texto = (
         f"Voce e {quem} da Aurora Educacao (faculdade ficticia) escrevendo no chat de atendimento. "
         "Reescreva a pergunta abaixo do jeito que voce digitaria, numa frase so, terminando com '?'. "
@@ -95,6 +95,11 @@ def prompt_reescrita(resto: str, tema: str, quem: str, motivo: str = "") -> str:
     )
     if motivo:
         texto += f"Uma tentativa anterior foi recusada porque {motivo}. Escreva de outro jeito.\n"
+    if anterior:
+        texto += (
+            f"Nao repita formulacao ja recusada: {anterior}. "
+            "(Se precisar para nao mudar o sentido, voce pode usar uma unica palavra-chave do assunto.)\n"
+        )
     return texto + 'Responda so com JSON: {"pergunta": "..."}'
 
 
@@ -128,10 +133,11 @@ def main(argv=None) -> int:
         tema = TEMA_POR_DOC[crit["doc"]]
         resto = separar_prefixo(original, tema)
         perfil = q.get("filtro", {}).get("perfil", "aluno")
-        motivo, nova = "", None
+        motivo, nova, rejeitadas = "", None, []
         for i in range(1, MAX_TENTATIVAS + 1):
+            anterior = "; ".join(rejeitadas) if i >= 3 else ""
             r = cliente.completar_chat(
-                [{"role": "user", "content": prompt_reescrita(resto, tema, QUEM.get(perfil, "um aluno"), motivo)}],
+                [{"role": "user", "content": prompt_reescrita(resto, tema, QUEM.get(perfil, "um aluno"), motivo, anterior)}],
                 response_format=ESQUEMA, temperatura=args.temperatura, max_tokens=200)
             # JSON inválido vira recusa com motivo: o prompt seguinte muda, e o cache não repete o erro.
             candidata = " ".join(str(ler_json(r.conteudo, "pergunta") or "").split())
@@ -145,6 +151,7 @@ def main(argv=None) -> int:
                 nova = candidata
                 tentativas[i] += 1
                 break
+            rejeitadas.append(candidata or "(vazio)")
             motivos[motivo] += 1
         if nova is None:
             falhas.append(q["id"])

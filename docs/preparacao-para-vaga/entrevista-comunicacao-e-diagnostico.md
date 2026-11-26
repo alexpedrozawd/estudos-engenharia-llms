@@ -12,9 +12,9 @@ Use o formato situação → ação → resultado → aprendizado, em até 2 min
 3. **Como saberemos:** a métrica que acompanha e quem olha.
 4. **O que acontece quando errar:** a rede de proteção (fila humana, recusa, rollback).
 
-**Exemplo (P02, RAG):** "O assistente achou o trecho certo entre os quatro primeiros em `63` de `74` perguntas de teste, mais ou menos `85%`. Ele erra mais quando a pergunta usa palavras diferentes das do regulamento. Toda resposta mostra o trecho de origem, e, quando não acha nada relevante, ele diz que não sabe em vez de inventar. Vamos acompanhar as perguntas sem resposta toda semana."
+**Exemplo (P02, RAG):** "Com perguntas naturais sem cabeçalho de tema, o assistente achou o trecho certo entre os quatro primeiros em `45` de `74` perguntas de teste, cerca de `61%` (antes, quando a pergunta repetia o tema do documento, passava para `63` de `74`, `85%`). Ele erra mais quando a pergunta usa sinônimos ou não cita o serviço exato. Toda resposta mostra o trecho de origem, e, quando não acha nada relevante, ele diz que não sabe em vez de inventar. Vamos acompanhar as perguntas sem resposta toda semana."
 
-**Exemplo (amostra pequena engana):** "Com `28` perguntas, a busca vetorial achou o trecho certo em todas. Com `151`, vimos que a busca sem reordenação erra quase uma em cada cinco. Por isso não prometo número antes de testar com perguntas reais de vocês."
+**Exemplo (amostra pequena engana):** "Com `28` perguntas, a busca vetorial achou o trecho certo em todas. Com `151` perguntas naturais, a busca vetorial achou em metade (`0,50`) e a busca só por palavra-chave caiu para `0,40`. Por isso não prometo número antes de testar com perguntas reais de vocês."
 
 **Exemplo ("zero falhas" não é garantia):** "No teste de ataque, nenhuma das `20` tentativas de uma sonda funcionou. Isso não quer dizer risco zero: com essa amostra, a taxa real ainda pode chegar a `16%`. Para afirmar mais, precisamos de mais tentativas."
 
@@ -84,4 +84,4 @@ Use o formato situação → ação → resultado → aprendizado, em até 2 min
 
 **Armadilhas:** "rodei de novo e funcionou"; mudar várias coisas de uma vez; culpar o modelo antes de olhar a recuperação.
 
-claude - pessoal, 26/11/2026.
+claude - pessoal, 26/11/2026; atualizado em 26/11/2026 por agy - ap (Gemini 4 Hydrogen High).

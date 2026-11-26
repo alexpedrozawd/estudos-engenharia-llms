@@ -1,0 +1,34 @@
+{
+  "data": "2026-11-26",
+  "tipo": "revisao_por_modelo_de_fronteira",
+  "revisor": "agy - ap (Gemini 4 Hydrogen High)",
+  "nao_e_revisao_humana": true,
+  "metodo": "amostra deterministica de 15 perguntas por sha256('rev-reescrita|' + id) mais qa015 e qa016 para conferencia de regressao",
+  "total_amostra_deterministica": 15,
+  "extras": ["qa015", "qa016"],
+  "resumo": {
+    "naturais_sem_prefixo": 15,
+    "sentido_e_assunto_preservados_na_amostra": 12,
+    "desvio_ou_ambiguidade_na_amostra": 3,
+    "vazamento_de_resposta_ou_tema_exato": 0
+  },
+  "itens": [
+    {"id": "qa031", "equivalente": true, "observacao": "OK; pontuacao dupla '??' no fim"},
+    {"id": "qa003", "equivalente": true, "observacao": "OK"},
+    {"id": "qa095", "equivalente": true, "observacao": "OK; trocou armario por guarda-roupa"},
+    {"id": "qa098", "equivalente": true, "observacao": "OK"},
+    {"id": "qa059", "equivalente": true, "observacao": "OK apos ajuste de cache e limite de tentativas; 'Que horas comeca o evento?'"},
+    {"id": "qa112", "equivalente": true, "observacao": "OK; usa 'reapresentacao de resultados' e 'recursos'"},
+    {"id": "qa047", "equivalente": true, "observacao": "OK"},
+    {"id": "qa007", "equivalente": false, "observacao": "desvio: perguntava valor do aluguel de espaco e reescreveu como 'mensalidade do RU'"},
+    {"id": "qa109", "equivalente": false, "observacao": "ambigua: pediu 'avaliacao complementar' sem indicar quebra de pre-requisito"},
+    {"id": "qa117", "equivalente": true, "observacao": "OK para contexto escolar ('RP dos professores')"},
+    {"id": "qa096", "equivalente": true, "observacao": "OK; usou 'locker'"},
+    {"id": "qa042", "equivalente": true, "observacao": "OK; generalizou luvas para EPIs"},
+    {"id": "qa054", "equivalente": false, "observacao": "desvio leve: atraso nos treinos virou 'perder a sessao da academia'"},
+    {"id": "qa013", "equivalente": true, "observacao": "OK; erro de grafia natural 'intercambiado'"},
+    {"id": "qa053", "equivalente": true, "observacao": "OK"},
+    {"id": "qa015", "equivalente": true, "observacao": "extra: manteve 'ouvidoria'"},
+    {"id": "qa016", "equivalente": true, "observacao": "extra: manteve contexto de prova e recurso especial"}
+  ]
+}

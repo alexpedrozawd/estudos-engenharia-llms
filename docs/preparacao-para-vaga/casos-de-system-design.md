@@ -75,7 +75,7 @@ Fale em voz alta e grave. Depois, pontue com a rubrica e compare com a resposta 
 
 **Sinais de sênior:** propõe medir *recall* com e sem filtro por perfil; separa as perguntas que escolhem a variante das que medem o resultado; cita o custo de reindexar quando o modelo de embedding muda.
 
-**Evidência no projeto (P02, 26/11/2026):** `57` documentos, `275` trechos, `151` perguntas, `pgvector` com HNSW e filtro SQL por perfil e vigência. Escolhendo em `74` perguntas e medindo em outras `74`, o *reranker* LLM teve acerto@4 de `63/74` (Wilson 95% [`0,75`; `0,91`]) e MRR `+0,16` a `+0,18` sobre as demais variantes, mas **sem diferença significativa** no acerto@4 contra as híbridas (McNemar `p = 0,125` e `0,22`). ACL: `0` vazamentos em `26` consultas restritas. Limite: o P02 não liga a varredura iterativa do `pgvector`. Com `275` trechos isso não pesa, mas em escala o filtro por perfil reduziria o *recall*.
+**Evidência no projeto (P02, 26/11/2026):** `57` documentos, `275` trechos, `151` perguntas (`123` reescritas sem prefixo de tema), `pgvector` com HNSW e filtro SQL por perfil e vigência. Escolhendo em `74` perguntas e medindo em outras `74`, o *reranker* LLM teve acerto@4 de `45/74` (Wilson 95% [`0,49`; `0,71`]; com o prefixo `"Sobre <tema>:"`, era `63/74`) e MRR `+0,12` a `+0,20` sobre as demais variantes, superando no acerto@4 a lexical (`p = 0,0018`), a RRF e o *reranker* léxico (`p = 0,031`), mas não a vetorial pura (`p = 0,344`). A busca lexical caiu de `0,79` para `0,40` de *recall* quando o vocabulário das perguntas mudou. ACL: `0` vazamentos em `26` consultas restritas. Limite: o P02 não liga a varredura iterativa do `pgvector`. Com `275` trechos isso não pesa, mas em escala o filtro por perfil reduziria o *recall*.
 
 ---
 

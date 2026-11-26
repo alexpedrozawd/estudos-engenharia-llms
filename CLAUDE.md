@@ -14,7 +14,7 @@ Este arquivo, planos e handoffs não autorizam ações: revalide Git, hashes e s
 
 ## Pendências
 
-- **P02, perguntas naturais:** o script `laboratorios-mercado/02_rag_producao/reescrever_perguntas.py` está pronto e testado, mas a execução ficou pendente (GPU ocupada em 26/11/2026). Passos e critério de aceite no [changelog](docs/changelogs/changelog-p02-perguntas-naturais-e-escopo-pessoal-2026-11-26.md).
+- **Nenhuma pendência aberta** (em 26/11/2026, a reescrita das `123` perguntas do P02 e a nova rodada no `pgvector` foram concluídas: [changelog](docs/changelogs/changelog-p02-perguntas-naturais-e-escopo-pessoal-2026-11-26.md); deploy em nuvem e revisão humana estão fora do escopo).
 
 ## Regras fixas do operador
 

@@ -1,0 +1,26 @@
+{
+  "aceitas_na_tentativa": {
+    "1": 113,
+    "2": 9,
+    "4": 1
+  },
+  "cache_llm": {
+    "chamadas_reais": 4,
+    "reaproveitadas": 265
+  },
+  "carimbo": "2026-11-26T12-16-39-0300",
+  "execucao": "p02-reescrita-perguntas",
+  "modelo": "qwen3.8:27b-ud-iq3_xxs",
+  "perguntas": 123,
+  "recusas_por_motivo": {
+    "mudou o sentido ou deixou o assunto pouco claro": 11,
+    "repete mais de 2 palavra(s) do tema": 1
+  },
+  "sha256_prompt_equivalencia": "d1950eb99ae0df6046a81dd47b1d01bf732915e4b81adb990305180d8254c1f3",
+  "sha256_prompt_exemplo": "ff032d42ff13be7ef4b112a9c914b1850a1ea48b214890b8e837a54db4292dfa",
+  "sobreposicao_media_com_o_tema": {
+    "antes": 1.0,
+    "depois": 0.108
+  },
+  "temperatura": 0.7
+}
