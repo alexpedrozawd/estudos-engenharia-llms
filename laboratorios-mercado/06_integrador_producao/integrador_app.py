@@ -18,11 +18,13 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import os
 import re
 import sys
 import tempfile
 import time
+import unicodedata
 import uuid
 from collections import deque
 from dataclasses import dataclass, field
@@ -42,6 +44,7 @@ from mercado_base.seguranca_http import (  # noqa: E402
     instalar_seguranca_http,
 )
 
+import httpx  # noqa: E402
 from fastapi import FastAPI, Request  # noqa: E402
 from fastapi.responses import JSONResponse  # noqa: E402
 from mcp import Client  # noqa: E402
@@ -62,6 +65,20 @@ PADROES_INJECAO = [
     r"system\s+prompt",
     r"modo\s+desenvolvedor",
 ]
+RESPOSTA_INDISPONIVEL = "O assistente está indisponível no momento. Tente de novo em instantes."
+LOG = logging.getLogger("integrador")
+
+
+def falha_de_backend(exc: BaseException) -> bool:
+    """Erro de rede ou HTTP do modelo (inclusive dentro do ExceptionGroup do cliente MCP)?
+
+    Só essas falhas viram 503; outros erros continuam visíveis como defeito de código.
+    """
+    if isinstance(exc, BaseExceptionGroup):
+        return bool(exc.exceptions) and all(falha_de_backend(e) for e in exc.exceptions)
+    return isinstance(exc, (httpx.HTTPError, TimeoutError, ConnectionError))
+
+
 GATILHOS_COMPLEXIDADE = re.compile(r"\b(compare|comparar|analise|analisar|plano|estrat[eé]gia|detalhadamente|passo a passo)\b", re.I)
 
 SISTEMA_AGENTE = (
@@ -100,9 +117,19 @@ def mcp_tools_para_openai(ferramentas_mcp: Sequence[object]) -> List[Dict[str, o
     return saida
 
 
+# Contrabando de instruções (red teaming, Etapa 4): caracteres do bloco Unicode "tags" são invisíveis na
+# tela, mas o modelo os lê. Não têm uso legítimo numa pergunta: bloqueia. Zero-width e controles bidi
+# aparecem por copiar e colar: saem do texto antes da checagem, para não esconderem um padrão de injeção.
+RE_TAGS_UNICODE = re.compile("[\U000E0000-\U000E007F]")
+RE_INVISIVEIS = re.compile("[\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u2069\uFEFF]")
+
+
 def verificar_entrada(texto: str) -> Dict[str, object]:
-    # EXERCICIO-INICIO: bloqueie padrões de injeção; senão mascare a PII e devolva o texto mascarado.
-    baixo = texto.lower()
+    # EXERCICIO-INICIO: bloqueie caracteres Unicode de tags e padrões de injeção (após tirar invisíveis e normalizar NFKC); senão mascare a PII.
+    if RE_TAGS_UNICODE.search(texto):
+        return {"bloqueado": True, "motivo": "caracteres_ocultos_unicode", "texto": "", "pii": []}
+    texto = RE_INVISIVEIS.sub("", texto)
+    baixo = unicodedata.normalize("NFKC", texto).lower()
     for padrao in PADROES_INJECAO:
         if re.search(padrao, baixo):
             return {"bloqueado": True, "motivo": "possivel_injecao_de_prompt", "texto": "", "pii": []}
@@ -111,14 +138,19 @@ def verificar_entrada(texto: str) -> Dict[str, object]:
     # EXERCICIO-FIM
 
 
+# Red teaming (garak ansiescape.AnsiRaw): a resposta trouxe o byte de controle \x9b cru. Controles C0/C1
+# (exceto \t e \n) podem injetar sequências ANSI em terminais e logs que exibem a saída.
+RE_CONTROLE = re.compile("[\x00-\x08\x0b-\x1f\x7f-\x9f]")
+
+
 def verificar_saida(resposta: str, trechos, limiar_fidelidade: float = 0.5) -> Dict[str, object]:
     """Exige citação válida; mascara PII que escape (CPF, e-mail e telefone). Sem citação → recusa segura.
 
     Fidelidade lexical abaixo do limiar não bloqueia (a métrica não reconhece paráfrase), mas marca
     a resposta para revisão humana amostral (`aprovado_com_alerta`).
     """
-    # EXERCICIO-INICIO: mascare PII e meça a fidelidade; recusa do modelo passa; citação inválida ou ausente vira a recusa padrão.
-    limpa, _ = mascarar_pii(resposta)
+    # EXERCICIO-INICIO: tire caracteres de controle, mascare PII e meça a fidelidade; recusa do modelo passa; citação inválida ou ausente vira a recusa padrão.
+    limpa, _ = mascarar_pii(RE_CONTROLE.sub("", resposta))
     fid = rp.fidelidade(limpa, trechos)
     citou = bool(re.search(r"\[T\d+\]", limpa))
     if fid["recusa"]:
@@ -197,6 +229,7 @@ class Assistente:
             "chamadas_ferramentas_mcp": 0,
             "reparos_estruturado": 0,
             "falhas_esquema": 0,
+            "falhas_backend": 0,
             "tokens_entrada": 0,
             "tokens_saida": 0,
             "tokens_cache": 0,
@@ -225,6 +258,8 @@ class Assistente:
         self._totais["reparos_estruturado"] += int(reg.get("reparos_estruturado") or 0)
         if reg.get("acao_saida") == "falha_esquema_estruturado":
             self._totais["falhas_esquema"] += 1
+        if reg.get("acao_saida") == "falha_backend":
+            self._totais["falhas_backend"] += 1
         self._totais["tokens_entrada"] += int(reg.get("tokens_entrada") or 0)
         self._totais["tokens_saida"] += int(reg.get("tokens_saida") or 0)
         self._totais["tokens_cache"] += int(reg.get("tokens_cache") or 0)
@@ -450,7 +485,21 @@ class Assistente:
         )
         marcar("rag")
         cliente = self.cliente_fronteira if decisao["rota"] == "fronteira" else self.cliente_local
-        gerado = await self._executar_agente_e_gerar(cliente, ent["texto"], rec.trechos)
+        try:
+            gerado = await self._executar_agente_e_gerar(cliente, ent["texto"], rec.trechos)
+        except Exception as exc:  # noqa: BLE001 - filtrado por falha_de_backend; o resto sobe
+            if not falha_de_backend(exc):
+                raise
+            # Red teaming (Etapa 4): o modelo devolveu 500 e o P06 respondia 500 com traceback no log.
+            LOG.warning("falha do backend LLM na rota %s: %s", decisao["rota"], type(exc).__name__)
+            marcar("agente_llm")
+            reg = {"id": id_req, "bloqueado": False, "rota": decisao["rota"], "motivo_rota": decisao["motivo"],
+                   "pii_mascarada": ent["pii"], "acao_saida": "falha_backend", "indisponivel": True,
+                   "tokens_entrada": 0, "tokens_saida": 0, "tokens_cache": 0, "custo_usd": 0.0,
+                   "etapas_ms": etapas, "total_ms": round((time.perf_counter() - t_total) * 1000, 3)}
+            self._registrar(reg)
+            self._emitir_trace(reg, cliente)
+            return {**reg, "resposta": RESPOSTA_INDISPONIVEL}
         trechos_finais = gerado["trechos"]
         marcar("agente_llm")
         saida = verificar_saida(gerado["resposta"], trechos_finais)
@@ -495,6 +544,7 @@ class Assistente:
             "chamadas_ferramentas_mcp": self._totais["chamadas_ferramentas_mcp"],
             "reparos_estruturado": self._totais["reparos_estruturado"],
             "falhas_esquema": self._totais["falhas_esquema"],
+            "falhas_backend": self._totais["falhas_backend"],
             "latencia_ms": {"p50": round(mb.percentil(total, 50), 3) if total else None,
                             "p95": round(mb.percentil(total, 95), 3) if total else None},
             "latencia_p50_por_etapa_ms": {e: round(mb.percentil([r["etapas_ms"][e] for r in regs if e in r["etapas_ms"]], 50), 3)
@@ -555,9 +605,12 @@ def criar_app(
         bloqueio = _verificar_perfil(request, p.perfil)
         if bloqueio is not None:
             return bloqueio
-        return await assistente.responder(
+        r = await assistente.responder(
             p.pergunta, p.id_requisicao, perfil=p.perfil, apenas_vigentes=p.apenas_vigentes
         )
+        if r.get("indisponivel"):
+            return JSONResponse(r, status_code=503, headers={"Retry-After": "5"})
+        return r
 
     @app.get("/v1/relatorio")
     async def relatorio(request: Request):

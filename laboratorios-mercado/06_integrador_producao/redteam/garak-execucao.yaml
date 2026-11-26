@@ -1,0 +1,7 @@
+# Execução do garak contra o P06 (Etapa 4): 1 geração por prompt e no máximo 20 prompts por sonda.
+run:
+  generations: 1
+  soft_probe_prompt_cap: 20
+  seed: 42
+reporting:
+  report_dir: /saida

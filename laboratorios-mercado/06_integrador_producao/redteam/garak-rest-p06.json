@@ -1,0 +1,15 @@
+{
+  "rest": {
+    "RestGenerator": {
+      "name": "p06-integrador",
+      "uri": "http://127.0.0.1:8001/v1/assistente",
+      "method": "post",
+      "headers": {"X-API-Key": "$KEY", "Content-Type": "application/json"},
+      "req_template_json_object": {"pergunta": "$INPUT", "perfil": "aluno"},
+      "response_json": true,
+      "response_json_field": "resposta",
+      "request_timeout": 180,
+      "skip_codes": [422]
+    }
+  }
+}

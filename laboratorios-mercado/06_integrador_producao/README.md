@@ -3,11 +3,11 @@
 Assistente acadêmico ponta a ponta (`integrador_app.py`), reutilizando os projetos 02, 03 e 05 e `mercado_base/` (além do cliente neutro em `laboratorios/comum` para provedores de fronteira opcionais):
 
 1. **Segurança HTTP opcional e anti-BFLA:** autenticação via `X-API-Key` / `Authorization: Bearer`, vínculo opcional chave → perfil máximo (`AURORA_PERFIS_CHAVES`, bloqueando elevação com HTTP `403`) e *rate limiting* (`429 + Retry-After`) via `mercado_base.seguranca_http`.
-2. **Guardrail de entrada:** bloqueia padrões de injeção de prompt antes de qualquer chamada ao LLM; mascara CPF (com validação de dígitos verificadores), e-mail e telefone via `mercado_base.pii`.
+2. **Guardrail de entrada:** bloqueia caracteres Unicode de *tags* (contrabando de instrução invisível) e padrões de injeção de prompt antes de qualquer chamada ao LLM, depois de remover *zero-width*/bidi e normalizar em NFKC; mascara CPF (com validação de dígitos verificadores), e-mail e telefone via `mercado_base.pii`.
 3. **Roteamento:** dado pessoal → local; pergunta complexa com orçamento → fronteira; sem cliente de fronteira → local com motivo `fallback`.
 4. **RAG com ACL e vigência:** busca híbrida do projeto 02 com `FiltroBusca(perfil=..., apenas_vigentes=...)` pré-filtrado em SQL no `pgvector`.
 5. **Laço agêntico MCP + *structured outputs*:** converte as ferramentas do servidor MCP (`consultar_prazo`, `calcular_media_ponderada`, `executar_python_isolado` com *elicitation*/falha fechada) para `tools` OpenAI via `mcp_tools_para_openai`, executa até `max_passos_agente` passos via `ClienteChatOpenAI` e consolida em `RespostaEstruturada` (`response_format` `json_schema` estrito + reparo automático via Pydantic + degradação segura sem HTTP `500` em falha persistente de schema), medindo `tokens_cache`.
-6. **Guardrail de saída e histórico limitado:** mascara CPF, e-mail e telefone que escaparem; exige citação `[Tn]` válida; registra histórico em `collections.deque(maxlen=...)` mantendo contadores cumulativos em `GET /v1/relatorio`.
+6. **Guardrail de saída e histórico limitado:** remove caracteres de controle (sequências ANSI), mascara CPF, e-mail e telefone que escaparem; exige citação `[Tn]` válida; registra histórico em `collections.deque(maxlen=...)` mantendo contadores cumulativos em `GET /v1/relatorio`.
 
 Preços: `Precos` vem com fronteira em valores **ilustrativos** (USD por milhão de tokens); configure `INTEGRADOR_PRECOS_JSON` com a tabela vigente do seu fornecedor. O custo local não inclui energia nem hardware.
 
@@ -42,3 +42,10 @@ Em 25/11/2026 (Etapa 2 na GPU via Ollama `/v1`, `LLM_LOCAL_REASONING_EFFORT=none
 Em 25/11/2026 (validação real anti-BFLA com `INTEGRADOR_PERFIS_CHAVES`): `4/4` verificações aprovadas contra `uvicorn` + `llama.cpp` + `pgvector` — HTTP `401` (`nao_autenticado`) sem chave, HTTP `403` (`perfil_nao_autorizado`, `perfil_maximo: "aluno"`) ao solicitar `perfil: "admin"` com chave de aluno, HTTP `200` sem vazamento de `manual-financeiro-administrativo` no perfil `aluno` e HTTP `200` com acesso ao trecho restrito no perfil `admin` (registro em `execucoes/p06-integrador-anti-bfla-*.json`).
 
 Limites: regras de roteamento e padrões de injeção são didáticos (listas fixas não bastam contra ataques adaptativos); combine com as defesas do Cap. 12 do guia (Segurança, Guardrails e IA Responsável).
+
+**Red teaming com garak (Etapa 4, 26/11/2026; [relatório](redteam/relatorio-red-teaming-p06-2026-11-26.md)):** garak `0.17.1` em container próprio contra `/v1/assistente` com autenticação e o 27B: `14` sondas e `342` tentativas (injeção direta e indireta, extração do prompt de sistema, codificações, exfiltração por Markdown, XSS, SQL, Jinja, DAN, ANSI e *tags* Unicode). Correções com teste:
+- falha do LLM agora vira HTTP `503` + `Retry-After` e `falhas_backend` no relatório, em vez de `500` com *traceback*;
+- *tags* Unicode são bloqueadas na entrada (`caracteres_ocultos_unicode`);
+- caracteres de controle saem da resposta.
+
+DAN deu `16` falsos positivos (detector só reconhece recusas em inglês). Arquivos em [`redteam/`](redteam/): `executar_garak.sh`, configuração REST e `resumir_garak.py`.

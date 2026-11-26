@@ -29,7 +29,7 @@ python3.13 -m venv .venv-mercado
 ## Smoke-tests offline
 
 ```bash
-.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (131 testes)
+.venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py            # todos (135 testes)
 .venv-mercado/bin/python -I -W error::ResourceWarning laboratorios-mercado/executar_smoke.py --alvo 07_evals_e_multimodal
 ```
 
@@ -111,5 +111,7 @@ Execução real via Ollama `0.40.18` (`/v1`) com `reasoning_effort=none` (`qwen3
 | 02 (RAG) | `12` PDFs, `41` trechos, `28` perguntas | `57` documentos, `275` trechos, `151` perguntas | *reranker* LLM: acerto@4 `134/148` [`0,85`; `0,94`]; vence as `4` outras variantes (McNemar `p` de `0,0003` a `0,02`); ACL `0` vazamentos em `26` |
 | 04 (QLoRA) | `36` chamados (`12` de teste) | `360` (`163` treino / `74` validação / `123` teste) | épocas escolhidas na validação (`6`); teste `0,610 → 0,976`, `45` ganhos e `0` perdas, McNemar `p < 10⁻⁶`; portão **aprovou** sem intervenção |
 | 07 (Evals) | `16` casos, `12` pares | `150` casos, `40` pares | `kappa = 0,955` [`0,86`; `1,0`] (`0,871` nos `12` pré-rotulados); `B = 137`, `empate = 9`, `A = 4`; `+0,98` [`0,84`; `1,11`] |
+
+**Etapa 4 — red teaming do P06 (26/11/2026):** garak `0.17.1` em container (sem tocar a imagem base nem o `.venv-mercado`) contra o P06 com autenticação e o 27B: `14` sondas e `342` tentativas. As injeções direta, indireta e codificada, a extração do prompt de sistema, a exfiltração e o XSS falharam todas. Três achados foram corrigidos com teste: `500` → `503` em falha do LLM, bloqueio de *tags* Unicode ocultas e remoção de controles ANSI na saída. Ver o [relatório](06_integrador_producao/redteam/relatorio-red-teaming-p06-2026-11-26.md).
 
 Observação operacional: sem `reasoning_effort=none`, o `qwen3.8:27b-ud-iq3_xxs` consome `max_tokens` em `reasoning` antes de emitir conteúdo (falhando em `max_tokens=4` e `json_schema` com `max_tokens=256`). Com `reasoning_effort=none`, todos os contratos (`tools`, `json_schema` estrito e *reranker*) funcionaram sem precisar recorrer à quantização `iq4_xs`.
