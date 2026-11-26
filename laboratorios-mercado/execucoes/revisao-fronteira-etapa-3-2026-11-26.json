@@ -1,0 +1,732 @@
+{
+  "tipo": "revisao-amostral-etapa-3",
+  "data": "2026-11-26",
+  "revisor": "claude - pessoal (Claude Opus 5.5, modelo de fronteira); NAO e revisao humana",
+  "decisao_operador": "operador escolheu, em 26/11/2026, a revisao por modelo de fronteira no lugar da revisao humana",
+  "metodo": "amostragem deterministica por sha256('rev3|'+id); rotulos escondidos durante a revisao e comparados depois; veredito do juiz 27B reconstruido do cache da execucao de 26/11 (80 chamadas do cache, 0 reais)",
+  "arquivos_revisados_sha256": {
+    "04_qlora_peft/dados/chamados_aurora.jsonl": "181a8e31925ef752faa2ce32249a47d0bd9a16d18975587bc2a5f5f4bda9bbb4",
+    "02_rag_producao/dados/consultas_ampliadas.json": "e80840b2ade89ea1fa415139afbf40136a23a1d5ad30b9007de1b155e4613435",
+    "02_rag_producao/dados/corpus_ampliado.json": "e188afbc2502c9470176c8c13943596df211c77753ef2e5fe2410c630a9eaaf6",
+    "07_evals_e_multimodal/dados/casos_eval.json": "1e365c02cbe3a843ced3e93e67951011674b37b84b8d5341d751a410808a626a"
+  },
+  "p04": {
+    "amostra": "3 sinteticos por estrato (fatia x categoria), 36 de 324",
+    "itens": [
+      {
+        "id": "c163",
+        "fatia": "informal",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": "texto pouco natural: 'adiantamento das férias escolares' não é algo que aluno parcela"
+      },
+      {
+        "id": "c356",
+        "fatia": "com_ruido",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c233",
+        "fatia": "informal",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c039",
+        "fatia": "formal",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      },
+      {
+        "id": "c042",
+        "fatia": "formal",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      },
+      {
+        "id": "c230",
+        "fatia": "informal",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c093",
+        "fatia": "formal",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c310",
+        "fatia": "com_ruido",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c147",
+        "fatia": "informal",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      },
+      {
+        "id": "c077",
+        "fatia": "formal",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c206",
+        "fatia": "informal",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c307",
+        "fatia": "com_ruido",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c238",
+        "fatia": "informal",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": "ambíguo: 'trancar matrícula' pode ser do curso (secretaria) ou de disciplina (academico)"
+      },
+      {
+        "id": "c126",
+        "fatia": "formal",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c146",
+        "fatia": "informal",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      },
+      {
+        "id": "c098",
+        "fatia": "formal",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c123",
+        "fatia": "formal",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c083",
+        "fatia": "formal",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c193",
+        "fatia": "informal",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c298",
+        "fatia": "com_ruido",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c269",
+        "fatia": "com_ruido",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      },
+      {
+        "id": "c219",
+        "fatia": "informal",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c295",
+        "fatia": "com_ruido",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": "ambíguo e pouco claro: 'erro' pode ser falha de página (acesso)"
+      },
+      {
+        "id": "c187",
+        "fatia": "informal",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c341",
+        "fatia": "com_ruido",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c224",
+        "fatia": "informal",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c268",
+        "fatia": "com_ruido",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      },
+      {
+        "id": "c339",
+        "fatia": "com_ruido",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c089",
+        "fatia": "formal",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c061",
+        "fatia": "formal",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      },
+      {
+        "id": "c296",
+        "fatia": "com_ruido",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c124",
+        "fatia": "formal",
+        "categoria_dataset": "secretaria",
+        "categoria_revisor": "secretaria",
+        "nota": ""
+      },
+      {
+        "id": "c317",
+        "fatia": "com_ruido",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c116",
+        "fatia": "formal",
+        "categoria_dataset": "acesso",
+        "categoria_revisor": "acesso",
+        "nota": ""
+      },
+      {
+        "id": "c189",
+        "fatia": "informal",
+        "categoria_dataset": "academico",
+        "categoria_revisor": "academico",
+        "nota": ""
+      },
+      {
+        "id": "c262",
+        "fatia": "com_ruido",
+        "categoria_dataset": "financeiro",
+        "categoria_revisor": "financeiro",
+        "nota": ""
+      }
+    ],
+    "concordancia": {
+      "acertos": 36,
+      "n": 36,
+      "wilson95": [
+        0.9036,
+        1.0
+      ]
+    },
+    "pii": 0,
+    "ambiguos_ou_pouco_naturais": [
+      "c163",
+      "c238",
+      "c295"
+    ]
+  },
+  "p02": {
+    "amostra": "12 de 123 perguntas do corpus ampliado",
+    "itens": [
+      {
+        "id": "qa058",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa045",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": "pergunta em 'dias', resposta e documento em '48 horas uteis'; a referencia omite 'uteis'"
+      },
+      {
+        "id": "qa064",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa024",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa104",
+        "categoria": "acl",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa011",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa049",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa097",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa096",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa044",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa106",
+        "categoria": "acl",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": ""
+      },
+      {
+        "id": "qa054",
+        "categoria": "ampliado",
+        "trecho_de_apoio_presente": true,
+        "referencia_correta": true,
+        "nota": "a referencia omite a condicao do documento (atraso de 15 minutos)"
+      }
+    ],
+    "respondiveis_pelo_trecho": {
+      "acertos": 12,
+      "n": 12,
+      "wilson95": [
+        0.7575,
+        1.0
+      ]
+    },
+    "referencia_sem_imprecisao": {
+      "acertos": 10,
+      "n": 12,
+      "wilson95": [
+        0.552,
+        0.953
+      ]
+    },
+    "observacao": "as 123 perguntas comecam por 'Sobre <tema do documento>:', o que entrega o documento ao recuperador"
+  },
+  "p07": {
+    "amostra": "40 de 40 pares de calibracao, rotulados as cegas",
+    "rotulos": [
+      {
+        "id": "cal-01",
+        "origem": "pre_rotulado",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-02",
+        "origem": "pre_rotulado",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-03",
+        "origem": "pre_rotulado",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-04",
+        "origem": "pre_rotulado",
+        "revisor": "empate",
+        "referencia": "empate",
+        "juiz_27b": "empate"
+      },
+      {
+        "id": "cal-05",
+        "origem": "pre_rotulado",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-06",
+        "origem": "pre_rotulado",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-07",
+        "origem": "pre_rotulado",
+        "revisor": "empate",
+        "referencia": "empate",
+        "juiz_27b": "empate"
+      },
+      {
+        "id": "cal-08",
+        "origem": "pre_rotulado",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-09",
+        "origem": "pre_rotulado",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-10",
+        "origem": "pre_rotulado",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-11",
+        "origem": "pre_rotulado",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-12",
+        "origem": "pre_rotulado",
+        "revisor": "empate",
+        "referencia": "empate",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa117",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa084",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa116",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa115",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa082",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa030",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa027",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa033",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa095",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa081",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa024",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa038",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa001",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa065",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa060",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa075",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa099",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa023",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa040",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa068",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa069",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa070",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa108",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa011",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa111",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa071",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      },
+      {
+        "id": "cal-qa123",
+        "origem": "construcao",
+        "revisor": "B",
+        "referencia": "B",
+        "juiz_27b": "B"
+      },
+      {
+        "id": "cal-qa014",
+        "origem": "construcao",
+        "revisor": "A",
+        "referencia": "A",
+        "juiz_27b": "A"
+      }
+    ],
+    "revisor_x_referencia": {
+      "pares": 40,
+      "concordancia": 1.0,
+      "wilson95": [
+        0.9124,
+        1.0
+      ],
+      "kappa": 1.0,
+      "kappa_ic95_bootstrap": {
+        "ic_inferior": 1.0,
+        "ic_superior": 1.0
+      }
+    },
+    "revisor_x_juiz": {
+      "pares": 40,
+      "concordancia": 0.975,
+      "wilson95": [
+        0.8712,
+        0.9956
+      ],
+      "kappa": 0.9551,
+      "kappa_ic95_bootstrap": {
+        "ic_inferior": 0.8587,
+        "ic_superior": 1.0
+      }
+    },
+    "revisor_x_juiz_pre_rotulados": {
+      "pares": 12,
+      "concordancia": 0.9167,
+      "wilson95": [
+        0.6461,
+        0.9851
+      ],
+      "kappa": 0.871,
+      "kappa_ic95_bootstrap": {
+        "ic_inferior": 0.6,
+        "ic_superior": 1.0
+      }
+    },
+    "referencia_x_juiz_reproduzido": {
+      "pares": 40,
+      "concordancia": 0.975,
+      "wilson95": [
+        0.8712,
+        0.9956
+      ],
+      "kappa": 0.9551,
+      "kappa_ic95_bootstrap": {
+        "ic_inferior": 0.8587,
+        "ic_superior": 1.0
+      }
+    }
+  },
+  "limites": [
+    "revisor e modelo de linguagem: nao substitui revisao humana nem rotulos humanos independentes",
+    "pares por construcao tem defeitos obvios; concordancia alta neles era esperada",
+    "amostras pequenas: Wilson de 36/36 vai de 0,90 a 1,0 e de 12/12 vai de 0,76 a 1,0"
+  ]
+}

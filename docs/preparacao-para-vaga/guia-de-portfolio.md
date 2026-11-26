@@ -5,7 +5,7 @@ Quatro projetos cobrem o que as vagas mais pedem (agentes `84%`, APIs `80%`, RAG
 ## Regras para todos
 
 - **Número com origem:** todo número sai de um registro em `laboratorios-mercado/execucoes/` ou de um teste. Diga a data, o modelo e o tamanho da amostra.
-- **Limite junto do resultado:** dados sintéticos gerados pelo `qwen3.8:27b-ud-iq3_xxs`, revisão humana amostral pendente, hardware local (RX 9070 XT de 16 GB compartilhada) e nenhum usuário real.
+- **Limite junto do resultado:** dados sintéticos gerados pelo `qwen3.8:27b-ud-iq3_xxs`, revisão amostral feita por modelo de fronteira, sem revisão humana, hardware local (RX 9070 XT de 16 GB compartilhada) e nenhum usuário real.
 - **Decisão com motivo:** para cada escolha, a alternativa descartada e o que faria mudar de ideia.
 - **Não diga** "em produção", "com clientes" ou "sem alucinação". Diga "projeto de estudo com práticas de produção".
 - **Demonstração:** os smoke-tests rodam offline e sem chave (`.venv-mercado/bin/python -I laboratorios-mercado/executar_smoke.py`). A execução real exige Ollama e `pgvector` locais (comandos no README de cada projeto).

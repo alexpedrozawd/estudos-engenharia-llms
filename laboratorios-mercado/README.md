@@ -108,7 +108,7 @@ Execução real via Ollama `0.40.18` (`/v1`) com `reasoning_effort=none` (`qwen3
 | 06 (Int.) | `qwen3.8:27b-ud-iq3_xxs` | `3` MCP, `0` reparos/bloqueios, `8.075` cache | — | — | `7.930,2` / `17.778,7 ms` | `11,14 GiB` |
 | 07 (Eval) | `4B` gera → `27B` julga | `kappa = 0,871`; `B=15`, `emp=1`, `A=0`, `+1,125` (`p=0,0`) | — | — | gen `237,8`/`434,2 ms`; juiz `7.102,4`/`8.081,5 ms` | `2,96 GiB` → `10,01 GiB` |
 
-**Etapa 3 — escala estatística (26/11/2026):** amostras maiores, com intervalo de Wilson 95% e teste pareado em cada registro. Dados gerados pelo `qwen3.8:27b-ud-iq3_xxs`, com deduplicação, conferência automática e divisão por grupo, congelados no Git (`mercado_base/dados_sinteticos.py`, `mercado_base/estatistica.py` e `ClienteChatComCache` para execuções retomáveis). A revisão humana amostral ficou pendente.
+**Etapa 3 — escala estatística (26/11/2026):** amostras maiores, com intervalo de Wilson 95% e teste pareado em cada registro. Dados gerados pelo `qwen3.8:27b-ud-iq3_xxs`, com deduplicação, conferência automática e divisão por grupo, congelados no Git (`mercado_base/dados_sinteticos.py`, `mercado_base/estatistica.py` e `ClienteChatComCache` para execuções retomáveis). A revisão amostral foi feita por modelo de fronteira, não por pessoa, a pedido do operador ([registro](execucoes/revisao-fronteira-etapa-3-2026-11-26.json)): P04 `36/36`, P02 `12/12` respondíveis, P07 `40/40` contra a referência.
 
 | Projeto | Antes | Depois | Resultado principal |
 |---|---|---|---|
