@@ -14,6 +14,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import mercado_base as mb  # noqa: E402
 from mercado_base.cliente_openai import (  # noqa: E402
+    ClienteChatComCache,
     ClienteChatOpenAI,
     descarregar_modelo_ollama,
     medir_memoria_ollama,
@@ -34,6 +35,7 @@ def main(argv=None) -> int:
     ap.add_argument("--ollama-host", default=os.environ.get("OLLAMA_HOST", ""))
     ap.add_argument("--vlm-base-url", default=os.environ.get("VLM_BASE_URL", ""))
     ap.add_argument("--vlm-modelo", default=os.environ.get("VLM_MODELO", ""))
+    ap.add_argument("--cache-llm", default="", help="pasta de cache das chamadas (execução longa retomável)")
     ap.add_argument("--registrar", action="store_true")
     args = ap.parse_args(argv)
 
@@ -58,6 +60,11 @@ def main(argv=None) -> int:
             reasoning_effort=juiz_esforco or None,
         )
     )
+
+    if args.cache_llm:
+        mesmo = cli_juiz is cli_gerador
+        cli_gerador = ClienteChatComCache(cli_gerador, os.path.join(args.cache_llm, "gerador.json"))
+        cli_juiz = cli_gerador if mesmo else ClienteChatComCache(cli_juiz, os.path.join(args.cache_llm, "juiz.json"))
 
     memoria: dict[str, object] = {}
 
@@ -112,6 +119,17 @@ def main(argv=None) -> int:
         "amostra_casos": res_eval["casos"][:4],
         "multimodal": bloco_vlm,
     }
+    if args.cache_llm:
+        # Execução retomada: o relógio do pipeline mediria a leitura do cache; vale a latência original.
+        saida["avaliacao"]["latencia_ms"] = {
+            "fonte": "cache: latência de cada chamada HTTP real (o juiz faz 2 ou mais chamadas por par)",
+            "gerador": mb.resumir_latencias_ms(cli_gerador.latencias_ms()),
+            "juiz_por_chamada": mb.resumir_latencias_ms(cli_juiz.latencias_ms()),
+        }
+        saida["cache_llm"] = {"reaproveitadas": cli_gerador.acertos_cache + (0 if cli_juiz is cli_gerador else cli_juiz.acertos_cache),
+                              "chamadas_reais": cli_gerador.chamadas_reais + (0 if cli_juiz is cli_gerador else cli_juiz.chamadas_reais)}
+        if saida["cache_llm"]["chamadas_reais"] == 0:
+            memoria = {}  # nenhum modelo rodou nesta passada: /api/ps não diria nada sobre a execução
     if memoria:
         saida["memoria"] = memoria
     print(json.dumps(saida, ensure_ascii=False, indent=2))

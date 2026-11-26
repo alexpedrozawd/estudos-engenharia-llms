@@ -1,0 +1,2124 @@
+[
+ {
+  "id": "qa001",
+  "categoria": "ampliado",
+  "pergunta": "Sobre uso dos laboratorios de informatica: qual e a multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "regulamento-laboratorios-informatica",
+    "pagina": 1,
+    "contem": "pagamento de R$ 50,00 por"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00 por dia"
+  ],
+  "resposta_referencia": "O valor da multa por atraso e de R$ 50,00 por dia [T1]"
+ },
+ {
+  "id": "qa002",
+  "categoria": "ampliado",
+  "pergunta": "Sobre uso dos laboratorios de informatica: quantas horas posso usar o laboratorio?",
+  "relevantes": [
+   {
+    "doc": "regulamento-laboratorios-informatica",
+    "pagina": 2,
+    "contem": "cada aluno tem 4 horas"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "4 horas"
+  ],
+  "resposta_referencia": "O limite diario de uso e de 4 horas por aluno [T1]"
+ },
+ {
+  "id": "qa003",
+  "categoria": "ampliado",
+  "pergunta": "Sobre uso dos laboratorios de informatica: quanto custa se perder o pen drive?",
+  "relevantes": [
+   {
+    "doc": "regulamento-laboratorios-informatica",
+    "pagina": 3,
+    "contem": "perda de pen drive custa"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "A perda de um pen drive custa R$ 50,00 [T1]"
+ },
+ {
+  "id": "qa004",
+  "categoria": "ampliado",
+  "pergunta": "Sobre rede Wi-Fi do campus e limites de uso: qual e o limite de download diario para estudantes?",
+  "relevantes": [
+   {
+    "doc": "politica-uso-wifi-campus",
+    "pagina": 2,
+    "contem": "Download de ate 2 GB"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "2 GB por dia"
+  ],
+  "resposta_referencia": "O limite de download diario para estudantes e de 2 GB por dia [T1]."
+ },
+ {
+  "id": "qa005",
+  "categoria": "ampliado",
+  "pergunta": "Sobre rede Wi-Fi do campus e limites de uso: por quanto tempo o publico externo pode ficar conectado?",
+  "relevantes": [
+   {
+    "doc": "politica-uso-wifi-campus",
+    "pagina": 1,
+    "contem": "Sessao de 60 minutos"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "60 minutos"
+  ],
+  "resposta_referencia": "O publico externo pode ficar conectado por 60 minutos [T1]."
+ },
+ {
+  "id": "qa006",
+  "categoria": "ampliado",
+  "pergunta": "Sobre rede Wi-Fi do campus e limites de uso: qual e a multa para quem reincide no abuso?",
+  "relevantes": [
+   {
+    "doc": "politica-uso-wifi-campus",
+    "pagina": 3,
+    "contem": "Multas de R$ 50"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50"
+  ],
+  "resposta_referencia": "A multa para quem reincide no abuso e de R$ 50 [T1]."
+ },
+ {
+  "id": "qa007",
+  "categoria": "ampliado",
+  "pergunta": "Sobre restaurante universitario: horarios e precos: qual e o valor do aluguel?",
+  "relevantes": [
+   {
+    "doc": "manual-restaurante-universitario",
+    "pagina": 1,
+    "contem": "Aluguel de espaco por 30"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50"
+  ],
+  "resposta_referencia": "O aluguel do espaco custa R$ 50 por 30 dias [T1]."
+ },
+ {
+  "id": "qa008",
+  "categoria": "ampliado",
+  "pergunta": "Sobre restaurante universitario: horarios e precos: qual e o preco da refeicao?",
+  "relevantes": [
+   {
+    "doc": "manual-restaurante-universitario",
+    "pagina": 2,
+    "contem": "Refeicao completa custa R$ 12,00"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 12,00"
+  ],
+  "resposta_referencia": "A refeicao completa tem custo de R$ 12,00 [T1]."
+ },
+ {
+  "id": "qa009",
+  "categoria": "ampliado",
+  "pergunta": "Sobre restaurante universitario: horarios e precos: qual o prazo de entrega?",
+  "relevantes": [
+   {
+    "doc": "manual-restaurante-universitario",
+    "pagina": 3,
+    "contem": "Prazo de entrega em 15"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 minutos"
+  ],
+  "resposta_referencia": "O prazo de entrega e de 15 minutos [T1]."
+ },
+ {
+  "id": "qa010",
+  "categoria": "ampliado",
+  "pergunta": "Sobre programa de monitoria e bolsa de monitor: qual e o valor inicial da bolsa?",
+  "relevantes": [
+   {
+    "doc": "regulamento-monitoria",
+    "pagina": 1,
+    "contem": "bolsa inicial de 600 reais"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "600 reais"
+  ],
+  "resposta_referencia": "O valor inicial da bolsa e de 600 reais por mes [T1]."
+ },
+ {
+  "id": "qa011",
+  "categoria": "ampliado",
+  "pergunta": "Sobre programa de monitoria e bolsa de monitor: qual e o horario de atendimento?",
+  "relevantes": [
+   {
+    "doc": "regulamento-monitoria",
+    "pagina": 2,
+    "contem": "horario de atendimento e das 8h"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "das 8h a 12h"
+  ],
+  "resposta_referencia": "O horario de atendimento e das 8h a 12h [T1]."
+ },
+ {
+  "id": "qa012",
+  "categoria": "ampliado",
+  "pergunta": "Sobre programa de monitoria e bolsa de monitor: qual o limite de faltas por ano?",
+  "relevantes": [
+   {
+    "doc": "regulamento-monitoria",
+    "pagina": 3,
+    "contem": "limite de 5 faltas por"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 faltas"
+  ],
+  "resposta_referencia": "O limite de faltas por ano e 5 faltas [T1]."
+ },
+ {
+  "id": "qa013",
+  "categoria": "ampliado",
+  "pergunta": "Sobre intercambio internacional e requisitos: qual e o valor da taxa de inscricao?",
+  "relevantes": [
+   {
+    "doc": "programa-intercambio",
+    "pagina": 1,
+    "contem": "taxa de inscricao e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 150,00"
+  ],
+  "resposta_referencia": "O valor da taxa de inscricao e R$ 150,00 [T1]"
+ },
+ {
+  "id": "qa014",
+  "categoria": "ampliado",
+  "pergunta": "Sobre intercambio internacional e requisitos: qual a media minima exigida?",
+  "relevantes": [
+   {
+    "doc": "programa-intercambio",
+    "pagina": 2,
+    "contem": "media minima exigida e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "7,5 pontos"
+  ],
+  "resposta_referencia": "A media minima exigida e 7,5 pontos [T1]"
+ },
+ {
+  "id": "qa015",
+  "categoria": "ampliado",
+  "pergunta": "Sobre ouvidoria: canais e prazos de resposta: qual o prazo maximo para a resposta inicial?",
+  "relevantes": [
+   {
+    "doc": "manual-ouvidoria",
+    "pagina": 1,
+    "contem": "Prazo maximo de resposta"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias uteis."
+  ],
+  "resposta_referencia": "O prazo maximo para a resposta inicial e de 5 dias uteis [T1]."
+ },
+ {
+  "id": "qa016",
+  "categoria": "ampliado",
+  "pergunta": "Sobre nucleo de acessibilidade e adaptacoes de prova: qual e o prazo minimo para solicitar uma adaptacao?",
+  "relevantes": [
+   {
+    "doc": "nucleo-acessibilidade",
+    "pagina": 1,
+    "contem": "Solicitacao de adaptacao deve"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "7 dias"
+  ],
+  "resposta_referencia": "O prazo minimo para solicitar uma adaptacao e de 7 dias [T1]."
+ },
+ {
+  "id": "qa017",
+  "categoria": "ampliado",
+  "pergunta": "Sobre nucleo de acessibilidade e adaptacoes de prova: quanto custa o servico de impressao de provas?",
+  "relevantes": [
+   {
+    "doc": "nucleo-acessibilidade",
+    "pagina": 2,
+    "contem": "Tabela de valores: R$"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "O valor do servico de impressao de provas e R$ 50,00 [T1]."
+ },
+ {
+  "id": "qa018",
+  "categoria": "ampliado",
+  "pergunta": "Sobre horas de atividades complementares: qual e o valor maximo pago por hora extra?",
+  "relevantes": [
+   {
+    "doc": "regulamento-atividades-complementares",
+    "pagina": 1,
+    "contem": "maximo por hora extra"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "O valor maximo por hora extra e de R$ 50,00. [T1]"
+ },
+ {
+  "id": "qa019",
+  "categoria": "ampliado",
+  "pergunta": "Sobre horas de atividades complementares: qual e o limite de horas por mes?",
+  "relevantes": [
+   {
+    "doc": "regulamento-atividades-complementares",
+    "pagina": 2,
+    "contem": "maxima de horas por"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "100 horas"
+  ],
+  "resposta_referencia": "A quantidade maxima de horas por mes e 100 horas. [T1]"
+ },
+ {
+  "id": "qa020",
+  "categoria": "ampliado",
+  "pergunta": "Sobre horas de atividades complementares: qual e o valor da taxa de revalidacao?",
+  "relevantes": [
+   {
+    "doc": "regulamento-atividades-complementares",
+    "pagina": 3,
+    "contem": "taxa de revalidacao e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 30,00"
+  ],
+  "resposta_referencia": "O valor da taxa de revalidacao e de R$ 30,00. [T1]"
+ },
+ {
+  "id": "qa021",
+  "categoria": "ampliado",
+  "pergunta": "Sobre onibus fretado entre campi: a que hora sai do campus A?",
+  "relevantes": [
+   {
+    "doc": "transporte-fretado-campus",
+    "pagina": 2,
+    "contem": "saida do campus A"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "07h30"
+  ],
+  "resposta_referencia": "O horario de saida do campus A e as 07h30 [T1]"
+ },
+ {
+  "id": "qa022",
+  "categoria": "ampliado",
+  "pergunta": "Sobre onibus fretado entre campi: qual o desconto para poucas faltas?",
+  "relevantes": [
+   {
+    "doc": "transporte-fretado-campus",
+    "pagina": 3,
+    "contem": "Desconto de 10 por cento"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 por cento"
+  ],
+  "resposta_referencia": "O desconto para quem tem 3 faltas ou menos e de 10 por cento [T1]"
+ },
+ {
+  "id": "qa023",
+  "categoria": "ampliado",
+  "pergunta": "Sobre estacionamento do campus e credenciais: quantas vagas existem no local?",
+  "relevantes": [
+   {
+    "doc": "regulamento-estacionamento",
+    "pagina": 1,
+    "contem": "200 vagas no total"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "200 vagas"
+  ],
+  "resposta_referencia": "O estacionamento no campus possui 200 vagas no total. [T1]"
+ },
+ {
+  "id": "qa024",
+  "categoria": "ampliado",
+  "pergunta": "Sobre estacionamento do campus e credenciais: qual e o valor da mensalidade?",
+  "relevantes": [
+   {
+    "doc": "regulamento-estacionamento",
+    "pagina": 2,
+    "contem": "mensalidade do estacionamento e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1]"
+ },
+ {
+  "id": "qa025",
+  "categoria": "ampliado",
+  "pergunta": "Sobre estacionamento do campus e credenciais: qual e o limite de visitantes?",
+  "relevantes": [
+   {
+    "doc": "regulamento-estacionamento",
+    "pagina": 3,
+    "contem": "visitantes por dia e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 pessoas"
+  ],
+  "resposta_referencia": "O limite de visitantes por dia e de 5 pessoas no total. [T1]"
+ },
+ {
+  "id": "qa026",
+  "categoria": "ampliado",
+  "pergunta": "Sobre achados e perdidos: guarda e retirada de objetos: qual e o prazo para entregar o item na portaria?",
+  "relevantes": [
+   {
+    "doc": "achados-e-perdidos",
+    "pagina": 1,
+    "contem": "portaria em ate 24"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "24 horas uteis"
+  ],
+  "resposta_referencia": "O prazo para entregar o item na portaria e de 24 horas uteis [T1]"
+ },
+ {
+  "id": "qa027",
+  "categoria": "ampliado",
+  "pergunta": "Sobre achados e perdidos: guarda e retirada de objetos: quanto custa a custodia de um item comum por mes?",
+  "relevantes": [
+   {
+    "doc": "achados-e-perdidos",
+    "pagina": 2,
+    "contem": "custodia mensal e de"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 reais"
+  ],
+  "resposta_referencia": "A taxa de custodia mensal para um item comum e de 15 reais [T1]"
+ },
+ {
+  "id": "qa028",
+  "categoria": "ampliado",
+  "pergunta": "Sobre achados e perdidos: guarda e retirada de objetos: qual e o limite de objetos por pessoa por dia?",
+  "relevantes": [
+   {
+    "doc": "achados-e-perdidos",
+    "pagina": 3,
+    "contem": "3 objetos por pessoa"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "3 objetos"
+  ],
+  "resposta_referencia": "O limite maximo de objetos por pessoa por dia e de 3 objetos [T1]"
+ },
+ {
+  "id": "qa029",
+  "categoria": "ampliado",
+  "pergunta": "Sobre iniciacao cientifica: edital e bolsas: qual e o valor financeiro mensal da bolsa?",
+  "relevantes": [
+   {
+    "doc": "iniciacao-cientifica",
+    "pagina": 1,
+    "contem": "bolsa e de 400"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "400 reais"
+  ],
+  "resposta_referencia": "O valor da bolsa e de 400 reais mensais [T1]."
+ },
+ {
+  "id": "qa030",
+  "categoria": "ampliado",
+  "pergunta": "Sobre iniciacao cientifica: edital e bolsas: qual e a presenca minima exigida?",
+  "relevantes": [
+   {
+    "doc": "iniciacao-cientifica",
+    "pagina": 2,
+    "contem": "presenca minima exigida e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "75 percentual"
+  ],
+  "resposta_referencia": "A presenca minima exigida e de 75 percentual [T1]."
+ },
+ {
+  "id": "qa031",
+  "categoria": "ampliado",
+  "pergunta": "Sobre iniciacao cientifica: edital e bolsas: em quantos dias deve ser entregue o relatorio final?",
+  "relevantes": [
+   {
+    "doc": "iniciacao-cientifica",
+    "pagina": 3,
+    "contem": "relatorio final deve ser"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 dias"
+  ],
+  "resposta_referencia": "O relatorio final deve ser entregue em 15 dias [T1]."
+ },
+ {
+  "id": "qa032",
+  "categoria": "ampliado",
+  "pergunta": "Sobre empresa junior: processo seletivo e horas: qual o prazo para inscricao?",
+  "relevantes": [
+   {
+    "doc": "empresa-junior",
+    "pagina": 1,
+    "contem": "Inscricao aberta em 10 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 dias uteis"
+  ],
+  "resposta_referencia": "O prazo para inscricao e de 10 dias uteis [T1]."
+ },
+ {
+  "id": "qa033",
+  "categoria": "ampliado",
+  "pergunta": "Sobre empresa junior: processo seletivo e horas: qual a carga horaria maxima?",
+  "relevantes": [
+   {
+    "doc": "empresa-junior",
+    "pagina": 2,
+    "contem": "horaria maxima de 20 horas"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "20 horas semanais"
+  ],
+  "resposta_referencia": "A carga horaria maxima e de 20 horas semanais [T1]."
+ },
+ {
+  "id": "qa034",
+  "categoria": "ampliado",
+  "pergunta": "Sobre empresa junior: processo seletivo e horas: quanto vale a bolsa auxilio?",
+  "relevantes": [
+   {
+    "doc": "empresa-junior",
+    "pagina": 3,
+    "contem": "auxilio de R$ 500,00 mensais"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 500,00 mensais"
+  ],
+  "resposta_referencia": "A bolsa auxilio vale R$ 500,00 mensais [T1]."
+ },
+ {
+  "id": "qa035",
+  "categoria": "ampliado",
+  "pergunta": "Sobre pedido de segunda chamada de provas: qual e o custo base para solicitar a reprovacao?",
+  "relevantes": [
+   {
+    "doc": "segunda-chamada-de-provas",
+    "pagina": 1,
+    "contem": "reais por materia cursada"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "50,00 reais"
+  ],
+  "resposta_referencia": "A taxa cobrada e de 50,00 reais por materia cursada [T1]."
+ },
+ {
+  "id": "qa036",
+  "categoria": "ampliado",
+  "pergunta": "Sobre pedido de segunda chamada de provas: qual o minimo de presenca exigido?",
+  "relevantes": [
+   {
+    "doc": "segunda-chamada-de-provas",
+    "pagina": 2,
+    "contem": "de presenca obrigatoria"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "80% de presenca"
+  ],
+  "resposta_referencia": "O percentual minimo de presenca e de 80% [T1]."
+ },
+ {
+  "id": "qa037",
+  "categoria": "ampliado",
+  "pergunta": "Sobre pedido de segunda chamada de provas: qual a multa para atraso no pagamento?",
+  "relevantes": [
+   {
+    "doc": "segunda-chamada-de-provas",
+    "pagina": 3,
+    "contem": "reais por atraso na taxa"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "20,00 reais"
+  ],
+  "resposta_referencia": "A multa por atraso e de 20,00 reais [T1]."
+ },
+ {
+  "id": "qa038",
+  "categoria": "ampliado",
+  "pergunta": "Sobre colacao de grau: inscricao e cerimonia: qual o custo da taxa unica?",
+  "relevantes": [
+   {
+    "doc": "colacao-de-grau",
+    "pagina": 1,
+    "contem": "Pagamento unico de 150"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "150 reais"
+  ],
+  "resposta_referencia": "O valor da taxa unica e de 150 reais [T1]."
+ },
+ {
+  "id": "qa039",
+  "categoria": "ampliado",
+  "pergunta": "Sobre colacao de grau: inscricao e cerimonia: quantas horas antes fecham as portas?",
+  "relevantes": [
+   {
+    "doc": "colacao-de-grau",
+    "pagina": 2,
+    "contem": "Portas fecham 15 minutos"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 minutos"
+  ],
+  "resposta_referencia": "As portas fecham 15 minutos antes [T1]."
+ },
+ {
+  "id": "qa040",
+  "categoria": "ampliado",
+  "pergunta": "Sobre colacao de grau: inscricao e cerimonia: qual o desconto para comprar os dois?",
+  "relevantes": [
+   {
+    "doc": "colacao-de-grau",
+    "pagina": 3,
+    "contem": "Desconto de 15%"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15%"
+  ],
+  "resposta_referencia": "O desconto e de 15% [T1]."
+ },
+ {
+  "id": "qa041",
+  "categoria": "ampliado",
+  "pergunta": "Sobre seguranca nos laboratorios de quimica: qual e o periodo minimo de preparo antes da entrada?",
+  "relevantes": [
+   {
+    "doc": "seguranca-laboratorios-quimica",
+    "pagina": 1,
+    "contem": "10 dias de treinamento previo"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 dias"
+  ],
+  "resposta_referencia": "E necessario completar 10 dias de treinamento previo [T1]."
+ },
+ {
+  "id": "qa042",
+  "categoria": "ampliado",
+  "pergunta": "Sobre seguranca nos laboratorios de quimica: qual e o prazo maximo para troca das luvas?",
+  "relevantes": [
+   {
+    "doc": "seguranca-laboratorios-quimica",
+    "pagina": 2,
+    "contem": "trocadas a cada 4 horas"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "4 horas"
+  ],
+  "resposta_referencia": "As luvas devem ser trocadas a cada 4 horas de uso continuo [T1]."
+ },
+ {
+  "id": "qa043",
+  "categoria": "ampliado",
+  "pergunta": "Sobre seguranca nos laboratorios de quimica: qual a capacidade minima do almofadico de contencao?",
+  "relevantes": [
+   {
+    "doc": "seguranca-laboratorios-quimica",
+    "pagina": 3,
+    "contem": "ter 100 litros de capacidade"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "100 litros"
+  ],
+  "resposta_referencia": "O almofadico de contencao deve ter 100 litros de capacidade [T1]."
+ },
+ {
+  "id": "qa044",
+  "categoria": "ampliado",
+  "pergunta": "Sobre seguro contra acidentes pessoais do aluno: qual e o valor maximo da indenizacao?",
+  "relevantes": [
+   {
+    "doc": "seguro-estudantil",
+    "pagina": 1,
+    "contem": "Indenizacao maxima de R$ 50000"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50000"
+  ],
+  "resposta_referencia": "O valor maximo da indenizacao e de R$ 50000 [T1]."
+ },
+ {
+  "id": "qa045",
+  "categoria": "ampliado",
+  "pergunta": "Sobre seguro contra acidentes pessoais do aluno: em quantos dias se faz o exame medico?",
+  "relevantes": [
+   {
+    "doc": "seguro-estudantil",
+    "pagina": 2,
+    "contem": "Exame medico em 48 horas"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "48 horas"
+  ],
+  "resposta_referencia": "O exame medico deve ser feito em 48 horas [T1]."
+ },
+ {
+  "id": "qa046",
+  "categoria": "ampliado",
+  "pergunta": "Sobre seguro contra acidentes pessoais do aluno: qual e a franquia do custo?",
+  "relevantes": [
+   {
+    "doc": "seguro-estudantil",
+    "pagina": 3,
+    "contem": "Franquia de 20 por cento"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "20 por cento"
+  ],
+  "resposta_referencia": "A franquia do custo e de 20 por cento [T1]."
+ },
+ {
+  "id": "qa047",
+  "categoria": "ampliado",
+  "pergunta": "Sobre carteirinha estudantil: emissao e segunda via: qual e o valor da segunda via?",
+  "relevantes": [
+   {
+    "doc": "carteirinha-estudantil",
+    "pagina": 1,
+    "contem": "Segunda via custa 25 reais"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "25 reais"
+  ],
+  "resposta_referencia": "A segunda via custa 25 reais para pagamento [T1]"
+ },
+ {
+  "id": "qa048",
+  "categoria": "ampliado",
+  "pergunta": "Sobre carteirinha estudantil: emissao e segunda via: em quanto tempo sai a impressao expressa?",
+  "relevantes": [
+   {
+    "doc": "carteirinha-estudantil",
+    "pagina": 2,
+    "contem": "Prazo de 2 horas para impressao"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "2 horas"
+  ],
+  "resposta_referencia": "O prazo de impressao expressa e de 2 horas [T1]"
+ },
+ {
+  "id": "qa049",
+  "categoria": "ampliado",
+  "pergunta": "Sobre carteirinha estudantil: emissao e segunda via: quanto custa a reposicao por dano?",
+  "relevantes": [
+   {
+    "doc": "carteirinha-estudantil",
+    "pagina": 3,
+    "contem": "Reposicao por dano custa 50 reais"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "50 reais"
+  ],
+  "resposta_referencia": "A reposicao por dano custa 50 reais na hora [T1]"
+ },
+ {
+  "id": "qa050",
+  "categoria": "ampliado",
+  "pergunta": "Sobre apoio psicologico ao estudante: qual o limite mensal de sessoes?",
+  "relevantes": [
+   {
+    "doc": "programa-apoio-psicologico",
+    "pagina": 1,
+    "contem": "Maximo de 4 sessoes"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "4 sessoes"
+  ],
+  "resposta_referencia": "O limite e de 4 sessoes por mes. [T1]"
+ },
+ {
+  "id": "qa051",
+  "categoria": "ampliado",
+  "pergunta": "Sobre apoio psicologico ao estudante: quanto custa a sessao extra?",
+  "relevantes": [
+   {
+    "doc": "programa-apoio-psicologico",
+    "pagina": 2,
+    "contem": "cobra R$ 150 por"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 150"
+  ],
+  "resposta_referencia": "Custa R$ 150 por sessao. [T1]"
+ },
+ {
+  "id": "qa052",
+  "categoria": "ampliado",
+  "pergunta": "Sobre apoio psicologico ao estudante: qual o prazo para resposta?",
+  "relevantes": [
+   {
+    "doc": "programa-apoio-psicologico",
+    "pagina": 3,
+    "contem": "Prazo de 5 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias uteis"
+  ],
+  "resposta_referencia": "O prazo e de 5 dias uteis. [T1]"
+ },
+ {
+  "id": "qa053",
+  "categoria": "ampliado",
+  "pergunta": "Sobre academia e equipes esportivas: qual e o prazo para matricula na academia?",
+  "relevantes": [
+   {
+    "doc": "regulamento-esportes-e-academia",
+    "pagina": 1,
+    "contem": "Inscricao para atividades fisicas"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias uteis."
+  ],
+  "resposta_referencia": "O prazo para matricula na academia e de 5 dias uteis. [T1]"
+ },
+ {
+  "id": "qa054",
+  "categoria": "ampliado",
+  "pergunta": "Sobre academia e equipes esportivas: qual e a multa por atraso nos treinos?",
+  "relevantes": [
+   {
+    "doc": "regulamento-esportes-e-academia",
+    "pagina": 2,
+    "contem": "Multas por atraso de"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 10,00."
+  ],
+  "resposta_referencia": "A multa por atraso nos treinos e de R$ 10,00. [T1]"
+ },
+ {
+  "id": "qa055",
+  "categoria": "ampliado",
+  "pergunta": "Sobre emprestimo de notebooks pela biblioteca de equipamentos: qual e o valor da multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "emprestimo-de-notebooks",
+    "pagina": 1,
+    "contem": "Multa por atraso e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 10,00 por dia"
+  ],
+  "resposta_referencia": "A multa por atraso e de R$ 10,00 por dia [T1]"
+ },
+ {
+  "id": "qa056",
+  "categoria": "ampliado",
+  "pergunta": "Sobre emprestimo de notebooks pela biblioteca de equipamentos: qual e o valor da multa por bateria ausente?",
+  "relevantes": [
+   {
+    "doc": "emprestimo-de-notebooks",
+    "pagina": 3,
+    "contem": "Bateria ausente gera multa"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 30,00"
+  ],
+  "resposta_referencia": "A bateria ausente gera multa de R$ 30,00 [T1]"
+ },
+ {
+  "id": "qa057",
+  "categoria": "ampliado",
+  "pergunta": "Sobre eventos academicos e certificados: qual o prazo para emitir o certificado?",
+  "relevantes": [
+   {
+    "doc": "regulamento-eventos-academicos",
+    "pagina": 1,
+    "contem": "Certificado emitido em 72"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "72 horas"
+  ],
+  "resposta_referencia": "O certificado e emitido em 72 horas uteis apos o evento [T1]."
+ },
+ {
+  "id": "qa058",
+  "categoria": "ampliado",
+  "pergunta": "Sobre eventos academicos e certificados: qual e o valor da taxa de inscricao?",
+  "relevantes": [
+   {
+    "doc": "regulamento-eventos-academicos",
+    "pagina": 2,
+    "contem": "Taxa de inscricao e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "A taxa de inscricao e de R$ 50,00 [T1]."
+ },
+ {
+  "id": "qa059",
+  "categoria": "ampliado",
+  "pergunta": "Sobre eventos academicos e certificados: qual o horario de inicio?",
+  "relevantes": [
+   {
+    "doc": "regulamento-eventos-academicos",
+    "pagina": 3,
+    "contem": "Horario de inicio das"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "09:00"
+  ],
+  "resposta_referencia": "O horario de inicio e as 09:00 [T1]."
+ },
+ {
+  "id": "qa060",
+  "categoria": "ampliado",
+  "pergunta": "Sobre cursos livres de extensao: qual e o valor da inscricao?",
+  "relevantes": [
+   {
+    "doc": "cursos-de-extensao",
+    "pagina": 1,
+    "contem": "R$ 150,00 por inscricao"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 150,00"
+  ],
+  "resposta_referencia": "A taxa unica e de R$ 150,00 [T1]."
+ },
+ {
+  "id": "qa061",
+  "categoria": "ampliado",
+  "pergunta": "Sobre cursos livres de extensao: qual e o desconto para alunos?",
+  "relevantes": [
+   {
+    "doc": "cursos-de-extensao",
+    "pagina": 2,
+    "contem": "Desconto de 10% para alunos"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10%"
+  ],
+  "resposta_referencia": "O desconto para alunos ativos e de 10% [T1]."
+ },
+ {
+  "id": "qa062",
+  "categoria": "ampliado",
+  "pergunta": "Sobre cursos livres de extensao: qual a validade do certificado?",
+  "relevantes": [
+   {
+    "doc": "cursos-de-extensao",
+    "pagina": 3,
+    "contem": "Validade do certificado de 3"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "3 anos"
+  ],
+  "resposta_referencia": "O certificado tem validade de 3 anos [T1]."
+ },
+ {
+  "id": "qa063",
+  "categoria": "ampliado",
+  "pergunta": "Sobre curso de nivelamento em matematica para calouros: qual o valor da taxa de inscrição para o nivelamento?",
+  "relevantes": [
+   {
+    "doc": "nivelamento-matematica",
+    "pagina": 1,
+    "contem": "Taxa unica de R$"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "A taxa unica de R$ 50,00 deve ser paga no ato da inscrição [T1]."
+ },
+ {
+  "id": "qa064",
+  "categoria": "ampliado",
+  "pergunta": "Sobre curso de nivelamento em matematica para calouros: qual é o percentual de presença mínima exigido?",
+  "relevantes": [
+   {
+    "doc": "nivelamento-matematica",
+    "pagina": 2,
+    "contem": "Presenca minima de 75%"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "75%"
+  ],
+  "resposta_referencia": "O aluno precisa ter presenca minima de 75% nas aulas [T1]."
+ },
+ {
+  "id": "qa065",
+  "categoria": "ampliado",
+  "pergunta": "Sobre curso de nivelamento em matematica para calouros: em quantos dias o certificado é emitido?",
+  "relevantes": [
+   {
+    "doc": "nivelamento-matematica",
+    "pagina": 3,
+    "contem": "Certificado digital emitido em"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 dias"
+  ],
+  "resposta_referencia": "O certificado digital é emitido em 10 dias uteis [T1]."
+ },
+ {
+  "id": "qa066",
+  "categoria": "ampliado",
+  "pergunta": "Sobre disciplinas a distancia e encontros presenciais: qual a duracao de cada encontro presencial?",
+  "relevantes": [
+   {
+    "doc": "disciplinas-ead",
+    "pagina": 1,
+    "contem": "encontro dura 4 horas"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "4 horas"
+  ],
+  "resposta_referencia": "Cada encontro presencial tem duracao de 4 horas [T1]."
+ },
+ {
+  "id": "qa067",
+  "categoria": "ampliado",
+  "pergunta": "Sobre disciplinas a distancia e encontros presenciais: qual e o valor da multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "disciplinas-ead",
+    "pagina": 2,
+    "contem": "multa de 10 reais"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 reais"
+  ],
+  "resposta_referencia": "A multa por entrega atrasada e de 10 reais [T1]."
+ },
+ {
+  "id": "qa068",
+  "categoria": "ampliado",
+  "pergunta": "Sobre disciplinas a distancia e encontros presenciais: em quanto tempo o certificado e emitido?",
+  "relevantes": [
+   {
+    "doc": "disciplinas-ead",
+    "pagina": 3,
+    "contem": "emitido em 15 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 dias"
+  ],
+  "resposta_referencia": "O certificado e emitido em 15 dias [T1]."
+ },
+ {
+  "id": "qa069",
+  "categoria": "ampliado",
+  "pergunta": "Sobre plagio e integridade academica: qual e o limite de semelhanca para reprovacao?",
+  "relevantes": [
+   {
+    "doc": "politica-integridade-academica",
+    "pagina": 1,
+    "contem": "acima de 20% gera"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "20%"
+  ],
+  "resposta_referencia": "A politica define que plagio acima de 20% gera reprovacao automatica na materia [T1]."
+ },
+ {
+  "id": "qa070",
+  "categoria": "ampliado",
+  "pergunta": "Sobre plagio e integridade academica: qual o numero minimo de referencias exigidas?",
+  "relevantes": [
+   {
+    "doc": "politica-integridade-academica",
+    "pagina": 2,
+    "contem": "bibliograficas devem ser no minimo"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 itens"
+  ],
+  "resposta_referencia": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens [T1]."
+ },
+ {
+  "id": "qa071",
+  "categoria": "ampliado",
+  "pergunta": "Sobre plagio e integridade academica: qual a multa por comprar trabalhos prontos?",
+  "relevantes": [
+   {
+    "doc": "politica-integridade-academica",
+    "pagina": 3,
+    "contem": "trabalhos prontos multa de R$"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 1.000,00"
+  ],
+  "resposta_referencia": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00 [T1]."
+ },
+ {
+  "id": "qa072",
+  "categoria": "ampliado",
+  "pergunta": "Sobre provas online com supervisao: quanto tempo tem a avaliacao digital?",
+  "relevantes": [
+   {
+    "doc": "regras-provas-online",
+    "pagina": 1,
+    "contem": "duracao de 120"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "120 minutos"
+  ],
+  "resposta_referencia": "A duracao total da prova online e de 120 minutos [T1]"
+ },
+ {
+  "id": "qa073",
+  "categoria": "ampliado",
+  "pergunta": "Sobre provas online com supervisao: qual a velocidade minima de rede?",
+  "relevantes": [
+   {
+    "doc": "regras-provas-online",
+    "pagina": 2,
+    "contem": "velocidade de 5"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 Mbps"
+  ],
+  "resposta_referencia": "A velocidade minima exigida da internet e de 5 Mbps [T1]"
+ },
+ {
+  "id": "qa074",
+  "categoria": "ampliado",
+  "pergunta": "Sobre provas online com supervisao: em quanto tempo posso recorrer?",
+  "relevantes": [
+   {
+    "doc": "regras-provas-online",
+    "pagina": 3,
+    "contem": "feito em 2"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "2 dias uteis"
+  ],
+  "resposta_referencia": "O prazo para apresentar recurso e de 2 dias uteis [T1]"
+ },
+ {
+  "id": "qa075",
+  "categoria": "ampliado",
+  "pergunta": "Sobre transferencia de outra instituicao para a Aurora: qual e o custo da taxa de analise?",
+  "relevantes": [
+   {
+    "doc": "transferencia-externa",
+    "pagina": 1,
+    "contem": "Taxa de analise: R$ 150,00"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 150,00"
+  ],
+  "resposta_referencia": "O valor da taxa de analise e R$ 150,00 [T1]."
+ },
+ {
+  "id": "qa076",
+  "categoria": "ampliado",
+  "pergunta": "Sobre transferencia de outra instituicao para a Aurora: qual o limite maximo de faltas permitido?",
+  "relevantes": [
+   {
+    "doc": "transferencia-externa",
+    "pagina": 2,
+    "contem": "Limite de faltas: 25% da"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "25% da carga"
+  ],
+  "resposta_referencia": "O limite maximo de faltas e 25% da carga horaria [T1]."
+ },
+ {
+  "id": "qa077",
+  "categoria": "ampliado",
+  "pergunta": "Sobre transferencia de outra instituicao para a Aurora: em quantos dias a matricula e efetivada?",
+  "relevantes": [
+   {
+    "doc": "transferencia-externa",
+    "pagina": 3,
+    "contem": "Matricula efetiva em 3 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "3 dias"
+  ],
+  "resposta_referencia": "A matricula e efetivada em 3 dias [T1]."
+ },
+ {
+  "id": "qa078",
+  "categoria": "ampliado",
+  "pergunta": "Sobre reingresso apos abandono e reabertura de matricula: qual e o periodo maximo para reabrir?",
+  "relevantes": [
+   {
+    "doc": "reingresso-e-reabertura",
+    "pagina": 1,
+    "contem": "prazo maximo de 30"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "30 dias"
+  ],
+  "resposta_referencia": "O periodo maximo para reabrir e de 30 dias [T1]."
+ },
+ {
+  "id": "qa079",
+  "categoria": "ampliado",
+  "pergunta": "Sobre reingresso apos abandono e reabertura de matricula: qual valor da multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "reingresso-e-reabertura",
+    "pagina": 2,
+    "contem": "multa de 100 reais"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "100 reais"
+  ],
+  "resposta_referencia": "O valor da multa por atraso e de 100 reais [T1]."
+ },
+ {
+  "id": "qa080",
+  "categoria": "ampliado",
+  "pergunta": "Sobre reingresso apos abandono e reabertura de matricula: quantos dias para resposta da comissao?",
+  "relevantes": [
+   {
+    "doc": "reingresso-e-reabertura",
+    "pagina": 3,
+    "contem": "prazo de 5 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias"
+  ],
+  "resposta_referencia": "Sao 5 dias uteis para resposta da comissao [T1]."
+ },
+ {
+  "id": "qa081",
+  "categoria": "ampliado",
+  "pergunta": "Sobre dupla diplomacao com universidade parceira: qual e o prazo para fazer a matricula?",
+  "relevantes": [
+   {
+    "doc": "dupla-diplomacao",
+    "pagina": 1,
+    "contem": "ate 15 dias antes"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 dias"
+  ],
+  "resposta_referencia": "O periodo de matricula encerra quinze dias antes do inicio [T1]"
+ },
+ {
+  "id": "qa082",
+  "categoria": "ampliado",
+  "pergunta": "Sobre dupla diplomacao com universidade parceira: quanto tempo leva para sair o certificado?",
+  "relevantes": [
+   {
+    "doc": "dupla-diplomacao",
+    "pagina": 2,
+    "contem": "emitido em ate 30"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "30 dias"
+  ],
+  "resposta_referencia": "O certificado e emitido em ate trinta dias [T1]"
+ },
+ {
+  "id": "qa083",
+  "categoria": "ampliado",
+  "pergunta": "Sobre dupla diplomacao com universidade parceira: qual o valor da multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "dupla-diplomacao",
+    "pagina": 3,
+    "contem": "Multas de R$ 200,00"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 200,00"
+  ],
+  "resposta_referencia": "A multa para atraso e de duzentos reais [T1]"
+ },
+ {
+  "id": "qa084",
+  "categoria": "ampliado",
+  "pergunta": "Sobre financiamento estudantil privado: qual o prazo para analise do credito?",
+  "relevantes": [
+   {
+    "doc": "financiamento-estudantil-privado",
+    "pagina": 1,
+    "contem": "analise do processo e de"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias uteis"
+  ],
+  "resposta_referencia": "O prazo de analise do processo e de 5 dias uteis [T1]"
+ },
+ {
+  "id": "qa085",
+  "categoria": "ampliado",
+  "pergunta": "Sobre financiamento estudantil privado: qual o valor da multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "financiamento-estudantil-privado",
+    "pagina": 2,
+    "contem": "multa por atraso e de"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "2% sobre o saldo"
+  ],
+  "resposta_referencia": "A multa por atraso e de 2% sobre o saldo [T1]"
+ },
+ {
+  "id": "qa086",
+  "categoria": "ampliado",
+  "pergunta": "Sobre financiamento estudantil privado: qual o limite de parcelas em atraso?",
+  "relevantes": [
+   {
+    "doc": "financiamento-estudantil-privado",
+    "pagina": 3,
+    "contem": "limite de 3 parcelas em"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "3 parcelas em atraso"
+  ],
+  "resposta_referencia": "O limite de 3 parcelas em atraso e maximo [T1]"
+ },
+ {
+  "id": "qa087",
+  "categoria": "ampliado",
+  "pergunta": "Sobre reembolso de taxas e mensalidades: qual e o prazo para analise inicial?",
+  "relevantes": [
+   {
+    "doc": "regras-de-reembolso",
+    "pagina": 1,
+    "contem": "analise inicial de 24"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "24 horas"
+  ],
+  "resposta_referencia": "O prazo para analise inicial e de 24 horas. [T1]"
+ },
+ {
+  "id": "qa088",
+  "categoria": "ampliado",
+  "pergunta": "Sobre reembolso de taxas e mensalidades: qual e o desconto para pagamento anual?",
+  "relevantes": [
+   {
+    "doc": "regras-de-reembolso",
+    "pagina": 2,
+    "contem": "pagamento antecipado anual"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15%"
+  ],
+  "resposta_referencia": "O desconto para pagamento antecipado anual e de 15%. [T1]"
+ },
+ {
+  "id": "qa089",
+  "categoria": "ampliado",
+  "pergunta": "Sobre reembolso de taxas e mensalidades: qual e o limite de justificativas por mes?",
+  "relevantes": [
+   {
+    "doc": "regras-de-reembolso",
+    "pagina": 3,
+    "contem": "justificativas de ausencia por"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "2 justificativas"
+  ],
+  "resposta_referencia": "O limite de justificativas de ausencia por mes e 2. [T1]"
+ },
+ {
+  "id": "qa090",
+  "categoria": "ampliado",
+  "pergunta": "Sobre pagamento por Pix e cartao de credito: qual o prazo maximo para usar o Pix?",
+  "relevantes": [
+   {
+    "doc": "pagamento-pix-e-cartao",
+    "pagina": 1,
+    "contem": "ate 3 dias antes"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "3 dias"
+  ],
+  "resposta_referencia": "O prazo maximo para usar o Pix e de 3 dias [T1]."
+ },
+ {
+  "id": "qa091",
+  "categoria": "ampliado",
+  "pergunta": "Sobre pagamento por Pix e cartao de credito: qual o valor maximo diario permitido?",
+  "relevantes": [
+   {
+    "doc": "pagamento-pix-e-cartao",
+    "pagina": 3,
+    "contem": "de R$ 99999 por"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 99999"
+  ],
+  "resposta_referencia": "O valor maximo diario permitido e R$ 99999 [T1]."
+ },
+ {
+  "id": "qa092",
+  "categoria": "ampliado",
+  "pergunta": "Sobre cotas de impressao e copias: qual e o limite diario para impressao em preto e branco?",
+  "relevantes": [
+   {
+    "doc": "servicos-de-impressao",
+    "pagina": 1,
+    "contem": "cota de 10 paginas"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 paginas"
+  ],
+  "resposta_referencia": "O limite diario para impressao em preto e branco e de 10 paginas [T1]"
+ },
+ {
+  "id": "qa093",
+  "categoria": "ampliado",
+  "pergunta": "Sobre cotas de impressao e copias: qual o valor minimo para retirar um pedido no balcao?",
+  "relevantes": [
+   {
+    "doc": "servicos-de-impressao",
+    "pagina": 2,
+    "contem": "valor minimo de R$"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 5,00"
+  ],
+  "resposta_referencia": "O valor minimo para retirar um pedido e de R$ 5,00 [T1]"
+ },
+ {
+  "id": "qa094",
+  "categoria": "ampliado",
+  "pergunta": "Sobre cotas de impressao e copias: em quanto tempo a taxa de urgencia garante a entrega?",
+  "relevantes": [
+   {
+    "doc": "servicos-de-impressao",
+    "pagina": 3,
+    "contem": "entrega em 1 minuto"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "1 minuto"
+  ],
+  "resposta_referencia": "A taxa de urgencia garante entrega em 1 minuto [T1]"
+ },
+ {
+  "id": "qa095",
+  "categoria": "ampliado",
+  "pergunta": "Sobre aluguel de armarios: qual e o valor mensal base?",
+  "relevantes": [
+   {
+    "doc": "uso-de-armarios",
+    "pagina": 1,
+    "contem": "valor base e de 25"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "25 reais"
+  ],
+  "resposta_referencia": "O valor base do aluguel e de 25 reais por mes [T1]"
+ },
+ {
+  "id": "qa096",
+  "categoria": "ampliado",
+  "pergunta": "Sobre aluguel de armarios: qual o custo por hora extra?",
+  "relevantes": [
+   {
+    "doc": "uso-de-armarios",
+    "pagina": 2,
+    "contem": "custo extra por hora"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 reais"
+  ],
+  "resposta_referencia": "O custo extra por hora e de 5 reais [T1]"
+ },
+ {
+  "id": "qa097",
+  "categoria": "ampliado",
+  "pergunta": "Sobre mentoria entre veteranos e calouros: qual e o valor da taxa que os calouros precisam pagar?",
+  "relevantes": [
+   {
+    "doc": "programa-de-mentoria",
+    "pagina": 2,
+    "contem": "pagam 50 reais de taxa"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "50 reais"
+  ],
+  "resposta_referencia": "A taxa que os calouros precisam pagar e de 50 reais [T1]."
+ },
+ {
+  "id": "qa098",
+  "categoria": "ampliado",
+  "pergunta": "Sobre mentoria entre veteranos e calouros: em quantos dias os certificados sao emitidos apos o fim?",
+  "relevantes": [
+   {
+    "doc": "programa-de-mentoria",
+    "pagina": 3,
+    "contem": "emitidos em 15 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 dias"
+  ],
+  "resposta_referencia": "Os certificados sao emitidos em 15 dias apos o fim [T1]."
+ },
+ {
+  "id": "qa099",
+  "categoria": "ampliado",
+  "pergunta": "Sobre eleicoes do diretorio academico: qual e o periodo minimo para se inscrever?",
+  "relevantes": [
+   {
+    "doc": "eleicoes-diretorio-academico",
+    "pagina": 1,
+    "contem": "inscricao dos candidatos e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 ate 15 dias"
+  ],
+  "resposta_referencia": "O periodo de inscricao dos candidatos e de 10 ate 15 dias uteis [T1]."
+ },
+ {
+  "id": "qa100",
+  "categoria": "ampliado",
+  "pergunta": "Sobre eleicoes do diretorio academico: qual e o limite de gasto para cartazes?",
+  "relevantes": [
+   {
+    "doc": "eleicoes-diretorio-academico",
+    "pagina": 2,
+    "contem": "gastar ate 500 reais"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "500 reais"
+  ],
+  "resposta_referencia": "Cada chapa pode gastar ate 500 reais em cartazes [T1]."
+ },
+ {
+  "id": "qa101",
+  "categoria": "ampliado",
+  "pergunta": "Sobre eleicoes do diretorio academico: em quantas horas os votos sao apurados?",
+  "relevantes": [
+   {
+    "doc": "eleicoes-diretorio-academico",
+    "pagina": 3,
+    "contem": "apuros dos votos sao"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "48 horas"
+  ],
+  "resposta_referencia": "Os apuros dos votos sao feitos em 48 horas uteis [T1]."
+ },
+ {
+  "id": "qa102",
+  "categoria": "acl",
+  "pergunta": "Sobre diarios de classe e registro de frequencia: qual e o percentual minimo de presenca exigido?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-diarios-de-classe",
+    "pagina": 1,
+    "contem": "minima exigida para aprovacao"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "75 por cento"
+  ],
+  "resposta_referencia": "A frequencia minima exigida para aprovacao e de 75 por cento das aulas [T1].",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-diarios-de-classe"
+  ]
+ },
+ {
+  "id": "qa103",
+  "categoria": "acl",
+  "pergunta": "Sobre diarios de classe e registro de frequencia: qual e o limite de faltas permitidas?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-diarios-de-classe",
+    "pagina": 2,
+    "contem": "faltas por semestre"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "10 dias"
+  ],
+  "resposta_referencia": "O limite de faltas por semestre e de 10 dias por disciplina [T1].",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-diarios-de-classe"
+  ]
+ },
+ {
+  "id": "qa104",
+  "categoria": "acl",
+  "pergunta": "Sobre orientacao de TCC pelos docentes: qual e o limite maximo de alunos?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-orientacao-tcc",
+    "pagina": 1,
+    "contem": "atender no maximo 15"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 alunos"
+  ],
+  "resposta_referencia": "Cada orientador pode atender no maximo 15 alunos [T1]",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-orientacao-tcc"
+  ]
+ },
+ {
+  "id": "qa105",
+  "categoria": "acl",
+  "pergunta": "Sobre orientacao de TCC pelos docentes: qual e o minimo de membros?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-orientacao-tcc",
+    "pagina": 2,
+    "contem": "banca avaliadora deve ter"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "3 membros"
+  ],
+  "resposta_referencia": "A banca avaliadora deve ter no minimo 3 membros [T1]",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-orientacao-tcc"
+  ]
+ },
+ {
+  "id": "qa106",
+  "categoria": "acl",
+  "pergunta": "Sobre orientacao de TCC pelos docentes: qual e o custo da impressao?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-orientacao-tcc",
+    "pagina": 3,
+    "contem": "custo da impressao e"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 5,00"
+  ],
+  "resposta_referencia": "O custo da impressao e de R$ 5,00 por folha [T1]",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-orientacao-tcc"
+  ]
+ },
+ {
+  "id": "qa107",
+  "categoria": "acl",
+  "pergunta": "Sobre quebra de pre-requisito autorizada pela coordenacao: qual o prazo para apresentar recurso?",
+  "relevantes": [
+   {
+    "doc": "norma-coordenacao-pre-requisitos",
+    "pagina": 1,
+    "contem": "Requisito basico: 60% de frequencia"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias uteis"
+  ],
+  "resposta_referencia": "O prazo para recurso e de 5 dias uteis. [T1]",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "norma-coordenacao-pre-requisitos"
+  ]
+ },
+ {
+  "id": "qa108",
+  "categoria": "acl",
+  "pergunta": "Sobre quebra de pre-requisito autorizada pela coordenacao: qual a media minima exigida?",
+  "relevantes": [
+   {
+    "doc": "norma-coordenacao-pre-requisitos",
+    "pagina": 2,
+    "contem": "Docente deve justificar em ate"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "7,0 na materia"
+  ],
+  "resposta_referencia": "A media minima exigida e 7,0 na materia. [T1]",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "norma-coordenacao-pre-requisitos"
+  ]
+ },
+ {
+  "id": "qa109",
+  "categoria": "acl",
+  "pergunta": "Sobre quebra de pre-requisito autorizada pela coordenacao: qual o custo da prova extra?",
+  "relevantes": [
+   {
+    "doc": "norma-coordenacao-pre-requisitos",
+    "pagina": 3,
+    "contem": "Administracao confere documentos em ate"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 100,00 por tentativa"
+  ],
+  "resposta_referencia": "O custo da prova extra e R$ 100,00 por tentativa. [T1]",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "norma-coordenacao-pre-requisitos"
+  ]
+ },
+ {
+  "id": "qa110",
+  "categoria": "acl",
+  "pergunta": "Sobre banca de revisao de notas: qual o limite temporal para apresentar o pedido de revisao das notas?",
+  "relevantes": [
+   {
+    "doc": "norma-coordenacao-banca-revisao",
+    "pagina": 1,
+    "contem": "Prazo maximo de 5"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias uteis"
+  ],
+  "resposta_referencia": "O prazo maximo para apresentar o pedido de revisao das notas e de 5 dias uteis [T1].",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "norma-coordenacao-banca-revisao"
+  ]
+ },
+ {
+  "id": "qa111",
+  "categoria": "acl",
+  "pergunta": "Sobre banca de revisao de notas: qual a nota minima exigida para que o aluno seja aprovado?",
+  "relevantes": [
+   {
+    "doc": "norma-coordenacao-banca-revisao",
+    "pagina": 2,
+    "contem": "Aprovacao requer nota minima"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "7,0"
+  ],
+  "resposta_referencia": "O aluno precisa de uma nota minima de 7,0 para ser aprovado [T1].",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "norma-coordenacao-banca-revisao"
+  ]
+ },
+ {
+  "id": "qa112",
+  "categoria": "acl",
+  "pergunta": "Sobre banca de revisao de notas: qual e o limite maximo de apelacoes permitidas por semestre?",
+  "relevantes": [
+   {
+    "doc": "norma-coordenacao-banca-revisao",
+    "pagina": 3,
+    "contem": "Maximo de 2 apelacoes"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "2 apelacoes"
+  ],
+  "resposta_referencia": "O limite maximo de apelacoes permitidas por semestre e de 2 [T1].",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "norma-coordenacao-banca-revisao"
+  ]
+ },
+ {
+  "id": "qa113",
+  "categoria": "acl",
+  "pergunta": "Sobre administracao de contas e bloqueios pela TI: quanto tempo tenho para pedir nova senha?",
+  "relevantes": [
+   {
+    "doc": "manual-ti-administracao-contas",
+    "pagina": 1,
+    "contem": "Prazo maximo de 24"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "24 horas"
+  ],
+  "resposta_referencia": "O prazo maximo para solicitar o reset de senha e de 24 horas [T1].",
+  "filtro": {
+   "perfil": "admin",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "manual-ti-administracao-contas"
+  ]
+ },
+ {
+  "id": "qa114",
+  "categoria": "acl",
+  "pergunta": "Sobre administracao de contas e bloqueios pela TI: qual o valor da multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "manual-ti-administracao-contas",
+    "pagina": 2,
+    "contem": "multa de R$ 50,00"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "A cobranca da multa por atraso na entrega de notas e de R$ 50,00 [T1].",
+  "filtro": {
+   "perfil": "admin",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "manual-ti-administracao-contas"
+  ]
+ },
+ {
+  "id": "qa115",
+  "categoria": "acl",
+  "pergunta": "Sobre administracao de contas e bloqueios pela TI: em quantos dias posso recorrer ao bloqueio?",
+  "relevantes": [
+   {
+    "doc": "manual-ti-administracao-contas",
+    "pagina": 3,
+    "contem": "feitos em 5 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "5 dias uteis"
+  ],
+  "resposta_referencia": "Os recursos contra bloqueio devem ser feitos em 5 dias uteis [T1].",
+  "filtro": {
+   "perfil": "admin",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "manual-ti-administracao-contas"
+  ]
+ },
+ {
+  "id": "qa116",
+  "categoria": "acl",
+  "pergunta": "Sobre horas de preparacao e reuniao dos docentes: qual e o valor monetario da hora extra?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-horas-complementares",
+    "pagina": 1,
+    "contem": "hora extra e de"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 50,00"
+  ],
+  "resposta_referencia": "O valor da hora extra e de R$ 50,00 [T1]",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-horas-complementares"
+  ]
+ },
+ {
+  "id": "qa117",
+  "categoria": "acl",
+  "pergunta": "Sobre horas de preparacao e reuniao dos docentes: qual e o horario fixo para as reunioes?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-horas-complementares",
+    "pagina": 2,
+    "contem": "reuniao sao fixos das"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "14h as 16h"
+  ],
+  "resposta_referencia": "Os horarios de reuniao sao fixos das 14h as 16h [T1]",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-horas-complementares"
+  ]
+ },
+ {
+  "id": "qa118",
+  "categoria": "acl",
+  "pergunta": "Sobre horas de preparacao e reuniao dos docentes: em quantos dias uteis o pagamento e liberado?",
+  "relevantes": [
+   {
+    "doc": "guia-docente-horas-complementares",
+    "pagina": 3,
+    "contem": "pagamento em 15 dias"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "15 dias uteis"
+  ],
+  "resposta_referencia": "A administracao libera o pagamento em 15 dias uteis [T1]",
+  "filtro": {
+   "perfil": "docente",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "guia-docente-horas-complementares"
+  ]
+ },
+ {
+  "id": "qa119",
+  "categoria": "acl",
+  "pergunta": "Sobre regua interna de cobranca de inadimplencia: qual e o percentual da multa inicial aplicada",
+  "relevantes": [
+   {
+    "doc": "manual-financeiro-inadimplencia",
+    "pagina": 1,
+    "contem": "Multa inicial e de 2%"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "2%"
+  ],
+  "resposta_referencia": "A regua define que a multa inicial e de 2% sobre o valor da fatura [T1].",
+  "filtro": {
+   "perfil": "admin",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "manual-financeiro-inadimplencia"
+  ]
+ },
+ {
+  "id": "qa120",
+  "categoria": "acl",
+  "pergunta": "Sobre regua interna de cobranca de inadimplencia: em quantos dias ocorre o cancelamento da matricula",
+  "relevantes": [
+   {
+    "doc": "manual-financeiro-inadimplencia",
+    "pagina": 3,
+    "contem": "Cancelamento automatico do matricula"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "30 dias"
+  ],
+  "resposta_referencia": "O cancelamento automatico do matricula ocorre em 30 dias [T1].",
+  "filtro": {
+   "perfil": "admin",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "manual-financeiro-inadimplencia"
+  ]
+ },
+ {
+  "id": "qa121",
+  "categoria": "acl",
+  "pergunta": "Sobre resposta a incidentes com dados pessoais: qual o prazo para isolar o sistema?",
+  "relevantes": [
+   {
+    "doc": "protocolo-incidentes-de-dados",
+    "pagina": 1,
+    "contem": "Isolar o sistema afetado"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "4 horas"
+  ],
+  "resposta_referencia": "O sistema deve ser isolado em ate 4 horas apos a deteccao [T1].",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "protocolo-incidentes-de-dados"
+  ]
+ },
+ {
+  "id": "qa122",
+  "categoria": "acl",
+  "pergunta": "Sobre resposta a incidentes com dados pessoais: quanto custa a multa por atraso?",
+  "relevantes": [
+   {
+    "doc": "protocolo-incidentes-de-dados",
+    "pagina": 2,
+    "contem": "Multas internas de R$"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "R$ 500,00"
+  ],
+  "resposta_referencia": "A multa interna por atraso e de R$ 500,00 [T1].",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "protocolo-incidentes-de-dados"
+  ]
+ },
+ {
+  "id": "qa123",
+  "categoria": "acl",
+  "pergunta": "Sobre resposta a incidentes com dados pessoais: qual a frequencia do treinamento?",
+  "relevantes": [
+   {
+    "doc": "protocolo-incidentes-de-dados",
+    "pagina": 3,
+    "contem": "Treinamento obrigatorio de 4"
+   }
+  ],
+  "resposta_esperada_contem": [
+   "4 horas anuais"
+  ],
+  "resposta_referencia": "O treinamento obrigatorio tem 4 horas anuais [T1].",
+  "filtro": {
+   "perfil": "coordenacao",
+   "apenas_vigentes": true
+  },
+  "docs_restritos": [
+   "protocolo-incidentes-de-dados"
+  ]
+ }
+]

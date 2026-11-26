@@ -3,6 +3,10 @@
 Contém 12 documentos com tabelas, distrações lexicais, versões conflitantes (2024 vs 2026) e
 metadados de controle de acesso (ACL) por perfil. Cada documento vira um PDF gerado na hora por
 `mercado_base.gerar_pdf_texto`. Só caracteres Latin-1 (WinAnsi).
+
+Corpus ampliado (Etapa 3, opcional com `ampliado=True`): mais 45 documentos e 123 perguntas gerados
+por LLM local em `dados/corpus_ampliado.json` e `dados/consultas_ampliadas.json`
+(`gerar_corpus_ampliado.py`). O P06 continua no corpus base.
 """
 import json
 import os
@@ -247,8 +251,34 @@ DOCUMENTOS = {
 }
 
 
+_DADOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dados")
+
+
+def _carregar_ampliado() -> Dict[str, Dict[str, object]]:
+    caminho = os.path.join(_DADOS, "corpus_ampliado.json")
+    if not os.path.exists(caminho):
+        return {}
+    with open(caminho, encoding="utf-8") as f:
+        return json.load(f)["documentos"]
+
+
+AMPLIADO = _carregar_ampliado()
+
+
+def documentos(ampliado: bool = False) -> Dict[str, list]:
+    """{doc: páginas}; com `ampliado`, os 12 documentos base mais os gerados."""
+    saida = dict(DOCUMENTOS)
+    if ampliado:
+        saida.update({doc: d["paginas"] for doc, d in AMPLIADO.items()})
+    return saida
+
+
 def metadados_doc(doc: str) -> Dict[str, object]:
     """Devolve metadados declarados do documento ou padrão público vigente."""
+    if doc in AMPLIADO:
+        meta = dict(AMPLIADO[doc]["metadados"])
+        meta["perfis"] = tuple(meta["perfis"])
+        return meta
     return dict(
         METADADOS_DOCUMENTOS.get(
             doc,
@@ -262,13 +292,13 @@ def metadados_doc(doc: str) -> Dict[str, object]:
     )
 
 
-def gerar_pdfs(pasta: str) -> dict:
+def gerar_pdfs(pasta: str, ampliado: bool = False) -> dict:
     """Grava um PDF por documento em `pasta` e devolve {doc: caminho}."""
     import mercado_base as mb
 
     os.makedirs(pasta, exist_ok=True)
     caminhos = {}
-    for doc, paginas in DOCUMENTOS.items():
+    for doc, paginas in documentos(ampliado).items():
         caminho = os.path.join(pasta, f"{doc}.pdf")
         with open(caminho, "wb") as f:
             f.write(mb.gerar_pdf_texto(paginas))
@@ -276,7 +306,10 @@ def gerar_pdfs(pasta: str) -> dict:
     return caminhos
 
 
-def carregar_consultas() -> list:
-    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "dados", "consultas_ouro.json"),
-              encoding="utf-8") as f:
-        return json.load(f)
+def carregar_consultas(ampliado: bool = False) -> list:
+    with open(os.path.join(_DADOS, "consultas_ouro.json"), encoding="utf-8") as f:
+        consultas = json.load(f)
+    if ampliado:
+        with open(os.path.join(_DADOS, "consultas_ampliadas.json"), encoding="utf-8") as f:
+            consultas += json.load(f)
+    return consultas

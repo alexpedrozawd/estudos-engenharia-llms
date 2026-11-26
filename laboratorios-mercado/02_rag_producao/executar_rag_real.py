@@ -17,12 +17,37 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import mercado_base as mb  # noqa: E402
-from mercado_base.cliente_openai import ClienteChatOpenAI, medir_memoria_ollama  # noqa: E402
+from mercado_base import dados_sinteticos as ds  # noqa: E402
+from mercado_base import estatistica as est  # noqa: E402
+from mercado_base.cliente_openai import ClienteChatComCache, ClienteChatOpenAI, medir_memoria_ollama  # noqa: E402
 
 import corpus_aurora  # noqa: E402
 import rag_ingestao as ing  # noqa: E402
 import rag_pipeline as rp  # noqa: E402
 import rag_store as rs  # noqa: E402
+
+
+def estatistica_recuperacao(avaliacoes: dict, escolhida: str) -> dict:
+    """Acerto@k por pergunta (ao menos um trecho relevante no top-k): Wilson 95% por variante; a escolhida
+    contra cada outra com McNemar exato no acerto@k e bootstrap pareado no MRR."""
+    def acerto(nome):
+        return {p["id"]: p["recall"] > 0 for p in avaliacoes[nome]["por_consulta"]}
+
+    def mrrs(nome):
+        return [p["mrr"] for p in avaliacoes[nome]["por_consulta"]]
+
+    saida = {"acerto_em_k": {}, "escolhida": escolhida, "comparacoes": {}}
+    for nome in avaliacoes:
+        a = acerto(nome)
+        saida["acerto_em_k"][nome] = {"n": len(a), "acertos": sum(a.values()),
+                                      "wilson95": est.wilson(sum(a.values()), len(a))}
+    for nome in avaliacoes:
+        if nome == escolhida:
+            continue
+        cmp = est.comparar_binario(acerto(nome), acerto(escolhida))
+        cmp["bootstrap_mrr"] = est.bootstrap_diferenca(mrrs(nome), mrrs(escolhida))
+        saida["comparacoes"][f"{escolhida}_vs_{nome}"] = cmp
+    return saida
 
 
 def main(argv=None) -> int:
@@ -36,14 +61,18 @@ def main(argv=None) -> int:
     ap.add_argument("--ollama-host", default=os.environ.get("OLLAMA_HOST", ""))
     ap.add_argument("--k", type=int, default=4)
     ap.add_argument("--max-palavras", type=int, default=40)
+    ap.add_argument("--corpus", choices=("base", "ampliado"), default="ampliado",
+                    help="base: 12 documentos e 28 perguntas; ampliado: 57 documentos e 151 perguntas (Etapa 3)")
+    ap.add_argument("--cache-llm", default="", help="arquivo de cache das chamadas ao LLM (execução retomável)")
     ap.add_argument("--registrar", action="store_true")
     args = ap.parse_args(argv)
+    ampliado = args.corpus == "ampliado"
     if not args.dsn:
         ap.error("defina --dsn ou PGVECTOR_DSN (a senha não é gravada no registro)")
 
     t0 = time.perf_counter()
     with tempfile.TemporaryDirectory() as pasta:
-        pdfs = corpus_aurora.gerar_pdfs(pasta)
+        pdfs = corpus_aurora.gerar_pdfs(pasta, ampliado=ampliado)
         trechos = []
         for doc, caminho in pdfs.items():
             meta = corpus_aurora.metadados_doc(doc)
@@ -65,7 +94,7 @@ def main(argv=None) -> int:
     t_ingestao = time.perf_counter() - t0
     memoria_ingestao = medir_memoria_ollama(args.ollama_host) if args.ollama_host else {}
 
-    consultas = corpus_aurora.carregar_consultas()
+    consultas = corpus_aurora.carregar_consultas(ampliado=ampliado)
     com_resposta = [
         dict(c, relevantes=rp.resolver_relevantes(trechos, c["relevantes"]))
         for c in consultas
@@ -89,6 +118,8 @@ def main(argv=None) -> int:
             timeout_s=180.0,
             reasoning_effort=args.llm_reasoning_effort or None,
         )
+        if args.cache_llm:
+            cliente = ClienteChatComCache(cliente, args.cache_llm)
         variantes.append(("hibrida_reranker_llm", "hibrida", rp.ReordenadorLLM(cliente)))
 
     avaliacoes = {
@@ -111,7 +142,8 @@ def main(argv=None) -> int:
             )
             out = rp.responder(c["pergunta"], rec, cliente)
             fid = rp.fidelidade(out["resposta"], rec.trechos)
-            esperado = [e for e in c.get("resposta_esperada_contem", []) if e.lower() not in out["resposta"].lower()]
+            esperado = [e for e in c.get("resposta_esperada_contem", [])
+                        if ds.normalizar(e) not in ds.normalizar(out["resposta"])]
             geracao.append({
                 "id": c["id"],
                 "categoria": c.get("categoria"),
@@ -134,10 +166,11 @@ def main(argv=None) -> int:
             "llm_reasoning_effort": args.llm_reasoning_effort or None,
             "k": args.k,
             "max_palavras": args.max_palavras,
+            "corpus": args.corpus,
             "dsn": "postgresql://***@pgvector",
         },
         "ingestao": {
-            "documentos": len(corpus_aurora.DOCUMENTOS),
+            "documentos": len(corpus_aurora.documentos(ampliado)),
             "trechos": len(trechos),
             "trechos_tabela": sum(1 for t in trechos if t.tipo == "tabela"),
             "trechos_restritos": sum(1 for t in trechos if "aluno" not in t.perfis),
@@ -148,6 +181,7 @@ def main(argv=None) -> int:
         "auditoria_acl": auditoria_acl,
         "variante_escolhida_para_geracao": nome_melhor,
         "recuperacao_por_consulta": avaliacoes[nome_melhor]["por_consulta"],
+        "estatistica_recuperacao": estatistica_recuperacao(avaliacoes, nome_melhor),
         "geracao": geracao,
     }
     if memoria_ingestao or memoria:
@@ -162,6 +196,11 @@ def main(argv=None) -> int:
             "perguntas_sem_resposta": sum(1 for g in geracao if g["recusou_corretamente"] is not None),
             "latencia_ms": mb.resumir_latencias_ms([float(g["latencia_ms"]) for g in geracao]),
         }
+        r = resultado["geracao_resumo"]
+        r["wilson95_conteudo_esperado"] = est.wilson(r["acerto_conteudo_esperado"], r["respondidas"])
+        r["wilson95_recusas"] = est.wilson(r["recusas_corretas"], r["perguntas_sem_resposta"])
+    if isinstance(cliente, ClienteChatComCache):
+        resultado["cache_llm"] = {"reaproveitadas": cliente.acertos_cache, "chamadas_reais": cliente.chamadas_reais}
     print(json.dumps(resultado, ensure_ascii=False, indent=2))
     if args.registrar:
         print("registro:", mb.registrar_execucao("p02-rag-pgvector", resultado))

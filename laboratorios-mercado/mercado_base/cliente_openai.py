@@ -308,3 +308,67 @@ def gerar_estruturado(
             })
 
     raise ValueError(f"Falha ao validar {modelo_pydantic.__name__} após {max_reparos} reparo(s): {ultimo_erro}")
+
+
+class ClienteChatComCache:
+    """Envolve um cliente `completar_chat` com cache em disco (JSON) por hash do pedido.
+
+    Para execuções reais longas e retomáveis (temperatura 0): rodar de novo reaproveita as respostas já
+    obtidas, inclusive a latência medida na chamada original. Nunca use com chaves no pedido.
+    """
+
+    def __init__(self, cliente, caminho: str):
+        import os
+
+        self.cliente = cliente
+        self.caminho = caminho
+        self.modelo = getattr(cliente, "modelo", "")
+        self.provedor = getattr(cliente, "provedor", "")
+        self.acertos_cache = 0
+        self.chamadas_reais = 0
+        self._dados: Dict[str, Dict[str, Any]] = {}
+        if os.path.exists(caminho):
+            with open(caminho, encoding="utf-8") as f:
+                self._dados = json.load(f)
+
+    def _gravar(self) -> None:
+        import os
+
+        os.makedirs(os.path.dirname(os.path.abspath(self.caminho)), exist_ok=True)
+        tmp = self.caminho + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(self._dados, f, ensure_ascii=False)
+        os.replace(tmp, self.caminho)
+
+    def completar_chat(self, mensagens: Sequence[Dict[str, object]], **kwargs: Any) -> RespostaChat:
+        import hashlib
+
+        chave = hashlib.sha256(json.dumps({"modelo": self.modelo, "mensagens": list(mensagens), **kwargs},
+                                          ensure_ascii=False, sort_keys=True, default=str).encode()).hexdigest()
+        if chave in self._dados:
+            self.acertos_cache += 1
+            d = dict(self._dados[chave])
+            d["chamadas_ferramentas"] = tuple(ChamadaFerramenta(**c) for c in d.get("chamadas_ferramentas", ()))
+            return RespostaChat(**d)
+        # `reasoning_effort=None` entra na chave, mas não vai ao cliente (o falso dos testes não o aceita).
+        r = self.cliente.completar_chat(mensagens, **{k: v for k, v in kwargs.items()
+                                                      if not (k == "reasoning_effort" and v is None)})
+        self.chamadas_reais += 1
+        d = {k: getattr(r, k) for k in RespostaChat.__dataclass_fields__}
+        d["chamadas_ferramentas"] = [c.__dict__ for c in r.chamadas_ferramentas]
+        self._dados[chave] = d
+        self._gravar()
+        return r
+
+    def latencias_ms(self) -> List[float]:
+        """Latências medidas nas chamadas reais guardadas (o tempo de leitura do cache não conta)."""
+        return [float(d.get("latencia_ms") or 0.0) for d in self._dados.values()]
+
+    def completar(self, prompt: str, *, sistema: str = "", esforco: Optional[str] = None,
+                  temperatura: float = 0.0, max_tokens: int = 256) -> RespostaChat:
+        mensagens: List[Dict[str, object]] = []
+        if sistema:
+            mensagens.append({"role": "system", "content": sistema})
+        mensagens.append({"role": "user", "content": prompt})
+        return self.completar_chat(mensagens, temperatura=temperatura, max_tokens=max_tokens,
+                                   reasoning_effort=esforco)

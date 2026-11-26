@@ -1,0 +1,37 @@
+{
+  "candidatos": 578,
+  "carimbo": "2026-11-26T01-40-44-0300",
+  "concordancia_rotulo": {
+    "academico|nao": 49,
+    "academico|sim": 96,
+    "acesso|sim": 143,
+    "financeiro|nao": 2,
+    "financeiro|sim": 140,
+    "secretaria|nao": 9,
+    "secretaria|sim": 124
+  },
+  "descartes": {
+    "quase_duplicata": 4,
+    "rotulo_divergente": 60,
+    "tamanho": 11
+  },
+  "embeddings": "qwen3-embedding:0.6b",
+  "execucao": "p04-geracao-sintetica",
+  "gerador": "qwen3.8:27b-ud-iq3_xxs",
+  "grupos_por_tamanho": {
+    "1": 326,
+    "2": 11,
+    "3": 4
+  },
+  "limiar_cosseno": 0.85,
+  "limiar_jaccard": 0.6,
+  "originais": 36,
+  "quantidade_por_pedido": 24,
+  "rodadas_por_estrato": 2,
+  "semente": "aurora-sintetico-v1",
+  "sha256_dados": "181a8e31925ef752faa2ce32249a47d0bd9a16d18975587bc2a5f5f4bda9bbb4",
+  "sha256_prompt_exemplo": "67ed331960ee38238ace80c485d14f2631da180c447c7abcd4c5f1d5da27d777",
+  "sinteticos": 324,
+  "temperatura": 0.9,
+  "total": 360
+}

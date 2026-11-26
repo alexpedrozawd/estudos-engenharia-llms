@@ -1,0 +1,1776 @@
+{
+ "documentos": {
+  "regulamento-laboratorios-informatica": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Pagamento de R$ 50,00 por dia de atraso",
+     "Multas acima de R$ 200,00 sao inegociaveis",
+     "Horario de seg a sex das 8h as 18h",
+     "Sabado apenas das 9h as 14h",
+     "Domingos e feriados sao fechados"
+    ],
+    [
+     "Cada aluno tem 4 horas de uso diario",
+     "Sessoes acima de 4 horas geram taxa",
+     "Taxa extra e de R$ 10,00 por hora",
+     "Reserva de sala exige 2 dias antes",
+     "Cancelamento com 24 horas evita multa",
+     "Multas de reserva sao de 50% do valor"
+    ],
+    [
+     "Perda de pen drive custa R$ 50,00",
+     "Danos em monitor custam R$ 300,00",
+     "Teclado danificado custa R$ 80,00",
+     "Mouse danificado custa R$ 30,00",
+     "Pagamento em ate 5 dias uteis",
+     "Atraso gera juros de 1% ao dia"
+    ]
+   ]
+  },
+  "politica-uso-wifi-campus": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "ti",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Rede aberta para publico externo",
+     "Velocidade maxima 10 Mbps",
+     "Sessao de 60 minutos por dia",
+     "Acesso restrito a site institucional",
+     "Bloqueio automatico apos 3 tentativas"
+    ],
+    [
+     "Alunos matriculados no curso",
+     "Velocidade maxima 100 Mbps",
+     "Sessao ilimitada em dias letivos",
+     "Download de ate 2 GB por dia",
+     "Prioridade em horarios de aula",
+     "Suporte tecnico em 24 horas"
+    ],
+    [
+     "Multas por uso abusivo da rede",
+     "Bloqueio de 48 horas por aviso",
+     "Multas de R$ 50 por reincidencia",
+     "Desconto de 10% na mensalidade",
+     "Recorrencia apos 30 dias de ban",
+     "Suspensao total por 90 dias"
+    ]
+   ]
+  },
+  "manual-restaurante-universitario": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "servicos",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Restaurante Universitario (documento ficticio)",
+     "Horario de funcionamento das 7h as 14h",
+     "Aluguel de espaco por 30 dias por R$ 50",
+     "Desconto de 10% para funcionarios",
+     "Limite de 50 pessoas por area",
+     "Prazo de 48 horas para solicitacao"
+    ],
+    [
+     "Refeicao completa custa R$ 12,00",
+     "Caf da manha disponivel das 6h as 8h",
+     "Taxa de servico de 5% no total",
+     "Capacidade maxima de 200 pessoas",
+     "Reserva obrigatoria em 24 horas",
+     "Horario de fechamento as 15h em dia"
+    ],
+    [
+     "Bebidas geladas custam R$ 4,00 cada",
+     "Prazo de entrega em 15 minutos",
+     "Multas de 20% por atraso acima de 1h",
+     "Area infantil limitada a 10 criancas",
+     "Horario de limpeza das 14h as 15h",
+     "Valor de limpeza e R$ 100 por uso"
+    ]
+   ]
+  },
+  "regulamento-monitoria": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "regulamento-monitoria (documento ficticio)",
+     "candidatos devem ter media 7.5 no periodo",
+     "carga horaria semanal e de 12 horas",
+     "bolsa inicial de 600 reais por mes",
+     "inscricao aberta por 10 dias uteis",
+     "reprovacao em duas disciplinas impede"
+    ],
+    [
+     "horario de atendimento e das 8h a 12h",
+     "relatorio mensal deve ter 5 paginas",
+     "falta sem justificativa ate 3 dias",
+     "quarta-feira e dia de avaliacao",
+     "bolsa reajustada em 5% anual",
+     "carga horaria minima de 10 horas"
+    ],
+    [
+     "prazo para entrega e 48 horas",
+     "maximo de 2 bolsas por semestre",
+     "valor total de 1200 reais anuais",
+     "horario extra das 14h as 18h",
+     "desconto de 10% na mensalidade",
+     "limite de 5 faltas por ano"
+    ]
+   ]
+  },
+  "programa-intercambio": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "internacional",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Intercambio Aurora Educacao (documento ficticio)",
+     "Prazo maximo de inscricao e 30 dias uteis",
+     "Valor da taxa de inscricao e R$ 150,00",
+     "Bolsa cobre 50% do custo da mensalidade",
+     "Horario de atendimento e 8h as 18h",
+     "Limite de 2 tentativas por semestre"
+    ],
+    [
+     "Requisitos academicos e linguistica",
+     "Media minima exigida e 7,5 pontos",
+     "Prova de ingles deve ser 600 pontos",
+     "Carta de recomendacao e obrigatoria",
+     "Prazo de validade do certificado e 90 dias",
+     "Quantidade de vagas e limitada a 10 por ano"
+    ],
+    [
+     "Documentacao e logistica do programa",
+     "Passaporte deve ter 6 meses de validade",
+     "Custo estimado de viagem e R$ 2000,00",
+     "Seguro viagem cobre 100% dos custos",
+     "Check-in deve ser feito 48 horas antes",
+     "Periodo minimo de estadia e 90 dias"
+    ]
+   ]
+  },
+  "manual-ouvidoria": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "ouvidoria",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "manual-ouvidoria (documento ficticio)",
+     "Prazo maximo de resposta e de 5 dias uteis.",
+     "Canal unico pelo portal da Aurora Educacao.",
+     "Horario de atendimento das 9h as 17h.",
+     "Limites de 2 reclamacoes por mes por aluno.",
+     "Respostas iniciais em 1 dia util via sistema."
+    ],
+    [
+     "Multas por atraso sao de 2% ao dia.",
+     "Valor minimo da multa e de R$ 50,00.",
+     "Maximo de 10 dias para resposta final.",
+     "Horario estendido para 20h em feriados.",
+     "Quantidade maxima de 3 anexos por relato.",
+     "Prazo de 24 horas para confirmacao do envio."
+    ],
+    [
+     "Canal fisico apenas para casos graves.",
+     "Prazo de 3 dias para visita tecnica.",
+     "Custo de deslocamento e de R$ 100,00.",
+     "Limite de 1 visita por semestre letivo.",
+     "Horario da visita entre 10h e 14h.",
+     "Resposta final em 48 horas apos a visita."
+    ]
+   ]
+  },
+  "nucleo-acessibilidade": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "acessibilidade",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao nucleo-acessibilidade (documento ficticio)",
+     "Solicitacao de adaptacao deve ser feita 7 dias antes",
+     "Documentos validados em 48 horas uteis pela equipe",
+     "Provas com tempo extra de 20 por cento do total",
+     "Leitores profissionais disponiveis ate 15h30",
+     "Valor zero para alunos com laudo medico atual"
+    ],
+    [
+     "Reclamacao de prova deve ser enviada em 24 horas",
+     "Analise da reclamacao ocorre em 3 dias uteis",
+     "Tabela de valores: R$ 50,00 para impressoes",
+     "Limites de acessos ao sistema sao de 3 tentativas",
+     "Horario de atendimento presencial das 9h as 17h",
+     "Quantidade maxima de paginas por prova e 20"
+    ],
+    [
+     "Ajustes de sala de prova sao feitos em 2 horas",
+     "Percentual de reserva para acessibilidade e 5",
+     "Prazo de validade da adaptacao e de 30 dias",
+     "Valor de taxa de expedicao e R$ 10,00",
+     "Horario de fechamento do sistema e 22h00",
+     "Limite de caracteres por linha e 90 maximos"
+    ]
+   ]
+  },
+  "regulamento-atividades-complementares": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "O periodo de 30 dias corridos vale para validar a carga horaria.",
+     "O valor maximo por hora extra e de R$ 50,00.",
+     "O horario limite para envio e as 17h do mesmo dia.",
+     "A quantidade minima de atividades e de 2 por semestre.",
+     "O percentual de desconto no boleto e de 5%."
+    ],
+    [
+     "O prazo de 7 dias uteis vale para contestar o registro.",
+     "O valor minimo por projeto e de R$ 100,00.",
+     "O horario de atendimento vai das 8h as 18h.",
+     "A quantidade maxima de horas por mes e 100 horas.",
+     "O percentual de aprovisao exigido e de 70%.",
+     "O limite de tentativas no sistema e de 3 vezes."
+    ],
+    [
+     "O prazo de 15 dias corridos vale para emissao da nota.",
+     "O valor da taxa de revalidacao e de R$ 30,00.",
+     "O horario de corte do sistema e as 23h59.",
+     "A quantidade minima de dias de presenca e 3 dias.",
+     "O percentual de bonus por desempenho e de 10%.",
+     "O limite de arquivos por upload e de 5 arquivos."
+    ]
+   ]
+  },
+  "transporte-fretado-campus": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "servicos",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao transporte fretado campus (documento ficticio)",
+     "Vale transporte vale por viagem 2 reais e 50 centavos.",
+     "Solicitacao do vale deve ocorrer ate 3 dias uteis antes.",
+     "Limite de 20 vales por semestre para cada aluno.",
+     "Pagamento e via debito em cartao de credito.",
+     "Recusa do vale vence em 7 dias corridos da emissao."
+    ],
+    [
+     "Horario de saida do campus A e as 07h30 diariamente.",
+     "Horario de chegada ao campus B e as 08h15 no maximo.",
+     "Intervalo entre paradas e de 30 minutos no trajeto.",
+     "Capacidade maxima do onibus e de 45 passageiros.",
+     "Retorno do campus B inicia as 17h45 em dias uteis.",
+     "Chamada de presenca e feita via aplicativo oficial."
+    ],
+    [
+     "Taxa de adesao ao plano anual e de 50 reais.",
+     "Desconto de 10 por cento para quem tem 3 faltas ou menos.",
+     "Multas por atraso acima de 15 minutos sao de 5 reais.",
+     "Reembolso de 100 por cento para doencas comprovadas.",
+     "Validade do vale e de 30 dias contados da data.",
+     "Cancelamento sem custo ate 24 horas antes do uso."
+    ]
+   ]
+  },
+  "regulamento-estacionamento": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "servicos",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "regulamento-estacionamento (documento ficticio)",
+     "O estacionamento no campus possui 200 vagas no total.",
+     "Cada vaga tem tamanho maximo de 5 metros de comprimento.",
+     "A velocidade maxima permitida no patio e de 10 km/h.",
+     "A sinalizacao do local e responsabilidade do corpo docente.",
+     "O uso do espaco e restrito a veiculos de pequeno porte."
+    ],
+    [
+     "O valor da mensalidade do estacionamento e de R$ 50,00.",
+     "O pagamento deve ser feito ate o dia 5 de cada mes.",
+     "Atrasos acima de 3 dias geram multa de 10% sobre o valor.",
+     "O credito do estacionamento vale por 12 meses corridos.",
+     "O veiculo deve estar dentro do portao ate 08h30.",
+     "Apos o horario limite, o acesso e proibido no patio."
+    ],
+    [
+     "O visitante deve agendar a visita com 2 dias de antecedencia.",
+     "O credencial do visitante e valida por apenas 1 dia.",
+     "O documento do veiculo deve estar visivel no painel.",
+     "O limite de visitantes por dia e de 5 pessoas no total.",
+     "A permanencia maxima do visitante no patio e de 4 horas.",
+     "O descumprimento das regras gera exclusao imediata do local."
+    ]
+   ]
+  },
+  "achados-e-perdidos": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "servicos",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao achados e perdidos (documento ficticio)",
+     "Objetos entregues na portaria em ate 24 horas uteis.",
+     "Retirada gratuita apenas nos primeiros 7 dias corridos.",
+     "Apos 30 dias o item fica sob guarda sem custo extra.",
+     "Itens pereciveis sao descartados apos 48 horas do registro.",
+     "Documentos de identidade exigidos para liberacao do objeto."
+    ],
+    [
+     "Taxa de custodia mensal e de 15 reais por item comum.",
+     "Itens eletronicos pagam 25 reais por semana de guarda.",
+     "Dinheiro em especie tem taxa unica de 50 reais por dia.",
+     "Chaves de veiculo custam 10 reais por dia de armazenamento.",
+     "Valores acima de 100 reais exigem laudo de avaliacao.",
+     "Desconto de 50 percentual para alunos em dia com a mensalidade."
+    ],
+    [
+     "Horario de atendimento da portaria das 8h as 18h dias uteis.",
+     "Terceiros autorizados precisam de procuracao simples escrita.",
+     "Limite maximo de 3 objetos por pessoa por dia de retirada.",
+     "Objetos volumosos acima de 50 centimetros exigem agendamento.",
+     "Solicitacao de custodia prolongada via formulario fisico interno.",
+     "Perda de chave reserva gera custo extra de 20 reais por dia."
+    ]
+   ]
+  },
+  "iniciacao-cientifica": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "pesquisa",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "iniciacao cientifica (documento ficticio)",
+     "prazo de inscricao e de 10 dias uteis",
+     "valor da bolsa e de 400 reais mensais",
+     "carga horaria minima e de 12 horas semanais",
+     "apenas 500 vagas serao preenchidas",
+     "provas serao aplicadas das 8 as 12 horas"
+    ],
+    [
+     "regras de avaliacao e criterios de corte",
+     "nota minima de corte e 70 pontos em 100",
+     "recurso pode ser feito em 48 horas uteis",
+     "bolsas sao pagas ate o dia 5 do mes",
+     "reprovados podem tentar novamente em 30 dias",
+     "presenca minima exigida e de 75 percentual"
+    ],
+    [
+     "encerramento e renovacao dos vinculos",
+     "relatorio final deve ser entregue em 15 dias",
+     "banca avaliadora tera 3 professores membros",
+     "desligamento ocorre apos 2 faltas injustificadas",
+     "bolsa final e de 500 reais no ultimo mes",
+     "cerimonia de entrega e as 10 horas em ponto"
+    ]
+   ]
+  },
+  "empresa-junior": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "extensao",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao empresa-junior (documento ficticio)",
+     "Inscricao aberta em 10 dias uteis",
+     "Prova escrita dura 4 horas e 30 minutos",
+     "Entrevista final em 5 dias uteis",
+     "Resultado final em 3 dias uteis",
+     "Matricula efetiva em 7 dias uteis"
+    ],
+    [
+     "Junte-se a empresa junir da Aurora Educacao",
+     "Carga horaria minima de 8 horas semanais",
+     "Carga horaria maxima de 20 horas semanais",
+     "Horario de trabalho das 8h00 as 18h00",
+     "Folga semanal de 24 horas consecutivas",
+     "Horas extras pagas em 10 dias uteis"
+    ],
+    [
+     "Pagamento do estagio da empresa junir",
+     "Bolsa auxilio de R$ 500,00 mensais",
+     "Bolsa auxilio de R$ 800,00 por projeto",
+     "Reembolso de 50% em transporte",
+     "Reembolso de 30% em material",
+     "Pagamento unico de R$ 100,00"
+    ]
+   ]
+  },
+  "segunda-chamada-de-provas": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Prazo maximo 5 dias uteis para pedir.",
+     "Taxa de 50,00 reais por materia cursada.",
+     "Horario 8h00 as 18h00 dias uteis.",
+     "Limite de 2 pedidos por periodo letivo.",
+     "Prova marcada 10 dias apos o pedido."
+    ],
+    [
+     "Local definido pela secretaria da Aurora.",
+     "Valor minimo 30,00 reais para impressao.",
+     "Percentual de 80% de presenca obrigatoria.",
+     "Dias uteis contados a partir do dia 1.",
+     "Horas extras custam 10,00 reais cada hora.",
+     "Quantidade maxima 3 materias por pedido."
+    ],
+    [
+     "Reprovado final nao pode pedir segunda chamada.",
+     "Multa de 20,00 reais por atraso na taxa.",
+     "Prazo zero dias para recursos administrativos.",
+     "Limite de 1 segunda chamada por semestre.",
+     "Valor de 15,00 reais para certificado extra.",
+     "Horario de espera 15 minutos antes da prova."
+    ]
+   ]
+  },
+  "colacao-de-grau": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "secretaria",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao: colacao de grau (documento ficticio)",
+     "Inscricao online aberta 10 dias antes do evento",
+     "Pagamento unico de 150 reais ate 5 dias antes",
+     "Cancelamento gratis ate 48 horas antes da data",
+     "Taxa de 20% cobrada se cancelar em 24 horas",
+     "Certidao de matricula valida por 30 dias"
+    ],
+    [
+     "Cerimonia inicia pontualmente as 14 horas",
+     "Portas fecham 15 minutos antes do inicio",
+     "Entrada permitida ate 3 convidados por aluno",
+     "Espaco reservado para 500 pessoas no palco",
+     "Diploma entregue em maos durante o ritual",
+     "Fotografia oficial dura 5 minutos por turma"
+    ],
+    [
+     "Toga e capelo disponiveis por 10 reais cada",
+     "Desconto de 15% para quem comprar os dois",
+     "Entrega das vestes ate 2 horas antes do show",
+     "Troca de tamanho permitida ate 24 horas antes",
+     "Reembolso total so se produto estiver novo",
+     "Suporte tecnico ativo das 8 as 18 horas"
+    ]
+   ]
+  },
+  "seguranca-laboratorios-quimica": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Seguranca nos laboratorios de quimica (documento ficticio)",
+     "A entrada no laboratorio exige 10 dias de treinamento previo.",
+     "O uso de luvas de nitrila e obrigatorio em todo o tempo.",
+     "A temperatura ambiente deve ficar entre 20 e 25 graus Celsius.",
+     "Proibido consumir alimentos ou bebidas em area de trabalho.",
+     "O descarte de residuos classe A exige 5 dias de armazenagem."
+    ],
+    [
+     "Equipamentos de protecao individual devem ser inspecionados.",
+     "O capacete de seguranca deve ser certificado pelo INMETRO.",
+     "Oculos de seguranca devem ser trocados a cada 30 dias.",
+     "A calca de laboratorio deve ser de fibra natural e clara.",
+     "O uso de sapatos abertos ou sandalias e expressamente proibido.",
+     "As luvas devem ser trocadas a cada 4 horas de uso continuo."
+    ],
+    [
+     "O extintor de fogo classe C deve ser revisado a cada 6 meses.",
+     "A chuveira de emergencia deve funcionar com pressao minima.",
+     "O almofadico de contencao deve ter 100 litros de capacidade.",
+     "O alarme de incendio deve ser testado a cada 7 dias.",
+     "O primeiro socorros deve ter kit completo e lacrado.",
+     "A luz de emergencia deve ter autonomia de 60 minutos."
+    ]
+   ]
+  },
+  "seguro-estudantil": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "financeiro",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Seguro do Aluno (documento ficticio)",
+     "Cobertura basica ativa por 365 dias",
+     "Indenizacao maxima de R$ 50000",
+     "Carencia de 30 dias para uso",
+     "Atendimento medico 24 horas por dia"
+    ],
+    [
+     "Requerimento de sinistro em 7 dias",
+     "Exame medico em 48 horas uteis",
+     "Custo de sessao em R$ 150 reais",
+     "Limite de 10 sessoes por ano",
+     "Ajuste de plano em 15 dias"
+    ],
+    [
+     "Franquia de 20 por cento do custo",
+     "Reembolso em 5 dias uteis",
+     "Valor minimo de R$ 50 reais",
+     "Validade do bilhete por 90 dias",
+     "Reclamacao formal em 30 dias"
+    ]
+   ]
+  },
+  "carteirinha-estudantil": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "secretaria",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "carteirinha-estudantil (documento ficticio)",
+     "Primeira via gratuita para todos os matriculados",
+     "Segunda via custa 25 reais para pagamento",
+     "Prazo de entrega em 5 dias uteis apos solicitacao",
+     "Retirada somente nos horarios de 9 as 17h",
+     "Validade da carteira e de 12 meses corridos"
+    ],
+    [
+     "Solicitacao online atraves do portal interno",
+     "Impressao fisica apenas na portaria principal",
+     "Custo extra de 10 reais para entrega rapida",
+     "Prazo de 2 horas para impressao expressa",
+     "Limite de 3 segundas vias por semestre",
+     "Validade reduzida para 6 meses em caso de perda"
+    ],
+    [
+     "Documentos necessarios: foto 3x4 e comprovante",
+     "Pagamento apenas por cartao de debito ou credito",
+     "Reposicao por dano custa 50 reais na hora",
+     "Prazo de 24 horas para reemissao por erro",
+     "Multas de 15% para atraso na devolucao",
+     "Suporte tecnico funciona de 8 as 18h seg a sex"
+    ]
+   ]
+  },
+  "programa-apoio-psicologico": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "bem-estar",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Apoio Psicologico ao Estudante (documento ficticio)",
+     "Sessoes de 50 min seg terca e quinta as 14h",
+     "Agendamento via portal em ate 72 horas uteis",
+     "Maximo de 4 sessoes por mes por aluno ativo",
+     "Cancelamento exige aviso de 24 horas antes",
+     "Relatorio medico emitido em 10 dias uteis"
+    ],
+    [
+     "Custos e Coberturas do Programa de Apoio",
+     "Sessoes basicas sao gratuitas para matriculados",
+     "Apoio extra cobra R$ 150 por sessao adicional",
+     "Desconto de 50 percentual para bolsa integral",
+     "Pagamento em ate 3 dias uteis apos sessao",
+     "Reembolso parcial se falta nao avisada em 48h"
+    ],
+    [
+     "Limites e Horarios Especiais de Atendimento",
+     "Atendimento emergencial seg a sex das 8h as 18h",
+     "Fila de espera maxima de 15 minutos no balcao",
+     "Sessoes online limitadas a 2 por semana",
+     "Prazo de 5 dias uteis para resposta de duvidas",
+     "Capacidade maxima de 200 alunos por semestre"
+    ]
+   ]
+  },
+  "regulamento-esportes-e-academia": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "bem-estar",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "regulamento-esportes-e-academia (documento ficticio)",
+     "Inscricao para atividades fisicas em 5 dias uteis.",
+     "Taxa de adesao unica de R$ 50,00 por semestre.",
+     "Acesso liberado das 7h00 as 22h00 de segunda a sexta.",
+     "Maximo de 3 faltas justificadas por mes academico.",
+     "Cancelamento de reserva com 24 horas de antecedencia."
+    ],
+    [
+     "Equipes esportivas devem ser formadas por 10 membros.",
+     "Cada aluno pode integrar no maximo 2 equipes ativas.",
+     "Treinos oficiais sao tres dias uteis por semana.",
+     "Equipamento de protecao e obrigatorio em todos os jogos.",
+     "Multas por atraso de 15 minutos em R$ 10,00.",
+     "Desligamento por 3 faltas injustificadas consecutivas."
+    ],
+    [
+     "Campeonatos internos tem duracao maxima de 90 minutos.",
+     "Tempo de intervalo entre quartos e de 5 minutos exatos.",
+     "Pontuacao minima para classificacao e de 60 pontos.",
+     "Apelacao de resultado deve ser feita em 24 horas.",
+     "Premiacao em dinheiro de R$ 100,00 para o primeiro.",
+     "Certificado digital emitido em ate 48 horas uteis."
+    ]
+   ]
+  },
+  "emprestimo-de-notebooks": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "ti",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Prazo maximo de emprestimo e de 30 dias",
+     "Multa por atraso e de R$ 10,00 por dia",
+     "Horario de entrega e das 8h as 18h",
+     "Limitado a 1 notebook por aluno ativo",
+     "Danos causam 100% do valor do equipamento"
+    ],
+    [
+     "Publico externo paga R$ 50,00 por semana",
+     "Estudantes pagam R$ 20,00 por semana",
+     "Prazo maximo para publico externo e 14 dias",
+     "Renovacao e permitida apenas 1 vez",
+     "Horario da biblioteca e das 9h as 17h",
+     "Atraso de 24h gera bloqueio do acesso"
+    ],
+    [
+     "Devolucao deve ser feita com bateria",
+     "Bateria ausente gera multa de R$ 30,00",
+     "Apos 3 dias de atraso e 20% do valor",
+     "Limite de 2 emprestimos simultaneos",
+     "Horario de saida e ate 16h30",
+     "Perda do item exige pagamento integral"
+    ]
+   ]
+  },
+  "regulamento-eventos-academicos": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "extensao",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Regulamento de Eventos e Certificados (documento ficticio)",
+     "Inscricao aberta 30 dias antes do evento.",
+     "Certificado emitido em 72 horas uteis.",
+     "Presenca minima de 80% para validar.",
+     "Requisicao de 24 horas antes do fim.",
+     "Validade do certificado e de 5 anos."
+    ],
+    [
+     "Taxa de inscricao e de R$ 50,00.",
+     "Cancelamento gratuito ate 48 horas.",
+     "Reembolso de 50% ate 24 horas antes.",
+     "Sem reembolso nas 24 horas finais.",
+     "Pagamento via boleto ou cartao.",
+     "Comprovante enviado em 2 horas uteis."
+    ],
+    [
+     "Horario de inicio das 09:00 as 18:00.",
+     "Pausa de 30 minutos no meio do dia.",
+     "Certificado digital PDF sem custo.",
+     "Versao impressa custa R$ 20,00.",
+     "Entrega em balcao ate 15:00.",
+     "Retirada pessoal ou procuracao."
+    ]
+   ]
+  },
+  "cursos-de-extensao": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "extensao",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Cursos Livres de Extensao (documento ficticio)",
+     "Matricula aberta 15 dias antes do inicio",
+     "Taxa unica de R$ 150,00 por inscricao",
+     "Turmas com limite maximo de 30 alunos",
+     "Aulas seg e qui das 18h as 21h",
+     "Certificado emitido em 5 dias uteis"
+    ],
+    [
+     "Pagamento aceito ate 72 horas antes",
+     "Desconto de 10% para alunos ativos",
+     "Reprovacao se faltar mais de 20%",
+     "Material didatico custo de R$ 50,00",
+     "Horario extra de seg a sex 9h as 17h",
+     "Cancelamento sem custo ate 7 dias antes"
+    ],
+    [
+     "Reinscricao permitida uma vez por ano",
+     "Bolsa de estudo de 50% para egressos",
+     "Dias de prova fixos: 2 e 15 do mes",
+     "Capacidade maxima de 50 por turma",
+     "Atendimento de ter a qui 10h as 16h",
+     "Validade do certificado de 3 anos"
+    ]
+   ]
+  },
+  "nivelamento-matematica": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "nivelamento-matematica (documento ficticio)",
+     "Inscricao aberta por 5 dias uteis no portal",
+     "Taxa unica de R$ 50,00 para matricula",
+     "Aulas as seg e qua das 18h as 20h",
+     "Minimo de 15 alunos para abrir turma",
+     "Cancelamento livre ate 48h antes da aula"
+    ],
+    [
+     "Avaliacao diagnostica na primeira sessao",
+     "Presenca minima de 75% nas aulas teoricas",
+     "Prova final vale 60% da nota total",
+     "Trabalho pratico vale 40% da nota final",
+     "Nota minima de 7,0 para ser aprovado",
+     "Recuperacao em ate 3 dias uteis apos prova"
+    ],
+    [
+     "Certificado digital emitido em 10 dias",
+     "Material didatico digital gratuito no app",
+     "Suporte tecnico via chat das 9h as 17h",
+     "Revisao de nota em ate 5 dias uteis",
+     "Reprovado pode refazer o nivelamento",
+     "Vagas limitadas a 50 alunos por turma"
+    ]
+   ]
+  },
+  "disciplinas-ead": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Curso EAD tem 10 encontros presenciais",
+     "Cada encontro dura 4 horas por dia",
+     "Presenca minima e de 75 por cento",
+     "Falta acima de 5 dias gera exclusao",
+     "Matricula custa 200 reais por semestre"
+    ],
+    [
+     "Tarefas online tem prazo de 7 dias",
+     "Entrega atrasada tem multa de 10 reais",
+     "Forum tem limite de 500 caracteres",
+     "Prova online dura 90 minutos",
+     "Tentativas ilimitadas ate 3 tentativas",
+     "Nota minima para passar e 6"
+    ],
+    [
+     "Biblioteca digital tem 1000 acessos",
+     "Download de video custa 5 reais",
+     "Suporte tecnico funciona 8 horas",
+     "Atendimento por chat tem 2 dias",
+     "Certificado emitido em 15 dias",
+     "Revisao de prova tem 3 dias"
+    ]
+   ]
+  },
+  "politica-integridade-academica": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Politica de Integridade Academica (documento ficticio)",
+     "Plagio acima de 20% gera reprovacao automatica na materia",
+     "Entrega fora do prazo de 48 horas zera a nota final",
+     "Uso de IA generativa exige citacao obrigatoria do modelo",
+     "Recurso de nota deve ser feito em ate 3 dias uteis",
+     "Fraude em trabalho de campo multa de R$ 500,00"
+    ],
+    [
+     "Normas de Submissao de Textos Academics",
+     "Cada paragrafo deve ter no minimo 50 e no maximo 200 palavras",
+     "Referencias bibliograficas devem ser no minimo 10 itens",
+     "Formato aceito so em PDF com margem de 2 centimetros",
+     "Tamanho da fonte obrigatorio e 12 em todo o texto",
+     "Espacamento entre paragrafos deve ser de 1,5 linhas"
+    ],
+    [
+     "Sancoes e Sancoes Administrativas Institucionais",
+     "Primeira ocorrencia de plagio gera advertencia escrita formal",
+     "Segunda ocorrencia gera suspensao por 15 dias letivos",
+     "Terceira ocorrencia leva ao cancelamento da matricula",
+     "Compra de trabalhos prontos multa de R$ 1.000,00",
+     "Auxilio a terceiros em provas gera reprovar em todas"
+    ]
+   ]
+  },
+  "regras-provas-online": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "provas online com supervisao (documento ficticio)",
+     "cada prova online tem duracao de 120 minutos",
+     "o sistema trava a tela apos 2 tentativas de erro",
+     "o valor da taxa de inscricao e de R$ 25,00",
+     "a janela de avaliacao abre 3 dias antes da prova",
+     "e proibido sair da aba do navegador durante a prova"
+    ],
+    [
+     "requisitos de hardware e software para supervisao",
+     "a webcam deve mostrar rosto e torso inteiro",
+     "o microfone deve captar voz com clareza maxima",
+     "o uso de segunda tela gera suspensao imediata",
+     "o limite de memoria ram e de 4 GB no minimo",
+     "a internet precisa ter velocidade de 5 Mbps"
+    ],
+    [
+     "sancoes e recursos para alunos identificados",
+     "o recurso deve ser feito em 2 dias uteis",
+     "a multa por atraso e de 10% do valor total",
+     "o horario de atendimento vai das 9 as 17 h",
+     "o maximo de faltas permitidas e de 3 provas",
+     "o percentual minimo de presenca e de 75%"
+    ]
+   ]
+  },
+  "transferencia-externa": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "secretaria",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Prazo para protocolo: 5 dias uteis",
+     "Taxa de analise: R$ 150,00",
+     "Validade da analise: 30 dias",
+     "Horario de atendimento: 8h as 17h"
+    ],
+    [
+     "Documentos necessarios em copia simples",
+     "Historico escolar com 100% das notas",
+     "Atestado de matricula atualizado",
+     "Prova de pagamento da taxa",
+     "Limite de faltas: 25% da carga horaria"
+    ],
+    [
+     "Etapas do processo de transferencia",
+     "Analise tecnica em 72 horas",
+     "Comissao decide em 5 dias uteis",
+     "Resultado via portal do aluno",
+     "Matricula efetiva em 3 dias"
+    ]
+   ]
+  },
+  "reingresso-e-reabertura": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "secretaria",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "reingresso-e-reabertura (documento ficticio)",
+     "prazo maximo de 30 dias para reabrir matricula",
+     "taxa de 500 reais por reabertura de vaga",
+     "solicitacao somente entre 8h e 17h dias uteis",
+     "necessario 1 documento oficial com foto valido",
+     "apresentar comprovante de residencia atualizado"
+    ],
+    [
+     "reabertura de matricula apos 90 dias do abandono",
+     "multa de 100 reais por dia de atraso",
+     "limite de 2 reaberturas por semestre letivo",
+     "horario de atendimento da secretaria das 9h as 16h",
+     "desconto de 50% na taxa se houver justificativa",
+     "vaga garantida apenas se houver disponibilidade"
+    ],
+    [
+     "reingresso com mais de 1 ano exige novo processo",
+     "taxa unica de 200 reais para analise documental",
+     "prazo de 5 dias uteis para resposta da comissao",
+     "presenca fisica obrigatoria no ato da assinatura",
+     "limite de 3 tentativas de reingresso por ano",
+     "valores em reais e horarios nos dias de semana"
+    ]
+   ]
+  },
+  "dupla-diplomacao": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "internacional",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao dupla diplomacao (documento ficticio)",
+     "Matricula no programa ocorre ate 15 dias antes",
+     "Taxa de adesao e de R$ 500,00 por semestre",
+     "Reprovacao em 2 disciplinas impede a inscricao",
+     "Horario de aulas e das 8h as 12h e 14h as 18h",
+     "Limite de 4 disciplinas por periodo letivo"
+    ],
+    [
+     "Certificado emitido em ate 30 dias uteis",
+     "Validade do diploma e vitalicia apos conclusao",
+     "Desconto de 10% para egressos da Aurora",
+     "Reconhecimento pelo MEC e obrigatorio",
+     "Carga horaria minima de 2800 horas totais",
+     "Boletim academico disponivel no portal online"
+    ],
+    [
+     "Transferencia so entre 1 e 10 de marco",
+     "Multas de R$ 200,00 para atraso na devolucao",
+     "Maximo de 2 faltas consecutivas permitidas",
+     "Reprovacao final exige 50% de presenca",
+     "Aposentadoria academica apos 5 anos de curso",
+     "Suporte tecnico das 9h as 17h de segunda a sexta"
+    ]
+   ]
+  },
+  "financiamento-estudantil-privado": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "financeiro",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "financiamento-estudantil-privado (documento ficticio)",
+     "solicitacao de credito privado requer score minimo 650",
+     "prazo de analise do processo e de 5 dias uteis",
+     "comissao de abertura e de 2% sobre o valor",
+     "cota maxima por aluno e de R$ 15000",
+     "pagamentos sao debitados em conta bancaria"
+    ],
+    [
+     "vencimento da primeira parcela e 30 dias apos",
+     "juros mensais fixos em 1,5% ao mes",
+     "multa por atraso e de 2% sobre o saldo",
+     "reajuste anual segue o indice inflacionario",
+     "seguro de vida e obrigatorio no contrato",
+     "rescisa antecipada tem taxa de 5% do saldo"
+    ],
+    [
+     "reuniao de orientacao e as 14h00 de segunda",
+     "limite de 3 parcelas em atraso maximo",
+     "renegociacao requer 10 dias de antecedencia",
+     "extrato mensal e enviado ate dia 5",
+     "suporte tecnico funciona das 9h as 18h",
+     "arquivamento do processo ocorre em 1 ano"
+    ]
+   ]
+  },
+  "regras-de-reembolso": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "financeiro",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao Reembolso (documento ficticio)",
+     "1. Reembolso de taxa de inscricao em ate 7 dias uteis.",
+     "2. Valor maximo de R$ 500,00 por processo administrativo.",
+     "3. Prazo para analise inicial de 24 horas uteis.",
+     "4. Cancelamento de aula gera 10% de desconto mensal.",
+     "5. Deposito bancario somente em dias uteis.",
+     "6. Limite de 3 pedidos de reembolso por semestre."
+    ],
+    [
+     "1. Atraso no pagamento de ate 3 dias tem multa de 2%.",
+     "2. Pagamento em atraso acima de 30 dias gera juros.",
+     "3. Reembolso de taxa de emissao de diploma e 50%.",
+     "4. Horario de atendimento para duvidas das 8h as 18h.",
+     "5. Desconto de 15% para pagamento antecipado anual.",
+     "6. Reembolso de taxa de transferencia em 10 dias uteis."
+    ],
+    [
+     "1. Reembolso de taxa de segunda via de diploma e 100%.",
+     "2. Prazo para devolucao de material didatico e 5 dias.",
+     "3. Valor minimo de processamento de pedido e R$ 50,00.",
+     "4. Limite de 2 justificativas de ausencia por mes.",
+     "5. Reembolso de taxa de reprovacao e 25% do valor.",
+     "6. Horario de entrega de documentacao das 9h as 17h."
+    ]
+   ]
+  },
+  "pagamento-pix-e-cartao": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "financeiro",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Pagamento por Pix e Cartao (documento ficticio)",
+     "Pagamento por Pix deve ser feito ate 3 dias antes.",
+     "Cartao de credito aceita ate 10x sem juros.",
+     "Taxa de 2% para Pix e 5% para cartao.",
+     "Pagamento em D+1 para Pix e D+5 cartao.",
+     "Valor minimo de R$ 10,00 por transacao."
+    ],
+    [
+     "Horarios de pagamento sao das 8h as 18h.",
+     "Saldos negativos geram multa de 10%.",
+     "Limite de 3 parcelas por mes no cartao.",
+     "Pix e cartao sao aceitos 24 horas.",
+     "Reembolso leva 5 dias uteis por Pix.",
+     "Cartao tem prazo de 7 dias para estorno."
+    ],
+    [
+     "Pagamentos acima de R$ 50000 exigem prova.",
+     "Juros de 1% ao mes para atraso.",
+     "Limite de 100 transacoes por dia.",
+     "Pix e cartao sao processados em D+0.",
+     "Taxa de 3% para parcelas acima de 6.",
+     "Valor maximo de R$ 99999 por dia."
+    ]
+   ]
+  },
+  "servicos-de-impressao": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "ti",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Impressao em preto e branco tem cota de 10 paginas por dia",
+     "Cada pagina extra custa R$ 0,50 no caixa ou cartao",
+     "Copias coloridas exigem pagamento por pagina a R$ 1,20",
+     "O prazo de entrega no balcao e de 10 minutos por lote",
+     "Limites de 50 paginas por impressao em um unico comando"
+    ],
+    [
+     "Horario de funcionamento do balcao e das 08h00 as 20h00",
+     "Segunda a sexta o prazo de 15 minutos vale para pedidos",
+     "Saidas de arquivos acima de 100 paginas levam 30 minutos",
+     "Descconto de 10 por cento para pedidos acima de 20 paginas",
+     "O valor minimo de R$ 5,00 e obrigatorio para retirar",
+     "Fila virtual tem prioridade de atendimento em 5 minutos"
+    ],
+    [
+     "Uso de toner novo garante 500 paginas por cartucho",
+     "Falhas de impressao acima de 5 por cento geram refazer",
+     "O usuario pode cancelar o pedido em ate 5 minutos",
+     "Reimpressoes por erro tecnico sao gratuitas em 10 minutos",
+     "Documentos acima de 500 paginas exigem agendamento previo",
+     "A taxa de urgencia custa R$ 2,00 para entrega em 1 minuto"
+    ]
+   ]
+  },
+  "uso-de-armarios": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "servicos",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao uso de armarios (documento ficticio)",
+     "O aluguel tem prazo de 30 dias por periodo",
+     "O valor base e de 25 reais por mes",
+     "A multa por atraso e de 10 por cento",
+     "O horario de uso e das 8 as 18 horas",
+     "O limite de itens e de 5 objetos por armario"
+    ],
+    [
+     "A devolucao deve ocorrer em ate 72 horas",
+     "O custo extra por hora e de 5 reais",
+     "A taxa de seguranca e de 15 por cento",
+     "O horario para devolucao e das 9 as 17",
+     "O limite de peso e de 10 quilos por armario",
+     "A renovacao tem prazo de 5 dias antes"
+    ],
+    [
+     "O acesso ao armario e das 6 as 22 horas",
+     "O valor da chave reserva e de 10 reais",
+     "A multa por dano e de 50 por cento",
+     "O horario de manutencao e das 22 as 6",
+     "O limite de acesso e de 3 por dia por aluno",
+     "O prazo para reclamacao e de 24 horas"
+    ]
+   ]
+  },
+  "programa-de-mentoria": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "bem-estar",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Programa de Mentoria (documento ficticio)",
+     "Calouros devem se inscrever em 10 dias",
+     "Vetaranos sao selecionados por nota",
+     "Reunioes semanais de 2 horas fixas",
+     "Acessos ao portal sao liberados em 48h",
+     "Avaliacoes mensais com 5 questoes cada"
+    ],
+    [
+     "Regras de Participacao e Horarios",
+     "Presenca minima de 80% nas sessoes",
+     "Faltas justificadas em ate 24 horas",
+     "Aulas acontecem das 8h as 10h",
+     "Mentores ganham 100 reais por dia",
+     "Calouros pagam 50 reais de taxa"
+    ],
+    [
+     "Criterios de Desligamento e Finais",
+     "Desligamento automatico com 3 faltas",
+     "Recursos devem ser feitos em 5 dias",
+     "Certificados emitidos em 15 dias",
+     "Bolsa de 20% para desempenho 90%",
+     "Encerramento final em 30 de junho"
+    ]
+   ]
+  },
+  "eleicoes-diretorio-academico": {
+   "metadados": {
+    "perfis": [
+     "publico",
+     "aluno",
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "extensao",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "eleicoes do diretorio academico (documento ficticio)",
+     "inscricao dos candidatos e de 10 ate 15 dias uteis",
+     "candidatos devem ter no minimo 18 anos completos",
+     "documento de identidade e obrigatorio para votar",
+     "divulga os resultados no mural e site oficial",
+     "voto aberto e presencial nas urnas fisicas"
+    ],
+    [
+     "campanha eleitoral tem duracao de 5 dias uteis",
+     "material impresso limitado a 5000 copias por chapa",
+     "cada chapa pode gastar ate 500 reais em cartazes",
+     "proibido usar som acima de 80 decibeis nos cartazes",
+     "periodo de silencio e de 24 horas antes do voto",
+     "urna eletronica nao e aceita nesta edicao 2024"
+    ],
+    [
+     "votacao ocorre das 8 as 18 horas no dia 10",
+     "cada aluno tem direito a um unico voto",
+     "segunda via do titulo e emitida ate 12h",
+     "apuros dos votos sao feitos em 48 horas uteis",
+     "recursos podem ser feitos em ate 3 dias uteis",
+     "posse do novo diretorio ocorre em 15 dias uteis"
+    ]
+   ]
+  },
+  "guia-docente-diarios-de-classe": {
+   "metadados": {
+    "perfis": [
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "diarios de classe e registro de frequencia (documento ficticio)",
+     "o diario deve ser entregue na secretaria ate 5 dias uteis apos a aula",
+     "a frequencia minima exigida para aprovacao e de 75 por cento das aulas",
+     "cada aula tem duracao maxima de 90 minutos por periodo letivo",
+     "o valor da multa por atraso na entrega e de 50 reais por dia",
+     "o registro digital deve ser feito em ate 24 horas apos a presenca"
+    ],
+    [
+     "a coordenacao verifica o diario a cada 15 dias letivos",
+     "faltas justificadas exigem atestado em ate 48 horas letivas",
+     "o limite de faltas por semestre e de 10 dias por disciplina",
+     "horario de atendimento da secretaria e das 8h as 18h uteis",
+     "a penalidade por falta a aula e de 10 por cento na media final",
+     "o docente pode corrigir o diario em ate 2 dias apos a aula"
+    ],
+    [
+     "o arquivo finalizado deve ter no maximo 10 megabytes",
+     "a assinatura digital substitui a fisica em 100 por cento dos casos",
+     "o prazo para recurso de frequencia e de 3 dias uteis",
+     "o valor da taxa de reemissao e de 25 reais por documento",
+     "o horario de corte para fechamento do sistema e as 17h59",
+     "o limite de tentativas de login falho e de 5 vezes por dia"
+    ]
+   ]
+  },
+  "guia-docente-orientacao-tcc": {
+   "metadados": {
+    "perfis": [
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Orientacao de TCC pelos docentes (documento ficticio)",
+     "O docente deve registrar a primeira reuniao em 5 dias.",
+     "O prazo para envio do plano de trabalho e de 10 dias.",
+     "Cada orientador pode atender no maximo 15 alunos.",
+     "A carga horaria minima de orientacao e de 20 horas.",
+     "O valor da taxa de reabertura e de R$ 150,00."
+    ],
+    [
+     "O segundo projeto deve ser entregue em 15 dias.",
+     "A banca avaliadora deve ter no minimo 3 membros.",
+     "O periodo de defesa e de 30 minutos por aluno.",
+     "O trabalho final deve ter no minimo 30 paginas.",
+     "O limite de revisoes do texto e de 3 tentativas.",
+     "A taxa de segredo e de R$ 50,00 por hora extra."
+    ],
+    [
+     "A nota minima para aprovacao e de 7,0.",
+     "O resultado final deve ser publicado em 3 dias.",
+     "O arquivo final deve ter no maximo 50 MB.",
+     "O periodo de consulta ao orientador e de 2 horas.",
+     "O custo da impressao e de R$ 5,00 por folha.",
+     "A data limite para entrega e dia 20 do mes."
+    ]
+   ]
+  },
+  "norma-coordenacao-pre-requisitos": {
+   "metadados": {
+    "perfis": [
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "coordenacao",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Quebra de pre-requisito autorizada (documento ficticio)",
+     "Requisito basico: 60% de frequencia na disciplina anterior.",
+     "Prazo para recurso: 5 dias uteis apos a publicacao.",
+     "Valor da taxa de analise: R$ 50,00 pago em ate 3 dias.",
+     "Solicitacao deve ser feita ate 18:00 do dia 10.",
+     "Coordenacao decide em ate 72 horas uteis do pedido."
+    ],
+    [
+     "Docente deve justificar em ate 100 palavras o motivo.",
+     "Aluno pode pedir 1 vez por semestre letivo ativo.",
+     "Media minima exigida: 7,0 na materia que o pre-requisita.",
+     "Horario de atendimento: 9:00 as 12:00 e 13:00 as 17:00.",
+     "Limite de 3 quebras por curso de graduacao completo.",
+     "Prova substitutiva vale 100% da nota final da materia."
+    ],
+    [
+     "Administracao confere documentos em ate 2 dias uteis.",
+     "Custo da prova extra: R$ 100,00 por tentativa unica.",
+     "Aprovacao exige 80% de presenca em aulas praticas.",
+     "Horario de prova: 14:00 as 18:00 sem intervalo.",
+     "Resultado final e irrevogavel apos 10 dias uteis.",
+     "Nao ha devolucao do valor se a prova for cancelada."
+    ]
+   ]
+  },
+  "norma-coordenacao-banca-revisao": {
+   "metadados": {
+    "perfis": [
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "coordenacao",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao (documento ficticio)",
+     "Prazo maximo de 5 dias uteis para recurso.",
+     "Multas acima de R$ 100 exigem comprovante.",
+     "Sessoes de banca ocorrem as 14h em dia par.",
+     "Apenas 3 provas por turno serao analisadas.",
+     "Reprovacao acima de 50% gera alerta interno."
+    ],
+    [
+     "Pagamento de taxa de R$ 50 em ate 2 dias.",
+     "Presenca minima de 2 docentes na sala.",
+     "Horario de atendimento: 8h as 12h.",
+     "Limite de 10 minutos por arguicao oral.",
+     "Aprovacao requer nota minima de 7,0.",
+     "Prazo de resposta da banca: 24 horas."
+    ],
+    [
+     "Revisao final em ate 1 dia util.",
+     "Desconto de 10% para atraso menor.",
+     "Maximo de 2 apelacoes por semestre.",
+     "Reuniao de alinhamento as 15h30.",
+     "Corte de 80% para notas abaixo de 5.",
+     "Prazo de arquivamento: 30 dias corridos."
+    ]
+   ]
+  },
+  "manual-ti-administracao-contas": {
+   "metadados": {
+    "perfis": [
+     "admin"
+    ],
+    "departamento": "ti",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Manual TI Administracao Contas (documento ficticio)",
+     "Prazo maximo de 24 horas para solicitar reset de senha.",
+     "Bloqueio automatico apos 3 tentativas erradas de acesso.",
+     "Reativacao de conta exige parecer da coordenacao em 48h.",
+     "Acesso a sistema financeiro liberado apenas em horario util.",
+     "Multas por atraso no pagamento sao de 10% sobre o valor."
+    ],
+    [
+     "Contas inativas por 90 dias sao suspensas pela TI.",
+     "Docentes podem solicitar acesso a 5 disciplinas por semestre.",
+     "Cobranca de multa de R$ 50,00 por atraso na entrega de notas.",
+     "Suporte tecnico atende de segunda a sexta das 8h as 17h.",
+     "Limite de 100 MB por arquivo enviado no sistema interno.",
+     "Contas de administracao tem acesso total a 100% dos dados."
+    ],
+    [
+     "Recursos contra bloqueio devem ser feitos em 5 dias uteis.",
+     "Perguntas frequentes sao atualizadas a cada 30 dias.",
+     "Acesso a sala dos professores e restrito a 50 usuarios.",
+     "Valor de R$ 0,00 para solicitacoes de novo usuario docente.",
+     "Relatorios de log sao gerados automaticamente a cada 12h.",
+     "Proibido compartilhar senha com terceiros sob pena de suspensao."
+    ]
+   ]
+  },
+  "guia-docente-horas-complementares": {
+   "metadados": {
+    "perfis": [
+     "docente",
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "academico",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Guia de horas complementares (documento ficticio)",
+     "Docentes devem registrar 4 horas de preparacao por semana.",
+     "Reunioes de coordenacao sao obrigatorias 1 vez por mes.",
+     "O valor da hora extra e de R$ 50,00 por hora.",
+     "Limite maximo de 10 horas extras por periodo letivo.",
+     "Prazo de 5 dias para envio do relatorio mensal."
+    ],
+    [
+     "Horarios de reuniao sao fixos das 14h as 16h.",
+     "Faltas na reuniao geram desconto de 10% no bonus.",
+     "Docentes podem acumular ate 20 horas de banco de horas.",
+     "Solicitacao de folga requer 7 dias de antecedencia.",
+     "O percentual minimo de presenca e de 95% do tempo.",
+     "Cada docente tem direito a 1 hora de paiva por dia."
+    ],
+    [
+     "A administracao libera o pagamento em 15 dias uteis.",
+     "O bonus por desempenho e de R$ 100,00 trimestral.",
+     "Reunioes extras nao podem exceder 2 horas por mes.",
+     "O registro de atividades deve ser feito em 48 horas.",
+     "Limita-se a 3 justificativas de ausencia por ano.",
+     "A media de participacao deve ser de 80% ou mais."
+    ]
+   ]
+  },
+  "manual-financeiro-inadimplencia": {
+   "metadados": {
+    "perfis": [
+     "admin"
+    ],
+    "departamento": "financeiro",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Aurora Educacao regua de cobranca (documento ficticio)",
+     "Inadimplente e quem atrasa 1 dia apos vencimento",
+     "Primeiro lembrete sai em 2 dias uteis do atraso",
+     "Multa inicial e de 2% sobre o valor da fatura",
+     "Interesse rotativo e de 1% ao dia corrido",
+     "Solicitacao de parcelamento valida por 10 dias"
+    ],
+    [
+     "Segundo contato ocorre em 5 dias do atraso",
+     "Valor minimo para parcelar e R$ 50,00",
+     "Maximo de parcelas oferecidas sao 3 meses",
+     "Entrada para parcelar e de 20% do total",
+     "Cobranca por SMS tem limite de 3 envios",
+     "Horario de atendimento e 8h as 18h em dias uteis"
+    ],
+    [
+     "Bloqueio de emissao de notas em 15 dias",
+     "Cancelamento automatico do matricula em 30 dias",
+     "Reativacao cobra taxa fixa de R$ 100,00",
+     "Desconto maximo para liquidez e de 10%",
+     "Pagamento a vista remove multa e interesse",
+     "Revisao de dados ocorre a cada 60 dias"
+    ]
+   ]
+  },
+  "protocolo-incidentes-de-dados": {
+   "metadados": {
+    "perfis": [
+     "coordenacao",
+     "admin"
+    ],
+    "departamento": "privacidade",
+    "versao": "2026",
+    "vigente": true
+   },
+   "paginas": [
+    [
+     "Resposta a incidentes com dados pessoais (documento ficticio)",
+     "Notificar o DPO em ate 2 horas apos a deteccao do evento.",
+     "Isolar o sistema afetado em ate 4 horas da notificacao inicial.",
+     "Registrar o incidente no sistema em ate 24 horas.",
+     "Avaliar o impacto em ate 48 horas com a equipe tecnica.",
+     "Documentar as acoes tomadas em ate 72 horas."
+    ],
+    [
+     "Comunicar a ANPD em ate 72 horas se houve vazamento.",
+     "Notificar os titulares em ate 72 horas apos a avaliacao.",
+     "Multas internas de R$ 500,00 por atraso na notificacao.",
+     "Limite de 5 acessos por dia ao log de auditoria.",
+     "Horario de manutencao de seg a sex das 22h as 6h.",
+     "Retencao de logs por 12 meses para auditoria."
+    ],
+    [
+     "Treinamento obrigatorio de 4 horas anuais para todos.",
+     "Simulacao de incidente a cada 6 meses no campus.",
+     "Penalidade de 10% no bonus por violacao grave.",
+     "Revisao da politica a cada 12 meses pelo comite.",
+     "Backup diario com verificacao de integridade em 24h.",
+     "Acesso a dados criticos limitado a 3 usuarios por vez."
+    ]
+   ]
+  }
+ }
+}

@@ -1,0 +1,20 @@
+{
+  "carimbo": "2026-11-26T02-04-05-0300",
+  "consultas_novas": 123,
+  "consultas_total": 151,
+  "descartes": {
+    "pergunta_copia_trecho": 8,
+    "resposta_fora_do_trecho": 1,
+    "trecho_nao_encontrado": 3
+  },
+  "documentos": 45,
+  "execucao": "p02-geracao-corpus",
+  "gerador": "qwen3.8:27b-ud-iq3_xxs",
+  "por_categoria": {
+    "acl": 22,
+    "ampliado": 101
+  },
+  "sha256_prompt_exemplo": "c39e29687549207ec2d4964f4433cedb5990afd97d21f52cc61c1e973adbef11",
+  "temas": 45,
+  "temperatura": 0.7
+}

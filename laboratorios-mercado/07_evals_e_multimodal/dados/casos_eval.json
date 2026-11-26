@@ -6,7 +6,8 @@
       "referencia": "A taxa do histórico escolar é R$ 25,00, com prazo de 5 dias úteis [T1].",
       "resposta_a": "A taxa é 25 reais.",
       "resposta_b": "A taxa do histórico escolar é de R$ 25,00 e o prazo é de 5 dias úteis [T1].",
-      "julgamento_humano": "B"
+      "julgamento_humano": "B",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-02",
@@ -14,7 +15,8 @@
       "referencia": "Até o décimo dia útil do início das aulas pelo portal do aluno [T1].",
       "resposta_a": "A rematrícula deve ser feita pelo portal do aluno até o décimo dia útil do início das aulas [T1].",
       "resposta_b": "Depende do semestre, consulte a secretaria.",
-      "julgamento_humano": "A"
+      "julgamento_humano": "A",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-03",
@@ -22,7 +24,8 @@
       "referencia": "Não encontrei essa informação nos documentos.",
       "resposta_a": "A mensalidade custa cerca de R$ 8.500,00.",
       "resposta_b": "Não encontrei essa informação nos documentos.",
-      "julgamento_humano": "B"
+      "julgamento_humano": "B",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-04",
@@ -30,7 +33,8 @@
       "referencia": "R$ 120,00 com prazo de 30 dias úteis [T1].",
       "resposta_a": "A segunda via do diploma custa R$ 120,00 e leva 30 dias úteis [T1].",
       "resposta_b": "A segunda via do diploma tem taxa de R$ 120,00 e prazo de 30 dias úteis [T1].",
-      "julgamento_humano": "empate"
+      "julgamento_humano": "empate",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-05",
@@ -38,7 +42,8 @@
       "referencia": "Média final igual ou maior que 6,0 e frequência mínima de 75% [T1].",
       "resposta_a": "Nota 6,0.",
       "resposta_b": "Para aprovação é necessária média final >= 6,0 e frequência mínima de 75% [T1].",
-      "julgamento_humano": "B"
+      "julgamento_humano": "B",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-06",
@@ -46,7 +51,8 @@
       "referencia": "Não são acumuláveis entre si; prevalece o maior percentual [T1].",
       "resposta_a": "Não, bolsas institucionais não são acumuláveis entre si; prevalece o maior percentual [T1].",
       "resposta_b": "Sim, você soma 30% + 25%.",
-      "julgamento_humano": "A"
+      "julgamento_humano": "A",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-07",
@@ -54,7 +60,8 @@
       "referencia": "R$ 2,50 por dia de atraso [T1].",
       "resposta_a": "A multa por atraso na devolução de livros é R$ 2,50 por dia [T1].",
       "resposta_b": "Cobra-se R$ 2,50 diários pelo atraso na biblioteca [T1].",
-      "julgamento_humano": "empate"
+      "julgamento_humano": "empate",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-08",
@@ -62,7 +69,8 @@
       "referencia": "Em até 15 dias [T1].",
       "resposta_a": "Em até 30 dias úteis.",
       "resposta_b": "Pedidos de correção de dados são atendidos em até 15 dias [T1].",
-      "julgamento_humano": "B"
+      "julgamento_humano": "B",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-09",
@@ -70,7 +78,8 @@
       "referencia": "85 por cento da carga horária [T1].",
       "resposta_a": "A frequência mínima obrigatória no estágio supervisionado é de 85% da carga horária [T1].",
       "resposta_b": "A frequência mínima é 75%.",
-      "julgamento_humano": "A"
+      "julgamento_humano": "A",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-10",
@@ -78,7 +87,8 @@
       "referencia": "2 dias úteis e taxa R$ 0,00 [T1].",
       "resposta_a": "O prazo é de 2 dias úteis e não há taxa (R$ 0,00) [T1].",
       "resposta_b": "2 dias.",
-      "julgamento_humano": "A"
+      "julgamento_humano": "A",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-11",
@@ -86,7 +96,8 @@
       "referencia": "Não encontrei essa informação nos documentos.",
       "resposta_a": "Tente usar aurora2026.",
       "resposta_b": "Não encontrei essa informação nos documentos.",
-      "julgamento_humano": "B"
+      "julgamento_humano": "B",
+      "origem": "pre_rotulado"
     },
     {
       "id": "cal-12",
@@ -94,7 +105,288 @@
       "referencia": "Por no máximo dois semestres consecutivos [T1].",
       "resposta_a": "O trancamento vale por no máximo dois semestres consecutivos [T1].",
       "resposta_b": "Vale por até dois semestres seguidos [T1].",
-      "julgamento_humano": "empate"
+      "julgamento_humano": "empate",
+      "origem": "pre_rotulado"
+    },
+    {
+      "id": "cal-qa117",
+      "origem": "construcao",
+      "defeito": "numero_trocado",
+      "pergunta": "Sobre horas de preparacao e reuniao dos docentes: qual e o horario fixo para as reunioes?",
+      "referencia": "Os horarios de reuniao sao fixos das 14h as 16h [T1]",
+      "resposta_a": "Os horarios de reuniao sao fixos das 28h as 16h [T1]",
+      "resposta_b": "Os horarios de reuniao sao fixos das 14h as 16h [T1]",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa084",
+      "origem": "construcao",
+      "defeito": "sem_citacao",
+      "pergunta": "Sobre financiamento estudantil privado: qual o prazo para analise do credito?",
+      "referencia": "O prazo de analise do processo e de 5 dias uteis [T1]",
+      "resposta_a": "O prazo de analise do processo e de 5 dias uteis [T1]",
+      "resposta_b": "O prazo de analise do processo e de 5 dias uteis",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa116",
+      "origem": "construcao",
+      "defeito": "afirmacao_inventada",
+      "pergunta": "Sobre horas de preparacao e reuniao dos docentes: qual e o valor monetario da hora extra?",
+      "referencia": "O valor da hora extra e de R$ 50,00 [T1]",
+      "resposta_a": "O valor da hora extra e de R$ 50,00 [T1]",
+      "resposta_b": "O valor da hora extra e de R$ 50,00 [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa115",
+      "origem": "construcao",
+      "defeito": "recusa_indevida",
+      "pergunta": "Sobre administracao de contas e bloqueios pela TI: em quantos dias posso recorrer ao bloqueio?",
+      "referencia": "Os recursos contra bloqueio devem ser feitos em 5 dias uteis [T1].",
+      "resposta_a": "Não encontrei essa informação nos documentos.",
+      "resposta_b": "Os recursos contra bloqueio devem ser feitos em 5 dias uteis [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa082",
+      "origem": "construcao",
+      "defeito": "numero_trocado",
+      "pergunta": "Sobre dupla diplomacao com universidade parceira: quanto tempo leva para sair o certificado?",
+      "referencia": "O certificado e emitido em ate trinta dias [T1]",
+      "resposta_a": "O certificado e emitido em ate trinta dias [T2]",
+      "resposta_b": "O certificado e emitido em ate trinta dias [T1]",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa030",
+      "origem": "construcao",
+      "defeito": "sem_citacao",
+      "pergunta": "Sobre iniciacao cientifica: edital e bolsas: qual e a presenca minima exigida?",
+      "referencia": "A presenca minima exigida e de 75 percentual [T1].",
+      "resposta_a": "A presenca minima exigida e de 75 percentual.",
+      "resposta_b": "A presenca minima exigida e de 75 percentual [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa027",
+      "origem": "construcao",
+      "defeito": "afirmacao_inventada",
+      "pergunta": "Sobre achados e perdidos: guarda e retirada de objetos: quanto custa a custodia de um item comum por mes?",
+      "referencia": "A taxa de custodia mensal para um item comum e de 15 reais [T1]",
+      "resposta_a": "A taxa de custodia mensal para um item comum e de 15 reais [T1]",
+      "resposta_b": "A taxa de custodia mensal para um item comum e de 15 reais [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa033",
+      "origem": "construcao",
+      "defeito": "recusa_indevida",
+      "pergunta": "Sobre empresa junior: processo seletivo e horas: qual a carga horaria maxima?",
+      "referencia": "A carga horaria maxima e de 20 horas semanais [T1].",
+      "resposta_a": "A carga horaria maxima e de 20 horas semanais [T1].",
+      "resposta_b": "Não encontrei essa informação nos documentos.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa095",
+      "origem": "construcao",
+      "defeito": "numero_trocado",
+      "pergunta": "Sobre aluguel de armarios: qual e o valor mensal base?",
+      "referencia": "O valor base do aluguel e de 25 reais por mes [T1]",
+      "resposta_a": "O valor base do aluguel e de 50 reais por mes [T1]",
+      "resposta_b": "O valor base do aluguel e de 25 reais por mes [T1]",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa081",
+      "origem": "construcao",
+      "defeito": "sem_citacao",
+      "pergunta": "Sobre dupla diplomacao com universidade parceira: qual e o prazo para fazer a matricula?",
+      "referencia": "O periodo de matricula encerra quinze dias antes do inicio [T1]",
+      "resposta_a": "O periodo de matricula encerra quinze dias antes do inicio [T1]",
+      "resposta_b": "O periodo de matricula encerra quinze dias antes do inicio",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa024",
+      "origem": "construcao",
+      "defeito": "afirmacao_inventada",
+      "pergunta": "Sobre estacionamento do campus e credenciais: qual e o valor da mensalidade?",
+      "referencia": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1]",
+      "resposta_a": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
+      "resposta_b": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1]",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa038",
+      "origem": "construcao",
+      "defeito": "recusa_indevida",
+      "pergunta": "Sobre colacao de grau: inscricao e cerimonia: qual o custo da taxa unica?",
+      "referencia": "O valor da taxa unica e de 150 reais [T1].",
+      "resposta_a": "Não encontrei essa informação nos documentos.",
+      "resposta_b": "O valor da taxa unica e de 150 reais [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa001",
+      "origem": "construcao",
+      "defeito": "numero_trocado",
+      "pergunta": "Sobre uso dos laboratorios de informatica: qual e a multa por atraso?",
+      "referencia": "O valor da multa por atraso e de R$ 50,00 por dia [T1]",
+      "resposta_a": "O valor da multa por atraso e de R$ 50,00 por dia [T1]",
+      "resposta_b": "O valor da multa por atraso e de R$ 100,00 por dia [T1]",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa065",
+      "origem": "construcao",
+      "defeito": "sem_citacao",
+      "pergunta": "Sobre curso de nivelamento em matematica para calouros: em quantos dias o certificado é emitido?",
+      "referencia": "O certificado digital é emitido em 10 dias uteis [T1].",
+      "resposta_a": "O certificado digital é emitido em 10 dias uteis.",
+      "resposta_b": "O certificado digital é emitido em 10 dias uteis [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa060",
+      "origem": "construcao",
+      "defeito": "afirmacao_inventada",
+      "pergunta": "Sobre cursos livres de extensao: qual e o valor da inscricao?",
+      "referencia": "A taxa unica e de R$ 150,00 [T1].",
+      "resposta_a": "A taxa unica e de R$ 150,00 [T1].",
+      "resposta_b": "A taxa unica e de R$ 150,00 [T1]. Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa075",
+      "origem": "construcao",
+      "defeito": "recusa_indevida",
+      "pergunta": "Sobre transferencia de outra instituicao para a Aurora: qual e o custo da taxa de analise?",
+      "referencia": "O valor da taxa de analise e R$ 150,00 [T1].",
+      "resposta_a": "Não encontrei essa informação nos documentos.",
+      "resposta_b": "O valor da taxa de analise e R$ 150,00 [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa099",
+      "origem": "construcao",
+      "defeito": "numero_trocado",
+      "pergunta": "Sobre eleicoes do diretorio academico: qual e o periodo minimo para se inscrever?",
+      "referencia": "O periodo de inscricao dos candidatos e de 10 ate 15 dias uteis [T1].",
+      "resposta_a": "O periodo de inscricao dos candidatos e de 10 ate 15 dias uteis [T1].",
+      "resposta_b": "O periodo de inscricao dos candidatos e de 20 ate 15 dias uteis [T1].",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa023",
+      "origem": "construcao",
+      "defeito": "sem_citacao",
+      "pergunta": "Sobre estacionamento do campus e credenciais: quantas vagas existem no local?",
+      "referencia": "O estacionamento no campus possui 200 vagas no total. [T1]",
+      "resposta_a": "O estacionamento no campus possui 200 vagas no total. [T1]",
+      "resposta_b": "O estacionamento no campus possui 200 vagas no total.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa040",
+      "origem": "construcao",
+      "defeito": "afirmacao_inventada",
+      "pergunta": "Sobre colacao de grau: inscricao e cerimonia: qual o desconto para comprar os dois?",
+      "referencia": "O desconto e de 15% [T1].",
+      "resposta_a": "O desconto e de 15% [T1].",
+      "resposta_b": "O desconto e de 15% [T1]. Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa068",
+      "origem": "construcao",
+      "defeito": "recusa_indevida",
+      "pergunta": "Sobre disciplinas a distancia e encontros presenciais: em quanto tempo o certificado e emitido?",
+      "referencia": "O certificado e emitido em 15 dias [T1].",
+      "resposta_a": "Não encontrei essa informação nos documentos.",
+      "resposta_b": "O certificado e emitido em 15 dias [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa069",
+      "origem": "construcao",
+      "defeito": "numero_trocado",
+      "pergunta": "Sobre plagio e integridade academica: qual e o limite de semelhanca para reprovacao?",
+      "referencia": "A politica define que plagio acima de 20% gera reprovacao automatica na materia [T1].",
+      "resposta_a": "A politica define que plagio acima de 40% gera reprovacao automatica na materia [T1].",
+      "resposta_b": "A politica define que plagio acima de 20% gera reprovacao automatica na materia [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa070",
+      "origem": "construcao",
+      "defeito": "sem_citacao",
+      "pergunta": "Sobre plagio e integridade academica: qual o numero minimo de referencias exigidas?",
+      "referencia": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens [T1].",
+      "resposta_a": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens [T1].",
+      "resposta_b": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa108",
+      "origem": "construcao",
+      "defeito": "afirmacao_inventada",
+      "pergunta": "Sobre quebra de pre-requisito autorizada pela coordenacao: qual a media minima exigida?",
+      "referencia": "A media minima exigida e 7,0 na materia. [T1]",
+      "resposta_a": "A media minima exigida e 7,0 na materia. [T1] Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
+      "resposta_b": "A media minima exigida e 7,0 na materia. [T1]",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa011",
+      "origem": "construcao",
+      "defeito": "recusa_indevida",
+      "pergunta": "Sobre programa de monitoria e bolsa de monitor: qual e o horario de atendimento?",
+      "referencia": "O horario de atendimento e das 8h a 12h [T1].",
+      "resposta_a": "O horario de atendimento e das 8h a 12h [T1].",
+      "resposta_b": "Não encontrei essa informação nos documentos.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa111",
+      "origem": "construcao",
+      "defeito": "numero_trocado",
+      "pergunta": "Sobre banca de revisao de notas: qual a nota minima exigida para que o aluno seja aprovado?",
+      "referencia": "O aluno precisa de uma nota minima de 7,0 para ser aprovado [T1].",
+      "resposta_a": "O aluno precisa de uma nota minima de 14,0 para ser aprovado [T1].",
+      "resposta_b": "O aluno precisa de uma nota minima de 7,0 para ser aprovado [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa071",
+      "origem": "construcao",
+      "defeito": "sem_citacao",
+      "pergunta": "Sobre plagio e integridade academica: qual a multa por comprar trabalhos prontos?",
+      "referencia": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00 [T1].",
+      "resposta_a": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00 [T1].",
+      "resposta_b": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00.",
+      "julgamento_humano": "A"
+    },
+    {
+      "id": "cal-qa123",
+      "origem": "construcao",
+      "defeito": "afirmacao_inventada",
+      "pergunta": "Sobre resposta a incidentes com dados pessoais: qual a frequencia do treinamento?",
+      "referencia": "O treinamento obrigatorio tem 4 horas anuais [T1].",
+      "resposta_a": "O treinamento obrigatorio tem 4 horas anuais [T1]. Além disso, o pedido pode ser feito a qualquer momento, sem custo e sem documentos.",
+      "resposta_b": "O treinamento obrigatorio tem 4 horas anuais [T1].",
+      "julgamento_humano": "B"
+    },
+    {
+      "id": "cal-qa014",
+      "origem": "construcao",
+      "defeito": "recusa_indevida",
+      "pergunta": "Sobre intercambio internacional e requisitos: qual a media minima exigida?",
+      "referencia": "A media minima exigida e 7,5 pontos [T1]",
+      "resposta_a": "A media minima exigida e 7,5 pontos [T1]",
+      "resposta_b": "Não encontrei essa informação nos documentos.",
+      "julgamento_humano": "A"
     }
   ],
   "casos_avaliacao": [
@@ -102,96 +394,1184 @@
       "id": "ev-01",
       "contexto": "[T1] (tabela-de-servicos) Histórico escolar: prazo de 5 dias úteis, taxa de R$ 25,00. Segunda via do diploma: prazo de 30 dias úteis, taxa de R$ 120,00.",
       "pergunta": "Quanto custa e qual o prazo do histórico escolar?",
-      "referencia": "O histórico escolar custa R$ 25,00 e tem prazo de 5 dias úteis [T1]."
+      "referencia": "O histórico escolar custa R$ 25,00 e tem prazo de 5 dias úteis [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-02",
       "contexto": "[T1] (regulamento-academico) A rematrícula deve ser feita pelo portal do aluno até o décimo dia útil do início das aulas. Quem perde o prazo entra em lista de espera.",
       "pergunta": "Qual o prazo de rematrícula e o que ocorre se perder?",
-      "referencia": "Até o décimo dia útil do início das aulas pelo portal do aluno; quem perde entra em lista de espera [T1]."
+      "referencia": "Até o décimo dia útil do início das aulas pelo portal do aluno; quem perde entra em lista de espera [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-03",
       "contexto": "[T1] (regulamento-academico) É aprovado quem obtém média final igual ou maior que 6,0 e frequência mínima de 75 por cento das aulas.",
       "pergunta": "Quais os critérios mínimos de aprovação direta?",
-      "referencia": "Média final igual ou maior que 6,0 e frequência mínima de 75% das aulas [T1]."
+      "referencia": "Média final igual ou maior que 6,0 e frequência mínima de 75% das aulas [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-04",
       "contexto": "[T1] (regulamento-academico) O trancamento de matrícula pode ser pedido até a metade do semestre letivo e vale por no máximo dois semestres consecutivos.",
       "pergunta": "Quando posso pedir trancamento e quanto tempo dura?",
-      "referencia": "Até a metade do semestre letivo, valendo por no máximo dois semestres consecutivos [T1]."
+      "referencia": "Até a metade do semestre letivo, valendo por no máximo dois semestres consecutivos [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-05",
       "contexto": "[T1] (tabela-bolsas-e-descontos) Bolsa mérito: 30% (média >= 8,5). Iniciação científica: 40%. Bolsas institucionais não são acumuláveis entre si; prevalece o maior percentual.",
       "pergunta": "Posso acumular bolsa mérito e iniciação científica?",
-      "referencia": "Não, bolsas institucionais não são acumuláveis; prevalece o maior percentual (40%) [T1]."
+      "referencia": "Não, bolsas institucionais não são acumuláveis; prevalece o maior percentual (40%) [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-06",
       "contexto": "[T1] (manual-biblioteca) O prazo de empréstimo é de 10 dias corridos. A multa por atraso é de R$ 2,50 por dia.",
       "pergunta": "Qual o prazo de empréstimo de livros e a multa diária?",
-      "referencia": "Prazo de 10 dias corridos e multa de R$ 2,50 por dia de atraso [T1]."
+      "referencia": "Prazo de 10 dias corridos e multa de R$ 2,50 por dia de atraso [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-07",
       "contexto": "[T1] (manual-estagio-e-tcc) A frequência mínima no estágio supervisionado é de 85%. A média da banca de TCC exige nota 7,0.",
       "pergunta": "Qual a frequência mínima no estágio e a nota mínima da banca de TCC?",
-      "referencia": "Frequência mínima de 85% no estágio e nota mínima 7,0 na banca de TCC [T1]."
+      "referencia": "Frequência mínima de 85% no estágio e nota mínima 7,0 na banca de TCC [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-08",
       "contexto": "[T1] (politica-de-privacidade-academica) Pedidos de correção de dados são atendidos em até 15 dias. Notas e frequência só são exibidas ao aluno e aos docentes da disciplina.",
       "pergunta": "Quem pode ver notas e em quanto tempo corrigem dados pessoais?",
-      "referencia": "Apenas o próprio aluno e os docentes da disciplina veem notas; correções são atendidas em até 15 dias [T1]."
+      "referencia": "Apenas o próprio aluno e os docentes da disciplina veem notas; correções são atendidas em até 15 dias [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-09",
       "contexto": "[T1] (calendario-academico-2026) Segundo semestre: início em 03/08/2026, limite de rematrícula em 14/08/2026, colação de grau em 19/12/2026.",
       "pergunta": "Quando é a colação de grau do segundo semestre de 2026?",
-      "referencia": "Em 19/12/2026 [T1]."
+      "referencia": "Em 19/12/2026 [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-10",
       "contexto": "[T1] (tabela-de-servicos) Aproveitamento de disciplina: prazo 15 dias úteis, taxa R$ 60,00. Revisão de prova: prazo 7 dias úteis, taxa R$ 0,00.",
       "pergunta": "Quanto custa pedir revisão de prova e qual o prazo?",
-      "referencia": "Não tem taxa (R$ 0,00) e o prazo é de 7 dias úteis [T1]."
+      "referencia": "Não tem taxa (R$ 0,00) e o prazo é de 7 dias úteis [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-11",
       "contexto": "[T1] (regulamento-academico) A média final é ponderada: prova 60%, trabalhos 30% e participação 10%.",
       "pergunta": "Como é calculada a média final?",
-      "referencia": "Média ponderada com 60% prova, 30% trabalhos e 10% participação [T1]."
+      "referencia": "Média ponderada com 60% prova, 30% trabalhos e 10% participação [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-12",
       "contexto": "[T1] (tabela-de-servicos) Declaração de matrícula: prazo 2 dias úteis, taxa R$ 0,00.",
       "pergunta": "Qual o valor da mensalidade de Medicina?",
-      "referencia": "Não encontrei essa informação nos documentos."
+      "referencia": "Não encontrei essa informação nos documentos.",
+      "origem": "manual"
     },
     {
       "id": "ev-13",
       "contexto": "[T1] (manual-biblioteca) A taxa de reposição de cartão magnético é de R$ 18,00.",
       "pergunta": "Quanto custa repor o cartão magnético da biblioteca?",
-      "referencia": "R$ 18,00 [T1]."
+      "referencia": "R$ 18,00 [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-14",
       "contexto": "[T1] (regulamento-academico) Quem fica com média entre 4,0 e 5,9 pode fazer exame final; abaixo de 4,0 há reprovação direta.",
       "pergunta": "Com média 3,5 tenho direito ao exame final?",
-      "referencia": "Não, abaixo de 4,0 há reprovação direta [T1]."
+      "referencia": "Não, abaixo de 4,0 há reprovação direta [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-15",
       "contexto": "[T1] (manual-estagio-e-tcc) O depósito digital do TCC aprovado deve ocorrer em até 15 dias corridos após a defesa.",
       "pergunta": "Qual o prazo para depositar o TCC aprovado?",
-      "referencia": "Até 15 dias corridos após a defesa [T1]."
+      "referencia": "Até 15 dias corridos após a defesa [T1].",
+      "origem": "manual"
     },
     {
       "id": "ev-16",
       "contexto": "[T1] (politica-de-privacidade-academica) O atendimento automatizado não deve pedir nem repetir CPF, senha ou dados de cartão.",
       "pergunta": "Qual o telefone de atendimento do campus sul?",
+      "referencia": "Não encontrei essa informação nos documentos.",
+      "origem": "manual"
+    },
+    {
+      "id": "ev-qa001",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa001",
+      "contexto": "[T1] (regulamento-laboratorios-informatica) Aurora Educacao (documento ficticio) Pagamento de R$ 50,00 por dia de atraso Multas acima de R$ 200,00 sao inegociaveis Horario de seg a sex das 8h as 18h Sabado apenas das 9h as 14h Domingos e feriados sao fechados",
+      "pergunta": "Sobre uso dos laboratorios de informatica: qual e a multa por atraso?",
+      "referencia": "O valor da multa por atraso e de R$ 50,00 por dia [T1]"
+    },
+    {
+      "id": "ev-qa002",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa002",
+      "contexto": "[T1] (regulamento-laboratorios-informatica) Cada aluno tem 4 horas de uso diario Sessoes acima de 4 horas geram taxa Taxa extra e de R$ 10,00 por hora Reserva de sala exige 2 dias antes Cancelamento com 24 horas evita multa Multas de reserva sao de 50% do valor",
+      "pergunta": "Sobre uso dos laboratorios de informatica: quantas horas posso usar o laboratorio?",
+      "referencia": "O limite diario de uso e de 4 horas por aluno [T1]"
+    },
+    {
+      "id": "ev-qa003",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa003",
+      "contexto": "[T1] (regulamento-laboratorios-informatica) Perda de pen drive custa R$ 50,00 Danos em monitor custam R$ 300,00 Teclado danificado custa R$ 80,00 Mouse danificado custa R$ 30,00 Pagamento em ate 5 dias uteis Atraso gera juros de 1% ao dia",
+      "pergunta": "Sobre uso dos laboratorios de informatica: quanto custa se perder o pen drive?",
+      "referencia": "A perda de um pen drive custa R$ 50,00 [T1]"
+    },
+    {
+      "id": "ev-qa004",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa004",
+      "contexto": "[T1] (politica-uso-wifi-campus) Alunos matriculados no curso Velocidade maxima 100 Mbps Sessao ilimitada em dias letivos Download de ate 2 GB por dia Prioridade em horarios de aula Suporte tecnico em 24 horas",
+      "pergunta": "Sobre rede Wi-Fi do campus e limites de uso: qual e o limite de download diario para estudantes?",
+      "referencia": "O limite de download diario para estudantes e de 2 GB por dia [T1]."
+    },
+    {
+      "id": "ev-qa005",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa005",
+      "contexto": "[T1] (politica-uso-wifi-campus) Aurora Educacao (documento ficticio) Rede aberta para publico externo Velocidade maxima 10 Mbps Sessao de 60 minutos por dia Acesso restrito a site institucional Bloqueio automatico apos 3 tentativas",
+      "pergunta": "Sobre rede Wi-Fi do campus e limites de uso: por quanto tempo o publico externo pode ficar conectado?",
+      "referencia": "O publico externo pode ficar conectado por 60 minutos [T1]."
+    },
+    {
+      "id": "ev-qa006",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa006",
+      "contexto": "[T1] (politica-uso-wifi-campus) Multas por uso abusivo da rede Bloqueio de 48 horas por aviso Multas de R$ 50 por reincidencia Desconto de 10% na mensalidade Recorrencia apos 30 dias de ban Suspensao total por 90 dias",
+      "pergunta": "Sobre rede Wi-Fi do campus e limites de uso: qual e a multa para quem reincide no abuso?",
+      "referencia": "A multa para quem reincide no abuso e de R$ 50 [T1]."
+    },
+    {
+      "id": "ev-qa007",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa007",
+      "contexto": "[T1] (manual-restaurante-universitario) Restaurante Universitario (documento ficticio) Horario de funcionamento das 7h as 14h Aluguel de espaco por 30 dias por R$ 50 Desconto de 10% para funcionarios Limite de 50 pessoas por area Prazo de 48 horas para solicitacao",
+      "pergunta": "Sobre restaurante universitario: horarios e precos: qual e o valor do aluguel?",
+      "referencia": "O aluguel do espaco custa R$ 50 por 30 dias [T1]."
+    },
+    {
+      "id": "ev-qa008",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa008",
+      "contexto": "[T1] (manual-restaurante-universitario) Refeicao completa custa R$ 12,00 Caf da manha disponivel das 6h as 8h Taxa de servico de 5% no total Capacidade maxima de 200 pessoas Reserva obrigatoria em 24 horas Horario de fechamento as 15h em dia",
+      "pergunta": "Sobre restaurante universitario: horarios e precos: qual e o preco da refeicao?",
+      "referencia": "A refeicao completa tem custo de R$ 12,00 [T1]."
+    },
+    {
+      "id": "ev-qa009",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa009",
+      "contexto": "[T1] (manual-restaurante-universitario) Bebidas geladas custam R$ 4,00 cada Prazo de entrega em 15 minutos Multas de 20% por atraso acima de 1h Area infantil limitada a 10 criancas Horario de limpeza das 14h as 15h Valor de limpeza e R$ 100 por uso",
+      "pergunta": "Sobre restaurante universitario: horarios e precos: qual o prazo de entrega?",
+      "referencia": "O prazo de entrega e de 15 minutos [T1]."
+    },
+    {
+      "id": "ev-qa010",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa010",
+      "contexto": "[T1] (regulamento-monitoria) regulamento-monitoria (documento ficticio) candidatos devem ter media 7.5 no periodo carga horaria semanal e de 12 horas bolsa inicial de 600 reais por mes inscricao aberta por 10 dias uteis reprovacao em duas disciplinas impede",
+      "pergunta": "Sobre programa de monitoria e bolsa de monitor: qual e o valor inicial da bolsa?",
+      "referencia": "O valor inicial da bolsa e de 600 reais por mes [T1]."
+    },
+    {
+      "id": "ev-qa011",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa011",
+      "contexto": "[T1] (regulamento-monitoria) horario de atendimento e das 8h a 12h relatorio mensal deve ter 5 paginas falta sem justificativa ate 3 dias quarta-feira e dia de avaliacao bolsa reajustada em 5% anual carga horaria minima de 10 horas",
+      "pergunta": "Sobre programa de monitoria e bolsa de monitor: qual e o horario de atendimento?",
+      "referencia": "O horario de atendimento e das 8h a 12h [T1]."
+    },
+    {
+      "id": "ev-qa012",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa012",
+      "contexto": "[T1] (regulamento-monitoria) prazo para entrega e 48 horas maximo de 2 bolsas por semestre valor total de 1200 reais anuais horario extra das 14h as 18h desconto de 10% na mensalidade limite de 5 faltas por ano",
+      "pergunta": "Sobre programa de monitoria e bolsa de monitor: qual o limite de faltas por ano?",
+      "referencia": "O limite de faltas por ano e 5 faltas [T1]."
+    },
+    {
+      "id": "ev-qa013",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa013",
+      "contexto": "[T1] (programa-intercambio) Intercambio Aurora Educacao (documento ficticio) Prazo maximo de inscricao e 30 dias uteis Valor da taxa de inscricao e R$ 150,00 Bolsa cobre 50% do custo da mensalidade Horario de atendimento e 8h as 18h Limite de 2 tentativas por semestre",
+      "pergunta": "Sobre intercambio internacional e requisitos: qual e o valor da taxa de inscricao?",
+      "referencia": "O valor da taxa de inscricao e R$ 150,00 [T1]"
+    },
+    {
+      "id": "ev-qa014",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa014",
+      "contexto": "[T1] (programa-intercambio) Requisitos academicos e linguistica Media minima exigida e 7,5 pontos Prova de ingles deve ser 600 pontos Carta de recomendacao e obrigatoria Prazo de validade do certificado e 90 dias Quantidade de vagas e limitada a 10 por ano",
+      "pergunta": "Sobre intercambio internacional e requisitos: qual a media minima exigida?",
+      "referencia": "A media minima exigida e 7,5 pontos [T1]"
+    },
+    {
+      "id": "ev-qa015",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa015",
+      "contexto": "[T1] (manual-ouvidoria) manual-ouvidoria (documento ficticio) Prazo maximo de resposta e de 5 dias uteis. Canal unico pelo portal da Aurora Educacao. Horario de atendimento das 9h as 17h. Limites de 2 reclamacoes por mes por aluno. Respostas iniciais em 1 dia util via sistema.",
+      "pergunta": "Sobre ouvidoria: canais e prazos de resposta: qual o prazo maximo para a resposta inicial?",
+      "referencia": "O prazo maximo para a resposta inicial e de 5 dias uteis [T1]."
+    },
+    {
+      "id": "ev-qa016",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa016",
+      "contexto": "[T1] (nucleo-acessibilidade) Aurora Educacao nucleo-acessibilidade (documento ficticio) Solicitacao de adaptacao deve ser feita 7 dias antes Documentos validados em 48 horas uteis pela equipe Provas com tempo extra de 20 por cento do total Leitores profissionais disponiveis ate 15h30 Valor zero para alunos com laudo medico atual",
+      "pergunta": "Sobre nucleo de acessibilidade e adaptacoes de prova: qual e o prazo minimo para solicitar uma adaptacao?",
+      "referencia": "O prazo minimo para solicitar uma adaptacao e de 7 dias [T1]."
+    },
+    {
+      "id": "ev-qa017",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa017",
+      "contexto": "[T1] (nucleo-acessibilidade) Reclamacao de prova deve ser enviada em 24 horas Analise da reclamacao ocorre em 3 dias uteis Tabela de valores: R$ 50,00 para impressoes Limites de acessos ao sistema sao de 3 tentativas Horario de atendimento presencial das 9h as 17h Quantidade maxima de paginas por prova e 20",
+      "pergunta": "Sobre nucleo de acessibilidade e adaptacoes de prova: quanto custa o servico de impressao de provas?",
+      "referencia": "O valor do servico de impressao de provas e R$ 50,00 [T1]."
+    },
+    {
+      "id": "ev-qa018",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa018",
+      "contexto": "[T1] (regulamento-atividades-complementares) Aurora Educacao (documento ficticio) O periodo de 30 dias corridos vale para validar a carga horaria. O valor maximo por hora extra e de R$ 50,00. O horario limite para envio e as 17h do mesmo dia. A quantidade minima de atividades e de 2 por semestre. O percentual de desconto no boleto e de 5%.",
+      "pergunta": "Sobre horas de atividades complementares: qual e o valor maximo pago por hora extra?",
+      "referencia": "O valor maximo por hora extra e de R$ 50,00. [T1]"
+    },
+    {
+      "id": "ev-qa019",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa019",
+      "contexto": "[T1] (regulamento-atividades-complementares) O prazo de 7 dias uteis vale para contestar o registro. O valor minimo por projeto e de R$ 100,00. O horario de atendimento vai das 8h as 18h. A quantidade maxima de horas por mes e 100 horas. O percentual de aprovisao exigido e de 70%. O limite de tentativas no sistema e de 3 vezes.",
+      "pergunta": "Sobre horas de atividades complementares: qual e o limite de horas por mes?",
+      "referencia": "A quantidade maxima de horas por mes e 100 horas. [T1]"
+    },
+    {
+      "id": "ev-qa020",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa020",
+      "contexto": "[T1] (regulamento-atividades-complementares) O prazo de 15 dias corridos vale para emissao da nota. O valor da taxa de revalidacao e de R$ 30,00. O horario de corte do sistema e as 23h59. A quantidade minima de dias de presenca e 3 dias. O percentual de bonus por desempenho e de 10%. O limite de arquivos por upload e de 5 arquivos.",
+      "pergunta": "Sobre horas de atividades complementares: qual e o valor da taxa de revalidacao?",
+      "referencia": "O valor da taxa de revalidacao e de R$ 30,00. [T1]"
+    },
+    {
+      "id": "ev-qa021",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa021",
+      "contexto": "[T1] (transporte-fretado-campus) Horario de saida do campus A e as 07h30 diariamente. Horario de chegada ao campus B e as 08h15 no maximo. Intervalo entre paradas e de 30 minutos no trajeto. Capacidade maxima do onibus e de 45 passageiros. Retorno do campus B inicia as 17h45 em dias uteis. Chamada de presenca e feita via aplicativo oficial.",
+      "pergunta": "Sobre onibus fretado entre campi: a que hora sai do campus A?",
+      "referencia": "O horario de saida do campus A e as 07h30 [T1]"
+    },
+    {
+      "id": "ev-qa022",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa022",
+      "contexto": "[T1] (transporte-fretado-campus) Taxa de adesao ao plano anual e de 50 reais. Desconto de 10 por cento para quem tem 3 faltas ou menos. Multas por atraso acima de 15 minutos sao de 5 reais. Reembolso de 100 por cento para doencas comprovadas. Validade do vale e de 30 dias contados da data. Cancelamento sem custo ate 24 horas antes do uso.",
+      "pergunta": "Sobre onibus fretado entre campi: qual o desconto para poucas faltas?",
+      "referencia": "O desconto para quem tem 3 faltas ou menos e de 10 por cento [T1]"
+    },
+    {
+      "id": "ev-qa023",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa023",
+      "contexto": "[T1] (regulamento-estacionamento) regulamento-estacionamento (documento ficticio) O estacionamento no campus possui 200 vagas no total. Cada vaga tem tamanho maximo de 5 metros de comprimento. A velocidade maxima permitida no patio e de 10 km/h. A sinalizacao do local e responsabilidade do corpo docente. O uso do espaco e restrito a veiculos de pequeno porte.",
+      "pergunta": "Sobre estacionamento do campus e credenciais: quantas vagas existem no local?",
+      "referencia": "O estacionamento no campus possui 200 vagas no total. [T1]"
+    },
+    {
+      "id": "ev-qa024",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa024",
+      "contexto": "[T1] (regulamento-estacionamento) O valor da mensalidade do estacionamento e de R$ 50,00. O pagamento deve ser feito ate o dia 5 de cada mes. Atrasos acima de 3 dias geram multa de 10% sobre o valor. O credito do estacionamento vale por 12 meses corridos. O veiculo deve estar dentro do portao ate 08h30. Apos o horario limite, o acesso e proibido no patio.",
+      "pergunta": "Sobre estacionamento do campus e credenciais: qual e o valor da mensalidade?",
+      "referencia": "O valor da mensalidade do estacionamento e de R$ 50,00. [T1]"
+    },
+    {
+      "id": "ev-qa025",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa025",
+      "contexto": "[T1] (regulamento-estacionamento) O visitante deve agendar a visita com 2 dias de antecedencia. O credencial do visitante e valida por apenas 1 dia. O documento do veiculo deve estar visivel no painel. O limite de visitantes por dia e de 5 pessoas no total. A permanencia maxima do visitante no patio e de 4 horas. O descumprimento das regras gera exclusao imediata do local.",
+      "pergunta": "Sobre estacionamento do campus e credenciais: qual e o limite de visitantes?",
+      "referencia": "O limite de visitantes por dia e de 5 pessoas no total. [T1]"
+    },
+    {
+      "id": "ev-qa026",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa026",
+      "contexto": "[T1] (achados-e-perdidos) Aurora Educacao achados e perdidos (documento ficticio) Objetos entregues na portaria em ate 24 horas uteis. Retirada gratuita apenas nos primeiros 7 dias corridos. Apos 30 dias o item fica sob guarda sem custo extra. Itens pereciveis sao descartados apos 48 horas do registro. Documentos de identidade exigidos para liberacao do objeto.",
+      "pergunta": "Sobre achados e perdidos: guarda e retirada de objetos: qual e o prazo para entregar o item na portaria?",
+      "referencia": "O prazo para entregar o item na portaria e de 24 horas uteis [T1]"
+    },
+    {
+      "id": "ev-qa027",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa027",
+      "contexto": "[T1] (achados-e-perdidos) Taxa de custodia mensal e de 15 reais por item comum. Itens eletronicos pagam 25 reais por semana de guarda. Dinheiro em especie tem taxa unica de 50 reais por dia. Chaves de veiculo custam 10 reais por dia de armazenamento. Valores acima de 100 reais exigem laudo de avaliacao. Desconto de 50 percentual para alunos em dia com a mensalidade.",
+      "pergunta": "Sobre achados e perdidos: guarda e retirada de objetos: quanto custa a custodia de um item comum por mes?",
+      "referencia": "A taxa de custodia mensal para um item comum e de 15 reais [T1]"
+    },
+    {
+      "id": "ev-qa028",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa028",
+      "contexto": "[T1] (achados-e-perdidos) Horario de atendimento da portaria das 8h as 18h dias uteis. Terceiros autorizados precisam de procuracao simples escrita. Limite maximo de 3 objetos por pessoa por dia de retirada. Objetos volumosos acima de 50 centimetros exigem agendamento. Solicitacao de custodia prolongada via formulario fisico interno. Perda de chave reserva gera custo extra de 20 reais por dia.",
+      "pergunta": "Sobre achados e perdidos: guarda e retirada de objetos: qual e o limite de objetos por pessoa por dia?",
+      "referencia": "O limite maximo de objetos por pessoa por dia e de 3 objetos [T1]"
+    },
+    {
+      "id": "ev-qa029",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa029",
+      "contexto": "[T1] (iniciacao-cientifica) iniciacao cientifica (documento ficticio) prazo de inscricao e de 10 dias uteis valor da bolsa e de 400 reais mensais carga horaria minima e de 12 horas semanais apenas 500 vagas serao preenchidas provas serao aplicadas das 8 as 12 horas",
+      "pergunta": "Sobre iniciacao cientifica: edital e bolsas: qual e o valor financeiro mensal da bolsa?",
+      "referencia": "O valor da bolsa e de 400 reais mensais [T1]."
+    },
+    {
+      "id": "ev-qa030",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa030",
+      "contexto": "[T1] (iniciacao-cientifica) regras de avaliacao e criterios de corte nota minima de corte e 70 pontos em 100 recurso pode ser feito em 48 horas uteis bolsas sao pagas ate o dia 5 do mes reprovados podem tentar novamente em 30 dias presenca minima exigida e de 75 percentual",
+      "pergunta": "Sobre iniciacao cientifica: edital e bolsas: qual e a presenca minima exigida?",
+      "referencia": "A presenca minima exigida e de 75 percentual [T1]."
+    },
+    {
+      "id": "ev-qa031",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa031",
+      "contexto": "[T1] (iniciacao-cientifica) encerramento e renovacao dos vinculos relatorio final deve ser entregue em 15 dias banca avaliadora tera 3 professores membros desligamento ocorre apos 2 faltas injustificadas bolsa final e de 500 reais no ultimo mes cerimonia de entrega e as 10 horas em ponto",
+      "pergunta": "Sobre iniciacao cientifica: edital e bolsas: em quantos dias deve ser entregue o relatorio final?",
+      "referencia": "O relatorio final deve ser entregue em 15 dias [T1]."
+    },
+    {
+      "id": "ev-qa032",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa032",
+      "contexto": "[T1] (empresa-junior) Aurora Educacao empresa-junior (documento ficticio) Inscricao aberta em 10 dias uteis Prova escrita dura 4 horas e 30 minutos Entrevista final em 5 dias uteis Resultado final em 3 dias uteis Matricula efetiva em 7 dias uteis",
+      "pergunta": "Sobre empresa junior: processo seletivo e horas: qual o prazo para inscricao?",
+      "referencia": "O prazo para inscricao e de 10 dias uteis [T1]."
+    },
+    {
+      "id": "ev-qa033",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa033",
+      "contexto": "[T1] (empresa-junior) Junte-se a empresa junir da Aurora Educacao Carga horaria minima de 8 horas semanais Carga horaria maxima de 20 horas semanais Horario de trabalho das 8h00 as 18h00 Folga semanal de 24 horas consecutivas Horas extras pagas em 10 dias uteis",
+      "pergunta": "Sobre empresa junior: processo seletivo e horas: qual a carga horaria maxima?",
+      "referencia": "A carga horaria maxima e de 20 horas semanais [T1]."
+    },
+    {
+      "id": "ev-qa034",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa034",
+      "contexto": "[T1] (empresa-junior) Pagamento do estagio da empresa junir Bolsa auxilio de R$ 500,00 mensais Bolsa auxilio de R$ 800,00 por projeto Reembolso de 50% em transporte Reembolso de 30% em material Pagamento unico de R$ 100,00",
+      "pergunta": "Sobre empresa junior: processo seletivo e horas: quanto vale a bolsa auxilio?",
+      "referencia": "A bolsa auxilio vale R$ 500,00 mensais [T1]."
+    },
+    {
+      "id": "ev-qa035",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa035",
+      "contexto": "[T1] (segunda-chamada-de-provas) Aurora Educacao (documento ficticio) Prazo maximo 5 dias uteis para pedir. Taxa de 50,00 reais por materia cursada. Horario 8h00 as 18h00 dias uteis. Limite de 2 pedidos por periodo letivo. Prova marcada 10 dias apos o pedido.",
+      "pergunta": "Sobre pedido de segunda chamada de provas: qual e o custo base para solicitar a reprovacao?",
+      "referencia": "A taxa cobrada e de 50,00 reais por materia cursada [T1]."
+    },
+    {
+      "id": "ev-qa036",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa036",
+      "contexto": "[T1] (segunda-chamada-de-provas) Local definido pela secretaria da Aurora. Valor minimo 30,00 reais para impressao. Percentual de 80% de presenca obrigatoria. Dias uteis contados a partir do dia 1. Horas extras custam 10,00 reais cada hora. Quantidade maxima 3 materias por pedido.",
+      "pergunta": "Sobre pedido de segunda chamada de provas: qual o minimo de presenca exigido?",
+      "referencia": "O percentual minimo de presenca e de 80% [T1]."
+    },
+    {
+      "id": "ev-qa037",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa037",
+      "contexto": "[T1] (segunda-chamada-de-provas) Reprovado final nao pode pedir segunda chamada. Multa de 20,00 reais por atraso na taxa. Prazo zero dias para recursos administrativos. Limite de 1 segunda chamada por semestre. Valor de 15,00 reais para certificado extra. Horario de espera 15 minutos antes da prova.",
+      "pergunta": "Sobre pedido de segunda chamada de provas: qual a multa para atraso no pagamento?",
+      "referencia": "A multa por atraso e de 20,00 reais [T1]."
+    },
+    {
+      "id": "ev-qa038",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa038",
+      "contexto": "[T1] (colacao-de-grau) Aurora Educacao: colacao de grau (documento ficticio) Inscricao online aberta 10 dias antes do evento Pagamento unico de 150 reais ate 5 dias antes Cancelamento gratis ate 48 horas antes da data Taxa de 20% cobrada se cancelar em 24 horas Certidao de matricula valida por 30 dias",
+      "pergunta": "Sobre colacao de grau: inscricao e cerimonia: qual o custo da taxa unica?",
+      "referencia": "O valor da taxa unica e de 150 reais [T1]."
+    },
+    {
+      "id": "ev-qa039",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa039",
+      "contexto": "[T1] (colacao-de-grau) Cerimonia inicia pontualmente as 14 horas Portas fecham 15 minutos antes do inicio Entrada permitida ate 3 convidados por aluno Espaco reservado para 500 pessoas no palco Diploma entregue em maos durante o ritual Fotografia oficial dura 5 minutos por turma",
+      "pergunta": "Sobre colacao de grau: inscricao e cerimonia: quantas horas antes fecham as portas?",
+      "referencia": "As portas fecham 15 minutos antes [T1]."
+    },
+    {
+      "id": "ev-qa040",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa040",
+      "contexto": "[T1] (colacao-de-grau) Toga e capelo disponiveis por 10 reais cada Desconto de 15% para quem comprar os dois Entrega das vestes ate 2 horas antes do show Troca de tamanho permitida ate 24 horas antes Reembolso total so se produto estiver novo Suporte tecnico ativo das 8 as 18 horas",
+      "pergunta": "Sobre colacao de grau: inscricao e cerimonia: qual o desconto para comprar os dois?",
+      "referencia": "O desconto e de 15% [T1]."
+    },
+    {
+      "id": "ev-qa041",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa041",
+      "contexto": "[T1] (seguranca-laboratorios-quimica) Seguranca nos laboratorios de quimica (documento ficticio) A entrada no laboratorio exige 10 dias de treinamento previo. O uso de luvas de nitrila e obrigatorio em todo o tempo. A temperatura ambiente deve ficar entre 20 e 25 graus Celsius. Proibido consumir alimentos ou bebidas em area de trabalho. O descarte de residuos classe A exige 5 dias de armazenagem.",
+      "pergunta": "Sobre seguranca nos laboratorios de quimica: qual e o periodo minimo de preparo antes da entrada?",
+      "referencia": "E necessario completar 10 dias de treinamento previo [T1]."
+    },
+    {
+      "id": "ev-qa042",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa042",
+      "contexto": "[T1] (seguranca-laboratorios-quimica) Equipamentos de protecao individual devem ser inspecionados. O capacete de seguranca deve ser certificado pelo INMETRO. Oculos de seguranca devem ser trocados a cada 30 dias. A calca de laboratorio deve ser de fibra natural e clara. O uso de sapatos abertos ou sandalias e expressamente proibido. As luvas devem ser trocadas a cada 4 horas de uso continuo.",
+      "pergunta": "Sobre seguranca nos laboratorios de quimica: qual e o prazo maximo para troca das luvas?",
+      "referencia": "As luvas devem ser trocadas a cada 4 horas de uso continuo [T1]."
+    },
+    {
+      "id": "ev-qa043",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa043",
+      "contexto": "[T1] (seguranca-laboratorios-quimica) O extintor de fogo classe C deve ser revisado a cada 6 meses. A chuveira de emergencia deve funcionar com pressao minima. O almofadico de contencao deve ter 100 litros de capacidade. O alarme de incendio deve ser testado a cada 7 dias. O primeiro socorros deve ter kit completo e lacrado. A luz de emergencia deve ter autonomia de 60 minutos.",
+      "pergunta": "Sobre seguranca nos laboratorios de quimica: qual a capacidade minima do almofadico de contencao?",
+      "referencia": "O almofadico de contencao deve ter 100 litros de capacidade [T1]."
+    },
+    {
+      "id": "ev-qa044",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa044",
+      "contexto": "[T1] (seguro-estudantil) Seguro do Aluno (documento ficticio) Cobertura basica ativa por 365 dias Indenizacao maxima de R$ 50000 Carencia de 30 dias para uso Atendimento medico 24 horas por dia",
+      "pergunta": "Sobre seguro contra acidentes pessoais do aluno: qual e o valor maximo da indenizacao?",
+      "referencia": "O valor maximo da indenizacao e de R$ 50000 [T1]."
+    },
+    {
+      "id": "ev-qa045",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa045",
+      "contexto": "[T1] (seguro-estudantil) Requerimento de sinistro em 7 dias Exame medico em 48 horas uteis Custo de sessao em R$ 150 reais Limite de 10 sessoes por ano Ajuste de plano em 15 dias",
+      "pergunta": "Sobre seguro contra acidentes pessoais do aluno: em quantos dias se faz o exame medico?",
+      "referencia": "O exame medico deve ser feito em 48 horas [T1]."
+    },
+    {
+      "id": "ev-qa046",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa046",
+      "contexto": "[T1] (seguro-estudantil) Franquia de 20 por cento do custo Reembolso em 5 dias uteis Valor minimo de R$ 50 reais Validade do bilhete por 90 dias Reclamacao formal em 30 dias",
+      "pergunta": "Sobre seguro contra acidentes pessoais do aluno: qual e a franquia do custo?",
+      "referencia": "A franquia do custo e de 20 por cento [T1]."
+    },
+    {
+      "id": "ev-qa047",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa047",
+      "contexto": "[T1] (carteirinha-estudantil) carteirinha-estudantil (documento ficticio) Primeira via gratuita para todos os matriculados Segunda via custa 25 reais para pagamento Prazo de entrega em 5 dias uteis apos solicitacao Retirada somente nos horarios de 9 as 17h Validade da carteira e de 12 meses corridos",
+      "pergunta": "Sobre carteirinha estudantil: emissao e segunda via: qual e o valor da segunda via?",
+      "referencia": "A segunda via custa 25 reais para pagamento [T1]"
+    },
+    {
+      "id": "ev-qa048",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa048",
+      "contexto": "[T1] (carteirinha-estudantil) Solicitacao online atraves do portal interno Impressao fisica apenas na portaria principal Custo extra de 10 reais para entrega rapida Prazo de 2 horas para impressao expressa Limite de 3 segundas vias por semestre Validade reduzida para 6 meses em caso de perda",
+      "pergunta": "Sobre carteirinha estudantil: emissao e segunda via: em quanto tempo sai a impressao expressa?",
+      "referencia": "O prazo de impressao expressa e de 2 horas [T1]"
+    },
+    {
+      "id": "ev-qa049",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa049",
+      "contexto": "[T1] (carteirinha-estudantil) Documentos necessarios: foto 3x4 e comprovante Pagamento apenas por cartao de debito ou credito Reposicao por dano custa 50 reais na hora Prazo de 24 horas para reemissao por erro Multas de 15% para atraso na devolucao Suporte tecnico funciona de 8 as 18h seg a sex",
+      "pergunta": "Sobre carteirinha estudantil: emissao e segunda via: quanto custa a reposicao por dano?",
+      "referencia": "A reposicao por dano custa 50 reais na hora [T1]"
+    },
+    {
+      "id": "ev-qa050",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa050",
+      "contexto": "[T1] (programa-apoio-psicologico) Apoio Psicologico ao Estudante (documento ficticio) Sessoes de 50 min seg terca e quinta as 14h Agendamento via portal em ate 72 horas uteis Maximo de 4 sessoes por mes por aluno ativo Cancelamento exige aviso de 24 horas antes Relatorio medico emitido em 10 dias uteis",
+      "pergunta": "Sobre apoio psicologico ao estudante: qual o limite mensal de sessoes?",
+      "referencia": "O limite e de 4 sessoes por mes. [T1]"
+    },
+    {
+      "id": "ev-qa051",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa051",
+      "contexto": "[T1] (programa-apoio-psicologico) Custos e Coberturas do Programa de Apoio Sessoes basicas sao gratuitas para matriculados Apoio extra cobra R$ 150 por sessao adicional Desconto de 50 percentual para bolsa integral Pagamento em ate 3 dias uteis apos sessao Reembolso parcial se falta nao avisada em 48h",
+      "pergunta": "Sobre apoio psicologico ao estudante: quanto custa a sessao extra?",
+      "referencia": "Custa R$ 150 por sessao. [T1]"
+    },
+    {
+      "id": "ev-qa052",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa052",
+      "contexto": "[T1] (programa-apoio-psicologico) Limites e Horarios Especiais de Atendimento Atendimento emergencial seg a sex das 8h as 18h Fila de espera maxima de 15 minutos no balcao Sessoes online limitadas a 2 por semana Prazo de 5 dias uteis para resposta de duvidas Capacidade maxima de 200 alunos por semestre",
+      "pergunta": "Sobre apoio psicologico ao estudante: qual o prazo para resposta?",
+      "referencia": "O prazo e de 5 dias uteis. [T1]"
+    },
+    {
+      "id": "ev-qa053",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa053",
+      "contexto": "[T1] (regulamento-esportes-e-academia) regulamento-esportes-e-academia (documento ficticio) Inscricao para atividades fisicas em 5 dias uteis. Taxa de adesao unica de R$ 50,00 por semestre. Acesso liberado das 7h00 as 22h00 de segunda a sexta. Maximo de 3 faltas justificadas por mes academico. Cancelamento de reserva com 24 horas de antecedencia.",
+      "pergunta": "Sobre academia e equipes esportivas: qual e o prazo para matricula na academia?",
+      "referencia": "O prazo para matricula na academia e de 5 dias uteis. [T1]"
+    },
+    {
+      "id": "ev-qa054",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa054",
+      "contexto": "[T1] (regulamento-esportes-e-academia) Equipes esportivas devem ser formadas por 10 membros. Cada aluno pode integrar no maximo 2 equipes ativas. Treinos oficiais sao tres dias uteis por semana. Equipamento de protecao e obrigatorio em todos os jogos. Multas por atraso de 15 minutos em R$ 10,00. Desligamento por 3 faltas injustificadas consecutivas.",
+      "pergunta": "Sobre academia e equipes esportivas: qual e a multa por atraso nos treinos?",
+      "referencia": "A multa por atraso nos treinos e de R$ 10,00. [T1]"
+    },
+    {
+      "id": "ev-qa055",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa055",
+      "contexto": "[T1] (emprestimo-de-notebooks) Aurora Educacao (documento ficticio) Prazo maximo de emprestimo e de 30 dias Multa por atraso e de R$ 10,00 por dia Horario de entrega e das 8h as 18h Limitado a 1 notebook por aluno ativo Danos causam 100% do valor do equipamento",
+      "pergunta": "Sobre emprestimo de notebooks pela biblioteca de equipamentos: qual e o valor da multa por atraso?",
+      "referencia": "A multa por atraso e de R$ 10,00 por dia [T1]"
+    },
+    {
+      "id": "ev-qa056",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa056",
+      "contexto": "[T1] (emprestimo-de-notebooks) Devolucao deve ser feita com bateria Bateria ausente gera multa de R$ 30,00 Apos 3 dias de atraso e 20% do valor Limite de 2 emprestimos simultaneos Horario de saida e ate 16h30 Perda do item exige pagamento integral",
+      "pergunta": "Sobre emprestimo de notebooks pela biblioteca de equipamentos: qual e o valor da multa por bateria ausente?",
+      "referencia": "A bateria ausente gera multa de R$ 30,00 [T1]"
+    },
+    {
+      "id": "ev-qa057",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa057",
+      "contexto": "[T1] (regulamento-eventos-academicos) Regulamento de Eventos e Certificados (documento ficticio) Inscricao aberta 30 dias antes do evento. Certificado emitido em 72 horas uteis. Presenca minima de 80% para validar. Requisicao de 24 horas antes do fim. Validade do certificado e de 5 anos.",
+      "pergunta": "Sobre eventos academicos e certificados: qual o prazo para emitir o certificado?",
+      "referencia": "O certificado e emitido em 72 horas uteis apos o evento [T1]."
+    },
+    {
+      "id": "ev-qa058",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa058",
+      "contexto": "[T1] (regulamento-eventos-academicos) Taxa de inscricao e de R$ 50,00. Cancelamento gratuito ate 48 horas. Reembolso de 50% ate 24 horas antes. Sem reembolso nas 24 horas finais. Pagamento via boleto ou cartao. Comprovante enviado em 2 horas uteis.",
+      "pergunta": "Sobre eventos academicos e certificados: qual e o valor da taxa de inscricao?",
+      "referencia": "A taxa de inscricao e de R$ 50,00 [T1]."
+    },
+    {
+      "id": "ev-qa059",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa059",
+      "contexto": "[T1] (regulamento-eventos-academicos) Horario de inicio das 09:00 as 18:00. Pausa de 30 minutos no meio do dia. Certificado digital PDF sem custo. Versao impressa custa R$ 20,00. Entrega em balcao ate 15:00. Retirada pessoal ou procuracao.",
+      "pergunta": "Sobre eventos academicos e certificados: qual o horario de inicio?",
+      "referencia": "O horario de inicio e as 09:00 [T1]."
+    },
+    {
+      "id": "ev-qa060",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa060",
+      "contexto": "[T1] (cursos-de-extensao) Cursos Livres de Extensao (documento ficticio) Matricula aberta 15 dias antes do inicio Taxa unica de R$ 150,00 por inscricao Turmas com limite maximo de 30 alunos Aulas seg e qui das 18h as 21h Certificado emitido em 5 dias uteis",
+      "pergunta": "Sobre cursos livres de extensao: qual e o valor da inscricao?",
+      "referencia": "A taxa unica e de R$ 150,00 [T1]."
+    },
+    {
+      "id": "ev-qa061",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa061",
+      "contexto": "[T1] (cursos-de-extensao) Pagamento aceito ate 72 horas antes Desconto de 10% para alunos ativos Reprovacao se faltar mais de 20% Material didatico custo de R$ 50,00 Horario extra de seg a sex 9h as 17h Cancelamento sem custo ate 7 dias antes",
+      "pergunta": "Sobre cursos livres de extensao: qual e o desconto para alunos?",
+      "referencia": "O desconto para alunos ativos e de 10% [T1]."
+    },
+    {
+      "id": "ev-qa062",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa062",
+      "contexto": "[T1] (cursos-de-extensao) Reinscricao permitida uma vez por ano Bolsa de estudo de 50% para egressos Dias de prova fixos: 2 e 15 do mes Capacidade maxima de 50 por turma Atendimento de ter a qui 10h as 16h Validade do certificado de 3 anos",
+      "pergunta": "Sobre cursos livres de extensao: qual a validade do certificado?",
+      "referencia": "O certificado tem validade de 3 anos [T1]."
+    },
+    {
+      "id": "ev-qa063",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa063",
+      "contexto": "[T1] (nivelamento-matematica) nivelamento-matematica (documento ficticio) Inscricao aberta por 5 dias uteis no portal Taxa unica de R$ 50,00 para matricula Aulas as seg e qua das 18h as 20h Minimo de 15 alunos para abrir turma Cancelamento livre ate 48h antes da aula",
+      "pergunta": "Sobre curso de nivelamento em matematica para calouros: qual o valor da taxa de inscrição para o nivelamento?",
+      "referencia": "A taxa unica de R$ 50,00 deve ser paga no ato da inscrição [T1]."
+    },
+    {
+      "id": "ev-qa064",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa064",
+      "contexto": "[T1] (nivelamento-matematica) Avaliacao diagnostica na primeira sessao Presenca minima de 75% nas aulas teoricas Prova final vale 60% da nota total Trabalho pratico vale 40% da nota final Nota minima de 7,0 para ser aprovado Recuperacao em ate 3 dias uteis apos prova",
+      "pergunta": "Sobre curso de nivelamento em matematica para calouros: qual é o percentual de presença mínima exigido?",
+      "referencia": "O aluno precisa ter presenca minima de 75% nas aulas [T1]."
+    },
+    {
+      "id": "ev-qa065",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa065",
+      "contexto": "[T1] (nivelamento-matematica) Certificado digital emitido em 10 dias Material didatico digital gratuito no app Suporte tecnico via chat das 9h as 17h Revisao de nota em ate 5 dias uteis Reprovado pode refazer o nivelamento Vagas limitadas a 50 alunos por turma",
+      "pergunta": "Sobre curso de nivelamento em matematica para calouros: em quantos dias o certificado é emitido?",
+      "referencia": "O certificado digital é emitido em 10 dias uteis [T1]."
+    },
+    {
+      "id": "ev-qa066",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa066",
+      "contexto": "[T1] (disciplinas-ead) Aurora Educacao (documento ficticio) Curso EAD tem 10 encontros presenciais Cada encontro dura 4 horas por dia Presenca minima e de 75 por cento Falta acima de 5 dias gera exclusao Matricula custa 200 reais por semestre",
+      "pergunta": "Sobre disciplinas a distancia e encontros presenciais: qual a duracao de cada encontro presencial?",
+      "referencia": "Cada encontro presencial tem duracao de 4 horas [T1]."
+    },
+    {
+      "id": "ev-qa067",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa067",
+      "contexto": "[T1] (disciplinas-ead) Tarefas online tem prazo de 7 dias Entrega atrasada tem multa de 10 reais Forum tem limite de 500 caracteres Prova online dura 90 minutos Tentativas ilimitadas ate 3 tentativas Nota minima para passar e 6",
+      "pergunta": "Sobre disciplinas a distancia e encontros presenciais: qual e o valor da multa por atraso?",
+      "referencia": "A multa por entrega atrasada e de 10 reais [T1]."
+    },
+    {
+      "id": "ev-qa068",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa068",
+      "contexto": "[T1] (disciplinas-ead) Biblioteca digital tem 1000 acessos Download de video custa 5 reais Suporte tecnico funciona 8 horas Atendimento por chat tem 2 dias Certificado emitido em 15 dias Revisao de prova tem 3 dias",
+      "pergunta": "Sobre disciplinas a distancia e encontros presenciais: em quanto tempo o certificado e emitido?",
+      "referencia": "O certificado e emitido em 15 dias [T1]."
+    },
+    {
+      "id": "ev-qa069",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa069",
+      "contexto": "[T1] (politica-integridade-academica) Politica de Integridade Academica (documento ficticio) Plagio acima de 20% gera reprovacao automatica na materia Entrega fora do prazo de 48 horas zera a nota final Uso de IA generativa exige citacao obrigatoria do modelo Recurso de nota deve ser feito em ate 3 dias uteis Fraude em trabalho de campo multa de R$ 500,00",
+      "pergunta": "Sobre plagio e integridade academica: qual e o limite de semelhanca para reprovacao?",
+      "referencia": "A politica define que plagio acima de 20% gera reprovacao automatica na materia [T1]."
+    },
+    {
+      "id": "ev-qa070",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa070",
+      "contexto": "[T1] (politica-integridade-academica) Normas de Submissao de Textos Academics Cada paragrafo deve ter no minimo 50 e no maximo 200 palavras Referencias bibliograficas devem ser no minimo 10 itens Formato aceito so em PDF com margem de 2 centimetros Tamanho da fonte obrigatorio e 12 em todo o texto Espacamento entre paragrafos deve ser de 1,5 linhas",
+      "pergunta": "Sobre plagio e integridade academica: qual o numero minimo de referencias exigidas?",
+      "referencia": "O documento exige que as referencias bibliograficas sejam no minimo 10 itens [T1]."
+    },
+    {
+      "id": "ev-qa071",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa071",
+      "contexto": "[T1] (politica-integridade-academica) Sancoes e Sancoes Administrativas Institucionais Primeira ocorrencia de plagio gera advertencia escrita formal Segunda ocorrencia gera suspensao por 15 dias letivos Terceira ocorrencia leva ao cancelamento da matricula Compra de trabalhos prontos multa de R$ 1.000,00 Auxilio a terceiros em provas gera reprovar em todas",
+      "pergunta": "Sobre plagio e integridade academica: qual a multa por comprar trabalhos prontos?",
+      "referencia": "A compra de trabalhos prontos resulta em multa de R$ 1.000,00 [T1]."
+    },
+    {
+      "id": "ev-qa072",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa072",
+      "contexto": "[T1] (regras-provas-online) provas online com supervisao (documento ficticio) cada prova online tem duracao de 120 minutos o sistema trava a tela apos 2 tentativas de erro o valor da taxa de inscricao e de R$ 25,00 a janela de avaliacao abre 3 dias antes da prova e proibido sair da aba do navegador durante a prova",
+      "pergunta": "Sobre provas online com supervisao: quanto tempo tem a avaliacao digital?",
+      "referencia": "A duracao total da prova online e de 120 minutos [T1]"
+    },
+    {
+      "id": "ev-qa073",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa073",
+      "contexto": "[T1] (regras-provas-online) requisitos de hardware e software para supervisao a webcam deve mostrar rosto e torso inteiro o microfone deve captar voz com clareza maxima o uso de segunda tela gera suspensao imediata o limite de memoria ram e de 4 GB no minimo a internet precisa ter velocidade de 5 Mbps",
+      "pergunta": "Sobre provas online com supervisao: qual a velocidade minima de rede?",
+      "referencia": "A velocidade minima exigida da internet e de 5 Mbps [T1]"
+    },
+    {
+      "id": "ev-qa074",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa074",
+      "contexto": "[T1] (regras-provas-online) sancoes e recursos para alunos identificados o recurso deve ser feito em 2 dias uteis a multa por atraso e de 10% do valor total o horario de atendimento vai das 9 as 17 h o maximo de faltas permitidas e de 3 provas o percentual minimo de presenca e de 75%",
+      "pergunta": "Sobre provas online com supervisao: em quanto tempo posso recorrer?",
+      "referencia": "O prazo para apresentar recurso e de 2 dias uteis [T1]"
+    },
+    {
+      "id": "ev-qa075",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa075",
+      "contexto": "[T1] (transferencia-externa) Aurora Educacao (documento ficticio) Prazo para protocolo: 5 dias uteis Taxa de analise: R$ 150,00 Validade da analise: 30 dias Horario de atendimento: 8h as 17h",
+      "pergunta": "Sobre transferencia de outra instituicao para a Aurora: qual e o custo da taxa de analise?",
+      "referencia": "O valor da taxa de analise e R$ 150,00 [T1]."
+    },
+    {
+      "id": "ev-qa076",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa076",
+      "contexto": "[T1] (transferencia-externa) Documentos necessarios em copia simples Historico escolar com 100% das notas Atestado de matricula atualizado Prova de pagamento da taxa Limite de faltas: 25% da carga horaria",
+      "pergunta": "Sobre transferencia de outra instituicao para a Aurora: qual o limite maximo de faltas permitido?",
+      "referencia": "O limite maximo de faltas e 25% da carga horaria [T1]."
+    },
+    {
+      "id": "ev-qa077",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa077",
+      "contexto": "[T1] (transferencia-externa) Etapas do processo de transferencia Analise tecnica em 72 horas Comissao decide em 5 dias uteis Resultado via portal do aluno Matricula efetiva em 3 dias",
+      "pergunta": "Sobre transferencia de outra instituicao para a Aurora: em quantos dias a matricula e efetivada?",
+      "referencia": "A matricula e efetivada em 3 dias [T1]."
+    },
+    {
+      "id": "ev-qa078",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa078",
+      "contexto": "[T1] (reingresso-e-reabertura) reingresso-e-reabertura (documento ficticio) prazo maximo de 30 dias para reabrir matricula taxa de 500 reais por reabertura de vaga solicitacao somente entre 8h e 17h dias uteis necessario 1 documento oficial com foto valido apresentar comprovante de residencia atualizado",
+      "pergunta": "Sobre reingresso apos abandono e reabertura de matricula: qual e o periodo maximo para reabrir?",
+      "referencia": "O periodo maximo para reabrir e de 30 dias [T1]."
+    },
+    {
+      "id": "ev-qa079",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa079",
+      "contexto": "[T1] (reingresso-e-reabertura) reabertura de matricula apos 90 dias do abandono multa de 100 reais por dia de atraso limite de 2 reaberturas por semestre letivo horario de atendimento da secretaria das 9h as 16h desconto de 50% na taxa se houver justificativa vaga garantida apenas se houver disponibilidade",
+      "pergunta": "Sobre reingresso apos abandono e reabertura de matricula: qual valor da multa por atraso?",
+      "referencia": "O valor da multa por atraso e de 100 reais [T1]."
+    },
+    {
+      "id": "ev-qa080",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa080",
+      "contexto": "[T1] (reingresso-e-reabertura) reingresso com mais de 1 ano exige novo processo taxa unica de 200 reais para analise documental prazo de 5 dias uteis para resposta da comissao presenca fisica obrigatoria no ato da assinatura limite de 3 tentativas de reingresso por ano valores em reais e horarios nos dias de semana",
+      "pergunta": "Sobre reingresso apos abandono e reabertura de matricula: quantos dias para resposta da comissao?",
+      "referencia": "Sao 5 dias uteis para resposta da comissao [T1]."
+    },
+    {
+      "id": "ev-qa081",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa081",
+      "contexto": "[T1] (dupla-diplomacao) Aurora Educacao dupla diplomacao (documento ficticio) Matricula no programa ocorre ate 15 dias antes Taxa de adesao e de R$ 500,00 por semestre Reprovacao em 2 disciplinas impede a inscricao Horario de aulas e das 8h as 12h e 14h as 18h Limite de 4 disciplinas por periodo letivo",
+      "pergunta": "Sobre dupla diplomacao com universidade parceira: qual e o prazo para fazer a matricula?",
+      "referencia": "O periodo de matricula encerra quinze dias antes do inicio [T1]"
+    },
+    {
+      "id": "ev-qa082",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa082",
+      "contexto": "[T1] (dupla-diplomacao) Certificado emitido em ate 30 dias uteis Validade do diploma e vitalicia apos conclusao Desconto de 10% para egressos da Aurora Reconhecimento pelo MEC e obrigatorio Carga horaria minima de 2800 horas totais Boletim academico disponivel no portal online",
+      "pergunta": "Sobre dupla diplomacao com universidade parceira: quanto tempo leva para sair o certificado?",
+      "referencia": "O certificado e emitido em ate trinta dias [T1]"
+    },
+    {
+      "id": "ev-qa083",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa083",
+      "contexto": "[T1] (dupla-diplomacao) Transferencia so entre 1 e 10 de marco Multas de R$ 200,00 para atraso na devolucao Maximo de 2 faltas consecutivas permitidas Reprovacao final exige 50% de presenca Aposentadoria academica apos 5 anos de curso Suporte tecnico das 9h as 17h de segunda a sexta",
+      "pergunta": "Sobre dupla diplomacao com universidade parceira: qual o valor da multa por atraso?",
+      "referencia": "A multa para atraso e de duzentos reais [T1]"
+    },
+    {
+      "id": "ev-qa084",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa084",
+      "contexto": "[T1] (financiamento-estudantil-privado) financiamento-estudantil-privado (documento ficticio) solicitacao de credito privado requer score minimo 650 prazo de analise do processo e de 5 dias uteis comissao de abertura e de 2% sobre o valor cota maxima por aluno e de R$ 15000 pagamentos sao debitados em conta bancaria",
+      "pergunta": "Sobre financiamento estudantil privado: qual o prazo para analise do credito?",
+      "referencia": "O prazo de analise do processo e de 5 dias uteis [T1]"
+    },
+    {
+      "id": "ev-qa085",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa085",
+      "contexto": "[T1] (financiamento-estudantil-privado) vencimento da primeira parcela e 30 dias apos juros mensais fixos em 1,5% ao mes multa por atraso e de 2% sobre o saldo reajuste anual segue o indice inflacionario seguro de vida e obrigatorio no contrato rescisa antecipada tem taxa de 5% do saldo",
+      "pergunta": "Sobre financiamento estudantil privado: qual o valor da multa por atraso?",
+      "referencia": "A multa por atraso e de 2% sobre o saldo [T1]"
+    },
+    {
+      "id": "ev-qa086",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa086",
+      "contexto": "[T1] (financiamento-estudantil-privado) reuniao de orientacao e as 14h00 de segunda limite de 3 parcelas em atraso maximo renegociacao requer 10 dias de antecedencia extrato mensal e enviado ate dia 5 suporte tecnico funciona das 9h as 18h arquivamento do processo ocorre em 1 ano",
+      "pergunta": "Sobre financiamento estudantil privado: qual o limite de parcelas em atraso?",
+      "referencia": "O limite de 3 parcelas em atraso e maximo [T1]"
+    },
+    {
+      "id": "ev-qa087",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa087",
+      "contexto": "[T1] (regras-de-reembolso) Aurora Educacao Reembolso (documento ficticio) 1. Reembolso de taxa de inscricao em ate 7 dias uteis. 2. Valor maximo de R$ 500,00 por processo administrativo. 3. Prazo para analise inicial de 24 horas uteis. 4. Cancelamento de aula gera 10% de desconto mensal. 5. Deposito bancario somente em dias uteis. 6. Limite de 3 pedidos de reembolso por semestre.",
+      "pergunta": "Sobre reembolso de taxas e mensalidades: qual e o prazo para analise inicial?",
+      "referencia": "O prazo para analise inicial e de 24 horas. [T1]"
+    },
+    {
+      "id": "ev-qa088",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa088",
+      "contexto": "[T1] (regras-de-reembolso) 1. Atraso no pagamento de ate 3 dias tem multa de 2%. 2. Pagamento em atraso acima de 30 dias gera juros. 3. Reembolso de taxa de emissao de diploma e 50%. 4. Horario de atendimento para duvidas das 8h as 18h. 5. Desconto de 15% para pagamento antecipado anual. 6. Reembolso de taxa de transferencia em 10 dias uteis.",
+      "pergunta": "Sobre reembolso de taxas e mensalidades: qual e o desconto para pagamento anual?",
+      "referencia": "O desconto para pagamento antecipado anual e de 15%. [T1]"
+    },
+    {
+      "id": "ev-qa089",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa089",
+      "contexto": "[T1] (regras-de-reembolso) 1. Reembolso de taxa de segunda via de diploma e 100%. 2. Prazo para devolucao de material didatico e 5 dias. 3. Valor minimo de processamento de pedido e R$ 50,00. 4. Limite de 2 justificativas de ausencia por mes. 5. Reembolso de taxa de reprovacao e 25% do valor. 6. Horario de entrega de documentacao das 9h as 17h.",
+      "pergunta": "Sobre reembolso de taxas e mensalidades: qual e o limite de justificativas por mes?",
+      "referencia": "O limite de justificativas de ausencia por mes e 2. [T1]"
+    },
+    {
+      "id": "ev-qa090",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa090",
+      "contexto": "[T1] (pagamento-pix-e-cartao) Pagamento por Pix e Cartao (documento ficticio) Pagamento por Pix deve ser feito ate 3 dias antes. Cartao de credito aceita ate 10x sem juros. Taxa de 2% para Pix e 5% para cartao. Pagamento em D+1 para Pix e D+5 cartao. Valor minimo de R$ 10,00 por transacao.",
+      "pergunta": "Sobre pagamento por Pix e cartao de credito: qual o prazo maximo para usar o Pix?",
+      "referencia": "O prazo maximo para usar o Pix e de 3 dias [T1]."
+    },
+    {
+      "id": "ev-qa091",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa091",
+      "contexto": "[T1] (pagamento-pix-e-cartao) Pagamentos acima de R$ 50000 exigem prova. Juros de 1% ao mes para atraso. Limite de 100 transacoes por dia. Pix e cartao sao processados em D+0. Taxa de 3% para parcelas acima de 6. Valor maximo de R$ 99999 por dia.",
+      "pergunta": "Sobre pagamento por Pix e cartao de credito: qual o valor maximo diario permitido?",
+      "referencia": "O valor maximo diario permitido e R$ 99999 [T1]."
+    },
+    {
+      "id": "ev-qa092",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa092",
+      "contexto": "[T1] (servicos-de-impressao) Aurora Educacao (documento ficticio) Impressao em preto e branco tem cota de 10 paginas por dia Cada pagina extra custa R$ 0,50 no caixa ou cartao Copias coloridas exigem pagamento por pagina a R$ 1,20 O prazo de entrega no balcao e de 10 minutos por lote Limites de 50 paginas por impressao em um unico comando",
+      "pergunta": "Sobre cotas de impressao e copias: qual e o limite diario para impressao em preto e branco?",
+      "referencia": "O limite diario para impressao em preto e branco e de 10 paginas [T1]"
+    },
+    {
+      "id": "ev-qa093",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa093",
+      "contexto": "[T1] (servicos-de-impressao) Horario de funcionamento do balcao e das 08h00 as 20h00 Segunda a sexta o prazo de 15 minutos vale para pedidos Saidas de arquivos acima de 100 paginas levam 30 minutos Descconto de 10 por cento para pedidos acima de 20 paginas O valor minimo de R$ 5,00 e obrigatorio para retirar Fila virtual tem prioridade de atendimento em 5 minutos",
+      "pergunta": "Sobre cotas de impressao e copias: qual o valor minimo para retirar um pedido no balcao?",
+      "referencia": "O valor minimo para retirar um pedido e de R$ 5,00 [T1]"
+    },
+    {
+      "id": "ev-qa094",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa094",
+      "contexto": "[T1] (servicos-de-impressao) Uso de toner novo garante 500 paginas por cartucho Falhas de impressao acima de 5 por cento geram refazer O usuario pode cancelar o pedido em ate 5 minutos Reimpressoes por erro tecnico sao gratuitas em 10 minutos Documentos acima de 500 paginas exigem agendamento previo A taxa de urgencia custa R$ 2,00 para entrega em 1 minuto",
+      "pergunta": "Sobre cotas de impressao e copias: em quanto tempo a taxa de urgencia garante a entrega?",
+      "referencia": "A taxa de urgencia garante entrega em 1 minuto [T1]"
+    },
+    {
+      "id": "ev-qa095",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa095",
+      "contexto": "[T1] (uso-de-armarios) Aurora Educacao uso de armarios (documento ficticio) O aluguel tem prazo de 30 dias por periodo O valor base e de 25 reais por mes A multa por atraso e de 10 por cento O horario de uso e das 8 as 18 horas O limite de itens e de 5 objetos por armario",
+      "pergunta": "Sobre aluguel de armarios: qual e o valor mensal base?",
+      "referencia": "O valor base do aluguel e de 25 reais por mes [T1]"
+    },
+    {
+      "id": "ev-qa096",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa096",
+      "contexto": "[T1] (uso-de-armarios) A devolucao deve ocorrer em ate 72 horas O custo extra por hora e de 5 reais A taxa de seguranca e de 15 por cento O horario para devolucao e das 9 as 17 O limite de peso e de 10 quilos por armario A renovacao tem prazo de 5 dias antes",
+      "pergunta": "Sobre aluguel de armarios: qual o custo por hora extra?",
+      "referencia": "O custo extra por hora e de 5 reais [T1]"
+    },
+    {
+      "id": "ev-qa097",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa097",
+      "contexto": "[T1] (programa-de-mentoria) Regras de Participacao e Horarios Presenca minima de 80% nas sessoes Faltas justificadas em ate 24 horas Aulas acontecem das 8h as 10h Mentores ganham 100 reais por dia Calouros pagam 50 reais de taxa",
+      "pergunta": "Sobre mentoria entre veteranos e calouros: qual e o valor da taxa que os calouros precisam pagar?",
+      "referencia": "A taxa que os calouros precisam pagar e de 50 reais [T1]."
+    },
+    {
+      "id": "ev-qa098",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa098",
+      "contexto": "[T1] (programa-de-mentoria) Criterios de Desligamento e Finais Desligamento automatico com 3 faltas Recursos devem ser feitos em 5 dias Certificados emitidos em 15 dias Bolsa de 20% para desempenho 90% Encerramento final em 30 de junho",
+      "pergunta": "Sobre mentoria entre veteranos e calouros: em quantos dias os certificados sao emitidos apos o fim?",
+      "referencia": "Os certificados sao emitidos em 15 dias apos o fim [T1]."
+    },
+    {
+      "id": "ev-qa099",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa099",
+      "contexto": "[T1] (eleicoes-diretorio-academico) eleicoes do diretorio academico (documento ficticio) inscricao dos candidatos e de 10 ate 15 dias uteis candidatos devem ter no minimo 18 anos completos documento de identidade e obrigatorio para votar divulga os resultados no mural e site oficial voto aberto e presencial nas urnas fisicas",
+      "pergunta": "Sobre eleicoes do diretorio academico: qual e o periodo minimo para se inscrever?",
+      "referencia": "O periodo de inscricao dos candidatos e de 10 ate 15 dias uteis [T1]."
+    },
+    {
+      "id": "ev-qa100",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa100",
+      "contexto": "[T1] (eleicoes-diretorio-academico) campanha eleitoral tem duracao de 5 dias uteis material impresso limitado a 5000 copias por chapa cada chapa pode gastar ate 500 reais em cartazes proibido usar som acima de 80 decibeis nos cartazes periodo de silencio e de 24 horas antes do voto urna eletronica nao e aceita nesta edicao 2024",
+      "pergunta": "Sobre eleicoes do diretorio academico: qual e o limite de gasto para cartazes?",
+      "referencia": "Cada chapa pode gastar ate 500 reais em cartazes [T1]."
+    },
+    {
+      "id": "ev-qa101",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa101",
+      "contexto": "[T1] (eleicoes-diretorio-academico) votacao ocorre das 8 as 18 horas no dia 10 cada aluno tem direito a um unico voto segunda via do titulo e emitida ate 12h apuros dos votos sao feitos em 48 horas uteis recursos podem ser feitos em ate 3 dias uteis posse do novo diretorio ocorre em 15 dias uteis",
+      "pergunta": "Sobre eleicoes do diretorio academico: em quantas horas os votos sao apurados?",
+      "referencia": "Os apuros dos votos sao feitos em 48 horas uteis [T1]."
+    },
+    {
+      "id": "ev-qa102",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa102",
+      "contexto": "[T1] (guia-docente-diarios-de-classe) diarios de classe e registro de frequencia (documento ficticio) o diario deve ser entregue na secretaria ate 5 dias uteis apos a aula a frequencia minima exigida para aprovacao e de 75 por cento das aulas cada aula tem duracao maxima de 90 minutos por periodo letivo o valor da multa por atraso na entrega e de 50 reais por dia o registro digital deve ser feito em ate 24 horas apos a presenca",
+      "pergunta": "Sobre diarios de classe e registro de frequencia: qual e o percentual minimo de presenca exigido?",
+      "referencia": "A frequencia minima exigida para aprovacao e de 75 por cento das aulas [T1]."
+    },
+    {
+      "id": "ev-qa103",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa103",
+      "contexto": "[T1] (guia-docente-diarios-de-classe) a coordenacao verifica o diario a cada 15 dias letivos faltas justificadas exigem atestado em ate 48 horas letivas o limite de faltas por semestre e de 10 dias por disciplina horario de atendimento da secretaria e das 8h as 18h uteis a penalidade por falta a aula e de 10 por cento na media final o docente pode corrigir o diario em ate 2 dias apos a aula",
+      "pergunta": "Sobre diarios de classe e registro de frequencia: qual e o limite de faltas permitidas?",
+      "referencia": "O limite de faltas por semestre e de 10 dias por disciplina [T1]."
+    },
+    {
+      "id": "ev-qa104",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa104",
+      "contexto": "[T1] (guia-docente-orientacao-tcc) Orientacao de TCC pelos docentes (documento ficticio) O docente deve registrar a primeira reuniao em 5 dias. O prazo para envio do plano de trabalho e de 10 dias. Cada orientador pode atender no maximo 15 alunos. A carga horaria minima de orientacao e de 20 horas. O valor da taxa de reabertura e de R$ 150,00.",
+      "pergunta": "Sobre orientacao de TCC pelos docentes: qual e o limite maximo de alunos?",
+      "referencia": "Cada orientador pode atender no maximo 15 alunos [T1]"
+    },
+    {
+      "id": "ev-qa105",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa105",
+      "contexto": "[T1] (guia-docente-orientacao-tcc) O segundo projeto deve ser entregue em 15 dias. A banca avaliadora deve ter no minimo 3 membros. O periodo de defesa e de 30 minutos por aluno. O trabalho final deve ter no minimo 30 paginas. O limite de revisoes do texto e de 3 tentativas. A taxa de segredo e de R$ 50,00 por hora extra.",
+      "pergunta": "Sobre orientacao de TCC pelos docentes: qual e o minimo de membros?",
+      "referencia": "A banca avaliadora deve ter no minimo 3 membros [T1]"
+    },
+    {
+      "id": "ev-qa106",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa106",
+      "contexto": "[T1] (guia-docente-orientacao-tcc) A nota minima para aprovacao e de 7,0. O resultado final deve ser publicado em 3 dias. O arquivo final deve ter no maximo 50 MB. O periodo de consulta ao orientador e de 2 horas. O custo da impressao e de R$ 5,00 por folha. A data limite para entrega e dia 20 do mes.",
+      "pergunta": "Sobre orientacao de TCC pelos docentes: qual e o custo da impressao?",
+      "referencia": "O custo da impressao e de R$ 5,00 por folha [T1]"
+    },
+    {
+      "id": "ev-qa107",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa107",
+      "contexto": "[T1] (norma-coordenacao-pre-requisitos) Quebra de pre-requisito autorizada (documento ficticio) Requisito basico: 60% de frequencia na disciplina anterior. Prazo para recurso: 5 dias uteis apos a publicacao. Valor da taxa de analise: R$ 50,00 pago em ate 3 dias. Solicitacao deve ser feita ate 18:00 do dia 10. Coordenacao decide em ate 72 horas uteis do pedido.",
+      "pergunta": "Sobre quebra de pre-requisito autorizada pela coordenacao: qual o prazo para apresentar recurso?",
+      "referencia": "O prazo para recurso e de 5 dias uteis. [T1]"
+    },
+    {
+      "id": "ev-qa108",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa108",
+      "contexto": "[T1] (norma-coordenacao-pre-requisitos) Docente deve justificar em ate 100 palavras o motivo. Aluno pode pedir 1 vez por semestre letivo ativo. Media minima exigida: 7,0 na materia que o pre-requisita. Horario de atendimento: 9:00 as 12:00 e 13:00 as 17:00. Limite de 3 quebras por curso de graduacao completo. Prova substitutiva vale 100% da nota final da materia.",
+      "pergunta": "Sobre quebra de pre-requisito autorizada pela coordenacao: qual a media minima exigida?",
+      "referencia": "A media minima exigida e 7,0 na materia. [T1]"
+    },
+    {
+      "id": "ev-qa109",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa109",
+      "contexto": "[T1] (norma-coordenacao-pre-requisitos) Administracao confere documentos em ate 2 dias uteis. Custo da prova extra: R$ 100,00 por tentativa unica. Aprovacao exige 80% de presenca em aulas praticas. Horario de prova: 14:00 as 18:00 sem intervalo. Resultado final e irrevogavel apos 10 dias uteis. Nao ha devolucao do valor se a prova for cancelada.",
+      "pergunta": "Sobre quebra de pre-requisito autorizada pela coordenacao: qual o custo da prova extra?",
+      "referencia": "O custo da prova extra e R$ 100,00 por tentativa. [T1]"
+    },
+    {
+      "id": "ev-qa110",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa110",
+      "contexto": "[T1] (norma-coordenacao-banca-revisao) Aurora Educacao (documento ficticio) Prazo maximo de 5 dias uteis para recurso. Multas acima de R$ 100 exigem comprovante. Sessoes de banca ocorrem as 14h em dia par. Apenas 3 provas por turno serao analisadas. Reprovacao acima de 50% gera alerta interno.",
+      "pergunta": "Sobre banca de revisao de notas: qual o limite temporal para apresentar o pedido de revisao das notas?",
+      "referencia": "O prazo maximo para apresentar o pedido de revisao das notas e de 5 dias uteis [T1]."
+    },
+    {
+      "id": "ev-qa111",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa111",
+      "contexto": "[T1] (norma-coordenacao-banca-revisao) Pagamento de taxa de R$ 50 em ate 2 dias. Presenca minima de 2 docentes na sala. Horario de atendimento: 8h as 12h. Limite de 10 minutos por arguicao oral. Aprovacao requer nota minima de 7,0. Prazo de resposta da banca: 24 horas.",
+      "pergunta": "Sobre banca de revisao de notas: qual a nota minima exigida para que o aluno seja aprovado?",
+      "referencia": "O aluno precisa de uma nota minima de 7,0 para ser aprovado [T1]."
+    },
+    {
+      "id": "ev-qa112",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa112",
+      "contexto": "[T1] (norma-coordenacao-banca-revisao) Revisao final em ate 1 dia util. Desconto de 10% para atraso menor. Maximo de 2 apelacoes por semestre. Reuniao de alinhamento as 15h30. Corte de 80% para notas abaixo de 5. Prazo de arquivamento: 30 dias corridos.",
+      "pergunta": "Sobre banca de revisao de notas: qual e o limite maximo de apelacoes permitidas por semestre?",
+      "referencia": "O limite maximo de apelacoes permitidas por semestre e de 2 [T1]."
+    },
+    {
+      "id": "ev-qa113",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa113",
+      "contexto": "[T1] (manual-ti-administracao-contas) Manual TI Administracao Contas (documento ficticio) Prazo maximo de 24 horas para solicitar reset de senha. Bloqueio automatico apos 3 tentativas erradas de acesso. Reativacao de conta exige parecer da coordenacao em 48h. Acesso a sistema financeiro liberado apenas em horario util. Multas por atraso no pagamento sao de 10% sobre o valor.",
+      "pergunta": "Sobre administracao de contas e bloqueios pela TI: quanto tempo tenho para pedir nova senha?",
+      "referencia": "O prazo maximo para solicitar o reset de senha e de 24 horas [T1]."
+    },
+    {
+      "id": "ev-qa114",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa114",
+      "contexto": "[T1] (manual-ti-administracao-contas) Contas inativas por 90 dias sao suspensas pela TI. Docentes podem solicitar acesso a 5 disciplinas por semestre. Cobranca de multa de R$ 50,00 por atraso na entrega de notas. Suporte tecnico atende de segunda a sexta das 8h as 17h. Limite de 100 MB por arquivo enviado no sistema interno. Contas de administracao tem acesso total a 100% dos dados.",
+      "pergunta": "Sobre administracao de contas e bloqueios pela TI: qual o valor da multa por atraso?",
+      "referencia": "A cobranca da multa por atraso na entrega de notas e de R$ 50,00 [T1]."
+    },
+    {
+      "id": "ev-qa115",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa115",
+      "contexto": "[T1] (manual-ti-administracao-contas) Recursos contra bloqueio devem ser feitos em 5 dias uteis. Perguntas frequentes sao atualizadas a cada 30 dias. Acesso a sala dos professores e restrito a 50 usuarios. Valor de R$ 0,00 para solicitacoes de novo usuario docente. Relatorios de log sao gerados automaticamente a cada 12h. Proibido compartilhar senha com terceiros sob pena de suspensao.",
+      "pergunta": "Sobre administracao de contas e bloqueios pela TI: em quantos dias posso recorrer ao bloqueio?",
+      "referencia": "Os recursos contra bloqueio devem ser feitos em 5 dias uteis [T1]."
+    },
+    {
+      "id": "ev-qa116",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa116",
+      "contexto": "[T1] (guia-docente-horas-complementares) Guia de horas complementares (documento ficticio) Docentes devem registrar 4 horas de preparacao por semana. Reunioes de coordenacao sao obrigatorias 1 vez por mes. O valor da hora extra e de R$ 50,00 por hora. Limite maximo de 10 horas extras por periodo letivo. Prazo de 5 dias para envio do relatorio mensal.",
+      "pergunta": "Sobre horas de preparacao e reuniao dos docentes: qual e o valor monetario da hora extra?",
+      "referencia": "O valor da hora extra e de R$ 50,00 [T1]"
+    },
+    {
+      "id": "ev-qa117",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa117",
+      "contexto": "[T1] (guia-docente-horas-complementares) Horarios de reuniao sao fixos das 14h as 16h. Faltas na reuniao geram desconto de 10% no bonus. Docentes podem acumular ate 20 horas de banco de horas. Solicitacao de folga requer 7 dias de antecedencia. O percentual minimo de presenca e de 95% do tempo. Cada docente tem direito a 1 hora de paiva por dia.",
+      "pergunta": "Sobre horas de preparacao e reuniao dos docentes: qual e o horario fixo para as reunioes?",
+      "referencia": "Os horarios de reuniao sao fixos das 14h as 16h [T1]"
+    },
+    {
+      "id": "ev-qa118",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa118",
+      "contexto": "[T1] (guia-docente-horas-complementares) A administracao libera o pagamento em 15 dias uteis. O bonus por desempenho e de R$ 100,00 trimestral. Reunioes extras nao podem exceder 2 horas por mes. O registro de atividades deve ser feito em 48 horas. Limita-se a 3 justificativas de ausencia por ano. A media de participacao deve ser de 80% ou mais.",
+      "pergunta": "Sobre horas de preparacao e reuniao dos docentes: em quantos dias uteis o pagamento e liberado?",
+      "referencia": "A administracao libera o pagamento em 15 dias uteis [T1]"
+    },
+    {
+      "id": "ev-qa119",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa119",
+      "contexto": "[T1] (manual-financeiro-inadimplencia) Aurora Educacao regua de cobranca (documento ficticio) Inadimplente e quem atrasa 1 dia apos vencimento Primeiro lembrete sai em 2 dias uteis do atraso Multa inicial e de 2% sobre o valor da fatura Interesse rotativo e de 1% ao dia corrido Solicitacao de parcelamento valida por 10 dias",
+      "pergunta": "Sobre regua interna de cobranca de inadimplencia: qual e o percentual da multa inicial aplicada",
+      "referencia": "A regua define que a multa inicial e de 2% sobre o valor da fatura [T1]."
+    },
+    {
+      "id": "ev-qa120",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa120",
+      "contexto": "[T1] (manual-financeiro-inadimplencia) Bloqueio de emissao de notas em 15 dias Cancelamento automatico do matricula em 30 dias Reativacao cobra taxa fixa de R$ 100,00 Desconto maximo para liquidez e de 10% Pagamento a vista remove multa e interesse Revisao de dados ocorre a cada 60 dias",
+      "pergunta": "Sobre regua interna de cobranca de inadimplencia: em quantos dias ocorre o cancelamento da matricula",
+      "referencia": "O cancelamento automatico do matricula ocorre em 30 dias [T1]."
+    },
+    {
+      "id": "ev-qa121",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa121",
+      "contexto": "[T1] (protocolo-incidentes-de-dados) Resposta a incidentes com dados pessoais (documento ficticio) Notificar o DPO em ate 2 horas apos a deteccao do evento. Isolar o sistema afetado em ate 4 horas da notificacao inicial. Registrar o incidente no sistema em ate 24 horas. Avaliar o impacto em ate 48 horas com a equipe tecnica. Documentar as acoes tomadas em ate 72 horas.",
+      "pergunta": "Sobre resposta a incidentes com dados pessoais: qual o prazo para isolar o sistema?",
+      "referencia": "O sistema deve ser isolado em ate 4 horas apos a deteccao [T1]."
+    },
+    {
+      "id": "ev-qa122",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa122",
+      "contexto": "[T1] (protocolo-incidentes-de-dados) Comunicar a ANPD em ate 72 horas se houve vazamento. Notificar os titulares em ate 72 horas apos a avaliacao. Multas internas de R$ 500,00 por atraso na notificacao. Limite de 5 acessos por dia ao log de auditoria. Horario de manutencao de seg a sex das 22h as 6h. Retencao de logs por 12 meses para auditoria.",
+      "pergunta": "Sobre resposta a incidentes com dados pessoais: quanto custa a multa por atraso?",
+      "referencia": "A multa interna por atraso e de R$ 500,00 [T1]."
+    },
+    {
+      "id": "ev-qa123",
+      "origem": "corpus_p02",
+      "consulta_p02": "qa123",
+      "contexto": "[T1] (protocolo-incidentes-de-dados) Treinamento obrigatorio de 4 horas anuais para todos. Simulacao de incidente a cada 6 meses no campus. Penalidade de 10% no bonus por violacao grave. Revisao da politica a cada 12 meses pelo comite. Backup diario com verificacao de integridade em 24h. Acesso a dados criticos limitado a 3 usuarios por vez.",
+      "pergunta": "Sobre resposta a incidentes com dados pessoais: qual a frequencia do treinamento?",
+      "referencia": "O treinamento obrigatorio tem 4 horas anuais [T1]."
+    },
+    {
+      "id": "ev-recusa-qa076",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa076",
+      "contexto": "[T1] (protocolo-incidentes-de-dados) Resposta a incidentes com dados pessoais (documento ficticio) Notificar o DPO em ate 2 horas apos a deteccao do evento. Isolar o sistema afetado em ate 4 horas da notificacao inicial. Registrar o incidente no sistema em ate 24 horas. Avaliar o impacto em ate 48 horas com a equipe tecnica. Documentar as acoes tomadas em ate 72 horas.",
+      "pergunta": "Sobre transferencia de outra instituicao para a Aurora: qual o limite maximo de faltas permitido?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa008",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa008",
+      "contexto": "[T1] (carteirinha-estudantil) carteirinha-estudantil (documento ficticio) Primeira via gratuita para todos os matriculados Segunda via custa 25 reais para pagamento Prazo de entrega em 5 dias uteis apos solicitacao Retirada somente nos horarios de 9 as 17h Validade da carteira e de 12 meses corridos",
+      "pergunta": "Sobre restaurante universitario: horarios e precos: qual e o preco da refeicao?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa101",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa101",
+      "contexto": "[T1] (pagamento-pix-e-cartao) Pagamento por Pix e Cartao (documento ficticio) Pagamento por Pix deve ser feito ate 3 dias antes. Cartao de credito aceita ate 10x sem juros. Taxa de 2% para Pix e 5% para cartao. Pagamento em D+1 para Pix e D+5 cartao. Valor minimo de R$ 10,00 por transacao.",
+      "pergunta": "Sobre eleicoes do diretorio academico: em quantas horas os votos sao apurados?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa002",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa002",
+      "contexto": "[T1] (protocolo-incidentes-de-dados) Resposta a incidentes com dados pessoais (documento ficticio) Notificar o DPO em ate 2 horas apos a deteccao do evento. Isolar o sistema afetado em ate 4 horas da notificacao inicial. Registrar o incidente no sistema em ate 24 horas. Avaliar o impacto em ate 48 horas com a equipe tecnica. Documentar as acoes tomadas em ate 72 horas.",
+      "pergunta": "Sobre uso dos laboratorios de informatica: quantas horas posso usar o laboratorio?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa069",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa069",
+      "contexto": "[T1] (emprestimo-de-notebooks) Aurora Educacao (documento ficticio) Prazo maximo de emprestimo e de 30 dias Multa por atraso e de R$ 10,00 por dia Horario de entrega e das 8h as 18h Limitado a 1 notebook por aluno ativo Danos causam 100% do valor do equipamento",
+      "pergunta": "Sobre plagio e integridade academica: qual e o limite de semelhanca para reprovacao?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa100",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa100",
+      "contexto": "[T1] (segunda-chamada-de-provas) Aurora Educacao (documento ficticio) Prazo maximo 5 dias uteis para pedir. Taxa de 50,00 reais por materia cursada. Horario 8h00 as 18h00 dias uteis. Limite de 2 pedidos por periodo letivo. Prova marcada 10 dias apos o pedido.",
+      "pergunta": "Sobre eleicoes do diretorio academico: qual e o limite de gasto para cartazes?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa099",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa099",
+      "contexto": "[T1] (manual-ouvidoria) manual-ouvidoria (documento ficticio) Prazo maximo de resposta e de 5 dias uteis. Canal unico pelo portal da Aurora Educacao. Horario de atendimento das 9h as 17h. Limites de 2 reclamacoes por mes por aluno. Respostas iniciais em 1 dia util via sistema.",
+      "pergunta": "Sobre eleicoes do diretorio academico: qual e o periodo minimo para se inscrever?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa089",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa089",
+      "contexto": "[T1] (seguranca-laboratorios-quimica) Seguranca nos laboratorios de quimica (documento ficticio) A entrada no laboratorio exige 10 dias de treinamento previo. O uso de luvas de nitrila e obrigatorio em todo o tempo. A temperatura ambiente deve ficar entre 20 e 25 graus Celsius. Proibido consumir alimentos ou bebidas em area de trabalho. O descarte de residuos classe A exige 5 dias de armazenagem.",
+      "pergunta": "Sobre reembolso de taxas e mensalidades: qual e o limite de justificativas por mes?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa049",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa049",
+      "contexto": "[T1] (regulamento-esportes-e-academia) regulamento-esportes-e-academia (documento ficticio) Inscricao para atividades fisicas em 5 dias uteis. Taxa de adesao unica de R$ 50,00 por semestre. Acesso liberado das 7h00 as 22h00 de segunda a sexta. Maximo de 3 faltas justificadas por mes academico. Cancelamento de reserva com 24 horas de antecedencia.",
+      "pergunta": "Sobre carteirinha estudantil: emissao e segunda via: quanto custa a reposicao por dano?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa037",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa037",
+      "contexto": "[T1] (emprestimo-de-notebooks) Aurora Educacao (documento ficticio) Prazo maximo de emprestimo e de 30 dias Multa por atraso e de R$ 10,00 por dia Horario de entrega e das 8h as 18h Limitado a 1 notebook por aluno ativo Danos causam 100% do valor do equipamento",
+      "pergunta": "Sobre pedido de segunda chamada de provas: qual a multa para atraso no pagamento?",
+      "referencia": "Não encontrei essa informação nos documentos."
+    },
+    {
+      "id": "ev-recusa-qa013",
+      "origem": "recusa_construcao",
+      "consulta_p02": "qa013",
+      "contexto": "[T1] (regulamento-laboratorios-informatica) Aurora Educacao (documento ficticio) Pagamento de R$ 50,00 por dia de atraso Multas acima de R$ 200,00 sao inegociaveis Horario de seg a sex das 8h as 18h Sabado apenas das 9h as 14h Domingos e feriados sao fechados",
+      "pergunta": "Sobre intercambio internacional e requisitos: qual e o valor da taxa de inscricao?",
       "referencia": "Não encontrei essa informação nos documentos."
     }
   ]

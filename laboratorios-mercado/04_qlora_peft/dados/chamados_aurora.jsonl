@@ -1,36 +1,360 @@
-{"id": "c01", "fatia": "formal", "categoria": "financeiro", "texto": "Prezados, gostaria de solicitar a segunda via do boleto da mensalidade de março."}
-{"id": "c02", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito esclarecimento sobre a cobrança duplicada identificada na fatura deste mês."}
-{"id": "c03", "fatia": "formal", "categoria": "financeiro", "texto": "Venho requerer informações sobre o parcelamento do débito em aberto."}
-{"id": "c04", "fatia": "formal", "categoria": "academico", "texto": "Solicito a revisão da nota atribuída na avaliação final de Estatística."}
-{"id": "c05", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de confirmar a data de entrega do trabalho de conclusão de curso."}
-{"id": "c06", "fatia": "formal", "categoria": "academico", "texto": "Requeiro informações sobre o aproveitamento de disciplinas cursadas em outra instituição."}
-{"id": "c07", "fatia": "formal", "categoria": "acesso", "texto": "Não consigo acessar o portal do aluno desde a atualização de ontem."}
-{"id": "c08", "fatia": "formal", "categoria": "acesso", "texto": "Solicito a redefinição da senha do ambiente virtual de aprendizagem."}
-{"id": "c09", "fatia": "formal", "categoria": "acesso", "texto": "Minha conta institucional de e-mail encontra-se bloqueada."}
-{"id": "c10", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito a emissão de declaração de matrícula para fins de estágio."}
-{"id": "c11", "fatia": "formal", "categoria": "secretaria", "texto": "Requeiro a emissão do histórico escolar atualizado."}
-{"id": "c12", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de saber o prazo para a emissão do diploma."}
-{"id": "c13", "fatia": "informal", "categoria": "financeiro", "texto": "oi, cadê o boleto desse mês? não chegou nada"}
-{"id": "c14", "fatia": "informal", "categoria": "financeiro", "texto": "me cobraram duas vezes, como faço pra estornar?"}
-{"id": "c15", "fatia": "informal", "categoria": "financeiro", "texto": "dá pra parcelar o que eu devo?"}
-{"id": "c16", "fatia": "informal", "categoria": "academico", "texto": "minha nota de cálculo tá errada, quem revisa?"}
-{"id": "c17", "fatia": "informal", "categoria": "academico", "texto": "quando é a prova substitutiva de física?"}
-{"id": "c18", "fatia": "informal", "categoria": "academico", "texto": "posso trancar só uma matéria?"}
-{"id": "c19", "fatia": "informal", "categoria": "acesso", "texto": "o portal não abre de jeito nenhum"}
-{"id": "c20", "fatia": "informal", "categoria": "acesso", "texto": "esqueci a senha do ava, socorro"}
-{"id": "c21", "fatia": "informal", "categoria": "acesso", "texto": "meu login dá erro toda hora"}
-{"id": "c22", "fatia": "informal", "categoria": "secretaria", "texto": "preciso de uma declaração pra levar no estágio"}
-{"id": "c23", "fatia": "informal", "categoria": "secretaria", "texto": "como peço meu histórico?"}
-{"id": "c24", "fatia": "informal", "categoria": "secretaria", "texto": "meu diploma sai quando?"}
-{"id": "c25", "fatia": "com_ruido", "categoria": "financeiro", "texto": "bolto nao xegou pagar como??"}
-{"id": "c26", "fatia": "com_ruido", "categoria": "financeiro", "texto": "cobransa dupla no cartao q isso"}
-{"id": "c27", "fatia": "com_ruido", "categoria": "financeiro", "texto": "parselar divida mensalidad atrasada"}
-{"id": "c28", "fatia": "com_ruido", "categoria": "academico", "texto": "nota errda prova final revisao pfv"}
-{"id": "c29", "fatia": "com_ruido", "categoria": "academico", "texto": "data tcc entrega qnd"}
-{"id": "c30", "fatia": "com_ruido", "categoria": "academico", "texto": "aproveitamnto materia outra facul"}
-{"id": "c31", "fatia": "com_ruido", "categoria": "acesso", "texto": "portau fora do ar n entra"}
-{"id": "c32", "fatia": "com_ruido", "categoria": "acesso", "texto": "senha ava esqeci resetar"}
-{"id": "c33", "fatia": "com_ruido", "categoria": "acesso", "texto": "emaiu bloqeado n acesso"}
-{"id": "c34", "fatia": "com_ruido", "categoria": "secretaria", "texto": "declarasao matricula estagio urgente"}
-{"id": "c35", "fatia": "com_ruido", "categoria": "secretaria", "texto": "istorico escolar pedir onde"}
-{"id": "c36", "fatia": "com_ruido", "categoria": "secretaria", "texto": "diploma prazo emisao"}
+{"id": "c01", "fatia": "formal", "categoria": "financeiro", "texto": "Prezados, gostaria de solicitar a segunda via do boleto da mensalidade de março.", "origem": "manual", "grupo": "c01"}
+{"id": "c02", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito esclarecimento sobre a cobrança duplicada identificada na fatura deste mês.", "origem": "manual", "grupo": "c02"}
+{"id": "c03", "fatia": "formal", "categoria": "financeiro", "texto": "Venho requerer informações sobre o parcelamento do débito em aberto.", "origem": "manual", "grupo": "c03"}
+{"id": "c04", "fatia": "formal", "categoria": "academico", "texto": "Solicito a revisão da nota atribuída na avaliação final de Estatística.", "origem": "manual", "grupo": "c04"}
+{"id": "c05", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de confirmar a data de entrega do trabalho de conclusão de curso.", "origem": "manual", "grupo": "c05"}
+{"id": "c06", "fatia": "formal", "categoria": "academico", "texto": "Requeiro informações sobre o aproveitamento de disciplinas cursadas em outra instituição.", "origem": "manual", "grupo": "c06"}
+{"id": "c07", "fatia": "formal", "categoria": "acesso", "texto": "Não consigo acessar o portal do aluno desde a atualização de ontem.", "origem": "manual", "grupo": "c07"}
+{"id": "c08", "fatia": "formal", "categoria": "acesso", "texto": "Solicito a redefinição da senha do ambiente virtual de aprendizagem.", "origem": "manual", "grupo": "c08"}
+{"id": "c09", "fatia": "formal", "categoria": "acesso", "texto": "Minha conta institucional de e-mail encontra-se bloqueada.", "origem": "manual", "grupo": "c09"}
+{"id": "c10", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito a emissão de declaração de matrícula para fins de estágio.", "origem": "manual", "grupo": "c10"}
+{"id": "c11", "fatia": "formal", "categoria": "secretaria", "texto": "Requeiro a emissão do histórico escolar atualizado.", "origem": "manual", "grupo": "c11"}
+{"id": "c12", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de saber o prazo para a emissão do diploma.", "origem": "manual", "grupo": "c12"}
+{"id": "c13", "fatia": "informal", "categoria": "financeiro", "texto": "oi, cadê o boleto desse mês? não chegou nada", "origem": "manual", "grupo": "c13"}
+{"id": "c14", "fatia": "informal", "categoria": "financeiro", "texto": "me cobraram duas vezes, como faço pra estornar?", "origem": "manual", "grupo": "c14"}
+{"id": "c15", "fatia": "informal", "categoria": "financeiro", "texto": "dá pra parcelar o que eu devo?", "origem": "manual", "grupo": "c15"}
+{"id": "c16", "fatia": "informal", "categoria": "academico", "texto": "minha nota de cálculo tá errada, quem revisa?", "origem": "manual", "grupo": "c16"}
+{"id": "c17", "fatia": "informal", "categoria": "academico", "texto": "quando é a prova substitutiva de física?", "origem": "manual", "grupo": "c17"}
+{"id": "c18", "fatia": "informal", "categoria": "academico", "texto": "posso trancar só uma matéria?", "origem": "manual", "grupo": "c18"}
+{"id": "c19", "fatia": "informal", "categoria": "acesso", "texto": "o portal não abre de jeito nenhum", "origem": "manual", "grupo": "c19"}
+{"id": "c20", "fatia": "informal", "categoria": "acesso", "texto": "esqueci a senha do ava, socorro", "origem": "manual", "grupo": "c20"}
+{"id": "c21", "fatia": "informal", "categoria": "acesso", "texto": "meu login dá erro toda hora", "origem": "manual", "grupo": "c21"}
+{"id": "c22", "fatia": "informal", "categoria": "secretaria", "texto": "preciso de uma declaração pra levar no estágio", "origem": "manual", "grupo": "c22"}
+{"id": "c23", "fatia": "informal", "categoria": "secretaria", "texto": "como peço meu histórico?", "origem": "manual", "grupo": "c23"}
+{"id": "c24", "fatia": "informal", "categoria": "secretaria", "texto": "meu diploma sai quando?", "origem": "manual", "grupo": "c24"}
+{"id": "c25", "fatia": "com_ruido", "categoria": "financeiro", "texto": "bolto nao xegou pagar como??", "origem": "manual", "grupo": "c25"}
+{"id": "c26", "fatia": "com_ruido", "categoria": "financeiro", "texto": "cobransa dupla no cartao q isso", "origem": "manual", "grupo": "c26"}
+{"id": "c27", "fatia": "com_ruido", "categoria": "financeiro", "texto": "parselar divida mensalidad atrasada", "origem": "manual", "grupo": "c27"}
+{"id": "c28", "fatia": "com_ruido", "categoria": "academico", "texto": "nota errda prova final revisao pfv", "origem": "manual", "grupo": "c28"}
+{"id": "c29", "fatia": "com_ruido", "categoria": "academico", "texto": "data tcc entrega qnd", "origem": "manual", "grupo": "c29"}
+{"id": "c30", "fatia": "com_ruido", "categoria": "academico", "texto": "aproveitamnto materia outra facul", "origem": "manual", "grupo": "c30"}
+{"id": "c31", "fatia": "com_ruido", "categoria": "acesso", "texto": "portau fora do ar n entra", "origem": "manual", "grupo": "c31"}
+{"id": "c32", "fatia": "com_ruido", "categoria": "acesso", "texto": "senha ava esqeci resetar", "origem": "manual", "grupo": "c32"}
+{"id": "c33", "fatia": "com_ruido", "categoria": "acesso", "texto": "emaiu bloqeado n acesso", "origem": "manual", "grupo": "c33"}
+{"id": "c34", "fatia": "com_ruido", "categoria": "secretaria", "texto": "declarasao matricula estagio urgente", "origem": "manual", "grupo": "c34"}
+{"id": "c35", "fatia": "com_ruido", "categoria": "secretaria", "texto": "istorico escolar pedir onde", "origem": "manual", "grupo": "c35"}
+{"id": "c36", "fatia": "com_ruido", "categoria": "secretaria", "texto": "diploma prazo emisao", "origem": "manual", "grupo": "c36"}
+{"id": "c037", "fatia": "formal", "categoria": "financeiro", "texto": "Venho solicitar a disponibilização do link para pagamento da mensalidade deste período letivo.", "origem": "sintetico-llm", "grupo": "c037"}
+{"id": "c038", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de solicitar a reemissão do boleto vencido para regularizar minha situação cadastral.", "origem": "sintetico-llm", "grupo": "c038"}
+{"id": "c039", "fatia": "formal", "categoria": "financeiro", "texto": "Venho requerer a exclusão da taxa de rematrícula do meu cadastro financeiro.", "origem": "sintetico-llm", "grupo": "c039"}
+{"id": "c040", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito o processamento do estorno referente ao pagamento efetuado por engano.", "origem": "sintetico-llm", "grupo": "c040"}
+{"id": "c041", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de obter detalhes sobre o novo valor da mensalidade ajustado.", "origem": "sintetico-llm", "grupo": "c041"}
+{"id": "c042", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de entender a composição do débito de rematrícula cobrado.", "origem": "sintetico-llm", "grupo": "c042"}
+{"id": "c043", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de conhecer as condições disponíveis para quitar o débito em aberto em parcelas.", "origem": "sintetico-llm", "grupo": "c043"}
+{"id": "c044", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito detalhes sobre os critérios de concessão de bolsas de estudo ou descontos.", "origem": "sintetico-llm", "grupo": "c044"}
+{"id": "c045", "fatia": "formal", "categoria": "financeiro", "texto": "Requeiro o reembolso integral do valor pago indevidamente ao estabelecimento.", "origem": "sintetico-llm", "grupo": "c045"}
+{"id": "c046", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de saber os critérios adotados para o reajuste da mensalidade.", "origem": "sintetico-llm", "grupo": "c046"}
+{"id": "c047", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de entender o motivo da cobrança duplicada no meu extrato bancário.", "origem": "sintetico-llm", "grupo": "c047"}
+{"id": "c048", "fatia": "formal", "categoria": "financeiro", "texto": "Venho requerer a anulação da cobrança indevida presente no meu extrato.", "origem": "sintetico-llm", "grupo": "c048"}
+{"id": "c049", "fatia": "formal", "categoria": "financeiro", "texto": "Necessito de esclarecimentos sobre o processo de renegociação da dívida acadêmica acumulada.", "origem": "sintetico-llm", "grupo": "c049"}
+{"id": "c050", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito o envio da nota fiscal referente ao pagamento realizado no último mês.", "origem": "sintetico-llm", "grupo": "c050"}
+{"id": "c051", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de obter um comprovante digital do pagamento efetuado via Pix.", "origem": "sintetico-llm", "grupo": "c051"}
+{"id": "c052", "fatia": "formal", "categoria": "financeiro", "texto": "Peço informações sobre o prazo máximo para a negociação da dívida pendente.", "origem": "sintetico-llm", "grupo": "c052"}
+{"id": "c053", "fatia": "formal", "categoria": "financeiro", "texto": "Necessito de orientações sobre o processo de solicitação de redução na taxa mensal.", "origem": "sintetico-llm", "grupo": "c053"}
+{"id": "c054", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito a emissão da segunda via do boleto para o pagamento da mensalidade corrente.", "origem": "sintetico-llm", "grupo": "c01"}
+{"id": "c055", "fatia": "formal", "categoria": "financeiro", "texto": "Venho requerer a cópia da nota fiscal para fins de reembolso corporativo.", "origem": "sintetico-llm", "grupo": "c055"}
+{"id": "c056", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito a anulação da cobrança indevida presente no meu boletim bancário recente.", "origem": "sintetico-llm", "grupo": "c048"}
+{"id": "c057", "fatia": "formal", "categoria": "financeiro", "texto": "Peço informações sobre os requisitos para obtenção de desconto na mensalidade.", "origem": "sintetico-llm", "grupo": "c057"}
+{"id": "c058", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de contestar a cobrança indevida identificada no comprovante de pagamento.", "origem": "sintetico-llm", "grupo": "c058"}
+{"id": "c059", "fatia": "formal", "categoria": "financeiro", "texto": "Peço o encaminhamento do código de barras atualizado para realizar o pagamento imediato.", "origem": "sintetico-llm", "grupo": "c059"}
+{"id": "c060", "fatia": "formal", "categoria": "financeiro", "texto": "Gostaria de solicitar o estorno do valor pago em duplicidade no último ciclo.", "origem": "sintetico-llm", "grupo": "c060"}
+{"id": "c061", "fatia": "formal", "categoria": "financeiro", "texto": "Solicito a isenção da multa por atraso justificada por motivos de força maior.", "origem": "sintetico-llm", "grupo": "c061"}
+{"id": "c062", "fatia": "formal", "categoria": "financeiro", "texto": "Peço a revisão dos juros calculados sobre o débito em aberto.", "origem": "sintetico-llm", "grupo": "c062"}
+{"id": "c063", "fatia": "formal", "categoria": "financeiro", "texto": "Necessito de uma nova via do boleto, pois o anterior expirou sem pagamento.", "origem": "sintetico-llm", "grupo": "c063"}
+{"id": "c064", "fatia": "formal", "categoria": "academico", "texto": "Solicito a grade de monitorias disponível para a disciplina de Programação.", "origem": "sintetico-llm", "grupo": "c064"}
+{"id": "c065", "fatia": "formal", "categoria": "academico", "texto": "Peço esclarecimentos sobre o critério de arredondamento utilizado nas notas da disciplina de Cálculo.", "origem": "sintetico-llm", "grupo": "c065"}
+{"id": "c066", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de confirmar o horário exato da aula prática agendada para a próxima semana.", "origem": "sintetico-llm", "grupo": "c066"}
+{"id": "c067", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de confirmar a contagem correta das faltas registradas no sistema acadêmico.", "origem": "sintetico-llm", "grupo": "c067"}
+{"id": "c068", "fatia": "formal", "categoria": "academico", "texto": "Solicito cópia do plano de ensino atualizado da disciplina de Estatística Aplicada.", "origem": "sintetico-llm", "grupo": "c068"}
+{"id": "c069", "fatia": "formal", "categoria": "academico", "texto": "Peço orientações sobre a carga máxima de ausências permitida sem reprovação automática.", "origem": "sintetico-llm", "grupo": "c069"}
+{"id": "c070", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de saber o procedimento para solicitar a revisão da nota de Biologia Celular.", "origem": "sintetico-llm", "grupo": "c070"}
+{"id": "c071", "fatia": "formal", "categoria": "academico", "texto": "Solicito a relação de tópicos abordados nas aulas de Cálculo diferencial.", "origem": "sintetico-llm", "grupo": "c071"}
+{"id": "c072", "fatia": "formal", "categoria": "academico", "texto": "Solicito esclarecimentos sobre os critérios de aceite para a proposta de trabalho de conclusão.", "origem": "sintetico-llm", "grupo": "c072"}
+{"id": "c073", "fatia": "formal", "categoria": "academico", "texto": "Requeiro esclarecimento sobre a carga horária mínima de atividades complementares.", "origem": "sintetico-llm", "grupo": "c073"}
+{"id": "c074", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de verificar se há previsão de nova data para a avaliação final.", "origem": "sintetico-llm", "grupo": "c074"}
+{"id": "c075", "fatia": "formal", "categoria": "academico", "texto": "Solicito a revisão da pontuação obtida na avaliação prática de Química Orgânica.", "origem": "sintetico-llm", "grupo": "c075"}
+{"id": "c076", "fatia": "formal", "categoria": "academico", "texto": "Peço informações sobre o prazo para solicitar a revisão de notas no portal do aluno.", "origem": "sintetico-llm", "grupo": "c076"}
+{"id": "c077", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de obter a ementa detalhada da disciplina de Administração Educacional.", "origem": "sintetico-llm", "grupo": "c077"}
+{"id": "c078", "fatia": "formal", "categoria": "academico", "texto": "Solicito confirmação da alteração no horário da aula teórica de Matemática.", "origem": "sintetico-llm", "grupo": "c078"}
+{"id": "c079", "fatia": "formal", "categoria": "academico", "texto": "Desejo verificar a correção do item específico na prova de História da Educação.", "origem": "sintetico-llm", "grupo": "c079"}
+{"id": "c080", "fatia": "formal", "categoria": "academico", "texto": "Peço esclarecimentos sobre a possibilidade de trancar a disciplina de Lógica Matemática.", "origem": "sintetico-llm", "grupo": "c080"}
+{"id": "c081", "fatia": "formal", "categoria": "academico", "texto": "Peço informações sobre o prazo final para entrega do projeto de pesquisa do TCC.", "origem": "sintetico-llm", "grupo": "c081"}
+{"id": "c082", "fatia": "formal", "categoria": "academico", "texto": "Gostaria de saber quem são os professores orientadores disponíveis para o TCC deste semestre.", "origem": "sintetico-llm", "grupo": "c082"}
+{"id": "c083", "fatia": "formal", "categoria": "academico", "texto": "Desejo entender a composição da nota contínua na disciplina de Psicologia do Desenvolvimento.", "origem": "sintetico-llm", "grupo": "c083"}
+{"id": "c084", "fatia": "formal", "categoria": "academico", "texto": "Desejo confirmar a data limite para a banca examinadora avaliar o TCC.", "origem": "sintetico-llm", "grupo": "c084"}
+{"id": "c085", "fatia": "formal", "categoria": "academico", "texto": "Esclareço a dúvida sobre a possibilidade de realizar a prova em data complementar.", "origem": "sintetico-llm", "grupo": "c085"}
+{"id": "c086", "fatia": "formal", "categoria": "academico", "texto": "Requeiro informação sobre a política de reposição de atividades não entregues.", "origem": "sintetico-llm", "grupo": "c086"}
+{"id": "c087", "fatia": "formal", "categoria": "academico", "texto": "Solicito a lista de atividades complementares exigidas para a conclusão do semestre.", "origem": "sintetico-llm", "grupo": "c087"}
+{"id": "c088", "fatia": "formal", "categoria": "academico", "texto": "Esclareço a dúvida sobre os critérios para aproveitamento de disciplina cursada fora.", "origem": "sintetico-llm", "grupo": "c088"}
+{"id": "c089", "fatia": "formal", "categoria": "academico", "texto": "Solicito orientações sobre o prazo final para envio do relatório de estágio.", "origem": "sintetico-llm", "grupo": "c089"}
+{"id": "c090", "fatia": "formal", "categoria": "academico", "texto": "Esclareço a dúvida sobre a data prevista para a realização da prova substitutiva da disciplina.", "origem": "sintetico-llm", "grupo": "c090"}
+{"id": "c091", "fatia": "formal", "categoria": "acesso", "texto": "Recebo uma mensagem de erro genérica ao tentar baixar os PDFs da biblioteca digital.", "origem": "sintetico-llm", "grupo": "c091"}
+{"id": "c092", "fatia": "formal", "categoria": "acesso", "texto": "O aplicativo da instituição apresenta lentidão extrema ao tentar abrir o ambiente virtual de aprendizagem.", "origem": "sintetico-llm", "grupo": "c092"}
+{"id": "c093", "fatia": "formal", "categoria": "acesso", "texto": "Minha senha do ambiente virtual foi rejeitada diversas vezes hoje.", "origem": "sintetico-llm", "grupo": "c093"}
+{"id": "c094", "fatia": "formal", "categoria": "acesso", "texto": "Encontro impedido de logar no portal do aluno mesmo utilizando as credenciais corretas.", "origem": "sintetico-llm", "grupo": "c094"}
+{"id": "c095", "fatia": "formal", "categoria": "acesso", "texto": "O portal do aluno recusa a entrada mesmo com a senha alterada recentemente pelo próprio usuário.", "origem": "sintetico-llm", "grupo": "c095"}
+{"id": "c096", "fatia": "formal", "categoria": "acesso", "texto": "Acesso negado ao entrar na sala virtual de introdução à ciência da computação.", "origem": "sintetico-llm", "grupo": "c096"}
+{"id": "c097", "fatia": "formal", "categoria": "acesso", "texto": "Ao tentar entrar no portal do aluno, o sistema indica que a sessão expirou prematuramente.", "origem": "sintetico-llm", "grupo": "c097"}
+{"id": "c098", "fatia": "formal", "categoria": "acesso", "texto": "A conta institucional de e-mail recusa conexões de serviços externos de correio eletrônico.", "origem": "sintetico-llm", "grupo": "c098"}
+{"id": "c099", "fatia": "formal", "categoria": "acesso", "texto": "A página de downloads do portal do aluno retorna erro de servidor.", "origem": "sintetico-llm", "grupo": "c099"}
+{"id": "c100", "fatia": "formal", "categoria": "acesso", "texto": "O aplicativo da instituição exibe tela preta imediatamente após a conclusão do carregamento inicial.", "origem": "sintetico-llm", "grupo": "c100"}
+{"id": "c101", "fatia": "formal", "categoria": "acesso", "texto": "Não consigo me conectar à rede sem fio do auditório.", "origem": "sintetico-llm", "grupo": "c101"}
+{"id": "c102", "fatia": "formal", "categoria": "acesso", "texto": "Não consigo iniciar sessões de leitura na biblioteca digital devido a interrupções recorrentes do serviço.", "origem": "sintetico-llm", "grupo": "c102"}
+{"id": "c103", "fatia": "formal", "categoria": "acesso", "texto": "O portal do aluno carrega apenas a página inicial e não permite navegar para as demais seções.", "origem": "sintetico-llm", "grupo": "c103"}
+{"id": "c104", "fatia": "formal", "categoria": "acesso", "texto": "Esqueci minha senha e o link de redefinição não está chegando.", "origem": "sintetico-llm", "grupo": "c104"}
+{"id": "c105", "fatia": "formal", "categoria": "acesso", "texto": "O aplicativo móvel encerra-se sozinho sempre que tento abrir o calendário de atividades acadêmicas.", "origem": "sintetico-llm", "grupo": "c105"}
+{"id": "c106", "fatia": "formal", "categoria": "acesso", "texto": "Não consigo entrar na sala virtual da disciplina de matemática.", "origem": "sintetico-llm", "grupo": "c106"}
+{"id": "c107", "fatia": "formal", "categoria": "acesso", "texto": "Solicito a reativação da minha senha do ambiente virtual bloqueada.", "origem": "sintetico-llm", "grupo": "c107"}
+{"id": "c108", "fatia": "formal", "categoria": "acesso", "texto": "O código de verificação da autenticação em duas etapas expira rapidamente.", "origem": "sintetico-llm", "grupo": "c108"}
+{"id": "c109", "fatia": "formal", "categoria": "acesso", "texto": "A autenticação em duas etapas não aceita o código do meu aplicativo.", "origem": "sintetico-llm", "grupo": "c109"}
+{"id": "c110", "fatia": "formal", "categoria": "acesso", "texto": "As buscas na biblioteca digital retornam apenas erros internos e não listam nenhum resultado válido.", "origem": "sintetico-llm", "grupo": "c110"}
+{"id": "c111", "fatia": "formal", "categoria": "acesso", "texto": "Há uma mensagem de erro interno na página de login do portal.", "origem": "sintetico-llm", "grupo": "c111"}
+{"id": "c112", "fatia": "formal", "categoria": "acesso", "texto": "A conta de e-mail institucional não sincroniza com o servidor de dados da instituição.", "origem": "sintetico-llm", "grupo": "c112"}
+{"id": "c113", "fatia": "formal", "categoria": "acesso", "texto": "A caixa de entrada do e-mail institucional permanece inoperante há mais de vinte e quatro horas.", "origem": "sintetico-llm", "grupo": "c113"}
+{"id": "c114", "fatia": "formal", "categoria": "acesso", "texto": "Os ícones de acesso rápido à biblioteca digital não respondem a nenhum toque na tela.", "origem": "sintetico-llm", "grupo": "c114"}
+{"id": "c115", "fatia": "formal", "categoria": "acesso", "texto": "Solicito a verificação técnica, pois o aplicativo da instituição não sincroniza os dados do meu perfil.", "origem": "sintetico-llm", "grupo": "c115"}
+{"id": "c116", "fatia": "formal", "categoria": "acesso", "texto": "Fui impedido de acessar a sala virtual de história antiga.", "origem": "sintetico-llm", "grupo": "c116"}
+{"id": "c117", "fatia": "formal", "categoria": "acesso", "texto": "A página inicial do portal do aluno apresenta erro de conexão.", "origem": "sintetico-llm", "grupo": "c117"}
+{"id": "c118", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito a emissão do histórico escolar completo com as disciplinas cursadas.", "origem": "sintetico-llm", "grupo": "c118"}
+{"id": "c119", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito a autenticação de uma cópia de ata de matrícula antiga.", "origem": "sintetico-llm", "grupo": "c119"}
+{"id": "c120", "fatia": "formal", "categoria": "secretaria", "texto": "Requeiro o trancamento do curso inteiro por motivos de saúde comprovados.", "origem": "sintetico-llm", "grupo": "c120"}
+{"id": "c121", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de saber o processo de transferência integral.", "origem": "sintetico-llm", "grupo": "c121"}
+{"id": "c122", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de alterar meu nome artístico no cadastro da secretaria.", "origem": "sintetico-llm", "grupo": "c122"}
+{"id": "c123", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito a emissão do certificado de conclusão do curso para fins de registro.", "origem": "sintetico-llm", "grupo": "c123"}
+{"id": "c124", "fatia": "formal", "categoria": "secretaria", "texto": "Quero emitir o certificado de conclusão com o nome social registrado.", "origem": "sintetico-llm", "grupo": "c124"}
+{"id": "c125", "fatia": "formal", "categoria": "secretaria", "texto": "Requeiro a emissão da carteirinha estudantil após a reativação da matrícula.", "origem": "sintetico-llm", "grupo": "c125"}
+{"id": "c126", "fatia": "formal", "categoria": "secretaria", "texto": "Peço a confirmação dos dados da carteirinha antes da impressão em papel.", "origem": "sintetico-llm", "grupo": "c126"}
+{"id": "c127", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de formalizar o pedido de trancamento de todo o curso.", "origem": "sintetico-llm", "grupo": "c127"}
+{"id": "c128", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de confirmar a data da cerimônia de formatura da minha turma.", "origem": "sintetico-llm", "grupo": "c128"}
+{"id": "c129", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito informações sobre a documentação para colação de grau.", "origem": "sintetico-llm", "grupo": "c129"}
+{"id": "c130", "fatia": "formal", "categoria": "secretaria", "texto": "Quero registrar o trancamento do curso para o semestre em andamento.", "origem": "sintetico-llm", "grupo": "c130"}
+{"id": "c131", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito orientações sobre o documento necessário para transferência.", "origem": "sintetico-llm", "grupo": "c131"}
+{"id": "c132", "fatia": "formal", "categoria": "secretaria", "texto": "Preciso atualizar meu endereço residencial no cadastro da secretaria.", "origem": "sintetico-llm", "grupo": "c132"}
+{"id": "c133", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito informações sobre a coleta do diploma no balcão.", "origem": "sintetico-llm", "grupo": "c133"}
+{"id": "c134", "fatia": "formal", "categoria": "secretaria", "texto": "Quero emitir o histórico escolar em formato digital para envio a instituições.", "origem": "sintetico-llm", "grupo": "c134"}
+{"id": "c135", "fatia": "formal", "categoria": "secretaria", "texto": "Peço a confirmação de que meu histórico escolar está disponível para consulta.", "origem": "sintetico-llm", "grupo": "c135"}
+{"id": "c136", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito a produção de uma nova carteirinha estudantil em razão do vencimento.", "origem": "sintetico-llm", "grupo": "c136"}
+{"id": "c137", "fatia": "formal", "categoria": "secretaria", "texto": "Gostaria de validar a autenticidade de um documento emitido pela secretaria.", "origem": "sintetico-llm", "grupo": "c137"}
+{"id": "c138", "fatia": "formal", "categoria": "secretaria", "texto": "Peço a liberação do trancamento integral após a entrega da documentação.", "origem": "sintetico-llm", "grupo": "c138"}
+{"id": "c139", "fatia": "formal", "categoria": "secretaria", "texto": "Quero emitir a carteirinha estudantil para o primeiro semestre do curso.", "origem": "sintetico-llm", "grupo": "c139"}
+{"id": "c140", "fatia": "formal", "categoria": "secretaria", "texto": "Como proceder para alterar o estado civil registrado no sistema?", "origem": "sintetico-llm", "grupo": "c140"}
+{"id": "c141", "fatia": "formal", "categoria": "secretaria", "texto": "Preciso emitir um histórico escolar completo para fins de revalidação.", "origem": "sintetico-llm", "grupo": "c141"}
+{"id": "c142", "fatia": "formal", "categoria": "secretaria", "texto": "Preciso emitir uma declaração de matrícula para bolsa de estudos.", "origem": "sintetico-llm", "grupo": "c142"}
+{"id": "c143", "fatia": "formal", "categoria": "secretaria", "texto": "Solicito uma declaração de matrícula atualizada para comprovação em processo de estágio.", "origem": "sintetico-llm", "grupo": "c10"}
+{"id": "c144", "fatia": "formal", "categoria": "secretaria", "texto": "Quero saber como agendar minha presença na colação de grau.", "origem": "sintetico-llm", "grupo": "c144"}
+{"id": "c145", "fatia": "informal", "categoria": "financeiro", "texto": "cobrança duplicada no app, dá pra cancelar?", "origem": "sintetico-llm", "grupo": "c145"}
+{"id": "c146", "fatia": "informal", "categoria": "financeiro", "texto": "multa desproporcional ao atraso, vcs?", "origem": "sintetico-llm", "grupo": "c146"}
+{"id": "c147", "fatia": "informal", "categoria": "financeiro", "texto": "mensalidade alterada sem motivo, né?", "origem": "sintetico-llm", "grupo": "c147"}
+{"id": "c148", "fatia": "informal", "categoria": "financeiro", "texto": "o valor do boleto mudou esse ano, era pro avisar?", "origem": "sintetico-llm", "grupo": "c148"}
+{"id": "c149", "fatia": "informal", "categoria": "financeiro", "texto": "consigo pagar só uma parte agora e o resto depois?", "origem": "sintetico-llm", "grupo": "c149"}
+{"id": "c150", "fatia": "informal", "categoria": "financeiro", "texto": "juros calculados errado, confere?", "origem": "sintetico-llm", "grupo": "c150"}
+{"id": "c151", "fatia": "informal", "categoria": "financeiro", "texto": "aumento percentual absurdo, aceita arguir?", "origem": "sintetico-llm", "grupo": "c151"}
+{"id": "c152", "fatia": "informal", "categoria": "financeiro", "texto": "tem juros altos se atrasar 1 dia? qual a multa?", "origem": "sintetico-llm", "grupo": "c152"}
+{"id": "c153", "fatia": "informal", "categoria": "financeiro", "texto": "o desconto por vínculo não apareceu no boleto novo", "origem": "sintetico-llm", "grupo": "c153"}
+{"id": "c154", "fatia": "informal", "categoria": "financeiro", "texto": "quero o comprovante pra justificar o atraso no trabalho", "origem": "sintetico-llm", "grupo": "c154"}
+{"id": "c155", "fatia": "informal", "categoria": "financeiro", "texto": "meu cartão foi recusado no site, o q fiz errado?", "origem": "sintetico-llm", "grupo": "c155"}
+{"id": "c156", "fatia": "informal", "categoria": "financeiro", "texto": "estorno negado, motivo qual?", "origem": "sintetico-llm", "grupo": "c156"}
+{"id": "c157", "fatia": "informal", "categoria": "financeiro", "texto": "débito de rematrícula não autorizado.", "origem": "sintetico-llm", "grupo": "c157"}
+{"id": "c158", "fatia": "informal", "categoria": "financeiro", "texto": "reajuste sem aviso prévio, estranho.", "origem": "sintetico-llm", "grupo": "c158"}
+{"id": "c159", "fatia": "informal", "categoria": "financeiro", "texto": "pagamento de rematrícula duplicado no banco.", "origem": "sintetico-llm", "grupo": "c159"}
+{"id": "c160", "fatia": "informal", "categoria": "financeiro", "texto": "reembolso parcial, quanto falta?", "origem": "sintetico-llm", "grupo": "c160"}
+{"id": "c161", "fatia": "informal", "categoria": "financeiro", "texto": "devolução atrasada, cadê o dinheiro?", "origem": "sintetico-llm", "grupo": "c161"}
+{"id": "c162", "fatia": "informal", "categoria": "financeiro", "texto": "consigo pagar a mensalidade direto no pix?", "origem": "sintetico-llm", "grupo": "c162"}
+{"id": "c163", "fatia": "informal", "categoria": "financeiro", "texto": "como parcelo o adiantamento das férias escolares?", "origem": "sintetico-llm", "grupo": "c163"}
+{"id": "c164", "fatia": "informal", "categoria": "financeiro", "texto": "pode emitir um comprovante de q paguei tudo em dia?", "origem": "sintetico-llm", "grupo": "c164"}
+{"id": "c165", "fatia": "informal", "categoria": "financeiro", "texto": "débito em dobro no cartão, erro?", "origem": "sintetico-llm", "grupo": "c165"}
+{"id": "c166", "fatia": "informal", "categoria": "financeiro", "texto": "multa alta demais, consegue rever isso?", "origem": "sintetico-llm", "grupo": "c166"}
+{"id": "c167", "fatia": "informal", "categoria": "financeiro", "texto": "quero pagar por cartão em 12x, site não deixa", "origem": "sintetico-llm", "grupo": "c167"}
+{"id": "c168", "fatia": "informal", "categoria": "financeiro", "texto": "como faço pra parcelar a dívida antiga em 6x?", "origem": "sintetico-llm", "grupo": "c168"}
+{"id": "c169", "fatia": "informal", "categoria": "financeiro", "texto": "quero um desconto por indicação, onde preencho o form?", "origem": "sintetico-llm", "grupo": "c169"}
+{"id": "c170", "fatia": "informal", "categoria": "financeiro", "texto": "tô desempregado, tem alguma opção de desconto pra mim?", "origem": "sintetico-llm", "grupo": "c170"}
+{"id": "c171", "fatia": "informal", "categoria": "financeiro", "texto": "o boleto veio duplicado, pode corrigir pra mim?", "origem": "sintetico-llm", "grupo": "c171"}
+{"id": "c172", "fatia": "informal", "categoria": "academico", "texto": "quanto tempo tenho pra revisar nota de quim?", "origem": "sintetico-llm", "grupo": "c172"}
+{"id": "c173", "fatia": "informal", "categoria": "academico", "texto": "qual o horário da prática de enfermagem no sábado?", "origem": "sintetico-llm", "grupo": "c173"}
+{"id": "c174", "fatia": "informal", "categoria": "academico", "texto": "minhas faltas zeraram no sistema, tá ok?", "origem": "sintetico-llm", "grupo": "c174"}
+{"id": "c175", "fatia": "informal", "categoria": "academico", "texto": "nota de lab tá zero, foi erro?", "origem": "sintetico-llm", "grupo": "c175"}
+{"id": "c176", "fatia": "informal", "categoria": "academico", "texto": "banco de tcc tem novos temas?", "origem": "sintetico-llm", "grupo": "c176"}
+{"id": "c177", "fatia": "informal", "categoria": "academico", "texto": "conteúdo de adm não segue o plano", "origem": "sintetico-llm", "grupo": "c177"}
+{"id": "c178", "fatia": "informal", "categoria": "academico", "texto": "quais livros valem pra atividades complementares de jornalismo?", "origem": "sintetico-llm", "grupo": "c178"}
+{"id": "c179", "fatia": "informal", "categoria": "academico", "texto": "faltas passivas ou ativas na fac?", "origem": "sintetico-llm", "grupo": "c179"}
+{"id": "c180", "fatia": "informal", "categoria": "academico", "texto": "pode revisar só a questão 4 de física?", "origem": "sintetico-llm", "grupo": "c180"}
+{"id": "c181", "fatia": "informal", "categoria": "academico", "texto": "quais eventos culturais contam pra atividades complementares?", "origem": "sintetico-llm", "grupo": "c181"}
+{"id": "c182", "fatia": "informal", "categoria": "academico", "texto": "preciso justificar falta em prova, qual o prazo?", "origem": "sintetico-llm", "grupo": "c182"}
+{"id": "c183", "fatia": "informal", "categoria": "academico", "texto": "dúvida sobre o professor substituto de matemática financeira.", "origem": "sintetico-llm", "grupo": "c183"}
+{"id": "c184", "fatia": "informal", "categoria": "academico", "texto": "faltam 10 h de atividades complementares, o que faz?", "origem": "sintetico-llm", "grupo": "c184"}
+{"id": "c185", "fatia": "informal", "categoria": "academico", "texto": "tcc atrasado, como justificar ao prof?", "origem": "sintetico-llm", "grupo": "c185"}
+{"id": "c186", "fatia": "informal", "categoria": "academico", "texto": "quem é o monitor de física quântica esse mês?", "origem": "sintetico-llm", "grupo": "c186"}
+{"id": "c187", "fatia": "informal", "categoria": "academico", "texto": "recurso de nota tem prazo curto?", "origem": "sintetico-llm", "grupo": "c187"}
+{"id": "c188", "fatia": "informal", "categoria": "academico", "texto": "planejamento de econ tá desatualizado?", "origem": "sintetico-llm", "grupo": "c188"}
+{"id": "c189", "fatia": "informal", "categoria": "academico", "texto": "prazo final pro tcc já saiu?", "origem": "sintetico-llm", "grupo": "c189"}
+{"id": "c190", "fatia": "informal", "categoria": "academico", "texto": "a ementa de port não bate com aula", "origem": "sintetico-llm", "grupo": "c190"}
+{"id": "c191", "fatia": "informal", "categoria": "academico", "texto": "a avaliação de economia aplicada é online ou presencial?", "origem": "sintetico-llm", "grupo": "c191"}
+{"id": "c192", "fatia": "informal", "categoria": "academico", "texto": "conta a disciplina de inglês de outra escola?", "origem": "sintetico-llm", "grupo": "c192"}
+{"id": "c193", "fatia": "informal", "categoria": "academico", "texto": "a prova de inglês tá marcada pra qual dia mesmo?", "origem": "sintetico-llm", "grupo": "c193"}
+{"id": "c194", "fatia": "informal", "categoria": "academico", "texto": "qual a data da prova substitutiva de química orgânica?", "origem": "sintetico-llm", "grupo": "c194"}
+{"id": "c195", "fatia": "informal", "categoria": "academico", "texto": "frequência mínima p passar é 75%?", "origem": "sintetico-llm", "grupo": "c195"}
+{"id": "c196", "fatia": "informal", "categoria": "academico", "texto": "disciplina de cálculo tá sem ementa", "origem": "sintetico-llm", "grupo": "c196"}
+{"id": "c197", "fatia": "informal", "categoria": "academico", "texto": "ementa de prog tá errada no portal", "origem": "sintetico-llm", "grupo": "c197"}
+{"id": "c198", "fatia": "informal", "categoria": "academico", "texto": "qual o papel do monitor de história da arte?", "origem": "sintetico-llm", "grupo": "c198"}
+{"id": "c199", "fatia": "informal", "categoria": "acesso", "texto": "senha do ava não está passando", "origem": "sintetico-llm", "grupo": "c20"}
+{"id": "c200", "fatia": "informal", "categoria": "acesso", "texto": "o sistema travou na hora do login", "origem": "sintetico-llm", "grupo": "c200"}
+{"id": "c201", "fatia": "informal", "categoria": "acesso", "texto": "o site da faculdade tá fora do ar?", "origem": "sintetico-llm", "grupo": "c201"}
+{"id": "c202", "fatia": "informal", "categoria": "acesso", "texto": "não abro os e-books na plataforma digital", "origem": "sintetico-llm", "grupo": "c202"}
+{"id": "c203", "fatia": "informal", "categoria": "acesso", "texto": "desativaram meu acesso sem avisar nada", "origem": "sintetico-llm", "grupo": "c203"}
+{"id": "c204", "fatia": "informal", "categoria": "acesso", "texto": "tela branca quando vou pro ambiente virtual", "origem": "sintetico-llm", "grupo": "c204"}
+{"id": "c205", "fatia": "informal", "categoria": "acesso", "texto": "erro de credenciais no portal toda hora", "origem": "sintetico-llm", "grupo": "c205"}
+{"id": "c206", "fatia": "informal", "categoria": "acesso", "texto": "conta duplicada impedindo minha entrada no portal", "origem": "sintetico-llm", "grupo": "c206"}
+{"id": "c207", "fatia": "informal", "categoria": "acesso", "texto": "usuário fantasma apareceu no painel de controle", "origem": "sintetico-llm", "grupo": "c207"}
+{"id": "c208", "fatia": "informal", "categoria": "acesso", "texto": "senha institucional recusa mesmo digitando certo", "origem": "sintetico-llm", "grupo": "c208"}
+{"id": "c209", "fatia": "informal", "categoria": "acesso", "texto": "acesso temporariamente suspenso sem aviso prévio", "origem": "sintetico-llm", "grupo": "c209"}
+{"id": "c210", "fatia": "informal", "categoria": "acesso", "texto": "tava tentando entrar no ava e deu erro", "origem": "sintetico-llm", "grupo": "c210"}
+{"id": "c211", "fatia": "informal", "categoria": "acesso", "texto": "acesso à base de dados negado mesmo logado", "origem": "sintetico-llm", "grupo": "c211"}
+{"id": "c212", "fatia": "informal", "categoria": "acesso", "texto": "falha de conexão ao autenticar no sistema", "origem": "sintetico-llm", "grupo": "c200"}
+{"id": "c213", "fatia": "informal", "categoria": "acesso", "texto": "login expirado e não renovo pelo app", "origem": "sintetico-llm", "grupo": "c213"}
+{"id": "c214", "fatia": "informal", "categoria": "acesso", "texto": "esqueci a senha e não recebo o link", "origem": "sintetico-llm", "grupo": "c104"}
+{"id": "c215", "fatia": "informal", "categoria": "acesso", "texto": "página do ava sumiu, sumiu assim", "origem": "sintetico-llm", "grupo": "c215"}
+{"id": "c216", "fatia": "informal", "categoria": "acesso", "texto": "app da aurora fecha sozinho ao abrir", "origem": "sintetico-llm", "grupo": "c216"}
+{"id": "c217", "fatia": "informal", "categoria": "acesso", "texto": "página de login deu erro 500", "origem": "sintetico-llm", "grupo": "c217"}
+{"id": "c218", "fatia": "informal", "categoria": "acesso", "texto": "perdi meu acesso ao sistema online", "origem": "sintetico-llm", "grupo": "c218"}
+{"id": "c219", "fatia": "informal", "categoria": "acesso", "texto": "não consigo acessar minha disciplina na plataforma", "origem": "sintetico-llm", "grupo": "c219"}
+{"id": "c220", "fatia": "informal", "categoria": "acesso", "texto": "portal da aurora não carrega nada", "origem": "sintetico-llm", "grupo": "c220"}
+{"id": "c221", "fatia": "informal", "categoria": "acesso", "texto": "minha conta não aceita mais o login", "origem": "sintetico-llm", "grupo": "c221"}
+{"id": "c222", "fatia": "informal", "categoria": "acesso", "texto": "meu inbox institucional está bloqueado por segurança", "origem": "sintetico-llm", "grupo": "c222"}
+{"id": "c223", "fatia": "informal", "categoria": "acesso", "texto": "portal do aluno não carrega a tela inicial", "origem": "sintetico-llm", "grupo": "c223"}
+{"id": "c224", "fatia": "informal", "categoria": "acesso", "texto": "biometria do app não está reconhecendo", "origem": "sintetico-llm", "grupo": "c224"}
+{"id": "c225", "fatia": "informal", "categoria": "acesso", "texto": "exibindo usuário inexistente ao tentar entrar", "origem": "sintetico-llm", "grupo": "c225"}
+{"id": "c226", "fatia": "informal", "categoria": "secretaria", "texto": "quero tirar uma 2ª via do meu histórico", "origem": "sintetico-llm", "grupo": "c226"}
+{"id": "c227", "fatia": "informal", "categoria": "secretaria", "texto": "quando é a cerimônia de colação de grau?", "origem": "sintetico-llm", "grupo": "c227"}
+{"id": "c228", "fatia": "informal", "categoria": "secretaria", "texto": "preciso de declaração de matrícula pra emprego", "origem": "sintetico-llm", "grupo": "c228"}
+{"id": "c229", "fatia": "informal", "categoria": "secretaria", "texto": "perdi minha carteirinha, tem 2ª via?", "origem": "sintetico-llm", "grupo": "c229"}
+{"id": "c230", "fatia": "informal", "categoria": "secretaria", "texto": "quero corrigir data de nascimento no cadastro", "origem": "sintetico-llm", "grupo": "c230"}
+{"id": "c231", "fatia": "informal", "categoria": "secretaria", "texto": "quero transferir pro outro campus da aurora", "origem": "sintetico-llm", "grupo": "c231"}
+{"id": "c232", "fatia": "informal", "categoria": "secretaria", "texto": "cadê a opção de pedir meu histórico?", "origem": "sintetico-llm", "grupo": "c23"}
+{"id": "c233", "fatia": "informal", "categoria": "secretaria", "texto": "como autentico um documento oficial?", "origem": "sintetico-llm", "grupo": "c233"}
+{"id": "c234", "fatia": "informal", "categoria": "secretaria", "texto": "quero atualizar foto na carteirinha", "origem": "sintetico-llm", "grupo": "c234"}
+{"id": "c235", "fatia": "informal", "categoria": "secretaria", "texto": "como solicito meu certificado de conclusão?", "origem": "sintetico-llm", "grupo": "c235"}
+{"id": "c236", "fatia": "informal", "categoria": "secretaria", "texto": "como faço pra trancar meu curso todo?", "origem": "sintetico-llm", "grupo": "c236"}
+{"id": "c237", "fatia": "informal", "categoria": "secretaria", "texto": "quero pedir transferência pro ensino a distância", "origem": "sintetico-llm", "grupo": "c237"}
+{"id": "c238", "fatia": "informal", "categoria": "secretaria", "texto": "quero trancar matrícula, quem atende?", "origem": "sintetico-llm", "grupo": "c238"}
+{"id": "c239", "fatia": "informal", "categoria": "secretaria", "texto": "quero fazer trancamento parcial, dá?", "origem": "sintetico-llm", "grupo": "c239"}
+{"id": "c240", "fatia": "informal", "categoria": "secretaria", "texto": "qual o prazo pra entrega do meu diploma?", "origem": "sintetico-llm", "grupo": "c12"}
+{"id": "c241", "fatia": "informal", "categoria": "secretaria", "texto": "o histórico tá com erro, dá pra corrigir?", "origem": "sintetico-llm", "grupo": "c241"}
+{"id": "c242", "fatia": "informal", "categoria": "secretaria", "texto": "quero tirar uma 2ª via do certificado", "origem": "sintetico-llm", "grupo": "c242"}
+{"id": "c243", "fatia": "informal", "categoria": "secretaria", "texto": "preciso atualizar meu telefone na secretaria", "origem": "sintetico-llm", "grupo": "c243"}
+{"id": "c244", "fatia": "informal", "categoria": "secretaria", "texto": "quero trocar meu sobrenome no sistema", "origem": "sintetico-llm", "grupo": "c244"}
+{"id": "c245", "fatia": "informal", "categoria": "secretaria", "texto": "como peço minha carteirinha nova?", "origem": "sintetico-llm", "grupo": "c245"}
+{"id": "c246", "fatia": "informal", "categoria": "secretaria", "texto": "quero pedir minha declaração de matrícula atualizada", "origem": "sintetico-llm", "grupo": "c246"}
+{"id": "c247", "fatia": "informal", "categoria": "secretaria", "texto": "posso trancar curso online?", "origem": "sintetico-llm", "grupo": "c247"}
+{"id": "c248", "fatia": "informal", "categoria": "secretaria", "texto": "quanto tempo demora pra tirar meu diploma?", "origem": "sintetico-llm", "grupo": "c248"}
+{"id": "c249", "fatia": "informal", "categoria": "secretaria", "texto": "meu certificado sai com diploma?", "origem": "sintetico-llm", "grupo": "c249"}
+{"id": "c250", "fatia": "informal", "categoria": "secretaria", "texto": "posso buscar meu certificado pessoalmente?", "origem": "sintetico-llm", "grupo": "c250"}
+{"id": "c251", "fatia": "informal", "categoria": "secretaria", "texto": "qual o prazo pra emissão do diploma?", "origem": "sintetico-llm", "grupo": "c12"}
+{"id": "c252", "fatia": "informal", "categoria": "secretaria", "texto": "preciso de cópia do histórico pra bolsa", "origem": "sintetico-llm", "grupo": "c252"}
+{"id": "c253", "fatia": "com_ruido", "categoria": "financeiro", "texto": "nota fiscal atraso fiscal", "origem": "sintetico-llm", "grupo": "c253"}
+{"id": "c254", "fatia": "com_ruido", "categoria": "financeiro", "texto": "quer meu dinheir de volta agora", "origem": "sintetico-llm", "grupo": "c254"}
+{"id": "c255", "fatia": "com_ruido", "categoria": "financeiro", "texto": "reajuste acima da inflação oficial", "origem": "sintetico-llm", "grupo": "c255"}
+{"id": "c256", "fatia": "com_ruido", "categoria": "financeiro", "texto": "valor cobrado nao bate com contrato", "origem": "sintetico-llm", "grupo": "c256"}
+{"id": "c257", "fatia": "com_ruido", "categoria": "financeiro", "texto": "parcelar atraso 3x", "origem": "sintetico-llm", "grupo": "c257"}
+{"id": "c258", "fatia": "com_ruido", "categoria": "financeiro", "texto": "paguei duvez na mesma semana", "origem": "sintetico-llm", "grupo": "c258"}
+{"id": "c259", "fatia": "com_ruido", "categoria": "financeiro", "texto": "estorno travado no banco ate hoje", "origem": "sintetico-llm", "grupo": "c259"}
+{"id": "c260", "fatia": "com_ruido", "categoria": "financeiro", "texto": "pix errado valor", "origem": "sintetico-llm", "grupo": "c260"}
+{"id": "c261", "fatia": "com_ruido", "categoria": "financeiro", "texto": "cobranca rematricula sumida no cartao", "origem": "sintetico-llm", "grupo": "c261"}
+{"id": "c262", "fatia": "com_ruido", "categoria": "financeiro", "texto": "juro alto demais nao aceito isso", "origem": "sintetico-llm", "grupo": "c262"}
+{"id": "c263", "fatia": "com_ruido", "categoria": "financeiro", "texto": "cartao debito falhou", "origem": "sintetico-llm", "grupo": "c263"}
+{"id": "c264", "fatia": "com_ruido", "categoria": "financeiro", "texto": "debito recorrente sem autorização", "origem": "sintetico-llm", "grupo": "c264"}
+{"id": "c265", "fatia": "com_ruido", "categoria": "financeiro", "texto": "valor final diferente do aprovado", "origem": "sintetico-llm", "grupo": "c265"}
+{"id": "c266", "fatia": "com_ruido", "categoria": "financeiro", "texto": "cartao recusado nao foi", "origem": "sintetico-llm", "grupo": "c266"}
+{"id": "c267", "fatia": "com_ruido", "categoria": "financeiro", "texto": "paguei a mais e nao trocaram", "origem": "sintetico-llm", "grupo": "c267"}
+{"id": "c268", "fatia": "com_ruido", "categoria": "financeiro", "texto": "multa absurda por atraso de 1 dia", "origem": "sintetico-llm", "grupo": "c268"}
+{"id": "c269", "fatia": "com_ruido", "categoria": "financeiro", "texto": "pix caiu atrasado", "origem": "sintetico-llm", "grupo": "c269"}
+{"id": "c270", "fatia": "com_ruido", "categoria": "financeiro", "texto": "multa por erro no boleto impresso", "origem": "sintetico-llm", "grupo": "c270"}
+{"id": "c271", "fatia": "com_ruido", "categoria": "financeiro", "texto": "segunda via boleto urgente", "origem": "sintetico-llm", "grupo": "c271"}
+{"id": "c272", "fatia": "com_ruido", "categoria": "financeiro", "texto": "desconto irmados nao vir", "origem": "sintetico-llm", "grupo": "c272"}
+{"id": "c273", "fatia": "com_ruido", "categoria": "financeiro", "texto": "nota fiscal nome errado", "origem": "sintetico-llm", "grupo": "c273"}
+{"id": "c274", "fatia": "com_ruido", "categoria": "financeiro", "texto": "multa zero por erro do sistema", "origem": "sintetico-llm", "grupo": "c274"}
+{"id": "c275", "fatia": "com_ruido", "categoria": "financeiro", "texto": "bolsa parcial nao vir", "origem": "sintetico-llm", "grupo": "c275"}
+{"id": "c276", "fatia": "com_ruido", "categoria": "financeiro", "texto": "cobraram taxa que nao existe mais", "origem": "sintetico-llm", "grupo": "c276"}
+{"id": "c277", "fatia": "com_ruido", "categoria": "financeiro", "texto": "mensalidade subiu sem aviso nenhum", "origem": "sintetico-llm", "grupo": "c277"}
+{"id": "c278", "fatia": "com_ruido", "categoria": "financeiro", "texto": "boleto nao pagar", "origem": "sintetico-llm", "grupo": "c278"}
+{"id": "c279", "fatia": "com_ruido", "categoria": "financeiro", "texto": "juros capitalizados errados na conta", "origem": "sintetico-llm", "grupo": "c279"}
+{"id": "c280", "fatia": "com_ruido", "categoria": "academico", "texto": "monitoria da materia tem ate quando duracao", "origem": "sintetico-llm", "grupo": "c280"}
+{"id": "c281", "fatia": "com_ruido", "categoria": "academico", "texto": "recurso nota parcial 2 pfv", "origem": "sintetico-llm", "grupo": "c281"}
+{"id": "c282", "fatia": "com_ruido", "categoria": "academico", "texto": "prova final de bio tem segunda ou terca", "origem": "sintetico-llm", "grupo": "c282"}
+{"id": "c283", "fatia": "com_ruido", "categoria": "academico", "texto": "ementa atualizada qnd", "origem": "sintetico-llm", "grupo": "c283"}
+{"id": "c284", "fatia": "com_ruido", "categoria": "academico", "texto": "tcc orientador trocado qnd", "origem": "sintetico-llm", "grupo": "c284"}
+{"id": "c285", "fatia": "com_ruido", "categoria": "academico", "texto": "plano ensino qnd sai", "origem": "sintetico-llm", "grupo": "c285"}
+{"id": "c286", "fatia": "com_ruido", "categoria": "academico", "texto": "orientador tcc nao responde", "origem": "sintetico-llm", "grupo": "c286"}
+{"id": "c287", "fatia": "com_ruido", "categoria": "academico", "texto": "faltas maximas 25% certo", "origem": "sintetico-llm", "grupo": "c287"}
+{"id": "c288", "fatia": "com_ruido", "categoria": "academico", "texto": "prova substitutiva quando faz qto vale", "origem": "sintetico-llm", "grupo": "c288"}
+{"id": "c289", "fatia": "com_ruido", "categoria": "academico", "texto": "faltas 25% posso pegar 5", "origem": "sintetico-llm", "grupo": "c289"}
+{"id": "c290", "fatia": "com_ruido", "categoria": "academico", "texto": "reabrir mat quimica 1", "origem": "sintetico-llm", "grupo": "c290"}
+{"id": "c291", "fatia": "com_ruido", "categoria": "academico", "texto": "data da parcial de fisica 2 nao tem no calendario", "origem": "sintetico-llm", "grupo": "c291"}
+{"id": "c292", "fatia": "com_ruido", "categoria": "academico", "texto": "tcc prazo final quando", "origem": "sintetico-llm", "grupo": "c292"}
+{"id": "c293", "fatia": "com_ruido", "categoria": "academico", "texto": "tcc versao 2 qnd", "origem": "sintetico-llm", "grupo": "c293"}
+{"id": "c294", "fatia": "com_ruido", "categoria": "academico", "texto": "prof de literatura faltou semana passada tem aula", "origem": "sintetico-llm", "grupo": "c294"}
+{"id": "c295", "fatia": "com_ruido", "categoria": "academico", "texto": "ementa historia 40 erro", "origem": "sintetico-llm", "grupo": "c295"}
+{"id": "c296", "fatia": "com_ruido", "categoria": "academico", "texto": "faltando dias pra entrega atividades complementares", "origem": "sintetico-llm", "grupo": "c296"}
+{"id": "c297", "fatia": "com_ruido", "categoria": "academico", "texto": "plano ensino erro conteudo", "origem": "sintetico-llm", "grupo": "c297"}
+{"id": "c298", "fatia": "com_ruido", "categoria": "academico", "texto": "monitoria so tem horario de dia ou noite", "origem": "sintetico-llm", "grupo": "c298"}
+{"id": "c299", "fatia": "com_ruido", "categoria": "academico", "texto": "prova substitutiva precisa de justificativa medica", "origem": "sintetico-llm", "grupo": "c299"}
+{"id": "c300", "fatia": "com_ruido", "categoria": "academico", "texto": "faltas mais de 50% reprovado", "origem": "sintetico-llm", "grupo": "c300"}
+{"id": "c301", "fatia": "com_ruido", "categoria": "academico", "texto": "nota atividade 0 injusto", "origem": "sintetico-llm", "grupo": "c301"}
+{"id": "c302", "fatia": "com_ruido", "categoria": "academico", "texto": "prova parcial de economia quando e qual sala", "origem": "sintetico-llm", "grupo": "c302"}
+{"id": "c303", "fatia": "com_ruido", "categoria": "academico", "texto": "monitoria da materia so tem turma da manha", "origem": "sintetico-llm", "grupo": "c303"}
+{"id": "c304", "fatia": "com_ruido", "categoria": "academico", "texto": "media final 4.8 erro", "origem": "sintetico-llm", "grupo": "c304"}
+{"id": "c305", "fatia": "com_ruido", "categoria": "academico", "texto": "horario da aula de quimica tem conflito com lab", "origem": "sintetico-llm", "grupo": "c305"}
+{"id": "c306", "fatia": "com_ruido", "categoria": "academico", "texto": "faltas aula online contada", "origem": "sintetico-llm", "grupo": "c306"}
+{"id": "c307", "fatia": "com_ruido", "categoria": "acesso", "texto": "celular fica pendente ao entrar portal", "origem": "sintetico-llm", "grupo": "c307"}
+{"id": "c308", "fatia": "com_ruido", "categoria": "acesso", "texto": "wi-fi campus erro de autenticao local", "origem": "sintetico-llm", "grupo": "c308"}
+{"id": "c309", "fatia": "com_ruido", "categoria": "acesso", "texto": "app aurora trava na tela inicial", "origem": "sintetico-llm", "grupo": "c309"}
+{"id": "c310", "fatia": "com_ruido", "categoria": "acesso", "texto": "email institucional bloqueado pelo filtro", "origem": "sintetico-llm", "grupo": "c222"}
+{"id": "c311", "fatia": "com_ruido", "categoria": "acesso", "texto": "usuário duplicado nao loga portal", "origem": "sintetico-llm", "grupo": "c206"}
+{"id": "c312", "fatia": "com_ruido", "categoria": "acesso", "texto": "biblioteca digital nao aceita minha senha", "origem": "sintetico-llm", "grupo": "c312"}
+{"id": "c313", "fatia": "com_ruido", "categoria": "acesso", "texto": "login portal fora do ar total", "origem": "sintetico-llm", "grupo": "c313"}
+{"id": "c314", "fatia": "com_ruido", "categoria": "acesso", "texto": "conta duplicada bloqueando acesso portal", "origem": "sintetico-llm", "grupo": "c206"}
+{"id": "c315", "fatia": "com_ruido", "categoria": "acesso", "texto": "n entra aula virtual acesso negado prof", "origem": "sintetico-llm", "grupo": "c315"}
+{"id": "c316", "fatia": "com_ruido", "categoria": "acesso", "texto": "n veria materia optativa acesso bloqueado", "origem": "sintetico-llm", "grupo": "c316"}
+{"id": "c317", "fatia": "com_ruido", "categoria": "acesso", "texto": "2fa pede codigo mas nao envia sms", "origem": "sintetico-llm", "grupo": "c317"}
+{"id": "c318", "fatia": "com_ruido", "categoria": "acesso", "texto": "senha antiga aceitando nao atualizou sistema", "origem": "sintetico-llm", "grupo": "c318"}
+{"id": "c319", "fatia": "com_ruido", "categoria": "acesso", "texto": "email institucional n recebe reset password", "origem": "sintetico-llm", "grupo": "c319"}
+{"id": "c320", "fatia": "com_ruido", "categoria": "acesso", "texto": "aplicativo nao sincroniza dados no celular", "origem": "sintetico-llm", "grupo": "c320"}
+{"id": "c321", "fatia": "com_ruido", "categoria": "acesso", "texto": "portal aluno nao reconhece minha senha", "origem": "sintetico-llm", "grupo": "c321"}
+{"id": "c322", "fatia": "com_ruido", "categoria": "acesso", "texto": "portau do alun n carregando tela preta", "origem": "sintetico-llm", "grupo": "c322"}
+{"id": "c323", "fatia": "com_ruido", "categoria": "acesso", "texto": "senha nova rejeitada muito curta regra errada", "origem": "sintetico-llm", "grupo": "c323"}
+{"id": "c324", "fatia": "com_ruido", "categoria": "acesso", "texto": "dashboard ava carregando infinito spinner", "origem": "sintetico-llm", "grupo": "c324"}
+{"id": "c325", "fatia": "com_ruido", "categoria": "acesso", "texto": "senha ava travando n sai do login", "origem": "sintetico-llm", "grupo": "c20"}
+{"id": "c326", "fatia": "com_ruido", "categoria": "acesso", "texto": "wi-fi campus sinal fraco n carrega video", "origem": "sintetico-llm", "grupo": "c326"}
+{"id": "c327", "fatia": "com_ruido", "categoria": "acesso", "texto": "email institucional sem resposta do servidor", "origem": "sintetico-llm", "grupo": "c327"}
+{"id": "c328", "fatia": "com_ruido", "categoria": "acesso", "texto": "upload trabalho falha erro 403 permissao", "origem": "sintetico-llm", "grupo": "c328"}
+{"id": "c329", "fatia": "com_ruido", "categoria": "acesso", "texto": "n consigo abrir chat sala 102", "origem": "sintetico-llm", "grupo": "c329"}
+{"id": "c330", "fatia": "com_ruido", "categoria": "acesso", "texto": "app cracha ao abrir menu estudos", "origem": "sintetico-llm", "grupo": "c330"}
+{"id": "c331", "fatia": "com_ruido", "categoria": "acesso", "texto": "pagina ava 500 erro interno servidor", "origem": "sintetico-llm", "grupo": "c331"}
+{"id": "c332", "fatia": "com_ruido", "categoria": "acesso", "texto": "avatar nao aparece perfil ava deslogado", "origem": "sintetico-llm", "grupo": "c332"}
+{"id": "c333", "fatia": "com_ruido", "categoria": "acesso", "texto": "aplicativo fecha sozinho toda hora", "origem": "sintetico-llm", "grupo": "c333"}
+{"id": "c334", "fatia": "com_ruido", "categoria": "secretaria", "texto": "trancamento prazo final", "origem": "sintetico-llm", "grupo": "c334"}
+{"id": "c335", "fatia": "com_ruido", "categoria": "secretaria", "texto": "historico escolar urgencia", "origem": "sintetico-llm", "grupo": "c335"}
+{"id": "c336", "fatia": "com_ruido", "categoria": "secretaria", "texto": "autenticar atestado medico", "origem": "sintetico-llm", "grupo": "c336"}
+{"id": "c337", "fatia": "com_ruido", "categoria": "secretaria", "texto": "historico escolar atualizar", "origem": "sintetico-llm", "grupo": "c335"}
+{"id": "c338", "fatia": "com_ruido", "categoria": "secretaria", "texto": "diploma digital emitir", "origem": "sintetico-llm", "grupo": "c338"}
+{"id": "c339", "fatia": "com_ruido", "categoria": "secretaria", "texto": "declaracao matricula ativa", "origem": "sintetico-llm", "grupo": "c34"}
+{"id": "c340", "fatia": "com_ruido", "categoria": "secretaria", "texto": "mudar endereco cadastro", "origem": "sintetico-llm", "grupo": "c340"}
+{"id": "c341", "fatia": "com_ruido", "categoria": "secretaria", "texto": "autenticaar documento urgencia", "origem": "sintetico-llm", "grupo": "c341"}
+{"id": "c342", "fatia": "com_ruido", "categoria": "secretaria", "texto": "certificado formatura atrasou", "origem": "sintetico-llm", "grupo": "c342"}
+{"id": "c343", "fatia": "com_ruido", "categoria": "secretaria", "texto": "cerimonia colacao quando", "origem": "sintetico-llm", "grupo": "c343"}
+{"id": "c344", "fatia": "com_ruido", "categoria": "secretaria", "texto": "trancamento integral pedir", "origem": "sintetico-llm", "grupo": "c344"}
+{"id": "c345", "fatia": "com_ruido", "categoria": "secretaria", "texto": "historico pedir segunda via", "origem": "sintetico-llm", "grupo": "c345"}
+{"id": "c346", "fatia": "com_ruido", "categoria": "secretaria", "texto": "declaracao pra emprego urgente", "origem": "sintetico-llm", "grupo": "c346"}
+{"id": "c347", "fatia": "com_ruido", "categoria": "secretaria", "texto": "trocar telefone contato", "origem": "sintetico-llm", "grupo": "c347"}
+{"id": "c348", "fatia": "com_ruido", "categoria": "secretaria", "texto": "historico escolar segunda", "origem": "sintetico-llm", "grupo": "c335"}
+{"id": "c349", "fatia": "com_ruido", "categoria": "secretaria", "texto": "carteira studantil perder", "origem": "sintetico-llm", "grupo": "c349"}
+{"id": "c350", "fatia": "com_ruido", "categoria": "secretaria", "texto": "colacao data prevista", "origem": "sintetico-llm", "grupo": "c350"}
+{"id": "c351", "fatia": "com_ruido", "categoria": "secretaria", "texto": "migrar outra uni", "origem": "sintetico-llm", "grupo": "c351"}
+{"id": "c352", "fatia": "com_ruido", "categoria": "secretaria", "texto": "declarar status aluno", "origem": "sintetico-llm", "grupo": "c352"}
+{"id": "c353", "fatia": "com_ruido", "categoria": "secretaria", "texto": "carteirinha nome errado", "origem": "sintetico-llm", "grupo": "c353"}
+{"id": "c354", "fatia": "com_ruido", "categoria": "secretaria", "texto": "diploma atraso serio", "origem": "sintetico-llm", "grupo": "c354"}
+{"id": "c355", "fatia": "com_ruido", "categoria": "secretaria", "texto": "trancar curso todo", "origem": "sintetico-llm", "grupo": "c355"}
+{"id": "c356", "fatia": "com_ruido", "categoria": "secretaria", "texto": "trancar curso inteiro pedir", "origem": "sintetico-llm", "grupo": "c355"}
+{"id": "c357", "fatia": "com_ruido", "categoria": "secretaria", "texto": "diploma prazo maximo", "origem": "sintetico-llm", "grupo": "c36"}
+{"id": "c358", "fatia": "com_ruido", "categoria": "secretaria", "texto": "atualizar nome registro", "origem": "sintetico-llm", "grupo": "c358"}
+{"id": "c359", "fatia": "com_ruido", "categoria": "secretaria", "texto": "carteira estudante atualizar", "origem": "sintetico-llm", "grupo": "c349"}
+{"id": "c360", "fatia": "com_ruido", "categoria": "secretaria", "texto": "colacao traje especifico", "origem": "sintetico-llm", "grupo": "c360"}

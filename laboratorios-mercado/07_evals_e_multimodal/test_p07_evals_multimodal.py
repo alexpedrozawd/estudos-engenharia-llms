@@ -203,5 +203,54 @@ class TestMultimodal(unittest.TestCase):
         self.assertEqual(len(aud["divergencias"]), 2)
 
 
+class TestCasosAmpliados(unittest.TestCase):
+    """Etapa 3: 150 casos e 40 pares de calibração (12 pré-rotulados + 28 com defeito conhecido)."""
+
+    def setUp(self):
+        self.dados = ep.carregar_casos()
+
+    def test_tamanhos_e_origens(self):
+        from collections import Counter
+        casos, pares = self.dados["casos_avaliacao"], self.dados["pares_calibracao"]
+        self.assertEqual(Counter(c["origem"] for c in casos), {"manual": 16, "corpus_p02": 123, "recusa_construcao": 11})
+        self.assertEqual(Counter(p["origem"] for p in pares), {"pre_rotulado": 12, "construcao": 28})
+        self.assertEqual(len({c["id"] for c in casos}), 150)
+        construcao = [p for p in pares if p["origem"] == "construcao"]
+        self.assertEqual(Counter(p["julgamento_humano"] for p in construcao), {"A": 14, "B": 14})
+        for p in construcao:
+            boa = p["resposta_a"] if p["julgamento_humano"] == "A" else p["resposta_b"]
+            ruim = p["resposta_b"] if p["julgamento_humano"] == "A" else p["resposta_a"]
+            self.assertEqual(boa, p["referencia"])
+            self.assertNotEqual(ruim, boa)
+        for c in casos:
+            self.assertTrue(c["contexto"].startswith("[T1]"), c["id"])
+
+    def test_defeitos_por_construcao(self):
+        import montar_casos_ampliados as m
+        ref = "A taxa e R$ 30,00 em 5 dias [T1]."
+        self.assertEqual(m.aplicar_defeito(ref, "numero_trocado"), "A taxa e R$ 60,00 em 5 dias [T1].")
+        self.assertEqual(m.aplicar_defeito(ref, "sem_citacao"), "A taxa e R$ 30,00 em 5 dias.")
+        self.assertTrue(m.aplicar_defeito(ref, "afirmacao_inventada").endswith("sem documentos."))
+        self.assertEqual(m.aplicar_defeito(ref, "recusa_indevida"), m.RECUSA)
+        self.assertEqual(m.RECUSA, "Não encontrei essa informação nos documentos.")
+        self.assertIn(m.RECUSA, ep.PROMPT_B)
+
+    def test_kappa_bootstrap_e_registro_real(self):
+        ic = ep.kappa_bootstrap(["A", "B", "A", "B"], ["A", "B", "A", "B"], n_amostras=50)
+        self.assertEqual((ic["ic_inferior"], ic["ic_superior"]), (1.0, 1.0))
+        import glob
+        import os
+        import mercado_base as mb
+        regs = sorted(glob.glob(os.path.join(mb.PASTA_EXECUCOES, "p07-evals-e-multimodal-*.json")))
+        with open(regs[-1], encoding="utf-8") as f:
+            r = json.load(f)
+        self.assertEqual(r["calibracao"]["pares"], 40)
+        self.assertEqual(set(r["calibracao"]["por_origem"]), {"pre_rotulado", "construcao"})
+        self.assertEqual(r["avaliacao"]["casos"], 150)
+        self.assertIn("wilson95_vitorias_b", r["avaliacao"])
+        self.assertIn("p_valor_binomial_exato", r["avaliacao"]["teste_sinal_vitorias"])
+        self.assertNotEqual(r["configuracao"]["llm_modelo"], r["configuracao"]["juiz_modelo"])
+
+
 if __name__ == "__main__":
     unittest.main()

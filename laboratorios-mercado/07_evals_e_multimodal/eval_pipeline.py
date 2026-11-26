@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import mercado_base as mb  # noqa: E402
+from mercado_base import estatistica as est  # noqa: E402
 from mercado_base.cliente_openai import gerar_estruturado  # noqa: E402
 
 PROMPT_A = "Responda de forma breve à pergunta com base no contexto."
@@ -160,6 +161,20 @@ def bootstrap_pareado(
     # EXERCICIO-FIM
 
 
+def kappa_bootstrap(rotulos_a: Sequence[str], rotulos_b: Sequence[str], *, n_amostras: int = 2000,
+                    alpha: float = 0.05, seed: int = 42) -> Dict[str, float]:
+    """IC por percentis do kappa, reamostrando pares (com 40 pares a faixa ainda é larga)."""
+    n = len(rotulos_a)
+    rng = random.Random(seed)
+    valores = []
+    for _ in range(n_amostras):
+        idx = [rng.randrange(n) for _ in range(n)]
+        valores.append(cohen_kappa([rotulos_a[i] for i in idx], [rotulos_b[i] for i in idx]))
+    valores.sort()
+    return {"ic_inferior": valores[max(0, int(alpha / 2 * n_amostras))],
+            "ic_superior": valores[min(n_amostras - 1, int((1 - alpha / 2) * n_amostras) - 1)]}
+
+
 def _gerar_resposta(cliente, prompt_sistema: str, contexto: str, pergunta: str) -> str:
     usuario = f"Contexto:\n{contexto}\n\nPergunta: {pergunta}"
     if hasattr(cliente, "completar_chat"):
@@ -219,6 +234,14 @@ def avaliar_prompts(
 
     kappa = cohen_kappa(rotulos_humanos, rotulos_juiz)
     juiz_calibrado = kappa >= limiar_kappa
+    concordantes = sum(1 for h, j in zip(rotulos_humanos, rotulos_juiz) if h == j)
+    por_origem: Dict[str, Dict[str, object]] = {}
+    for origem in sorted({str(p.get("origem", "pre_rotulado")) for p in pares_cal}):
+        idx = [i for i, p in enumerate(pares_cal) if str(p.get("origem", "pre_rotulado")) == origem]
+        ok = sum(1 for i in idx if rotulos_humanos[i] == rotulos_juiz[i])
+        por_origem[origem] = {"pares": len(idx), "kappa": cohen_kappa([rotulos_humanos[i] for i in idx],
+                                                                      [rotulos_juiz[i] for i in idx]),
+                              "concordancia": round(ok / len(idx), 4), "wilson95_concordancia": est.wilson(ok, len(idx))}
 
     resultados_casos: List[Dict[str, object]] = []
     notas_a: List[float] = []
@@ -255,12 +278,19 @@ def avaliar_prompts(
             "limiar_kappa": limiar_kappa,
             "juiz_calibrado": juiz_calibrado,
             "vieses_posicao": vieses_cal,
+            "kappa_ic95_bootstrap": kappa_bootstrap(rotulos_humanos, rotulos_juiz, seed=seed) if pares_cal else None,
+            "concordancia": round(concordantes / max(len(pares_cal), 1), 4),
+            "wilson95_concordancia": est.wilson(concordantes, len(pares_cal)),
+            "por_origem": por_origem,
         },
         "avaliacao": {
             "casos": len(casos),
             "placar": placar,
             "vieses_posicao": vieses_eval,
             "bootstrap": boot,
+            "wilson95_vitorias_b": est.wilson(placar["B"], len(casos)),
+            "teste_sinal_vitorias": {"vitorias_b": placar["B"], "vitorias_a": placar["A"],
+                                     "p_valor_binomial_exato": est.mcnemar_exato(placar["B"], placar["A"])},
             "latencia_ms": {
                 "gerador": mb.resumir_latencias_ms(latencias_gerador_ms),
                 "juiz": mb.resumir_latencias_ms(latencias_juiz_ms),

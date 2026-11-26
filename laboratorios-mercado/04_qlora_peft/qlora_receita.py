@@ -79,17 +79,68 @@ def carregar_jsonl(caminho: str) -> List[Dict[str, str]]:
     return exemplos
 
 
-def dividir(exemplos: Sequence[Dict[str, str]], fracao_teste: float, semente: str) -> Tuple[List[dict], List[dict]]:
-    """Divisão estratificada por (fatia, categoria) e ordenada por hash: estável entre máquinas."""
-    grupos: Dict[Tuple[str, str], List[dict]] = {}
+def _grupo(e: Dict[str, str]) -> str:
+    """Grupo de vazamento: variações do mesmo pedido compartilham `grupo`; sem o campo, o próprio id."""
+    return str(e.get("grupo") or e["id"])
+
+
+def _estratos_por_grupo(exemplos: Sequence[Dict[str, str]]) -> Dict[Tuple[str, str], Dict[str, List[dict]]]:
+    """{(fatia, categoria): {grupo: [exemplos]}}; o grupo inteiro fica no estrato do seu menor id."""
+    por_grupo: Dict[str, List[dict]] = {}
     for e in exemplos:
-        grupos.setdefault((e["fatia"], e["categoria"]), []).append(e)
+        por_grupo.setdefault(_grupo(e), []).append(e)
+    estratos: Dict[Tuple[str, str], Dict[str, List[dict]]] = {}
+    for g, membros in por_grupo.items():
+        ancora = min(membros, key=lambda e: e["id"])
+        estratos.setdefault((ancora["fatia"], ancora["categoria"]), {})[g] = membros
+    return estratos
+
+
+def _separar(grupos: Dict[str, List[dict]], alvo: int, semente: str) -> Tuple[List[dict], List[dict]]:
+    """Grupos inteiros, na ordem do hash, vão para o primeiro lado até somar `alvo` exemplos."""
+    escolhidos, resto = [], []
+    for g in sorted(grupos, key=lambda g: hashlib.sha256((semente + g).encode()).hexdigest()):
+        (escolhidos if len(escolhidos) < alvo else resto).extend(grupos[g])
+    return escolhidos, resto
+
+
+def _grupo(e: Dict[str, str]) -> str:
+    """Grupo de vazamento: variações do mesmo pedido compartilham `grupo`; sem o campo, o próprio id."""
+    return str(e.get("grupo") or e["id"])
+
+
+def _estratos_por_grupo(exemplos: Sequence[Dict[str, str]]) -> Dict[Tuple[str, str], Dict[str, List[dict]]]:
+    """{(fatia, categoria): {grupo: [exemplos]}}; o grupo inteiro fica no estrato do seu menor id."""
+    por_grupo: Dict[str, List[dict]] = {}
+    for e in exemplos:
+        por_grupo.setdefault(_grupo(e), []).append(e)
+    estratos: Dict[Tuple[str, str], Dict[str, List[dict]]] = {}
+    for g, membros in por_grupo.items():
+        ancora = min(membros, key=lambda e: e["id"])
+        estratos.setdefault((ancora["fatia"], ancora["categoria"]), {})[g] = membros
+    return estratos
+
+
+def _separar(grupos: Dict[str, List[dict]], alvo: int, semente: str) -> Tuple[List[dict], List[dict]]:
+    """Grupos inteiros, na ordem do hash, vão para o primeiro lado até somar `alvo` exemplos."""
+    escolhidos, resto = [], []
+    for g in sorted(grupos, key=lambda g: hashlib.sha256((semente + g).encode()).hexdigest()):
+        (escolhidos if len(escolhidos) < alvo else resto).extend(grupos[g])
+    return escolhidos, resto
+
+
+def dividir(exemplos: Sequence[Dict[str, str]], fracao_teste: float, semente: str) -> Tuple[List[dict], List[dict]]:
+    """Divisão estratificada por (fatia, categoria), por grupo e ordenada por hash: estável entre máquinas.
+
+    Exemplos do mesmo `grupo` nunca ficam um no treino e outro no teste.
+    """
     treino, teste = [], []
-    for chave in sorted(grupos):
-        ordem = sorted(grupos[chave], key=lambda e: hashlib.sha256((semente + e["id"]).encode()).hexdigest())
-        n_teste = max(1, round(len(ordem) * fracao_teste)) if len(ordem) > 1 else 0
-        teste += ordem[:n_teste]
-        treino += ordem[n_teste:]
+    for _, grupos in sorted(_estratos_por_grupo(exemplos).items()):
+        total = sum(len(m) for m in grupos.values())
+        n_teste = max(1, round(total * fracao_teste)) if len(grupos) > 1 else 0
+        lado_teste, lado_treino = _separar(grupos, n_teste, semente)
+        teste += lado_teste
+        treino += lado_treino
     return sorted(treino, key=lambda e: e["id"]), sorted(teste, key=lambda e: e["id"])
 
 
@@ -98,21 +149,20 @@ def dividir_com_validacao(exemplos: Sequence[Dict[str, str]], fracao_validacao: 
     """(treino, validação, teste). O teste é o mesmo de `dividir`; a validação sai do que seria treino.
 
     Escolha de épocas e demais hiperparâmetros usa a validação; o teste é avaliado uma vez, no fim.
+    Grupos inteiros vão para a validação, como no teste.
     """
-    # EXERCICIO-INICIO: separe o teste com dividir(); tire a validação do treino, estratificada por (fatia, categoria).
+    # EXERCICIO-INICIO: separe o teste com dividir(); tire a validação do treino, estratificada por (fatia, categoria) e por grupo.
     treino, teste = dividir(exemplos, fracao_teste, semente)
     if fracao_validacao <= 0:
         return treino, [], teste
-    grupos: Dict[Tuple[str, str], List[dict]] = {}
-    for e in treino:
-        grupos.setdefault((e["fatia"], e["categoria"]), []).append(e)
+    total_estrato = {chave: sum(len(m) for m in grupos.values())
+                     for chave, grupos in _estratos_por_grupo(exemplos).items()}
     treino_final, validacao = [], []
-    for chave in sorted(grupos):
-        ordem = sorted(grupos[chave], key=lambda e: hashlib.sha256((semente + "|val|" + e["id"]).encode()).hexdigest())
-        total = len(ordem) + sum(1 for t in teste if (t["fatia"], t["categoria"]) == chave)
-        n_val = max(1, round(total * fracao_validacao)) if len(ordem) > 1 else 0
-        validacao += ordem[:n_val]
-        treino_final += ordem[n_val:]
+    for chave, grupos in sorted(_estratos_por_grupo(treino).items()):
+        n_val = max(1, round(total_estrato[chave] * fracao_validacao)) if len(grupos) > 1 else 0
+        lado_val, lado_treino = _separar(grupos, n_val, semente + "|val|")
+        validacao += lado_val
+        treino_final += lado_treino
     return (sorted(treino_final, key=lambda e: e["id"]), sorted(validacao, key=lambda e: e["id"]),
             teste)
     # EXERCICIO-FIM

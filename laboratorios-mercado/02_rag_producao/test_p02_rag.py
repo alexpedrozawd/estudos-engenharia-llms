@@ -14,10 +14,10 @@ import rag_store as rs
 from comum.cliente_llm import ClienteMockDeterministico
 
 
-def ingerir_corpus(max_palavras=40):
+def ingerir_corpus(max_palavras=40, ampliado=False):
     trechos = []
     with tempfile.TemporaryDirectory() as pasta:
-        for doc, caminho in corpus_aurora.gerar_pdfs(pasta).items():
+        for doc, caminho in corpus_aurora.gerar_pdfs(pasta, ampliado=ampliado).items():
             meta = corpus_aurora.metadados_doc(doc)
             trechos += ing.segmentar(
                 ing.extrair_paginas_pdf(caminho),
@@ -265,6 +265,101 @@ class TestPDFMinimo(unittest.TestCase):
             caminhos = corpus_aurora.gerar_pdfs(d)
             self.assertEqual(sorted(os.path.basename(c) for c in caminhos.values())[0], "calendario-academico-2026.pdf")
             self.assertEqual(len(caminhos), 12)
+
+
+class TestCorpusAmpliado(unittest.TestCase):
+    """Etapa 3: 45 documentos e 123 perguntas gerados por LLM, congelados no Git e conferidos aqui."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.trechos = ingerir_corpus(ampliado=True)
+        cls.consultas = corpus_aurora.carregar_consultas(ampliado=True)
+
+    def test_tamanhos_e_base_intacta(self):
+        self.assertEqual(len(corpus_aurora.documentos()), 12)
+        self.assertEqual(len(corpus_aurora.carregar_consultas()), 28)
+        self.assertEqual(len(corpus_aurora.documentos(ampliado=True)), 57)
+        self.assertEqual(len(self.consultas), 151)
+        self.assertGreaterEqual(len(self.trechos), 250)
+        ids = [c["id"] for c in self.consultas]
+        self.assertEqual(len(ids), len(set(ids)))
+
+    def test_toda_pergunta_ampliada_resolve_e_contem_a_resposta(self):
+        from mercado_base import dados_sinteticos as ds
+        for c in self.consultas:
+            if not c["id"].startswith("qa"):
+                continue
+            rel = rp.resolver_relevantes(self.trechos, c["relevantes"])
+            self.assertTrue(rel, c["id"])
+            textos = " ".join(t.texto for t in self.trechos if t.id in rel)
+            for esperado in c["resposta_esperada_contem"]:
+                self.assertIn(ds.normalizar(esperado), ds.normalizar(textos), c["id"])
+            self.assertTrue(c["resposta_referencia"].endswith(("[T1]", "[T1].")), c["id"])
+
+    def test_acl_ampliada_so_em_documentos_restritos_e_sem_pii(self):
+        from mercado_base.pii import detectar_pii
+        acl = [c for c in self.consultas if c["id"].startswith("qa") and c["categoria"] == "acl"]
+        self.assertGreaterEqual(len(acl), 20)
+        for c in acl:
+            for doc in c["docs_restritos"]:
+                self.assertNotIn("aluno", corpus_aurora.metadados_doc(doc)["perfis"])
+            self.assertIn(c["filtro"]["perfil"], corpus_aurora.metadados_doc(c["docs_restritos"][0])["perfis"])
+        self.assertEqual([t.id for t in self.trechos if detectar_pii(t.texto)], [])
+
+    def test_registro_real_com_estatistica(self):
+        import glob
+        regs = sorted(glob.glob(os.path.join(mb.PASTA_EXECUCOES, "p02-rag-pgvector-*.json")))
+        with open(regs[-1], encoding="utf-8") as f:
+            r = json.load(f)
+        self.assertEqual(r["configuracao"]["corpus"], "ampliado")
+        self.assertEqual(r["ingestao"]["documentos"], 57)
+        self.assertEqual(r["auditoria_acl"]["vazamentos"], 0)
+        e = r["estatistica_recuperacao"]
+        self.assertEqual(len(e["comparacoes"]), len(r["recuperacao"]) - 1)
+        for cmp in e["comparacoes"].values():
+            self.assertIn("p_valor_mcnemar_exato", cmp)
+            self.assertLessEqual(cmp["bootstrap_mrr"]["ic_inferior"], cmp["bootstrap_mrr"]["ic_superior"])
+
+
+class TestEstatisticaECache(unittest.TestCase):
+    def test_wilson_mcnemar_bootstrap(self):
+        from mercado_base import estatistica as est
+        self.assertEqual(est.wilson(8, 12), (0.3906, 0.8619))
+        self.assertEqual(est.wilson(0, 0), (0.0, 1.0))
+        self.assertEqual(est.mcnemar_exato(6, 0), 0.03125)
+        self.assertEqual(est.mcnemar_exato(0, 0), 1.0)
+        with self.assertRaises(ValueError):
+            est.wilson(5, 3)
+        b = est.bootstrap_diferenca([0, 0, 1, 0], [1, 1, 1, 1], n_amostras=500)
+        self.assertEqual(b["diferenca_media"], 0.75)
+        self.assertGreater(b["ic_inferior"], 0)
+        c = est.comparar_binario({"a": False, "b": True, "c": True}, {"a": True, "b": True, "c": False})
+        self.assertEqual((c["ganhos_b"], c["perdas_b"], c["p_valor_mcnemar_exato"]), (1, 1, 1.0))
+        with self.assertRaises(ValueError):
+            est.comparar_binario({"a": True}, {"b": True})
+
+    def test_estatistica_recuperacao_compara_escolhida(self):
+        import executar_rag_real as err
+        pc = lambda r: [{"id": f"q{i}", "recall": v, "mrr": v} for i, v in enumerate(r)]
+        aval = {"x": {"por_consulta": pc([1, 0, 0, 1])}, "y": {"por_consulta": pc([1, 1, 1, 1])}}
+        e = err.estatistica_recuperacao(aval, "y")
+        self.assertEqual(e["acerto_em_k"]["y"]["acertos"], 4)
+        self.assertEqual(e["comparacoes"]["y_vs_x"]["ganhos_b"], 2)
+
+    def test_cache_reaproveita_e_guarda_latencia_original(self):
+        from mercado_base.cliente_openai import ClienteChatComCache, ClienteChatFalso, RespostaChat
+        with tempfile.TemporaryDirectory() as d:
+            caminho = os.path.join(d, "c.json")
+            falso = ClienteChatFalso([RespostaChat("um", latencia_ms=120.0), RespostaChat("dois", latencia_ms=80.0)])
+            cache = ClienteChatComCache(falso, caminho)
+            self.assertEqual(cache.completar("p", sistema="s").texto, "um")
+            self.assertEqual(cache.completar("p", sistema="s").texto, "um")
+            self.assertEqual(cache.completar("q").texto, "dois")
+            self.assertEqual((cache.acertos_cache, cache.chamadas_reais), (1, 2))
+            outro = ClienteChatComCache(ClienteChatFalso([]), caminho)
+            r = outro.completar("p", sistema="s")
+            self.assertEqual((r.texto, r.latencia_ms), ("um", 120.0))
+            self.assertEqual(sorted(outro.latencias_ms()), [80.0, 120.0])
 
 
 if __name__ == "__main__":

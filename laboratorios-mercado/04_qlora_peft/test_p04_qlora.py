@@ -3,9 +3,72 @@ import json
 import os
 import tempfile
 import unittest
+from collections import Counter
 
 import qlora_receita as qr
 import treinar_qlora as tq
+
+
+class TestDadosSinteticos(unittest.TestCase):
+    def test_normalizacao_e_quase_duplicata(self):
+        from mercado_base import dados_sinteticos as ds
+        self.assertEqual(ds.normalizar("  Olá,   MUNDO! "), "ola mundo")
+        mantidos, desc = ds.deduplicar(["Boleto não chegou", "boleto nao chegou!", "boleto nao chegou ainda",
+                                        "senha do AVA", ""], limiar=0.6, existentes=["Senha do ava."])
+        self.assertEqual(mantidos, [0])
+        self.assertEqual([d["motivo"] for d in desc], ["exata", "quase_duplicata", "exata", "vazio"])
+        with self.assertRaises(ValueError):
+            ds.deduplicar(["x"], limiar=0)
+
+    def test_agrupamento_transitivo(self):
+        from mercado_base import dados_sinteticos as ds
+        vet = [[1, 0], [1, 0.1], [1, 0.2], [0, 1]]
+        rot = ds.agrupar(4, lambda i, j: ds.cosseno(vet[i], vet[j]), 0.99)
+        self.assertEqual(rot, [0, 0, 0, 3])
+        self.assertEqual(ds.cosseno([0, 0], [1, 0]), 0.0)
+        with self.assertRaises(ValueError):
+            ds.cosseno([1], [1, 0])
+
+    def test_divisao_por_grupo_sem_vazamento(self):
+        ex = [{"id": f"x{i:02d}", "fatia": "f", "categoria": "acesso", "texto": str(i), "grupo": f"g{i // 3}"}
+              for i in range(12)]
+        tr, va, te = qr.dividir_com_validacao(ex, 0.25, 0.25, "s")
+        grupos = [{e["grupo"] for e in c} for c in (tr, va, te)]
+        self.assertFalse(grupos[0] & grupos[1] or grupos[0] & grupos[2] or grupos[1] & grupos[2])
+        self.assertEqual(sum(map(len, (tr, va, te))), 12)
+
+
+class TestCicloQLoRA(unittest.TestCase):
+    def test_escolha_de_epocas_na_validacao(self):
+        import executar_ciclo_qlora as ciclo
+        self.assertEqual(ciclo.escolher_epocas({1: {"acuracia": 0.8}, 3: {"acuracia": 0.9}, 6: {"acuracia": 0.9}}), 3)
+        self.assertEqual(ciclo.escolher_epocas({1: {"acuracia": 0.95}, 6: {"acuracia": 0.9}}), 1)
+
+    def test_ciclo_recusa_pasta_de_outros_dados(self):
+        import executar_ciclo_qlora as ciclo
+        from contextlib import redirect_stdout
+        import io
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "impressao.json"), "w", encoding="utf-8") as f:
+                f.write("{}")
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(ciclo.main(["--pasta", d, "--sem-registro"]), 3)
+
+    def test_registro_real_do_ciclo(self):
+        import glob
+        regs = sorted(glob.glob(os.path.join(tq.AQUI, "..", "execucoes", "p04-qlora-ciclo-*.json")))
+        self.assertTrue(regs)
+        with open(regs[-1], encoding="utf-8") as f:
+            r = json.load(f)
+        import executar_ciclo_qlora as ciclo
+        val = {int(k[2:]): v for k, v in r["validacao"].items() if k != "base"}
+        self.assertEqual(r["epocas_escolhidas"], ciclo.escolher_epocas(val))
+        self.assertEqual(set(r["teste"]), {"base", f"ep{r['epocas_escolhidas']}"})
+        par = r["portao"]["pareado"]
+        base, adapt = r["acertos_por_caso"]["base"], r["acertos_por_caso"][f"ep{r['epocas_escolhidas']}"]
+        self.assertEqual(par["ganhos"], sum(1 for i in base if not base[i] and adapt[i]))
+        self.assertEqual(par["perdas"], sum(1 for i in base if base[i] and not adapt[i]))
+        self.assertEqual(r["portao"]["veredito"], "aprovado")
 
 
 class TestDados(unittest.TestCase):
@@ -13,15 +76,38 @@ class TestDados(unittest.TestCase):
         self.exemplos = qr.carregar_jsonl(tq.DADOS)
 
     def test_dataset_balanceado(self):
-        self.assertEqual(len(self.exemplos), 36)
-        fatias = {(e["fatia"], e["categoria"]) for e in self.exemplos}
-        self.assertEqual(len(fatias), 12)
+        self.assertEqual(len(self.exemplos), 360)
+        estratos = Counter((e["fatia"], e["categoria"]) for e in self.exemplos)
+        self.assertEqual(len(estratos), 12)
+        self.assertEqual(set(estratos.values()), {30})
+        manuais = [e for e in self.exemplos if e["origem"] == "manual"]
+        self.assertEqual([e["id"] for e in manuais], [f"c{i:02d}" for i in range(1, 37)])
+        self.assertEqual({e["origem"] for e in self.exemplos}, {"manual", "sintetico-llm"})
+
+    def test_dados_sem_pii_nem_duplicata(self):
+        from mercado_base import dados_sinteticos as ds
+        from mercado_base.pii import detectar_pii
+        textos = [e["texto"] for e in self.exemplos]
+        self.assertEqual([t for t in textos if detectar_pii(t)], [])
+        mantidos, descartes = ds.deduplicar(textos, limiar=0.6)
+        self.assertEqual(descartes, [])
+        self.assertEqual(len(mantidos), len(textos))
+
+    def test_grupos_nunca_se_dividem(self):
+        tr, va, te = qr.dividir_com_validacao(self.exemplos, 0.2, 0.34, "aurora-v1")
+        self.assertEqual((len(tr), len(va), len(te)), (163, 74, 123))
+        lado = {}
+        for nome, conj in (("treino", tr), ("validacao", va), ("teste", te)):
+            for e in conj:
+                lado.setdefault(e["grupo"], set()).add(nome)
+        self.assertTrue(all(len(v) == 1 for v in lado.values()))
+        self.assertGreater(sum(1 for e in self.exemplos if e["grupo"] != e["id"]), 0)
 
     def test_divisao_estratificada_e_estavel(self):
         tr1, te1 = qr.dividir(self.exemplos, 0.34, "aurora-v1")
         tr2, te2 = qr.dividir(list(reversed(self.exemplos)), 0.34, "aurora-v1")
         self.assertEqual([e["id"] for e in te1], [e["id"] for e in te2])
-        self.assertEqual((len(tr1), len(te1)), (24, 12))
+        self.assertEqual((len(tr1), len(te1)), (237, 123))
         self.assertFalse({e["id"] for e in tr1} & {e["id"] for e in te1})
         self.assertEqual(len({(e["fatia"], e["categoria"]) for e in te1}), 12)
         _, te3 = qr.dividir(self.exemplos, 0.34, "outra-semente")
@@ -68,8 +154,10 @@ class TestReceita(unittest.TestCase):
 
 class TestAvaliacaoPorFatia(unittest.TestCase):
     def setUp(self):
+        # Só os 36 manuais (12 casos de teste): o portão mostra o limite de amostras pequenas.
         cfg = qr.ConfigQLoRA()
-        _, self.teste = qr.dividir(qr.carregar_jsonl(tq.DADOS), cfg.fracao_teste, cfg.semente_divisao)
+        manuais = [e for e in qr.carregar_jsonl(tq.DADOS) if e["origem"] == "manual"]
+        _, self.teste = qr.dividir(manuais, cfg.fracao_teste, cfg.semente_divisao)
         self.gabarito = {e["texto"]: e for e in self.teste}
 
     def _modelo(self, erra_fatia=(), sem_json=False):
@@ -199,13 +287,13 @@ class TestEstatisticaEValidacao(unittest.TestCase):
         tr0, te0 = qr.dividir(ex, 0.34, "aurora-v1")
         tr, va, te = qr.dividir_com_validacao(ex, 0.2, 0.34, "aurora-v1")
         self.assertEqual(te, te0)
-        self.assertEqual(len(va), 12)
+        self.assertEqual(len(va), 74)
         ids = [e["id"] for e in tr + va + te]
         self.assertEqual(len(ids), len(set(ids)))
         self.assertEqual(sorted(ids), sorted(e["id"] for e in ex))
         self.assertEqual(qr.dividir_com_validacao(ex, 0.0, 0.34, "aurora-v1"), (tr0, [], te0))
         m = qr.manifesto(qr.ConfigQLoRA(fracao_validacao=0.2), tq.DADOS, tr, te, {}, validacao=va)
-        self.assertEqual(len(m["ids_validacao"]), 12)
+        self.assertEqual(len(m["ids_validacao"]), 74)
         with self.assertRaises(ValueError):
             qr.ConfigQLoRA(fracao_validacao=0.7).validar()
 
